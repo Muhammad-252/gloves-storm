@@ -1,0 +1,23 @@
+import { getSiteSettings } from "@/lib/data/store";
+import AdminSettingsClient from "@/components/admin/AdminSettingsClient";
+
+export const revalidate = 0;
+
+export default async function AdminSettingsPage() {
+  const settings = await getSiteSettings();
+
+  return (
+    <div className="space-y-6 max-w-7xl mx-auto">
+      <div>
+        <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-600 font-bold block mb-1">
+          Global Configurations
+        </span>
+        <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0f172a]">
+          Site Settings & Channels
+        </h1>
+      </div>
+
+      <AdminSettingsClient initialSettings={settings} />
+    </div>
+  );
+}
