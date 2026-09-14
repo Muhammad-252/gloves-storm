@@ -10,6 +10,7 @@ interface QuoteModalProps {
   onClose: () => void;
   defaultProductName?: string;
   defaultCategory?: string;
+  inquiryType?: "Quote" | "Sample";
 }
 
 export default function QuoteModal({
@@ -17,6 +18,7 @@ export default function QuoteModal({
   onClose,
   defaultProductName = "",
   defaultCategory = "General",
+  inquiryType = "Quote",
 }: QuoteModalProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -26,7 +28,7 @@ export default function QuoteModal({
     country: "United States",
     product_category: defaultCategory,
     product_name: defaultProductName,
-    estimated_quantity: 100,
+    estimated_quantity: inquiryType === "Sample" ? 2 : 100,
     target_delivery_date: "",
     message: "",
   });
@@ -108,14 +110,14 @@ export default function QuoteModal({
           <div>
             <div className="mb-6">
               <span className="text-[10px] uppercase tracking-[0.25em] text-amber-700 font-mono block mb-1 font-semibold">
-                Direct Factory Production Inquiries
+                {inquiryType === "Sample" ? "Physical Sample Development" : "Direct Factory Production Inquiries"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-neutral-950">
-                Request a Quote / Sample
+                {inquiryType === "Sample" ? "Request a Sample" : "Request a Quote"}
               </h2>
               {defaultProductName && (
                 <p className="text-xs text-neutral-500 mt-1">
-                  Item: <span className="text-neutral-900 font-medium">{defaultProductName}</span>
+                  Product: <span className="text-neutral-900 font-medium">{defaultProductName}</span>
                 </p>
               )}
             </div>

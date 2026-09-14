@@ -35,8 +35,39 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   // Filter out current product from related items
   const filteredRelated = relatedProducts.filter((p) => p.id !== product.id).slice(0, 4);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description:
+      product.seo_description ||
+      product.short_description ||
+      product.description ||
+      `Custom ${product.name} manufactured by GLOVES STORM in Sialkot, Pakistan.`,
+    image: product.images?.map((img) => img.image_url) || [],
+    brand: {
+      "@type": "Brand",
+      name: "GLOVES STORM",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "GLOVES STORM",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Sialkot",
+        addressRegion: "Punjab",
+        postalCode: "51310",
+        addressCountry: "PK",
+      },
+    },
+  };
+
   return (
     <div className="pt-28 pb-24 bg-[#fafafa] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <ProductDetailClient
           product={product}

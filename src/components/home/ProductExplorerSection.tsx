@@ -109,93 +109,119 @@ export default function ProductExplorerSection({
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
-              className="text-xs uppercase tracking-wider text-amber-700 font-bold underline"
+              className="text-xs uppercase tracking-wider text-amber-700 font-bold underline cursor-pointer"
             >
               Reset Filters
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {filteredProducts.map((product) => {
-              const primaryImg =
-                product.images?.find((img) => img.is_primary)?.image_url ||
-                product.images?.[0]?.image_url ||
-                "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop";
+          <>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
+              {filteredProducts.slice(0, 8).map((product) => {
+                const primaryImg =
+                  product.images?.find((img) => img.is_primary)?.image_url ||
+                  product.images?.[0]?.image_url ||
+                  "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop";
 
-              const categoryObj = categories.find((c) => c.id === product.category_id);
+                const secondaryImg =
+                  product.images?.[1]?.image_url ||
+                  product.images?.[0]?.image_url ||
+                  primaryImg;
 
-              return (
-                <div
-                  key={product.id}
-                  className="group bg-white rounded-3xl overflow-hidden border border-neutral-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_18px_38px_rgba(180,83,9,0.12)] hover:border-amber-500/50 hover:-translate-y-1.5 flex flex-col justify-between transition-all duration-300"
-                >
-                  {/* Image Container with Hover Zoom */}
-                  <Link
-                    href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                    className="relative aspect-square overflow-hidden bg-neutral-100 block"
+                const categoryObj = categories.find((c) => c.id === product.category_id);
+
+                return (
+                  <div
+                    key={product.id}
+                    className="group bg-white rounded-3xl overflow-hidden border border-neutral-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(180,83,9,0.14)] hover:border-amber-500/60 hover:-translate-y-1.5 flex flex-col justify-between transition-all duration-500"
                   >
-                    <div
-                      className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                      style={{ backgroundImage: `url(${primaryImg})` }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                    {/* Image Container with Dual Image Flip on Hover */}
+                    <Link
+                      href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                      className="relative aspect-square overflow-hidden bg-neutral-100 block"
+                    >
+                      {/* Primary Image */}
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105"
+                        style={{ backgroundImage: `url(${primaryImg})` }}
+                      />
+                      {/* Secondary Image on Hover */}
+                      <div
+                        className="absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+                        style={{ backgroundImage: `url(${secondaryImg})` }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
 
-                    {/* MOQ Pill Badge */}
-                    <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-xs">
-                      <Box className="w-3 h-3 text-amber-600" />
-                      <span>MOQ: {product.moq} Units</span>
-                    </div>
-
-                    {product.featured && (
-                      <div className="absolute top-3 right-3 bg-amber-500 text-neutral-950 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
-                        Featured
-                      </div>
-                    )}
-                  </Link>
-
-                  {/* Body Content */}
-                  <div className="p-6 flex flex-col flex-1 justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 block mb-1 font-bold">
-                        {categoryObj?.name || "Apparel & Gear"}
-                      </span>
-                      <Link
-                        href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                        className="text-base font-bold uppercase tracking-tight text-neutral-900 group-hover:text-amber-800 transition-colors line-clamp-1 block mb-2"
-                      >
-                        {product.name}
-                      </Link>
-                      <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed mb-4">
-                        {product.short_description || "Custom specifications & private label available."}
-                      </p>
-                    </div>
-
-                    {/* Metadata Footer */}
-                    <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
-                      <div className="flex items-center gap-1.5 text-[11px] font-mono text-neutral-500 font-medium">
-                        <Clock className="w-3.5 h-3.5 text-amber-600" />
-                        <span>{product.lead_time || "2-4 Weeks"}</span>
+                      {/* MOQ Pill Badge */}
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-xs">
+                        <Box className="w-3 h-3 text-amber-600" />
+                        <span>MOQ: {product.moq} Units</span>
                       </div>
 
-                      <button
-                        onClick={() =>
-                          setQuoteModalData({
-                            isOpen: true,
-                            productName: product.name,
-                            category: categoryObj?.name || "General",
-                          })
-                        }
-                        className="inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-amber-900 hover:text-neutral-950 px-3.5 py-1.5 rounded-full bg-amber-50 hover:bg-amber-400 border border-amber-200/80 transition-all shadow-2xs group/btn"
-                      >
-                        <span>Quote</span>
-                        <ArrowUpRight className="w-3 h-3 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                      </button>
+                      {product.featured && (
+                        <div className="absolute top-3 right-3 bg-amber-500 text-neutral-950 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
+                          Featured
+                        </div>
+                      )}
+                    </Link>
+
+                    {/* Body Content */}
+                    <div className="p-6 flex flex-col flex-1 justify-between">
+                      <div>
+                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 block mb-1 font-bold">
+                          {categoryObj?.name || "Manufacturing Division"}
+                        </span>
+                        <Link
+                          href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                          className="text-base font-bold uppercase tracking-tight text-neutral-900 group-hover:text-amber-800 transition-colors line-clamp-1 block mb-2"
+                        >
+                          {product.name}
+                        </Link>
+                        <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed mb-4 font-normal">
+                          {product.short_description || "Custom specifications & private label available."}
+                        </p>
+                      </div>
+
+                      {/* Metadata & Actions */}
+                      <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
+                        <Link
+                          href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-900 group-hover:text-amber-600 transition-colors"
+                        >
+                          <span>EXPLORE</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </Link>
+
+                        <button
+                          onClick={() =>
+                            setQuoteModalData({
+                              isOpen: true,
+                              productName: product.name,
+                              category: categoryObj?.name || "General",
+                            })
+                          }
+                          className="text-[11px] font-mono uppercase tracking-wider text-amber-700 hover:text-amber-800 font-bold px-2.5 py-1 rounded-md bg-amber-50 hover:bg-amber-100 transition-colors cursor-pointer"
+                        >
+                          Quote
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+
+            {/* Explore Full 90 Products CTA */}
+            <div className="text-center pt-6">
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0f172a] hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+              >
+                <span>EXPLORE ALL 90 PRODUCTS IN CATALOG</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </>
         )}
       </div>
 

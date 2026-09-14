@@ -60,6 +60,8 @@ export default function ProductEditorForm({
 
   const [seoTitle, setSeoTitle] = useState(initialProduct?.seo_title || "");
   const [seoDesc, setSeoDesc] = useState(initialProduct?.seo_description || "");
+  const [primaryKeyword, setPrimaryKeyword] = useState(initialProduct?.primary_keyword || "");
+  const [secondaryKeywords, setSecondaryKeywords] = useState(initialProduct?.secondary_keywords || "");
 
   // Images state
   const [images, setImages] = useState<ProductImage[]>(
@@ -142,6 +144,8 @@ export default function ProductEditorForm({
       featured,
       seo_title: seoTitle || null,
       seo_description: seoDesc || null,
+      primary_keyword: primaryKeyword || null,
+      secondary_keywords: secondaryKeywords || null,
       images,
     };
 
@@ -379,6 +383,11 @@ export default function ProductEditorForm({
                       </span>
                     )}
                   </div>
+
+                  {/* Angle Label Badge */}
+                  <div className="absolute bottom-2 left-2 z-10 pointer-events-none bg-black/80 backdrop-blur-md px-2 py-0.5 rounded text-[8px] font-mono text-white/90 uppercase font-bold">
+                    {["01 Hero", "02 Detail", "03 Branding", "04 Lifestyle"][idx] || `Image ${idx + 1}`}
+                  </div>
                 </div>
               ))}
             </div>
@@ -482,6 +491,32 @@ export default function ProductEditorForm({
                 onChange={(e) => setSeoTitle(e.target.value)}
                 placeholder="Custom OEM Boxing Gloves | GLOVES STORM"
                 className="w-full bg-white border border-neutral-300 rounded-xl text-[#0f172a] px-3.5 py-2 text-xs outline-none focus:border-amber-600"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-neutral-700 mb-1">
+                Primary SEO Keyword
+              </label>
+              <input
+                type="text"
+                value={primaryKeyword}
+                onChange={(e) => setPrimaryKeyword(e.target.value)}
+                placeholder="e.g. custom boxing gloves"
+                className="w-full bg-white border border-neutral-300 rounded-xl text-[#0f172a] px-3.5 py-2 text-xs outline-none focus:border-amber-600 font-mono"
+              />
+            </div>
+
+            <div>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-neutral-700 mb-1">
+                Secondary Keywords (Comma Separated)
+              </label>
+              <input
+                type="text"
+                value={secondaryKeywords}
+                onChange={(e) => setSecondaryKeywords(e.target.value)}
+                placeholder="e.g. OEM manufacturing, private label boxing equipment, custom manufacturer"
+                className="w-full bg-white border border-neutral-300 rounded-xl text-[#0f172a] px-3.5 py-2 text-xs outline-none focus:border-amber-600 font-mono"
               />
             </div>
 

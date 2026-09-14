@@ -58,6 +58,8 @@ export interface Product {
   is_active: boolean;
   seo_title: string | null;
   seo_description: string | null;
+  primary_keyword?: string | null;
+  secondary_keywords?: string | null;
   created_at: string;
   updated_at: string;
   images?: ProductImage[];

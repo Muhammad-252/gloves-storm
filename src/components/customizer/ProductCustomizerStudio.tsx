@@ -74,9 +74,11 @@ export default function ProductCustomizerStudio({
 }: ProductCustomizerStudioProps) {
   const router = useRouter();
 
-  // Find initial product or fallback
+  // Find initial product or fallback (by ID or slug)
   const defaultProduct =
-    products.find((p) => p.id === initialProductId) || products[0];
+    products.find(
+      (p) => p.id === initialProductId || p.slug === initialProductId
+    ) || products[0];
 
   const [selectedProduct, setSelectedProduct] = useState<Product>(defaultProduct);
   const [activeStep, setActiveStep] = useState<"colors" | "materials" | "specs" | "branding" | "quantity">("colors");

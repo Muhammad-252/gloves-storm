@@ -110,25 +110,32 @@ export default function ProductDetailClient({
             )}
           </div>
 
-          {/* Thumbnail Selector Strip */}
+          {/* Thumbnail Selector Strip (4 Image Angles: Hero, Detail, Branding, Lifestyle) */}
           {images.length > 1 && (
-            <div className="flex items-center gap-3 overflow-x-auto pb-2">
-              {images.map((img) => (
-                <button
-                  key={img.id}
-                  onClick={() => setActiveImage(img.image_url)}
-                  className={`relative w-20 h-20 shrink-0 rounded-2xl bg-neutral-100 border transition-all overflow-hidden cursor-pointer ${
-                    activeImage === img.image_url
-                      ? "border-amber-600 ring-2 ring-amber-500/30"
-                      : "border-neutral-200 opacity-70 hover:opacity-100"
-                  }`}
-                >
-                  <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{ backgroundImage: `url(${img.image_url})` }}
-                  />
-                </button>
-              ))}
+            <div className="grid grid-cols-4 gap-3">
+              {images.slice(0, 4).map((img, idx) => {
+                const labels = ["01 Hero", "02 Detail", "03 Branding", "04 Lifestyle"];
+                return (
+                  <button
+                    key={img.id || idx}
+                    onClick={() => setActiveImage(img.image_url)}
+                    className={`group/thumb relative aspect-square rounded-2xl bg-neutral-100 border transition-all overflow-hidden cursor-pointer flex flex-col justify-end p-1.5 ${
+                      activeImage === img.image_url
+                        ? "border-amber-600 ring-2 ring-amber-500/30 shadow-sm"
+                        : "border-neutral-200 opacity-70 hover:opacity-100"
+                    }`}
+                  >
+                    <div
+                      className="absolute inset-0 bg-cover bg-center"
+                      style={{ backgroundImage: `url(${img.image_url})` }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <span className="relative z-10 text-[9px] font-mono uppercase tracking-wider text-white font-bold truncate">
+                      {labels[idx] || `Angle ${idx + 1}`}
+                    </span>
+                  </button>
+                );
+              })}
             </div>
           )}
         </div>
@@ -174,32 +181,47 @@ export default function ProductDetailClient({
               </div>
             </div>
 
-            {/* Action Buttons with Liquid Gooey Pill Animation */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 mb-8">
+            {/* Action Buttons: 3 Specific CTAs Requested */}
+            <div className="flex flex-col gap-3 mb-8">
               {/* Primary CTA: Customize This Product */}
               <GooeyButton
                 href={`/customize?product=${product.id}`}
                 variant="gold-solid"
                 size="lg"
-                className="w-full sm:flex-[1.4] shadow-sm"
+                className="w-full shadow-sm"
               >
                 <Sparkles className="w-4 h-4 text-neutral-950" />
                 <span>CUSTOMIZE THIS PRODUCT</span>
                 <ArrowUpRight className="w-4 h-4" />
               </GooeyButton>
 
-              {/* Secondary CTA: Request a Quote */}
-              <GooeyButton
-                onClick={() => {
-                  setInquiryType("Quote");
-                  setModalOpen(true);
-                }}
-                variant="outline"
-                size="lg"
-                className="w-full sm:flex-1"
-              >
-                <span>REQUEST A QUOTE</span>
-              </GooeyButton>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {/* Secondary CTA: Request a Quote */}
+                <GooeyButton
+                  onClick={() => {
+                    setInquiryType("Quote");
+                    setModalOpen(true);
+                  }}
+                  variant="outline"
+                  size="md"
+                  className="w-full"
+                >
+                  <span>REQUEST A QUOTE</span>
+                </GooeyButton>
+
+                {/* Additional CTA: Request a Sample */}
+                <GooeyButton
+                  onClick={() => {
+                    setInquiryType("Sample");
+                    setModalOpen(true);
+                  }}
+                  variant="outline"
+                  size="md"
+                  className="w-full"
+                >
+                  <span>REQUEST A SAMPLE</span>
+                </GooeyButton>
+              </div>
             </div>
 
             {/* Direct Factory Guarantee */}
@@ -308,6 +330,25 @@ export default function ProductDetailClient({
         </div>
       </div>
 
+      {/* 24. Trust / Manufacturing CTA Banner */}
+      <div className="mb-20 p-8 sm:p-12 rounded-3xl bg-[#0f172a] text-white border border-neutral-800 shadow-xl relative overflow-hidden">
+        <div className="relative z-10 max-w-2xl">
+          <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-400 block mb-2 font-bold">
+            Direct Sialkot Engineering & OEM Production
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white mb-3">
+            NEED SOMETHING CUSTOM?
+          </h2>
+          <p className="text-sm text-neutral-300 leading-relaxed mb-6 font-normal">
+            Have a design, tech pack, or idea? We can help turn it into a production-ready product with bespoke fabric milling, CAD pattern grading, and rigorous quality inspection.
+          </p>
+          <GooeyButton href="/contact" variant="gold-solid" size="lg">
+            <span>START YOUR PROJECT</span>
+            <ArrowUpRight className="w-4 h-4 text-neutral-950" />
+          </GooeyButton>
+        </div>
+      </div>
+
       {/* Related Products */}
       {relatedProducts.length > 0 && (
         <div className="border-t border-neutral-200 pt-16">
@@ -357,7 +398,8 @@ export default function ProductDetailClient({
       <QuoteModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
-        defaultProductName={`${inquiryType === "Sample" ? "[SAMPLE REQUEST] " : ""}${product.name}`}
+        inquiryType={inquiryType}
+        defaultProductName={`${inquiryType === "Sample" ? "[Sample] " : ""}${product.name}`}
         defaultCategory={category?.name || "General"}
       />
     </div>

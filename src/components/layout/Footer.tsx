@@ -7,17 +7,12 @@ import GooeyButton from "../ui/GooeyButton";
 import { InstagramIcon, LinkedInIcon } from "../ui/SocialIcons";
 
 const categories = [
-  { name: "Boxing", href: "/products/boxing" },
-  { name: "American Football", href: "/products/american-football" },
-  { name: "Basketball", href: "/products/basketball" },
-  { name: "Baseball", href: "/products/baseball" },
-  { name: "Soccer", href: "/products/soccer" },
-  { name: "Sportswear", href: "/products/sportswear" },
-  { name: "Gym Wear", href: "/products/gym-wear" },
-  { name: "Streetwear", href: "/products/streetwear" },
-  { name: "Fashion", href: "/products/fashion" },
-  { name: "Swimwear", href: "/products/swimwear" },
-  { name: "Accessories", href: "/products/accessories" },
+  { name: "Boxing Equipment", href: "/products/boxing-equipment" },
+  { name: "Sportswear & Teamwear", href: "/products/sportswear-teamwear" },
+  { name: "Gym & Fitness Wear", href: "/products/gym-fitness-wear" },
+  { name: "Clothing & Streetwear", href: "/products/clothing-streetwear" },
+  { name: "Custom Manufacturing & Private Label", href: "/products/custom-manufacturing-private-label" },
+  { name: "Swimwear & Beachwear", href: "/products/swimwear-beachwear" },
 ];
 
 const navigation = [
