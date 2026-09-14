@@ -37,8 +37,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const { isAuthenticated, userEmail, login, logout } = useAdminAuth();
   const pathname = usePathname();
 
-  const [loginEmail, setLoginEmail] = useState("admin@glovesstorm.com");
-  const [loginPassword, setLoginPassword] = useState("password123");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
 
@@ -94,8 +94,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <input
                 type="email"
                 required
+                autoComplete="username"
+                placeholder="admin@glovesstorm.com"
                 value={loginEmail}
-                onChange={(e) => setLoginEmail(e.target.value)}
+                onChange={(e) => {
+                  setLoginEmail(e.target.value);
+                  if (loginError) setLoginError(null);
+                }}
                 className="w-full bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] px-3.5 py-2.5 text-xs outline-none focus:ring-1 focus:ring-amber-500/20"
               />
             </div>
@@ -107,8 +112,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               <input
                 type="password"
                 required
+                autoComplete="current-password"
+                placeholder="••••••••"
                 value={loginPassword}
-                onChange={(e) => setLoginPassword(e.target.value)}
+                onChange={(e) => {
+                  setLoginPassword(e.target.value);
+                  if (loginError) setLoginError(null);
+                }}
                 className="w-full bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] px-3.5 py-2.5 text-xs outline-none focus:ring-1 focus:ring-amber-500/20"
               />
             </div>

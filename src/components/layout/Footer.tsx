@@ -27,6 +27,7 @@ const navigation = [
   { name: "Case Studies / Projects", href: "/projects" },
   { name: "Manufacturing Journal", href: "/journal" },
   { name: "Request a Quote", href: "/contact" },
+  { name: "Privacy & IP Policy", href: "/privacy" },
 ];
 
 export default function Footer() {
@@ -216,6 +217,9 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <span>OEM / Private Label</span>
             <span>Custom Tech Packs</span>
+            <Link href="/privacy" className="hover:text-neutral-900 transition-colors underline-offset-4 hover:underline">
+              Privacy & IP Protection
+            </Link>
             <span>Worldwide Shipping</span>
           </div>
         </div>
