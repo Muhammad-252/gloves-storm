@@ -53,14 +53,14 @@ export default function GooeyButton({
       textTransition: "text-neutral-950 group-hover:text-amber-300",
     },
     dark: {
-      base: "bg-[#111214] border border-white/[0.12] text-[#F5F5F7] shadow-sm hover:border-[#FF6B00]/40",
-      blobBg: "bg-[#FF6B00]",
-      textTransition: "text-[#F5F5F7] group-hover:text-black",
+      base: "bg-neutral-900 border border-neutral-900 text-white shadow-sm hover:border-neutral-800",
+      blobBg: "bg-amber-500",
+      textTransition: "text-white group-hover:text-neutral-950",
     },
     outline: {
-      base: "bg-white/[0.04] border border-white/[0.15] text-[#F5F5F7] shadow-xs hover:border-white/40 backdrop-blur-sm",
-      blobBg: "bg-[#F5F5F7]",
-      textTransition: "text-[#F5F5F7] group-hover:text-[#0C0D0E]",
+      base: "bg-white border border-neutral-300 text-neutral-800 shadow-xs hover:border-neutral-900 hover:shadow-sm",
+      blobBg: "bg-neutral-900",
+      textTransition: "text-neutral-800 group-hover:text-white",
     },
     "outline-white": {
       base: "bg-black/40 border border-white/35 text-white shadow-xl hover:border-white/70 backdrop-blur-md",

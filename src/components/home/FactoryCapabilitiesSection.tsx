@@ -55,17 +55,17 @@ const capabilities = [
 
 export default function FactoryCapabilitiesSection() {
   return (
-    <section className="py-28 sm:py-36 bg-[#111214] border-b border-white/[0.06] relative">
+    <section className="py-24 sm:py-32 bg-white border-b border-neutral-200/80 relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-white/[0.07] gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-neutral-200 gap-6">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-[#FF6B00] font-mono block mb-2 font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
               Sialkot Industrial Facility
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#F5F5F7] leading-[1.0]">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-neutral-950 leading-[1.0]">
               PRECISION BEHIND <br />
-              <span className="text-[#9E9EA7]">EVERY PRODUCT.</span>
+              <span className="text-neutral-500">EVERY PRODUCT.</span>
             </h2>
           </div>
           <GooeyButton
@@ -78,29 +78,29 @@ export default function FactoryCapabilitiesSection() {
           </GooeyButton>
         </div>
 
-        {/* Capabilities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        {/* Capabilities Grid with Modern Rounded Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {capabilities.map((cap) => (
             <div
               key={cap.title}
-              className="group bg-[#0C0D0E] rounded-3xl border border-white/[0.07] hover:border-[#FF6B00]/40 hover:-translate-y-2 hover:shadow-[0_24px_60px_rgba(0,0,0,0.7)] flex flex-col justify-between overflow-hidden transition-all duration-300"
+              className="group bg-white rounded-3xl border border-neutral-200/90 hover:border-amber-500/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(180,83,9,0.12)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
             >
-              <div className="relative h-52 w-full overflow-hidden bg-[#0C0D0E]">
+              <div className="relative h-52 w-full overflow-hidden bg-neutral-100">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105 brightness-75 group-hover:brightness-90"
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
                   style={{ backgroundImage: `url(${cap.image})` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C0D0E]/70 via-transparent to-transparent" />
-                <span className="absolute top-4 left-4 bg-[#0C0D0E]/80 border border-[#FF6B00]/30 text-[#FF6B00] px-3.5 py-1 text-[10px] font-mono uppercase tracking-wider font-bold rounded-full backdrop-blur-md">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
+                <span className="absolute top-4 left-4 bg-white/95 px-3.5 py-1 text-[10px] font-mono uppercase tracking-wider text-neutral-800 font-bold rounded-full border border-neutral-200 shadow-xs">
                   {cap.category}
                 </span>
               </div>
 
               <div className="p-7">
-                <h3 className="text-lg font-bold uppercase tracking-tight text-[#F5F5F7] mb-2 group-hover:text-[#FF6B00] transition-colors">
+                <h3 className="text-lg font-bold uppercase tracking-tight text-neutral-950 mb-2 group-hover:text-amber-800 transition-colors">
                   {cap.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-[#9E9EA7] leading-relaxed">
+                <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
                   {cap.description}
                 </p>
               </div>
