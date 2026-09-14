@@ -41,8 +41,8 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-black/35" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
 
-        {/* Subtle bottom edge transition */}
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-[#fafafa] to-transparent pointer-events-none" />
+        {/* Bottom edge transition to white page */}
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
 
         {/* Video Control Pill (Bottom Right) */}
         <button

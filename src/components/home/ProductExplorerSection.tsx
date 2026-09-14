@@ -41,19 +41,19 @@ export default function ProductExplorerSection({
   });
 
   return (
-    <section className="py-24 sm:py-32 bg-[#fafafa] border-b border-neutral-200/80 relative">
+    <section className="py-28 sm:py-36 bg-white border-b border-black/[0.07] relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-neutral-200">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-black/[0.07]">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
               Featured Lineup
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-neutral-950">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
               PRODUCT EXPLORER
             </h2>
           </div>
-          <p className="text-sm text-neutral-600 max-w-md">
+          <p className="text-sm text-[#6B7280] max-w-md">
             Filter our flagship OEM designs or search for specific specifications. Every product can be fully customized to your tech pack.
           </p>
         </div>
@@ -66,8 +66,8 @@ export default function ProductExplorerSection({
               onClick={() => setSelectedCategory("all")}
               className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
                 selectedCategory === "all"
-                  ? "bg-amber-500 text-neutral-950 border-amber-500 shadow-xs"
-                  : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400 hover:text-neutral-950 shadow-2xs"
+                  ? "bg-[#1A1A1A] text-white border-[#1A1A1A] shadow-sm"
+                  : "bg-[#F9FAFB] text-[#4B4B4B] border-black/[0.08] hover:border-black/[0.2] hover:text-[#1A1A1A]"
               }`}
             >
               All Products
@@ -78,8 +78,8 @@ export default function ProductExplorerSection({
                 onClick={() => setSelectedCategory(cat.id)}
                 className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
                   selectedCategory === cat.id
-                    ? "bg-amber-500 text-neutral-950 border-amber-500 shadow-xs"
-                    : "bg-white text-neutral-600 border-neutral-200 hover:border-neutral-400 hover:text-neutral-950 shadow-2xs"
+                    ? "bg-[#1A1A1A] text-white border-[#1A1A1A] shadow-sm"
+                    : "bg-[#F9FAFB] text-[#4B4B4B] border-black/[0.08] hover:border-black/[0.2] hover:text-[#1A1A1A]"
                 }`}
               >
                 {cat.name}
@@ -95,21 +95,21 @@ export default function ProductExplorerSection({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search products or materials..."
-              className="w-full bg-white border border-neutral-300 rounded-full focus:border-amber-600 text-neutral-900 pl-11 pr-4 py-2.5 text-xs outline-none shadow-2xs transition-colors"
+              className="w-full bg-[#F9FAFB] border border-black/[0.09] rounded-full focus:border-amber-600 focus:bg-white text-[#1A1A1A] pl-11 pr-4 py-2.5 text-xs outline-none shadow-sm transition-all"
             />
           </div>
         </div>
 
         {/* Products Grid with Elevated Cards */}
         {filteredProducts.length === 0 ? (
-          <div className="py-20 text-center rounded-3xl border border-dashed border-neutral-300 bg-white p-8">
-            <p className="text-sm text-neutral-500 mb-4">No products match your current filter.</p>
+          <div className="py-20 text-center rounded-3xl border border-dashed border-black/[0.12] bg-[#F9FAFB] p-8">
+            <p className="text-sm text-[#6B7280] mb-4">No products match your current filter.</p>
             <button
               onClick={() => {
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
-              className="text-xs uppercase tracking-wider text-amber-700 font-bold underline cursor-pointer"
+              className="text-xs uppercase tracking-wider text-amber-800 font-bold underline cursor-pointer"
             >
               Reset Filters
             </button>
@@ -133,7 +133,7 @@ export default function ProductExplorerSection({
                 return (
                   <div
                     key={product.id}
-                    className="group bg-white rounded-3xl overflow-hidden border border-neutral-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_45px_rgba(180,83,9,0.14)] hover:border-amber-500/60 hover:-translate-y-1.5 flex flex-col justify-between transition-all duration-500"
+                    className="group bg-white rounded-3xl overflow-hidden border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.11)] hover:border-amber-500/50 hover:-translate-y-1.5 flex flex-col justify-between transition-all duration-500"
                   >
                     {/* Image Container with Dual Image Flip on Hover */}
                     <Link
@@ -153,7 +153,7 @@ export default function ProductExplorerSection({
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                       {/* MOQ Pill Badge */}
-                      <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-xs">
+                      <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-black/[0.08] text-[10px] font-mono text-[#1A1A1A] font-semibold shadow-xs">
                         <Box className="w-3 h-3 text-amber-600" />
                         <span>MOQ: {product.moq} Units</span>
                       </div>
@@ -173,20 +173,20 @@ export default function ProductExplorerSection({
                         </span>
                         <Link
                           href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                          className="text-base font-bold uppercase tracking-tight text-neutral-900 group-hover:text-amber-800 transition-colors line-clamp-1 block mb-2"
+                          className="text-base font-bold uppercase tracking-tight text-[#1A1A1A] group-hover:text-amber-800 transition-colors line-clamp-1 block mb-2"
                         >
                           {product.name}
                         </Link>
-                        <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed mb-4 font-normal">
+                        <p className="text-xs text-[#6B7280] line-clamp-2 leading-relaxed mb-4 font-normal">
                           {product.short_description || "Custom specifications & private label available."}
                         </p>
                       </div>
 
                       {/* Metadata & Actions */}
-                      <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
+                      <div className="pt-4 border-t border-black/[0.06] flex items-center justify-between">
                         <Link
                           href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-900 group-hover:text-amber-600 transition-colors"
+                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1A1A1A] group-hover:text-amber-600 transition-colors"
                         >
                           <span>EXPLORE</span>
                           <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -200,7 +200,7 @@ export default function ProductExplorerSection({
                               category: categoryObj?.name || "General",
                             })
                           }
-                          className="text-[11px] font-mono uppercase tracking-wider text-amber-700 hover:text-amber-800 font-bold px-2.5 py-1 rounded-md bg-amber-50 hover:bg-amber-100 transition-colors cursor-pointer"
+                          className="text-[11px] font-mono uppercase tracking-wider text-amber-800 hover:text-amber-900 font-bold px-2.5 py-1 rounded-md bg-amber-50 hover:bg-amber-100 transition-colors cursor-pointer border border-amber-200/60"
                         >
                           Quote
                         </button>
@@ -215,7 +215,7 @@ export default function ProductExplorerSection({
             <div className="text-center pt-6">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#0f172a] hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#1A1A1A] hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
               >
                 <span>EXPLORE ALL 90 PRODUCTS IN CATALOG</span>
                 <ArrowUpRight className="w-4 h-4" />

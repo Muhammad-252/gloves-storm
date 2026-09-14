@@ -12,15 +12,15 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
   const parentCategories = categories.filter((c) => !c.parent_id);
 
   return (
-    <section className="py-24 sm:py-32 bg-white border-b border-neutral-200/80 relative">
+    <section className="py-28 sm:py-36 bg-[#F9FAFB] border-b border-black/[0.07] relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-neutral-200 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-black/[0.07] gap-6">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
               Bespoke Manufacturing Divisions
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-neutral-950">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
               PRODUCT CATEGORIES
             </h2>
           </div>
@@ -40,7 +40,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
             <Link
               key={category.id}
               href={`/products/${category.slug}`}
-              className={`group relative overflow-hidden rounded-3xl bg-neutral-950 border border-neutral-200/80 shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_45px_rgba(180,83,9,0.18)] hover:border-amber-500/60 transition-all duration-500 flex flex-col justify-end p-8 min-h-[380px] ${
+              className={`group relative overflow-hidden rounded-3xl bg-neutral-950 border border-black/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.10)] hover:shadow-[0_24px_56px_rgba(0,0,0,0.18)] hover:border-amber-500/60 transition-all duration-500 flex flex-col justify-end p-8 min-h-[380px] ${
                 idx === 0 ? "sm:col-span-2 lg:col-span-2 min-h-[440px]" : ""
               }`}
             >

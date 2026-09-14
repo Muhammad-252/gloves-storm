@@ -48,10 +48,10 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "py-3 bg-white/95 backdrop-blur-md border-b border-neutral-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+            ? "py-3 bg-white/[0.98] backdrop-blur-md border-b border-black/[0.08] shadow-[0_1px_0_0_rgba(0,0,0,0.07)]"
             : pathname === "/"
             ? "py-5 bg-gradient-to-b from-black/75 via-black/35 to-transparent"
-            : "py-5 bg-white/90 backdrop-blur-md border-b border-neutral-200/80 shadow-[0_2px_12px_rgba(0,0,0,0.03)]"
+            : "py-5 bg-white border-b border-black/[0.07]"
         )}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
@@ -108,8 +108,8 @@ export default function Navbar() {
                         ? "text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
                         : "text-white/85 hover:text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]"
                       : isActive
-                      ? "text-neutral-950 font-bold"
-                      : "text-neutral-600 hover:text-neutral-950"
+                      ? "text-[#1A1A1A] font-bold"
+                      : "text-[#4B4B4B] hover:text-[#1A1A1A]"
                   )}
                 >
                   {link.name}

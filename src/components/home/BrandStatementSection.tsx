@@ -92,29 +92,27 @@ const productionStages = [
 
 export default function BrandStatementSection() {
   return (
-    <section className="py-24 sm:py-32 bg-[#fafafa] border-b border-neutral-200/80 relative overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-amber-100/30 rounded-full blur-[140px] pointer-events-none" />
+    <section className="py-28 sm:py-36 bg-white border-b border-black/[0.07] relative overflow-hidden">
+
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
           <div className="max-w-3xl">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300/80 mb-5 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300/70 mb-5 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
               <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-900 font-bold">
                 End-To-End Manufacturing Partner
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-neutral-950 leading-[1.0] mb-6">
+            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.0] mb-6">
               FROM YOUR IDEA <br />
-              <span className="text-neutral-500">TO THE FINAL PRODUCT.</span>
+              <span className="text-[#6B7280]">TO THE FINAL PRODUCT.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed max-w-2xl">
               GLOVES STORM provides comprehensive turnkey manufacturing for sports brands, fight academies, and luxury streetwear labels. We combine Sialkot’s century-old artisan mastery with automated industrial engineering to guarantee consistent, defect-free production.
             </p>
           </div>
@@ -135,9 +133,9 @@ export default function BrandStatementSection() {
         <div className="space-y-12">
           {/* Phase 01: Pre-Production & Engineering */}
           <div>
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-neutral-200">
+            <div className="flex items-center justify-between mb-6 pb-3 border-b border-black/[0.07]">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold tracking-widest text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-md uppercase">
+                <span className="text-xs font-mono font-bold tracking-widest text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-1 rounded-md uppercase">
                   Phase 01
                 </span>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-800">
@@ -155,7 +153,7 @@ export default function BrandStatementSection() {
                 return (
                   <div
                     key={stage.step}
-                    className="group relative bg-white rounded-3xl p-7 border border-neutral-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(180,83,9,0.12)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-[#F9FAFB] rounded-3xl p-7 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   >
                     {/* Top row with step number and icon */}
                     <div>
@@ -179,7 +177,7 @@ export default function BrandStatementSection() {
                       </p>
 
                       {/* Deliverables tags */}
-                      <div className="space-y-1.5 mb-6 pt-3 border-t border-neutral-100">
+                      <div className="space-y-1.5 mb-6 pt-3 border-t border-black/[0.06]">
                         {stage.deliverables.map((item) => (
                           <div
                             key={item}
@@ -193,7 +191,7 @@ export default function BrandStatementSection() {
                     </div>
 
                     {/* Timeline pill footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-[11px] text-neutral-500">
+                      <div className="flex items-center justify-between pt-4 border-t border-black/[0.06] text-[11px] text-[#6B7280]">
                       <div className="flex items-center gap-1.5 text-amber-800 font-medium">
                         <Clock className="w-3.5 h-3.5 text-amber-600" />
                         <span>{stage.timeline}</span>
@@ -213,9 +211,9 @@ export default function BrandStatementSection() {
 
           {/* Phase 02: Mass Production, Quality Assurance & Delivery */}
           <div>
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-neutral-200">
+            <div className="flex items-center justify-between mb-6 pb-3 border-b border-black/[0.07]">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-mono font-bold tracking-widest text-amber-700 bg-amber-100/70 px-2.5 py-1 rounded-md uppercase">
+                <span className="text-xs font-mono font-bold tracking-widest text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-1 rounded-md uppercase">
                   Phase 02
                 </span>
                 <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-800">
@@ -233,7 +231,7 @@ export default function BrandStatementSection() {
                 return (
                   <div
                     key={stage.step}
-                    className="group relative bg-white rounded-3xl p-8 border border-neutral-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_40px_rgba(180,83,9,0.14)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-[#F9FAFB] rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-5">
@@ -256,7 +254,7 @@ export default function BrandStatementSection() {
                       </p>
 
                       {/* Deliverables tags */}
-                      <div className="space-y-2 mb-6 pt-3 border-t border-neutral-100">
+                      <div className="space-y-2 mb-6 pt-3 border-t border-black/[0.06]">
                         {stage.deliverables.map((item) => (
                           <div
                             key={item}
@@ -270,7 +268,7 @@ export default function BrandStatementSection() {
                     </div>
 
                     {/* Timeline pill footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-neutral-100 text-xs text-neutral-500">
+                      <div className="flex items-center justify-between pt-4 border-t border-black/[0.06] text-xs text-[#6B7280]">
                       <div className="flex items-center gap-1.5 text-amber-800 font-semibold">
                         <Clock className="w-4 h-4 text-amber-600" />
                         <span>{stage.timeline}</span>
@@ -290,7 +288,7 @@ export default function BrandStatementSection() {
         </div>
 
         {/* Bottom Trust Guarantee Strip */}
-        <div className="mt-16 p-6 sm:p-8 rounded-3xl bg-white border border-neutral-200/90 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-16 p-6 sm:p-8 rounded-3xl bg-[#F9FAFB] border border-black/[0.08] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-700 shrink-0">
               <Sparkles className="w-6 h-6" />
