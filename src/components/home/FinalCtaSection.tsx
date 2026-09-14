@@ -10,23 +10,27 @@ export default function FinalCtaSection() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   return (
-    <section className="py-28 sm:py-36 bg-white relative overflow-hidden text-center border-b border-neutral-200/80">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-amber-100/60 rounded-full blur-[140px] pointer-events-none" />
+    <section className="py-32 sm:py-40 bg-[#0C0D0E] relative overflow-hidden text-center">
+      {/* Background atmospheric glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#FF6B00]/[0.06] rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[300px] bg-[#FF6B00]/[0.04] rounded-full blur-[80px] pointer-events-none" />
+
+      {/* Top accent line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-[#FF6B00]/40 to-transparent" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8">
-        <span className="text-xs uppercase tracking-[0.3em] text-amber-800 font-mono block mb-4 font-bold">
+        <span className="text-xs uppercase tracking-[0.3em] text-[#FF6B00] font-mono block mb-4 font-bold">
           Direct Sialkot Factory Partnership
         </span>
 
-        <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-neutral-950 leading-[0.95] mb-6">
+        <h2 className="text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-black uppercase tracking-[-0.04em] text-[#F5F5F7] leading-[0.93] mb-6">
           READY TO BUILD <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-700 to-amber-900">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] via-[#ff8533] to-[#FF6B00]">
             YOUR NEXT COLLECTION?
           </span>
         </h2>
 
-        <p className="text-base sm:text-lg text-neutral-600 max-w-2xl mx-auto font-normal leading-relaxed mb-10">
+        <p className="text-base sm:text-lg text-[#9E9EA7] max-w-2xl mx-auto font-normal leading-relaxed mb-12">
           Tell us what you&apos;re building. We&apos;ll help turn your concept into physical production with guaranteed lead times and transparent factory communication.
         </p>
 
@@ -36,7 +40,7 @@ export default function FinalCtaSection() {
             href="/contact"
             variant="gold-solid"
             size="lg"
-            className="w-full sm:w-auto"
+            className="w-full sm:w-auto shadow-[0_8px_40px_rgba(255,107,0,0.35)]"
           >
             <span>START A PROJECT</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -63,19 +67,17 @@ export default function FinalCtaSection() {
         </div>
 
         {/* Trust Badges */}
-        <div className="mt-14 pt-8 border-t border-neutral-200 flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-neutral-600">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-amber-600" />
-            <span>NDAs Respected</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-amber-600" />
-            <span>Low MOQ Starting at 25-50 Pcs</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-amber-600" />
-            <span>Direct Sialkot Factory Pricing</span>
-          </div>
+        <div className="mt-16 pt-8 border-t border-white/[0.07] flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs text-[#9E9EA7]">
+          {[
+            "NDAs Respected",
+            "Low MOQ Starting at 25-50 Pcs",
+            "Direct Sialkot Factory Pricing",
+          ].map((badge) => (
+            <div key={badge} className="flex items-center gap-2">
+              <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
+              <span>{badge}</span>
+            </div>
+          ))}
         </div>
       </div>
 

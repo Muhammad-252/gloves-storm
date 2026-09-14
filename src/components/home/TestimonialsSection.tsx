@@ -24,15 +24,18 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
   const active = testimonials[currentIndex];
 
   return (
-    <section className="py-24 sm:py-32 bg-white border-b border-neutral-200/80 relative overflow-hidden">
+    <section className="py-28 sm:py-36 bg-[#111214] border-b border-white/[0.06] relative overflow-hidden">
+      {/* Background accent glow */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#FF6B00]/[0.04] rounded-full blur-[140px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] text-[#FF6B00] font-mono block mb-2 font-bold">
               Verified Brand Feedback
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-neutral-950">
+            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#F5F5F7]">
               WHAT OUR PARTNERS SAY
             </h2>
           </div>
@@ -41,14 +44,14 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
           <div className="flex items-center gap-3">
             <button
               onClick={handlePrev}
-              className="w-12 h-12 rounded-full bg-white border border-neutral-200 hover:border-amber-500 flex items-center justify-center text-neutral-800 hover:text-amber-700 shadow-xs transition-all cursor-pointer"
+              className="w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.12] hover:border-[#FF6B00]/50 hover:bg-[#FF6B00]/10 flex items-center justify-center text-[#9E9EA7] hover:text-[#FF6B00] transition-all cursor-pointer"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
-              className="w-12 h-12 rounded-full bg-white border border-neutral-200 hover:border-amber-500 flex items-center justify-center text-neutral-800 hover:text-amber-700 shadow-xs transition-all cursor-pointer"
+              className="w-12 h-12 rounded-full bg-white/[0.05] border border-white/[0.12] hover:border-[#FF6B00]/50 hover:bg-[#FF6B00]/10 flex items-center justify-center text-[#9E9EA7] hover:text-[#FF6B00] transition-all cursor-pointer"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-5 h-5" />
@@ -57,42 +60,56 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
         </div>
 
         {/* Featured Testimonial Card */}
-        <div className="bg-[#fafafa] rounded-3xl border border-neutral-200/90 p-8 sm:p-12 lg:p-16 relative shadow-sm">
-          <Quote className="w-20 h-20 text-amber-500/10 absolute top-8 right-8 pointer-events-none" />
+        <div className="bg-[#0C0D0E] rounded-3xl border border-white/[0.07] hover:border-[#FF6B00]/20 p-8 sm:p-12 lg:p-16 relative transition-colors">
+          <Quote className="w-20 h-20 text-[#FF6B00]/[0.07] absolute top-8 right-8 pointer-events-none" />
 
           {/* Star Rating */}
           <div className="flex items-center gap-1 mb-8">
             {Array.from({ length: active.rating || 5 }).map((_, i) => (
-              <Star key={i} className="w-4 h-4 text-amber-500 fill-amber-500" />
+              <Star key={i} className="w-4 h-4 text-[#FF6B00] fill-[#FF6B00]" />
             ))}
           </div>
 
-          {/* Testimonial Quote */}
-          <blockquote className="text-lg sm:text-2xl md:text-3xl text-neutral-950 font-medium leading-relaxed tracking-tight mb-12 max-w-4xl">
+          {/* Quote */}
+          <blockquote className="text-lg sm:text-2xl md:text-3xl text-[#F5F5F7] font-medium leading-relaxed tracking-tight mb-12 max-w-4xl">
             &ldquo;{active.testimonial}&rdquo;
           </blockquote>
 
           {/* Client Attribution */}
-          <div className="flex items-center gap-4 border-t border-neutral-200 pt-8">
+          <div className="flex items-center gap-4 border-t border-white/[0.07] pt-8">
             {active.photo_url ? (
               <div
-                className="w-14 h-14 rounded-full bg-cover bg-center border border-amber-400/60 shrink-0 shadow-xs"
+                className="w-14 h-14 rounded-full bg-cover bg-center border border-[#FF6B00]/40 shrink-0"
                 style={{ backgroundImage: `url(${active.photo_url})` }}
               />
             ) : (
-              <div className="w-14 h-14 rounded-full bg-amber-100 border border-amber-300 text-amber-900 font-bold text-lg flex items-center justify-center shrink-0">
+              <div className="w-14 h-14 rounded-full bg-[#FF6B00]/10 border border-[#FF6B00]/30 text-[#FF6B00] font-bold text-lg flex items-center justify-center shrink-0">
                 {active.client_name.charAt(0)}
               </div>
             )}
 
             <div>
-              <h4 className="text-base font-bold uppercase tracking-wider text-neutral-950">
+              <h4 className="text-base font-bold uppercase tracking-wider text-[#F5F5F7]">
                 {active.client_name}
               </h4>
-              <p className="text-xs text-neutral-500">
-                {active.role} • <span className="text-neutral-700 font-semibold">{active.company}</span> ({active.country})
+              <p className="text-xs text-[#9E9EA7]">
+                {active.role} • <span className="text-[#F5F5F7]/70 font-semibold">{active.company}</span> ({active.country})
               </p>
             </div>
+          </div>
+
+          {/* Progress dots */}
+          <div className="mt-8 flex items-center gap-2">
+            {testimonials.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentIndex(i)}
+                className={`h-1 rounded-full transition-all duration-300 cursor-pointer ${
+                  i === currentIndex ? "w-6 bg-[#FF6B00]" : "w-1.5 bg-white/20 hover:bg-white/40"
+                }`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

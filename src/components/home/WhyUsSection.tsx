@@ -48,50 +48,53 @@ const pillars = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-24 sm:py-32 bg-[#fafafa] border-b border-neutral-200/80 relative">
+    <section className="py-28 sm:py-36 bg-[#0C0D0E] border-b border-white/[0.06] relative">
+      {/* Atmospheric glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FF6B00]/[0.035] rounded-full blur-[150px] pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+          <span className="text-xs uppercase tracking-[0.25em] text-[#FF6B00] font-mono block mb-2 font-bold">
             The Partnership Advantage
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-neutral-950 leading-[1.0] mb-6">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#F5F5F7] leading-[1.0] mb-6">
             MORE THAN A SUPPLIER. <br />
-            <span className="text-neutral-500">A MANUFACTURING PARTNER.</span>
+            <span className="text-[#9E9EA7]">A MANUFACTURING PARTNER.</span>
           </h2>
-          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
-            We don’t treat production as simple transactional work. We act as an extension of your product design and supply chain team, protecting your brand reputation with every stitch.
+          <p className="text-sm sm:text-base text-[#9E9EA7] leading-relaxed">
+            We don&apos;t treat production as simple transactional work. We act as an extension of your product design and supply chain team, protecting your brand reputation with every stitch.
           </p>
         </div>
 
-        {/* Pillars Grid with Elevated Rounded Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+        {/* Pillars Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-6">
           {pillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
               <div
                 key={pillar.title}
-                className={`group bg-white rounded-3xl border border-neutral-200/90 hover:border-amber-500/50 p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(180,83,9,0.12)] transition-all duration-300 ${
+                className={`group bg-[#111214] rounded-3xl border border-white/[0.07] hover:border-[#FF6B00]/40 p-8 flex flex-col justify-between hover:-translate-y-2 hover:shadow-[0_20px_48px_rgba(0,0,0,0.6)] transition-all duration-300 ${
                   idx === 0
-                    ? "sm:col-span-2 lg:col-span-2 bg-gradient-to-br from-white via-amber-50/20 to-white"
+                    ? "sm:col-span-2 lg:col-span-2"
                     : ""
                 }`}
               >
                 <div>
-                  <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-700 mb-6 group-hover:bg-amber-500 group-hover:text-neutral-950 transition-all shadow-xs">
+                  <div className="w-12 h-12 rounded-2xl bg-[#FF6B00]/10 border border-[#FF6B00]/20 flex items-center justify-center text-[#FF6B00] mb-6 group-hover:bg-[#FF6B00] group-hover:text-black transition-all">
                     <Icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-xl font-bold uppercase tracking-tight text-neutral-950 mb-3 group-hover:text-amber-800 transition-colors">
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-[#F5F5F7] mb-3 group-hover:text-[#FF6B00] transition-colors">
                     {pillar.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#9E9EA7] leading-relaxed">
                     {pillar.desc}
                   </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-neutral-100 text-[10px] font-mono uppercase tracking-widest text-neutral-400 flex items-center justify-between">
+                <div className="mt-8 pt-4 border-t border-white/[0.06] text-[10px] font-mono uppercase tracking-widest text-[#9E9EA7]/40 flex items-center justify-between">
                   <span>Pillar 0{idx + 1}</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_6px_rgba(217,119,6,0.6)]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_8px_rgba(255,107,0,0.8)]" />
                 </div>
               </div>
             );
