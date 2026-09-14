@@ -14,534 +14,94 @@ export const initialCategories: Category[] = [
     "name": "Boxing Equipment",
     "slug": "boxing-equipment",
     "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
-    "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
+    "image_url": "/images/products/boxing-gloves-black.png",
     "parent_id": null,
     "sort_order": 1,
     "is_active": true,
-    "created_at": "2026-09-14T11:04:06.192432+00:00",
-    "updated_at": "2026-09-14T11:04:06.192432+00:00"
+    "created_at": "2026-09-14T14:02:09.584Z",
+    "updated_at": "2026-09-14T14:02:09.584Z"
   },
   {
     "id": "a0000001-0000-0000-0000-000000000002",
     "name": "Sportswear & Teamwear",
     "slug": "sportswear-teamwear",
     "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
-    "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
+    "image_url": "/images/products/basketball-uniform.jpg",
     "parent_id": null,
     "sort_order": 2,
     "is_active": true,
-    "created_at": "2026-09-14T11:04:06.192432+00:00",
-    "updated_at": "2026-09-14T11:04:06.192432+00:00"
+    "created_at": "2026-09-14T14:02:09.584Z",
+    "updated_at": "2026-09-14T14:02:09.584Z"
   },
   {
     "id": "a0000001-0000-0000-0000-000000000003",
     "name": "Gym & Fitness Wear",
     "slug": "gym-fitness-wear",
     "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
-    "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
+    "image_url": "/images/products/gym-leggings.jpg",
     "parent_id": null,
     "sort_order": 3,
     "is_active": true,
-    "created_at": "2026-09-14T11:04:06.192432+00:00",
-    "updated_at": "2026-09-14T11:04:06.192432+00:00"
+    "created_at": "2026-09-14T14:02:09.584Z",
+    "updated_at": "2026-09-14T14:02:09.584Z"
   },
   {
     "id": "a0000001-0000-0000-0000-000000000004",
     "name": "Clothing & Streetwear",
     "slug": "clothing-streetwear",
     "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
-    "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
+    "image_url": "/images/products/hoodie-black.png",
     "parent_id": null,
     "sort_order": 4,
     "is_active": true,
-    "created_at": "2026-09-14T11:04:06.192432+00:00",
-    "updated_at": "2026-09-14T11:04:06.192432+00:00"
+    "created_at": "2026-09-14T14:02:09.584Z",
+    "updated_at": "2026-09-14T14:02:09.584Z"
   },
   {
     "id": "a0000001-0000-0000-0000-000000000005",
     "name": "Custom Manufacturing & Private Label",
     "slug": "custom-manufacturing-private-label",
     "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
-    "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
+    "image_url": "/images/products/luxury-packaging.jpg",
     "parent_id": null,
     "sort_order": 5,
     "is_active": true,
-    "created_at": "2026-09-14T11:04:06.192432+00:00",
-    "updated_at": "2026-09-14T11:04:06.192432+00:00"
+    "created_at": "2026-09-14T14:02:09.584Z",
+    "updated_at": "2026-09-14T14:02:09.584Z"
   },
   {
     "id": "a0000001-0000-0000-0000-000000000006",
     "name": "Swimwear & Beachwear",
     "slug": "swimwear-beachwear",
     "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
-    "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+    "image_url": "/images/products/board-shorts.jpg",
     "parent_id": null,
     "sort_order": 6,
     "is_active": true,
-    "created_at": "2026-09-14T11:04:06.192432+00:00",
-    "updated_at": "2026-09-14T11:04:06.192432+00:00"
+    "created_at": "2026-09-14T14:02:09.584Z",
+    "updated_at": "2026-09-14T14:02:09.584Z"
   }
 ];
 
 export const initialProducts: Product[] = [
   {
-    "id": "b0000001-0000-0000-0000-000000000009",
-    "name": "Custom Boxing Shin Guards",
-    "slug": "custom-boxing-shin-guards",
+    "id": "b0000001-0000-0000-0000-000000000001",
+    "name": "Custom Boxing Gloves",
+    "slug": "custom-boxing-gloves",
     "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Boxing Shin Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Boxing Shin Guards engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "short_description": "Custom Boxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Boxing Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "Matte Synthetic Leather",
-      "Dual-Layer High Density Shock Foam",
-      "Neoprene Foot Loop",
-      "Dual Hook & Loop Calf Straps"
+      "Full-Grain Cowhide Leather",
+      "Reinforced Microfiber",
+      "5-Ply Layered Latex Padding",
+      "Satin Moisture-Wicking Lining"
     ],
     "features": [
-      "Instep Anatomic Contour",
-      "Zero-Shift Anti-Slip Lining",
-      "Dual Hook-and-Loop Shin Fit",
-      "Reinforced Strike Ridge"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Boxing Shin Guards | GLOVES STORM",
-    "seo_description": "Custom Boxing Shin Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000001",
-      "name": "Boxing Equipment",
-      "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000090001",
-        "alt_text": "Custom Boxing Shin Guards — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000009",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000090002",
-        "alt_text": "Custom Boxing Shin Guards — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000009",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000090003",
-        "alt_text": "Custom Boxing Shin Guards — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000009",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000090004",
-        "alt_text": "Custom Boxing Shin Guards — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000009",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000008",
-    "name": "Custom Boxing Hand Wraps",
-    "slug": "custom-boxing-hand-wraps",
-    "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Boxing Hand Wraps for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Boxing Hand Wraps engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Semi-Elastic Mexican Style Cotton Blend",
-      "Reinforced Thumb Loop",
-      "Heavy-Duty Hook & Loop Closure",
-      "Woven Brand Patch"
-    ],
-    "features": [
-      "180-inch (4.5m) Professional Length",
-      "Optimal Breathability & Stretch",
-      "Colorfast Washable Dyes",
-      "Anti-Fray Edges"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 100,
-    "lead_time": "1-2 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Boxing Hand Wraps | GLOVES STORM",
-    "seo_description": "Custom Boxing Hand Wraps for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000001",
-      "name": "Boxing Equipment",
-      "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000080001",
-        "alt_text": "Custom Boxing Hand Wraps — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000008",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000080002",
-        "alt_text": "Custom Boxing Hand Wraps — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000008",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000080003",
-        "alt_text": "Custom Boxing Hand Wraps — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000008",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000080004",
-        "alt_text": "Custom Boxing Hand Wraps — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000008",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000007",
-    "name": "Custom Boxing Head Guards",
-    "slug": "custom-boxing-head-guards",
-    "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Boxing Head Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Boxing Head Guards engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Premium Genuine Leather",
-      "Multi-Layer EVA & Sponge Foam",
-      "Non-Slip Microfiber Inner",
-      "Reinforced Cheek Bumpers"
-    ],
-    "features": [
-      "360-Degree Cranial Protection",
-      "Lace-Up Crown Adjustment",
-      "Padded Ear Openings",
-      "Contoured Chin Strap"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Boxing Head Guards | GLOVES STORM",
-    "seo_description": "Custom Boxing Head Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000001",
-      "name": "Boxing Equipment",
-      "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000070001",
-        "alt_text": "Custom Boxing Head Guards — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000007",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000070002",
-        "alt_text": "Custom Boxing Head Guards — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000007",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000070003",
-        "alt_text": "Custom Boxing Head Guards — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000007",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000070004",
-        "alt_text": "Custom Boxing Head Guards — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000007",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000006",
-    "name": "Custom Muay Thai Gloves",
-    "slug": "custom-muay-thai-gloves",
-    "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Muay Thai Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Muay Thai Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Top-Grade Cowhide Leather",
-      "Multi-Layered Latex Core",
-      "Reinforced Palm Slits",
-      "Contoured Padded Cuff"
-    ],
-    "features": [
-      "Shorter Cuff for Clinch Flexibility",
-      "Reinforced Outer Fist Padding",
-      "Moisture-Repellent Satin",
-      "Authentic Thai Profile"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Muay Thai Gloves | GLOVES STORM",
-    "seo_description": "Custom Muay Thai Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000001",
-      "name": "Boxing Equipment",
-      "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000060001",
-        "alt_text": "Custom Muay Thai Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000006",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000060002",
-        "alt_text": "Custom Muay Thai Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000006",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000060003",
-        "alt_text": "Custom Muay Thai Gloves — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000006",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000060004",
-        "alt_text": "Custom Muay Thai Gloves — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000006",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000005",
-    "name": "Custom Kickboxing Gloves",
-    "slug": "custom-kickboxing-gloves",
-    "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Kickboxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Kickboxing Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Industrial Grade Microfiber",
-      "High-Density Foam Core",
-      "Satin Internal Lining",
-      "Padded Edge Blockers"
-    ],
-    "features": [
-      "Lateral Palm Padding for Kick Blocking",
-      "Wide Elastic Wrist Strap",
-      "Thumb Attachment Lock",
-      "Sweat-Resistant Finish"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Kickboxing Gloves | GLOVES STORM",
-    "seo_description": "Custom Kickboxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000001",
-      "name": "Boxing Equipment",
-      "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000050001",
-        "alt_text": "Custom Kickboxing Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000005",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000050002",
-        "alt_text": "Custom Kickboxing Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000005",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000050003",
-        "alt_text": "Custom Kickboxing Gloves — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000005",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000050004",
-        "alt_text": "Custom Kickboxing Gloves — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000005",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000004",
-    "name": "Custom MMA Gloves",
-    "slug": "custom-mma-gloves",
-    "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom MMA Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom MMA Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Full-Grain Leather or Synthetic Matte",
-      "Contoured Gel Padding",
-      "Pre-Curved Ergonomic Finger Loops",
-      "D-Ring Hook & Loop Strap"
-    ],
-    "features": [
-      "Open-Palm Grappling Dexterity",
-      "Dual-Wrap Wrist Support",
-      "Individual Segmented Knuckle Guards",
-      "Reinforced Bar-Tack Stitching"
+      "IMF Injection Molded Core",
+      "Dual-Channel Wrist Support",
+      "Thumb-Lock Safety Feature",
+      "Triple-Stitched Seams"
     ],
     "customization_options": [
       "Logo",
@@ -555,148 +115,60 @@ export const initialProducts: Product[] = [
     ],
     "moq": 50,
     "lead_time": "2-3 Weeks",
-    "featured": false,
+    "featured": true,
     "is_active": true,
-    "seo_title": "Custom MMA Gloves | GLOVES STORM",
-    "seo_description": "Custom MMA Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
+    "seo_title": "Custom Boxing Gloves | GLOVES STORM",
+    "seo_description": "Custom Boxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000040001",
-        "alt_text": "Custom MMA Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
+        "id": "e0000001-0000-0000-0000-000000010001",
+        "product_id": "b0000001-0000-0000-0000-000000000001",
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Boxing Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000004",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.610Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000040002",
-        "alt_text": "Custom MMA Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
+        "id": "e0000001-0000-0000-0000-000000010002",
+        "product_id": "b0000001-0000-0000-0000-000000000001",
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Boxing Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000004",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000040003",
-        "alt_text": "Custom MMA Gloves — Image 03 GLOVES STORM Branding, Embroidery & Labels",
+        "id": "e0000001-0000-0000-0000-000000010003",
+        "product_id": "b0000001-0000-0000-0000-000000000001",
         "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
+        "alt_text": "Custom Boxing Gloves — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000004",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000040004",
-        "alt_text": "Custom MMA Gloves — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000004",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000003",
-    "name": "Custom Sparring Gloves",
-    "slug": "custom-sparring-gloves",
-    "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Sparring Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Sparring Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Premium Matte Cowhide",
-      "Quad-Layer Foam Matrix",
-      "Orthopedic Sponge Foam",
-      "Soft Nylon Taffeta Lining"
-    ],
-    "features": [
-      "Extra Knuckle Protection",
-      "Padded Wrist & Forearm Cuff",
-      "Ergonomic Hand Contouring",
-      "Reinforced Wrist Splints"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Sparring Gloves | GLOVES STORM",
-    "seo_description": "Custom Sparring Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000001",
-      "name": "Boxing Equipment",
-      "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000030001",
-        "alt_text": "Custom Sparring Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000003",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000030002",
-        "alt_text": "Custom Sparring Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "id": "e0000001-0000-0000-0000-000000010004",
+        "product_id": "b0000001-0000-0000-0000-000000000001",
         "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
+        "alt_text": "Custom Boxing Gloves — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000003",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000030003",
-        "alt_text": "Custom Sparring Gloves — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000003",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000030004",
-        "alt_text": "Custom Sparring Gloves — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000003",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
@@ -735,77 +207,77 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Training Boxing Gloves | GLOVES STORM",
     "seo_description": "Custom Training Boxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000020001",
-        "alt_text": "Custom Training Boxing Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000002",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Training Boxing Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000020002",
-        "alt_text": "Custom Training Boxing Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000002",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Training Boxing Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000020003",
-        "alt_text": "Custom Training Boxing Gloves — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000002",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-focuspads.jpg",
+        "alt_text": "Custom Training Boxing Gloves — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000020004",
-        "alt_text": "Custom Training Boxing Gloves — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000002",
-        "sort_order": 4
+        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Training Boxing Gloves — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000001",
-    "name": "Custom Boxing Gloves",
-    "slug": "custom-boxing-gloves",
+    "id": "b0000001-0000-0000-0000-000000000003",
+    "name": "Custom Sparring Gloves",
+    "slug": "custom-sparring-gloves",
     "category_id": "a0000001-0000-0000-0000-000000000001",
-    "short_description": "Custom Boxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Boxing Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "short_description": "Custom Sparring Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Sparring Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "Full-Grain Cowhide Leather",
-      "Reinforced Microfiber",
-      "5-Ply Layered Latex Padding",
-      "Satin Moisture-Wicking Lining"
+      "Premium Matte Cowhide",
+      "Quad-Layer Foam Matrix",
+      "Orthopedic Sponge Foam",
+      "Soft Nylon Taffeta Lining"
     ],
     "features": [
-      "IMF Injection Molded Core",
-      "Dual-Channel Wrist Support",
-      "Thumb-Lock Safety Feature",
-      "Triple-Stitched Seams"
+      "Extra Knuckle Protection",
+      "Padded Wrist & Forearm Cuff",
+      "Ergonomic Hand Contouring",
+      "Reinforced Wrist Splints"
     ],
     "customization_options": [
       "Logo",
@@ -818,81 +290,170 @@ export const initialProducts: Product[] = [
       "printing and embroidery where applicable"
     ],
     "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": true,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
     "is_active": true,
-    "seo_title": "Custom Boxing Gloves | GLOVES STORM",
-    "seo_description": "Custom Boxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.523+00:00",
-    "updated_at": "2026-09-14T11:04:06.523+00:00",
+    "seo_title": "Custom Sparring Gloves | GLOVES STORM",
+    "seo_description": "Custom Sparring Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000010001",
-        "alt_text": "Custom Boxing Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.522+00:00",
+        "id": "e0000001-0000-0000-0000-000000030001",
+        "product_id": "b0000001-0000-0000-0000-000000000003",
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Sparring Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000001",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000010002",
-        "alt_text": "Custom Boxing Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000001",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000010003",
-        "alt_text": "Custom Boxing Gloves — Image 03 GLOVES STORM Branding, Embroidery & Labels",
+        "id": "e0000001-0000-0000-0000-000000030002",
+        "product_id": "b0000001-0000-0000-0000-000000000003",
         "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
+        "alt_text": "Custom Sparring Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000001",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000010004",
-        "alt_text": "Custom Boxing Gloves — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
+        "id": "e0000001-0000-0000-0000-000000030003",
+        "product_id": "b0000001-0000-0000-0000-000000000003",
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Sparring Gloves — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000001",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000030004",
+        "product_id": "b0000001-0000-0000-0000-000000000003",
+        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Sparring Gloves — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000040",
-    "name": "Custom Fitness Hoodies",
-    "slug": "custom-fitness-hoodies",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Fitness Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Fitness Hoodies engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "id": "b0000001-0000-0000-0000-000000000004",
+    "name": "Custom MMA Gloves",
+    "slug": "custom-mma-gloves",
+    "category_id": "a0000001-0000-0000-0000-000000000001",
+    "short_description": "Custom MMA Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom MMA Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "380 GSM Cotton Poly Fleece with Loopback Terry",
-      "Double-Layer Contoured Hood",
-      "Custom Metal Aglets"
+      "Full-Grain Leather or Synthetic Matte",
+      "Contoured Gel Padding",
+      "Pre-Curved Ergonomic Finger Loops",
+      "D-Ring Hook & Loop Strap"
     ],
     "features": [
-      "Sleeveless or Long Sleeve Athletic Cut",
-      "Raglan Sleeve Construction",
-      "Kangaroo Pocket with Secret Phone Stash",
-      "Embroidered Brand Identity"
+      "Open-Palm Grappling Dexterity",
+      "Dual-Wrap Wrist Support",
+      "Individual Segmented Knuckle Guards",
+      "Reinforced Bar-Tack Stitching"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom MMA Gloves | GLOVES STORM",
+    "seo_description": "Custom MMA Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000001",
+      "name": "Boxing Equipment",
+      "slug": "boxing-equipment",
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
+      "parent_id": null,
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000040001",
+        "product_id": "b0000001-0000-0000-0000-000000000004",
+        "image_url": "/images/products/boxing-mma-gloves.jpg",
+        "alt_text": "Custom MMA Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000040002",
+        "product_id": "b0000001-0000-0000-0000-000000000004",
+        "image_url": "/images/products/boxing-mma-gloves.jpg",
+        "alt_text": "Custom MMA Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000040003",
+        "product_id": "b0000001-0000-0000-0000-000000000004",
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom MMA Gloves — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000040004",
+        "product_id": "b0000001-0000-0000-0000-000000000004",
+        "image_url": "/images/products/boxing-handwraps.jpg",
+        "alt_text": "Custom MMA Gloves — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000005",
+    "name": "Custom Kickboxing Gloves",
+    "slug": "custom-kickboxing-gloves",
+    "category_id": "a0000001-0000-0000-0000-000000000001",
+    "short_description": "Custom Kickboxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Kickboxing Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Industrial Grade Microfiber",
+      "High-Density Foam Core",
+      "Satin Internal Lining",
+      "Padded Edge Blockers"
+    ],
+    "features": [
+      "Lateral Palm Padding for Kick Blocking",
+      "Wide Elastic Wrist Strap",
+      "Thumb Attachment Lock",
+      "Sweat-Resistant Finish"
     ],
     "customization_options": [
       "Logo",
@@ -908,337 +469,79 @@ export const initialProducts: Product[] = [
     "lead_time": "2-4 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Custom Fitness Hoodies | GLOVES STORM",
-    "seo_description": "Custom Fitness Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "seo_title": "Custom Kickboxing Gloves | GLOVES STORM",
+    "seo_description": "Custom Kickboxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "id": "a0000001-0000-0000-0000-000000000001",
+      "name": "Boxing Equipment",
+      "slug": "boxing-equipment",
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000400001",
-        "alt_text": "Custom Fitness Hoodies — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000050001",
+        "product_id": "b0000001-0000-0000-0000-000000000005",
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Kickboxing Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000040",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000400002",
-        "alt_text": "Custom Fitness Hoodies — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000050002",
+        "product_id": "b0000001-0000-0000-0000-000000000005",
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Kickboxing Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000040",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000400003",
-        "alt_text": "Custom Fitness Hoodies — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000050003",
+        "product_id": "b0000001-0000-0000-0000-000000000005",
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Kickboxing Gloves — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000040",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000400004",
-        "alt_text": "Custom Fitness Hoodies — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000050004",
+        "product_id": "b0000001-0000-0000-0000-000000000005",
+        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Kickboxing Gloves — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000040",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000041",
-    "name": "Custom Gym Tracksuits",
-    "slug": "custom-gym-tracksuits",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Gym Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Gym Tracksuits engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "id": "b0000001-0000-0000-0000-000000000006",
+    "name": "Custom Muay Thai Gloves",
+    "slug": "custom-muay-thai-gloves",
+    "category_id": "a0000001-0000-0000-0000-000000000001",
+    "short_description": "Custom Muay Thai Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Muay Thai Gloves engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "Scuba Interlock Tech Fabric (320 GSM)",
-      "Matte Surface Finish",
-      "Rubberized YKK Zippers"
+      "Top-Grade Cowhide Leather",
+      "Multi-Layered Latex Core",
+      "Reinforced Palm Slits",
+      "Contoured Padded Cuff"
     ],
     "features": [
-      "Athletic Fitted Silhouette",
-      "Matching Full-Zip Top & Cuffed Pants",
-      "Ergonomic Articulated Paneling",
-      "High-End Luxury Gym Look"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Gym Tracksuits | GLOVES STORM",
-    "seo_description": "Custom Gym Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000410001",
-        "alt_text": "Custom Gym Tracksuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000041",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000410002",
-        "alt_text": "Custom Gym Tracksuits — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000041",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000410003",
-        "alt_text": "Custom Gym Tracksuits — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000041",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000410004",
-        "alt_text": "Custom Gym Tracksuits — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000041",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000042",
-    "name": "Custom Performance Tees",
-    "slug": "custom-performance-tees",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Performance Tees for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Performance Tees engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "100% Recycled Poly Yarn (150 GSM)",
-      "Airflow Micro-Pique Knit",
-      "Quick-Dry Moisture Transmit"
-    ],
-    "features": [
-      "Anti-Chafe Forward Shoulder Seams",
-      "Split Hem for Range of Motion",
-      "Subtle Reflective Elements",
-      "Silk Screen or Rubber Patch Branding"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Performance Tees | GLOVES STORM",
-    "seo_description": "Custom Performance Tees for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000420001",
-        "alt_text": "Custom Performance Tees — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000042",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000420002",
-        "alt_text": "Custom Performance Tees — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000042",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000420003",
-        "alt_text": "Custom Performance Tees — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000042",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000420004",
-        "alt_text": "Custom Performance Tees — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000042",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000043",
-    "name": "Custom Fitness Sets",
-    "slug": "custom-fitness-sets",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Fitness Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Fitness Sets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Seamless Circular Knit Nylon Elastane (280 GSM)",
-      "High-Compression Ribbed Texturing"
-    ],
-    "features": [
-      "Matching 2-Piece or 3-Piece Gym Sets",
-      "Sports Bra + High Rise Leggings + Shrug",
-      "Solid & Acid Wash Dye Options",
-      "Bespoke Packaging"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Fitness Sets | GLOVES STORM",
-    "seo_description": "Custom Fitness Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000430001",
-        "alt_text": "Custom Fitness Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000043",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000430002",
-        "alt_text": "Custom Fitness Sets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000043",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000430003",
-        "alt_text": "Custom Fitness Sets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000043",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000430004",
-        "alt_text": "Custom Fitness Sets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000043",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000044",
-    "name": "Custom Athleisure Wear",
-    "slug": "custom-athleisure-wear",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Athleisure Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Athleisure Wear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Modal Cotton Spandex Luxury Blend (260 GSM)",
-      "Double Peached Ultra Soft Hand Feel"
-    ],
-    "features": [
-      "Gym-to-Street Hybrid Silhouette",
-      "Clean Minimalist Seaming",
-      "Custom Tonal Branding",
-      "Custom Silicone Wash Finished"
+      "Shorter Cuff for Clinch Flexibility",
+      "Reinforced Outer Fist Padding",
+      "Moisture-Repellent Satin",
+      "Authentic Thai Profile"
     ],
     "customization_options": [
       "Logo",
@@ -1254,599 +557,79 @@ export const initialProducts: Product[] = [
     "lead_time": "2-4 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Custom Athleisure Wear | GLOVES STORM",
-    "seo_description": "Custom Athleisure Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "seo_title": "Custom Muay Thai Gloves | GLOVES STORM",
+    "seo_description": "Custom Muay Thai Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "id": "a0000001-0000-0000-0000-000000000001",
+      "name": "Boxing Equipment",
+      "slug": "boxing-equipment",
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000440001",
-        "alt_text": "Custom Athleisure Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000060001",
+        "product_id": "b0000001-0000-0000-0000-000000000006",
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Muay Thai Gloves — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000044",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000440002",
-        "alt_text": "Custom Athleisure Wear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000060002",
+        "product_id": "b0000001-0000-0000-0000-000000000006",
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Muay Thai Gloves — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000044",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000440003",
-        "alt_text": "Custom Athleisure Wear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000060003",
+        "product_id": "b0000001-0000-0000-0000-000000000006",
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Muay Thai Gloves — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000044",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000440004",
-        "alt_text": "Custom Athleisure Wear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000060004",
+        "product_id": "b0000001-0000-0000-0000-000000000006",
+        "image_url": "/images/products/boxing-focuspads.jpg",
+        "alt_text": "Custom Muay Thai Gloves — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000044",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000045",
-    "name": "Private Label Gym Wear",
-    "slug": "private-label-gym-wear",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Private Label Gym Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Private Label Gym Wear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "id": "b0000001-0000-0000-0000-000000000007",
+    "name": "Custom Boxing Head Guards",
+    "slug": "custom-boxing-head-guards",
+    "category_id": "a0000001-0000-0000-0000-000000000001",
+    "short_description": "Custom Boxing Head Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Boxing Head Guards engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "Proprietary Mill Knitted Fabrics",
-      "Custom Dye House Pantones",
-      "Custom Hangtags & Bio-degradable Bags"
+      "Premium Genuine Leather",
+      "Multi-Layer EVA & Sponge Foam",
+      "Non-Slip Microfiber Inner",
+      "Reinforced Cheek Bumpers"
     ],
     "features": [
-      "Full Brand Line Development",
-      "Dedicated Production Lines",
-      "Pre-Production Golden Sample Verification",
-      "Barcode & Polybag Preparation"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-5 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Private Label Gym Wear | GLOVES STORM",
-    "seo_description": "Private Label Gym Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000450001",
-        "alt_text": "Private Label Gym Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000045",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000450002",
-        "alt_text": "Private Label Gym Wear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000045",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000450003",
-        "alt_text": "Private Label Gym Wear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000045",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000450004",
-        "alt_text": "Private Label Gym Wear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000045",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000046",
-    "name": "Custom Oversized T-Shirts",
-    "slug": "custom-oversized-t-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Oversized T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Oversized T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "100% Organic Combed Cotton (240-280 GSM)",
-      "1.25-inch Heavy Ribbed Collar",
-      "Enzyme Vintage Wash"
-    ],
-    "features": [
-      "Dropped Shoulder Silhouette",
-      "Relaxed Boxy Body",
-      "Twin-Needle Sleeve & Hem Stitches",
-      "Screen, DTG, or Puff Print Friendly"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Oversized T-Shirts | GLOVES STORM",
-    "seo_description": "Custom Oversized T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000460001",
-        "alt_text": "Custom Oversized T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000046",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000460002",
-        "alt_text": "Custom Oversized T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000046",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000460003",
-        "alt_text": "Custom Oversized T-Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000046",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000460004",
-        "alt_text": "Custom Oversized T-Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000046",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000047",
-    "name": "Custom Boxy T-Shirts",
-    "slug": "custom-boxy-t-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Boxy T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Boxy T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Heavyweight 260 GSM Carded Cotton",
-      "Pre-Shrunk Compact Yarn",
-      "Thick 32mm Neckband"
-    ],
-    "features": [
-      "Wide Chest with Cropped Streetwear Length",
-      "Structured Shoulder Fall",
-      "Pre-Shrunk Fabric",
-      "Custom Hem & Neck Labels"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Boxy T-Shirts | GLOVES STORM",
-    "seo_description": "Custom Boxy T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000470001",
-        "alt_text": "Custom Boxy T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000047",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000470002",
-        "alt_text": "Custom Boxy T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000047",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000470003",
-        "alt_text": "Custom Boxy T-Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000047",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000470004",
-        "alt_text": "Custom Boxy T-Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000047",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000048",
-    "name": "Custom Heavyweight T-Shirts",
-    "slug": "custom-heavyweight-t-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Heavyweight T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Heavyweight T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Ultra-Heavy 300 GSM 16-Singles Cotton Jersey",
-      "Reinforced Double Stitched Collar"
-    ],
-    "features": [
-      "Substantial Structural Drape",
-      "Fade-Resistant Reactive Dyes",
-      "Shoulder-to-Shoulder Neck Taping",
-      "High Durability"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Heavyweight T-Shirts | GLOVES STORM",
-    "seo_description": "Custom Heavyweight T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000480001",
-        "alt_text": "Custom Heavyweight T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000048",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000480002",
-        "alt_text": "Custom Heavyweight T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000048",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000480003",
-        "alt_text": "Custom Heavyweight T-Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000048",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000480004",
-        "alt_text": "Custom Heavyweight T-Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000048",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000049",
-    "name": "Custom Hoodies",
-    "slug": "custom-hoodies",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Hoodies engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "450 GSM Heavy French Terry (100% Cotton)",
-      "Double-Layer 4-Piece Ergonomic Hood",
-      "Heavy 2x2 Lycra Ribbing"
-    ],
-    "features": [
-      "No Drawstring Minimalist Aesthetic or Heavy Flat Cords",
-      "Kangaroo Pocket with Bar-Tack Reinforcement",
-      "Seamless Sides / Tubeknit Available",
-      "Custom Puff or Chenille Embroidery"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Hoodies | GLOVES STORM",
-    "seo_description": "Custom Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000490001",
-        "alt_text": "Custom Hoodies — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000049",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000490002",
-        "alt_text": "Custom Hoodies — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000049",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000490003",
-        "alt_text": "Custom Hoodies — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000049",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000490004",
-        "alt_text": "Custom Hoodies — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000049",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000050",
-    "name": "Custom Sweatshirts",
-    "slug": "custom-sweatshirts",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Sweatshirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Sweatshirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "420 GSM Brushed Fleece or Loopback Terry",
-      "Chunky Ribbed Crew Collar",
-      "Underarm V-Gussets"
-    ],
-    "features": [
-      "Classic Streetwear Relaxed Fit",
-      "Twin Needle Topstitching",
-      "Custom Garment Wash or Pigment Dye",
-      "Custom Woven Neck Labels"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Sweatshirts | GLOVES STORM",
-    "seo_description": "Custom Sweatshirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000500001",
-        "alt_text": "Custom Sweatshirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000050",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000500002",
-        "alt_text": "Custom Sweatshirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000050",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000500003",
-        "alt_text": "Custom Sweatshirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000050",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000500004",
-        "alt_text": "Custom Sweatshirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000050",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000051",
-    "name": "Custom Zip-Up Hoodies",
-    "slug": "custom-zip-up-hoodies",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Zip-Up Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Zip-Up Hoodies engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "450 GSM French Terry Cotton",
-      "Heavy Antique Silver Two-Way YKK Metal Zipper",
-      "Overlock Seams"
-    ],
-    "features": [
-      "Two-Way Custom Zipper Puller",
-      "Split Front Kangaroo Pockets",
-      "Structured Double Lined Hood",
-      "Heavy Ribbed Hem"
+      "360-Degree Cranial Protection",
+      "Lace-Up Crown Adjustment",
+      "Padded Ear Openings",
+      "Contoured Chin Strap"
     ],
     "customization_options": [
       "Logo",
@@ -1862,78 +645,79 @@ export const initialProducts: Product[] = [
     "lead_time": "2-4 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Custom Zip-Up Hoodies | GLOVES STORM",
-    "seo_description": "Custom Zip-Up Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "seo_title": "Custom Boxing Head Guards | GLOVES STORM",
+    "seo_description": "Custom Boxing Head Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "id": "a0000001-0000-0000-0000-000000000001",
+      "name": "Boxing Equipment",
+      "slug": "boxing-equipment",
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000510001",
-        "alt_text": "Custom Zip-Up Hoodies — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000070001",
+        "product_id": "b0000001-0000-0000-0000-000000000007",
+        "image_url": "/images/products/boxing-headguard.jpg",
+        "alt_text": "Custom Boxing Head Guards — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000051",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000510002",
-        "alt_text": "Custom Zip-Up Hoodies — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000070002",
+        "product_id": "b0000001-0000-0000-0000-000000000007",
+        "image_url": "/images/products/boxing-headguard.jpg",
+        "alt_text": "Custom Boxing Head Guards — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000051",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000510003",
-        "alt_text": "Custom Zip-Up Hoodies — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000070003",
+        "product_id": "b0000001-0000-0000-0000-000000000007",
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Boxing Head Guards — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000051",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000510004",
-        "alt_text": "Custom Zip-Up Hoodies — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000070004",
+        "product_id": "b0000001-0000-0000-0000-000000000007",
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Boxing Head Guards — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000051",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000052",
-    "name": "Custom Sweatpants",
-    "slug": "custom-sweatpants",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Sweatpants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Sweatpants engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "id": "b0000001-0000-0000-0000-000000000008",
+    "name": "Custom Boxing Hand Wraps",
+    "slug": "custom-boxing-hand-wraps",
+    "category_id": "a0000001-0000-0000-0000-000000000001",
+    "short_description": "Custom Boxing Hand Wraps for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Boxing Hand Wraps engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "420 GSM 100% Cotton Heavy Fleece",
-      "Heavy Cotton Flat Drawcords",
-      "Encased Elastic Waist"
+      "Semi-Elastic Mexican Style Cotton Blend",
+      "Reinforced Thumb Loop",
+      "Heavy-Duty Hook & Loop Closure",
+      "Woven Brand Patch"
     ],
     "features": [
-      "Straight Leg or Elastic Cuffed Ankle",
-      "Deep Hand Pockets with Jersey Lining",
-      "Single Rear Patch Pocket",
-      "Tonal or Contrast Puff Embroidery"
+      "180-inch (4.5m) Professional Length",
+      "Optimal Breathability & Stretch",
+      "Colorfast Washable Dyes",
+      "Anti-Fray Edges"
     ],
     "customization_options": [
       "Logo",
@@ -1945,81 +729,83 @@ export const initialProducts: Product[] = [
       "packaging",
       "printing and embroidery where applicable"
     ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
+    "moq": 100,
+    "lead_time": "1-2 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Custom Sweatpants | GLOVES STORM",
-    "seo_description": "Custom Sweatpants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "seo_title": "Custom Boxing Hand Wraps | GLOVES STORM",
+    "seo_description": "Custom Boxing Hand Wraps for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "id": "a0000001-0000-0000-0000-000000000001",
+      "name": "Boxing Equipment",
+      "slug": "boxing-equipment",
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000520001",
-        "alt_text": "Custom Sweatpants — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000080001",
+        "product_id": "b0000001-0000-0000-0000-000000000008",
+        "image_url": "/images/products/boxing-handwraps.jpg",
+        "alt_text": "Custom Boxing Hand Wraps — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000052",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000520002",
-        "alt_text": "Custom Sweatpants — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000080002",
+        "product_id": "b0000001-0000-0000-0000-000000000008",
+        "image_url": "/images/products/boxing-handwraps.jpg",
+        "alt_text": "Custom Boxing Hand Wraps — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000052",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000520003",
-        "alt_text": "Custom Sweatpants — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000080003",
+        "product_id": "b0000001-0000-0000-0000-000000000008",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Boxing Hand Wraps — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000052",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000520004",
-        "alt_text": "Custom Sweatpants — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000080004",
+        "product_id": "b0000001-0000-0000-0000-000000000008",
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Boxing Hand Wraps — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000052",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000031",
-    "name": "Custom Gym T-Shirts",
-    "slug": "custom-gym-t-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Gym T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Gym T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "id": "b0000001-0000-0000-0000-000000000009",
+    "name": "Custom Boxing Shin Guards",
+    "slug": "custom-boxing-shin-guards",
+    "category_id": "a0000001-0000-0000-0000-000000000001",
+    "short_description": "Custom Boxing Shin Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Boxing Shin Guards engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "95% Combed Ringspun Cotton / 5% Spandex (190 GSM)",
-      "Pre-Shrunk Enzyme Silicone Wash"
+      "Matte Synthetic Leather",
+      "Dual-Layer High Density Shock Foam",
+      "Neoprene Foot Loop",
+      "Dual Hook & Loop Calf Straps"
     ],
     "features": [
-      "Fitted Upper Body with Tapered Waist",
-      "Slight Scallop Scoop Hem",
-      "Non-Chafe Heat Transfer Neck Tag",
-      "Durable Screen Print or High Density Print"
+      "Instep Anatomic Contour",
+      "Zero-Shift Anti-Slip Lining",
+      "Dual Hook-and-Loop Shin Fit",
+      "Reinforced Strike Ridge"
     ],
     "customization_options": [
       "Logo",
@@ -2032,1448 +818,61 @@ export const initialProducts: Product[] = [
       "printing and embroidery where applicable"
     ],
     "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Gym T-Shirts | GLOVES STORM",
-    "seo_description": "Custom Gym T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000310001",
-        "alt_text": "Custom Gym T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000031",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000310002",
-        "alt_text": "Custom Gym T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000031",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000310003",
-        "alt_text": "Custom Gym T-Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000031",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000310004",
-        "alt_text": "Custom Gym T-Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000031",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000054",
-    "name": "Custom Varsity Jackets",
-    "slug": "custom-varsity-jackets",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Varsity Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Varsity Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Melton Wool Body (700 GSM)",
-      "Full-Grain Cowhide or Vegan Leather Sleeves",
-      "Quilted Diamond Satin Interior",
-      "Striped 2x2 Rib Trim"
-    ],
-    "features": [
-      "Heavy Snap Button Closure",
-      "Chenille Embroidered Chest & Back Badges",
-      "Internal Leather-Trimmed Welt Pocket",
-      "Authentic Heritage Feel"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 30,
-    "lead_time": "3-5 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Varsity Jackets | GLOVES STORM",
-    "seo_description": "Custom Varsity Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000540001",
-        "alt_text": "Custom Varsity Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000054",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000540002",
-        "alt_text": "Custom Varsity Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000054",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000540003",
-        "alt_text": "Custom Varsity Jackets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000054",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000540004",
-        "alt_text": "Custom Varsity Jackets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000054",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000055",
-    "name": "Custom Bomber Jackets",
-    "slug": "custom-bomber-jackets",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Bomber Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Bomber Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "High-Density Flight Nylon Shell (Waterproof)",
-      "Insulated Thermal Polyfill (150 GSM)",
-      "Heavy Brass / Antique Silver Zippers"
-    ],
-    "features": [
-      "Sleeve Utility Cigarette/Pen Pocket",
-      "Classic Emergency Orange or Custom Color Satin Lining",
-      "Ribbed MA-1 Collar",
-      "Dual Flap Snap Pockets"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 40,
-    "lead_time": "3-4 Weeks",
+    "lead_time": "2-4 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Custom Bomber Jackets | GLOVES STORM",
-    "seo_description": "Custom Bomber Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "seo_title": "Custom Boxing Shin Guards | GLOVES STORM",
+    "seo_description": "Custom Boxing Shin Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "id": "a0000001-0000-0000-0000-000000000001",
+      "name": "Boxing Equipment",
+      "slug": "boxing-equipment",
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
+      "sort_order": 1,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000550001",
-        "alt_text": "Custom Bomber Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000090001",
+        "product_id": "b0000001-0000-0000-0000-000000000009",
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Boxing Shin Guards — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000055",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000550002",
-        "alt_text": "Custom Bomber Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000090002",
+        "product_id": "b0000001-0000-0000-0000-000000000009",
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Boxing Shin Guards — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000055",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000550003",
-        "alt_text": "Custom Bomber Jackets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000090003",
+        "product_id": "b0000001-0000-0000-0000-000000000009",
+        "image_url": "/images/products/boxing-headguard.jpg",
+        "alt_text": "Custom Boxing Shin Guards — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000055",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000550004",
-        "alt_text": "Custom Bomber Jackets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
+        "id": "e0000001-0000-0000-0000-000000090004",
+        "product_id": "b0000001-0000-0000-0000-000000000009",
+        "image_url": "/images/products/boxing-mma-gloves.jpg",
+        "alt_text": "Custom Boxing Shin Guards — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000055",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000056",
-    "name": "Custom Windbreaker Jackets",
-    "slug": "custom-windbreaker-jackets",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Windbreaker Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Windbreaker Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "100% Lightweight Micro-Ripstop Nylon",
-      "DWR Water-Repellent Treatment",
-      "Soft Mesh Interior"
-    ],
-    "features": [
-      "Packable into Pocket Design",
-      "Half-Zip or Full-Zip Pullover Style",
-      "Bungee Toggle Hem & Hood Cinch",
-      "Screen or Reflective Print Ready"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Windbreaker Jackets | GLOVES STORM",
-    "seo_description": "Custom Windbreaker Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000560001",
-        "alt_text": "Custom Windbreaker Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000056",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000560002",
-        "alt_text": "Custom Windbreaker Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000056",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000560003",
-        "alt_text": "Custom Windbreaker Jackets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000056",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000560004",
-        "alt_text": "Custom Windbreaker Jackets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000056",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000057",
-    "name": "Custom Denim Jackets",
-    "slug": "custom-denim-jackets",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Denim Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Denim Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "14oz 100% Cotton Raw or Washed Rigid Denim",
-      "Custom Engraved Copper / Pewter Tack Buttons"
-    ],
-    "features": [
-      "Classic Type III Trucker Silhouette",
-      "Enzyme Stonewash, Acid Wash, or Distressed Finishes",
-      "Twin Chest Flap Pockets",
-      "Custom Leather Back Waist Patch"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-5 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Denim Jackets | GLOVES STORM",
-    "seo_description": "Custom Denim Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000570001",
-        "alt_text": "Custom Denim Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000057",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000570002",
-        "alt_text": "Custom Denim Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000057",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000570003",
-        "alt_text": "Custom Denim Jackets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000057",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000570004",
-        "alt_text": "Custom Denim Jackets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000057",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000058",
-    "name": "Custom Polo Shirts",
-    "slug": "custom-polo-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Polo Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Polo Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "220 GSM 100% Combed Pique Cotton or Mercerized Cotton",
-      "Mother-of-Pearl or Horn Buttons"
-    ],
-    "features": [
-      "Anti-Curl Ribbed Collar",
-      "Tailored Side Vents with Contrast Tape",
-      "Fine Gauge Embroidery on Chest",
-      "Pre-Shrunk Bio-Polished Finish"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Polo Shirts | GLOVES STORM",
-    "seo_description": "Custom Polo Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000580001",
-        "alt_text": "Custom Polo Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000058",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000580002",
-        "alt_text": "Custom Polo Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000058",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000580003",
-        "alt_text": "Custom Polo Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000058",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000580004",
-        "alt_text": "Custom Polo Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000058",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000059",
-    "name": "Custom Long Sleeve Shirts",
-    "slug": "custom-long-sleeve-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Long Sleeve Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Long Sleeve Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "220 GSM Ringspun Cotton Jersey",
-      "Spandex Ribbed Cuffs for Retention"
-    ],
-    "features": [
-      "Drop Shoulder or Regular Athletic Fit",
-      "Sleeve Print Length Available",
-      "Reinforced Taped Collar",
-      "Custom Neck Printing"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Long Sleeve Shirts | GLOVES STORM",
-    "seo_description": "Custom Long Sleeve Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000590001",
-        "alt_text": "Custom Long Sleeve Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000059",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000590002",
-        "alt_text": "Custom Long Sleeve Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000059",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000590003",
-        "alt_text": "Custom Long Sleeve Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000059",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000590004",
-        "alt_text": "Custom Long Sleeve Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000059",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000060",
-    "name": "Private Label Streetwear",
-    "slug": "private-label-streetwear",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Private Label Streetwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Private Label Streetwear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Custom Milled Heavy Fabrics (Up to 600 GSM)",
-      "Custom Metal Hardware & Finishes"
-    ],
-    "features": [
-      "Full Collection Tech Pack Development",
-      "Custom Woven Damask Labels, Hangtags, & Ziplock Bags",
-      "Sample Prototyping in 7 Days",
-      "End-to-End White Label Fulfilment"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-5 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Private Label Streetwear | GLOVES STORM",
-    "seo_description": "Private Label Streetwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000600001",
-        "alt_text": "Private Label Streetwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000060",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000600002",
-        "alt_text": "Private Label Streetwear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000060",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000600003",
-        "alt_text": "Private Label Streetwear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000060",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000600004",
-        "alt_text": "Private Label Streetwear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000060",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000053",
-    "name": "Custom Cargo Pants",
-    "slug": "custom-cargo-pants",
-    "category_id": "a0000001-0000-0000-0000-000000000004",
-    "short_description": "Custom Cargo Pants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Cargo Pants engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Heavyweight 280 GSM Cotton Twill or Ripstop",
-      "Snap Button Pocket Hardware",
-      "Drawstring Hem Adjusters"
-    ],
-    "features": [
-      "Multi-Bellows Cargo Pockets",
-      "Articulated Pleated Knees",
-      "Relaxed Skate/Streetwear Fit",
-      "Reinforced Seat & Crotch"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Cargo Pants | GLOVES STORM",
-    "seo_description": "Custom Cargo Pants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000004",
-      "name": "Clothing & Streetwear",
-      "slug": "clothing-streetwear",
-      "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 4,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000530001",
-        "alt_text": "Custom Cargo Pants — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000053",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000530002",
-        "alt_text": "Custom Cargo Pants — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000053",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000530003",
-        "alt_text": "Custom Cargo Pants — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000053",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000530004",
-        "alt_text": "Custom Cargo Pants — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000053",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000032",
-    "name": "Custom Gym Shorts",
-    "slug": "custom-gym-shorts",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Gym Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Gym Shorts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "4-Way Stretch Poly Spandex (180 GSM)",
-      "Soft Breathable Knit Inner Liner",
-      "Matte Drawstring Eyelets"
-    ],
-    "features": [
-      "5-inch or 7-inch Inseam Lengths",
-      "Concealed Phone Zipper Pocket",
-      "Towel Loop in Back Waistband",
-      "Reflective Brand Accent"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Gym Shorts | GLOVES STORM",
-    "seo_description": "Custom Gym Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000320001",
-        "alt_text": "Custom Gym Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000032",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000320002",
-        "alt_text": "Custom Gym Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000032",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000320003",
-        "alt_text": "Custom Gym Shorts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000032",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000320004",
-        "alt_text": "Custom Gym Shorts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000032",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000033",
-    "name": "Custom Gym Leggings",
-    "slug": "custom-gym-leggings",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Gym Leggings for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Gym Leggings engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "75% Nylon / 25% Spandex (260 GSM)",
-      "Ultra-Soft Butter Touch Fabric",
-      "Interlock Squat-Proof Knitting"
-    ],
-    "features": [
-      "High-Waisted Compressive Band",
-      "Zero Front Center Seam (Anti-Camel)",
-      "Reinforced Triangular Gusset",
-      "Seamless Aesthetic"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Gym Leggings | GLOVES STORM",
-    "seo_description": "Custom Gym Leggings for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000330001",
-        "alt_text": "Custom Gym Leggings — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000033",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000330002",
-        "alt_text": "Custom Gym Leggings — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000033",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000330003",
-        "alt_text": "Custom Gym Leggings — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000033",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000330004",
-        "alt_text": "Custom Gym Leggings — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000033",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000034",
-    "name": "Custom Sports Bras",
-    "slug": "custom-sports-bras",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Sports Bras for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Sports Bras engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "High-Impact Double Layer Nylon Elastane (280 GSM)",
-      "Removable Molded Foam Cups",
-      "Branded Jacquard Elastic Band"
-    ],
-    "features": [
-      "Racerback or Cross-Strap Support",
-      "Medium-to-High Support Level",
-      "Chafe-Free Bonded Edge Seams",
-      "Custom Silicone Branding"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Sports Bras | GLOVES STORM",
-    "seo_description": "Custom Sports Bras for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000340001",
-        "alt_text": "Custom Sports Bras — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000034",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000340002",
-        "alt_text": "Custom Sports Bras — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000034",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000340003",
-        "alt_text": "Custom Sports Bras — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000034",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000340004",
-        "alt_text": "Custom Sports Bras — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000034",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000035",
-    "name": "Custom Tank Tops",
-    "slug": "custom-tank-tops",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Tank Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Tank Tops engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Tri-Blend Cotton Poly Rayon (160 GSM)",
-      "Ribbed Neck & Arm Binding",
-      "Silky Lightweight Drape"
-    ],
-    "features": [
-      "Stringer or Athletic Standard Cut",
-      "Deep Drop Armholes for Lat Clearance",
-      "Reinforced Seam Bindings",
-      "Screen Print Ready"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Tank Tops | GLOVES STORM",
-    "seo_description": "Custom Tank Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000350001",
-        "alt_text": "Custom Tank Tops — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000035",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000350002",
-        "alt_text": "Custom Tank Tops — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000035",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000350003",
-        "alt_text": "Custom Tank Tops — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000035",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000350004",
-        "alt_text": "Custom Tank Tops — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000035",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000036",
-    "name": "Custom Crop Tops",
-    "slug": "custom-crop-tops",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Crop Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Crop Tops engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Soft Ribbed Cotton Spandex / Performance Nylon (220 GSM)",
-      "Pre-Washed Anti-Shrink Treatment"
-    ],
-    "features": [
-      "Form-Fitting Midriff Cut",
-      "High Crew or Scoop Neck",
-      "Thumbhole Long Sleeve Options",
-      "Custom Rubber Label Hem"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Crop Tops | GLOVES STORM",
-    "seo_description": "Custom Crop Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000360001",
-        "alt_text": "Custom Crop Tops — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000036",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000360002",
-        "alt_text": "Custom Crop Tops — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000036",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000360003",
-        "alt_text": "Custom Crop Tops — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000036",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000360004",
-        "alt_text": "Custom Crop Tops — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000036",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000037",
-    "name": "Custom Compression Shirts",
-    "slug": "custom-compression-shirts",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Compression Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Compression Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "85% Poly / 15% Spandex (220 GSM)",
-      "Aero-Mesh Underarm Panels",
-      "4-Way High Tensile Knit"
-    ],
-    "features": [
-      "Second-Skin Ergonomic Compressive Fit",
-      "Targeted Blood Flow Support",
-      "Flatlock Seam Stitching",
-      "Sublimated or Heat Transfer Logos"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Compression Shirts | GLOVES STORM",
-    "seo_description": "Custom Compression Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000370001",
-        "alt_text": "Custom Compression Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000037",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000370002",
-        "alt_text": "Custom Compression Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000037",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000370003",
-        "alt_text": "Custom Compression Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000037",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000370004",
-        "alt_text": "Custom Compression Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000037",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000038",
-    "name": "Custom Compression Shorts",
-    "slug": "custom-compression-shorts",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Compression Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Compression Shorts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "High Elasticity Nylon Spandex (240 GSM)",
-      "Jacquard Custom Branded Elastic Band"
-    ],
-    "features": [
-      "Cup Pocket Insert Optional",
-      "Thigh Phone Stash Pocket",
-      "Reinforced Crotch Gusset",
-      "Non-Rolling Silicone Leg Grips"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Compression Shorts | GLOVES STORM",
-    "seo_description": "Custom Compression Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000380001",
-        "alt_text": "Custom Compression Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000038",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000380002",
-        "alt_text": "Custom Compression Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000038",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000380003",
-        "alt_text": "Custom Compression Shorts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000038",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000380004",
-        "alt_text": "Custom Compression Shorts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000038",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000039",
-    "name": "Custom Joggers",
-    "slug": "custom-joggers",
-    "category_id": "a0000001-0000-0000-0000-000000000003",
-    "short_description": "Custom Joggers for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Joggers engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "360 GSM Cotton / Polyester Performance Fleece",
-      "Ribbed Ankle Cuffs",
-      "Heavyweight Flat Drawstrings"
-    ],
-    "features": [
-      "Slim Tapered Athletic Fit",
-      "Waterproof Concealed Zip Pockets",
-      "Reinforced Knee Panels",
-      "High Density Logo Application"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "2-3 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Joggers | GLOVES STORM",
-    "seo_description": "Custom Joggers for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000003",
-      "name": "Gym & Fitness Wear",
-      "slug": "gym-fitness-wear",
-      "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 3,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000390001",
-        "alt_text": "Custom Joggers — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000039",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000390002",
-        "alt_text": "Custom Joggers — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000039",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000390003",
-        "alt_text": "Custom Joggers — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000039",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000390004",
-        "alt_text": "Custom Joggers — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000039",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
@@ -3512,56 +911,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Focus Pads | GLOVES STORM",
     "seo_description": "Custom Focus Pads for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000100001",
-        "alt_text": "Custom Focus Pads — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000010",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-focuspads.jpg",
+        "alt_text": "Custom Focus Pads — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000100002",
-        "alt_text": "Custom Focus Pads — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.523+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000010",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-focuspads.jpg",
+        "alt_text": "Custom Focus Pads — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000100003",
-        "alt_text": "Custom Focus Pads — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000010",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Focus Pads — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000100004",
-        "alt_text": "Custom Focus Pads — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000010",
-        "sort_order": 4
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Focus Pads — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
@@ -3600,56 +999,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Kick Pads | GLOVES STORM",
     "seo_description": "Custom Kick Pads for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000110001",
-        "alt_text": "Custom Kick Pads — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000011",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-focuspads.jpg",
+        "alt_text": "Custom Kick Pads — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000110002",
-        "alt_text": "Custom Kick Pads — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000011",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Kick Pads — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000110003",
-        "alt_text": "Custom Kick Pads — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000011",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-heavybag.jpg",
+        "alt_text": "Custom Kick Pads — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000110004",
-        "alt_text": "Custom Kick Pads — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000011",
-        "sort_order": 4
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Kick Pads — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
@@ -3688,56 +1087,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Punching Bags | GLOVES STORM",
     "seo_description": "Custom Punching Bags for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000120001",
-        "alt_text": "Custom Punching Bags — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000012",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-heavybag.jpg",
+        "alt_text": "Custom Punching Bags — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000120002",
-        "alt_text": "Custom Punching Bags — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000012",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-heavybag.jpg",
+        "alt_text": "Custom Punching Bags — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000120003",
-        "alt_text": "Custom Punching Bags — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000012",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Punching Bags — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000120004",
-        "alt_text": "Custom Punching Bags — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000012",
-        "sort_order": 4
+        "image_url": "/images/products/boxing-handwraps.jpg",
+        "alt_text": "Custom Punching Bags — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
@@ -3775,56 +1174,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Heavy Bags | GLOVES STORM",
     "seo_description": "Custom Heavy Bags for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.611Z",
+    "updated_at": "2026-09-14T14:02:04.611Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.611Z",
+      "updated_at": "2026-09-14T14:02:04.611Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000130001",
-        "alt_text": "Custom Heavy Bags — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000013",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-heavybag.jpg",
+        "alt_text": "Custom Heavy Bags — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000130002",
-        "alt_text": "Custom Heavy Bags — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000013",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-heavybag.jpg",
+        "alt_text": "Custom Heavy Bags — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000130003",
-        "alt_text": "Custom Heavy Bags — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000013",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-focuspads.jpg",
+        "alt_text": "Custom Heavy Bags — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000130004",
-        "alt_text": "Custom Heavy Bags — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000013",
-        "sort_order": 4
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Custom Heavy Bags — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       }
     ]
   },
@@ -3862,56 +1261,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Boxing Equipment Sets | GLOVES STORM",
     "seo_description": "Custom Boxing Equipment Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000140001",
-        "alt_text": "Custom Boxing Equipment Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000014",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Custom Boxing Equipment Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000140002",
-        "alt_text": "Custom Boxing Equipment Sets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000014",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-headguard.jpg",
+        "alt_text": "Custom Boxing Equipment Sets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.611Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000140003",
-        "alt_text": "Custom Boxing Equipment Sets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000014",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-shinguards.jpg",
+        "alt_text": "Custom Boxing Equipment Sets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000140004",
-        "alt_text": "Custom Boxing Equipment Sets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000014",
-        "sort_order": 4
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Boxing Equipment Sets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -3949,56 +1348,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Private Label Boxing Equipment | GLOVES STORM",
     "seo_description": "Private Label Boxing Equipment for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000001",
       "name": "Boxing Equipment",
       "slug": "boxing-equipment",
-      "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
+      "image_url": "/images/products/boxing-gloves-black.png",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 1,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000150001",
-        "alt_text": "Private Label Boxing Equipment — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000015",
-        "sort_order": 1
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Private Label Boxing Equipment — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000150002",
-        "alt_text": "Private Label Boxing Equipment — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000015",
-        "sort_order": 2
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Private Label Boxing Equipment — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000150003",
-        "alt_text": "Private Label Boxing Equipment — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000015",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Boxing Equipment — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000150004",
-        "alt_text": "Private Label Boxing Equipment — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000015",
-        "sort_order": 4
+        "image_url": "/images/products/boxing-gloves-red.png",
+        "alt_text": "Private Label Boxing Equipment — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4036,56 +1435,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Basketball Uniforms | GLOVES STORM",
     "seo_description": "Custom Basketball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000160001",
-        "alt_text": "Custom Basketball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000016",
-        "sort_order": 1
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Basketball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000160002",
-        "alt_text": "Custom Basketball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000016",
-        "sort_order": 2
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Basketball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000160003",
-        "alt_text": "Custom Basketball Uniforms — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000016",
-        "sort_order": 3
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Basketball Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000160004",
-        "alt_text": "Custom Basketball Uniforms — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000016",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Basketball Uniforms — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4123,56 +1522,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom American Football Uniforms | GLOVES STORM",
     "seo_description": "Custom American Football Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000170001",
-        "alt_text": "Custom American Football Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000017",
-        "sort_order": 1
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom American Football Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000170002",
-        "alt_text": "Custom American Football Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000017",
-        "sort_order": 2
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom American Football Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000170003",
-        "alt_text": "Custom American Football Uniforms — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000017",
-        "sort_order": 3
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom American Football Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000170004",
-        "alt_text": "Custom American Football Uniforms — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000017",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom American Football Uniforms — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4210,56 +1609,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Soccer Kits | GLOVES STORM",
     "seo_description": "Custom Soccer Kits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000180001",
-        "alt_text": "Custom Soccer Kits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000018",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Soccer Kits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000180002",
-        "alt_text": "Custom Soccer Kits — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000018",
-        "sort_order": 2
+        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Soccer Kits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000180003",
-        "alt_text": "Custom Soccer Kits — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000018",
-        "sort_order": 3
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Soccer Kits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000180004",
-        "alt_text": "Custom Soccer Kits — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000018",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Soccer Kits — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4297,56 +1696,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Baseball Uniforms | GLOVES STORM",
     "seo_description": "Custom Baseball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000190001",
-        "alt_text": "Custom Baseball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000019",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Baseball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000190002",
-        "alt_text": "Custom Baseball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000019",
-        "sort_order": 2
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Baseball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000190003",
-        "alt_text": "Custom Baseball Uniforms — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000019",
-        "sort_order": 3
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Baseball Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000190004",
-        "alt_text": "Custom Baseball Uniforms — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000019",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Baseball Uniforms — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4384,56 +1783,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Volleyball Uniforms | GLOVES STORM",
     "seo_description": "Custom Volleyball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000200001",
-        "alt_text": "Custom Volleyball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000020",
-        "sort_order": 1
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Volleyball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000200002",
-        "alt_text": "Custom Volleyball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000020",
-        "sort_order": 2
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Volleyball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000200003",
-        "alt_text": "Custom Volleyball Uniforms — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000020",
-        "sort_order": 3
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Volleyball Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000200004",
-        "alt_text": "Custom Volleyball Uniforms — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000020",
-        "sort_order": 4
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Volleyball Uniforms — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4471,56 +1870,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Rugby Kits | GLOVES STORM",
     "seo_description": "Custom Rugby Kits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000210001",
-        "alt_text": "Custom Rugby Kits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000021",
-        "sort_order": 1
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Rugby Kits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000210002",
-        "alt_text": "Custom Rugby Kits — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000021",
-        "sort_order": 2
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Rugby Kits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000210003",
-        "alt_text": "Custom Rugby Kits — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000021",
-        "sort_order": 3
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Rugby Kits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000210004",
-        "alt_text": "Custom Rugby Kits — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000021",
-        "sort_order": 4
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Rugby Kits — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4558,56 +1957,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Cricket Uniforms | GLOVES STORM",
     "seo_description": "Custom Cricket Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000220001",
-        "alt_text": "Custom Cricket Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000022",
-        "sort_order": 1
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Cricket Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000220002",
-        "alt_text": "Custom Cricket Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000022",
-        "sort_order": 2
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Cricket Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000220003",
-        "alt_text": "Custom Cricket Uniforms — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000022",
-        "sort_order": 3
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Cricket Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000220004",
-        "alt_text": "Custom Cricket Uniforms — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000022",
-        "sort_order": 4
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Cricket Uniforms — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4645,56 +2044,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Training Jerseys | GLOVES STORM",
     "seo_description": "Custom Training Jerseys for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000230001",
-        "alt_text": "Custom Training Jerseys — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000023",
-        "sort_order": 1
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Training Jerseys — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000230002",
-        "alt_text": "Custom Training Jerseys — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000023",
-        "sort_order": 2
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Training Jerseys — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000230003",
-        "alt_text": "Custom Training Jerseys — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000023",
-        "sort_order": 3
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Training Jerseys — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000230004",
-        "alt_text": "Custom Training Jerseys — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000023",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Training Jerseys — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4732,56 +2131,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Sports Shorts | GLOVES STORM",
     "seo_description": "Custom Sports Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000240001",
-        "alt_text": "Custom Sports Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000024",
-        "sort_order": 1
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Sports Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000240002",
-        "alt_text": "Custom Sports Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000024",
-        "sort_order": 2
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Sports Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000240003",
-        "alt_text": "Custom Sports Shorts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000024",
-        "sort_order": 3
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Sports Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000240004",
-        "alt_text": "Custom Sports Shorts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000024",
-        "sort_order": 4
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Sports Shorts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4818,56 +2217,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Compression Wear | GLOVES STORM",
     "seo_description": "Custom Compression Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000250001",
-        "alt_text": "Custom Compression Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000025",
-        "sort_order": 1
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Compression Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000250002",
-        "alt_text": "Custom Compression Wear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000025",
-        "sort_order": 2
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Compression Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000250003",
-        "alt_text": "Custom Compression Wear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000025",
-        "sort_order": 3
+        "image_url": "/images/products/boxing-mma-gloves.jpg",
+        "alt_text": "Custom Compression Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000250004",
-        "alt_text": "Custom Compression Wear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000025",
-        "sort_order": 4
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Compression Wear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4905,56 +2304,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Tracksuits | GLOVES STORM",
     "seo_description": "Custom Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000260001",
-        "alt_text": "Custom Tracksuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000026",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Tracksuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000260002",
-        "alt_text": "Custom Tracksuits — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000026",
-        "sort_order": 2
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Tracksuits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000260003",
-        "alt_text": "Custom Tracksuits — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000026",
-        "sort_order": 3
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Tracksuits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000260004",
-        "alt_text": "Custom Tracksuits — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000026",
-        "sort_order": 4
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Tracksuits — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -4992,56 +2391,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Warm-Up Suits | GLOVES STORM",
     "seo_description": "Custom Warm-Up Suits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000270001",
-        "alt_text": "Custom Warm-Up Suits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000027",
-        "sort_order": 1
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Warm-Up Suits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000270002",
-        "alt_text": "Custom Warm-Up Suits — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000027",
-        "sort_order": 2
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Warm-Up Suits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000270003",
-        "alt_text": "Custom Warm-Up Suits — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000027",
-        "sort_order": 3
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Warm-Up Suits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000270004",
-        "alt_text": "Custom Warm-Up Suits — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000027",
-        "sort_order": 4
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Warm-Up Suits — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -5079,56 +2478,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Team Jackets | GLOVES STORM",
     "seo_description": "Custom Team Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000280001",
-        "alt_text": "Custom Team Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000028",
-        "sort_order": 1
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Team Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000280002",
-        "alt_text": "Custom Team Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000028",
-        "sort_order": 2
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Team Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000280003",
-        "alt_text": "Custom Team Jackets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000028",
-        "sort_order": 3
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Team Jackets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000280004",
-        "alt_text": "Custom Team Jackets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000028",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Team Jackets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -5166,56 +2565,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Training Wear | GLOVES STORM",
     "seo_description": "Custom Training Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000290001",
-        "alt_text": "Custom Training Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000029",
-        "sort_order": 1
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Training Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000290002",
-        "alt_text": "Custom Training Wear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000029",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Training Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000290003",
-        "alt_text": "Custom Training Wear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000029",
-        "sort_order": 3
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Training Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000290004",
-        "alt_text": "Custom Training Wear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000029",
-        "sort_order": 4
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Training Wear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
@@ -5253,76 +2652,75 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Private Label Teamwear | GLOVES STORM",
     "seo_description": "Private Label Teamwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.524+00:00",
-    "updated_at": "2026-09-14T11:04:06.524+00:00",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000002",
       "name": "Sportswear & Teamwear",
       "slug": "sportswear-teamwear",
-      "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
+      "image_url": "/images/products/basketball-uniform.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 2,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000300001",
-        "alt_text": "Private Label Teamwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000030",
-        "sort_order": 1
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Private Label Teamwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000300002",
-        "alt_text": "Private Label Teamwear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000030",
-        "sort_order": 2
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Private Label Teamwear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000300003",
-        "alt_text": "Private Label Teamwear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000030",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Teamwear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000300004",
-        "alt_text": "Private Label Teamwear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1508344928928-7165b67de128?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.524+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000030",
-        "sort_order": 4
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Private Label Teamwear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000069",
-    "name": "Custom Labels & Hang Tags",
-    "slug": "custom-labels-and-hang-tags",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "Custom Labels & Hang Tags for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Labels & Hang Tags engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "id": "b0000001-0000-0000-0000-000000000031",
+    "name": "Custom Gym T-Shirts",
+    "slug": "custom-gym-t-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Gym T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Gym T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "High-Definition Damask Woven Yarn",
-      "Recycled Craft Paper Cardstock (600 GSM)",
-      "Soft Cotton Printed Care Labels"
+      "95% Combed Ringspun Cotton / 5% Spandex (190 GSM)",
+      "Pre-Shrunk Enzyme Silicone Wash"
     ],
     "features": [
-      "Laser Cut Soft Edges (Non-Itch)",
-      "Embossed, Debossed, and Spot UV Tags",
-      "Custom Wax Cord & Safety Pins",
-      "Complete Trims Package"
+      "Fitted Upper Body with Tapered Waist",
+      "Slight Scallop Scoop Hem",
+      "Non-Chafe Heat Transfer Neck Tag",
+      "Durable Screen Print or High Density Print"
     ],
     "customization_options": [
       "Logo",
@@ -5334,62 +2732,3177 @@ export const initialProducts: Product[] = [
       "packaging",
       "printing and embroidery where applicable"
     ],
-    "moq": 200,
-    "lead_time": "1-2 Weeks",
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Gym T-Shirts | GLOVES STORM",
+    "seo_description": "Custom Gym T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000310001",
+        "product_id": "b0000001-0000-0000-0000-000000000031",
+        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Gym T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000310002",
+        "product_id": "b0000001-0000-0000-0000-000000000031",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Gym T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000310003",
+        "product_id": "b0000001-0000-0000-0000-000000000031",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Gym T-Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000310004",
+        "product_id": "b0000001-0000-0000-0000-000000000031",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Gym T-Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000032",
+    "name": "Custom Gym Shorts",
+    "slug": "custom-gym-shorts",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Gym Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Gym Shorts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "4-Way Stretch Poly Spandex (180 GSM)",
+      "Soft Breathable Knit Inner Liner",
+      "Matte Drawstring Eyelets"
+    ],
+    "features": [
+      "5-inch or 7-inch Inseam Lengths",
+      "Concealed Phone Zipper Pocket",
+      "Towel Loop in Back Waistband",
+      "Reflective Brand Accent"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Custom Labels & Hang Tags | GLOVES STORM",
-    "seo_description": "Custom Labels & Hang Tags for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "seo_title": "Custom Gym Shorts | GLOVES STORM",
+    "seo_description": "Custom Gym Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000320001",
+        "product_id": "b0000001-0000-0000-0000-000000000032",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Gym Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000320002",
+        "product_id": "b0000001-0000-0000-0000-000000000032",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Gym Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000320003",
+        "product_id": "b0000001-0000-0000-0000-000000000032",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Gym Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000320004",
+        "product_id": "b0000001-0000-0000-0000-000000000032",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Gym Shorts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000033",
+    "name": "Custom Gym Leggings",
+    "slug": "custom-gym-leggings",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Gym Leggings for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Gym Leggings engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "75% Nylon / 25% Spandex (260 GSM)",
+      "Ultra-Soft Butter Touch Fabric",
+      "Interlock Squat-Proof Knitting"
+    ],
+    "features": [
+      "High-Waisted Compressive Band",
+      "Zero Front Center Seam (Anti-Camel)",
+      "Reinforced Triangular Gusset",
+      "Seamless Aesthetic"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Gym Leggings | GLOVES STORM",
+    "seo_description": "Custom Gym Leggings for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000330001",
+        "product_id": "b0000001-0000-0000-0000-000000000033",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Gym Leggings — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000330002",
+        "product_id": "b0000001-0000-0000-0000-000000000033",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Gym Leggings — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000330003",
+        "product_id": "b0000001-0000-0000-0000-000000000033",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Gym Leggings — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000330004",
+        "product_id": "b0000001-0000-0000-0000-000000000033",
+        "image_url": "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Gym Leggings — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000034",
+    "name": "Custom Sports Bras",
+    "slug": "custom-sports-bras",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Sports Bras for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Sports Bras engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "High-Impact Double Layer Nylon Elastane (280 GSM)",
+      "Removable Molded Foam Cups",
+      "Branded Jacquard Elastic Band"
+    ],
+    "features": [
+      "Racerback or Cross-Strap Support",
+      "Medium-to-High Support Level",
+      "Chafe-Free Bonded Edge Seams",
+      "Custom Silicone Branding"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Sports Bras | GLOVES STORM",
+    "seo_description": "Custom Sports Bras for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000340001",
+        "product_id": "b0000001-0000-0000-0000-000000000034",
+        "image_url": "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Sports Bras — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000340002",
+        "product_id": "b0000001-0000-0000-0000-000000000034",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Sports Bras — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000340003",
+        "product_id": "b0000001-0000-0000-0000-000000000034",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Sports Bras — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000340004",
+        "product_id": "b0000001-0000-0000-0000-000000000034",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Sports Bras — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000035",
+    "name": "Custom Tank Tops",
+    "slug": "custom-tank-tops",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Tank Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Tank Tops engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Tri-Blend Cotton Poly Rayon (160 GSM)",
+      "Ribbed Neck & Arm Binding",
+      "Silky Lightweight Drape"
+    ],
+    "features": [
+      "Stringer or Athletic Standard Cut",
+      "Deep Drop Armholes for Lat Clearance",
+      "Reinforced Seam Bindings",
+      "Screen Print Ready"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Tank Tops | GLOVES STORM",
+    "seo_description": "Custom Tank Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000350001",
+        "product_id": "b0000001-0000-0000-0000-000000000035",
+        "image_url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Tank Tops — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000350002",
+        "product_id": "b0000001-0000-0000-0000-000000000035",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Tank Tops — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000350003",
+        "product_id": "b0000001-0000-0000-0000-000000000035",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Tank Tops — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000350004",
+        "product_id": "b0000001-0000-0000-0000-000000000035",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Tank Tops — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000036",
+    "name": "Custom Crop Tops",
+    "slug": "custom-crop-tops",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Crop Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Crop Tops engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Soft Ribbed Cotton Spandex / Performance Nylon (220 GSM)",
+      "Pre-Washed Anti-Shrink Treatment"
+    ],
+    "features": [
+      "Form-Fitting Midriff Cut",
+      "High Crew or Scoop Neck",
+      "Thumbhole Long Sleeve Options",
+      "Custom Rubber Label Hem"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Crop Tops | GLOVES STORM",
+    "seo_description": "Custom Crop Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000360001",
+        "product_id": "b0000001-0000-0000-0000-000000000036",
+        "image_url": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Crop Tops — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000360002",
+        "product_id": "b0000001-0000-0000-0000-000000000036",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Crop Tops — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000360003",
+        "product_id": "b0000001-0000-0000-0000-000000000036",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Crop Tops — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000360004",
+        "product_id": "b0000001-0000-0000-0000-000000000036",
+        "image_url": "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Crop Tops — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000037",
+    "name": "Custom Compression Shirts",
+    "slug": "custom-compression-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Compression Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Compression Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "85% Poly / 15% Spandex (220 GSM)",
+      "Aero-Mesh Underarm Panels",
+      "4-Way High Tensile Knit"
+    ],
+    "features": [
+      "Second-Skin Ergonomic Compressive Fit",
+      "Targeted Blood Flow Support",
+      "Flatlock Seam Stitching",
+      "Sublimated or Heat Transfer Logos"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Compression Shirts | GLOVES STORM",
+    "seo_description": "Custom Compression Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000370001",
+        "product_id": "b0000001-0000-0000-0000-000000000037",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Compression Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000370002",
+        "product_id": "b0000001-0000-0000-0000-000000000037",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Compression Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000370003",
+        "product_id": "b0000001-0000-0000-0000-000000000037",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Compression Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000370004",
+        "product_id": "b0000001-0000-0000-0000-000000000037",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Compression Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000038",
+    "name": "Custom Compression Shorts",
+    "slug": "custom-compression-shorts",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Compression Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Compression Shorts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "High Elasticity Nylon Spandex (240 GSM)",
+      "Jacquard Custom Branded Elastic Band"
+    ],
+    "features": [
+      "Cup Pocket Insert Optional",
+      "Thigh Phone Stash Pocket",
+      "Reinforced Crotch Gusset",
+      "Non-Rolling Silicone Leg Grips"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Compression Shorts | GLOVES STORM",
+    "seo_description": "Custom Compression Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000380001",
+        "product_id": "b0000001-0000-0000-0000-000000000038",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Compression Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000380002",
+        "product_id": "b0000001-0000-0000-0000-000000000038",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Compression Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000380003",
+        "product_id": "b0000001-0000-0000-0000-000000000038",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Compression Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000380004",
+        "product_id": "b0000001-0000-0000-0000-000000000038",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Compression Shorts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000039",
+    "name": "Custom Joggers",
+    "slug": "custom-joggers",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Joggers for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Joggers engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "360 GSM Cotton / Polyester Performance Fleece",
+      "Ribbed Ankle Cuffs",
+      "Heavyweight Flat Drawstrings"
+    ],
+    "features": [
+      "Slim Tapered Athletic Fit",
+      "Waterproof Concealed Zip Pockets",
+      "Reinforced Knee Panels",
+      "High Density Logo Application"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Joggers | GLOVES STORM",
+    "seo_description": "Custom Joggers for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000390001",
+        "product_id": "b0000001-0000-0000-0000-000000000039",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Joggers — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000390002",
+        "product_id": "b0000001-0000-0000-0000-000000000039",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Joggers — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000390003",
+        "product_id": "b0000001-0000-0000-0000-000000000039",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Joggers — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000390004",
+        "product_id": "b0000001-0000-0000-0000-000000000039",
+        "image_url": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Joggers — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000040",
+    "name": "Custom Fitness Hoodies",
+    "slug": "custom-fitness-hoodies",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Fitness Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Fitness Hoodies engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "380 GSM Cotton Poly Fleece with Loopback Terry",
+      "Double-Layer Contoured Hood",
+      "Custom Metal Aglets"
+    ],
+    "features": [
+      "Sleeveless or Long Sleeve Athletic Cut",
+      "Raglan Sleeve Construction",
+      "Kangaroo Pocket with Secret Phone Stash",
+      "Embroidered Brand Identity"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Fitness Hoodies | GLOVES STORM",
+    "seo_description": "Custom Fitness Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000400001",
+        "product_id": "b0000001-0000-0000-0000-000000000040",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Fitness Hoodies — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000400002",
+        "product_id": "b0000001-0000-0000-0000-000000000040",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Fitness Hoodies — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000400003",
+        "product_id": "b0000001-0000-0000-0000-000000000040",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Fitness Hoodies — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000400004",
+        "product_id": "b0000001-0000-0000-0000-000000000040",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Fitness Hoodies — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000041",
+    "name": "Custom Gym Tracksuits",
+    "slug": "custom-gym-tracksuits",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Gym Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Gym Tracksuits engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Scuba Interlock Tech Fabric (320 GSM)",
+      "Matte Surface Finish",
+      "Rubberized YKK Zippers"
+    ],
+    "features": [
+      "Athletic Fitted Silhouette",
+      "Matching Full-Zip Top & Cuffed Pants",
+      "Ergonomic Articulated Paneling",
+      "High-End Luxury Gym Look"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Gym Tracksuits | GLOVES STORM",
+    "seo_description": "Custom Gym Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000410001",
+        "product_id": "b0000001-0000-0000-0000-000000000041",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Gym Tracksuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000410002",
+        "product_id": "b0000001-0000-0000-0000-000000000041",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Gym Tracksuits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000410003",
+        "product_id": "b0000001-0000-0000-0000-000000000041",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Gym Tracksuits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000410004",
+        "product_id": "b0000001-0000-0000-0000-000000000041",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Gym Tracksuits — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000042",
+    "name": "Custom Performance Tees",
+    "slug": "custom-performance-tees",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Performance Tees for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Performance Tees engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "100% Recycled Poly Yarn (150 GSM)",
+      "Airflow Micro-Pique Knit",
+      "Quick-Dry Moisture Transmit"
+    ],
+    "features": [
+      "Anti-Chafe Forward Shoulder Seams",
+      "Split Hem for Range of Motion",
+      "Subtle Reflective Elements",
+      "Silk Screen or Rubber Patch Branding"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Performance Tees | GLOVES STORM",
+    "seo_description": "Custom Performance Tees for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000420001",
+        "product_id": "b0000001-0000-0000-0000-000000000042",
+        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Performance Tees — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000420002",
+        "product_id": "b0000001-0000-0000-0000-000000000042",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Performance Tees — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000420003",
+        "product_id": "b0000001-0000-0000-0000-000000000042",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Performance Tees — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000420004",
+        "product_id": "b0000001-0000-0000-0000-000000000042",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Performance Tees — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000043",
+    "name": "Custom Fitness Sets",
+    "slug": "custom-fitness-sets",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Fitness Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Fitness Sets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Seamless Circular Knit Nylon Elastane (280 GSM)",
+      "High-Compression Ribbed Texturing"
+    ],
+    "features": [
+      "Matching 2-Piece or 3-Piece Gym Sets",
+      "Sports Bra + High Rise Leggings + Shrug",
+      "Solid & Acid Wash Dye Options",
+      "Bespoke Packaging"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Fitness Sets | GLOVES STORM",
+    "seo_description": "Custom Fitness Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000430001",
+        "product_id": "b0000001-0000-0000-0000-000000000043",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Fitness Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000430002",
+        "product_id": "b0000001-0000-0000-0000-000000000043",
+        "image_url": "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Fitness Sets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000430003",
+        "product_id": "b0000001-0000-0000-0000-000000000043",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Fitness Sets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000430004",
+        "product_id": "b0000001-0000-0000-0000-000000000043",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Fitness Sets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000044",
+    "name": "Custom Athleisure Wear",
+    "slug": "custom-athleisure-wear",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Custom Athleisure Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Athleisure Wear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Modal Cotton Spandex Luxury Blend (260 GSM)",
+      "Double Peached Ultra Soft Hand Feel"
+    ],
+    "features": [
+      "Gym-to-Street Hybrid Silhouette",
+      "Clean Minimalist Seaming",
+      "Custom Tonal Branding",
+      "Custom Silicone Wash Finished"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Athleisure Wear | GLOVES STORM",
+    "seo_description": "Custom Athleisure Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000440001",
+        "product_id": "b0000001-0000-0000-0000-000000000044",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Athleisure Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000440002",
+        "product_id": "b0000001-0000-0000-0000-000000000044",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Athleisure Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000440003",
+        "product_id": "b0000001-0000-0000-0000-000000000044",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Athleisure Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000440004",
+        "product_id": "b0000001-0000-0000-0000-000000000044",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Athleisure Wear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000045",
+    "name": "Private Label Gym Wear",
+    "slug": "private-label-gym-wear",
+    "category_id": "a0000001-0000-0000-0000-000000000003",
+    "short_description": "Private Label Gym Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Private Label Gym Wear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Proprietary Mill Knitted Fabrics",
+      "Custom Dye House Pantones",
+      "Custom Hangtags & Bio-degradable Bags"
+    ],
+    "features": [
+      "Full Brand Line Development",
+      "Dedicated Production Lines",
+      "Pre-Production Golden Sample Verification",
+      "Barcode & Polybag Preparation"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-5 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Private Label Gym Wear | GLOVES STORM",
+    "seo_description": "Private Label Gym Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000003",
+      "name": "Gym & Fitness Wear",
+      "slug": "gym-fitness-wear",
+      "description": "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
+      "image_url": "/images/products/gym-leggings.jpg",
+      "parent_id": null,
+      "sort_order": 3,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000450001",
+        "product_id": "b0000001-0000-0000-0000-000000000045",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Private Label Gym Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000450002",
+        "product_id": "b0000001-0000-0000-0000-000000000045",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Private Label Gym Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000450003",
+        "product_id": "b0000001-0000-0000-0000-000000000045",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Gym Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000450004",
+        "product_id": "b0000001-0000-0000-0000-000000000045",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Private Label Gym Wear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000046",
+    "name": "Custom Oversized T-Shirts",
+    "slug": "custom-oversized-t-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Oversized T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Oversized T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "100% Organic Combed Cotton (240-280 GSM)",
+      "1.25-inch Heavy Ribbed Collar",
+      "Enzyme Vintage Wash"
+    ],
+    "features": [
+      "Dropped Shoulder Silhouette",
+      "Relaxed Boxy Body",
+      "Twin-Needle Sleeve & Hem Stitches",
+      "Screen, DTG, or Puff Print Friendly"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Oversized T-Shirts | GLOVES STORM",
+    "seo_description": "Custom Oversized T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000460001",
+        "product_id": "b0000001-0000-0000-0000-000000000046",
+        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Oversized T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000460002",
+        "product_id": "b0000001-0000-0000-0000-000000000046",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Oversized T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000460003",
+        "product_id": "b0000001-0000-0000-0000-000000000046",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Oversized T-Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000460004",
+        "product_id": "b0000001-0000-0000-0000-000000000046",
+        "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Oversized T-Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000047",
+    "name": "Custom Boxy T-Shirts",
+    "slug": "custom-boxy-t-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Boxy T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Boxy T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Heavyweight 260 GSM Carded Cotton",
+      "Pre-Shrunk Compact Yarn",
+      "Thick 32mm Neckband"
+    ],
+    "features": [
+      "Wide Chest with Cropped Streetwear Length",
+      "Structured Shoulder Fall",
+      "Pre-Shrunk Fabric",
+      "Custom Hem & Neck Labels"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Boxy T-Shirts | GLOVES STORM",
+    "seo_description": "Custom Boxy T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000470001",
+        "product_id": "b0000001-0000-0000-0000-000000000047",
+        "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Boxy T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000470002",
+        "product_id": "b0000001-0000-0000-0000-000000000047",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Boxy T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000470003",
+        "product_id": "b0000001-0000-0000-0000-000000000047",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Boxy T-Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000470004",
+        "product_id": "b0000001-0000-0000-0000-000000000047",
+        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Boxy T-Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000048",
+    "name": "Custom Heavyweight T-Shirts",
+    "slug": "custom-heavyweight-t-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Heavyweight T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Heavyweight T-Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Ultra-Heavy 300 GSM 16-Singles Cotton Jersey",
+      "Reinforced Double Stitched Collar"
+    ],
+    "features": [
+      "Substantial Structural Drape",
+      "Fade-Resistant Reactive Dyes",
+      "Shoulder-to-Shoulder Neck Taping",
+      "High Durability"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Heavyweight T-Shirts | GLOVES STORM",
+    "seo_description": "Custom Heavyweight T-Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000480001",
+        "product_id": "b0000001-0000-0000-0000-000000000048",
+        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Heavyweight T-Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000480002",
+        "product_id": "b0000001-0000-0000-0000-000000000048",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Heavyweight T-Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000480003",
+        "product_id": "b0000001-0000-0000-0000-000000000048",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Heavyweight T-Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000480004",
+        "product_id": "b0000001-0000-0000-0000-000000000048",
+        "image_url": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Heavyweight T-Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000049",
+    "name": "Custom Hoodies",
+    "slug": "custom-hoodies",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Hoodies engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "450 GSM Heavy French Terry (100% Cotton)",
+      "Double-Layer 4-Piece Ergonomic Hood",
+      "Heavy 2x2 Lycra Ribbing"
+    ],
+    "features": [
+      "No Drawstring Minimalist Aesthetic or Heavy Flat Cords",
+      "Kangaroo Pocket with Bar-Tack Reinforcement",
+      "Seamless Sides / Tubeknit Available",
+      "Custom Puff or Chenille Embroidery"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Hoodies | GLOVES STORM",
+    "seo_description": "Custom Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000490001",
+        "product_id": "b0000001-0000-0000-0000-000000000049",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Hoodies — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000490002",
+        "product_id": "b0000001-0000-0000-0000-000000000049",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Hoodies — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000490003",
+        "product_id": "b0000001-0000-0000-0000-000000000049",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Hoodies — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000490004",
+        "product_id": "b0000001-0000-0000-0000-000000000049",
+        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Hoodies — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000050",
+    "name": "Custom Sweatshirts",
+    "slug": "custom-sweatshirts",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Sweatshirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Sweatshirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "420 GSM Brushed Fleece or Loopback Terry",
+      "Chunky Ribbed Crew Collar",
+      "Underarm V-Gussets"
+    ],
+    "features": [
+      "Classic Streetwear Relaxed Fit",
+      "Twin Needle Topstitching",
+      "Custom Garment Wash or Pigment Dye",
+      "Custom Woven Neck Labels"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Sweatshirts | GLOVES STORM",
+    "seo_description": "Custom Sweatshirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000500001",
+        "product_id": "b0000001-0000-0000-0000-000000000050",
+        "image_url": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Sweatshirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000500002",
+        "product_id": "b0000001-0000-0000-0000-000000000050",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Sweatshirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000500003",
+        "product_id": "b0000001-0000-0000-0000-000000000050",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Sweatshirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000500004",
+        "product_id": "b0000001-0000-0000-0000-000000000050",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Sweatshirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000051",
+    "name": "Custom Zip-Up Hoodies",
+    "slug": "custom-zip-up-hoodies",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Zip-Up Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Zip-Up Hoodies engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "450 GSM French Terry Cotton",
+      "Heavy Antique Silver Two-Way YKK Metal Zipper",
+      "Overlock Seams"
+    ],
+    "features": [
+      "Two-Way Custom Zipper Puller",
+      "Split Front Kangaroo Pockets",
+      "Structured Double Lined Hood",
+      "Heavy Ribbed Hem"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Zip-Up Hoodies | GLOVES STORM",
+    "seo_description": "Custom Zip-Up Hoodies for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000510001",
+        "product_id": "b0000001-0000-0000-0000-000000000051",
+        "image_url": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Zip-Up Hoodies — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000510002",
+        "product_id": "b0000001-0000-0000-0000-000000000051",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Zip-Up Hoodies — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000510003",
+        "product_id": "b0000001-0000-0000-0000-000000000051",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Zip-Up Hoodies — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000510004",
+        "product_id": "b0000001-0000-0000-0000-000000000051",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Zip-Up Hoodies — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000052",
+    "name": "Custom Sweatpants",
+    "slug": "custom-sweatpants",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Sweatpants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Sweatpants engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "420 GSM 100% Cotton Heavy Fleece",
+      "Heavy Cotton Flat Drawcords",
+      "Encased Elastic Waist"
+    ],
+    "features": [
+      "Straight Leg or Elastic Cuffed Ankle",
+      "Deep Hand Pockets with Jersey Lining",
+      "Single Rear Patch Pocket",
+      "Tonal or Contrast Puff Embroidery"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Sweatpants | GLOVES STORM",
+    "seo_description": "Custom Sweatpants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000520001",
+        "product_id": "b0000001-0000-0000-0000-000000000052",
+        "image_url": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Sweatpants — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000520002",
+        "product_id": "b0000001-0000-0000-0000-000000000052",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Sweatpants — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000520003",
+        "product_id": "b0000001-0000-0000-0000-000000000052",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Sweatpants — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000520004",
+        "product_id": "b0000001-0000-0000-0000-000000000052",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Sweatpants — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000053",
+    "name": "Custom Cargo Pants",
+    "slug": "custom-cargo-pants",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Cargo Pants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Cargo Pants engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Heavyweight 280 GSM Cotton Twill or Ripstop",
+      "Snap Button Pocket Hardware",
+      "Drawstring Hem Adjusters"
+    ],
+    "features": [
+      "Multi-Bellows Cargo Pockets",
+      "Articulated Pleated Knees",
+      "Relaxed Skate/Streetwear Fit",
+      "Reinforced Seat & Crotch"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Cargo Pants | GLOVES STORM",
+    "seo_description": "Custom Cargo Pants for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000530001",
+        "product_id": "b0000001-0000-0000-0000-000000000053",
+        "image_url": "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Cargo Pants — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000530002",
+        "product_id": "b0000001-0000-0000-0000-000000000053",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Cargo Pants — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000530003",
+        "product_id": "b0000001-0000-0000-0000-000000000053",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Cargo Pants — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000530004",
+        "product_id": "b0000001-0000-0000-0000-000000000053",
+        "image_url": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Cargo Pants — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000054",
+    "name": "Custom Varsity Jackets",
+    "slug": "custom-varsity-jackets",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Varsity Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Varsity Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Melton Wool Body (700 GSM)",
+      "Full-Grain Cowhide or Vegan Leather Sleeves",
+      "Quilted Diamond Satin Interior",
+      "Striped 2x2 Rib Trim"
+    ],
+    "features": [
+      "Heavy Snap Button Closure",
+      "Chenille Embroidered Chest & Back Badges",
+      "Internal Leather-Trimmed Welt Pocket",
+      "Authentic Heritage Feel"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 30,
+    "lead_time": "3-5 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Varsity Jackets | GLOVES STORM",
+    "seo_description": "Custom Varsity Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000540001",
+        "product_id": "b0000001-0000-0000-0000-000000000054",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Varsity Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000540002",
+        "product_id": "b0000001-0000-0000-0000-000000000054",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Varsity Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000540003",
+        "product_id": "b0000001-0000-0000-0000-000000000054",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Varsity Jackets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000540004",
+        "product_id": "b0000001-0000-0000-0000-000000000054",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Varsity Jackets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000055",
+    "name": "Custom Bomber Jackets",
+    "slug": "custom-bomber-jackets",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Bomber Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Bomber Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "High-Density Flight Nylon Shell (Waterproof)",
+      "Insulated Thermal Polyfill (150 GSM)",
+      "Heavy Brass / Antique Silver Zippers"
+    ],
+    "features": [
+      "Sleeve Utility Cigarette/Pen Pocket",
+      "Classic Emergency Orange or Custom Color Satin Lining",
+      "Ribbed MA-1 Collar",
+      "Dual Flap Snap Pockets"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 40,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Bomber Jackets | GLOVES STORM",
+    "seo_description": "Custom Bomber Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000550001",
+        "product_id": "b0000001-0000-0000-0000-000000000055",
+        "image_url": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Bomber Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000550002",
+        "product_id": "b0000001-0000-0000-0000-000000000055",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Bomber Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000550003",
+        "product_id": "b0000001-0000-0000-0000-000000000055",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Bomber Jackets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000550004",
+        "product_id": "b0000001-0000-0000-0000-000000000055",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Bomber Jackets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000056",
+    "name": "Custom Windbreaker Jackets",
+    "slug": "custom-windbreaker-jackets",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Windbreaker Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Windbreaker Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "100% Lightweight Micro-Ripstop Nylon",
+      "DWR Water-Repellent Treatment",
+      "Soft Mesh Interior"
+    ],
+    "features": [
+      "Packable into Pocket Design",
+      "Half-Zip or Full-Zip Pullover Style",
+      "Bungee Toggle Hem & Hood Cinch",
+      "Screen or Reflective Print Ready"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Windbreaker Jackets | GLOVES STORM",
+    "seo_description": "Custom Windbreaker Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000560001",
+        "product_id": "b0000001-0000-0000-0000-000000000056",
+        "image_url": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Windbreaker Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000560002",
+        "product_id": "b0000001-0000-0000-0000-000000000056",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Windbreaker Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000560003",
+        "product_id": "b0000001-0000-0000-0000-000000000056",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Windbreaker Jackets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000560004",
+        "product_id": "b0000001-0000-0000-0000-000000000056",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Windbreaker Jackets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000057",
+    "name": "Custom Denim Jackets",
+    "slug": "custom-denim-jackets",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Denim Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Denim Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "14oz 100% Cotton Raw or Washed Rigid Denim",
+      "Custom Engraved Copper / Pewter Tack Buttons"
+    ],
+    "features": [
+      "Classic Type III Trucker Silhouette",
+      "Enzyme Stonewash, Acid Wash, or Distressed Finishes",
+      "Twin Chest Flap Pockets",
+      "Custom Leather Back Waist Patch"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-5 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Denim Jackets | GLOVES STORM",
+    "seo_description": "Custom Denim Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000570001",
+        "product_id": "b0000001-0000-0000-0000-000000000057",
+        "image_url": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Denim Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000570002",
+        "product_id": "b0000001-0000-0000-0000-000000000057",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Denim Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000570003",
+        "product_id": "b0000001-0000-0000-0000-000000000057",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Denim Jackets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000570004",
+        "product_id": "b0000001-0000-0000-0000-000000000057",
+        "image_url": "https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Denim Jackets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000058",
+    "name": "Custom Polo Shirts",
+    "slug": "custom-polo-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Polo Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Polo Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "220 GSM 100% Combed Pique Cotton or Mercerized Cotton",
+      "Mother-of-Pearl or Horn Buttons"
+    ],
+    "features": [
+      "Anti-Curl Ribbed Collar",
+      "Tailored Side Vents with Contrast Tape",
+      "Fine Gauge Embroidery on Chest",
+      "Pre-Shrunk Bio-Polished Finish"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Polo Shirts | GLOVES STORM",
+    "seo_description": "Custom Polo Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612Z",
+    "updated_at": "2026-09-14T14:02:04.612Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.612Z",
+      "updated_at": "2026-09-14T14:02:04.612Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000580001",
+        "product_id": "b0000001-0000-0000-0000-000000000058",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Polo Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000580002",
+        "product_id": "b0000001-0000-0000-0000-000000000058",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Polo Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000580003",
+        "product_id": "b0000001-0000-0000-0000-000000000058",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Polo Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000580004",
+        "product_id": "b0000001-0000-0000-0000-000000000058",
+        "image_url": "https://images.unsplash.com/photo-1625910513413-56832dbca665?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Polo Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000059",
+    "name": "Custom Long Sleeve Shirts",
+    "slug": "custom-long-sleeve-shirts",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Custom Long Sleeve Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Long Sleeve Shirts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "220 GSM Ringspun Cotton Jersey",
+      "Spandex Ribbed Cuffs for Retention"
+    ],
+    "features": [
+      "Drop Shoulder or Regular Athletic Fit",
+      "Sleeve Print Length Available",
+      "Reinforced Taped Collar",
+      "Custom Neck Printing"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Long Sleeve Shirts | GLOVES STORM",
+    "seo_description": "Custom Long Sleeve Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000590001",
+        "product_id": "b0000001-0000-0000-0000-000000000059",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Long Sleeve Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000590002",
+        "product_id": "b0000001-0000-0000-0000-000000000059",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Long Sleeve Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000590003",
+        "product_id": "b0000001-0000-0000-0000-000000000059",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Long Sleeve Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000590004",
+        "product_id": "b0000001-0000-0000-0000-000000000059",
+        "image_url": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Long Sleeve Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.612Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000060",
+    "name": "Private Label Streetwear",
+    "slug": "private-label-streetwear",
+    "category_id": "a0000001-0000-0000-0000-000000000004",
+    "short_description": "Private Label Streetwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Private Label Streetwear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Custom Milled Heavy Fabrics (Up to 600 GSM)",
+      "Custom Metal Hardware & Finishes"
+    ],
+    "features": [
+      "Full Collection Tech Pack Development",
+      "Custom Woven Damask Labels, Hangtags, & Ziplock Bags",
+      "Sample Prototyping in 7 Days",
+      "End-to-End White Label Fulfilment"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-5 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Private Label Streetwear | GLOVES STORM",
+    "seo_description": "Private Label Streetwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000004",
+      "name": "Clothing & Streetwear",
+      "slug": "clothing-streetwear",
+      "description": "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
+      "image_url": "/images/products/hoodie-black.png",
+      "parent_id": null,
+      "sort_order": 4,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000600001",
+        "product_id": "b0000001-0000-0000-0000-000000000060",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Private Label Streetwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000600002",
+        "product_id": "b0000001-0000-0000-0000-000000000060",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Private Label Streetwear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000600003",
+        "product_id": "b0000001-0000-0000-0000-000000000060",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Streetwear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000600004",
+        "product_id": "b0000001-0000-0000-0000-000000000060",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Private Label Streetwear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000061",
+    "name": "Private Label Clothing Manufacturing",
+    "slug": "private-label-clothing-manufacturing",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "Private Label Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Private Label Clothing Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Full Fabric Library Sourcing (Organic Cottons, Bamboo, Synthetics)",
+      "Custom Fabric Weights & Pantone Dyeing"
+    ],
+    "features": [
+      "Complete Pattern Making & Grading",
+      "Garment Cut-and-Sew Assembly",
+      "Quality Control Inspection (AQL 2.5)",
+      "Custom Packaging & Barcoding"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Private Label Clothing Manufacturing | GLOVES STORM",
+    "seo_description": "Private Label Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000690001",
-        "alt_text": "Custom Labels & Hang Tags — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000610001",
+        "product_id": "b0000001-0000-0000-0000-000000000061",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Private Label Clothing Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000069",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000690002",
-        "alt_text": "Custom Labels & Hang Tags — Image 02 Material, Stitching & Craftsmanship Detail",
+        "id": "e0000001-0000-0000-0000-000000610002",
+        "product_id": "b0000001-0000-0000-0000-000000000061",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Private Label Clothing Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000610003",
+        "product_id": "b0000001-0000-0000-0000-000000000061",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Clothing Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000610004",
+        "product_id": "b0000001-0000-0000-0000-000000000061",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Private Label Clothing Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000062",
+    "name": "Private Label Sportswear Manufacturing",
+    "slug": "private-label-sportswear-manufacturing",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "Private Label Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Private Label Sportswear Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Technical Performance Synthetics",
+      "Moisture-Wicking & Anti-Microbial Treatments"
+    ],
+    "features": [
+      "Flatlock & Seamless Ultrasonic Welding",
+      "Laser Cut Micro-Ventilation",
+      "Sublimation & Silicone Printing",
+      "Complete Sportswear Collections"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Private Label Sportswear Manufacturing | GLOVES STORM",
+    "seo_description": "Private Label Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000005",
+      "name": "Custom Manufacturing & Private Label",
+      "slug": "custom-manufacturing-private-label",
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
+      "parent_id": null,
+      "sort_order": 5,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000620001",
+        "product_id": "b0000001-0000-0000-0000-000000000062",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Private Label Sportswear Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000620002",
+        "product_id": "b0000001-0000-0000-0000-000000000062",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Private Label Sportswear Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000620003",
+        "product_id": "b0000001-0000-0000-0000-000000000062",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Private Label Sportswear Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000620004",
+        "product_id": "b0000001-0000-0000-0000-000000000062",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Sportswear Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000063",
+    "name": "OEM Clothing Manufacturing",
+    "slug": "oem-clothing-manufacturing",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "OEM Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "OEM Clothing Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Strict Adherence to Client Material Specifications",
+      "Certificated Yarns & Dyes"
+    ],
+    "features": [
+      "Precision Execution of Client Tech Packs",
+      "Bulk Production Lines with Scale Capacity",
+      "Direct Factory Sialkot Pricing",
+      "Export Freight Management (Air/Sea)"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 100,
+    "lead_time": "3-5 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "OEM Clothing Manufacturing | GLOVES STORM",
+    "seo_description": "OEM Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000005",
+      "name": "Custom Manufacturing & Private Label",
+      "slug": "custom-manufacturing-private-label",
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
+      "parent_id": null,
+      "sort_order": 5,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000630001",
+        "product_id": "b0000001-0000-0000-0000-000000000063",
+        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "OEM Clothing Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000630002",
+        "product_id": "b0000001-0000-0000-0000-000000000063",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "OEM Clothing Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000630003",
+        "product_id": "b0000001-0000-0000-0000-000000000063",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "OEM Clothing Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000630004",
+        "product_id": "b0000001-0000-0000-0000-000000000063",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "OEM Clothing Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000064",
+    "name": "OEM Sportswear Manufacturing",
+    "slug": "oem-sportswear-manufacturing",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "OEM Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "OEM Sportswear Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Pro Athlete Spec Fabrics",
+      "Compression & Aerodynamic Textiles"
+    ],
+    "features": [
+      "Dedicated Teamwear Lines",
+      "Match Kit & Training Range Production",
+      "Uniformity & Exact Color Matching",
+      "Strict QC Batch Testing"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 100,
+    "lead_time": "3-5 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "OEM Sportswear Manufacturing | GLOVES STORM",
+    "seo_description": "OEM Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000005",
+      "name": "Custom Manufacturing & Private Label",
+      "slug": "custom-manufacturing-private-label",
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
+      "parent_id": null,
+      "sort_order": 5,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000640001",
+        "product_id": "b0000001-0000-0000-0000-000000000064",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "OEM Sportswear Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000640002",
+        "product_id": "b0000001-0000-0000-0000-000000000064",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "OEM Sportswear Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000640003",
+        "product_id": "b0000001-0000-0000-0000-000000000064",
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "OEM Sportswear Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000640004",
+        "product_id": "b0000001-0000-0000-0000-000000000064",
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "OEM Sportswear Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000065",
+    "name": "Custom Apparel Manufacturing",
+    "slug": "custom-apparel-manufacturing",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "Custom Apparel Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Apparel Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Knitwear, Woven, and Bonded Technical Textiles"
+    ],
+    "features": [
+      "End-to-End Prototyping Service",
+      "Fit Samples & Pre-Production Signoffs",
+      "Complete Sizing Grading",
+      "Global Door-to-Door Logistics"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Apparel Manufacturing | GLOVES STORM",
+    "seo_description": "Custom Apparel Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000005",
+      "name": "Custom Manufacturing & Private Label",
+      "slug": "custom-manufacturing-private-label",
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
+      "parent_id": null,
+      "sort_order": 5,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000650001",
+        "product_id": "b0000001-0000-0000-0000-000000000065",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Apparel Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000650002",
+        "product_id": "b0000001-0000-0000-0000-000000000065",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Apparel Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000650003",
+        "product_id": "b0000001-0000-0000-0000-000000000065",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Apparel Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000650004",
+        "product_id": "b0000001-0000-0000-0000-000000000065",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Apparel Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000066",
+    "name": "Custom Product Development",
+    "slug": "custom-product-development",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "Custom Product Development for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Product Development engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Prototype Fabrics & Experimental Composites",
+      "Component Sourcing"
+    ],
+    "features": [
+      "Idea to Production Consulting",
+      "CAD 2D/3D Pattern Engineering",
+      "Material Stress & Shrinkage Testing",
+      "Golden Sample Approval Process"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 30,
+    "lead_time": "2-4 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Product Development | GLOVES STORM",
+    "seo_description": "Custom Product Development for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000005",
+      "name": "Custom Manufacturing & Private Label",
+      "slug": "custom-manufacturing-private-label",
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
+      "parent_id": null,
+      "sort_order": 5,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000660001",
+        "product_id": "b0000001-0000-0000-0000-000000000066",
         "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000069",
-        "sort_order": 2
+        "alt_text": "Custom Product Development — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000690003",
-        "alt_text": "Custom Labels & Hang Tags — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000660002",
+        "product_id": "b0000001-0000-0000-0000-000000000066",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Product Development — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000069",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000690004",
-        "alt_text": "Custom Labels & Hang Tags — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000660003",
+        "product_id": "b0000001-0000-0000-0000-000000000066",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Product Development — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000069",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000660004",
+        "product_id": "b0000001-0000-0000-0000-000000000066",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Product Development — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000067",
+    "name": "Tech Pack Manufacturing",
+    "slug": "tech-pack-manufacturing",
+    "category_id": "a0000001-0000-0000-0000-000000000005",
+    "short_description": "Tech Pack Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Tech Pack Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Exact BOM (Bill of Materials) Sourcing"
+    ],
+    "features": [
+      "Direct Translation of AI / PDF Tech Packs",
+      "Point-to-Point Measurement Tolerance +/- 0.5cm",
+      "Comprehensive Sample Review Reports",
+      "Production Blueprint Execution"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Tech Pack Manufacturing | GLOVES STORM",
+    "seo_description": "Tech Pack Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
+    "category": {
+      "id": "a0000001-0000-0000-0000-000000000005",
+      "name": "Custom Manufacturing & Private Label",
+      "slug": "custom-manufacturing-private-label",
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
+      "parent_id": null,
+      "sort_order": 5,
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
+    },
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000670001",
+        "product_id": "b0000001-0000-0000-0000-000000000067",
+        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Tech Pack Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000670002",
+        "product_id": "b0000001-0000-0000-0000-000000000067",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Tech Pack Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000670003",
+        "product_id": "b0000001-0000-0000-0000-000000000067",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Tech Pack Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000670004",
+        "product_id": "b0000001-0000-0000-0000-000000000067",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Tech Pack Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -5427,74 +5940,76 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Packaging Manufacturing | GLOVES STORM",
     "seo_description": "Custom Packaging Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000680001",
-        "alt_text": "Custom Packaging Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000068",
-        "sort_order": 1
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Packaging Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000680002",
-        "alt_text": "Custom Packaging Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000068",
-        "sort_order": 2
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Packaging Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000680003",
-        "alt_text": "Custom Packaging Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000068",
-        "sort_order": 3
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Packaging Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000680004",
-        "alt_text": "Custom Packaging Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000068",
-        "sort_order": 4
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Packaging Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
   {
-    "id": "b0000001-0000-0000-0000-000000000067",
-    "name": "Tech Pack Manufacturing",
-    "slug": "tech-pack-manufacturing",
+    "id": "b0000001-0000-0000-0000-000000000069",
+    "name": "Custom Labels & Hang Tags",
+    "slug": "custom-labels-and-hang-tags",
     "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "Tech Pack Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Tech Pack Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "short_description": "Custom Labels & Hang Tags for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Labels & Hang Tags engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
     "materials": [
-      "Exact BOM (Bill of Materials) Sourcing"
+      "High-Definition Damask Woven Yarn",
+      "Recycled Craft Paper Cardstock (600 GSM)",
+      "Soft Cotton Printed Care Labels"
     ],
     "features": [
-      "Direct Translation of AI / PDF Tech Packs",
-      "Point-to-Point Measurement Tolerance +/- 0.5cm",
-      "Comprehensive Sample Review Reports",
-      "Production Blueprint Execution"
+      "Laser Cut Soft Edges (Non-Itch)",
+      "Embossed, Debossed, and Spot UV Tags",
+      "Custom Wax Cord & Safety Pins",
+      "Complete Trims Package"
     ],
     "customization_options": [
       "Logo",
@@ -5506,577 +6021,62 @@ export const initialProducts: Product[] = [
       "packaging",
       "printing and embroidery where applicable"
     ],
-    "moq": 50,
-    "lead_time": "2-4 Weeks",
+    "moq": 200,
+    "lead_time": "1-2 Weeks",
     "featured": false,
     "is_active": true,
-    "seo_title": "Tech Pack Manufacturing | GLOVES STORM",
-    "seo_description": "Tech Pack Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "seo_title": "Custom Labels & Hang Tags | GLOVES STORM",
+    "seo_description": "Custom Labels & Hang Tags for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
-        "id": "e0000001-0000-0000-0000-000000670001",
-        "alt_text": "Tech Pack Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000690001",
+        "product_id": "b0000001-0000-0000-0000-000000000069",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Labels & Hang Tags — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
         "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000067",
-        "sort_order": 1
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000670002",
-        "alt_text": "Tech Pack Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000690002",
+        "product_id": "b0000001-0000-0000-0000-000000000069",
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Labels & Hang Tags — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000067",
-        "sort_order": 2
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000670003",
-        "alt_text": "Tech Pack Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000690003",
+        "product_id": "b0000001-0000-0000-0000-000000000069",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Labels & Hang Tags — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000067",
-        "sort_order": 3
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
-        "id": "e0000001-0000-0000-0000-000000670004",
-        "alt_text": "Tech Pack Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
+        "id": "e0000001-0000-0000-0000-000000690004",
+        "product_id": "b0000001-0000-0000-0000-000000000069",
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Labels & Hang Tags — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
         "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000067",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000066",
-    "name": "Custom Product Development",
-    "slug": "custom-product-development",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "Custom Product Development for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Product Development engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Prototype Fabrics & Experimental Composites",
-      "Component Sourcing"
-    ],
-    "features": [
-      "Idea to Production Consulting",
-      "CAD 2D/3D Pattern Engineering",
-      "Material Stress & Shrinkage Testing",
-      "Golden Sample Approval Process"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 30,
-    "lead_time": "2-4 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Custom Product Development | GLOVES STORM",
-    "seo_description": "Custom Product Development for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000005",
-      "name": "Custom Manufacturing & Private Label",
-      "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000660001",
-        "alt_text": "Custom Product Development — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000066",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000660002",
-        "alt_text": "Custom Product Development — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000066",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000660003",
-        "alt_text": "Custom Product Development — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000066",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000660004",
-        "alt_text": "Custom Product Development — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000066",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000065",
-    "name": "Custom Apparel Manufacturing",
-    "slug": "custom-apparel-manufacturing",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "Custom Apparel Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Custom Apparel Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Knitwear, Woven, and Bonded Technical Textiles"
-    ],
-    "features": [
-      "End-to-End Prototyping Service",
-      "Fit Samples & Pre-Production Signoffs",
-      "Complete Sizing Grading",
-      "Global Door-to-Door Logistics"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-4 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "Custom Apparel Manufacturing | GLOVES STORM",
-    "seo_description": "Custom Apparel Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000005",
-      "name": "Custom Manufacturing & Private Label",
-      "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000650001",
-        "alt_text": "Custom Apparel Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000065",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000650002",
-        "alt_text": "Custom Apparel Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000065",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000650003",
-        "alt_text": "Custom Apparel Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000065",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000650004",
-        "alt_text": "Custom Apparel Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000065",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000064",
-    "name": "OEM Sportswear Manufacturing",
-    "slug": "oem-sportswear-manufacturing",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "OEM Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "OEM Sportswear Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Pro Athlete Spec Fabrics",
-      "Compression & Aerodynamic Textiles"
-    ],
-    "features": [
-      "Dedicated Teamwear Lines",
-      "Match Kit & Training Range Production",
-      "Uniformity & Exact Color Matching",
-      "Strict QC Batch Testing"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 100,
-    "lead_time": "3-5 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "OEM Sportswear Manufacturing | GLOVES STORM",
-    "seo_description": "OEM Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000005",
-      "name": "Custom Manufacturing & Private Label",
-      "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000640001",
-        "alt_text": "OEM Sportswear Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000064",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000640002",
-        "alt_text": "OEM Sportswear Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000064",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000640003",
-        "alt_text": "OEM Sportswear Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000064",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000640004",
-        "alt_text": "OEM Sportswear Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000064",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000063",
-    "name": "OEM Clothing Manufacturing",
-    "slug": "oem-clothing-manufacturing",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "OEM Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "OEM Clothing Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Strict Adherence to Client Material Specifications",
-      "Certificated Yarns & Dyes"
-    ],
-    "features": [
-      "Precision Execution of Client Tech Packs",
-      "Bulk Production Lines with Scale Capacity",
-      "Direct Factory Sialkot Pricing",
-      "Export Freight Management (Air/Sea)"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 100,
-    "lead_time": "3-5 Weeks",
-    "featured": false,
-    "is_active": true,
-    "seo_title": "OEM Clothing Manufacturing | GLOVES STORM",
-    "seo_description": "OEM Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000005",
-      "name": "Custom Manufacturing & Private Label",
-      "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000630001",
-        "alt_text": "OEM Clothing Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000063",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000630002",
-        "alt_text": "OEM Clothing Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000063",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000630003",
-        "alt_text": "OEM Clothing Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000063",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000630004",
-        "alt_text": "OEM Clothing Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000063",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000062",
-    "name": "Private Label Sportswear Manufacturing",
-    "slug": "private-label-sportswear-manufacturing",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "Private Label Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Private Label Sportswear Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Technical Performance Synthetics",
-      "Moisture-Wicking & Anti-Microbial Treatments"
-    ],
-    "features": [
-      "Flatlock & Seamless Ultrasonic Welding",
-      "Laser Cut Micro-Ventilation",
-      "Sublimation & Silicone Printing",
-      "Complete Sportswear Collections"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-4 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Private Label Sportswear Manufacturing | GLOVES STORM",
-    "seo_description": "Private Label Sportswear Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000005",
-      "name": "Custom Manufacturing & Private Label",
-      "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000620001",
-        "alt_text": "Private Label Sportswear Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000062",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000620002",
-        "alt_text": "Private Label Sportswear Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000062",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000620003",
-        "alt_text": "Private Label Sportswear Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000062",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000620004",
-        "alt_text": "Private Label Sportswear Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000062",
-        "sort_order": 4
-      }
-    ]
-  },
-  {
-    "id": "b0000001-0000-0000-0000-000000000061",
-    "name": "Private Label Clothing Manufacturing",
-    "slug": "private-label-clothing-manufacturing",
-    "category_id": "a0000001-0000-0000-0000-000000000005",
-    "short_description": "Private Label Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "description": "Private Label Clothing Manufacturing engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
-    "materials": [
-      "Full Fabric Library Sourcing (Organic Cottons, Bamboo, Synthetics)",
-      "Custom Fabric Weights & Pantone Dyeing"
-    ],
-    "features": [
-      "Complete Pattern Making & Grading",
-      "Garment Cut-and-Sew Assembly",
-      "Quality Control Inspection (AQL 2.5)",
-      "Custom Packaging & Barcoding"
-    ],
-    "customization_options": [
-      "Logo",
-      "colors",
-      "materials",
-      "sizing",
-      "branding",
-      "labels",
-      "packaging",
-      "printing and embroidery where applicable"
-    ],
-    "moq": 50,
-    "lead_time": "3-4 Weeks",
-    "featured": true,
-    "is_active": true,
-    "seo_title": "Private Label Clothing Manufacturing | GLOVES STORM",
-    "seo_description": "Private Label Clothing Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
-    "category": {
-      "id": "a0000001-0000-0000-0000-000000000005",
-      "name": "Custom Manufacturing & Private Label",
-      "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
-      "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
-      "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
-    },
-    "images": [
-      {
-        "id": "e0000001-0000-0000-0000-000000610001",
-        "alt_text": "Private Label Clothing Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
-        "product_id": "b0000001-0000-0000-0000-000000000061",
-        "sort_order": 1
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000610002",
-        "alt_text": "Private Label Clothing Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000061",
-        "sort_order": 2
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000610003",
-        "alt_text": "Private Label Clothing Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000061",
-        "sort_order": 3
-      },
-      {
-        "id": "e0000001-0000-0000-0000-000000610004",
-        "alt_text": "Private Label Clothing Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
-        "product_id": "b0000001-0000-0000-0000-000000000061",
-        "sort_order": 4
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6114,56 +6114,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Embroidery Manufacturing | GLOVES STORM",
     "seo_description": "Custom Embroidery Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000700001",
-        "alt_text": "Custom Embroidery Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000070",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Embroidery Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000700002",
-        "alt_text": "Custom Embroidery Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000070",
-        "sort_order": 2
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Embroidery Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000700003",
-        "alt_text": "Custom Embroidery Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000070",
-        "sort_order": 3
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Embroidery Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000700004",
-        "alt_text": "Custom Embroidery Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000070",
-        "sort_order": 4
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Embroidery Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6200,56 +6200,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Sublimation Apparel | GLOVES STORM",
     "seo_description": "Custom Sublimation Apparel for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000710001",
-        "alt_text": "Custom Sublimation Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000071",
-        "sort_order": 1
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "alt_text": "Custom Sublimation Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000710002",
-        "alt_text": "Custom Sublimation Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000071",
-        "sort_order": 2
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Sublimation Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000710003",
-        "alt_text": "Custom Sublimation Apparel — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000071",
-        "sort_order": 3
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Sublimation Apparel — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000710004",
-        "alt_text": "Custom Sublimation Apparel — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000071",
-        "sort_order": 4
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Sublimation Apparel — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6287,56 +6287,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Screen Printed Apparel | GLOVES STORM",
     "seo_description": "Custom Screen Printed Apparel for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000720001",
-        "alt_text": "Custom Screen Printed Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000072",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Screen Printed Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000720002",
-        "alt_text": "Custom Screen Printed Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000072",
-        "sort_order": 2
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Screen Printed Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000720003",
-        "alt_text": "Custom Screen Printed Apparel — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000072",
-        "sort_order": 3
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Screen Printed Apparel — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000720004",
-        "alt_text": "Custom Screen Printed Apparel — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000072",
-        "sort_order": 4
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom Screen Printed Apparel — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6373,56 +6373,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom DTF Printed Apparel | GLOVES STORM",
     "seo_description": "Custom DTF Printed Apparel for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000730001",
-        "alt_text": "Custom DTF Printed Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000073",
-        "sort_order": 1
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom DTF Printed Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000730002",
-        "alt_text": "Custom DTF Printed Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000073",
-        "sort_order": 2
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom DTF Printed Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000730003",
-        "alt_text": "Custom DTF Printed Apparel — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000073",
-        "sort_order": 3
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom DTF Printed Apparel — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000730004",
-        "alt_text": "Custom DTF Printed Apparel — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000073",
-        "sort_order": 4
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "alt_text": "Custom DTF Printed Apparel — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6459,56 +6459,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Puff Printed Apparel | GLOVES STORM",
     "seo_description": "Custom Puff Printed Apparel for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000740001",
-        "alt_text": "Custom Puff Printed Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000074",
-        "sort_order": 1
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Puff Printed Apparel — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000740002",
-        "alt_text": "Custom Puff Printed Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000074",
-        "sort_order": 2
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Custom Puff Printed Apparel — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000740003",
-        "alt_text": "Custom Puff Printed Apparel — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000074",
-        "sort_order": 3
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Puff Printed Apparel — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000740004",
-        "alt_text": "Custom Puff Printed Apparel — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000074",
-        "sort_order": 4
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "alt_text": "Custom Puff Printed Apparel — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6544,56 +6544,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Low MOQ Custom Manufacturing | GLOVES STORM",
     "seo_description": "Low MOQ Custom Manufacturing for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000005",
       "name": "Custom Manufacturing & Private Label",
       "slug": "custom-manufacturing-private-label",
-      "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
+      "image_url": "/images/products/luxury-packaging.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 5,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000750001",
-        "alt_text": "Low MOQ Custom Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000075",
-        "sort_order": 1
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Low MOQ Custom Manufacturing — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000750002",
-        "alt_text": "Low MOQ Custom Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000075",
-        "sort_order": 2
+        "image_url": "/images/products/boxing-gloves-black.png",
+        "alt_text": "Low MOQ Custom Manufacturing — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000750003",
-        "alt_text": "Low MOQ Custom Manufacturing — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000075",
-        "sort_order": 3
+        "image_url": "/images/products/hoodie-black.png",
+        "alt_text": "Low MOQ Custom Manufacturing — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000750004",
-        "alt_text": "Low MOQ Custom Manufacturing — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1516762689617-e1cffcef479d?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000075",
-        "sort_order": 4
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Low MOQ Custom Manufacturing — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6631,56 +6631,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Swim Shorts | GLOVES STORM",
     "seo_description": "Custom Swim Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000760001",
-        "alt_text": "Custom Swim Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000076",
-        "sort_order": 1
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Swim Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000760002",
-        "alt_text": "Custom Swim Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000076",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Swim Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000760003",
-        "alt_text": "Custom Swim Shorts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000076",
-        "sort_order": 3
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Swim Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000760004",
-        "alt_text": "Custom Swim Shorts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000076",
-        "sort_order": 4
+        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Swim Shorts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6717,56 +6717,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Board Shorts | GLOVES STORM",
     "seo_description": "Custom Board Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000770001",
-        "alt_text": "Custom Board Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000077",
-        "sort_order": 1
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Board Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000770002",
-        "alt_text": "Custom Board Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000077",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Board Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000770003",
-        "alt_text": "Custom Board Shorts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000077",
-        "sort_order": 3
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Board Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000770004",
-        "alt_text": "Custom Board Shorts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000077",
-        "sort_order": 4
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Board Shorts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6804,56 +6804,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Rash Guards | GLOVES STORM",
     "seo_description": "Custom Rash Guards for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000780001",
-        "alt_text": "Custom Rash Guards — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000078",
-        "sort_order": 1
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Rash Guards — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000780002",
-        "alt_text": "Custom Rash Guards — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000078",
-        "sort_order": 2
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Rash Guards — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000780003",
-        "alt_text": "Custom Rash Guards — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000078",
-        "sort_order": 3
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Rash Guards — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000780004",
-        "alt_text": "Custom Rash Guards — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000078",
-        "sort_order": 4
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Rash Guards — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6891,56 +6891,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom One-Piece Swimsuits | GLOVES STORM",
     "seo_description": "Custom One-Piece Swimsuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000790001",
-        "alt_text": "Custom One-Piece Swimsuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000079",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom One-Piece Swimsuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000790002",
-        "alt_text": "Custom One-Piece Swimsuits — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000079",
-        "sort_order": 2
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom One-Piece Swimsuits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000790003",
-        "alt_text": "Custom One-Piece Swimsuits — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000079",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom One-Piece Swimsuits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000790004",
-        "alt_text": "Custom One-Piece Swimsuits — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000079",
-        "sort_order": 4
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom One-Piece Swimsuits — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -6977,56 +6977,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Bikinis | GLOVES STORM",
     "seo_description": "Custom Bikinis for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000800001",
-        "alt_text": "Custom Bikinis — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000080",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Bikinis — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000800002",
-        "alt_text": "Custom Bikinis — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000080",
-        "sort_order": 2
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Bikinis — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000800003",
-        "alt_text": "Custom Bikinis — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000080",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Bikinis — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000800004",
-        "alt_text": "Custom Bikinis — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000080",
-        "sort_order": 4
+        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Bikinis — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7064,56 +7064,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Swim Tops | GLOVES STORM",
     "seo_description": "Custom Swim Tops for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000810001",
-        "alt_text": "Custom Swim Tops — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000081",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Swim Tops — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000810002",
-        "alt_text": "Custom Swim Tops — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000081",
-        "sort_order": 2
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Swim Tops — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000810003",
-        "alt_text": "Custom Swim Tops — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000081",
-        "sort_order": 3
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Swim Tops — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000810004",
-        "alt_text": "Custom Swim Tops — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000081",
-        "sort_order": 4
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Swim Tops — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7150,56 +7150,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Swim Bottoms | GLOVES STORM",
     "seo_description": "Custom Swim Bottoms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000820001",
-        "alt_text": "Custom Swim Bottoms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000082",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Swim Bottoms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000820002",
-        "alt_text": "Custom Swim Bottoms — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000082",
-        "sort_order": 2
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Swim Bottoms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000820003",
-        "alt_text": "Custom Swim Bottoms — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000082",
-        "sort_order": 3
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Swim Bottoms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000820004",
-        "alt_text": "Custom Swim Bottoms — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000082",
-        "sort_order": 4
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Swim Bottoms — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7237,56 +7237,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Beach Shorts | GLOVES STORM",
     "seo_description": "Custom Beach Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000830001",
-        "alt_text": "Custom Beach Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000083",
-        "sort_order": 1
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Beach Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000830002",
-        "alt_text": "Custom Beach Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000083",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Beach Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000830003",
-        "alt_text": "Custom Beach Shorts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000083",
-        "sort_order": 3
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Beach Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000830004",
-        "alt_text": "Custom Beach Shorts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000083",
-        "sort_order": 4
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Beach Shorts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7323,56 +7323,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Beach Shirts | GLOVES STORM",
     "seo_description": "Custom Beach Shirts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000840001",
-        "alt_text": "Custom Beach Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000084",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Beach Shirts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000840002",
-        "alt_text": "Custom Beach Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000084",
-        "sort_order": 2
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Beach Shirts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000840003",
-        "alt_text": "Custom Beach Shirts — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000084",
-        "sort_order": 3
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Beach Shirts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000840004",
-        "alt_text": "Custom Beach Shirts — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000084",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Beach Shirts — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7409,56 +7409,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Cover-Ups | GLOVES STORM",
     "seo_description": "Custom Cover-Ups for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000850001",
-        "alt_text": "Custom Cover-Ups — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000085",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Cover-Ups — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000850002",
-        "alt_text": "Custom Cover-Ups — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000085",
-        "sort_order": 2
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Cover-Ups — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000850003",
-        "alt_text": "Custom Cover-Ups — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000085",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Cover-Ups — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000850004",
-        "alt_text": "Custom Cover-Ups — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000085",
-        "sort_order": 4
+        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Cover-Ups — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7495,56 +7495,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Rash Guard Sets | GLOVES STORM",
     "seo_description": "Custom Rash Guard Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000860001",
-        "alt_text": "Custom Rash Guard Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000086",
-        "sort_order": 1
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Rash Guard Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000860002",
-        "alt_text": "Custom Rash Guard Sets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000086",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Rash Guard Sets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000860003",
-        "alt_text": "Custom Rash Guard Sets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000086",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Rash Guard Sets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000860004",
-        "alt_text": "Custom Rash Guard Sets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000086",
-        "sort_order": 4
+        "image_url": "/images/products/gym-leggings.jpg",
+        "alt_text": "Custom Rash Guard Sets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7581,56 +7581,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Surf Wear | GLOVES STORM",
     "seo_description": "Custom Surf Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000870001",
-        "alt_text": "Custom Surf Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000087",
-        "sort_order": 1
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Surf Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000870002",
-        "alt_text": "Custom Surf Wear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000087",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Surf Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000870003",
-        "alt_text": "Custom Surf Wear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000087",
-        "sort_order": 3
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Surf Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000870004",
-        "alt_text": "Custom Surf Wear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000087",
-        "sort_order": 4
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Custom Surf Wear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7667,56 +7667,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Resort Wear | GLOVES STORM",
     "seo_description": "Custom Resort Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000880001",
-        "alt_text": "Custom Resort Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000088",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Resort Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000880002",
-        "alt_text": "Custom Resort Wear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000088",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Resort Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000880003",
-        "alt_text": "Custom Resort Wear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000088",
-        "sort_order": 3
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Custom Resort Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000880004",
-        "alt_text": "Custom Resort Wear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000088",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Resort Wear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7753,56 +7753,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Custom Beachwear Sets | GLOVES STORM",
     "seo_description": "Custom Beachwear Sets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000890001",
-        "alt_text": "Custom Beachwear Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000089",
-        "sort_order": 1
+        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
+        "alt_text": "Custom Beachwear Sets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000890002",
-        "alt_text": "Custom Beachwear Sets — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000089",
-        "sort_order": 2
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Custom Beachwear Sets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000890003",
-        "alt_text": "Custom Beachwear Sets — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000089",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Custom Beachwear Sets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000890004",
-        "alt_text": "Custom Beachwear Sets — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000089",
-        "sort_order": 4
+        "image_url": "/images/products/polo-jersey-set.png",
+        "alt_text": "Custom Beachwear Sets — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   },
@@ -7839,56 +7839,56 @@ export const initialProducts: Product[] = [
     "is_active": true,
     "seo_title": "Private Label Swimwear | GLOVES STORM",
     "seo_description": "Private Label Swimwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
-    "created_at": "2026-09-14T11:04:06.525+00:00",
-    "updated_at": "2026-09-14T11:04:06.525+00:00",
+    "created_at": "2026-09-14T14:02:04.613Z",
+    "updated_at": "2026-09-14T14:02:04.613Z",
     "category": {
       "id": "a0000001-0000-0000-0000-000000000006",
       "name": "Swimwear & Beachwear",
       "slug": "swimwear-beachwear",
-      "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-      "is_active": true,
+      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
+      "image_url": "/images/products/board-shorts.jpg",
       "parent_id": null,
-      "created_at": "2026-09-14T11:04:06.192432+00:00",
       "sort_order": 6,
-      "updated_at": "2026-09-14T11:04:06.192432+00:00",
-      "description": "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance."
+      "is_active": true,
+      "created_at": "2026-09-14T14:02:04.613Z",
+      "updated_at": "2026-09-14T14:02:04.613Z"
     },
     "images": [
       {
         "id": "e0000001-0000-0000-0000-000000900001",
-        "alt_text": "Private Label Swimwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
-        "image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": true,
         "product_id": "b0000001-0000-0000-0000-000000000090",
-        "sort_order": 1
+        "image_url": "/images/products/board-shorts.jpg",
+        "alt_text": "Private Label Swimwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "sort_order": 1,
+        "is_primary": true,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000900002",
-        "alt_text": "Private Label Swimwear — Image 02 Material, Stitching & Craftsmanship Detail",
-        "image_url": "https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000090",
-        "sort_order": 2
+        "image_url": "/images/products/woven-labels.jpg",
+        "alt_text": "Private Label Swimwear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "sort_order": 2,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000900003",
-        "alt_text": "Private Label Swimwear — Image 03 GLOVES STORM Branding, Embroidery & Labels",
-        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000090",
-        "sort_order": 3
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "alt_text": "Private Label Swimwear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "sort_order": 3,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       },
       {
         "id": "e0000001-0000-0000-0000-000000900004",
-        "alt_text": "Private Label Swimwear — Image 04 Lifestyle & Professional Sialkot Manufacturing",
-        "image_url": "https://images.unsplash.com/photo-1509281373149-e957c6296406?q=80&w=1200&auto=format&fit=crop",
-        "created_at": "2026-09-14T11:04:06.525+00:00",
-        "is_primary": false,
         "product_id": "b0000001-0000-0000-0000-000000000090",
-        "sort_order": 4
+        "image_url": "/images/products/rash-guard.jpg",
+        "alt_text": "Private Label Swimwear — Image 04 Coordinated Variant & Colorway",
+        "sort_order": 4,
+        "is_primary": false,
+        "created_at": "2026-09-14T14:02:04.613Z"
       }
     ]
   }

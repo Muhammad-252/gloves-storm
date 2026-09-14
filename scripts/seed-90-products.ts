@@ -1,6 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import * as fs from "fs";
 import * as path from "path";
+import { CATEGORY_STUDIO_IMAGES, PRODUCT_IMAGE_MAP } from "./catalog-image-map";
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || "https://ulamuliwbllkrrpdbdkn.supabase.co";
 const serviceRoleKey =
@@ -26,7 +27,7 @@ export const CATEGORIES: RawCategory[] = [
     name: "Boxing Equipment",
     slug: "boxing-equipment",
     description: "Handcrafted professional competition gloves, sparring gloves, MMA gear, headguards, and heavy punching bags manufactured in Sialkot, Pakistan.",
-    image_url: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
+    image_url: CATEGORY_STUDIO_IMAGES["boxing-equipment"],
     sort_order: 1,
   },
   {
@@ -34,7 +35,7 @@ export const CATEGORIES: RawCategory[] = [
     name: "Sportswear & Teamwear",
     slug: "sportswear-teamwear",
     description: "Custom basketball uniforms, American football jerseys, soccer kits, tracksuits, and high-performance athletic teamwear for clubs and brands worldwide.",
-    image_url: "https://images.unsplash.com/photo-1546519638-68e109498ffc?q=80&w=1200&auto=format&fit=crop",
+    image_url: CATEGORY_STUDIO_IMAGES["sportswear-teamwear"],
     sort_order: 2,
   },
   {
@@ -42,7 +43,7 @@ export const CATEGORIES: RawCategory[] = [
     name: "Gym & Fitness Wear",
     slug: "gym-fitness-wear",
     description: "High-tensile compression wear, moisture-wicking tees, sports bras, seamless gym leggings, and performance athleisure apparel engineered for training.",
-    image_url: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
+    image_url: CATEGORY_STUDIO_IMAGES["gym-fitness-wear"],
     sort_order: 3,
   },
   {
@@ -50,7 +51,7 @@ export const CATEGORIES: RawCategory[] = [
     name: "Clothing & Streetwear",
     slug: "clothing-streetwear",
     description: "Heavyweight 450+ GSM hoodies, boxy oversized tees, varsity jackets, cargo pants, and luxury streetwear cut-and-sew silhouettes.",
-    image_url: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
+    image_url: CATEGORY_STUDIO_IMAGES["clothing-streetwear"],
     sort_order: 4,
   },
   {
@@ -58,7 +59,7 @@ export const CATEGORIES: RawCategory[] = [
     name: "Custom Manufacturing & Private Label",
     slug: "custom-manufacturing-private-label",
     description: "Turnkey OEM and private label services: technical tech pack prototyping, Italian Kiian sublimation, Tajima embroidery, custom packaging, and low MOQ production.",
-    image_url: "https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1200&auto=format&fit=crop",
+    image_url: CATEGORY_STUDIO_IMAGES["custom-manufacturing-private-label"],
     sort_order: 5,
   },
   {
@@ -66,10 +67,11 @@ export const CATEGORIES: RawCategory[] = [
     name: "Swimwear & Beachwear",
     slug: "swimwear-beachwear",
     description: "Quick-drying board shorts, UPF 50+ rash guards, chlorine-resistant one-piece swimsuits, bikinis, and luxury resort apparel made for performance.",
-    image_url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+    image_url: CATEGORY_STUDIO_IMAGES["swimwear-beachwear"],
     sort_order: 6,
   },
 ];
+
 
 // Curated image banks per category for 4 distinct image roles: Hero, Detail, Branding, Lifestyle
 const IMAGES_BY_CATEGORY: Record<string, { hero: string[]; detail: string[]; branding: string[]; lifestyle: string[] }> = {
@@ -1639,14 +1641,56 @@ export const CATALOG_SPECS: ProductSpec[] = [
 ];
 
 // Helper to generate 4 deterministic, high-resolution images for each product
-export function getImagesForProduct(catSlug: string, prodIndex: number, prodName: string, prodId: string, pCounter: number) {
+export function getImagesForProduct(catSlug: string, prodIndex: number, prodName: string, prodId: string, pCounter: number, prodSlug?: string) {
+  const hexCount = String(pCounter).padStart(8, "0");
+  const specific = prodSlug ? PRODUCT_IMAGE_MAP[prodSlug] : undefined;
+
+  if (specific) {
+    return [
+      {
+        id: `e0000001-0000-0000-0000-${hexCount}0001`,
+        product_id: prodId,
+        image_url: specific.hero,
+        alt_text: `${prodName} — Image 01 Hero Product Presentation (GLOVES STORM OEM)`,
+        sort_order: 1,
+        is_primary: true,
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: `e0000001-0000-0000-0000-${hexCount}0002`,
+        product_id: prodId,
+        image_url: specific.detail,
+        alt_text: `${prodName} — Image 02 Material, Stitching & Craftsmanship Detail`,
+        sort_order: 2,
+        is_primary: false,
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: `e0000001-0000-0000-0000-${hexCount}0003`,
+        product_id: prodId,
+        image_url: specific.branding,
+        alt_text: `${prodName} — Image 03 GLOVES STORM Branding & Angle Presentation`,
+        sort_order: 3,
+        is_primary: false,
+        created_at: new Date().toISOString(),
+      },
+      {
+        id: `e0000001-0000-0000-0000-${hexCount}0004`,
+        product_id: prodId,
+        image_url: specific.lifestyle,
+        alt_text: `${prodName} — Image 04 Coordinated Variant & Colorway`,
+        sort_order: 4,
+        is_primary: false,
+        created_at: new Date().toISOString(),
+      },
+    ];
+  }
+
   const bank = IMAGES_BY_CATEGORY[catSlug] || IMAGES_BY_CATEGORY["boxing-equipment"];
   const hIndex = prodIndex % bank.hero.length;
   const dIndex = prodIndex % bank.detail.length;
   const bIndex = prodIndex % bank.branding.length;
   const lIndex = prodIndex % bank.lifestyle.length;
-
-  const hexCount = String(pCounter).padStart(8, "0");
 
   return [
     {
@@ -1740,7 +1784,7 @@ async function runSeed() {
     const shortDesc = spec.seoDescription;
     const fullDesc = `${spec.name} engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.`;
 
-    const productImages = getImagesForProduct(spec.categorySlug, spec.order, spec.name, pId, pCounter);
+    const productImages = getImagesForProduct(spec.categorySlug, spec.order, spec.name, pId, pCounter, spec.slug);
 
     const prodRecord = {
       id: pId,
@@ -1821,7 +1865,47 @@ async function runSeed() {
   }
   console.log(`✅ All ${dbImages.length} images (4 per product) inserted.`);
 
+  // 3. Synchronize src/lib/data/initialData.ts
+  console.log("💾 Synchronizing src/lib/data/initialData.ts...");
+  const initialDataPath = path.join(__dirname, "../src/lib/data/initialData.ts");
+  let existingContent = fs.readFileSync(initialDataPath, "utf8");
+  const projectsIndex = existingContent.indexOf("export const initialProjects: Project[] = [");
+  const remainder = projectsIndex !== -1 ? existingContent.substring(projectsIndex) : "";
+
+  const updatedCategories = CATEGORIES.map((c) => ({
+    id: c.id,
+    name: c.name,
+    slug: c.slug,
+    description: c.description,
+    image_url: c.image_url,
+    parent_id: null,
+    sort_order: c.sort_order,
+    is_active: true,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  }));
+
+  const newInitialData = `import {
+  Category,
+  Product,
+  Project,
+  Testimonial,
+  BlogPost,
+  Inquiry,
+  SiteSettings,
+} from "@/types/database";
+
+export const initialCategories: Category[] = ${JSON.stringify(updatedCategories, null, 2)};
+
+export const initialProducts: Product[] = ${JSON.stringify(fullProductsForLocal, null, 2)};
+
+${remainder}`;
+
+  fs.writeFileSync(initialDataPath, newInitialData, "utf8");
+  console.log("✅ src/lib/data/initialData.ts updated with 90 OEM products & images.");
+
   console.log("\n🎉 Catalog Seed Complete! Total Products: 90. Total Images: 360.");
 }
 
 runSeed();
+
