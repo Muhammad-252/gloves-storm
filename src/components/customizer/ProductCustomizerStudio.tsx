@@ -162,68 +162,70 @@ export default function ProductCustomizerStudio({
   const isBasketball = customState.categorySlug.includes("basketball") || customState.categorySlug.includes("soccer") || customState.categorySlug.includes("american-football");
 
   return (
-    <div className="w-full bg-[#fafafa] text-[#0f172a]">
+    <div className="w-full bg-white text-[#1A1A1A]">
       {/* Studio Header Bar */}
-      <div className="border-b border-neutral-200 px-6 py-4 flex items-center justify-between bg-white/90 backdrop-blur-md sticky top-0 z-30 shadow-sm">
-        <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#b45309] animate-pulse" />
-          <div>
-            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#b45309] block font-bold">
-              Bespoke Configurator Studio
-            </span>
-            <h2 className="text-base sm:text-lg font-black uppercase tracking-tight text-[#0f172a] flex items-center gap-2">
-              <span>{customState.productName}</span>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 font-normal normal-case border border-neutral-200">
-                {customState.categoryName}
+      <div className="border-b border-black/[0.08] bg-white/[0.98] backdrop-blur-md sticky top-0 z-30 shadow-[0_1px_0_0_rgba(0,0,0,0.05)]">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between w-full">
+          <div className="flex items-center gap-3">
+            <span className="w-2.5 h-2.5 rounded-full bg-[#b45309] animate-pulse" />
+            <div>
+              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#b45309] block font-bold">
+                Bespoke Configurator Studio
               </span>
-            </h2>
+              <h2 className="text-base sm:text-lg font-black uppercase tracking-tight text-[#1A1A1A] flex items-center gap-2">
+                <span>{customState.productName}</span>
+                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#F9FAFB] text-[#6B7280] font-normal normal-case border border-black/[0.08]">
+                  {customState.categoryName}
+                </span>
+              </h2>
+            </div>
           </div>
-        </div>
 
-        {/* Step Tabs Indicator */}
-        <div className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-neutral-100 border border-neutral-200">
-          {[
-            { id: "colors", label: "01 Colors", icon: Palette },
-            { id: "materials", label: "02 Materials", icon: Layers },
-            { id: "specs", label: "03 Tailoring", icon: Sliders },
-            { id: "branding", label: "04 Branding & Logo", icon: Sparkles },
-            { id: "quantity", label: "05 Quantity", icon: Box },
-          ].map((tab) => {
-            const Icon = tab.icon;
-            const isActive = activeStep === tab.id;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveStep(tab.id as any)}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all ${
-                  isActive
-                    ? "bg-[#b45309] text-white font-bold shadow-sm"
-                    : "text-neutral-600 hover:text-[#0f172a] hover:bg-white"
-                }`}
-              >
-                <Icon className="w-3.5 h-3.5" />
-                <span>{tab.label}</span>
-              </button>
-            );
-          })}
-        </div>
+          {/* Step Tabs Indicator */}
+          <div className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-[#F9FAFB] border border-black/[0.08]">
+            {[
+              { id: "colors", label: "01 Colors", icon: Palette },
+              { id: "materials", label: "02 Materials", icon: Layers },
+              { id: "specs", label: "03 Tailoring", icon: Sliders },
+              { id: "branding", label: "04 Branding & Logo", icon: Sparkles },
+              { id: "quantity", label: "05 Quantity", icon: Box },
+            ].map((tab) => {
+              const Icon = tab.icon;
+              const isActive = activeStep === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveStep(tab.id as any)}
+                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all ${
+                    isActive
+                      ? "bg-[#1A1A1A] text-white font-bold shadow-sm"
+                      : "text-[#6B7280] hover:text-[#1A1A1A] hover:bg-white"
+                  }`}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                  <span>{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
 
-        {/* Quick Done / Proceed CTA */}
-        <div className="flex items-center gap-3">
-          <GooeyButton
-            onClick={handleProceedToInquiry}
-            variant="gold-solid"
-            size="sm"
-            className="!px-4 !py-2 text-xs"
-          >
-            <span>SUBMIT SPECS</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </GooeyButton>
+          {/* Quick Done / Proceed CTA */}
+          <div className="flex items-center gap-3">
+            <GooeyButton
+              onClick={handleProceedToInquiry}
+              variant="gold-solid"
+              size="sm"
+              className="!px-4 !py-2 text-xs"
+            >
+              <span>SUBMIT SPECS</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </GooeyButton>
+          </div>
         </div>
       </div>
 
       {/* Main Studio Grid: Left Form Controls, Right Sticky Interactive Mockup */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* LEFT COLUMN: Configuration Steps (7 cols) */}
         <div className="lg:col-span-7 space-y-8">
           {/* Mobile Step Pills */}
@@ -256,7 +258,7 @@ export default function ProductCustomizerStudio({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#b45309] block mb-1 font-bold">
                   Step 01 of 05
                 </span>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a]">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A]">
                   Select Colorway & Leather / Fabric Tone
                 </h3>
                 <p className="text-xs text-neutral-600 mt-1">
@@ -268,7 +270,7 @@ export default function ProductCustomizerStudio({
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-3 flex items-center justify-between font-medium">
                   <span>Primary Body Color</span>
-                  <span className="text-[#0f172a] font-bold">{customState.primaryColor}</span>
+                  <span className="text-[#1A1A1A] font-bold">{customState.primaryColor}</span>
                 </label>
                 <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
                   {COLOR_PALETTE.map((color) => {
@@ -308,7 +310,7 @@ export default function ProductCustomizerStudio({
               <div className="pt-4 border-t border-neutral-200">
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-3 flex items-center justify-between font-medium">
                   <span>Secondary / Palm / Accent Color</span>
-                  <span className="text-[#0f172a] font-bold">{customState.secondaryColor}</span>
+                  <span className="text-[#1A1A1A] font-bold">{customState.secondaryColor}</span>
                 </label>
                 <div className="flex flex-wrap gap-2.5">
                   {COLOR_PALETTE.map((color) => {
@@ -323,7 +325,7 @@ export default function ProductCustomizerStudio({
                         className={`px-3 py-1.5 rounded-full border text-xs flex items-center gap-2 transition-all ${
                           isSelected
                             ? "border-amber-600 bg-amber-50 text-[#b45309] font-bold"
-                            : "border-neutral-200 bg-neutral-50 text-neutral-600 hover:text-[#0f172a]"
+                            : "border-neutral-200 bg-neutral-50 text-neutral-600 hover:text-[#1A1A1A]"
                         }`}
                       >
                         <span
@@ -389,7 +391,7 @@ export default function ProductCustomizerStudio({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-[#b45309] block mb-1 font-bold">
                   Step 02 of 05
                 </span>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a]">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A]">
                   Engineered Substrate & Core Construction
                 </h3>
                 <p className="text-xs text-neutral-600 mt-1">
@@ -437,7 +439,7 @@ export default function ProductCustomizerStudio({
                     >
                       <div>
                         <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs sm:text-sm font-bold text-[#0f172a]">
+                          <span className="text-xs sm:text-sm font-bold text-[#1A1A1A]">
                             {mat.name}
                           </span>
                           <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-100 text-[#b45309] font-medium">
@@ -489,7 +491,7 @@ export default function ProductCustomizerStudio({
                               : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
                           }`}
                         >
-                          <span className="block text-xs font-bold text-[#0f172a] mb-1">
+                          <span className="block text-xs font-bold text-[#1A1A1A] mb-1">
                             {pad.name}
                           </span>
                           <span className="text-[10px] text-neutral-500 block">{pad.note}</span>
@@ -505,7 +507,7 @@ export default function ProductCustomizerStudio({
                 <button
                   type="button"
                   onClick={() => setActiveStep("colors")}
-                  className="text-xs font-mono text-neutral-500 hover:text-[#0f172a] font-medium"
+                  className="text-xs font-mono text-neutral-500 hover:text-[#1A1A1A] font-medium"
                 >
                   ← Back
                 </button>
@@ -528,7 +530,7 @@ export default function ProductCustomizerStudio({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-amber-600 block mb-1">
                   Step 03 of 05
                 </span>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a]">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A]">
                   Precision Sizing, Closure & Cut
                 </h3>
                 <p className="text-xs text-neutral-600 mt-1">
@@ -558,7 +560,7 @@ export default function ProductCustomizerStudio({
                           className={`p-3 rounded-2xl border text-center text-xs font-bold transition-all ${
                             isSelected
                               ? "border-amber-600 bg-amber-500 text-white shadow-sm"
-                              : "border-neutral-200 bg-neutral-50/60 text-[#0f172a] hover:border-neutral-300"
+                              : "border-neutral-200 bg-neutral-50/60 text-[#1A1A1A] hover:border-neutral-300"
                           }`}
                         >
                           {oz}
@@ -593,11 +595,11 @@ export default function ProductCustomizerStudio({
                           }
                           className={`p-3 rounded-2xl border text-left text-xs transition-all ${
                             customState.specificSpecs.fitStyle === fit.name
-                              ? "border-amber-600 bg-amber-50 text-[#0f172a] font-bold"
+                              ? "border-amber-600 bg-amber-50 text-[#1A1A1A] font-bold"
                               : "border-neutral-200 bg-neutral-50/60 text-neutral-700 hover:border-neutral-300"
                           }`}
                         >
-                          <span className="block font-bold text-[#0f172a] mb-1">{fit.name}</span>
+                          <span className="block font-bold text-[#1A1A1A] mb-1">{fit.name}</span>
                           <span className="text-[10px] text-neutral-500 block">{fit.note}</span>
                         </button>
                       ))}
@@ -624,7 +626,7 @@ export default function ProductCustomizerStudio({
                             className={`w-10 h-10 rounded-2xl border text-xs font-bold transition-all flex items-center justify-center ${
                               isSelected
                                 ? "border-amber-600 bg-amber-500 text-white shadow-sm"
-                                : "border-neutral-200 bg-neutral-50/60 text-[#0f172a] hover:border-neutral-300"
+                                : "border-neutral-200 bg-neutral-50/60 text-[#1A1A1A] hover:border-neutral-300"
                             }`}
                           >
                             {sz}
@@ -664,11 +666,11 @@ export default function ProductCustomizerStudio({
                         }
                         className={`p-3.5 rounded-2xl border text-left text-xs transition-all ${
                           customState.specificSpecs.wristClosure === cl.name
-                            ? "border-amber-600 bg-amber-50 font-bold text-[#0f172a]"
+                            ? "border-amber-600 bg-amber-50 font-bold text-[#1A1A1A]"
                             : "border-neutral-200 bg-neutral-50/60 text-neutral-700 hover:border-neutral-300"
                         }`}
                       >
-                        <span className="block text-[#0f172a] font-bold mb-1">{cl.name}</span>
+                        <span className="block text-[#1A1A1A] font-bold mb-1">{cl.name}</span>
                         <span className="text-[10px] text-neutral-500 block">{cl.desc}</span>
                       </button>
                     ))}
@@ -681,7 +683,7 @@ export default function ProductCustomizerStudio({
                 <button
                   type="button"
                   onClick={() => setActiveStep("materials")}
-                  className="text-xs font-mono text-neutral-500 hover:text-[#0f172a] font-medium"
+                  className="text-xs font-mono text-neutral-500 hover:text-[#1A1A1A] font-medium"
                 >
                   ← Back
                 </button>
@@ -704,7 +706,7 @@ export default function ProductCustomizerStudio({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-amber-600 block mb-1">
                   Step 04 of 05
                 </span>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a]">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A]">
                   Brand Embellishment & Logo Preview
                 </h3>
                 <p className="text-xs text-neutral-600 mt-1">
@@ -727,7 +729,7 @@ export default function ProductCustomizerStudio({
                 <div className="w-12 h-12 rounded-full bg-amber-50 text-amber-600 mx-auto flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
                   <Upload className="w-5 h-5" />
                 </div>
-                <span className="text-sm font-bold text-[#0f172a] block mb-1">
+                <span className="text-sm font-bold text-[#1A1A1A] block mb-1">
                   {customState.logoUrl ? "Change Uploaded Brand Logo" : "Upload Your Logo File"}
                 </span>
                 <span className="text-xs text-neutral-500 block">
@@ -807,11 +809,11 @@ export default function ProductCustomizerStudio({
                         }
                         className={`p-3.5 rounded-2xl border text-left text-xs transition-all ${
                           isSelected
-                            ? "border-amber-600 bg-amber-50 font-bold text-[#0f172a]"
+                            ? "border-amber-600 bg-amber-50 font-bold text-[#1A1A1A]"
                             : "border-neutral-200 bg-neutral-50/60 text-neutral-700 hover:border-neutral-300"
                         }`}
                       >
-                        <span className="block text-[#0f172a] font-bold mb-1">{tech.name}</span>
+                        <span className="block text-[#1A1A1A] font-bold mb-1">{tech.name}</span>
                         <span className="text-[10px] text-neutral-500 block">{tech.note}</span>
                       </button>
                     );
@@ -836,7 +838,7 @@ export default function ProductCustomizerStudio({
                       onClick={() => setCustomState((prev) => ({ ...prev, packaging: pkg }))}
                       className={`p-3 rounded-2xl border text-center text-xs transition-all ${
                         customState.packaging === pkg
-                          ? "border-amber-600 bg-amber-50 font-bold text-[#0f172a]"
+                          ? "border-amber-600 bg-amber-50 font-bold text-[#1A1A1A]"
                           : "border-neutral-200 bg-neutral-50/60 text-neutral-700 hover:border-neutral-300"
                       }`}
                     >
@@ -851,7 +853,7 @@ export default function ProductCustomizerStudio({
                 <button
                   type="button"
                   onClick={() => setActiveStep("specs")}
-                  className="text-xs font-mono text-neutral-500 hover:text-[#0f172a] font-medium"
+                  className="text-xs font-mono text-neutral-500 hover:text-[#1A1A1A] font-medium"
                 >
                   ← Back
                 </button>
@@ -874,7 +876,7 @@ export default function ProductCustomizerStudio({
                 <span className="text-[10px] font-mono uppercase tracking-widest text-amber-600 block mb-1">
                   Step 05 of 05
                 </span>
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a]">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A]">
                   Quantities, Production Schedule & Notes
                 </h3>
                 <p className="text-xs text-neutral-600 mt-1">
@@ -945,7 +947,7 @@ export default function ProductCustomizerStudio({
                     setCustomState((prev) => ({ ...prev, notes: e.target.value }))
                   }
                   placeholder="Detail any target GSM, PANTONE color codes, stitch thread contrast, special private label instructions, or deadline..."
-                  className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20 transition-all resize-none"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#1A1A1A] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20 transition-all resize-none"
                 />
               </div>
 
@@ -954,7 +956,7 @@ export default function ProductCustomizerStudio({
                 <button
                   type="button"
                   onClick={() => setActiveStep("branding")}
-                  className="text-xs font-mono text-neutral-500 hover:text-[#0f172a] font-medium"
+                  className="text-xs font-mono text-neutral-500 hover:text-[#1A1A1A] font-medium"
                 >
                   ← Back to Branding
                 </button>

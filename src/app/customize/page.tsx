@@ -19,7 +19,7 @@ export default async function CustomizePage({ searchParams }: CustomizePageProps
   ]);
 
   return (
-    <div className="pt-24 pb-20 bg-[#fafafa] min-h-screen">
+    <div className="pt-24 pb-20 bg-white min-h-screen">
       <ProductCustomizerStudio
         products={products}
         categories={categories}

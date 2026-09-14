@@ -65,7 +65,7 @@ export default function GooeyButton({
     "outline-white": {
       base: "bg-black/40 border border-white/35 text-white shadow-xl hover:border-white/70 backdrop-blur-md",
       blobBg: "bg-white",
-      textTransition: "text-white group-hover:text-neutral-950",
+      textTransition: "text-white group-hover:text-[#1A1A1A]",
     },
     "outline-gold": {
       base: "bg-black/40 border border-amber-400/50 text-amber-300 shadow-xl hover:border-amber-400 backdrop-blur-md",

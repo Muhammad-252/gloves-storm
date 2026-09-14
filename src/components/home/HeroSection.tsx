@@ -107,7 +107,8 @@ export default function HeroSection() {
               size="lg"
               className="w-full sm:w-auto"
             >
-              <span className="text-white">EXPLORE PRODUCTS</span>
+              <span>EXPLORE PRODUCTS</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
             </GooeyButton>
           </MagneticElement>
         </div>
