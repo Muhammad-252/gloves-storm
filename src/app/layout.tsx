@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
-import CustomCursor from "@/components/ui/CustomCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,6 +14,13 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#FFFFFF",
+};
 
 export const metadata: Metadata = {
   title: {
@@ -70,7 +76,6 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-white text-[#1A1A1A]"
         suppressHydrationWarning
       >
-        <CustomCursor />
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />

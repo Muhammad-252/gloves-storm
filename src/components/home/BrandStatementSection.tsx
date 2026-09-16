@@ -134,11 +134,11 @@ export default function BrandStatementSection() {
           {/* Phase 01: Pre-Production & Engineering */}
           <div>
             <div className="flex items-center justify-between mb-6 pb-3 border-b border-black/[0.07]">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap">
                 <span className="text-xs font-mono font-bold tracking-widest text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-1 rounded-md uppercase">
                   Phase 01
                 </span>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-800">
+                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-800">
                   Concept, Sampling & Industrial Engineering
                 </h3>
               </div>
@@ -153,7 +153,7 @@ export default function BrandStatementSection() {
                 return (
                   <div
                     key={stage.step}
-                    className="group relative bg-[#F9FAFB] rounded-3xl p-7 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-[#F9FAFB] rounded-3xl p-6 sm:p-7 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   >
                     {/* Top row with step number and icon */}
                     <div>
@@ -212,11 +212,11 @@ export default function BrandStatementSection() {
           {/* Phase 02: Mass Production, Quality Assurance & Delivery */}
           <div>
             <div className="flex items-center justify-between mb-6 pb-3 border-b border-black/[0.07]">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap">
                 <span className="text-xs font-mono font-bold tracking-widest text-amber-800 bg-amber-50 border border-amber-200/80 px-2.5 py-1 rounded-md uppercase">
                   Phase 02
                 </span>
-                <h3 className="text-sm font-bold uppercase tracking-wider text-neutral-800">
+                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-800">
                   Bulk Manufacturing, Triple-Point QC & Global Shipping
                 </h3>
               </div>
@@ -231,7 +231,7 @@ export default function BrandStatementSection() {
                 return (
                   <div
                     key={stage.step}
-                    className="group relative bg-[#F9FAFB] rounded-3xl p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-[#F9FAFB] rounded-3xl p-6 sm:p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:border-amber-500/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
                       <div className="flex items-center justify-between mb-5">

@@ -18,6 +18,8 @@ export const initialCategories: Category[] = [
     "parent_id": null,
     "sort_order": 1,
     "is_active": true,
+    "featured_in_menu": true,
+    "menu_badge": "Most Popular",
     "created_at": "2026-09-14T14:02:09.584Z",
     "updated_at": "2026-09-14T14:02:09.584Z"
   },
@@ -30,6 +32,8 @@ export const initialCategories: Category[] = [
     "parent_id": null,
     "sort_order": 2,
     "is_active": true,
+    "featured_in_menu": true,
+    "menu_badge": "OEM Leader",
     "created_at": "2026-09-14T14:02:09.584Z",
     "updated_at": "2026-09-14T14:02:09.584Z"
   },
@@ -42,6 +46,8 @@ export const initialCategories: Category[] = [
     "parent_id": null,
     "sort_order": 3,
     "is_active": true,
+    "featured_in_menu": true,
+    "menu_badge": "High Demand",
     "created_at": "2026-09-14T14:02:09.584Z",
     "updated_at": "2026-09-14T14:02:09.584Z"
   },
@@ -54,6 +60,8 @@ export const initialCategories: Category[] = [
     "parent_id": null,
     "sort_order": 4,
     "is_active": true,
+    "featured_in_menu": true,
+    "menu_badge": "Luxury OEM",
     "created_at": "2026-09-14T14:02:09.584Z",
     "updated_at": "2026-09-14T14:02:09.584Z"
   },
@@ -117,6 +125,14 @@ export const initialProducts: Product[] = [
     "lead_time": "2-3 Weeks",
     "featured": true,
     "is_active": true,
+    "sample_price": 45.00,
+    "show_pricing": true,
+    "pricing_tiers": [
+      { "min_quantity": 1, "max_quantity": 49, "unit_price": 45.00, "label": "Sample (1 pc)" },
+      { "min_quantity": 50, "max_quantity": 499, "unit_price": 22.50, "label": "MOQ Tier" },
+      { "min_quantity": 500, "max_quantity": 999, "unit_price": 17.00, "label": "Volume Deal" },
+      { "min_quantity": 1000, "max_quantity": null, "unit_price": 13.50, "label": "Enterprise Bulk" }
+    ],
     "seo_title": "Custom Boxing Gloves | GLOVES STORM",
     "seo_description": "Custom Boxing Gloves for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
     "created_at": "2026-09-14T14:02:04.611Z",
@@ -8072,6 +8088,9 @@ export const initialSiteSettings: SiteSettings = {
   "favicon_url": null,
   "hero_title": "BUILT FOR BRANDS. MADE TO PERFORM.",
   "hero_description": "Custom boxing gear, sportswear and apparel manufactured for brands worldwide.",
+  "instagram_access_token": null,
+  "instagram_feed_mode": "api",
+  "instagram_widget_code": null,
   "updated_at": "2026-09-14T11:04:40.411Z"
 };
 

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { Product, Category, ProductImage } from "@/types/database";
+import { Product, Category, ProductImage, PriceTier } from "@/types/database";
 import { saveProduct } from "@/lib/data/store";
 import { slugify } from "@/lib/utils";
 import {
@@ -13,6 +13,9 @@ import {
   Star,
   Loader2,
   CheckCircle,
+  DollarSign,
+  Sparkles,
+  RefreshCw,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -57,6 +60,24 @@ export default function ProductEditorForm({
   const [leadTime, setLeadTime] = useState(initialProduct?.lead_time || "2-4 Weeks");
   const [isActive, setIsActive] = useState(initialProduct?.is_active ?? true);
   const [featured, setFeatured] = useState(initialProduct?.featured ?? false);
+
+  // Alibaba Wholesale Price Deals State
+  const [samplePrice, setSamplePrice] = useState<number | string>(
+    initialProduct?.sample_price || 35
+  );
+  const [showPricing, setShowPricing] = useState<boolean>(
+    initialProduct?.show_pricing ?? true
+  );
+  const [pricingTiers, setPricingTiers] = useState<PriceTier[]>(
+    initialProduct?.pricing_tiers && initialProduct.pricing_tiers.length > 0
+      ? initialProduct.pricing_tiers
+      : [
+          { min_quantity: 1, max_quantity: 49, unit_price: 35, label: "Sample (1 pc)" },
+          { min_quantity: 50, max_quantity: 499, unit_price: 18.5, label: "MOQ Batch" },
+          { min_quantity: 500, max_quantity: 999, unit_price: 14.2, label: "Volume Deal" },
+          { min_quantity: 1000, max_quantity: null, unit_price: 11.0, label: "Enterprise Bulk" },
+        ]
+  );
 
   const [seoTitle, setSeoTitle] = useState(initialProduct?.seo_title || "");
   const [seoDesc, setSeoDesc] = useState(initialProduct?.seo_description || "");
@@ -124,6 +145,68 @@ export default function ProductEditorForm({
     setImages(updated);
   };
 
+  const handleAddTier = () => {
+    const lastTier = pricingTiers[pricingTiers.length - 1];
+    const newMin =
+      lastTier && lastTier.max_quantity
+        ? lastTier.max_quantity + 1
+        : lastTier
+        ? lastTier.min_quantity + 500
+        : 100;
+    setPricingTiers([
+      ...pricingTiers,
+      {
+        min_quantity: newMin,
+        max_quantity: null,
+        unit_price: lastTier
+          ? Math.max(1, Math.round(lastTier.unit_price * 0.85 * 100) / 100)
+          : 15,
+        label: `Tier ${pricingTiers.length + 1}`,
+      },
+    ]);
+  };
+
+  const handleUpdateTier = (index: number, field: keyof PriceTier, value: any) => {
+    const updated = [...pricingTiers];
+    updated[index] = { ...updated[index], [field]: value };
+    setPricingTiers(updated);
+  };
+
+  const handleRemoveTier = (index: number) => {
+    setPricingTiers(pricingTiers.filter((_, i) => i !== index));
+  };
+
+  const handleLoadStandardTemplate = () => {
+    const baseSample = Number(samplePrice) || 35;
+    const currentMoq = Number(moq) || 50;
+    setPricingTiers([
+      {
+        min_quantity: 1,
+        max_quantity: Math.max(1, currentMoq - 1),
+        unit_price: baseSample,
+        label: "Sample (1 pc)",
+      },
+      {
+        min_quantity: currentMoq,
+        max_quantity: Math.max(currentMoq, 499),
+        unit_price: Math.round(baseSample * 0.52 * 100) / 100,
+        label: "Standard MOQ",
+      },
+      {
+        min_quantity: 500,
+        max_quantity: 999,
+        unit_price: Math.round(baseSample * 0.4 * 100) / 100,
+        label: "Volume Deal",
+      },
+      {
+        min_quantity: 1000,
+        max_quantity: null,
+        unit_price: Math.round(baseSample * 0.32 * 100) / 100,
+        label: "Enterprise Bulk",
+      },
+    ]);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
@@ -142,6 +225,15 @@ export default function ProductEditorForm({
       lead_time: leadTime,
       is_active: isActive,
       featured,
+      pricing_tiers: pricingTiers.map((t) => ({
+        min_quantity: Number(t.min_quantity) || 1,
+        max_quantity: t.max_quantity ? Number(t.max_quantity) : null,
+        unit_price: Number(t.unit_price) || 0,
+        currency: "$",
+        label: t.label || "",
+      })),
+      sample_price: Number(samplePrice) || null,
+      show_pricing: showPricing,
       seo_title: seoTitle || null,
       seo_description: seoDesc || null,
       primary_keyword: primaryKeyword || null,
@@ -311,6 +403,169 @@ export default function ProductEditorForm({
                 className="w-full bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] px-3.5 py-2 text-xs outline-none font-mono focus:ring-1 focus:ring-amber-500/20"
                 placeholder="Custom brand leather debossing&#10;High-density 3D puff silicone printing&#10;Custom woven wrist tag and care labels"
               />
+            </div>
+          </div>
+
+          {/* Alibaba-Style Wholesale Volume Deals & Price Tiers */}
+          <div className="p-6 bg-white border border-neutral-200 rounded-3xl shadow-sm space-y-5">
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-3 flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="p-1.5 rounded-lg bg-amber-500/10 text-amber-700">
+                  <DollarSign className="w-4 h-4" />
+                </span>
+                <div>
+                  <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f172a]">
+                    Alibaba-Style Wholesale Price Tiers & Volume Deals
+                  </h2>
+                  <span className="text-[10px] font-mono text-neutral-500">
+                    Configured volume tiers shown on public product page and catalog cards
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={handleLoadStandardTemplate}
+                  className="inline-flex items-center gap-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer"
+                >
+                  <RefreshCw className="w-3 h-3 text-amber-700" />
+                  <span>Apply Standard Template</span>
+                </button>
+              </div>
+            </div>
+
+            {/* Display and Sample Price Controls */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-neutral-50 p-4 rounded-2xl border border-neutral-200">
+              <div className="flex items-center gap-3">
+                <input
+                  type="checkbox"
+                  id="showPricingToggle"
+                  checked={showPricing}
+                  onChange={(e) => setShowPricing(e.target.checked)}
+                  className="w-4 h-4 text-amber-600 rounded border-neutral-300 focus:ring-amber-500"
+                />
+                <label htmlFor="showPricingToggle" className="text-xs font-medium text-neutral-800 cursor-pointer">
+                  Show Wholesale Tiers Publicly
+                  <span className="block text-[10px] font-mono text-neutral-500">
+                    If disabled, product displays "Request Bespoke Quote"
+                  </span>
+                </label>
+              </div>
+
+              <div>
+                <label className="block text-[11px] font-medium uppercase tracking-wider text-neutral-700 mb-1">
+                  Sample Prototype Unit Price ($ USD)
+                </label>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-neutral-400 font-mono">$</span>
+                  <input
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    value={samplePrice}
+                    onChange={(e) => setSamplePrice(e.target.value)}
+                    placeholder="35.00"
+                    className="w-full bg-white border border-neutral-300 rounded-xl pl-7 pr-3 py-2 text-xs font-mono font-bold text-[#0f172a] focus:border-amber-600 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Tiers Table */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-neutral-700 font-mono">
+                  Configured Volume Tiers ({pricingTiers.length})
+                </span>
+                <button
+                  type="button"
+                  onClick={handleAddTier}
+                  className="inline-flex items-center gap-1 text-xs font-bold text-amber-700 hover:text-amber-800 font-mono cursor-pointer"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>Add Tier Bracket</span>
+                </button>
+              </div>
+
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
+                  <thead className="bg-neutral-100 border-b border-neutral-200 text-[10px] font-mono uppercase text-neutral-600">
+                    <tr>
+                      <th className="py-2.5 px-3">Tier Label</th>
+                      <th className="py-2.5 px-3">Min Qty</th>
+                      <th className="py-2.5 px-3">Max Qty (Blank for +)</th>
+                      <th className="py-2.5 px-3">FOB Unit Price ($ USD)</th>
+                      <th className="py-2.5 px-3 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-neutral-200">
+                    {pricingTiers.map((tier, idx) => (
+                      <tr key={idx} className="bg-white hover:bg-neutral-50/50">
+                        <td className="py-2 px-3">
+                          <input
+                            type="text"
+                            value={tier.label || ""}
+                            onChange={(e) => handleUpdateTier(idx, "label", e.target.value)}
+                            placeholder={`Tier ${idx + 1}`}
+                            className="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-2.5 py-1.5 text-xs text-neutral-900 focus:bg-white focus:border-amber-600 outline-none"
+                          />
+                        </td>
+                        <td className="py-2 px-3">
+                          <input
+                            type="number"
+                            min="1"
+                            value={tier.min_quantity}
+                            onChange={(e) => handleUpdateTier(idx, "min_quantity", parseInt(e.target.value) || 1)}
+                            className="w-24 bg-neutral-50 border border-neutral-200 rounded-lg px-2.5 py-1.5 text-xs font-mono text-neutral-900 focus:bg-white focus:border-amber-600 outline-none"
+                          />
+                        </td>
+                        <td className="py-2 px-3">
+                          <input
+                            type="number"
+                            min="1"
+                            value={tier.max_quantity ?? ""}
+                            onChange={(e) =>
+                              handleUpdateTier(
+                                idx,
+                                "max_quantity",
+                                e.target.value === "" ? null : parseInt(e.target.value) || null
+                              )
+                            }
+                            placeholder="Unlimited (+)"
+                            className="w-28 bg-neutral-50 border border-neutral-200 rounded-lg px-2.5 py-1.5 text-xs font-mono text-neutral-900 focus:bg-white focus:border-amber-600 outline-none"
+                          />
+                        </td>
+                        <td className="py-2 px-3">
+                          <div className="relative w-28">
+                            <span className="absolute left-2.5 top-1/2 -translate-y-1/2 text-neutral-400 font-mono text-xs">$</span>
+                            <input
+                              type="number"
+                              step="0.01"
+                              min="0"
+                              value={tier.unit_price}
+                              onChange={(e) =>
+                                handleUpdateTier(idx, "unit_price", parseFloat(e.target.value) || 0)
+                              }
+                              className="w-full bg-neutral-50 border border-neutral-200 rounded-lg pl-6 pr-2 py-1.5 text-xs font-mono font-bold text-neutral-900 focus:bg-white focus:border-amber-600 outline-none"
+                            />
+                          </div>
+                        </td>
+                        <td className="py-2 px-3 text-right">
+                          <button
+                            type="button"
+                            onClick={() => handleRemoveTier(idx)}
+                            disabled={pricingTiers.length <= 1}
+                            className="p-1.5 text-neutral-400 hover:text-red-600 disabled:opacity-30 transition-colors cursor-pointer"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
 

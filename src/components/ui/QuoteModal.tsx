@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, CheckCircle, ArrowRight, Shield, Loader2 } from "lucide-react";
 import { createInquiry } from "@/lib/data/store";
 import GooeyButton from "./GooeyButton";
@@ -11,6 +11,7 @@ interface QuoteModalProps {
   defaultProductName?: string;
   defaultCategory?: string;
   inquiryType?: "Quote" | "Sample";
+  defaultQuantity?: number;
 }
 
 export default function QuoteModal({
@@ -19,6 +20,7 @@ export default function QuoteModal({
   defaultProductName = "",
   defaultCategory = "General",
   inquiryType = "Quote",
+  defaultQuantity,
 }: QuoteModalProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -28,7 +30,7 @@ export default function QuoteModal({
     country: "United States",
     product_category: defaultCategory,
     product_name: defaultProductName,
-    estimated_quantity: inquiryType === "Sample" ? 2 : 100,
+    estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 2 : 100),
     target_delivery_date: "",
     message: "",
   });
@@ -36,6 +38,17 @@ export default function QuoteModal({
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (isOpen) {
+      setFormData((prev) => ({
+        ...prev,
+        product_name: defaultProductName,
+        product_category: defaultCategory,
+        estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 2 : 100),
+      }));
+    }
+  }, [isOpen, defaultProductName, defaultCategory, defaultQuantity, inquiryType]);
 
   if (!isOpen) return null;
 
@@ -69,15 +82,15 @@ export default function QuoteModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-neutral-200 p-6 sm:p-8 text-neutral-900 my-8 shadow-[0_25px_60px_rgba(0,0,0,0.15)]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-neutral-200 p-5 sm:p-8 text-neutral-900 my-auto max-h-[calc(100dvh-2rem)] overflow-y-auto shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 text-neutral-400 hover:text-neutral-900 p-2 transition-colors rounded-full hover:bg-neutral-100"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 text-neutral-400 hover:text-neutral-900 p-2 transition-colors rounded-full hover:bg-neutral-100 cursor-pointer"
           aria-label="Close quote modal"
         >
-          <X className="w-6 h-6" />
+          <X className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {submitted ? (

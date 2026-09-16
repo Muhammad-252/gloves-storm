@@ -270,13 +270,13 @@ export default function MultiStepInquiryClient({
   return (
     <div className="max-w-4xl mx-auto">
       {/* Step Indicator Header */}
-      <div className="mb-10 text-center">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#b45309] font-bold">
+      <div className="mb-8 sm:mb-10 text-center">
+        <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 mb-3">
+          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#b45309] font-bold">
             Step 0{currentStep} of 08
           </span>
           <span className="text-neutral-400 text-xs font-mono">•</span>
-          <span className="text-xs font-mono text-neutral-600 uppercase tracking-wider">
+          <span className="text-[11px] sm:text-xs font-mono text-neutral-600 uppercase tracking-wider">
             {currentStep === 1 && "Division Selection"}
             {currentStep === 2 && "Product Model"}
             {currentStep === 3 && "Tailoring & Customization"}
@@ -298,7 +298,7 @@ export default function MultiStepInquiryClient({
       </div>
 
       {/* STEP CONTAINER CARD */}
-      <div className="p-6 sm:p-12 rounded-3xl bg-white border border-neutral-200 shadow-md relative">
+      <div className="p-5 sm:p-10 lg:p-12 rounded-3xl bg-white border border-neutral-200 shadow-md relative">
         {/* STEP 01: DIVISION SELECTION */}
         {currentStep === 1 && (
           <div className="space-y-6 animate-in fade-in duration-300">

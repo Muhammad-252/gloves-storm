@@ -39,12 +39,18 @@ export default function AdminCategoriesClient({
       parent_id: null,
       sort_order: categories.length + 1,
       is_active: true,
+      featured_in_menu: true,
+      menu_badge: "",
     });
     setIsModalOpen(true);
   };
 
   const handleOpenEdit = (cat: Category) => {
-    setEditingCat({ ...cat });
+    setEditingCat({
+      ...cat,
+      featured_in_menu: cat.featured_in_menu ?? true,
+      menu_badge: cat.menu_badge || "",
+    });
     setIsModalOpen(true);
   };
 
@@ -123,6 +129,7 @@ export default function AdminCategoriesClient({
                 <th className="py-3.5 px-4">Order</th>
                 <th className="py-3.5 px-4">Category Name</th>
                 <th className="py-3.5 px-4">Type</th>
+                <th className="py-3.5 px-4">Mega Menu</th>
                 <th className="py-3.5 px-4">Slug</th>
                 <th className="py-3.5 px-4">Status</th>
                 <th className="py-3.5 px-4 text-right">Actions</th>
@@ -169,6 +176,24 @@ export default function AdminCategoriesClient({
                           Parent Division
                         </span>
                       )}
+                    </td>
+                    <td className="py-3.5 px-4">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        <span
+                          className={`text-[9px] font-mono px-2 py-0.5 rounded-full font-bold ${
+                            cat.featured_in_menu !== false
+                              ? "bg-amber-100 text-amber-900 border border-amber-300"
+                              : "bg-neutral-100 text-neutral-500"
+                          }`}
+                        >
+                          {cat.featured_in_menu !== false ? "In Menu" : "Hidden"}
+                        </span>
+                        {cat.menu_badge && (
+                          <span className="text-[9px] font-mono bg-neutral-900 text-white px-1.5 py-0.5 rounded">
+                            {cat.menu_badge}
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="py-3.5 px-4 font-mono text-neutral-400">
                       /{cat.slug}
@@ -336,6 +361,42 @@ export default function AdminCategoriesClient({
                   className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
                   placeholder="Bespoke manufacturing summary for this category..."
                 />
+              </div>
+
+              {/* Mega Menu Controls */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-3.5 bg-amber-50/60 rounded-2xl border border-amber-200/80">
+                <div className="flex items-center gap-2.5">
+                  <input
+                    type="checkbox"
+                    id="featuredInMenuToggle"
+                    checked={editingCat.featured_in_menu ?? true}
+                    onChange={(e) =>
+                      setEditingCat({ ...editingCat, featured_in_menu: e.target.checked })
+                    }
+                    className="w-4 h-4 text-amber-600 rounded border-neutral-300 focus:ring-amber-500"
+                  />
+                  <label htmlFor="featuredInMenuToggle" className="text-xs font-semibold text-neutral-800 cursor-pointer">
+                    Show in Header Mega Menu
+                    <span className="block text-[10px] font-mono text-neutral-500">
+                      Highlighted in desktop & mobile menu
+                    </span>
+                  </label>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] font-mono uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
+                    Menu Badge (e.g. Popular, Top Drop)
+                  </label>
+                  <input
+                    type="text"
+                    value={editingCat.menu_badge || ""}
+                    onChange={(e) =>
+                      setEditingCat({ ...editingCat, menu_badge: e.target.value })
+                    }
+                    placeholder="e.g. Popular"
+                    className="w-full bg-white border border-neutral-300 focus:border-amber-600 text-[#0f172a] rounded-xl px-3 py-1.5 text-xs outline-none font-mono"
+                  />
+                </div>
               </div>
 
               <div className="pt-4 flex items-center justify-end gap-3 border-t border-neutral-100">

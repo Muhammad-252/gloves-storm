@@ -61,10 +61,10 @@ export default function ProductExplorerSection({
         {/* Filter and Search Bar */}
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 mb-12">
           {/* Category Pill Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none w-full lg:w-auto">
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${
                 selectedCategory === "all"
                   ? "bg-[#1A1A1A] text-white border-[#1A1A1A] shadow-sm"
                   : "bg-[#F9FAFB] text-[#4B4B4B] border-black/[0.08] hover:border-black/[0.2] hover:text-[#1A1A1A]"
@@ -76,7 +76,7 @@ export default function ProductExplorerSection({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border ${
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${
                   selectedCategory === cat.id
                     ? "bg-[#1A1A1A] text-white border-[#1A1A1A] shadow-sm"
                     : "bg-[#F9FAFB] text-[#4B4B4B] border-black/[0.08] hover:border-black/[0.2] hover:text-[#1A1A1A]"
@@ -88,7 +88,7 @@ export default function ProductExplorerSection({
           </div>
 
           {/* Search Box - Rounded Pill */}
-          <div className="relative min-w-[280px]">
+          <div className="relative w-full lg:w-72 shrink-0">
             <Search className="w-4 h-4 text-neutral-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" />
             <input
               type="text"
@@ -212,13 +212,13 @@ export default function ProductExplorerSection({
             </div>
 
             {/* Explore Full 90 Products CTA */}
-            <div className="text-center pt-6">
+            <div className="text-center pt-6 px-4">
               <Link
                 href="/products"
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#1A1A1A] hover:bg-amber-600 text-white font-bold text-xs uppercase tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#1A1A1A] hover:bg-amber-600 text-white font-bold text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 max-w-full text-center"
               >
                 <span>EXPLORE ALL 90 PRODUCTS IN CATALOG</span>
-                <ArrowUpRight className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4 shrink-0" />
               </Link>
             </div>
           </>

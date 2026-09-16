@@ -18,9 +18,19 @@ export interface Category {
   parent_id: string | null;
   sort_order: number;
   is_active: boolean;
+  featured_in_menu?: boolean;
+  menu_badge?: string | null;
   created_at: string;
   updated_at: string;
   subcategories?: Category[];
+}
+
+export interface PriceTier {
+  min_quantity: number;
+  max_quantity?: number | null; // null means 'and up' e.g. 1000+
+  unit_price: number;
+  currency?: string;
+  label?: string; // e.g. "Sample (1 pc)", "Starter MOQ", "Volume Deal", "Enterprise Bulk"
 }
 
 export interface ProductImage {
@@ -60,6 +70,9 @@ export interface Product {
   seo_description: string | null;
   primary_keyword?: string | null;
   secondary_keywords?: string | null;
+  pricing_tiers?: PriceTier[];
+  sample_price?: number | null;
+  show_pricing?: boolean;
   created_at: string;
   updated_at: string;
   images?: ProductImage[];
@@ -166,5 +179,8 @@ export interface SiteSettings {
   favicon_url: string | null;
   hero_title: string;
   hero_description: string;
+  instagram_access_token?: string | null;
+  instagram_feed_mode?: "api" | "widget" | null;
+  instagram_widget_code?: string | null;
   updated_at: string;
 }

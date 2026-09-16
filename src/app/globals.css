@@ -49,11 +49,26 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  overflow-x: hidden;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Prevent any media or canvas breakout on mobile */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
 }
 
 /* ─── Selection ─── */

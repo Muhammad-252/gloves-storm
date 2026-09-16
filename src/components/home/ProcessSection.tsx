@@ -64,7 +64,7 @@ export default function ProcessSection() {
           {steps.map((step) => (
             <div
               key={step.num}
-              className="group bg-white rounded-3xl border border-black/[0.08] hover:border-amber-500/50 p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] transition-all duration-300 relative overflow-hidden"
+              className="group bg-white rounded-3xl border border-black/[0.08] hover:border-amber-500/50 p-6 sm:p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] transition-all duration-300 relative overflow-hidden"
             >
               {/* Background Step Number Accent */}
               <span className="absolute -top-4 -right-2 text-7xl font-black text-black/[0.03] group-hover:text-amber-500/[0.07] transition-colors pointer-events-none select-none">
@@ -99,7 +99,7 @@ export default function ProcessSection() {
         </div>
 
         {/* Bottom Callout Banner */}
-        <div className="mt-12 p-8 bg-white rounded-3xl border border-black/[0.08] flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
+        <div className="mt-12 p-6 sm:p-8 bg-white rounded-3xl border border-black/[0.08] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
           <div>
             <h4 className="text-base font-bold uppercase tracking-wider text-[#1A1A1A] mb-1">
               Have a tech pack ready to review?
@@ -112,7 +112,7 @@ export default function ProcessSection() {
             href="/contact"
             variant="gold-solid"
             size="md"
-            className="shrink-0"
+            className="shrink-0 w-full sm:w-auto"
           >
             <span>Submit Tech Pack</span>
             <ArrowUpRight className="w-4 h-4" />

@@ -145,6 +145,7 @@ export default function AdminProductsClient({
                 <th className="py-3.5 px-4">Item</th>
                 <th className="py-3.5 px-4">Category</th>
                 <th className="py-3.5 px-4">MOQ</th>
+                <th className="py-3.5 px-4">Wholesale Price Deals</th>
                 <th className="py-3.5 px-4">Lead Time</th>
                 <th className="py-3.5 px-4">Status</th>
                 <th className="py-3.5 px-4">Featured</th>
@@ -157,6 +158,14 @@ export default function AdminProductsClient({
                 const primaryImg =
                   prod.images?.[0]?.image_url ||
                   "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=400&auto=format&fit=crop";
+
+                const tiers = prod.pricing_tiers || [];
+                const priceRange =
+                  tiers.length > 0
+                    ? `$${Math.min(...tiers.map((t) => t.unit_price)).toFixed(2)} - $${Math.max(...tiers.map((t) => t.unit_price)).toFixed(2)}`
+                    : prod.sample_price
+                    ? `Sample: $${prod.sample_price}`
+                    : "Standard Tiers";
 
                 return (
                   <tr key={prod.id} className="hover:bg-neutral-50/70 transition-colors">
@@ -181,6 +190,16 @@ export default function AdminProductsClient({
                     </td>
                     <td className="py-3.5 px-4 font-mono text-amber-700 font-bold">
                       {prod.moq} pcs
+                    </td>
+                    <td className="py-3.5 px-4">
+                      <div className="flex flex-col">
+                        <span className="font-mono text-xs font-bold text-neutral-900">
+                          {priceRange}
+                        </span>
+                        <span className="text-[9px] font-mono text-neutral-500">
+                          {tiers.length > 0 ? `${tiers.length} Active Tiers` : "Default Tiers"}
+                        </span>
+                      </div>
                     </td>
                     <td className="py-3.5 px-4 text-neutral-600">
                       {prod.lead_time || "2-4 Wks"}

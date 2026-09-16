@@ -102,14 +102,14 @@ export default function CustomizationSection() {
         {/* Interactive Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Left: Technique Selector Cards */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-3">
+          <div className="lg:col-span-5 flex flex-row lg:flex-col overflow-x-auto lg:overflow-visible pb-3 lg:pb-0 gap-3 scrollbar-none">
             {customizationItems.map((item) => {
               const isSelected = item.id === activeItem.id;
               return (
                 <button
                   key={item.id}
                   onClick={() => setActiveItem(item)}
-                  className={`text-left p-5 rounded-2xl transition-all border cursor-pointer ${
+                  className={`text-left p-4 sm:p-5 rounded-2xl transition-all border cursor-pointer shrink-0 w-[240px] sm:w-[280px] lg:w-full ${
                     isSelected
                       ? "bg-amber-50/80 border-amber-500 shadow-xs"
                       : "bg-neutral-50/70 border-neutral-200 hover:border-neutral-300"
@@ -124,7 +124,7 @@ export default function CustomizationSection() {
                     )}
                   </div>
                   <h3
-                    className={`text-base font-bold uppercase tracking-tight transition-colors ${
+                    className={`text-sm sm:text-base font-bold uppercase tracking-tight transition-colors line-clamp-1 ${
                       isSelected ? "text-neutral-950" : "text-neutral-600"
                     }`}
                   >

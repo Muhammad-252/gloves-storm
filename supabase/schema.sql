@@ -16,6 +16,8 @@ CREATE TABLE IF NOT EXISTS categories (
   parent_id UUID REFERENCES categories(id) ON DELETE SET NULL,
   sort_order INTEGER DEFAULT 0,
   is_active BOOLEAN DEFAULT TRUE,
+  featured_in_menu BOOLEAN DEFAULT TRUE,
+  menu_badge TEXT,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -41,6 +43,9 @@ CREATE TABLE IF NOT EXISTS products (
   is_active BOOLEAN DEFAULT TRUE,
   seo_title TEXT,
   seo_description TEXT,
+  pricing_tiers JSONB DEFAULT '[]'::jsonb,
+  sample_price NUMERIC,
+  show_pricing BOOLEAN DEFAULT TRUE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
@@ -188,6 +193,9 @@ CREATE TABLE IF NOT EXISTS site_settings (
   favicon_url TEXT,
   hero_title TEXT DEFAULT 'BUILT FOR BRANDS. MADE TO PERFORM.',
   hero_description TEXT DEFAULT 'Custom boxing gear, sportswear and apparel manufactured for brands worldwide.',
+  instagram_access_token TEXT,
+  instagram_feed_mode TEXT DEFAULT 'api',
+  instagram_widget_code TEXT,
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 

@@ -21,6 +21,7 @@ import {
   FileCheck,
   Truck,
   MessageSquare,
+  DollarSign,
 } from "lucide-react";
 import GooeyButton from "@/components/ui/GooeyButton";
 import QuoteModal from "@/components/ui/QuoteModal";
@@ -654,6 +655,12 @@ export default function CategoryLandingClient({
                       <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed mb-4">
                         {product.short_description}
                       </p>
+
+                      {/* Factory Specifications */}
+                      <div className="mb-4 flex items-center justify-between text-xs text-neutral-600 bg-neutral-50 px-3 py-2 rounded-xl border border-neutral-100">
+                        <span className="font-mono text-[11px] text-neutral-500">Min. Order:</span>
+                        <span className="font-mono font-bold text-neutral-900">{product.moq} pairs</span>
+                      </div>
                     </div>
 
                     <div className="pt-4 border-t border-neutral-100 flex items-center justify-between gap-2">
@@ -807,10 +814,10 @@ export default function CategoryLandingClient({
               </h2>
             </div>
             <Link
-              href="/projects"
+              href="/previous-work"
               className="text-xs font-mono uppercase tracking-wider text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 font-bold"
             >
-              <span>View All Projects</span>
+              <span>View Previous Work (@glovesstorm)</span>
               <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
@@ -833,10 +840,10 @@ export default function CategoryLandingClient({
                   </p>
                 </div>
                 <Link
-                  href={`/projects/${proj.slug}`}
+                  href="/previous-work"
                   className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-white transition-colors"
                 >
-                  <span>View Project Details</span>
+                  <span>Inspect Drop on Instagram</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>

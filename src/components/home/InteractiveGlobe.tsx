@@ -226,34 +226,27 @@ export default function InteractiveGlobe() {
               targetPhiRef.current += delta * 0.003;
             }
           }}
-          onTouchMove={(e) => {
-            if (pointerInteracting.current !== null && e.touches[0]) {
-              const delta = e.touches[0].clientX - pointerInteracting.current;
-              pointerInteractionMovement.current = delta;
-              targetPhiRef.current += delta * 0.005;
-            }
-          }}
-          className="w-full h-full cursor-grab opacity-95 transition-opacity active:cursor-grabbing"
-          style={{ width: "100%", height: "100%", contain: "layout paint size" }}
+          className="w-full h-full cursor-grab opacity-95 transition-opacity active:cursor-grabbing touch-pan-y"
+          style={{ width: "100%", height: "100%", contain: "layout paint size", touchAction: "pan-y" }}
         />
 
         {/* Drag Hint Pill */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 border border-neutral-200/90 shadow-md backdrop-blur-md text-[11px] font-mono text-neutral-700">
-            <Compass className={`w-3.5 h-3.5 text-amber-600 ${isDragging ? "animate-spin" : ""}`} />
+        <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 pointer-events-none">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/95 border border-neutral-200/90 shadow-md backdrop-blur-md text-[10px] sm:text-[11px] font-mono text-neutral-700 whitespace-nowrap">
+            <Compass className={`w-3 sm:w-3.5 h-3 sm:h-3.5 text-amber-600 ${isDragging ? "animate-spin" : ""}`} />
             <span>360° Drag & Rotate</span>
           </div>
         </div>
 
         {/* Floating Origin Indicator (Sialkot Factory) */}
-        <div className="absolute top-4 left-4 pointer-events-none">
-          <div className="px-3.5 py-2 rounded-2xl bg-white/95 border border-amber-200/90 shadow-md backdrop-blur-md flex items-center gap-2.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500 animate-ping" />
+        <div className="absolute top-3 left-3 sm:top-4 sm:left-4 pointer-events-none max-w-[65%] sm:max-w-none">
+          <div className="px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-xl sm:rounded-2xl bg-white/95 border border-amber-200/90 shadow-md backdrop-blur-md flex items-center gap-2">
+            <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-amber-500 animate-ping shrink-0" />
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-widest text-amber-800 font-bold block leading-tight">
-                Global Origin Hub
+              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-widest text-amber-800 font-bold block leading-tight truncate">
+                Origin Hub
               </span>
-              <span className="text-xs font-bold text-neutral-900 leading-tight">
+              <span className="text-[11px] sm:text-xs font-bold text-neutral-900 leading-tight block truncate">
                 Sialkot, Pakistan
               </span>
             </div>

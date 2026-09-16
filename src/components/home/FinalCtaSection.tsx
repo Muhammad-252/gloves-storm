@@ -31,7 +31,7 @@ export default function FinalCtaSection() {
         </p>
 
         {/* 3 Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
           <GooeyButton
             href="/contact"
             variant="gold-solid"

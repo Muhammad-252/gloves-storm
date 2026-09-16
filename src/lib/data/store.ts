@@ -108,6 +108,8 @@ export async function saveCategory(category: Partial<Category>): Promise<Categor
     parent_id: category.parent_id || null,
     sort_order: category.sort_order || memoryCategories.length + 1,
     is_active: category.is_active ?? true,
+    featured_in_menu: category.featured_in_menu ?? true,
+    menu_badge: category.menu_badge || null,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };
@@ -222,6 +224,9 @@ export async function saveProduct(product: Partial<Product>): Promise<Product> {
           is_active: product.is_active,
           seo_title: product.seo_title,
           seo_description: product.seo_description,
+          pricing_tiers: product.pricing_tiers || [],
+          sample_price: product.sample_price,
+          show_pricing: product.show_pricing ?? true,
           updated_at: new Date().toISOString(),
         })
         .eq("id", product.id)
@@ -247,6 +252,9 @@ export async function saveProduct(product: Partial<Product>): Promise<Product> {
             is_active: product.is_active ?? true,
             seo_title: product.seo_title,
             seo_description: product.seo_description,
+            pricing_tiers: product.pricing_tiers || [],
+            sample_price: product.sample_price,
+            show_pricing: product.show_pricing ?? true,
           },
         ])
         .select()
@@ -284,6 +292,9 @@ export async function saveProduct(product: Partial<Product>): Promise<Product> {
     is_active: product.is_active ?? true,
     seo_title: product.seo_title || null,
     seo_description: product.seo_description || null,
+    pricing_tiers: product.pricing_tiers || [],
+    sample_price: product.sample_price || null,
+    show_pricing: product.show_pricing ?? true,
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
     images: product.images || [

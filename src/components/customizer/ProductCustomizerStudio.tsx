@@ -19,6 +19,7 @@ import {
   FileText,
   Sliders,
   ChevronRight,
+  ChevronLeft,
 } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 import MagneticElement from "../ui/MagneticElement";
@@ -161,95 +162,180 @@ export default function ProductCustomizerStudio({
   const isStreetwear = customState.categorySlug.includes("streetwear") || customState.categorySlug.includes("fashion");
   const isBasketball = customState.categorySlug.includes("basketball") || customState.categorySlug.includes("soccer") || customState.categorySlug.includes("american-football");
 
+  // Step navigation helpers
+  const stepList = [
+    { id: "colors", num: "01", title: "Colors", sub: "Body & Trims", icon: Palette },
+    { id: "materials", num: "02", title: "Materials", sub: "Leather & Fabric", icon: Layers },
+    { id: "specs", num: "03", title: "Tailoring", sub: "Sizing & Cuts", icon: Sliders },
+    { id: "branding", num: "04", title: "Branding & Logo", sub: "Logos & Patches", icon: Sparkles },
+    { id: "quantity", num: "05", title: "Quantity", sub: "Samples & Run", icon: Box },
+  ] as const;
+  const stepOrder = ["colors", "materials", "specs", "branding", "quantity"] as const;
+  const currentStepIdx = Math.max(0, stepOrder.indexOf(activeStep));
+  const handlePrevStep = () => {
+    if (currentStepIdx > 0) {
+      setActiveStep(stepOrder[currentStepIdx - 1]);
+    }
+  };
+  const handleNextStep = () => {
+    if (currentStepIdx < stepOrder.length - 1) {
+      setActiveStep(stepOrder[currentStepIdx + 1]);
+    }
+  };
+
   return (
-    <div className="w-full bg-white text-[#1A1A1A]">
-      {/* Studio Header Bar */}
-      <div className="border-b border-black/[0.08] bg-white/[0.98] backdrop-blur-md sticky top-0 z-30 shadow-[0_1px_0_0_rgba(0,0,0,0.05)]">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 py-4 flex items-center justify-between w-full">
-          <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#b45309] animate-pulse" />
-            <div>
-              <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-[#b45309] block font-bold">
-                Bespoke Configurator Studio
-              </span>
-              <h2 className="text-base sm:text-lg font-black uppercase tracking-tight text-[#1A1A1A] flex items-center gap-2">
-                <span>{customState.productName}</span>
-                <span className="text-xs px-2.5 py-0.5 rounded-full bg-[#F9FAFB] text-[#6B7280] font-normal normal-case border border-black/[0.08]">
-                  {customState.categoryName}
+    <div className="w-full bg-[#fcfcfd] text-[#1A1A1A]">
+      {/* Studio Header Bar — Master Luxury Control Deck */}
+      <div className="border-b border-black/[0.08] sticky top-0 z-30 shadow-[0_10px_30px_rgba(0,0,0,0.06)] backdrop-blur-md">
+        {/* Tier 1: Dark Obsidian Studio Header */}
+        <div className="bg-[#0f141c] text-white border-b border-white/[0.08] px-4 sm:px-8 py-3 sm:py-4">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+            {/* Studio Badge & Active Product Info */}
+            <div className="flex items-center gap-3 sm:gap-4">
+              <div className="relative flex items-center justify-center w-11 h-11 rounded-2xl bg-gradient-to-br from-amber-500/20 via-amber-600/10 to-transparent border border-amber-500/30 text-amber-400 shrink-0 shadow-inner">
+                <Sparkles className="w-5 h-5 text-amber-400 animate-pulse" />
+                <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 ring-2 ring-[#0f141c]" />
+              </div>
+              <div className="min-w-0">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-400 font-extrabold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping inline-block" />
+                    Bespoke Configurator Studio
+                  </span>
+                  <span className="hidden sm:inline-block text-neutral-600">•</span>
+                  <span className="hidden sm:inline-block text-[10px] font-mono uppercase tracking-wider text-emerald-400/90 font-medium">
+                    Live 3D Composite
+                  </span>
+                </div>
+                <div className="flex items-center gap-2.5 flex-wrap mt-0.5">
+                  <h1 className="text-lg sm:text-2xl font-black uppercase tracking-tight text-white truncate max-w-[280px] sm:max-w-md">
+                    {customState.productName}
+                  </h1>
+                  <span className="text-[11px] sm:text-xs px-3 py-0.5 rounded-full bg-white/10 text-amber-200/90 font-medium border border-white/10 shrink-0">
+                    {customState.categoryName}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side: Step Progress & Submit Button */}
+            <div className="flex items-center justify-between md:justify-end gap-3 pt-2 md:pt-0 border-t md:border-t-0 border-white/[0.08]">
+              <div className="text-right hidden sm:block">
+                <span className="text-[9px] font-mono text-neutral-400 uppercase tracking-widest block">
+                  Studio Spec Status
                 </span>
-              </h2>
+                <span className="text-xs font-mono font-bold text-amber-400">
+                  {`STEP 0${currentStepIdx + 1} OF 05 • ${(currentStepIdx + 1) * 20}% CONFIGURED`}
+                </span>
+              </div>
+              <GooeyButton
+                onClick={handleProceedToInquiry}
+                variant="gold-solid"
+                size="sm"
+                className="!px-5 !py-2.5 text-xs shadow-lg shadow-amber-500/20 font-bold"
+              >
+                <span>SUBMIT SPECS</span>
+                <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              </GooeyButton>
             </div>
           </div>
+        </div>
 
-          {/* Step Tabs Indicator */}
-          <div className="hidden lg:flex items-center gap-1 p-1 rounded-full bg-[#F9FAFB] border border-black/[0.08]">
-            {[
-              { id: "colors", label: "01 Colors", icon: Palette },
-              { id: "materials", label: "02 Materials", icon: Layers },
-              { id: "specs", label: "03 Tailoring", icon: Sliders },
-              { id: "branding", label: "04 Branding & Logo", icon: Sparkles },
-              { id: "quantity", label: "05 Quantity", icon: Box },
-            ].map((tab) => {
-              const Icon = tab.icon;
-              const isActive = activeStep === tab.id;
-              return (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveStep(tab.id as any)}
-                  className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider transition-all ${
-                    isActive
-                      ? "bg-[#1A1A1A] text-white font-bold shadow-sm"
-                      : "text-[#6B7280] hover:text-[#1A1A1A] hover:bg-white"
-                  }`}
-                >
-                  <Icon className="w-3.5 h-3.5" />
-                  <span>{tab.label}</span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Quick Done / Proceed CTA */}
-          <div className="flex items-center gap-3">
-            <GooeyButton
-              onClick={handleProceedToInquiry}
-              variant="gold-solid"
-              size="sm"
-              className="!px-4 !py-2 text-xs"
+        {/* Tier 2: 5-Step Segmented Interactive Navigation Track */}
+        <div className="bg-white border-b border-black/[0.07] px-3 sm:px-8 py-2.5 sm:py-3.5">
+          <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
+            {/* Quick Prev Button for Mobile/Tablet */}
+            <button
+              onClick={handlePrevStep}
+              disabled={currentStepIdx === 0}
+              className="p-2 sm:p-2.5 rounded-xl border border-neutral-200 bg-neutral-50 text-neutral-600 hover:text-neutral-950 hover:bg-white hover:border-neutral-300 disabled:opacity-25 disabled:pointer-events-none transition-all shrink-0"
+              aria-label="Previous configuration step"
             >
-              <span>SUBMIT SPECS</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </GooeyButton>
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+
+            {/* 5-Step Connected Progress Track */}
+            <div className="flex-1 grid grid-cols-5 gap-1.5 sm:gap-3 overflow-x-auto py-0.5 scrollbar-none">
+              {stepList.map((step, idx) => {
+                const Icon = step.icon;
+                const isActive = activeStep === step.id;
+                const isPassed = currentStepIdx > idx;
+                return (
+                  <button
+                    key={step.id}
+                    onClick={() => setActiveStep(step.id as any)}
+                    className={`group relative flex items-center gap-2 sm:gap-3 px-2 sm:px-3.5 py-2 sm:py-2.5 rounded-2xl text-left transition-all duration-300 border ${
+                      isActive
+                        ? "bg-[#0f141c] text-white border-amber-500/90 shadow-md shadow-amber-500/10 scale-[1.02] z-10 ring-1 ring-amber-500/30"
+                        : isPassed
+                        ? "bg-amber-50/60 text-amber-950 border-amber-300/60 hover:bg-amber-100/60"
+                        : "bg-white text-neutral-600 border-black/[0.08] hover:border-neutral-300 hover:bg-neutral-50/80"
+                    }`}
+                  >
+                    {/* Step Number Badge */}
+                    <span
+                      className={`w-6 h-6 sm:w-7 sm:h-7 rounded-xl text-[10px] sm:text-xs font-mono font-black flex items-center justify-center shrink-0 transition-colors ${
+                        isActive
+                          ? "bg-amber-500 text-[#0f141c] shadow-xs"
+                          : isPassed
+                          ? "bg-amber-600/15 text-amber-800 font-bold"
+                          : "bg-neutral-100 text-neutral-400 group-hover:bg-neutral-200 group-hover:text-neutral-700"
+                      }`}
+                    >
+                      {isPassed ? <Check className="w-3.5 h-3.5 stroke-[3] text-amber-700" /> : step.num}
+                    </span>
+
+                    {/* Step Title & Subtitle */}
+                    <div className="flex flex-col min-w-0 pr-0.5">
+                      <div className="flex items-center gap-1.5">
+                        <Icon
+                          className={`w-3.5 h-3.5 shrink-0 hidden sm:inline-block ${
+                            isActive ? "text-amber-400" : isPassed ? "text-amber-700" : "text-neutral-400"
+                          }`}
+                        />
+                        <span
+                          className={`text-[11px] sm:text-xs font-bold uppercase tracking-tight truncate ${
+                            isActive ? "text-white" : isPassed ? "text-neutral-900" : "text-neutral-700"
+                          }`}
+                        >
+                          {step.title}
+                        </span>
+                      </div>
+                      <span
+                        className={`text-[9px] sm:text-[10px] font-mono truncate hidden lg:block ${
+                          isActive ? "text-amber-300/80" : "text-neutral-400"
+                        }`}
+                      >
+                        {step.sub}
+                      </span>
+                    </div>
+
+                    {/* Golden Underglow Bar on Active Step */}
+                    {isActive && (
+                      <span className="absolute bottom-0 left-3 right-3 h-0.5 bg-gradient-to-r from-amber-500 via-amber-300 to-amber-500 rounded-full" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Quick Next Button for Mobile/Tablet */}
+            <button
+              onClick={handleNextStep}
+              disabled={currentStepIdx === stepOrder.length - 1}
+              className="p-2 sm:p-2.5 rounded-xl border border-neutral-200 bg-neutral-50 text-neutral-600 hover:text-neutral-950 hover:bg-white hover:border-neutral-300 disabled:opacity-25 disabled:pointer-events-none transition-all shrink-0"
+              aria-label="Next configuration step"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
       </div>
 
       {/* Main Studio Grid: Left Form Controls, Right Sticky Interactive Mockup */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* LEFT COLUMN: Configuration Steps (7 cols) */}
         <div className="lg:col-span-7 space-y-8">
-          {/* Mobile Step Pills */}
-          <div className="flex lg:hidden overflow-x-auto gap-2 pb-2 scrollbar-none">
-            {[
-              { id: "colors", label: "Colors" },
-              { id: "materials", label: "Materials" },
-              { id: "specs", label: "Tailoring" },
-              { id: "branding", label: "Branding" },
-              { id: "quantity", label: "Quantity" },
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveStep(tab.id as any)}
-                className={`px-3 py-1.5 rounded-full text-xs font-mono uppercase shrink-0 transition-all ${
-                  activeStep === tab.id
-                    ? "bg-[#b45309] text-white font-bold"
-                    : "bg-neutral-100 text-neutral-600 border border-neutral-200"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
 
           {/* STEP 1: COLORS & FINISHES */}
           {activeStep === "colors" && (
@@ -978,8 +1064,8 @@ export default function ProductCustomizerStudio({
         </div>
 
         {/* RIGHT COLUMN: STICKY LIVE VISUAL PREVIEW MOCKUP (5 cols) */}
-        <div className="lg:col-span-5 sticky top-28 space-y-6">
-          <div className="p-6 rounded-3xl bg-white border border-neutral-200 shadow-sm relative overflow-hidden">
+        <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-6 order-first lg:order-last">
+          <div className="p-4 sm:p-6 rounded-3xl bg-white border border-neutral-200 shadow-sm relative overflow-hidden">
             {/* Header Badge */}
             <div className="flex items-center justify-between mb-4">
               <span className="text-[10px] font-mono uppercase tracking-widest text-amber-600 flex items-center gap-1.5 font-bold">

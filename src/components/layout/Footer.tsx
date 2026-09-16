@@ -19,7 +19,7 @@ const navigation = [
   { name: "All Products", href: "/products" },
   { name: "Manufacturing & Capabilities", href: "/manufacturing" },
   { name: "About GLOVES STORM", href: "/about" },
-  { name: "Case Studies / Projects", href: "/projects" },
+  { name: "Previous Work (Instagram Feed)", href: "/previous-work" },
   { name: "Manufacturing Journal", href: "/journal" },
   { name: "Request a Quote", href: "/contact" },
   { name: "Privacy & IP Policy", href: "/privacy" },
@@ -202,14 +202,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#9CA3AF] gap-4">
-          <div className="flex items-center gap-2">
-            <ShieldCheck className="w-4 h-4 text-[#b45309]" />
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#9CA3AF] gap-4 text-center sm:text-left">
+          <div className="flex items-center justify-center sm:justify-start gap-2">
+            <ShieldCheck className="w-4 h-4 text-[#b45309] shrink-0" />
             <span>
               © {new Date().getFullYear()} GLOVES STORM. Handcrafted & Manufactured in Sialkot, Pakistan. All Rights Reserved.
             </span>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2 text-[11px] sm:text-xs">
             <span>OEM / Private Label</span>
             <span>Custom Tech Packs</span>
             <Link href="/privacy" className="hover:text-[#1A1A1A] transition-colors underline-offset-4 hover:underline">

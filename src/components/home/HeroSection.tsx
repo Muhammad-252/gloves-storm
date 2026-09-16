@@ -62,19 +62,19 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full flex flex-col items-center text-center">
         {/* Status Pill Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/50 border border-white/20 shadow-xl mb-8 animate-in fade-in slide-in-from-bottom-3 duration-700 backdrop-blur-md">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.25em] text-amber-300 font-bold">
+        <div className="inline-flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 px-4 py-2 rounded-full bg-black/60 border border-white/20 shadow-xl mb-8 animate-in fade-in slide-in-from-bottom-3 duration-700 backdrop-blur-md max-w-full text-center">
+          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-amber-300 font-bold">
             Sialkot Global OEM & Private Label
           </span>
-          <span className="text-white/30 text-xs">|</span>
+          <span className="hidden sm:inline text-white/30 text-xs">|</span>
           <span className="text-[10px] sm:text-xs text-white/90 font-medium">
             2026 Production Slots Open
           </span>
         </div>
 
         {/* Hero Main Headline */}
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.04em] uppercase text-white leading-[0.95] max-w-5xl mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
+        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.035em] uppercase text-white leading-[0.98] sm:leading-[0.95] max-w-5xl mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
           BUILT FOR BRANDS. <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">
             MADE TO PERFORM.
@@ -82,13 +82,13 @@ export default function HeroSection() {
         </h1>
 
         {/* Supporting Subtitle */}
-        <p className="text-base sm:text-lg md:text-xl text-white max-w-2xl font-normal leading-relaxed mb-10 drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]">
+        <p className="text-sm sm:text-lg md:text-xl text-white max-w-2xl font-normal leading-relaxed mb-10 drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)] px-2">
           Custom varsity letterman jackets, professional combat gear, and athletic apparel engineered with millimeter precision for luxury labels and fight clubs worldwide.
         </p>
 
         {/* Primary and Secondary Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-          <MagneticElement strength={0.3}>
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto max-w-xs sm:max-w-none">
+          <MagneticElement strength={0.3} className="w-full sm:w-auto">
             <GooeyButton
               href="/contact"
               variant="gold-solid"
@@ -100,7 +100,7 @@ export default function HeroSection() {
             </GooeyButton>
           </MagneticElement>
 
-          <MagneticElement strength={0.2}>
+          <MagneticElement strength={0.2} className="w-full sm:w-auto">
             <GooeyButton
               href="/products"
               variant="outline-white"
@@ -114,36 +114,36 @@ export default function HeroSection() {
         </div>
 
         {/* Quick Highlights / Trust Metrics Cards */}
-        <div className="mt-16 pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 text-left">
-          <div className="p-5 rounded-2xl bg-black/40 hover:bg-black/55 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
+        <div className="mt-14 sm:mt-16 pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-left">
+          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
               Location
             </span>
-            <span className="text-sm font-bold text-white uppercase tracking-wider block">
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block">
               Sialkot, Pakistan
             </span>
           </div>
-          <div className="p-5 rounded-2xl bg-black/40 hover:bg-black/55 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
+          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
               Minimum Order
             </span>
-            <span className="text-sm font-bold text-white uppercase tracking-wider block">
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block">
               From 25 - 50 Units
             </span>
           </div>
-          <div className="p-5 rounded-2xl bg-black/40 hover:bg-black/55 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
+          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
               Specialty
             </span>
-            <span className="text-sm font-bold text-white uppercase tracking-wider block">
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block truncate">
               Varsity & Leather OEM
             </span>
           </div>
-          <div className="p-5 rounded-2xl bg-black/40 hover:bg-black/55 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
+          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
+            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
               Global Shipping
             </span>
-            <span className="text-sm font-bold text-white uppercase tracking-wider block">
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block truncate">
               DHL • FedEx • Air • Sea
             </span>
           </div>

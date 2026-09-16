@@ -71,7 +71,7 @@ export default function WhyUsSection() {
             return (
               <div
                 key={pillar.title}
-                className={`group bg-white rounded-3xl border border-black/[0.08] hover:border-amber-500/50 p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] transition-all duration-300 ${
+                className={`group bg-white rounded-3xl border border-black/[0.08] hover:border-amber-500/50 p-6 sm:p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] transition-all duration-300 ${
                   idx === 0
                     ? "sm:col-span-2 lg:col-span-2 bg-gradient-to-br from-white via-amber-50/10 to-white"
                     : ""

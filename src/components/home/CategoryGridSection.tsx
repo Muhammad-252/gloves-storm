@@ -40,8 +40,8 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
             <Link
               key={category.id}
               href={`/products/${category.slug}`}
-              className={`group relative overflow-hidden rounded-3xl bg-neutral-950 border border-black/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.10)] hover:shadow-[0_24px_56px_rgba(0,0,0,0.18)] hover:border-amber-500/60 transition-all duration-500 flex flex-col justify-end p-8 min-h-[380px] ${
-                idx === 0 ? "sm:col-span-2 lg:col-span-2 min-h-[440px]" : ""
+              className={`group relative overflow-hidden rounded-3xl bg-neutral-950 border border-black/[0.12] shadow-[0_8px_32px_rgba(0,0,0,0.10)] hover:shadow-[0_24px_56px_rgba(0,0,0,0.18)] hover:border-amber-500/60 transition-all duration-500 flex flex-col justify-end p-6 sm:p-8 min-h-[340px] sm:min-h-[380px] ${
+                idx === 0 ? "sm:col-span-2 lg:col-span-2 sm:min-h-[440px]" : ""
               }`}
             >
               {/* Background Image with Scale on Hover */}
