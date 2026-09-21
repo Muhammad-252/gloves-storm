@@ -8,11 +8,13 @@ import WhatsAppButton from "@/components/ui/WhatsAppButton";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const viewport: Viewport = {
@@ -23,6 +25,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://glovesstorm.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "GLOVES STORM — Premium B2B Sports & Apparel Manufacturing",
     template: "%s | GLOVES STORM",
@@ -37,28 +43,142 @@ export const metadata: Metadata = {
     "Team Uniforms Wholesale",
     "Streetwear Hoodies Factory",
     "Custom Fight Gear",
+    "Varsity Jacket Manufacturer",
+    "AQL 2.5 Quality Inspection",
   ],
   authors: [{ name: "GLOVES STORM" }],
   creator: "GLOVES STORM",
+  publisher: "GLOVES STORM",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://glovesstorm.com",
-    title: "GLOVES STORM — Premium B2B Manufacturing Partner",
+    title: "GLOVES STORM — Premium B2B Sports & Apparel Manufacturing",
     description:
-      "World-class custom manufacturing for boxing gear, athletic team wear, and luxury streetwear brands worldwide.",
+      "Direct factory OEM & private label partner for boxing gloves, fight gear, athletic teamwear, and luxury streetwear in Sialkot, Pakistan.",
     siteName: "GLOVES STORM",
+    images: [
+      {
+        url: "/images/products/boxing-gloves-black.png",
+        width: 1200,
+        height: 630,
+        alt: "GLOVES STORM — Handcrafted Boxing Equipment & Apparel Manufacturing Sialkot",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GLOVES STORM — Premium B2B Manufacturing",
+    title: "GLOVES STORM — Premium B2B Sports & Apparel Manufacturing",
     description:
-      "Direct OEM manufacturing partner for custom boxing gear, team uniforms, and performance streetwear.",
+      "Direct OEM manufacturing partner for custom boxing gear, team uniforms, and performance streetwear. Sialkot, Pakistan.",
+    images: ["/images/products/boxing-gloves-black.png"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["Organization", "LocalBusiness"],
+      "@id": "https://glovesstorm.com/#organization",
+      name: "GLOVES STORM",
+      url: "https://glovesstorm.com",
+      logo: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+      image: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+      description:
+        "Long-term OEM, private label, and custom manufacturing partner for global sports brands, fight academies, teams, and luxury streetwear labels in Sialkot, Pakistan.",
+      telephone: "+923417146935",
+      email: "glovesstorm@gmail.com",
+      priceRange: "$$",
+      currenciesAccepted: "USD, EUR, GBP, AUD, CAD",
+      paymentAccepted: "Wire Transfer, Bank Transfer, L/C, Western Union",
+      areaServed: [
+        "United States",
+        "United Kingdom",
+        "European Union",
+        "Canada",
+        "Australia",
+        "United Arab Emirates",
+        "Saudi Arabia",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Industrial Estate",
+        addressLocality: "Sialkot",
+        addressRegion: "Punjab",
+        postalCode: "51310",
+        addressCountry: "PK",
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: "32.4945",
+        longitude: "74.5229",
+      },
+      hasMap: "https://maps.google.com/?q=Sialkot+Industrial+Estate",
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+          ],
+          opens: "08:00",
+          closes: "18:00",
+        },
+      ],
+      sameAs: [
+        "https://www.instagram.com/glovesstorm/",
+        "https://www.linkedin.com/company/gloves-storm/",
+        "https://facebook.com/glovesstorm",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "OEM Sports & Combat Gear Manufacturing Divisions",
+        itemListElement: [
+          {
+            "@type": "OfferCatalog",
+            name: "Boxing Equipment & Fight Gear",
+          },
+          {
+            "@type": "OfferCatalog",
+            name: "Custom Sportswear & Team Uniforms",
+          },
+          {
+            "@type": "OfferCatalog",
+            name: "Gym & Fitness Compression Wear",
+          },
+          {
+            "@type": "OfferCatalog",
+            name: "Luxury Heavyweight Streetwear",
+          },
+        ],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://glovesstorm.com/#website",
+      url: "https://glovesstorm.com",
+      name: "GLOVES STORM",
+      publisher: {
+        "@id": "https://glovesstorm.com/#organization",
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -72,6 +192,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
       <body
         className="min-h-full flex flex-col bg-white text-[#1A1A1A]"
         suppressHydrationWarning

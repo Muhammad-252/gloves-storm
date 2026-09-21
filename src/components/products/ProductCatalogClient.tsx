@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Product, Category } from "@/types/database";
 import {
   Search,
@@ -526,12 +527,22 @@ export default function ProductCatalogClient({
                 const categoryObj = categories.find((c) => c.id === product.category_id);
                 const isHovered = hoveredProductId === product.id;
 
-                const primaryImg =
-                  product.images?.[0] ||
+                const firstImgObj = product.images?.[0];
+                const secondImgObj = product.images?.[1];
+
+                const primaryImgUrl =
+                  (typeof firstImgObj === "string" ? firstImgObj : firstImgObj?.image_url) ||
                   "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?auto=format&fit=crop&q=80&w=800";
-                const secondaryImg =
-                  product.images?.[1] ||
-                  "https://images.unsplash.com/photo-1517438322307-e67111335449?auto=format&fit=crop&q=80&w=800";
+                const secondaryImgUrl =
+                  (typeof secondImgObj === "string" ? secondImgObj : secondImgObj?.image_url) ||
+                  primaryImgUrl;
+
+                const primaryAlt =
+                  (typeof firstImgObj === "object" && firstImgObj?.alt_text) ||
+                  `${product.name} - Custom OEM Manufacturer Sialkot (GLOVES STORM)`;
+                const secondaryAlt =
+                  (typeof secondImgObj === "object" && secondImgObj?.alt_text) ||
+                  `${product.name} - Detailed Craftsmanship Angle (GLOVES STORM)`;
 
                 return (
                   <div
@@ -545,13 +556,14 @@ export default function ProductCatalogClient({
                       href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
                       className="relative aspect-4/3 w-full bg-neutral-100 overflow-hidden block"
                     >
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                        style={{
-                          backgroundImage: `url(${isHovered ? secondaryImg : primaryImg})`,
-                        }}
+                      <Image
+                        src={isHovered && secondaryImgUrl !== primaryImgUrl ? secondaryImgUrl : primaryImgUrl}
+                        alt={isHovered && secondaryImgUrl !== primaryImgUrl ? secondaryAlt : primaryAlt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-all duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                       {/* Badges */}
                       <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-2xs">
@@ -631,9 +643,13 @@ export default function ProductCatalogClient({
                   <tbody className="divide-y divide-neutral-100">
                     {sorted.map((product) => {
                       const categoryObj = categories.find((c) => c.id === product.category_id);
-                      const primaryImg =
-                        product.images?.[0] ||
+                      const firstImgObj = product.images?.[0];
+                      const primaryImgUrl =
+                        (typeof firstImgObj === "string" ? firstImgObj : firstImgObj?.image_url) ||
                         "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?auto=format&fit=crop&q=80&w=800";
+                      const primaryAlt =
+                        (typeof firstImgObj === "object" && firstImgObj?.alt_text) ||
+                        `${product.name} - Custom OEM Sialkot`;
 
                       return (
                         <tr
@@ -647,9 +663,12 @@ export default function ProductCatalogClient({
                                 href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
                                 className="w-12 h-12 rounded-xl bg-neutral-100 overflow-hidden border border-neutral-200 shrink-0 block relative"
                               >
-                                <div
-                                  className="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform"
-                                  style={{ backgroundImage: `url(${primaryImg})` }}
+                                <Image
+                                  src={primaryImgUrl}
+                                  alt={primaryAlt}
+                                  fill
+                                  sizes="48px"
+                                  className="object-cover group-hover:scale-105 transition-transform"
                                 />
                               </Link>
                               <div>

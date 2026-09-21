@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Category, Product } from "@/types/database";
 import {
   ArrowRight,
@@ -232,9 +233,12 @@ export default function MegaMenu({
                         >
                           <div className="aspect-square bg-neutral-100 rounded-lg overflow-hidden mb-2 relative">
                             {item.image ? (
-                              <div
-                                className="w-full h-full bg-cover bg-center transition-transform duration-300 group-hover/prod:scale-105"
-                                style={{ backgroundImage: `url(${item.image})` }}
+                              <Image
+                                src={item.image}
+                                alt={`${item.name} - Gloves Storm Manufacturing`}
+                                fill
+                                sizes="120px"
+                                className="object-cover transition-transform duration-300 group-hover/prod:scale-105"
                               />
                             ) : (
                               <div className="w-full h-full flex items-center justify-center text-neutral-400">

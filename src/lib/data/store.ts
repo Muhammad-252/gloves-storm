@@ -507,15 +507,31 @@ export async function deleteTestimonial(id: string): Promise<boolean> {
 // BLOG / JOURNAL
 // ==========================================
 export async function getBlogPosts(): Promise<BlogPost[]> {
+  let posts: BlogPost[] = [];
   if (isSupabaseConfigured && supabase) {
     const { data, error } = await supabase
       .from("blog_posts")
       .select("*")
       .eq("is_published", true)
       .order("published_at", { ascending: false });
-    if (!error && data) return data as BlogPost[];
+    if (!error && data && data.length > 0) {
+      posts = data as BlogPost[];
+    }
   }
-  return memoryBlogPosts.filter((b) => b.is_published);
+
+  const publishedMemory = memoryBlogPosts.filter((b) => b.is_published);
+  if (posts.length === 0) {
+    return publishedMemory;
+  }
+
+  const existingSlugs = new Set(posts.map((p) => p.slug));
+  for (const p of publishedMemory) {
+    if (!existingSlugs.has(p.slug)) {
+      posts.push(p);
+    }
+  }
+
+  return posts;
 }
 
 export async function getAllBlogPostsAdmin(): Promise<BlogPost[]> {

@@ -153,7 +153,23 @@ export default function InteractiveGlobe() {
     });
 
     let animationFrameId: number;
+    const isVisibleRef = { current: true };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const wasVisible = isVisibleRef.current;
+        isVisibleRef.current = entry.isIntersecting;
+        if (!wasVisible && entry.isIntersecting) {
+          animationFrameId = requestAnimationFrame(animate);
+        }
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(currentCanvas);
+
     const animate = () => {
+      if (!isVisibleRef.current) return;
+
       if (autoRotateRef.current && pointerInteracting.current === null) {
         targetPhiRef.current += 0.003;
       }
@@ -174,6 +190,7 @@ export default function InteractiveGlobe() {
     animationFrameId = requestAnimationFrame(animate);
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(animationFrameId);
       globe.destroy();
       window.removeEventListener("resize", onResize);

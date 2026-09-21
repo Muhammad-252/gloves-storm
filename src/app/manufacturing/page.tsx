@@ -12,10 +12,15 @@ import {
 } from "lucide-react";
 import GooeyButton from "@/components/ui/GooeyButton";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Manufacturing Capabilities & Sialkot Factory | GLOVES STORM",
   description:
     "Explore our 45,000 sq ft industrial facility in Sialkot, Pakistan. Technical machinery, sublimation printing, precision laser cutting, and 4-stage quality control.",
+  alternates: {
+    canonical: "/manufacturing",
+  },
 };
 
 const machinery = [

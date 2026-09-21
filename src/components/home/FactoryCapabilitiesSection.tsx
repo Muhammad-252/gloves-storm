@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 
@@ -86,12 +87,15 @@ export default function FactoryCapabilitiesSection() {
               className="group bg-[#F9FAFB] rounded-3xl border border-black/[0.08] hover:border-amber-500/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
             >
               <div className="relative h-52 w-full overflow-hidden bg-neutral-100">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{ backgroundImage: `url(${cap.image})` }}
+                <Image
+                  src={cap.image}
+                  alt={`${cap.title} - Sialkot Manufacturing Facility (GLOVES STORM)`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
-                <span className="absolute top-4 left-4 bg-white/95 px-3.5 py-1 text-[10px] font-mono uppercase tracking-wider text-[#1A1A1A] font-bold rounded-full border border-black/[0.08] shadow-xs">
+                <span className="absolute top-4 left-4 bg-white/95 px-3.5 py-1 text-[10px] font-mono uppercase tracking-wider text-[#1A1A1A] font-bold rounded-full border border-black/[0.08] shadow-xs z-10">
                   {cap.category}
                 </span>
               </div>

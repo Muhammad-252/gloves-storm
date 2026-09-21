@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { Category } from "@/types/database";
 import GooeyButton from "../ui/GooeyButton";
@@ -44,15 +45,16 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
                 idx === 0 ? "sm:col-span-2 lg:col-span-2 sm:min-h-[440px]" : ""
               }`}
             >
-              {/* Background Image with Scale on Hover */}
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105 opacity-60 group-hover:opacity-75"
-                style={{
-                  backgroundImage: `url(${
-                    category.image_url ||
-                    "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
-                  })`,
-                }}
+              {/* Responsive Next.js Optimized Image with full Image SEO */}
+              <Image
+                src={
+                  category.image_url ||
+                  "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
+                }
+                alt={`Custom ${category.name} OEM Sialkot Factory Production - GLOVES STORM`}
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-60 group-hover:opacity-75"
               />
               {/* Multi-layered Gradients */}
               <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/95 via-neutral-950/50 to-neutral-950/10" />

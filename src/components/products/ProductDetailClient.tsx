@@ -2,6 +2,7 @@
 
 import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Product, Category, PriceTier } from "@/types/database";
 import {
   Clock,
@@ -77,7 +78,8 @@ export default function ProductDetailClient({
   }, [product]);
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
-  const activeImageUrl = images[activeImageIndex]?.image_url || images[0]?.image_url;
+  const activeImage = images[activeImageIndex] || images[0];
+  const activeImageUrl = activeImage?.image_url;
 
   // Wholesale Tiers setup (Alibaba format)
   const defaultTiers: PriceTier[] = useMemo(() => {
@@ -225,9 +227,12 @@ export default function ProductDetailClient({
                       : "border-neutral-200 hover:border-neutral-400 opacity-70 hover:opacity-100"
                   }`}
                 >
-                  <div
-                    className="w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: `url(${img.image_url})` }}
+                  <Image
+                    src={img.image_url}
+                    alt={img.alt_text || `${product.name} sample view ${idx + 1}`}
+                    fill
+                    sizes="80px"
+                    className="object-cover"
                   />
                 </button>
               ))}
@@ -235,9 +240,13 @@ export default function ProductDetailClient({
 
             {/* Main Stage Image with Navigation Arrows & Floating Actions */}
             <div className="relative flex-1 aspect-square sm:aspect-4/3 rounded-2xl bg-neutral-100 border border-neutral-200/90 overflow-hidden shadow-xs group">
-              <div
-                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{ backgroundImage: `url(${activeImageUrl})` }}
+              <Image
+                src={activeImageUrl}
+                alt={activeImage?.alt_text || `${product.name} - Custom OEM Manufacturer Sialkot (GLOVES STORM)`}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
               {/* Prev / Next Arrows (Matches reference image) */}
@@ -322,9 +331,9 @@ export default function ProductDetailClient({
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <h3 className="text-sm font-bold text-neutral-950 hover:text-amber-800 transition-colors">
+                    <div className="text-sm font-bold text-neutral-950 hover:text-amber-800 transition-colors">
                       Gloves Storm Industrial Co., Ltd.
-                    </h3>
+                    </div>
                     <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded inline-flex items-center gap-1">
                       <BadgeCheck className="w-3 h-3" />
                       Verified
@@ -808,10 +817,13 @@ export default function ProductDetailClient({
                   href={`/products/${category?.slug || "general"}/${rel.slug}`}
                   className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300 hover:shadow-md transition-all p-3.5 flex flex-col justify-between"
                 >
-                  <div className="aspect-square bg-neutral-100 rounded-xl overflow-hidden mb-3 border border-neutral-200/70">
-                    <div
-                      className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                      style={{ backgroundImage: `url(${relImg})` }}
+                  <div className="relative aspect-square bg-neutral-100 rounded-xl overflow-hidden mb-3 border border-neutral-200/70">
+                    <Image
+                      src={relImg}
+                      alt={rel.images?.[0]?.alt_text || `${rel.name} - Custom OEM Manufacturer Sialkot (GLOVES STORM)`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 25vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <h4 className="text-xs font-bold uppercase text-neutral-950 group-hover:text-amber-800 transition-colors truncate mb-1">

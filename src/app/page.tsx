@@ -10,12 +10,22 @@ import FeaturedProjectsSection from "@/components/home/FeaturedProjectsSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import GlobalReachSection from "@/components/home/GlobalReachSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
+import type { Metadata } from "next";
 import {
   getCategories,
   getProducts,
   getProjects,
   getTestimonials,
 } from "@/lib/data/store";
+
+export const metadata: Metadata = {
+  title: "GLOVES STORM — Custom Sports Apparel & Boxing Glove OEM Manufacturer",
+  description:
+    "Direct factory OEM & private label manufacturer for custom boxing gloves, combat equipment, team sportswear, and heavyweight streetwear in Sialkot, Pakistan.",
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export const revalidate = 60; // ISR revalidation
 

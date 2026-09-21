@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Product, Category } from "@/types/database";
 import { ArrowUpRight, Search, Clock, Box } from "lucide-react";
 import QuoteModal from "../ui/QuoteModal";
@@ -141,15 +142,23 @@ export default function ProductExplorerSection({
                       className="relative aspect-square overflow-hidden bg-neutral-100 block"
                     >
                       {/* Primary Image */}
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105"
-                        style={{ backgroundImage: `url(${primaryImg})` }}
+                      <Image
+                        src={primaryImg}
+                        alt={`${product.name} - Gloves Storm B2B Manufacturing`}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                        className="object-cover transition-all duration-700 ease-out group-hover:scale-105"
                       />
                       {/* Secondary Image on Hover */}
-                      <div
-                        className="absolute inset-0 bg-cover bg-center transition-opacity duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-105"
-                        style={{ backgroundImage: `url(${secondaryImg})` }}
-                      />
+                      {secondaryImg !== primaryImg && (
+                        <Image
+                          src={secondaryImg}
+                          alt={`${product.name} alternate view`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                          className="object-cover transition-opacity duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                       {/* MOQ Pill Badge */}

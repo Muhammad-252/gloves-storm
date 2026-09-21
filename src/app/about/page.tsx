@@ -1,11 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, ShieldCheck, HeartHandshake, Eye, Award, Globe, Users } from "lucide-react";
 import GooeyButton from "@/components/ui/GooeyButton";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "About GLOVES STORM | Sialkot Manufacturing Heritage",
   description:
     "Learn about GLOVES STORM: a premier OEM manufacturing partner based in Sialkot, Pakistan, dedicated to ethical craftsmanship, precision engineering, and long-term brand partnerships.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
@@ -29,12 +35,12 @@ export default function AboutPage() {
         {/* Story Section with Visual Split */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-24 pb-16 border-b border-neutral-200">
           <div className="lg:col-span-6 relative aspect-square sm:aspect-[4/3] bg-neutral-100 rounded-3xl border border-neutral-200 overflow-hidden shadow-sm">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{
-                backgroundImage:
-                  "url('https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop')",
-              }}
+            <Image
+              src="https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
+              alt="Master Craftsman in Sialkot handcrafting custom boxing equipment - GLOVES STORM"
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-white/95 backdrop-blur-md border border-neutral-200 shadow-md">

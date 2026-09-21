@@ -2,10 +2,15 @@ import Link from "next/link";
 import { ShieldCheck, Lock, FileText, CheckCircle, Mail, MapPin } from "lucide-react";
 import GooeyButton from "@/components/ui/GooeyButton";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Privacy & Data Protection Policy | GLOVES STORM",
   description:
     "GLOVES STORM privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

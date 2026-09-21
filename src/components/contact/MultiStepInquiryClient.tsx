@@ -319,11 +319,10 @@ export default function MultiStepInquiryClient({
                     key={cat.id}
                     type="button"
                     onClick={() => setSelectedCategory(cat.name)}
-                    className={`p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between group ${
-                      isSelected
+                    className={`p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between group ${isSelected
                         ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
                         : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300 hover:bg-neutral-100/60"
-                    }`}
+                      }`}
                   >
                     <div>
                       <span className="text-2xl mb-3 block">{cat.icon}</span>
@@ -337,11 +336,10 @@ export default function MultiStepInquiryClient({
 
                     <div className="mt-4 flex items-center justify-end">
                       <span
-                        className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${
-                          isSelected
+                        className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${isSelected
                             ? "border-amber-600 bg-amber-600 text-white"
                             : "border-neutral-300 text-transparent"
-                        }`}
+                          }`}
                       >
                         <Check className="w-3 h-3" />
                       </span>
@@ -388,11 +386,10 @@ export default function MultiStepInquiryClient({
                       key={prod.id}
                       type="button"
                       onClick={() => setSelectedProduct(prod.name)}
-                      className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${
-                        isSelected
+                      className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${isSelected
                           ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
                           : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
-                      }`}
+                        }`}
                     >
                       <div>
                         <span className="text-xs font-bold text-[#0f172a] block mb-0.5">
@@ -403,11 +400,10 @@ export default function MultiStepInquiryClient({
                         </span>
                       </div>
                       <span
-                        className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${
-                          isSelected
+                        className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${isSelected
                             ? "border-amber-600 bg-amber-600 text-white"
                             : "border-neutral-300"
-                        }`}
+                          }`}
                       >
                         {isSelected && <Check className="w-3 h-3" />}
                       </span>
@@ -419,11 +415,10 @@ export default function MultiStepInquiryClient({
               <button
                 type="button"
                 onClick={() => setSelectedProduct("Custom Bespoke Development (Original Design)")}
-                className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${
-                  selectedProduct.includes("Custom Bespoke")
+                className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${selectedProduct.includes("Custom Bespoke")
                     ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
                     : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
-                }`}
+                  }`}
               >
                 <div>
                   <span className="text-xs font-bold text-[#b45309] block mb-0.5">
@@ -434,11 +429,10 @@ export default function MultiStepInquiryClient({
                   </span>
                 </div>
                 <span
-                  className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${
-                    selectedProduct.includes("Custom Bespoke")
+                  className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${selectedProduct.includes("Custom Bespoke")
                       ? "border-amber-600 bg-amber-600 text-white"
                       : "border-neutral-300"
-                  }`}
+                    }`}
                 >
                   {selectedProduct.includes("Custom Bespoke") && <Check className="w-3 h-3" />}
                 </span>
@@ -642,11 +636,10 @@ export default function MultiStepInquiryClient({
                         setQuantity(q.label);
                         setNumericQuantity(q.val);
                       }}
-                      className={`p-4 rounded-2xl border text-left transition-all ${
-                        isSelected
+                      className={`p-4 rounded-2xl border text-left transition-all ${isSelected
                           ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
                           : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
-                      }`}
+                        }`}
                     >
                       <span className="block text-xs font-bold text-[#0f172a] mb-0.5">
                         {q.label}
@@ -671,11 +664,10 @@ export default function MultiStepInquiryClient({
                       key={t.label}
                       type="button"
                       onClick={() => setTimeline(t.label)}
-                      className={`p-3 rounded-2xl border text-center transition-all ${
-                        isSelected
+                      className={`p-3 rounded-2xl border text-center transition-all ${isSelected
                           ? "border-amber-600 bg-amber-50 font-bold text-[#b45309]"
                           : "border-neutral-200 bg-neutral-50/60 text-neutral-600 hover:text-[#0f172a]"
-                      }`}
+                        }`}
                     >
                       <span className="block text-xs text-[#0f172a] font-medium">{t.label}</span>
                       <span className="text-[9px] text-neutral-500 block mt-0.5">{t.sub}</span>

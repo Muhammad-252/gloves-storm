@@ -5,10 +5,15 @@ import { Mail, Phone, MapPin, Globe, ShieldCheck, Clock, MessageSquare, Loader2 
 import GooeyButton from "@/components/ui/GooeyButton";
 import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Start a Project | Multi-Step Project Inquiry | GLOVES STORM Sialkot",
   description:
     "Submit your bespoke project dossier or request an OEM quotation directly from GLOVES STORM. Fast turnaround, low MOQ, and professional factory communication.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default async function ContactPage() {
@@ -62,6 +67,14 @@ export default async function ContactPage() {
                   <div>
                     <span className="block text-[#0f172a] font-medium">Physical Address</span>
                     <span>Industrial Estate, Sialkot 51310, Punjab, Pakistan</span>
+                    <a
+                      href="https://maps.google.com/?q=Sialkot+Industrial+Estate"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block text-[11px] font-mono text-amber-700 hover:text-amber-800 font-semibold mt-1"
+                    >
+                      Open in Google Maps →
+                    </a>
                   </div>
                 </div>
 

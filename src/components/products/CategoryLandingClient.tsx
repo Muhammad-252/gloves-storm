@@ -34,7 +34,7 @@ interface CategoryLandingClientProps {
 }
 
 // Category-specific manufacturing & engineering knowledge
-const CATEGORY_INTEL: Record<
+export const CATEGORY_INTEL: Record<
   string,
   {
     heroSubtitle: string;
@@ -409,14 +409,16 @@ export default function CategoryLandingClient({
     <div className="space-y-16">
       {/* 1. Category Hero Banner */}
       <section className="relative rounded-3xl overflow-hidden border border-neutral-200 bg-neutral-950 text-white shadow-xl">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 scale-105 transition-transform duration-1000 ease-out"
-          style={{
-            backgroundImage: `url(${
-              category.image_url ||
-              "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
-            })`,
-          }}
+        <Image
+          src={
+            category.image_url ||
+            "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
+          }
+          alt={`${category.name} OEM Manufacturing Sialkot - GLOVES STORM`}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30 scale-105 transition-transform duration-1000 ease-out"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/85 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
@@ -611,22 +613,28 @@ export default function CategoryLandingClient({
                     className="relative aspect-square overflow-hidden bg-neutral-100 block"
                   >
                     {/* Primary Image */}
-                    <div
-                      className={`absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out ${
+                    <Image
+                      src={primaryImg}
+                      alt={product.images?.[0]?.alt_text || `${product.name} - Custom OEM Manufacturer (GLOVES STORM)`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className={`object-cover transition-all duration-700 ease-out ${
                         isHovered ? "opacity-0 scale-110" : "opacity-100 scale-100"
                       }`}
-                      style={{ backgroundImage: `url(${primaryImg})` }}
                     />
 
                     {/* Secondary Image on Hover */}
-                    <div
-                      className={`absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out ${
+                    <Image
+                      src={secondaryImg}
+                      alt={product.images?.[1]?.alt_text || `${product.name} - Detail Angle (GLOVES STORM OEM)`}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className={`object-cover transition-all duration-700 ease-out ${
                         isHovered ? "opacity-100 scale-105" : "opacity-0 scale-100"
                       }`}
-                      style={{ backgroundImage: `url(${secondaryImg})` }}
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
 
                     {/* Angle Indicator Badge */}
                     <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-xs">

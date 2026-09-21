@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, ChevronDown, Play, Pause, Film } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 import MagneticElement from "../ui/MagneticElement";
@@ -23,16 +24,30 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-[#0f172a]">
-      {/* Background High-Resolution Varsity Jacket Video & Light Black Overlay */}
+      {/* Background Media Stage: High-performance Image on Mobile, 4K Video Reel on Desktop */}
       <div className="absolute inset-0 z-0 overflow-hidden">
+        {/* Mobile Fast LCP Hero Image (eliminates 4.9MB cellular video download) */}
+        <div className="block md:hidden absolute inset-0 w-full h-full">
+          <Image
+            src="/images/products/varsity-jacket.jpg"
+            alt="Custom Varsity Letterman Jacket Manufacturing Sialkot - GLOVES STORM"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center filter brightness-100 contrast-105"
+          />
+        </div>
+
+        {/* Desktop Video Reel */}
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover object-center filter brightness-100 contrast-105"
+          preload="metadata"
+          poster="/images/products/varsity-jacket.jpg"
+          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center filter brightness-100 contrast-105"
         >
           <source src="/videos/varsity-jacket-hero.mp4" type="video/mp4" />
         </video>
@@ -75,9 +90,9 @@ export default function HeroSection() {
 
         {/* Hero Main Headline */}
         <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.035em] uppercase text-white leading-[0.98] sm:leading-[0.95] max-w-5xl mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-          BUILT FOR BRANDS. <br />
+          CUSTOM SPORTSWEAR & <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">
-            MADE TO PERFORM.
+            BOXING GEAR MANUFACTURER.
           </span>
         </h1>
 

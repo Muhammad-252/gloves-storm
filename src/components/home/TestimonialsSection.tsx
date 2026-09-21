@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Testimonial } from "@/types/database";
 import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
@@ -75,10 +76,15 @@ export default function TestimonialsSection({ testimonials }: TestimonialsProps)
           {/* Client Attribution */}
           <div className="flex items-center gap-4 border-t border-black/[0.07] pt-8">
             {active.photo_url ? (
-              <div
-                className="w-14 h-14 rounded-full bg-cover bg-center border border-amber-400/60 shrink-0 shadow-xs"
-                style={{ backgroundImage: `url(${active.photo_url})` }}
-              />
+              <div className="relative w-14 h-14 rounded-full overflow-hidden border border-amber-400/60 shrink-0 shadow-xs">
+                <Image
+                  src={active.photo_url}
+                  alt={`${active.client_name} - ${active.company}`}
+                  fill
+                  sizes="56px"
+                  className="object-cover"
+                />
+              </div>
             ) : (
               <div className="w-14 h-14 rounded-full bg-amber-100 border border-amber-300 text-amber-900 font-bold text-lg flex items-center justify-center shrink-0">
                 {active.client_name.charAt(0)}

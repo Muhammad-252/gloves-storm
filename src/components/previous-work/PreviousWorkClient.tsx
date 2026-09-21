@@ -138,84 +138,40 @@ export default function PreviousWorkClient() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] text-[#1A1A1A] pt-24 pb-28">
-      {/* STATUS BANNER */}
+      {/* Subtle Verified Production Badge */}
       <div className="max-w-6xl mx-auto px-4 sm:px-8 mb-6">
-        {isLiveConnected ? (
-          <div className="bg-emerald-50/90 border border-emerald-200/90 text-emerald-950 rounded-2xl p-3 sm:p-4 flex items-center justify-between flex-wrap gap-3 shadow-xs">
-            <div className="flex items-center gap-3">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-              </span>
-              <div>
-                <span className="font-bold text-xs uppercase tracking-wider block font-mono text-emerald-900">
-                  Live Instagram Stream Connected
+        <div className="bg-gradient-to-r from-amber-50/70 via-white to-amber-50/40 border border-amber-200/80 text-neutral-900 rounded-2xl p-3.5 sm:p-4 flex items-center justify-between flex-wrap gap-3 shadow-2xs">
+          <div className="flex items-center gap-3">
+            <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-600 text-black flex items-center justify-center font-bold shrink-0 shadow-xs">
+              <Sparkles className="w-4 h-4" />
+            </span>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-bold text-xs uppercase tracking-wider font-mono text-amber-900">
+                  Verified Production Archive
                 </span>
-                <span className="text-[11px] text-emerald-700">
-                  Streaming {items.length} latest posts & reels directly from @{username}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={handleRefreshFeed}
-                disabled={isRefreshing}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-emerald-300 text-emerald-800 text-xs font-mono font-bold hover:bg-emerald-100 transition-colors disabled:opacity-50"
-                title="Force refresh live feed cache"
-              >
-                <RefreshCw className={`w-3.5 h-3.5 ${isRefreshing ? "animate-spin" : ""}`} />
-                <span>{isRefreshing ? "Syncing..." : "Sync Feed"}</span>
-              </button>
-              <Link
-                href="/admin/settings"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-900 text-white text-xs font-mono font-bold hover:bg-emerald-950 transition-colors"
-                title="Feed settings"
-              >
-                <Settings className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Settings</span>
-              </Link>
-            </div>
-          </div>
-        ) : (
-          <div className="bg-gradient-to-r from-amber-50 via-orange-50 to-amber-50/60 border border-amber-200/90 text-neutral-900 rounded-2xl p-3.5 sm:p-4 flex items-center justify-between flex-wrap gap-3 shadow-xs">
-            <div className="flex items-center gap-3">
-              <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-500 to-amber-600 text-black flex items-center justify-center font-bold shrink-0 shadow-xs">
-                <Sparkles className="w-4 h-4" />
-              </span>
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="font-bold text-xs uppercase tracking-wider font-mono text-amber-900">
-                    Verified Showcase Archive Mode
-                  </span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-200/60 text-amber-900 font-mono font-semibold">
-                    {items.length} Curated Factory Drops
-                  </span>
-                </div>
-                <span className="text-xs text-neutral-600 block mt-0.5">
-                  Connect your Instagram in Admin Settings (via Graph API or Widget) to automatically sync your latest posts & reels here.
+                <span className="text-[10px] px-2 py-0.5 rounded-full bg-amber-200/60 text-amber-900 font-mono font-semibold">
+                  {items.length} Curated Factory Drops
                 </span>
               </div>
-            </div>
-
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setShowConnectModal(true)}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-white border border-amber-300 text-amber-900 text-xs font-bold font-mono shadow-xs hover:bg-amber-100/60 transition-colors"
-              >
-                <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
-                <span>How to Connect</span>
-              </button>
-              <Link
-                href="/admin/settings"
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-[#0f141c] text-white text-xs font-bold font-mono shadow-xs hover:bg-neutral-800 transition-colors"
-              >
-                <Settings className="w-3.5 h-3.5" />
-                <span>Connect Account</span>
-              </Link>
+              <span className="text-xs text-neutral-600 block mt-0.5">
+                Authentic factory floor footage, client unboxings, Tajima embroidery close-ups, and global dispatches direct from Sialkot, Pakistan.
+              </span>
             </div>
           </div>
-        )}
+
+          <div className="flex items-center gap-2">
+            <a
+              href="https://www.instagram.com/glovesstorm/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-pink-600 to-rose-600 text-white text-xs font-bold font-mono shadow-xs hover:opacity-90 transition-opacity"
+            >
+              <InstagramIcon className="w-3.5 h-3.5" />
+              <span>Follow @glovesstorm</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* 1. INSTAGRAM PROFILE HEADER BAR */}
@@ -249,14 +205,17 @@ export default function PreviousWorkClient() {
             {/* Profile Info & Stats */}
             <div className="flex-1 text-center md:text-left">
               <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-4">
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-[#1A1A1A]">
-                    {username}
+                <div className="flex flex-col md:items-start items-center gap-1">
+                  <h1 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-[#1A1A1A] uppercase">
+                    Client Production Archive & Factory Samples
                   </h1>
-                  {/* Verified Badge */}
-                  <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-[#0095F6] text-white" title="Verified Manufacturer">
-                    <CheckCircle2 className="w-3.5 h-3.5 fill-current" />
-                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-sm font-bold text-neutral-500 font-mono">@{username}</span>
+                    {/* Verified Badge */}
+                    <span className="inline-flex items-center justify-center w-4 h-4 rounded-full bg-[#0095F6] text-white" title="Verified Manufacturer">
+                      <CheckCircle2 className="w-3 h-3 fill-current" />
+                    </span>
+                  </div>
                 </div>
 
                 {/* Primary Action Buttons */}
@@ -273,7 +232,7 @@ export default function PreviousWorkClient() {
                   </a>
 
                   <a
-                    href="https://wa.me/923288288887?text=Hello%20GLOVES%20STORM,%20I%20saw%20your%20previous%20work%20on%20Instagram%20and%20want%20to%20inquire%20about%20manufacturing."
+                    href="https://wa.me/923417146935?text=Hello%20GLOVES%20STORM,%20I%20saw%20your%20previous%20work%20on%20Instagram%20and%20want%20to%20inquire%20about%20manufacturing."
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#25D366] text-white text-xs font-bold shadow-sm hover:opacity-95 transition-all"
@@ -829,7 +788,7 @@ export default function PreviousWorkClient() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 pt-4">
               <a
-                href="https://wa.me/923288288887?text=Hello%20GLOVES%20STORM,%20I%20want%20to%20send%20a%20tech%20pack%20for%20my%20brand."
+                href="https://wa.me/923417146935?text=Hello%20GLOVES%20STORM,%20I%20want%20to%20send%20a%20tech%20pack%20for%20my%20brand."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-[#25D366] text-white text-xs font-bold hover:opacity-95 transition-all shadow-md"
@@ -910,18 +869,10 @@ export default function PreviousWorkClient() {
             <div className="flex items-center justify-end gap-3 pt-2 border-t border-neutral-100">
               <button
                 onClick={() => setShowConnectModal(false)}
-                className="px-4 py-2 rounded-xl text-neutral-600 hover:text-black text-xs font-semibold"
+                className="px-5 py-2.5 rounded-xl bg-[#0f141c] text-white text-xs font-bold shadow-md hover:bg-neutral-800 transition-colors"
               >
                 Close
               </button>
-              <Link
-                href="/admin/settings"
-                onClick={() => setShowConnectModal(false)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0f141c] text-white text-xs font-bold shadow-md hover:bg-neutral-800 transition-colors"
-              >
-                <Settings className="w-3.5 h-3.5" />
-                <span>Open Admin Settings</span>
-              </Link>
             </div>
           </div>
         </div>

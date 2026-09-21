@@ -1,10 +1,15 @@
 import { getProducts, getCategories } from "@/lib/data/store";
 import ProductCustomizerStudio from "@/components/customizer/ProductCustomizerStudio";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Bespoke Product Customizer Studio | GLOVES STORM Sialkot",
   description:
     "Design and customize competition boxing gear, athletic team wear, and luxury streetwear hoodies with direct Sialkot factory specifications and instant live preview.",
+  alternates: {
+    canonical: "/customize",
+  },
 };
 
 interface CustomizePageProps {

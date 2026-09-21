@@ -293,25 +293,25 @@ export default function Navbar() {
               </button>
 
               {mobileCategoriesExpanded && (
-                <div className="pl-4 pr-1 py-2 space-y-2 animate-in slide-in-from-top-2 duration-150">
+                <div className="pl-2 pr-1 py-2 space-y-1.5 animate-in slide-in-from-top-2 duration-150">
                   <Link
                     href="/products"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-xs font-bold uppercase tracking-wider text-amber-700 py-1.5 border-b border-neutral-100"
+                    className="block text-xs font-bold uppercase tracking-wider text-amber-700 py-2.5 px-3 rounded-lg hover:bg-amber-50 border-b border-neutral-100 min-h-[44px] flex items-center"
                   >
                     → Browse All Products Catalog
                   </Link>
-                  <div className="grid grid-cols-1 gap-1.5 max-h-60 overflow-y-auto pt-1">
+                  <div className="grid grid-cols-1 gap-1 max-h-64 overflow-y-auto pt-1">
                     {categories.map((cat) => (
                       <Link
                         key={cat.id}
                         href={`/products/${cat.slug}`}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-xs font-medium text-neutral-700 hover:text-amber-800 py-1 flex items-center justify-between"
+                        className="text-xs font-medium text-neutral-700 hover:text-amber-800 py-2.5 px-3 rounded-lg hover:bg-neutral-50 flex items-center justify-between min-h-[44px] transition-colors"
                       >
                         <span>{cat.name}</span>
                         {cat.menu_badge && (
-                          <span className="text-[9px] font-mono bg-amber-100 text-amber-800 px-1.5 rounded">
+                          <span className="text-[9px] font-mono bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-semibold">
                             {cat.menu_badge}
                           </span>
                         )}

@@ -2,10 +2,15 @@ import Link from "next/link";
 import { getCategories, getProducts } from "@/lib/data/store";
 import ProductCatalogClient from "@/components/products/ProductCatalogClient";
 
-export const metadata = {
-  title: "Manufacturing Catalog & Product Explorer",
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Wholesale Sports Goods & Apparel Catalog | GLOVES STORM Sialkot",
   description:
-    "Explore custom OEM boxing gear, team sportswear, gym wear, and luxury streetwear manufactured by GLOVES STORM in Sialkot.",
+    "Explore 90+ custom OEM boxing gloves, combat equipment, team sportswear, gym wear, and luxury streetwear manufactured by GLOVES STORM in Sialkot, Pakistan. Low MOQs & worldwide shipping.",
+  alternates: {
+    canonical: "/products",
+  },
 };
 
 export default async function ProductsPage() {

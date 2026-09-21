@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Play, CheckCircle2, Heart } from "lucide-react";
 import { InstagramIcon } from "../ui/SocialIcons";
 import GooeyButton from "../ui/GooeyButton";
@@ -87,9 +88,12 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
               >
                 {/* Media banner */}
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-900">
-                  <div
-                    className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    style={{ backgroundImage: `url(${drop.image})` }}
+                  <Image
+                    src={drop.image}
+                    alt={`${drop.title} - Custom Manufacturing by Gloves Storm`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 

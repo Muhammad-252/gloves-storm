@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, Sparkles, Check } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 
@@ -139,9 +140,12 @@ export default function CustomizationSection() {
           <div className="lg:col-span-7 bg-white rounded-3xl border border-neutral-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.04)] flex flex-col justify-between overflow-hidden relative">
             {/* Visual Image Banner */}
             <div className="relative h-64 sm:h-80 w-full overflow-hidden bg-neutral-100">
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out scale-105"
-                style={{ backgroundImage: `url(${activeItem.image})` }}
+              <Image
+                src={activeItem.image}
+                alt={`${activeItem.title} - Custom Manufacturing Capabilities by Gloves Storm`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 60vw"
+                className="object-cover transition-all duration-700 ease-out scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
             </div>

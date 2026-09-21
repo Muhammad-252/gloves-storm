@@ -29,6 +29,7 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",
@@ -49,6 +50,20 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
+        source: "/projects",
+        destination: "/previous-work",
+        permanent: true,
+      },
+      {
+        source: "/projects/:slug",
+        destination: "/previous-work",
+        permanent: true,
       },
     ];
   },

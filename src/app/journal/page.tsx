@@ -1,12 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getBlogPosts } from "@/lib/data/store";
 import { ArrowUpRight, Calendar } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
   title: "Manufacturing Journal & Technical Guides | GLOVES STORM",
   description:
     "Insights, material breakdowns, and tech pack advisory from the master glove makers and apparel engineers at GLOVES STORM Sialkot.",
+  alternates: {
+    canonical: "/journal",
+  },
 };
 
 export default async function JournalPage() {
@@ -38,14 +44,15 @@ export default async function JournalPage() {
             >
               {/* Cover image */}
               <div className="relative aspect-[16/10] w-full overflow-hidden bg-neutral-100">
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-105"
-                  style={{
-                    backgroundImage: `url(${
-                      post.featured_image ||
-                      "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
-                    })`,
-                  }}
+                <Image
+                  src={
+                    post.featured_image ||
+                    "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
+                  }
+                  alt={post.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                 />
                 <span className="absolute top-4 left-4 bg-white/90 px-3.5 py-1 text-[10px] font-mono uppercase tracking-wider text-amber-700 font-bold rounded-full border border-neutral-200 shadow-sm backdrop-blur-md">
                   {post.category}

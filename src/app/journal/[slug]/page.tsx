@@ -1,11 +1,19 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { getBlogPostBySlug, getBlogPosts } from "@/lib/data/store";
-import { ArrowUpRight, Calendar, User, ChevronRight } from "lucide-react";
+import { ArrowUpRight, Calendar, User, ChevronRight, Sparkles, Box, Scissors } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: BlogPostPageProps) {
@@ -16,6 +24,9 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   return {
     title: post.seo_title || `${post.title} | GLOVES STORM Journal`,
     description: post.seo_description || post.excerpt || post.title,
+    alternates: {
+      canonical: `/journal/${slug}`,
+    },
   };
 }
 
@@ -32,8 +43,44 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seo_description || post.excerpt || post.title,
+    image: post.featured_image
+      ? [post.featured_image]
+      : ["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"],
+    datePublished: post.published_at || post.created_at || "2026-03-01T00:00:00.000Z",
+    dateModified: post.updated_at || post.created_at || "2026-03-01T00:00:00.000Z",
+    author: {
+      "@type": "Person",
+      name: post.author || "GLOVES STORM Engineering Team",
+      worksFor: {
+        "@type": "Organization",
+        name: "GLOVES STORM",
+      },
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "GLOVES STORM",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://glovesstorm.com/journal/${post.slug}`,
+    },
+  };
+
   return (
     <div className="pt-28 pb-24 bg-[#fafafa] min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-6 sm:px-8">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-500 mb-8 font-medium">
@@ -81,9 +128,13 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         {/* Hero Image */}
         {post.featured_image && (
           <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden bg-neutral-100 border border-neutral-200 shadow-sm mb-12">
-            <div
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${post.featured_image})` }}
+            <Image
+              src={post.featured_image}
+              alt={post.title}
+              fill
+              priority
+              sizes="(max-width: 896px) 100vw, 896px"
+              className="object-cover"
             />
           </div>
         )}
@@ -120,6 +171,46 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </div>
           </div>
         )}
+
+        {/* Internal Hub Callout: 3D Customizer & Wholesale Directory */}
+        <div className="mb-16 p-8 sm:p-10 bg-gradient-to-br from-neutral-900 to-neutral-950 text-white rounded-3xl border border-neutral-800 shadow-lg relative overflow-hidden">
+          <div className="absolute -right-8 -bottom-8 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+          <div className="relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-mono uppercase tracking-wider font-bold mb-4">
+              <Sparkles className="w-3 h-3 text-amber-400" />
+              <span>Interactive Factory Studio</span>
+            </div>
+            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-3">
+              Prototype Your Custom Design in 3D
+            </h3>
+            <p className="text-sm text-neutral-300 max-w-2xl leading-relaxed mb-6">
+              Test your branding, select leather or technical fabric densities, and generate an instant manufacturing spec sheet using our real-time Bespoke Customizer Studio.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                href="/customize"
+                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-neutral-950 rounded-full px-6 py-3 font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+              >
+                <span>Launch 3D Customizer</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
+              <Link
+                href="/products"
+                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white rounded-full px-6 py-3 font-bold text-xs uppercase tracking-wider transition-colors border border-white/15"
+              >
+                <Box className="w-3.5 h-3.5 text-amber-400" />
+                <span>Browse All Products & MOQs</span>
+              </Link>
+              <Link
+                href="/manufacturing"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-400 hover:text-amber-400 transition-colors ml-auto pt-2 sm:pt-0"
+              >
+                <Scissors className="w-3.5 h-3.5" />
+                <span>Our Factory Standards & Equipment →</span>
+              </Link>
+            </div>
+          </div>
+        </div>
 
         {/* Bottom CTA */}
         <div className="p-8 sm:p-12 bg-white rounded-3xl border border-neutral-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">

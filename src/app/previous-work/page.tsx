@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Previous Work & Client Production Archive (@glovesstorm) | GLOVES STORM",
   description:
     "Explore our official Instagram archive of custom boxing equipment, combat gear, and heavyweight streetwear manufactured for international brands and athletes.",
+  alternates: {
+    canonical: "/previous-work",
+  },
   openGraph: {
     title: "Previous Work & Client Production Archive | GLOVES STORM",
     description:
