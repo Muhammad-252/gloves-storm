@@ -84,6 +84,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  verification: {
+    google: "googlec66e29b6126c6554",
+  },
 };
 
 const organizationSchema = {
