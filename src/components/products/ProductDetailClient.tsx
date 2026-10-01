@@ -11,7 +11,6 @@ import {
   Check,
   ArrowUpRight,
   ArrowRight,
-  Sparkles,
   Layers,
   ChevronRight,
   ChevronLeft,
@@ -692,14 +691,6 @@ export default function ProductDetailClient({
               >
                 Order Sample
               </button>
-
-              <Link
-                href={`/customize?product=${product.id}`}
-                className="py-3 px-4 rounded-xl border border-neutral-300 hover:border-neutral-900 text-neutral-900 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 font-mono"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                <span>3D Customizer</span>
-              </Link>
             </div>
           </div>
         </div>

@@ -12,7 +12,6 @@ import { Category } from "@/types/database";
 
 const navLinks = [
   { name: "Products", href: "/products", hasMegaMenu: true },
-  { name: "Customizer", href: "/customize" },
   { name: "Manufacturing", href: "/manufacturing" },
   { name: "About", href: "/about" },
   { name: "Previous Work", href: "/previous-work" },

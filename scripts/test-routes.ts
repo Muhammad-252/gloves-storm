@@ -18,7 +18,7 @@ async function main() {
     "http://localhost:3000/products/boxing-equipment/custom-boxing-gloves",
     "http://localhost:3000/products/clothing-streetwear/custom-oversized-t-shirts",
     "http://localhost:3000/products/sportswear-teamwear/custom-basketball-uniforms",
-    "http://localhost:3000/customize?product=custom-boxing-gloves",
+    "http://localhost:3000/manufacturing",
     "http://localhost:3000/sitemap.xml",
   ];
 

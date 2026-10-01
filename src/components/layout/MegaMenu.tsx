@@ -1,35 +1,42 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Category, Product } from "@/types/database";
+import { Category } from "@/types/database";
+import { initialCategories, initialProducts } from "@/lib/data/initialData";
 import {
   ArrowRight,
   ArrowUpRight,
   ShieldCheck,
-  Sparkles,
-  Layers,
+  Star,
+  Shirt,
+  Dumbbell,
+  Tag,
+  Factory,
+  Waves,
+  Package,
   Box,
   Clock,
+  ChevronRight,
   CheckCircle2,
   PhoneCall,
-  Flame,
-  ChevronRight,
+  Sparkles,
 } from "lucide-react";
-import GooeyButton from "../ui/GooeyButton";
+
+interface MegaMenuProductItem {
+  id: string;
+  name: string;
+  slug: string;
+  categorySlug: string;
+  categoryName?: string;
+  image: string | null;
+  moq?: number;
+}
 
 interface MegaMenuCategory extends Category {
   productCount?: number;
-  featuredItems?: {
-    id: string;
-    name: string;
-    slug: string;
-    image: string | null;
-    moq: number;
-    samplePrice: number | null;
-    leadTime: string | null;
-  }[];
+  featuredItems?: MegaMenuProductItem[];
 }
 
 interface MegaMenuProps {
@@ -47,276 +54,505 @@ export default function MegaMenu({
   onMouseLeave,
   categories,
 }: MegaMenuProps) {
-  const [menuCategories, setMenuCategories] = useState<MegaMenuCategory[]>(categories);
-  const [activeCategorySlug, setActiveCategorySlug] = useState<string>(
-    categories[0]?.slug || "boxing-equipment"
-  );
+  // Build initial categories with initial products mapped
+  const initialDataCategories = useMemo(() => {
+    const baseCats = categories.length > 0 ? categories : initialCategories;
+    return baseCats.map((cat) => {
+      const catProducts = initialProducts.filter((p) => p.category_id === cat.id);
+      return {
+        ...cat,
+        productCount: catProducts.length,
+        featuredItems: catProducts.map((p) => ({
+          id: p.id,
+          name: p.name,
+          slug: p.slug,
+          categorySlug: cat.slug,
+          categoryName: cat.name,
+          image: p.images?.[0]?.image_url || null,
+          moq: p.moq,
+        })),
+      };
+    });
+  }, [categories]);
 
-  // Dynamically fetch live counts & featured products from /api/categories
+  const [menuCategories, setMenuCategories] = useState<MegaMenuCategory[]>(initialDataCategories);
+  const [activeTab, setActiveTab] = useState<string>("for-you");
+  const [apiFeaturedSelections, setApiFeaturedSelections] = useState<MegaMenuProductItem[]>([]);
+
+  // Dynamically fetch live counts & all products from /api/categories
   useEffect(() => {
     let isMounted = true;
     fetch("/api/categories")
       .then((res) => res.json())
       .then((data) => {
-        if (isMounted && data?.categories && data.categories.length > 0) {
+        if (!isMounted) return;
+        if (data?.categories && data.categories.length > 0) {
           setMenuCategories(data.categories);
+        }
+        if (data?.featuredSelections && data.featuredSelections.length > 0) {
+          setApiFeaturedSelections(data.featuredSelections);
         }
       })
       .catch(() => {
-        // Fallback to prop categories
+        // Fallback to initialDataCategories
       });
     return () => {
       isMounted = false;
     };
   }, []);
 
+  // Top curated items for the "Categories for you" view
+  const forYouItems = useMemo(() => {
+    if (apiFeaturedSelections.length > 0) {
+      return apiFeaturedSelections.slice(0, 7);
+    }
+    return initialProducts.slice(0, 7).map((p) => {
+      const cat = initialCategories.find((c) => c.id === p.category_id);
+      return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        categorySlug: cat?.slug || "products",
+        categoryName: cat?.name || "Equipment",
+        image: p.images?.[0]?.image_url || null,
+        moq: p.moq,
+      };
+    });
+  }, [apiFeaturedSelections]);
+
+  // Secondary row of items for "Categories for you" (e.g., Apparel & Streetwear)
+  const secondaryForYouItems = useMemo(() => {
+    if (apiFeaturedSelections.length > 7) {
+      return apiFeaturedSelections.slice(7, 14);
+    }
+    return initialProducts.slice(7, 14).map((p) => {
+      const cat = initialCategories.find((c) => c.id === p.category_id);
+      return {
+        id: p.id,
+        name: p.name,
+        slug: p.slug,
+        categorySlug: cat?.slug || "products",
+        categoryName: cat?.name || "Apparel",
+        image: p.images?.[0]?.image_url || null,
+        moq: p.moq,
+      };
+    });
+  }, [apiFeaturedSelections]);
+
   if (!isOpen) return null;
 
-  const activeCategory =
-    menuCategories.find((c) => c.slug === activeCategorySlug) || menuCategories[0];
+  const activeCategory = menuCategories.find((c) => c.slug === activeTab);
+
+  // Category Icon Resolver
+  const getCategoryIcon = (slug: string) => {
+    switch (slug) {
+      case "for-you":
+        return Star;
+      case "boxing-equipment":
+        return ShieldCheck;
+      case "sportswear-teamwear":
+        return Shirt;
+      case "gym-fitness-wear":
+        return Dumbbell;
+      case "clothing-streetwear":
+        return Tag;
+      case "custom-manufacturing-private-label":
+        return Factory;
+      case "swimwear-beachwear":
+        return Waves;
+      default:
+        return Package;
+    }
+  };
 
   return (
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave || onClose}
-      className="absolute top-full left-0 right-0 z-50 bg-white/98 backdrop-blur-xl border-b border-neutral-200 shadow-[0_24px_50px_rgba(0,0,0,0.12)] animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:-top-5 before:left-0 before:right-0 before:h-5 before:content-['']"
+      className="absolute top-full left-0 right-0 z-50 bg-white border-b border-neutral-200 shadow-[0_25px_60px_rgba(0,0,0,0.12)] animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:-top-5 before:left-0 before:right-0 before:h-5 before:content-['']"
     >
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-8">
-        {/* Top Header Row inside Mega Menu */}
-        <div className="flex items-center justify-between pb-4 mb-6 border-b border-neutral-100">
-          <div className="flex items-center gap-3">
-            <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-700 font-bold bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">
-              Sialkot OEM Production Library
-            </span>
-            <span className="text-xs text-neutral-500 hidden sm:inline">
-              Explore {menuCategories.length} Specialized Manufacturing Divisions
-            </span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        {/* =====================================================================
+            TOP SUB-NAV / ALIBABA-STYLE TAB BAR
+        ===================================================================== */}
+        <div className="flex items-center justify-between pt-3 pb-2.5 border-b border-neutral-200 text-xs">
+          {/* Left Tabs */}
+          <div className="flex items-center gap-6 sm:gap-8 font-medium">
+            <button
+              type="button"
+              onClick={() => setActiveTab("for-you")}
+              className={`pb-2 -mb-[11px] font-bold text-xs sm:text-sm tracking-tight flex items-center gap-1.5 transition-colors cursor-pointer ${
+                activeTab === "for-you"
+                  ? "text-neutral-950 border-b-2 border-neutral-950"
+                  : "text-neutral-600 hover:text-neutral-950 border-b-2 border-transparent"
+              }`}
+            >
+              <span>All categories</span>
+            </button>
+
+            <Link
+              href="/manufacturing"
+              onClick={onClose}
+              className="text-neutral-600 hover:text-neutral-950 font-medium transition-colors flex items-center gap-1.5"
+            >
+              <span>Verified manufacturers</span>
+              <span className="hidden sm:inline-block px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-amber-500/20 text-amber-800">
+                AQL 2.5
+              </span>
+            </Link>
+
+            <Link
+              href="/previous-work"
+              onClick={onClose}
+              className="hidden md:inline-flex text-neutral-600 hover:text-neutral-950 font-medium transition-colors items-center gap-1"
+            >
+              <span>OEM Custom Drops</span>
+            </Link>
           </div>
 
-          <Link
-            href="/products"
-            onClick={onClose}
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-800 hover:text-amber-900 transition-colors"
-          >
-            <span>View All Products & Categories</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
+          {/* Right Direct Links */}
+          <div className="hidden lg:flex items-center gap-6 text-neutral-500 font-medium text-xs">
+            <Link href="/about" onClick={onClose} className="hover:text-neutral-900 transition-colors">
+              About GLOVES STORM
+            </Link>
+            <Link href="/manufacturing" onClick={onClose} className="hover:text-neutral-900 transition-colors">
+              Factory Standards
+            </Link>
+            <Link
+              href="/contact"
+              onClick={onClose}
+              className="text-amber-700 hover:text-amber-800 font-bold transition-colors flex items-center gap-1"
+            >
+              <span>Direct Factory Inquiry</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </Link>
+          </div>
         </div>
 
-        {/* 3-Column Luxury Grid */}
-        <div className="grid grid-cols-12 gap-6 lg:gap-8">
-          {/* Column 1 (4 cols): Division Selector Rail */}
-          <div className="col-span-12 lg:col-span-4 pr-0 lg:pr-4 border-b lg:border-b-0 lg:border-r border-neutral-200 pb-6 lg:pb-0">
-            <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-3">
-              Select Manufacturing Division
-            </span>
-            <div className="space-y-1 max-h-[380px] overflow-y-auto pr-2 scrollbar-thin">
+        {/* =====================================================================
+            SPLIT-VIEW MAIN CONTENT: LEFT SIDEBAR + RIGHT CIRCLE GRID
+        ===================================================================== */}
+        <div className="flex flex-col lg:flex-row min-h-[440px] max-h-[520px]">
+          {/* -----------------------------------------------------------------
+              LEFT SIDEBAR: CATEGORY NAVIGATION RAIL WITH ICONS
+          ----------------------------------------------------------------- */}
+          <aside className="w-full lg:w-[250px] shrink-0 border-r border-neutral-200/90 py-3 pr-2 overflow-y-auto max-h-[480px] scrollbar-thin">
+            <div className="space-y-0.5">
+              {/* Special "Categories for you" item */}
+              <button
+                type="button"
+                onMouseEnter={() => setActiveTab("for-you")}
+                onClick={() => setActiveTab("for-you")}
+                className={`w-full text-left flex items-center justify-between py-2.5 px-3 rounded-lg text-xs transition-all cursor-pointer ${
+                  activeTab === "for-you"
+                    ? "bg-neutral-100 text-neutral-950 font-bold border-l-[3px] border-neutral-950 pl-2.5"
+                    : "text-neutral-700 hover:text-neutral-950 hover:bg-neutral-50 font-medium border-l-[3px] border-transparent"
+                }`}
+              >
+                <div className="flex items-center gap-2.5">
+                  <Star
+                    className={`w-4 h-4 shrink-0 ${
+                      activeTab === "for-you" ? "text-amber-500 fill-amber-500" : "text-neutral-400"
+                    }`}
+                  />
+                  <span>Categories for you</span>
+                </div>
+                <ChevronRight
+                  className={`w-3.5 h-3.5 transition-transform ${
+                    activeTab === "for-you" ? "text-neutral-900 translate-x-0.5 opacity-100" : "opacity-0"
+                  }`}
+                />
+              </button>
+
+              {/* Database Categories */}
               {menuCategories.map((cat) => {
-                const isActive = cat.slug === activeCategorySlug;
+                const IconComponent = getCategoryIcon(cat.slug);
+                const isActive = activeTab === cat.slug;
+
                 return (
-                  <div
+                  <button
                     key={cat.id}
-                    onMouseEnter={() => setActiveCategorySlug(cat.slug)}
-                    className={`group/item flex items-center justify-between px-3.5 py-2.5 rounded-xl transition-all cursor-pointer ${
+                    type="button"
+                    onMouseEnter={() => setActiveTab(cat.slug)}
+                    onClick={() => setActiveTab(cat.slug)}
+                    className={`w-full text-left flex items-center justify-between py-2.5 px-3 rounded-lg text-xs transition-all cursor-pointer ${
                       isActive
-                        ? "bg-amber-500/10 text-neutral-950 font-bold border-l-4 border-amber-500 pl-4"
-                        : "hover:bg-neutral-50 text-neutral-700 hover:text-neutral-950"
+                        ? "bg-neutral-100 text-neutral-950 font-bold border-l-[3px] border-neutral-950 pl-2.5"
+                        : "text-neutral-700 hover:text-neutral-950 hover:bg-neutral-50 font-medium border-l-[3px] border-transparent"
                     }`}
                   >
-                    <Link
-                      href={`/products/${cat.slug}`}
-                      onClick={onClose}
-                      className="flex-1 flex items-center gap-2.5 text-xs font-bold uppercase tracking-tight"
-                    >
-                      <span className="truncate">{cat.name}</span>
-                      {cat.menu_badge && (
-                        <span className="px-1.5 py-0.5 rounded-full text-[9px] font-mono font-bold bg-amber-500 text-neutral-950">
-                          {cat.menu_badge}
-                        </span>
-                      )}
-                    </Link>
-
-                    <div className="flex items-center gap-2">
-                      <span className="text-[10px] font-mono text-neutral-400">
-                        {cat.productCount ? `${cat.productCount} models` : "OEM"}
-                      </span>
-                      <ChevronRight
-                        className={`w-3.5 h-3.5 transition-transform ${
-                          isActive ? "text-amber-700 translate-x-0.5" : "text-neutral-300 opacity-0 group-hover/item:opacity-100"
+                    <div className="flex items-center gap-2.5 truncate pr-1">
+                      <IconComponent
+                        className={`w-4 h-4 shrink-0 ${
+                          isActive ? "text-amber-600" : "text-neutral-400"
                         }`}
                       />
+                      <span className="truncate">{cat.name}</span>
                     </div>
-                  </div>
+
+                    <ChevronRight
+                      className={`w-3.5 h-3.5 shrink-0 transition-transform ${
+                        isActive ? "text-neutral-900 translate-x-0.5 opacity-100" : "opacity-0"
+                      }`}
+                    />
+                  </button>
                 );
               })}
             </div>
-          </div>
+          </aside>
 
-          {/* Column 2 (5 cols): Active Division Showcase & Top Models */}
-          <div className="col-span-12 lg:col-span-5 flex flex-col justify-between">
-            {activeCategory && (
-              <div>
-                <div className="flex items-center justify-between mb-3">
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-700 font-bold block">
-                      Division Showcase
-                    </span>
-                    <h3 className="text-xl font-black uppercase tracking-tight text-neutral-950">
-                      {activeCategory.name}
+          {/* -----------------------------------------------------------------
+              RIGHT CONTENT PANEL: ALIBABA-STYLE CIRCLE PRODUCTS GRID
+          ----------------------------------------------------------------- */}
+          <main className="flex-1 bg-white p-5 sm:p-6 lg:p-7 overflow-y-auto max-h-[480px] scrollbar-thin">
+            {activeTab === "for-you" ? (
+              /* VIEW A: "Categories for you" (Cross-Category Curated Showcase) */
+              <div className="space-y-7">
+                {/* Section 1: Categories for you */}
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-sm sm:text-base font-extrabold text-neutral-950 tracking-tight flex items-center gap-2">
+                      <span>Categories for you</span>
+                      <span className="text-[10px] font-mono font-normal text-neutral-400">
+                        Top OEM Requests
+                      </span>
                     </h3>
-                  </div>
-                  <Link
-                    href={`/products/${activeCategory.slug}`}
-                    onClick={onClose}
-                    className="text-[11px] font-bold uppercase tracking-wider text-amber-700 hover:text-amber-800 transition-colors flex items-center gap-1 font-mono"
-                  >
-                    <span>Browse All</span>
-                    <ArrowUpRight className="w-3 h-3" />
-                  </Link>
-                </div>
 
-                <p className="text-xs text-neutral-600 line-clamp-2 leading-relaxed mb-5">
-                  {activeCategory.description ||
-                    "Precision engineered and handcrafted in our certified Sialkot OEM facility for international athletic brands and distributors."}
-                </p>
+                    <Link
+                      href="/products"
+                      onClick={onClose}
+                      className="text-xs font-semibold text-neutral-700 hover:text-neutral-950 hover:underline transition-all flex items-center gap-1"
+                    >
+                      <span>Browse all categories</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
 
-                {/* Division Key Metrics */}
-                <div className="grid grid-cols-3 gap-2 p-3 rounded-2xl bg-neutral-50 border border-neutral-200 mb-5">
-                  <div className="flex items-center gap-2">
-                    <Box className="w-4 h-4 text-amber-600 shrink-0" />
-                    <div>
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-500 block">
-                        Min. Order
-                      </span>
-                      <span className="text-xs font-bold text-neutral-900 font-mono">
-                        50 Units
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4 text-amber-600 shrink-0" />
-                    <div>
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-500 block">
-                        Prototype
-                      </span>
-                      <span className="text-xs font-bold text-neutral-900 font-mono">
-                        5-7 Days
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Layers className="w-4 h-4 text-amber-600 shrink-0" />
-                    <div>
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-neutral-500 block">
-                        Bulk Run
-                      </span>
-                      <span className="text-xs font-bold text-neutral-900 font-mono">
-                        2-3 Weeks
-                      </span>
-                    </div>
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-5 gap-x-3">
+                    {forYouItems.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`/products/${item.categorySlug}/${item.slug}`}
+                        onClick={onClose}
+                        className="group flex flex-col items-center text-center cursor-pointer"
+                      >
+                        {/* Circle Image Wrapper with Alibaba-style Blue Top-Right Badge */}
+                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-neutral-100/90 relative flex items-center justify-center p-2.5 transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-xs">
+                          {item.image ? (
+                            <Image
+                              src={item.image}
+                              alt={`${item.name} - Gloves Storm Sialkot`}
+                              fill
+                              sizes="96px"
+                              className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                            />
+                          ) : (
+                            <Box className="w-6 h-6 text-neutral-400" />
+                          )}
+
+                          {/* Signature Alibaba-style Blue Indicator Badge */}
+                          <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-2xs transition-transform duration-200 group-hover:scale-110">
+                            <ArrowUpRight className="w-2.5 h-2.5" />
+                          </span>
+                        </div>
+
+                        {/* Centered Label Underneath */}
+                        <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-amber-800 transition-colors line-clamp-2 max-w-[90px] leading-tight">
+                          {item.name}
+                        </span>
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
-                {/* Featured Products inside Category Preview */}
-                {activeCategory.featuredItems && activeCategory.featuredItems.length > 0 && (
-                  <div>
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
-                      Popular Factory Models
-                    </span>
-                    <div className="grid grid-cols-3 gap-3">
+                {/* Section 2: Apparel & Combat Gear */}
+                <div className="pt-2 border-t border-neutral-100">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-sm sm:text-base font-extrabold text-neutral-950 tracking-tight">
+                      Apparel &amp; Accessories
+                    </h3>
+
+                    <Link
+                      href="/products/clothing-streetwear"
+                      onClick={onClose}
+                      className="text-xs font-semibold text-neutral-700 hover:text-neutral-950 hover:underline transition-all"
+                    >
+                      Browse featured selections
+                    </Link>
+                  </div>
+
+                  <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-5 gap-x-3">
+                    {secondaryForYouItems.map((item) => (
+                      <Link
+                        key={item.id}
+                        href={`/products/${item.categorySlug}/${item.slug}`}
+                        onClick={onClose}
+                        className="group flex flex-col items-center text-center cursor-pointer"
+                      >
+                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-neutral-100/90 relative flex items-center justify-center p-2.5 transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-xs">
+                          {item.image ? (
+                            <Image
+                              src={item.image}
+                              alt={`${item.name} - Gloves Storm Sialkot`}
+                              fill
+                              sizes="96px"
+                              className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
+                            />
+                          ) : (
+                            <Box className="w-6 h-6 text-neutral-400" />
+                          )}
+
+                          <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-2xs transition-transform duration-200 group-hover:scale-110">
+                            <ArrowUpRight className="w-2.5 h-2.5" />
+                          </span>
+                        </div>
+
+                        <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-amber-800 transition-colors line-clamp-2 max-w-[90px] leading-tight">
+                          {item.name}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              /* VIEW B: Specific Category Selected */
+              activeCategory && (
+                <div className="space-y-6">
+                  {/* Category Header */}
+                  <div className="flex items-center justify-between pb-3 border-b border-neutral-100">
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <h3 className="text-base sm:text-lg font-extrabold text-neutral-950 uppercase tracking-tight">
+                          {activeCategory.name}
+                        </h3>
+                        {activeCategory.menu_badge && (
+                          <span className="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-amber-500/20 text-amber-900 border border-amber-500/30">
+                            {activeCategory.menu_badge}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-xs text-neutral-500 line-clamp-1 max-w-xl mt-0.5">
+                        {activeCategory.description}
+                      </p>
+                    </div>
+
+                    <Link
+                      href={`/products/${activeCategory.slug}`}
+                      onClick={onClose}
+                      className="text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1.5 transition-colors font-mono"
+                    >
+                      <span>VIEW ALL ({activeCategory.productCount || activeCategory.featuredItems?.length || 0})</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+
+                  {/* Circular Products Grid for Selected Category */}
+                  {activeCategory.featuredItems && activeCategory.featuredItems.length > 0 ? (
+                    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-7 gap-y-5 gap-x-3">
                       {activeCategory.featuredItems.map((item) => (
                         <Link
                           key={item.id}
                           href={`/products/${activeCategory.slug}/${item.slug}`}
                           onClick={onClose}
-                          className="group/prod p-2 rounded-xl border border-neutral-200 hover:border-amber-500 bg-white hover:shadow-sm transition-all flex flex-col justify-between"
+                          className="group flex flex-col items-center text-center cursor-pointer"
                         >
-                          <div className="aspect-square bg-neutral-100 rounded-lg overflow-hidden mb-2 relative">
+                          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-neutral-100/90 relative flex items-center justify-center p-2.5 transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-xs">
                             {item.image ? (
                               <Image
                                 src={item.image}
-                                alt={`${item.name} - Gloves Storm Manufacturing`}
+                                alt={`${item.name} - Sialkot OEM`}
                                 fill
-                                sizes="120px"
-                                className="object-cover transition-transform duration-300 group-hover/prod:scale-105"
+                                sizes="96px"
+                                className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
                               />
                             ) : (
-                              <div className="w-full h-full flex items-center justify-center text-neutral-400">
-                                <Box className="w-6 h-6" />
-                              </div>
+                              <Box className="w-6 h-6 text-neutral-400" />
                             )}
+
+                            <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-2xs transition-transform duration-200 group-hover:scale-110">
+                              <ArrowUpRight className="w-2.5 h-2.5" />
+                            </span>
                           </div>
-                          <span className="text-[11px] font-bold text-neutral-900 group-hover/prod:text-amber-800 line-clamp-1 transition-colors">
+
+                          <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-amber-800 transition-colors line-clamp-2 max-w-[90px] leading-tight">
                             {item.name}
                           </span>
-                          <div className="flex items-center justify-between mt-1 text-[9px] font-mono text-neutral-500">
-                            <span>MOQ {item.moq}</span>
-                            {item.samplePrice && (
-                              <span className="font-bold text-amber-700">
-                                ${item.samplePrice}
-                              </span>
-                            )}
-                          </div>
                         </Link>
                       ))}
                     </div>
+                  ) : (
+                    <div className="py-12 text-center text-neutral-500 text-xs">
+                      <p>Browse full catalog and technical specifications for {activeCategory.name}.</p>
+                      <Link
+                        href={`/products/${activeCategory.slug}`}
+                        onClick={onClose}
+                        className="inline-flex items-center gap-1 mt-3 px-4 py-2 rounded-xl bg-neutral-900 text-white font-bold text-xs"
+                      >
+                        <span>Open Category Catalog</span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </Link>
+                    </div>
+                  )}
+
+                  {/* Division OEM Standards Strip */}
+                  <div className="mt-5 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 flex flex-wrap items-center justify-between gap-4">
+                    <div className="flex flex-wrap items-center gap-6 text-xs text-neutral-700">
+                      <div className="flex items-center gap-2 font-mono">
+                        <Box className="w-4 h-4 text-amber-600" />
+                        <span>MOQ: <strong>50 Units/Style</strong></span>
+                      </div>
+                      <div className="flex items-center gap-2 font-mono">
+                        <Clock className="w-4 h-4 text-amber-600" />
+                        <span>Sampling: <strong>5-7 Days</strong></span>
+                      </div>
+                      <div className="flex items-center gap-2 font-mono">
+                        <CheckCircle2 className="w-4 h-4 text-amber-600" />
+                        <span>Quality: <strong>AQL 2.5 Standard</strong></span>
+                      </div>
+                    </div>
+
+                    <Link
+                      href={`/contact?category=${activeCategory.slug}`}
+                      onClick={onClose}
+                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs transition-colors shadow-2xs font-mono"
+                    >
+                      <span>Inquire About {activeCategory.name}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </Link>
                   </div>
-                )}
-              </div>
+                </div>
+              )
             )}
+          </main>
+        </div>
+
+        {/* =====================================================================
+            BOTTOM FACTORY TRUST STRIP
+        ===================================================================== */}
+        <div className="py-2.5 border-t border-neutral-200/90 flex flex-wrap items-center justify-between text-[11px] text-neutral-500">
+          <div className="flex items-center gap-4 sm:gap-6 font-mono">
+            <span className="flex items-center gap-1.5 text-neutral-700 font-semibold">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              Sialkot Verified OEM
+            </span>
+            <span className="hidden sm:inline">&bull;</span>
+            <span className="hidden sm:inline">100% Export Quality Guarantee</span>
+            <span className="hidden md:inline">&bull;</span>
+            <span className="hidden md:inline">Custom Tech Pack Engineering</span>
           </div>
 
-          {/* Column 3 (3 cols): Factory Direct Highlights & Quick Actions */}
-          <div className="col-span-12 lg:col-span-3 flex flex-col justify-between pl-0 lg:pl-4 border-t lg:border-t-0 lg:border-l border-neutral-200 pt-6 lg:pt-0">
-            {/* Direct OEM Card */}
-            <div className="p-5 rounded-2xl bg-neutral-950 text-white relative overflow-hidden shadow-md">
-              <div className="relative z-10">
-                <div className="flex items-center gap-1.5 text-amber-400 text-[10px] font-mono uppercase tracking-wider font-bold mb-2">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Sialkot Verified OEM</span>
-                </div>
-                <h4 className="text-sm font-black uppercase tracking-tight text-white mb-2 leading-snug">
-                  Bespoke Factory Sampling Program
-                </h4>
-                <p className="text-[11px] text-neutral-400 leading-relaxed mb-4">
-                  Send your tech pack or artwork. We produce physical prototype samples with your custom branding within 5-7 business days.
-                </p>
-
-                <GooeyButton
-                  href="/contact"
-                  variant="gold-solid"
-                  size="sm"
-                  className="w-full text-center"
-                  onClick={onClose}
-                >
-                  <span>Request Custom Sample</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </GooeyButton>
-              </div>
-            </div>
-
-            {/* Direct WhatsApp Factory Line */}
-            <div className="p-4 rounded-2xl bg-amber-50/80 border border-amber-200/80 mt-4">
-              <div className="flex items-center gap-2 mb-1.5">
-                <PhoneCall className="w-3.5 h-3.5 text-amber-700" />
-                <span className="text-[10px] font-mono uppercase tracking-wider text-amber-900 font-bold">
-                  Direct Factory Desk
-                </span>
-              </div>
-              <p className="text-[11px] text-neutral-600 leading-relaxed mb-3">
-                Chat directly with our production engineers for instant quotes and tech pack reviews.
-              </p>
-              <a
-                href="https://wa.me/923417146935?text=Hello%20GLOVES%20STORM,%20I%20would%20like%20to%20inquire%20about%20custom%20manufacturing%20and%20pricing%20deals."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={onClose}
-                className="inline-flex items-center justify-center gap-1.5 w-full bg-white hover:bg-neutral-50 text-neutral-900 border border-neutral-300 rounded-full py-1.5 text-xs font-bold transition-all shadow-2xs cursor-pointer"
-              >
-                <span>WhatsApp: +92 341 7146935</span>
-                <ArrowUpRight className="w-3 h-3 text-amber-700" />
-              </a>
-            </div>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://wa.me/923417146935?text=Hello%20GLOVES%20STORM,%20I%20am%20browsing%20the%20mega%20menu%20and%20want%20to%20inquire%20about%20manufacturing."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={onClose}
+              className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-bold font-mono transition-colors"
+            >
+              <PhoneCall className="w-3 h-3" />
+              <span>WhatsApp Production Desk: +92 341 7146935</span>
+            </a>
           </div>
         </div>
       </div>

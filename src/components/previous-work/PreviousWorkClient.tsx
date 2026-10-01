@@ -242,10 +242,10 @@ export default function PreviousWorkClient() {
                   </a>
 
                   <Link
-                    href="/customize"
+                    href="/contact"
                     className="inline-flex items-center gap-1 px-4 py-2 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-xs font-bold border border-black/[0.08] transition-all"
                   >
-                    <span>Customizer</span>
+                    <span>Request Quote</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
@@ -798,10 +798,10 @@ export default function PreviousWorkClient() {
               </a>
 
               <Link
-                href="/customize"
+                href="/contact"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-black text-xs font-bold hover:brightness-110 transition-all shadow-md shadow-amber-500/20"
               >
-                <span>Launch 3D Configurator Studio</span>
+                <span>Request Custom Production</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
             </div>

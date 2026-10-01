@@ -16,7 +16,7 @@ export async function GET() {
       return {
         ...cat,
         productCount: catProducts.length,
-        featuredItems: catProducts.slice(0, 3).map((p) => ({
+        featuredItems: catProducts.slice(0, 14).map((p) => ({
           id: p.id,
           name: p.name,
           slug: p.slug,
@@ -28,12 +28,29 @@ export async function GET() {
       };
     });
 
+    const featuredSelections = products
+      .filter((p) => p.featured || p.images?.[0]?.image_url)
+      .slice(0, 14)
+      .map((p) => {
+        const cat = categories.find((c) => c.id === p.category_id);
+        return {
+          id: p.id,
+          name: p.name,
+          slug: p.slug,
+          categorySlug: cat?.slug || "products",
+          categoryName: cat?.name || "Equipment",
+          image: p.images?.[0]?.image_url || null,
+          moq: p.moq,
+        };
+      });
+
     return NextResponse.json({
       categories: categoriesWithMeta,
+      featuredSelections,
       totalProducts: products.length,
     });
   } catch (error) {
     console.error("Failed to get categories:", error);
-    return NextResponse.json({ categories: [], totalProducts: 0 }, { status: 500 });
+    return NextResponse.json({ categories: [], featuredSelections: [], totalProducts: 0 }, { status: 500 });
   }
 }

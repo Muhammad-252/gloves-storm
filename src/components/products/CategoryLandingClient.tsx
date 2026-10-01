@@ -469,7 +469,7 @@ export default function CategoryLandingClient({
           {/* Primary Action Buttons */}
           <div className="flex flex-wrap items-center gap-4">
             <GooeyButton
-              href={`/customize?category=${category.slug}`}
+              href={`/contact?category=${category.slug}`}
               variant="gold-solid"
               size="lg"
             >
@@ -685,13 +685,6 @@ export default function CategoryLandingClient({
                           <span>EXPLORE</span>
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                         </Link>
-
-                        <Link
-                          href={`/customize?product=${product.id}`}
-                          className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-neutral-950 bg-amber-500 hover:bg-amber-400 px-3 py-1 rounded-full shadow-xs transition-all font-mono"
-                        >
-                          <span>Customize</span>
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -877,7 +870,7 @@ export default function CategoryLandingClient({
 
           <div className="flex flex-wrap items-center gap-4">
             <GooeyButton
-              href={`/customize?category=${category.slug}`}
+              href={`/contact?category=${category.slug}`}
               variant="gold-solid"
               size="lg"
             >

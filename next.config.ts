@@ -65,6 +65,11 @@ const nextConfig: NextConfig = {
         destination: "/previous-work",
         permanent: true,
       },
+      {
+        source: "/customize",
+        destination: "/products",
+        permanent: true,
+      },
     ];
   },
 };

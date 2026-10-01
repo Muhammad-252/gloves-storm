@@ -172,26 +172,26 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
         )}
 
-        {/* Internal Hub Callout: 3D Customizer & Wholesale Directory */}
+        {/* Internal Hub Callout: Factory OEM Production & Wholesale Directory */}
         <div className="mb-16 p-8 sm:p-10 bg-gradient-to-br from-neutral-900 to-neutral-950 text-white rounded-3xl border border-neutral-800 shadow-lg relative overflow-hidden">
           <div className="absolute -right-8 -bottom-8 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-mono uppercase tracking-wider font-bold mb-4">
               <Sparkles className="w-3 h-3 text-amber-400" />
-              <span>Interactive Factory Studio</span>
+              <span>Direct Factory OEM</span>
             </div>
             <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-3">
-              Prototype Your Custom Design in 3D
+              Prototype Your Custom Design
             </h3>
             <p className="text-sm text-neutral-300 max-w-2xl leading-relaxed mb-6">
-              Test your branding, select leather or technical fabric densities, and generate an instant manufacturing spec sheet using our real-time Bespoke Customizer Studio.
+              Test your branding, select leather or technical fabric densities, and request an instant manufacturing quote directly from our Sialkot factory team.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
-                href="/customize"
+                href="/contact"
                 className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-neutral-950 rounded-full px-6 py-3 font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
               >
-                <span>Launch 3D Customizer</span>
+                <span>Request Factory Quote</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
