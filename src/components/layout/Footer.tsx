@@ -19,7 +19,7 @@ const navigation = [
   { name: "All Products", href: "/products" },
   { name: "Manufacturing & Capabilities", href: "/manufacturing" },
   { name: "About GLOVES STORM", href: "/about" },
-  { name: "Previous Work (Instagram Feed)", href: "/previous-work" },
+  { name: "Previous Work", href: "/previous-work" },
   { name: "Manufacturing Journal", href: "/journal" },
   { name: "Request a Quote", href: "/contact" },
   { name: "Privacy & IP Policy", href: "/privacy" },

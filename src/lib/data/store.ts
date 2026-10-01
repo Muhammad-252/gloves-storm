@@ -391,6 +391,9 @@ export async function saveProject(project: Partial<Project>): Promise<Project> {
     }
   }
 
+  const firstImg = project.images?.[0];
+  const firstImgUrl = typeof firstImg === "string" ? firstImg : firstImg?.image_url;
+
   const newProj: Project = {
     id: `pr-local-${Date.now()}`,
     title: project.title || "New Project",
@@ -404,9 +407,11 @@ export async function saveProject(project: Partial<Project>): Promise<Project> {
     outcome: project.outcome || null,
     featured_image:
       project.featured_image ||
+      firstImgUrl ||
       "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
     featured: project.featured ?? false,
     is_active: project.is_active ?? true,
+    images: project.images || [],
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
   };

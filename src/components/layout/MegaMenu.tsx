@@ -336,22 +336,24 @@ export default function MegaMenu({
                         onClick={onClose}
                         className="group flex flex-col items-center text-center cursor-pointer"
                       >
-                        {/* Circle Image Wrapper with Alibaba-style Blue Top-Right Badge */}
-                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-neutral-100/90 relative flex items-center justify-center p-2.5 transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-xs">
-                          {item.image ? (
-                            <Image
-                              src={item.image}
-                              alt={`${item.name} - Gloves Storm Sialkot`}
-                              fill
-                              sizes="96px"
-                              className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
-                            />
-                          ) : (
-                            <Box className="w-6 h-6 text-neutral-400" />
-                          )}
+                        {/* 100% Circular Image Wrapper that fits back circle */}
+                        <div className="relative w-20 h-20 sm:w-22 sm:h-22">
+                          <div className="w-full h-full rounded-full bg-neutral-100 border border-neutral-200/80 overflow-hidden relative flex items-center justify-center transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-sm">
+                            {item.image ? (
+                              <Image
+                                src={item.image}
+                                alt={`${item.name} - Gloves Storm Sialkot`}
+                                fill
+                                sizes="96px"
+                                className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+                              />
+                            ) : (
+                              <Box className="w-6 h-6 text-neutral-400" />
+                            )}
+                          </div>
 
                           {/* Signature Alibaba-style Blue Indicator Badge */}
-                          <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-2xs transition-transform duration-200 group-hover:scale-110">
+                          <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none">
                             <ArrowUpRight className="w-2.5 h-2.5" />
                           </span>
                         </div>
@@ -389,20 +391,23 @@ export default function MegaMenu({
                         onClick={onClose}
                         className="group flex flex-col items-center text-center cursor-pointer"
                       >
-                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-neutral-100/90 relative flex items-center justify-center p-2.5 transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-xs">
-                          {item.image ? (
-                            <Image
-                              src={item.image}
-                              alt={`${item.name} - Gloves Storm Sialkot`}
-                              fill
-                              sizes="96px"
-                              className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
-                            />
-                          ) : (
-                            <Box className="w-6 h-6 text-neutral-400" />
-                          )}
+                        {/* 100% Circular Image Wrapper that fits back circle */}
+                        <div className="relative w-20 h-20 sm:w-22 sm:h-22">
+                          <div className="w-full h-full rounded-full bg-neutral-100 border border-neutral-200/80 overflow-hidden relative flex items-center justify-center transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-sm">
+                            {item.image ? (
+                              <Image
+                                src={item.image}
+                                alt={`${item.name} - Gloves Storm Sialkot`}
+                                fill
+                                sizes="96px"
+                                className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+                              />
+                            ) : (
+                              <Box className="w-6 h-6 text-neutral-400" />
+                            )}
+                          </div>
 
-                          <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-2xs transition-transform duration-200 group-hover:scale-110">
+                          <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none">
                             <ArrowUpRight className="w-2.5 h-2.5" />
                           </span>
                         </div>
@@ -457,20 +462,23 @@ export default function MegaMenu({
                           onClick={onClose}
                           className="group flex flex-col items-center text-center cursor-pointer"
                         >
-                          <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-neutral-100/90 relative flex items-center justify-center p-2.5 transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-xs">
-                            {item.image ? (
-                              <Image
-                                src={item.image}
-                                alt={`${item.name} - Sialkot OEM`}
-                                fill
-                                sizes="96px"
-                                className="object-contain p-2 transition-transform duration-300 group-hover:scale-110"
-                              />
-                            ) : (
-                              <Box className="w-6 h-6 text-neutral-400" />
-                            )}
+                          {/* 100% Circular Image Wrapper that fits back circle */}
+                          <div className="relative w-20 h-20 sm:w-22 sm:h-22">
+                            <div className="w-full h-full rounded-full bg-neutral-100 border border-neutral-200/80 overflow-hidden relative flex items-center justify-center transition-all duration-300 group-hover:bg-neutral-200/70 group-hover:scale-105 group-hover:shadow-sm">
+                              {item.image ? (
+                                <Image
+                                  src={item.image}
+                                  alt={`${item.name} - Sialkot OEM`}
+                                  fill
+                                  sizes="96px"
+                                  className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
+                                />
+                              ) : (
+                                <Box className="w-6 h-6 text-neutral-400" />
+                              )}
+                            </div>
 
-                            <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-2xs transition-transform duration-200 group-hover:scale-110">
+                            <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none">
                               <ArrowUpRight className="w-2.5 h-2.5" />
                             </span>
                           </div>

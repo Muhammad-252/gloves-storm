@@ -1,23 +1,29 @@
-import { getAllProjectsAdmin } from "@/lib/data/store";
+import { getAllProjectsAdmin, getCategories } from "@/lib/data/store";
 import AdminProjectsClient from "@/components/admin/AdminProjectsClient";
 
 export const revalidate = 0;
 
 export default async function AdminProjectsPage() {
-  const projects = await getAllProjectsAdmin();
+  const [projects, categories] = await Promise.all([
+    getAllProjectsAdmin(),
+    getCategories(),
+  ]);
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto">
       <div>
         <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-amber-600 font-bold block mb-1">
-          Brand Portfolio
+          Factory Portfolio
         </span>
         <h1 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0f172a]">
-          Case Studies & Projects
+          Previous Work & Production Archive
         </h1>
+        <p className="text-xs text-neutral-500 mt-1">
+          Manage your previous work gallery. Add products with category assignments and multiple production photos.
+        </p>
       </div>
 
-      <AdminProjectsClient initialProjects={projects} />
+      <AdminProjectsClient initialProjects={projects} categories={categories} />
     </div>
   );
 }

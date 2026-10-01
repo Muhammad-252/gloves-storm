@@ -27,7 +27,7 @@ const sidebarNav = [
   { name: "Customizer", href: "/admin/customizer", icon: Sliders },
   { name: "Products", href: "/admin/products", icon: Box },
   { name: "Categories", href: "/admin/categories", icon: Layers },
-  { name: "Projects", href: "/admin/projects", icon: FolderGit2 },
+  { name: "Previous Work", href: "/admin/projects", icon: FolderGit2 },
   { name: "Testimonials", href: "/admin/testimonials", icon: Quote },
   { name: "Blog / Journal", href: "/admin/blog", icon: BookOpen },
   { name: "Site Settings", href: "/admin/settings", icon: Settings },
