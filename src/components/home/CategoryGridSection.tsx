@@ -73,10 +73,14 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
         {/* Minimalist Glassmorphic Category Grid: Shows ONLY Category Name & Dual-Image on Hover */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {parentCategories.map((category, idx) => {
-            const imgSet = categoryHoverImages[category.slug] || {
-              primary: category.image_url || "/images/products/boxing-gloves-black.png",
-              secondary: category.image_url || "/images/products/varsity-jacket.jpg",
-            };
+            const fallbackSet = categoryHoverImages[category.slug];
+            const primaryImage =
+              category.image_url ||
+              fallbackSet?.primary ||
+              "/images/products/boxing-gloves-black.png";
+            const secondaryImage =
+              fallbackSet?.secondary ||
+              primaryImage;
 
             return (
               <Link
@@ -86,7 +90,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
               >
                 {/* Primary Image */}
                 <Image
-                  src={imgSet.primary}
+                  src={primaryImage}
                   alt={`Custom ${category.name} - Gloves Storm Manufacturing`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -95,7 +99,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
 
                 {/* Secondary Image: Cross-fades on Hover */}
                 <Image
-                  src={imgSet.secondary}
+                  src={secondaryImage}
                   alt={`${category.name} alternate view`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

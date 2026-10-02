@@ -14,11 +14,11 @@ import GlobalReachSection from "@/components/home/GlobalReachSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
 import type { Metadata } from "next";
 import {
-  getCategories,
   getProducts,
   getProjects,
   getTestimonials,
 } from "@/lib/data/store";
+import { loadPersistedCategories } from "@/lib/data/categoryPersistence";
 
 export const metadata: Metadata = {
   title: "GLOVES STORM — Custom Sports Apparel & Boxing Glove OEM Manufacturer",
@@ -33,7 +33,7 @@ export const revalidate = 60; // ISR revalidation
 
 export default async function HomePage() {
   const [categories, products, projects, testimonials] = await Promise.all([
-    getCategories(),
+    loadPersistedCategories(),
     getProducts(),
     getProjects(true),
     getTestimonials(true),

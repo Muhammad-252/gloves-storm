@@ -1,12 +1,18 @@
-import { NextResponse } from "next/server";
-import { getCategories, getProducts } from "@/lib/data/store";
+import { NextRequest, NextResponse } from "next/server";
+import { getProducts } from "@/lib/data/store";
+import {
+  loadPersistedCategories,
+  savePersistedCategory,
+  deletePersistedCategory,
+} from "@/lib/data/categoryPersistence";
+import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
     const [categories, products] = await Promise.all([
-      getCategories(),
+      loadPersistedCategories(),
       getProducts(),
     ]);
 
@@ -52,5 +58,74 @@ export async function GET() {
   } catch (error) {
     console.error("Failed to get categories:", error);
     return NextResponse.json({ categories: [], featuredSelections: [], totalProducts: 0 }, { status: 500 });
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+    const categoryData = body.category || body;
+
+    if (!categoryData || !categoryData.name) {
+      return NextResponse.json({ error: "Category name is required" }, { status: 400 });
+    }
+
+    const saved = await savePersistedCategory(categoryData);
+
+    // Revalidate affected routes
+    try {
+      revalidatePath("/", "layout");
+      revalidatePath("/products");
+      revalidatePath("/admin/categories");
+      if (saved.slug) {
+        revalidatePath(`/products/${saved.slug}`);
+      }
+    } catch (revalidateErr) {
+      console.warn("Revalidation notice:", revalidateErr);
+    }
+
+    return NextResponse.json({
+      success: true,
+      category: saved,
+      message: `Category "${saved.name}" successfully saved.`,
+    });
+  } catch (error: any) {
+    console.error("Failed to save category:", error);
+    return NextResponse.json(
+      { error: error?.message || "Internal server error saving category" },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+    const id = searchParams.get("id");
+
+    if (!id) {
+      return NextResponse.json({ error: "Category ID is required" }, { status: 400 });
+    }
+
+    await deletePersistedCategory(id);
+
+    try {
+      revalidatePath("/", "layout");
+      revalidatePath("/products");
+      revalidatePath("/admin/categories");
+    } catch (revalidateErr) {
+      console.warn("Revalidation notice:", revalidateErr);
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: "Category deleted successfully.",
+    });
+  } catch (error: any) {
+    console.error("Failed to delete category:", error);
+    return NextResponse.json(
+      { error: error?.message || "Internal server error deleting category" },
+      { status: 500 }
+    );
   }
 }

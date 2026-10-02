@@ -28,28 +28,44 @@ let memoryBlogPosts: BlogPost[] = [...initialBlogPosts];
 let memorySiteSettings: SiteSettings = { ...initialSiteSettings };
 let memoryInquiries: Inquiry[] = [...initialInquiries];
 
+export function setMemoryCategories(cats: Category[]) {
+  memoryCategories = cats;
+}
+
+export function getMemoryCategories(): Category[] {
+  return memoryCategories;
+}
+
 // ==========================================
 // CATEGORIES
 // ==========================================
 export async function getCategories(): Promise<Category[]> {
   if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("categories")
-      .select("*")
-      .eq("is_active", true)
-      .order("sort_order", { ascending: true });
-    if (!error && data) return data as Category[];
+    try {
+      const { data, error } = await supabase
+        .from("categories")
+        .select("*")
+        .eq("is_active", true)
+        .order("sort_order", { ascending: true });
+      if (!error && data && data.length > 0) return data as Category[];
+    } catch {
+      // Supabase unavailable, fallback to memory
+    }
   }
   return memoryCategories.filter((c) => c.is_active);
 }
 
 export async function getAllCategoriesAdmin(): Promise<Category[]> {
   if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("categories")
-      .select("*")
-      .order("sort_order", { ascending: true });
-    if (!error && data) return data as Category[];
+    try {
+      const { data, error } = await supabase
+        .from("categories")
+        .select("*")
+        .order("sort_order", { ascending: true });
+      if (!error && data && data.length > 0) return data as Category[];
+    } catch {
+      // Supabase unavailable, fallback to memory
+    }
   }
   return memoryCategories;
 }

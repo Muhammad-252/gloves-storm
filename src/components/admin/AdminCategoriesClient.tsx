@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { Category } from "@/types/database";
-import { saveCategory, deleteCategory } from "@/lib/data/store";
 import { slugify } from "@/lib/utils";
+import { useToast } from "@/components/ui/Toast";
 import {
   Plus,
   Edit2,
@@ -23,6 +24,8 @@ interface AdminCategoriesClientProps {
 export default function AdminCategoriesClient({
   initialCategories,
 }: AdminCategoriesClientProps) {
+  const router = useRouter();
+  const { toast } = useToast();
   const [categories, setCategories] = useState<Category[]>(initialCategories);
   const [editingCat, setEditingCat] = useState<Partial<Category> | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -56,44 +59,96 @@ export default function AdminCategoriesClient({
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (confirm(`Are you sure you want to delete category "${name}"?`)) {
-      await deleteCategory(id);
-      setCategories(categories.filter((c) => c.id !== id));
-      setNotice(`Category "${name}" deleted.`);
-      setTimeout(() => setNotice(null), 3000);
+    if (!confirm(`Are you sure you want to delete category "${name}"?`)) return;
+
+    const deletingToastId = toast.loading("Deleting Category...", `Removing "${name}"`);
+    try {
+      const res = await fetch(`/api/categories?id=${encodeURIComponent(id)}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      toast.dismiss(deletingToastId);
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to delete category.");
+      }
+
+      setCategories((prev) => prev.filter((c) => c.id !== id));
+      toast.success("Category Deleted", `"${name}" was deleted successfully.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(deletingToastId);
+      toast.error("Delete Failed", err?.message || "Could not delete category.");
     }
   };
 
   const handleToggleActive = async (cat: Category) => {
-    const updated = await saveCategory({
-      id: cat.id,
-      is_active: !cat.is_active,
-    });
-    setCategories(categories.map((c) => (c.id === cat.id ? updated : c)));
+    const nextState = !cat.is_active;
+    try {
+      const res = await fetch("/api/categories", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category: { id: cat.id, is_active: nextState } }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error || "Failed to update status");
+
+      setCategories((prev) => prev.map((c) => (c.id === cat.id ? data.category : c)));
+      toast.info("Status Updated", `"${cat.name}" is now ${nextState ? "Active" : "Hidden"}.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Status Update Failed", err?.message || "Could not change status.");
+    }
   };
 
   const handleSaveSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingCat?.name) return;
-    setSaving(true);
-
-    const saved = await saveCategory({
-      ...editingCat,
-      slug: editingCat.slug || slugify(editingCat.name),
-    });
-
-    if (editingCat.id) {
-      setCategories(categories.map((c) => (c.id === saved.id ? saved : c)));
-      setNotice(`Category "${saved.name}" updated.`);
-    } else {
-      setCategories([...categories, saved]);
-      setNotice(`New category "${saved.name}" created.`);
+    if (!editingCat?.name) {
+      toast.error("Validation Error", "Category name is required.");
+      return;
     }
 
-    setSaving(false);
-    setIsModalOpen(false);
-    setEditingCat(null);
-    setTimeout(() => setNotice(null), 3000);
+    setSaving(true);
+    const savingToastId = toast.loading("Saving Category...", `Applying changes to ${editingCat.name}`);
+
+    try {
+      const payload = {
+        ...editingCat,
+        slug: editingCat.slug || slugify(editingCat.name),
+      };
+
+      const res = await fetch("/api/categories", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category: payload }),
+      });
+
+      const data = await res.json();
+      toast.dismiss(savingToastId);
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to save category changes.");
+      }
+
+      const saved: Category = data.category;
+
+      if (editingCat.id) {
+        setCategories((prev) => prev.map((c) => (c.id === saved.id ? saved : c)));
+        toast.success("Category Saved Successfully", `Updated "${saved.name}" with all details and images.`);
+      } else {
+        setCategories((prev) => [...prev, saved]);
+        toast.success("Category Created Successfully", `New division "${saved.name}" is now live.`);
+      }
+
+      setIsModalOpen(false);
+      setEditingCat(null);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(savingToastId);
+      toast.error("Save Failed", err?.message || "An error occurred while saving category.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (

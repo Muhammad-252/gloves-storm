@@ -1,10 +1,11 @@
-import { getAllCategoriesAdmin } from "@/lib/data/store";
+import { loadPersistedCategories } from "@/lib/data/categoryPersistence";
 import AdminCategoriesClient from "@/components/admin/AdminCategoriesClient";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function AdminCategoriesPage() {
-  const categories = await getAllCategoriesAdmin();
+  const categories = await loadPersistedCategories();
 
   return (
     <div className="space-y-6 max-w-7xl mx-auto">

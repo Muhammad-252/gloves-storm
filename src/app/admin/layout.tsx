@@ -24,6 +24,7 @@ import {
   CheckCircle2,
   ArrowLeft,
 } from "lucide-react";
+import { ToastProvider } from "@/components/ui/Toast";
 
 const sidebarNav = [
   { name: "Dashboard", href: "/admin", icon: LayoutDashboard },
@@ -38,6 +39,14 @@ const sidebarNav = [
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <ToastProvider>
+      <AdminLayoutContent>{children}</AdminLayoutContent>
+    </ToastProvider>
+  );
+}
+
+function AdminLayoutContent({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, userEmail, login, logout, resetPassword } = useAdminAuth();
   const pathname = usePathname();
 
