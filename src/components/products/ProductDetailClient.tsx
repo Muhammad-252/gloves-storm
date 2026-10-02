@@ -322,10 +322,10 @@ export default function ProductDetailClient({
           {/* ===================================================================
               VERIFIED FACTORY SUPPLIER CARD (Exact match to reference image)
           =================================================================== */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-neutral-50/80 border border-neutral-200/90 shadow-2xs space-y-4">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-neutral-950 text-amber-400 font-black flex items-center justify-center text-sm shadow-xs shrink-0">
+                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white font-black flex items-center justify-center text-sm shadow-xs shrink-0">
                   GS
                 </div>
                 <div>
@@ -435,7 +435,7 @@ export default function ProductDetailClient({
           {/* ===================================================================
               ALIBABA PRICE TIERS SECTION (Exact match to reference image)
           =================================================================== */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-neutral-50/90 border border-neutral-200/90 space-y-3">
+          <div className="p-4 sm:p-5 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3">
             <div className="grid grid-cols-3 gap-3 items-end">
               {tiers.map((tier, idx) => {
                 const isSelected = activeTier === tier;
@@ -623,17 +623,17 @@ export default function ProductDetailClient({
           {/* ===================================================================
               QUANTITY COUNTER & ORDER ACTION BAR
           =================================================================== */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs space-y-4">
+          <div className="p-5 sm:p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   Quantity:
                 </span>
-                <div className="flex items-center border border-neutral-300 rounded-lg bg-white overflow-hidden shadow-2xs">
+                <div className="flex items-center border border-slate-200 rounded-xl bg-white overflow-hidden shadow-2xs">
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(product.moq || 10, quantity - 25))}
-                    className="px-3 py-1.5 text-xs font-bold text-neutral-700 hover:bg-neutral-100 transition-colors"
+                    className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
                     -
                   </button>
@@ -643,24 +643,24 @@ export default function ProductDetailClient({
                     step={10}
                     value={quantity}
                     onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 50))}
-                    className="w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-neutral-200"
+                    className="w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-slate-200"
                   />
                   <button
                     type="button"
                     onClick={() => setQuantity(quantity + 25)}
-                    className="px-3 py-1.5 text-xs font-bold text-neutral-700 hover:bg-neutral-100 transition-colors"
+                    className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
                     +
                   </button>
                 </div>
-                <span className="text-xs text-neutral-500 font-mono">pairs</span>
+                <span className="text-xs text-slate-500 font-mono">pairs</span>
               </div>
 
               <div className="text-left sm:text-right">
-                <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500">
+                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-500">
                   Est. Total (FOB)
                 </span>
-                <span className="text-lg font-black font-mono text-neutral-950">
+                <span className="text-lg font-black font-mono text-slate-900">
                   US${estimatedTotal}
                 </span>
               </div>
@@ -674,7 +674,7 @@ export default function ProductDetailClient({
                   setInquiryType("Quote");
                   setModalOpen(true);
                 }}
-                className="flex-1 py-3 px-6 rounded-xl bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all shadow-xs flex items-center justify-center gap-2 cursor-pointer font-sans"
+                className="flex-1 py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer font-sans"
               >
                 <span>Start Order / Request Quote</span>
                 <ArrowRight className="w-4 h-4" />
@@ -687,7 +687,7 @@ export default function ProductDetailClient({
                   setQuantity(1);
                   setModalOpen(true);
                 }}
-                className="py-3 px-5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono"
+                className="py-3.5 px-5 rounded-xl bg-slate-100/90 hover:bg-slate-200/80 text-slate-900 border border-slate-200/80 font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono"
               >
                 Order Sample
               </button>
@@ -706,61 +706,61 @@ export default function ProductDetailClient({
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Column 1: Materials */}
-          <div className="p-6 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs">
-            <h3 className="text-xs font-black uppercase tracking-wider text-neutral-900 mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500" />
+          <div className="p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-slate-900" />
               Raw Materials &amp; Tanning
             </h3>
-            <ul className="space-y-2 text-xs text-neutral-600">
+            <ul className="space-y-2 text-xs text-slate-600">
               {materialsList.length > 0 ? (
                 materialsList.map((mat, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
                     <span>{mat}</span>
                   </li>
                 ))
               ) : (
-                <li className="text-neutral-500">Premium top-grain cowhide, engineered synthetics, and multi-layer shock foam.</li>
+                <li className="text-slate-500">Premium top-grain cowhide, engineered synthetics, and multi-layer shock foam.</li>
               )}
             </ul>
           </div>
 
           {/* Column 2: Construction Features */}
-          <div className="p-6 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs">
-            <h3 className="text-xs font-black uppercase tracking-wider text-neutral-900 mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500" />
+          <div className="p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-slate-900" />
               Ergonomics &amp; Safety
             </h3>
-            <ul className="space-y-2 text-xs text-neutral-600">
+            <ul className="space-y-2 text-xs text-slate-600">
               {featuresList.length > 0 ? (
                 featuresList.map((feat, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </li>
                 ))
               ) : (
-                <li className="text-neutral-500">CE Certified ergonomic grip bar, locked-thumb safety, and reinforced dual stitching.</li>
+                <li className="text-slate-500">CE Certified ergonomic grip bar, locked-thumb safety, and reinforced dual stitching.</li>
               )}
             </ul>
           </div>
 
           {/* Column 3: Customization */}
-          <div className="p-6 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs">
-            <h3 className="text-xs font-black uppercase tracking-wider text-neutral-900 mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-amber-500" />
+          <div className="p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-slate-900" />
               Bespoke Branding
             </h3>
-            <ul className="space-y-2 text-xs text-neutral-600">
+            <ul className="space-y-2 text-xs text-slate-600">
               {customList.length > 0 ? (
                 customList.map((opt, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-amber-600 shrink-0 mt-0.5" />
+                    <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
                     <span>{opt}</span>
                   </li>
                 ))
               ) : (
-                <li className="text-neutral-500">Custom 3D embroidery, heat-transfer silicone badges, woven wrist labels, and branded boxes.</li>
+                <li className="text-slate-500">Custom 3D embroidery, heat-transfer silicone badges, woven wrist labels, and branded boxes.</li>
               )}
             </ul>
           </div>
@@ -769,14 +769,14 @@ export default function ProductDetailClient({
 
       {/* Product Detailed Description */}
       {product.description && (
-        <div className="mb-16 p-6 sm:p-8 rounded-2xl bg-white border border-neutral-200/90 shadow-2xs">
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 font-bold block mb-2">
+        <div className="mb-16 p-6 sm:p-8 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-bold block mb-2">
             Sialkot Factory Overview
           </span>
-          <h2 className="text-lg font-bold uppercase tracking-tight text-neutral-950 mb-3">
+          <h2 className="text-lg font-bold uppercase tracking-tight text-slate-900 mb-3">
             Manufacturing &amp; Engineering Brief
           </h2>
-          <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed max-w-4xl">
+          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">
             {product.description}
           </p>
         </div>
@@ -784,14 +784,14 @@ export default function ProductDetailClient({
 
       {/* Related Products */}
       {relatedProducts.length > 0 && (
-        <div className="border-t border-neutral-200 pt-12">
+        <div className="border-t border-slate-200/80 pt-12">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-bold uppercase tracking-tight text-neutral-950">
+            <h3 className="text-lg font-bold uppercase tracking-tight text-slate-900">
               More Models in {category?.name || "This Category"}
             </h3>
             <Link
               href={`/products/${category?.slug || "general"}`}
-              className="text-xs uppercase tracking-wider text-amber-800 hover:text-amber-900 font-bold transition-colors font-mono"
+              className="text-xs uppercase tracking-wider text-slate-900 hover:text-slate-700 font-bold transition-colors font-mono"
             >
               View Division Catalog →
             </Link>
@@ -806,9 +806,9 @@ export default function ProductDetailClient({
                 <Link
                   key={rel.id}
                   href={`/products/${category?.slug || "general"}/${rel.slug}`}
-                  className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300 hover:shadow-md transition-all p-3.5 flex flex-col justify-between"
+                  className="group bg-white/75 backdrop-blur-md rounded-3xl border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all p-4 flex flex-col justify-between"
                 >
-                  <div className="relative aspect-square bg-neutral-100 rounded-xl overflow-hidden mb-3 border border-neutral-200/70">
+                  <div className="relative aspect-[4/5] bg-slate-100/80 rounded-2xl overflow-hidden mb-3 border border-slate-200/50">
                     <Image
                       src={relImg}
                       alt={rel.images?.[0]?.alt_text || `${rel.name} - Custom OEM Manufacturer Sialkot (GLOVES STORM)`}
@@ -817,12 +817,12 @@ export default function ProductDetailClient({
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
-                  <h4 className="text-xs font-bold uppercase text-neutral-950 group-hover:text-amber-800 transition-colors truncate mb-1">
+                  <h4 className="text-xs font-bold uppercase text-slate-900 group-hover:text-slate-700 transition-colors truncate mb-1">
                     {rel.name}
                   </h4>
-                  <div className="flex items-center justify-between text-[10px] font-mono text-neutral-500 pt-2 border-t border-neutral-100">
-                    <span>MOQ: {rel.moq} Units</span>
-                    <span className="text-amber-700 font-bold">Explore →</span>
+                  <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 pt-2 border-t border-slate-100">
+                    <span>MOQ: {rel.moq} Pcs</span>
+                    <span className="text-slate-900 font-bold">Explore →</span>
                   </div>
                 </Link>
               );

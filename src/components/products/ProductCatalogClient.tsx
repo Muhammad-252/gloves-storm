@@ -153,23 +153,23 @@ export default function ProductCatalogClient({
   return (
     <div className="space-y-8">
       {/* Top Banner / Hero Header */}
-      <div className="bg-neutral-950 text-white rounded-3xl p-6 sm:p-10 border border-neutral-800 shadow-sm relative overflow-hidden">
+      <div className="bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-3xl p-6 sm:p-10 text-slate-900 relative overflow-hidden">
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-xs uppercase tracking-widest mb-4">
-            <ShieldCheck className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 border border-white/95 text-slate-800 font-mono text-xs uppercase tracking-widest mb-4 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
             <span>Sialkot Factory Direct Catalog</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-3">
+          <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-slate-900 mb-3">
             {activeCategoryObj ? activeCategoryObj.name : "Manufacturing Catalog"}
-          </h1>
-          <p className="text-sm text-neutral-400 leading-relaxed">
+          </h2>
+          <p className="text-sm text-[#334155] leading-relaxed">
             {activeCategoryObj?.description ||
-              "Explore export-grade combat gear, specialized leather gloves, and industrial safety equipment engineered for global brands with complete OEM/ODM customization."}
+              "Explore export-grade combat gear, specialized leather gloves, and industrial athletic equipment engineered for global brands with complete OEM/ODM customization."}
           </p>
         </div>
 
         {/* Decorative corner background pattern */}
-        <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -right-12 -bottom-12 w-64 h-64 bg-slate-200/50 rounded-full blur-3xl pointer-events-none" />
       </div>
 
       {/* Main 2-Column Layout: Sidebar Filters + Products Main Area */}
@@ -549,69 +549,78 @@ export default function ProductCatalogClient({
                     key={product.id}
                     onMouseEnter={() => setHoveredProductId(product.id)}
                     onMouseLeave={() => setHoveredProductId(null)}
-                    className="group bg-white rounded-2xl border border-neutral-200/90 hover:border-neutral-300 hover:shadow-md transition-all duration-200 flex flex-col overflow-hidden"
+                    className="group rounded-3xl p-4 bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                   >
-                    {/* Image Box with Dual Image Crossfade */}
-                    <Link
-                      href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                      className="relative aspect-4/3 w-full bg-neutral-100 overflow-hidden block"
-                    >
-                      <Image
-                        src={isHovered && secondaryImgUrl !== primaryImgUrl ? secondaryImgUrl : primaryImgUrl}
-                        alt={isHovered && secondaryImgUrl !== primaryImgUrl ? secondaryAlt : primaryAlt}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition-all duration-500 group-hover:scale-105"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60 pointer-events-none" />
+                    <div>
+                      {/* Image Box with Dual Image Crossfade */}
+                      <Link
+                        href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                        className="relative aspect-[4/5] w-full bg-slate-100/80 rounded-2xl overflow-hidden block mb-3.5"
+                      >
+                        <Image
+                          src={isHovered && secondaryImgUrl !== primaryImgUrl ? secondaryImgUrl : primaryImgUrl}
+                          alt={isHovered && secondaryImgUrl !== primaryImgUrl ? secondaryAlt : primaryAlt}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-60 pointer-events-none" />
 
-                      {/* Badges */}
-                      <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-2xs">
-                        <Box className="w-3 h-3 text-amber-600" />
-                        <span>MOQ: {product.moq} Units</span>
-                      </div>
-
-                      {product.featured && (
-                        <div className="absolute top-3 right-3 bg-amber-500 text-neutral-950 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-2xs">
-                          Featured
+                        {/* Badges */}
+                        <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/90 text-[10px] font-mono text-slate-800 font-semibold shadow-xs">
+                          <Box className="w-3 h-3 text-slate-600" />
+                          <span>MOQ: {product.moq || 30} pcs</span>
                         </div>
-                      )}
-                    </Link>
 
-                    {/* Content Section (NO PRICE TIERS - shown only on detail page) */}
-                    <div className="p-5 flex flex-col flex-1 justify-between">
-                      <div>
-                        <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-amber-800 font-bold block mb-1">
+                        {product.featured && (
+                          <div className="absolute top-3 right-3 bg-slate-900 text-white px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
+                            Featured
+                          </div>
+                        )}
+                      </Link>
+
+                      {/* Content Section */}
+                      <div className="px-1 mb-3">
+                        <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-500 font-bold block mb-1">
                           {categoryObj?.name || "Equipment"}
                         </span>
                         <Link
                           href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                          className="text-base font-bold uppercase tracking-tight text-neutral-950 group-hover:text-amber-800 transition-colors line-clamp-1 block mb-1.5"
+                          className="text-base font-bold text-slate-900 group-hover:text-slate-700 transition-colors line-clamp-1 block mb-2"
                         >
                           {product.name}
                         </Link>
-                        <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed mb-4">
+                        <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
                           {product.short_description}
                         </p>
                       </div>
+                    </div>
 
-                      {/* Bottom Spec & Action Bar */}
-                      <div className="pt-3 border-t border-neutral-100 flex items-center justify-between gap-2">
-                        <div className="flex items-center gap-1 text-[10px] font-mono text-neutral-500">
-                          <Clock className="w-3 h-3 text-amber-600" />
-                          <span>{product.lead_time || "2-4 W"}</span>
-                        </div>
+                    {/* Bottom Action Bar */}
+                    <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200/60 mt-auto">
+                      <Link
+                        href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                        className="py-2.5 px-2.5 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-800 text-xs font-semibold flex items-center justify-center gap-1 transition-all"
+                      >
+                        <span>Tech Specs</span>
+                        <ArrowUpRight className="w-3 h-3 text-slate-500" />
+                      </Link>
 
-                        <div className="flex items-center gap-1.5">
-                          <Link
-                            href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                            className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-neutral-900 group-hover:text-amber-800 px-2.5 py-1.5 transition-colors font-mono"
-                          >
-                            <span>EXPLORE</span>
-                            <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                          </Link>
-                        </div>
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setQuoteModalData({
+                            isOpen: true,
+                            productName: product.name,
+                            category: categoryObj?.name || "Equipment",
+                            inquiryType: "Quote",
+                            quantity: product.moq || 50,
+                          })
+                        }
+                        className="py-2.5 px-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs"
+                      >
+                        <span>Inquire</span>
+                      </button>
                     </div>
                   </div>
                 );

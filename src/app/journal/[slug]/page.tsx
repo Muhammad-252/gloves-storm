@@ -21,11 +21,37 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   const post = await getBlogPostBySlug(slug);
   if (!post) return { title: "Article Not Found" };
 
+  const title = post.seo_title || `${post.title} | GLOVES STORM Journal`;
+  const description = post.seo_description || post.excerpt || post.title;
+  const canonicalUrl = `https://glovesstorm.com/journal/${slug}`;
+  const ogImage = post.featured_image || "https://glovesstorm.com/images/products/boxing-gloves-black.png";
+
   return {
-    title: post.seo_title || `${post.title} | GLOVES STORM Journal`,
-    description: post.seo_description || post.excerpt || post.title,
+    title,
+    description,
     alternates: {
-      canonical: `/journal/${slug}`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "GLOVES STORM Manufacturing Journal",
+      type: "article",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -43,91 +69,118 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
   const related = allPosts.filter((p) => p.id !== post.id).slice(0, 3);
 
-  const articleSchema = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    headline: post.title,
-    description: post.seo_description || post.excerpt || post.title,
-    image: post.featured_image
-      ? [post.featured_image]
-      : ["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"],
-    datePublished: post.published_at || post.created_at || "2026-03-01T00:00:00.000Z",
-    dateModified: post.updated_at || post.created_at || "2026-03-01T00:00:00.000Z",
-    author: {
-      "@type": "Person",
-      name: post.author || "GLOVES STORM Engineering Team",
-      worksFor: {
-        "@type": "Organization",
-        name: "GLOVES STORM",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://glovesstorm.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Journal",
+            item: "https://glovesstorm.com/journal",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: post.title,
+            item: `https://glovesstorm.com/journal/${post.slug}`,
+          },
+        ],
       },
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "GLOVES STORM",
-      logo: {
-        "@type": "ImageObject",
-        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+      {
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.seo_description || post.excerpt || post.title,
+        image: post.featured_image
+          ? [post.featured_image]
+          : ["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"],
+        datePublished: post.published_at || post.created_at || "2026-03-01T00:00:00.000Z",
+        dateModified: post.updated_at || post.created_at || "2026-03-01T00:00:00.000Z",
+        author: {
+          "@type": "Person",
+          name: post.author || "GLOVES STORM Engineering Team",
+          worksFor: {
+            "@type": "Organization",
+            name: "GLOVES STORM",
+          },
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "GLOVES STORM",
+          logo: {
+            "@type": "ImageObject",
+            url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+          },
+        },
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": `https://glovesstorm.com/journal/${post.slug}`,
+        },
       },
-    },
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://glovesstorm.com/journal/${post.slug}`,
-    },
+    ],
   };
 
   return (
-    <div className="pt-28 pb-24 bg-[#fafafa] min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="max-w-4xl mx-auto px-6 sm:px-8">
         {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-500 mb-8 font-medium">
-          <Link href="/" className="hover:text-[#0f172a] transition-colors">
+        <nav className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 mb-8 font-medium">
+          <Link href="/" className="hover:text-slate-900 transition-colors">
             Home
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <Link href="/journal" className="hover:text-[#0f172a] transition-colors">
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <Link href="/journal" className="hover:text-slate-900 transition-colors">
             Journal
           </Link>
-          <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-          <span className="text-amber-600 truncate font-semibold">{post.title}</span>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-900 truncate font-semibold">{post.title}</span>
         </nav>
 
         {/* Article Header */}
         <div className="mb-10">
-          <div className="flex items-center gap-3 text-xs font-mono text-amber-600 mb-4">
-            <span className="bg-amber-50 px-3 py-1 border border-amber-200 uppercase tracking-wider font-bold rounded-full">
+          <div className="flex items-center gap-3 text-xs font-mono text-slate-700 mb-4">
+            <span className="bg-white/80 backdrop-blur-md px-3 py-1 border border-white/90 uppercase tracking-wider font-bold rounded-full shadow-2xs">
               {post.category}
             </span>
             {post.published_at && (
-              <span className="text-neutral-500 flex items-center gap-1 font-medium">
-                <Calendar className="w-3.5 h-3.5 text-amber-600" />
+              <span className="text-slate-500 flex items-center gap-1 font-medium">
+                <Calendar className="w-3.5 h-3.5 text-slate-400" />
                 {formatDate(post.published_at)}
               </span>
             )}
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-6 leading-[1.05]">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.08]">
             {post.title}
           </h1>
 
           {post.excerpt && (
-            <p className="text-base sm:text-lg text-neutral-600 leading-relaxed border-l-2 border-amber-500 pl-4">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed border-l-2 border-slate-900 pl-4">
               {post.excerpt}
             </p>
           )}
 
-          <div className="flex items-center gap-2 pt-6 text-xs text-neutral-500 font-medium">
-            <User className="w-3.5 h-3.5 text-amber-600" />
+          <div className="flex items-center gap-2 pt-6 text-xs text-slate-500 font-medium">
+            <User className="w-3.5 h-3.5 text-slate-700" />
             <span>Authored by {post.author}</span>
           </div>
         </div>
 
         {/* Hero Image */}
         {post.featured_image && (
-          <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden bg-neutral-100 border border-neutral-200 shadow-sm mb-12">
+          <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden bg-slate-100 border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-12">
             <Image
               src={post.featured_image}
               alt={post.title}
@@ -140,14 +193,14 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* Article Body */}
-        <div className="prose prose-neutral max-w-none mb-16 text-neutral-700 leading-relaxed space-y-6 text-sm sm:text-base border-b border-neutral-200 pb-16 whitespace-pre-line">
+        <div className="prose prose-neutral max-w-none mb-16 text-slate-700 leading-relaxed space-y-6 text-sm sm:text-base border-b border-slate-200/80 pb-16 whitespace-pre-line">
           {post.content}
         </div>
 
         {/* Related Articles */}
         {related.length > 0 && (
           <div className="mb-16">
-            <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a] mb-8">
+            <h3 className="text-xl font-bold uppercase tracking-tight text-slate-900 mb-6">
               More From The Journal
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
@@ -155,15 +208,15 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <Link
                   key={rel.id}
                   href={`/journal/${rel.slug}`}
-                  className="group bg-white rounded-2xl border border-neutral-200 hover:border-amber-500/50 p-5 shadow-sm hover:shadow-md transition-all"
+                  className="group bg-white/75 backdrop-blur-md rounded-3xl border border-white/90 p-5 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all"
                 >
-                  <span className="text-[10px] font-mono text-amber-600 uppercase tracking-wider block mb-2 font-bold">
+                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-2 font-bold">
                     {rel.category}
                   </span>
-                  <h4 className="text-sm font-bold uppercase text-[#0f172a] group-hover:text-amber-600 transition-colors line-clamp-2 mb-2">
+                  <h4 className="text-sm font-bold text-slate-900 group-hover:text-slate-700 transition-colors line-clamp-2 mb-2">
                     {rel.title}
                   </h4>
-                  <p className="text-xs text-neutral-500 line-clamp-2">
+                  <p className="text-xs text-slate-500 line-clamp-2">
                     {rel.excerpt}
                   </p>
                 </Link>
@@ -173,58 +226,57 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* Internal Hub Callout: Factory OEM Production & Wholesale Directory */}
-        <div className="mb-16 p-8 sm:p-10 bg-gradient-to-br from-neutral-900 to-neutral-950 text-white rounded-3xl border border-neutral-800 shadow-lg relative overflow-hidden">
-          <div className="absolute -right-8 -bottom-8 w-64 h-64 rounded-full bg-amber-500/10 blur-3xl pointer-events-none" />
+        <div className="mb-16 p-8 sm:p-10 bg-white/85 backdrop-blur-xl text-slate-900 rounded-3xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden">
           <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-[10px] font-mono uppercase tracking-wider font-bold mb-4">
-              <Sparkles className="w-3 h-3 text-amber-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-900 text-[10px] font-mono uppercase tracking-wider font-bold mb-4 border border-slate-200/60">
+              <Sparkles className="w-3 h-3 text-slate-900" />
               <span>Direct Factory OEM</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-3">
+            <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">
               Prototype Your Custom Design
             </h3>
-            <p className="text-sm text-neutral-300 max-w-2xl leading-relaxed mb-6">
+            <p className="text-sm text-slate-600 max-w-2xl leading-relaxed mb-6">
               Test your branding, select leather or technical fabric densities, and request an instant manufacturing quote directly from our Sialkot factory team.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-neutral-950 rounded-full px-6 py-3 font-bold text-xs uppercase tracking-wider transition-colors shadow-md"
+                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl px-6 py-3.5 font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
               >
                 <span>Request Factory Quote</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white rounded-full px-6 py-3 font-bold text-xs uppercase tracking-wider transition-colors border border-white/15"
+                className="inline-flex items-center gap-2 bg-slate-100/90 hover:bg-slate-200/80 text-slate-900 rounded-2xl px-6 py-3.5 font-bold text-xs uppercase tracking-wider transition-all border border-slate-200/80"
               >
-                <Box className="w-3.5 h-3.5 text-amber-400" />
-                <span>Browse All Products & MOQs</span>
+                <Box className="w-3.5 h-3.5 text-slate-900" />
+                <span>Browse All Products &amp; MOQs</span>
               </Link>
               <Link
                 href="/manufacturing"
-                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-400 hover:text-amber-400 transition-colors ml-auto pt-2 sm:pt-0"
+                className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-colors ml-auto pt-2 sm:pt-0"
               >
                 <Scissors className="w-3.5 h-3.5" />
-                <span>Our Factory Standards & Equipment →</span>
+                <span>Our Factory Standards &amp; Equipment →</span>
               </Link>
             </div>
           </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="p-8 sm:p-12 bg-white rounded-3xl border border-neutral-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="p-8 sm:p-12 bg-white/80 backdrop-blur-xl rounded-3xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <h3 className="text-xl font-bold uppercase tracking-tight text-[#0f172a] mb-1">
+            <h3 className="text-xl font-bold uppercase tracking-tight text-slate-900 mb-1">
               Have questions about material specifications?
             </h3>
-            <p className="text-xs text-neutral-600">
+            <p className="text-xs text-slate-600">
               Speak directly with our technical textile team to get sample swatches and pricing.
             </p>
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-[#0f172a] text-white hover:bg-neutral-800 rounded-full px-8 py-3.5 font-bold text-xs uppercase tracking-wider shrink-0 transition-colors shadow-sm"
+            className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 rounded-2xl px-8 py-3.5 font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-sm"
           >
             <span>Inquire Now</span>
             <ArrowUpRight className="w-4 h-4" />

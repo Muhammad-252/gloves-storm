@@ -169,9 +169,9 @@ export default function MegaMenu({
     <div
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave || onClose}
-      className="absolute top-full left-0 right-0 z-50 bg-white border-b border-neutral-200 shadow-[0_25px_60px_rgba(0,0,0,0.12)] animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:-top-5 before:left-0 before:right-0 before:h-5 before:content-['']"
+      className="absolute top-full left-0 right-0 z-50 mt-3 bg-white/95 backdrop-blur-2xl rounded-3xl border border-white/90 shadow-[0_25px_60px_rgba(15,23,42,0.12)] animate-in fade-in slide-in-from-top-1 duration-150 overflow-hidden before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 before:content-['']"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-7">
         {/* =====================================================================
             TOP SUB-NAV / ALIBABA-STYLE TAB BAR
         ===================================================================== */}

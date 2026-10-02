@@ -2,13 +2,13 @@
 
 import { useState, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight, ChevronDown, Play, Pause, Film } from "lucide-react";
-import GooeyButton from "../ui/GooeyButton";
+import { ArrowUpRight, Play, Pause, Film, ShieldCheck, Box, Clock, Globe2, Sparkles, MessageSquare } from "lucide-react";
 import MagneticElement from "../ui/MagneticElement";
+import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const toggleVideo = () => {
@@ -23,155 +23,168 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-[#0f172a]">
-      {/* Background Media Stage: High-performance Image on Mobile, 4K Video Reel on Desktop */}
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        {/* Mobile Fast LCP Hero Image (eliminates 4.9MB cellular video download) */}
-        <div className="block md:hidden absolute inset-0 w-full h-full">
-          <Image
-            src="/images/products/varsity-jacket.jpg"
-            alt="Custom Varsity Letterman Jacket Manufacturing Sialkot - GLOVES STORM"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center filter brightness-100 contrast-105"
-          />
-        </div>
-
-        {/* Desktop Video Reel */}
+    <section className="relative overflow-hidden min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center pt-32 pb-16 sm:pt-44 sm:pb-24">
+      {/* Complete Full-Bleed Hero Background Video */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
         <video
           ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           poster="/images/products/varsity-jacket.jpg"
-          className="hidden md:block absolute inset-0 w-full h-full object-cover object-center filter brightness-100 contrast-105"
+          className="w-full h-full object-cover object-center scale-105 transform motion-safe:animate-fade-in"
         >
           <source src="/videos/varsity-jacket-hero.mp4" type="video/mp4" />
         </video>
 
-        {/* Clean, Light Black Overlay - reveals the varsity jacket video clearly while ensuring crisp contrast */}
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30" />
+        {/* Reduced Black Overlay for High Video Clarity & Visibility */}
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+      </div>
 
-        {/* Bottom edge transition to white page */}
-        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+      {/* Hero Content Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full flex flex-col items-center text-center">
+        {/* Eyebrow Badge with Pulsing Emerald Status Dot */}
+        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-sm mb-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
+          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-white/90 font-bold">
+            CUSTOM OEM/ODM APPAREL &amp; GEAR
+          </span>
+        </div>
 
-        {/* Video Control Pill (Bottom Right) */}
+        {/* Short, Punchy, Bold Luxury Technical Heading */}
+        <h1 className="tracking-tight text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.06] max-w-4xl mb-5 drop-shadow-[0_3px_10px_rgba(0,0,0,0.8)]">
+          PRECISION GEAR &amp; APPAREL.
+        </h1>
+
+        {/* Technical Value Proposition Subheading */}
+        <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-2xl font-medium leading-relaxed mb-9 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+          Direct factory OEM and private label manufacturing for custom combat sports equipment and performance apparel. Low MOQ starting at 30 pcs per design with rapid 7-day sampling.
+        </p>
+
+        {/* Action CTAs */}
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 w-full sm:w-auto max-w-xs sm:max-w-none">
+          <MagneticElement strength={0.3} className="w-full sm:w-auto">
+            <button
+              onClick={() => setQuoteModalOpen(true)}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_8px_24px_rgba(0,0,0,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+            >
+              <span>REQUEST OEM QUOTE</span>
+              <ArrowUpRight className="w-4 h-4 text-slate-900 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
+          </MagneticElement>
+
+          <MagneticElement strength={0.2} className="w-full sm:w-auto">
+            <Link
+              href="/products"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white backdrop-blur-md font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+            >
+              <span>BROWSE CATALOG</span>
+              <ArrowUpRight className="w-4 h-4 text-white/80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </Link>
+          </MagneticElement>
+
+          <MagneticElement strength={0.2} className="w-full sm:w-auto">
+            <a
+              href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-emerald-500/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold text-xs uppercase tracking-wider transition-all shadow-xs backdrop-blur-md"
+            >
+              <MessageSquare className="w-4 h-4 text-emerald-400" />
+              <span>WhatsApp Direct</span>
+            </a>
+          </MagneticElement>
+        </div>
+
+        {/* Instant Trust Bar: 4-Column Frosted Glass Stat Grid */}
+        <div className="mt-12 sm:mt-16 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-3.5 text-left">
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <Box className="w-3.5 h-3.5 text-slate-300" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
+                Low MOQ
+              </span>
+            </div>
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
+              30 Pcs / Design
+            </span>
+            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+              Accessible startup batch
+            </span>
+          </div>
+
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <Clock className="w-3.5 h-3.5 text-slate-300" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
+                Sample Turnaround
+              </span>
+            </div>
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
+              7 Days
+            </span>
+            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+              Rapid master prototype
+            </span>
+          </div>
+
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-slate-300" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
+                Production Time
+              </span>
+            </div>
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
+              7–14 Working Days
+            </span>
+            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+              High-speed bulk flow
+            </span>
+          </div>
+
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <Globe2 className="w-3.5 h-3.5 text-slate-300" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
+                Global Export
+              </span>
+            </div>
+            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
+              USA, UK &amp; Europe
+            </span>
+            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+              Door-to-Door DDP Air
+            </span>
+          </div>
+        </div>
+
+        {/* Video Play/Pause Control Pill (Bottom Right Floating) */}
         <button
           onClick={toggleVideo}
-          className="absolute bottom-6 right-6 z-20 hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 hover:bg-black/75 border border-white/25 shadow-xl backdrop-blur-md text-[10px] font-mono uppercase text-white/90 hover:text-white transition-all cursor-pointer"
-          title={isPlaying ? "Pause varsity jacket video" : "Play varsity jacket video"}
+          className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 shadow-md backdrop-blur-xl text-[10px] font-mono uppercase text-white/80 transition-all cursor-pointer"
+          title={isPlaying ? "Pause background video" : "Play background video"}
         >
-          <Film className="w-3.5 h-3.5 text-amber-400" />
-          <span>{isPlaying ? "Live Reel: Varsity Jacket" : "Reel Paused"}</span>
+          <Film className="w-3 h-3 text-slate-300" />
+          <span>{isPlaying ? "Pause Video" : "Play Video"}</span>
           {isPlaying ? (
-            <Pause className="w-3 h-3 text-neutral-300" />
+            <Pause className="w-2.5 h-2.5 text-slate-300" />
           ) : (
-            <Play className="w-3 h-3 text-amber-400 fill-current" />
+            <Play className="w-2.5 h-2.5 text-emerald-400 fill-current" />
           )}
         </button>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full flex flex-col items-center text-center">
-        {/* Status Pill Badge */}
-        <div className="inline-flex flex-wrap items-center justify-center gap-x-2.5 gap-y-1 px-4 py-2 rounded-full bg-black/60 border border-white/20 shadow-xl mb-8 animate-in fade-in slide-in-from-bottom-3 duration-700 backdrop-blur-md max-w-full text-center">
-          <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0" />
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-amber-300 font-bold">
-            Sialkot Global OEM & Private Label
-          </span>
-          <span className="hidden sm:inline text-white/30 text-xs">|</span>
-          <span className="text-[10px] sm:text-xs text-white/90 font-medium">
-            2026 Production Slots Open
-          </span>
-        </div>
-
-        {/* Hero Main Headline */}
-        <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-black tracking-[-0.035em] uppercase text-white leading-[0.98] sm:leading-[0.95] max-w-5xl mb-6 drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
-          CUSTOM SPORTSWEAR & <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200">
-            BOXING GEAR MANUFACTURER.
-          </span>
-        </h1>
-
-        {/* Supporting Subtitle */}
-        <p className="text-sm sm:text-lg md:text-xl text-white max-w-2xl font-normal leading-relaxed mb-10 drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)] px-2">
-          Custom varsity letterman jackets, professional combat gear, and athletic apparel engineered with millimeter precision for luxury labels and fight clubs worldwide.
-        </p>
-
-        {/* Primary and Secondary Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full sm:w-auto max-w-xs sm:max-w-none">
-          <MagneticElement strength={0.3} className="w-full sm:w-auto">
-            <GooeyButton
-              href="/contact"
-              variant="gold-solid"
-              size="lg"
-              className="w-full sm:w-auto shadow-xl"
-            >
-              <span>START A PROJECT</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </GooeyButton>
-          </MagneticElement>
-
-          <MagneticElement strength={0.2} className="w-full sm:w-auto">
-            <GooeyButton
-              href="/products"
-              variant="outline-white"
-              size="lg"
-              className="w-full sm:w-auto"
-            >
-              <span>EXPLORE PRODUCTS</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </GooeyButton>
-          </MagneticElement>
-        </div>
-
-        {/* Quick Highlights / Trust Metrics Cards */}
-        <div className="mt-14 sm:mt-16 pt-8 border-t border-white/15 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6 text-left">
-          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
-              Location
-            </span>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block">
-              Sialkot, Pakistan
-            </span>
-          </div>
-          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
-              Minimum Order
-            </span>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block">
-              From 25 - 50 Units
-            </span>
-          </div>
-          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
-              Specialty
-            </span>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block truncate">
-              Varsity & Leather OEM
-            </span>
-          </div>
-          <div className="p-3.5 sm:p-5 rounded-2xl bg-black/45 hover:bg-black/60 border border-white/15 shadow-xl hover:border-amber-400/50 transition-all backdrop-blur-md group">
-            <span className="block text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400/90 mb-1 font-semibold">
-              Global Shipping
-            </span>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-wider block truncate">
-              DHL • FedEx • Air • Sea
-            </span>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="mt-12 flex flex-col items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
-          <span className="text-[9px] font-mono uppercase tracking-[0.3em] text-white/70 font-semibold">
-            SCROLL TO EXPLORE
-          </span>
-          <ChevronDown className="w-4 h-4 text-amber-400 animate-bounce" />
-        </div>
-      </div>
+      {/* Quote / RFQ Modal */}
+      <InteractiveRfqModal
+        isOpen={quoteModalOpen}
+        onClose={() => setQuoteModalOpen(false)}
+        initialProduct="Combat Equipment & Custom Apparel"
+        initialCategory="OEM Manufacturing"
+      />
     </section>
   );
 }

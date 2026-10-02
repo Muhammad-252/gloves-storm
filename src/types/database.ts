@@ -73,6 +73,7 @@ export interface Product {
   pricing_tiers?: PriceTier[];
   sample_price?: number | null;
   show_pricing?: boolean;
+  specifications?: Record<string, any> | null;
   created_at: string;
   updated_at: string;
   images?: ProductImage[];

@@ -9,6 +9,7 @@ import GooeyButton from "../ui/GooeyButton";
 import MegaMenu from "./MegaMenu";
 import { initialCategories } from "@/lib/data/initialData";
 import { Category } from "@/types/database";
+import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 
 const navLinks = [
   { name: "Products", href: "/products", hasMegaMenu: true },
@@ -22,6 +23,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [rfqModalOpen, setRfqModalOpen] = useState(false);
   const [mobileCategoriesExpanded, setMobileCategoriesExpanded] = useState(false);
   const [categories, setCategories] = useState<Category[]>(initialCategories);
   const pathname = usePathname();
@@ -88,23 +90,15 @@ export default function Navbar() {
     return null; // Admin has its dedicated dashboard layout
   }
 
-  const isHeroHeader = pathname === "/" && !scrolled && !mobileMenuOpen && !megaMenuOpen;
-
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          mobileMenuOpen || megaMenuOpen
-            ? "py-4 bg-white border-b border-black/[0.08] shadow-md"
-            : scrolled
-            ? "py-3 bg-white/[0.98] backdrop-blur-md border-b border-black/[0.08] shadow-[0_1px_0_0_rgba(0,0,0,0.07)]"
-            : pathname === "/"
-            ? "py-5 bg-gradient-to-b from-black/75 via-black/35 to-transparent"
-            : "py-5 bg-white border-b border-black/[0.07]"
-        )}
-      >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-6xl px-4 w-full">
+        <div
+          className={cn(
+            "rounded-full bg-white/75 backdrop-blur-lg border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-6 py-3.5 flex items-center justify-between transition-all duration-300",
+            scrolled && "bg-white/85 shadow-md border-white/95"
+          )}
+        >
           {/* Brand Logo */}
           <Link
             href="/"
@@ -115,37 +109,18 @@ export default function Navbar() {
             }}
           >
             <div className="flex flex-col">
-              <span
-                className={cn(
-                  "font-extrabold tracking-[-0.04em] text-xl sm:text-2xl uppercase flex items-center gap-1.5 transition-colors",
-                  isHeroHeader
-                    ? "text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]"
-                    : "text-neutral-900"
-                )}
-              >
+              <span className="font-extrabold tracking-[-0.04em] text-lg sm:text-xl uppercase flex items-center gap-2 text-slate-900">
                 GLOVES STORM
-                <span
-                  className={cn(
-                    "w-1.5 h-1.5 rounded-full transition-colors",
-                    isHeroHeader ? "bg-amber-400" : "bg-[#b45309]"
-                  )}
-                />
+                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
               </span>
-              <span
-                className={cn(
-                  "text-[9px] uppercase tracking-[0.25em] -mt-1 font-mono transition-colors",
-                  isHeroHeader
-                    ? "text-amber-300/90 drop-shadow-sm font-semibold"
-                    : "text-neutral-500 font-medium"
-                )}
-              >
+              <span className="text-[9px] uppercase tracking-[0.22em] -mt-0.5 font-mono text-slate-500 font-medium">
                 Sialkot • Global OEM
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -158,39 +133,27 @@ export default function Navbar() {
                     key={link.name}
                     onMouseEnter={handleMouseEnterProducts}
                     onMouseLeave={handleMouseLeaveProducts}
-                    className="relative py-2"
+                    className="relative py-1"
                   >
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-xs uppercase tracking-[0.18em] font-medium transition-colors relative py-1 flex items-center gap-1.5 group cursor-pointer",
-                        isHeroHeader
-                          ? isActive || megaMenuOpen
-                            ? "text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
-                            : "text-white/85 hover:text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]"
-                          : isActive || megaMenuOpen
-                          ? "text-[#1A1A1A] font-bold"
-                          : "text-[#4B4B4B] hover:text-[#1A1A1A]"
+                        "text-xs uppercase tracking-[0.16em] font-semibold transition-colors relative py-1 flex items-center gap-1.5 group cursor-pointer",
+                        isActive || megaMenuOpen
+                          ? "text-slate-950 font-bold"
+                          : "text-slate-600 hover:text-slate-950"
                       )}
                     >
                       <span>{link.name}</span>
                       <ChevronDown
                         className={cn(
                           "w-3 h-3 transition-transform duration-200",
-                          megaMenuOpen ? "rotate-180 text-amber-600" : "text-neutral-400"
+                          megaMenuOpen ? "rotate-180 text-slate-900" : "text-slate-400"
                         )}
                       />
-                      <span className="text-[9px] font-mono px-1.5 py-0.2 rounded-full bg-amber-500/20 text-amber-700 font-semibold border border-amber-500/30">
+                      <span className="text-[9px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-700 font-semibold border border-slate-200">
                         {categories.length}
                       </span>
-                      {isActive && !megaMenuOpen && (
-                        <span
-                          className={cn(
-                            "absolute bottom-0 left-0 w-full h-[2px]",
-                            isHeroHeader ? "bg-amber-400" : "bg-[#b45309]"
-                          )}
-                        />
-                      )}
                     </Link>
                   </div>
                 );
@@ -201,56 +164,40 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-xs uppercase tracking-[0.18em] font-medium transition-colors relative py-1",
-                    isHeroHeader
-                      ? isActive
-                        ? "text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
-                        : "text-white/85 hover:text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.7)]"
-                      : isActive
-                      ? "text-[#1A1A1A] font-bold"
-                      : "text-[#4B4B4B] hover:text-[#1A1A1A]"
+                    "text-xs uppercase tracking-[0.16em] font-semibold transition-colors relative py-1",
+                    isActive
+                      ? "text-slate-950 font-bold"
+                      : "text-slate-600 hover:text-slate-950"
                   )}
                 >
                   {link.name}
                   {isActive && (
-                    <span
-                      className={cn(
-                        "absolute bottom-0 left-0 w-full h-[2px]",
-                        isHeroHeader ? "bg-amber-400" : "bg-[#b45309]"
-                      )}
-                    />
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-slate-900 rounded-full" />
                   )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Action CTA */}
-          <div className="hidden md:flex items-center gap-4">
-            <GooeyButton
-              href="/contact"
-              variant="gold-solid"
-              size="sm"
+          {/* Primary Action CTA: High-Contrast Request OEM Quote */}
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setRfqModalOpen(true)}
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
-              <span>Start a Project</span>
-              <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </GooeyButton>
+              <span>Request OEM Quote</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-white/80" />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={cn(
-              "md:hidden p-2 transition-colors",
-              mobileMenuOpen
-                ? "text-neutral-900"
-                : isHeroHeader
-                ? "text-white hover:text-amber-400"
-                : "text-neutral-900 hover:text-[#b45309]"
-            )}
+            className="md:hidden p-2 text-slate-900 hover:text-slate-700 transition-colors"
             aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
@@ -263,6 +210,14 @@ export default function Navbar() {
           categories={categories}
         />
       </header>
+
+      {/* Interactive RFQ Modal */}
+      <InteractiveRfqModal
+        isOpen={rfqModalOpen}
+        onClose={() => setRfqModalOpen(false)}
+        initialProduct="Custom OEM Inquiry"
+        initialCategory="Combat & Sportswear Manufacturing"
+      />
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (

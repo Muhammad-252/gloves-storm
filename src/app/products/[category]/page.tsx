@@ -33,6 +33,28 @@ export async function generateMetadata({ params }: CategoryPageProps) {
     alternates: {
       canonical: `/products/${slug}`,
     },
+    openGraph: {
+      title: `Custom ${cat.name} Manufacturer & OEM Factory Sialkot | GLOVES STORM`,
+      description:
+        cat.description ||
+        `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan.`,
+      url: `https://glovesstorm.com/products/${slug}`,
+      siteName: "GLOVES STORM",
+      images: [
+        {
+          url: cat.image_url || "/images/products/boxing-gloves-black.png",
+          width: 1200,
+          height: 630,
+          alt: `Custom ${cat.name} OEM Manufacturing Sialkot - GLOVES STORM`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `Custom ${cat.name} Manufacturer | GLOVES STORM`,
+      description: cat.description || `Custom ${cat.name} OEM manufacturing in Sialkot, Pakistan.`,
+      images: [cat.image_url || "/images/products/boxing-gloves-black.png"],
+    },
   };
 }
 
@@ -106,7 +128,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     : null;
 
   return (
-    <div className="pt-28 pb-24 bg-[#fafafa] min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}

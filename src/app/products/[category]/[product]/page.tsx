@@ -31,14 +31,40 @@ export async function generateMetadata({ params }: ProductPageProps) {
   const prod = await getProductBySlug(slug);
   if (!prod) return { title: "Product Not Found" };
 
+  const title = prod.seo_title || `${prod.name} | GLOVES STORM Manufacturing`;
+  const description =
+    prod.seo_description ||
+    prod.short_description ||
+    `OEM and private label manufacturing for ${prod.name} in Sialkot, Pakistan. Rapid sampling, low MOQ, factory-direct export.`;
+  const canonicalUrl = `https://glovesstorm.com/products/${categorySlug}/${slug}`;
+  const ogImage = prod.images?.[0]?.image_url || "https://glovesstorm.com/images/products/boxing-gloves-black.png";
+
   return {
-    title: prod.seo_title || `${prod.name} | GLOVES STORM Manufacturing`,
-    description:
-      prod.seo_description ||
-      prod.short_description ||
-      `OEM and private label manufacturing for ${prod.name} in Sialkot, Pakistan.`,
+    title,
+    description,
     alternates: {
-      canonical: `/products/${categorySlug}/${slug}`,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      title,
+      description,
+      url: canonicalUrl,
+      siteName: "GLOVES STORM Manufacturing",
+      type: "website",
+      images: [
+        {
+          url: ogImage,
+          width: 1200,
+          height: 630,
+          alt: `${prod.name} - GLOVES STORM OEM Factory`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [ogImage],
     },
   };
 }
@@ -67,7 +93,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     ? product.images.map((img) => img.image_url)
     : ["https://glovesstorm.com/images/products/boxing-gloves-black.png"];
 
-  const jsonLd = {
+  const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -145,11 +171,46 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     },
   };
 
+  const breadcrumbsJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://glovesstorm.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: "https://glovesstorm.com/products",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: category?.name || "Category",
+        item: `https://glovesstorm.com/products/${categorySlug}`,
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: product.name,
+        item: `https://glovesstorm.com/products/${categorySlug}/${productSlug}`,
+      },
+    ],
+  };
+
   return (
-    <div className="pt-28 pb-24 bg-[#fafafa] min-h-screen">
+    <div className="pt-28 pb-24 bg-transparent min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <ProductDetailClient

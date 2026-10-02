@@ -408,90 +408,87 @@ export default function CategoryLandingClient({
   return (
     <div className="space-y-16">
       {/* 1. Category Hero Banner */}
-      <section className="relative rounded-3xl overflow-hidden border border-neutral-200 bg-neutral-950 text-white shadow-xl">
-        <Image
-          src={
-            category.image_url ||
-            "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"
-          }
-          alt={`${category.name} OEM Manufacturing Sialkot - GLOVES STORM`}
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-30 scale-105 transition-transform duration-1000 ease-out"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-neutral-950 via-neutral-950/85 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-transparent to-transparent" />
+      <section className="relative rounded-3xl overflow-hidden border border-white/90 bg-white/80 backdrop-blur-xl text-slate-900 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+        <div className="absolute right-0 top-0 w-1/2 h-full opacity-15 pointer-events-none overflow-hidden">
+          <Image
+            src={
+              category.image_url ||
+              "/images/products/boxing-gloves-black.png"
+            }
+            alt={`${category.name} OEM Manufacturing Sialkot - GLOVES STORM`}
+            fill
+            priority
+            sizes="50vw"
+            className="object-cover object-center"
+          />
+        </div>
 
         <div className="relative z-10 p-8 sm:p-14 lg:p-16 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-[10px] font-mono uppercase tracking-[0.25em] font-bold mb-4">
-            <Sparkles className="w-3 h-3 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 border border-white/95 text-slate-800 text-[10px] font-mono uppercase tracking-[0.2em] font-bold mb-4 shadow-xs">
+            <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
             <span>{intel.heroSubtitle}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white mb-5 leading-[1.05]">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 mb-5 leading-[1.05]">
             Custom {category.name}
           </h1>
 
-          <p className="text-sm sm:text-base text-neutral-300 leading-relaxed mb-8 max-w-2xl font-normal">
+          <p className="text-sm sm:text-base text-[#334155] leading-relaxed mb-8 max-w-2xl font-normal">
             {category.description ||
               `Direct Sialkot OEM factory manufacturing for ${category.name}. Precision-engineered for combat athletes, performance sports teams, and private-label apparel brands worldwide.`}
           </p>
 
           {/* Quick Manufacturing Highlights */}
-          <div className="grid grid-cols-3 gap-3 mb-8 p-4 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 max-w-lg">
+          <div className="grid grid-cols-3 gap-3 mb-8 p-4 rounded-2xl bg-white/70 backdrop-blur-md border border-white/90 max-w-lg shadow-xs">
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                 Standard MOQ
               </span>
-              <span className="text-sm sm:text-base font-black text-amber-400 font-mono">
+              <span className="text-sm sm:text-base font-bold text-slate-900 font-mono">
                 {intel.standardMoq}
               </span>
             </div>
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                 Sample Dispatch
               </span>
-              <span className="text-sm sm:text-base font-black text-white font-mono">
+              <span className="text-sm sm:text-base font-bold text-slate-900 font-mono">
                 {intel.sampleLeadTime}
               </span>
             </div>
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 block">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 block">
                 Bulk Lead Time
               </span>
-              <span className="text-sm sm:text-base font-black text-white font-mono">
+              <span className="text-sm sm:text-base font-bold text-slate-900 font-mono">
                 {intel.productionLeadTime}
               </span>
             </div>
           </div>
 
           {/* Primary Action Buttons */}
-          <div className="flex flex-wrap items-center gap-4">
-            <GooeyButton
-              href={`/contact?category=${category.slug}`}
-              variant="gold-solid"
-              size="lg"
-            >
-              <span>START YOUR PROJECT</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </GooeyButton>
-
-            <GooeyButton
+          <div className="flex flex-wrap items-center gap-3.5">
+            <button
               onClick={() =>
                 setQuoteModalData({
                   isOpen: true,
-                  productName: `Custom ${category.name} Collection`,
+                  productName: `Custom ${category.name} Project`,
                   inquiryType: "Quote",
                 })
               }
-              variant="outline"
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
             >
-              <MessageSquare className="w-4 h-4 text-amber-400" />
-              <span>REQUEST A QUOTE</span>
-            </GooeyButton>
+              <span>REQUEST FACTORY QUOTE</span>
+              <ArrowUpRight className="w-4 h-4 text-white/80" />
+            </button>
+
+            <a
+              href="#products-grid"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white/80 hover:bg-white text-slate-800 font-bold text-xs uppercase tracking-wider border border-white/90 shadow-xs transition-all"
+            >
+              <span>Explore {products.length} Models</span>
+              <ArrowRight className="w-4 h-4 text-slate-500" />
+            </a>
           </div>
         </div>
       </section>
@@ -605,88 +602,108 @@ export default function CategoryLandingClient({
                   key={product.id}
                   onMouseEnter={() => setHoveredProductId(product.id)}
                   onMouseLeave={() => setHoveredProductId(null)}
-                  className="group bg-white rounded-3xl overflow-hidden border border-neutral-200/90 hover:border-amber-500/50 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_36px_rgba(180,83,9,0.12)] hover:-translate-y-1.5 flex flex-col justify-between transition-all duration-300"
+                  className="rounded-3xl p-4 bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
                 >
-                  {/* Image Container with Dual Image Crossfade */}
-                  <Link
-                    href={`/products/${category.slug}/${product.slug}`}
-                    className="relative aspect-square overflow-hidden bg-neutral-100 block"
-                  >
-                    {/* Primary Image */}
-                    <Image
-                      src={primaryImg}
-                      alt={product.images?.[0]?.alt_text || `${product.name} - Custom OEM Manufacturer (GLOVES STORM)`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className={`object-cover transition-all duration-700 ease-out ${
-                        isHovered ? "opacity-0 scale-110" : "opacity-100 scale-100"
-                      }`}
-                    />
+                  <div>
+                    {/* Image Container with Dual Image Crossfade */}
+                    <Link
+                      href={`/products/${category.slug}/${product.slug}`}
+                      className="aspect-[4/5] rounded-2xl bg-slate-100/80 overflow-hidden relative mb-3.5 block"
+                    >
+                      {/* Primary Image */}
+                      <Image
+                        src={primaryImg}
+                        alt={product.images?.[0]?.alt_text || `${product.name} - Custom OEM Manufacturer (GLOVES STORM)`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className={`object-cover transition-all duration-700 ease-out ${
+                          isHovered ? "opacity-0 scale-105" : "opacity-100 scale-100"
+                        }`}
+                      />
 
-                    {/* Secondary Image on Hover */}
-                    <Image
-                      src={secondaryImg}
-                      alt={product.images?.[1]?.alt_text || `${product.name} - Detail Angle (GLOVES STORM OEM)`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className={`object-cover transition-all duration-700 ease-out ${
-                        isHovered ? "opacity-100 scale-105" : "opacity-0 scale-100"
-                      }`}
-                    />
+                      {/* Secondary Image on Hover */}
+                      <Image
+                        src={secondaryImg}
+                        alt={product.images?.[1]?.alt_text || `${product.name} - Detail Angle (GLOVES STORM OEM)`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className={`object-cover transition-all duration-700 ease-out ${
+                          isHovered ? "opacity-100 scale-105" : "opacity-0 scale-100"
+                        }`}
+                      />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
-
-                    {/* Angle Indicator Badge */}
-                    <div className="absolute top-3 left-3 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-neutral-200 text-[10px] font-mono text-neutral-800 font-semibold shadow-xs">
-                      {isHovered ? "Angle 02: Detail View" : `MOQ: ${product.moq} Units`}
-                    </div>
-
-                    {product.featured && (
-                      <div className="absolute top-3 right-3 bg-amber-500 text-neutral-950 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
-                        Featured
+                      {/* Top Badges */}
+                      <div className="absolute top-3 left-3 bg-white/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/90 text-[10px] font-mono text-slate-800 font-semibold shadow-xs">
+                        {isHovered ? "Detail View" : `MOQ: ${product.moq} Pcs`}
                       </div>
-                    )}
-                  </Link>
 
-                  {/* Card Details */}
-                  <div className="p-6 flex flex-col flex-1 justify-between">
-                    <div>
-                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 font-bold block mb-1">
-                        {category.name}
+                      {product.featured && (
+                        <div className="absolute top-3 right-3 bg-slate-900 text-white px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase tracking-wider shadow-xs">
+                          Featured
+                        </div>
+                      )}
+                    </Link>
+
+                    {/* Category & Title */}
+                    <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-1">
+                      <span className="uppercase tracking-wider">{category.name}</span>
+                      <span className="text-emerald-700 font-semibold flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                        {product.lead_time || "2-4 W"}
                       </span>
-                      <Link
-                        href={`/products/${category.slug}/${product.slug}`}
-                        className="text-base font-bold uppercase tracking-tight text-neutral-950 group-hover:text-amber-800 transition-colors line-clamp-1 block mb-2"
-                      >
-                        {product.name}
-                      </Link>
-                      <p className="text-xs text-neutral-500 line-clamp-2 leading-relaxed mb-4">
-                        {product.short_description}
-                      </p>
-
-                      {/* Factory Specifications */}
-                      <div className="mb-4 flex items-center justify-between text-xs text-neutral-600 bg-neutral-50 px-3 py-2 rounded-xl border border-neutral-100">
-                        <span className="font-mono text-[11px] text-neutral-500">Min. Order:</span>
-                        <span className="font-mono font-bold text-neutral-900">{product.moq} pairs</span>
-                      </div>
                     </div>
 
-                    <div className="pt-4 border-t border-neutral-100 flex items-center justify-between gap-2">
-                      <div className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-500">
-                        <Clock className="w-3 h-3 text-amber-600" />
-                        <span>{product.lead_time || "2-4 W"}</span>
-                      </div>
+                    <Link
+                      href={`/products/${category.slug}/${product.slug}`}
+                      className="font-bold text-slate-900 text-base group-hover:text-slate-700 transition-colors line-clamp-1 mb-2 block"
+                    >
+                      {product.name}
+                    </Link>
 
-                      <div className="flex items-center gap-1.5">
-                        <Link
-                          href={`/products/${category.slug}/${product.slug}`}
-                          className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-neutral-900 group-hover:text-amber-800 px-2.5 py-1 transition-colors"
-                        >
-                          <span>EXPLORE</span>
-                          <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                        </Link>
-                      </div>
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
+                      {product.short_description}
+                    </p>
+
+                    {/* Technical Specs pills */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {product.specifications ? (
+                        Object.entries(product.specifications).slice(0, 2).map(([key, val]) => (
+                          <span
+                            key={key}
+                            className="text-[10px] font-mono bg-slate-100/90 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200/60"
+                          >
+                            {String(val)}
+                          </span>
+                        ))
+                      ) : (
+                        <span className="text-[10px] font-mono bg-slate-100/90 text-slate-700 px-2 py-0.5 rounded-md border border-slate-200/60">
+                          Custom Fabric & Trims
+                        </span>
+                      )}
                     </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-200/60">
+                    <Link
+                      href={`/products/${category.slug}/${product.slug}`}
+                      className="text-center py-2 px-3 rounded-xl text-xs font-semibold text-slate-800 bg-slate-100/90 hover:bg-slate-200/80 border border-slate-200/80 transition-all"
+                    >
+                      Tech Specs
+                    </Link>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setQuoteModalData({
+                          isOpen: true,
+                          productName: product.name,
+                          inquiryType: "Sample",
+                        })
+                      }
+                      className="py-2 px-3 rounded-xl text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 shadow-sm transition-all"
+                    >
+                      Inquire
+                    </button>
                   </div>
                 </div>
               );
@@ -696,15 +713,15 @@ export default function CategoryLandingClient({
       </section>
 
       {/* 4. Product Development / OEM Process */}
-      <section className="bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-sm">
+      <section className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-700 font-bold block mb-2">
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-slate-500 font-bold block mb-2">
             Turnkey OEM Workflow
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-neutral-950">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             From Design Concept to Production Floor
           </h2>
-          <p className="text-sm text-neutral-600 mt-2">
+          <p className="text-sm text-slate-600 mt-2">
             A transparent 5-stage manufacturing pipeline designed to eliminate
             supplier friction and deliver consistent, export-certified goods.
           </p>
@@ -740,16 +757,16 @@ export default function CategoryLandingClient({
           ].map((s, idx) => (
             <div
               key={idx}
-              className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 flex flex-col justify-between"
+              className="p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-white/80 shadow-xs flex flex-col justify-between"
             >
               <div>
-                <span className="text-xl font-mono font-black text-amber-800 block mb-2">
+                <span className="text-xl font-mono font-black text-slate-900 block mb-2">
                   {s.step}
                 </span>
-                <h4 className="text-xs font-bold uppercase tracking-tight text-neutral-950 mb-2">
+                <h4 className="text-xs font-bold uppercase tracking-tight text-slate-900 mb-2">
                   {s.title}
                 </h4>
-                <p className="text-[11px] text-neutral-600 leading-relaxed">
+                <p className="text-[11px] text-slate-600 leading-relaxed">
                   {s.desc}
                 </p>
               </div>
@@ -759,12 +776,12 @@ export default function CategoryLandingClient({
       </section>
 
       {/* 5. Category FAQs */}
-      <section className="bg-white rounded-3xl p-8 sm:p-12 border border-neutral-200 shadow-sm">
+      <section className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
         <div className="max-w-2xl mb-8">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-700 font-bold block mb-2">
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-slate-500 font-bold block mb-2">
             Technical Inquiries
           </span>
-          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-neutral-950">
+          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
             Frequently Asked Questions — {category.name}
           </h2>
         </div>
@@ -775,24 +792,24 @@ export default function CategoryLandingClient({
             return (
               <div
                 key={idx}
-                className="border border-neutral-200 rounded-2xl overflow-hidden transition-colors"
+                className="border border-slate-200/80 rounded-2xl overflow-hidden transition-colors bg-white/60"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                  className="w-full flex items-center justify-between p-5 text-left bg-neutral-50/50 hover:bg-neutral-50 transition-colors cursor-pointer"
+                  className="w-full flex items-center justify-between p-5 text-left bg-white/70 hover:bg-white/90 transition-colors cursor-pointer"
                 >
-                  <span className="text-xs sm:text-sm font-bold text-neutral-950 uppercase tracking-tight">
+                  <span className="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">
                     {faq.q}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-neutral-500 transition-transform ${
-                      isOpen ? "rotate-180 text-amber-600" : ""
+                    className={`w-4 h-4 text-slate-500 transition-transform ${
+                      isOpen ? "rotate-180 text-slate-900" : ""
                     }`}
                   />
                 </button>
                 {isOpen && (
-                  <div className="p-5 bg-white border-t border-neutral-100 text-xs sm:text-sm text-neutral-600 leading-relaxed">
+                  <div className="p-5 bg-white/95 border-t border-slate-100 text-xs sm:text-sm text-slate-600 leading-relaxed">
                     {faq.a}
                   </div>
                 )}
@@ -804,19 +821,19 @@ export default function CategoryLandingClient({
 
       {/* 6. Related Projects / Case Studies Connection */}
       {relatedProjects.length > 0 && (
-        <section className="bg-neutral-950 text-white rounded-3xl p-8 sm:p-12 border border-neutral-900 shadow-xl">
+        <section className="bg-white/80 backdrop-blur-xl rounded-3xl p-8 sm:p-12 border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
           <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 mb-8">
             <div>
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-400 font-bold block mb-1">
+              <span className="text-xs font-mono uppercase tracking-[0.25em] text-slate-500 font-bold block mb-1">
                 Verified Production Work
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-white">
+              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
                 Case Studies & Brand Productions
               </h2>
             </div>
             <Link
               href="/previous-work"
-              className="text-xs font-mono uppercase tracking-wider text-amber-400 hover:text-amber-300 inline-flex items-center gap-1 font-bold"
+              className="text-xs font-mono uppercase tracking-wider text-slate-900 hover:text-slate-700 inline-flex items-center gap-1 font-bold"
             >
               <span>View Previous Work (@glovesstorm)</span>
               <ArrowUpRight className="w-4 h-4" />
@@ -827,24 +844,24 @@ export default function CategoryLandingClient({
             {relatedProjects.slice(0, 3).map((proj) => (
               <div
                 key={proj.id}
-                className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-amber-400/40 transition-colors"
+                className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl p-6 flex flex-col justify-between shadow-xs hover:shadow-md transition-all"
               >
                 <div>
-                  <span className="text-[10px] font-mono text-amber-400 uppercase tracking-wider block mb-2">
+                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block mb-2">
                     {proj.industry}
                   </span>
-                  <h4 className="text-base font-bold uppercase tracking-tight text-white mb-2">
+                  <h4 className="text-base font-bold text-slate-900 mb-2">
                     {proj.title}
                   </h4>
-                  <p className="text-xs text-neutral-400 line-clamp-3 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
                     {proj.description}
                   </p>
                 </div>
                 <Link
                   href="/previous-work"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-white transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-900 hover:text-slate-700 transition-colors"
                 >
-                  <span>Inspect Drop on Instagram</span>
+                  <span>Inspect Drop Archive</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -854,31 +871,31 @@ export default function CategoryLandingClient({
       )}
 
       {/* 7. Section 24 Trust / Manufacturing CTA */}
-      <section className="relative rounded-3xl overflow-hidden p-8 sm:p-14 border border-amber-600/30 bg-gradient-to-r from-amber-500/10 via-neutral-900 to-neutral-950 text-white shadow-xl">
+      <section className="relative rounded-3xl overflow-hidden p-8 sm:p-14 border border-white/90 bg-white/85 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
         <div className="relative z-10 max-w-2xl">
-          <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-400 font-bold block mb-2">
+          <span className="text-xs font-mono uppercase tracking-[0.25em] text-slate-500 font-bold block mb-2">
             Direct Sialkot OEM Partner
           </span>
-          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
             NEED SOMETHING CUSTOM IN {category.name.toUpperCase()}?
           </h2>
-          <p className="text-sm text-neutral-300 leading-relaxed mb-8">
-            Have a design, tech pack, or idea? We can help turn it into a
-            production-ready product with bespoke patterns, custom materials,
-            and complete private-label branding.
+          <p className="text-sm text-slate-600 leading-relaxed mb-8">
+            Have a design, tech pack, or idea? We turn concepts into
+            production-ready apparel and combat equipment with bespoke patterns, certified materials,
+            and complete private-label export finishing.
           </p>
 
           <div className="flex flex-wrap items-center gap-4">
-            <GooeyButton
+            <Link
               href={`/contact?category=${category.slug}`}
-              variant="gold-solid"
-              size="lg"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800 shadow-sm transition-all"
             >
               <span>START YOUR PROJECT</span>
               <ArrowUpRight className="w-4 h-4" />
-            </GooeyButton>
+            </Link>
 
-            <GooeyButton
+            <button
+              type="button"
               onClick={() =>
                 setQuoteModalData({
                   isOpen: true,
@@ -886,12 +903,10 @@ export default function CategoryLandingClient({
                   inquiryType: "Sample",
                 })
               }
-              variant="outline"
-              size="lg"
-              className="border-white/30 text-white hover:bg-white/10"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-100/90 text-slate-900 border border-slate-200/80 text-xs font-bold uppercase tracking-wider hover:bg-slate-200/80 transition-all"
             >
               <span>REQUEST A SAMPLE</span>
-            </GooeyButton>
+            </button>
           </div>
         </div>
       </section>

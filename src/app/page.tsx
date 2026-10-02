@@ -1,7 +1,9 @@
 import HeroSection from "@/components/home/HeroSection";
-import BrandStatementSection from "@/components/home/BrandStatementSection";
+import ManufacturingTrustBanner from "@/components/home/ManufacturingTrustBanner";
 import CategoryGridSection from "@/components/home/CategoryGridSection";
-import ProductExplorerSection from "@/components/home/ProductExplorerSection";
+import CategoryShowcaseSection from "@/components/home/CategoryShowcaseSection";
+import OemManufacturingBanner from "@/components/home/OemManufacturingBanner";
+import BrandStatementSection from "@/components/home/BrandStatementSection";
 import ProcessSection from "@/components/home/ProcessSection";
 import FactoryCapabilitiesSection from "@/components/home/FactoryCapabilitiesSection";
 import WhyUsSection from "@/components/home/WhyUsSection";
@@ -38,41 +40,55 @@ export default async function HomePage() {
   ]);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* SECTION 01 — CINEMATIC HERO */}
+    <div className="flex flex-col min-h-screen bg-transparent">
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* START SECTIONS: HERO, CATEGORIES & CATEGORY PRODUCTS       */}
+      {/* ────────────────────────────────────────────────────────── */}
+
+      {/* 01 — PREMIUM LIGHT MODE HERO BANNER */}
       <HeroSection />
 
-      {/* SECTION 02 — BRAND STATEMENT & 7-STAGE LIFECYCLE */}
-      <BrandStatementSection />
+      {/* 02 — B2B MANUFACTURING CREDENTIALS & TRUST TICKER */}
+      <ManufacturingTrustBanner />
 
-      {/* SECTION 03 — PRODUCT CATEGORIES */}
+      {/* 03 — BESPOKE MANUFACTURING DIVISIONS (CATEGORIES) */}
       <CategoryGridSection categories={categories} />
 
-      {/* SECTION 04 — PRODUCT EXPLORER */}
-      <ProductExplorerSection products={products} categories={categories} />
+      {/* 04 — DIFFERENT CATEGORIES PRODUCTS SHOWCASE */}
+      <CategoryShowcaseSection products={products} categories={categories} />
 
-      {/* SECTION 05 — MANUFACTURING PROCESS TIMELINE */}
+      {/* 05 — PREMIUM OEM & PRIVATE LABEL BRANDING BANNER */}
+      <OemManufacturingBanner />
+
+      {/* ────────────────────────────────────────────────────────── */}
+      {/* CONTENT SECTIONS: LIFECYCLE, FACTORY, TRUST & TESTIMONIALS */}
+      {/* ────────────────────────────────────────────────────────── */}
+
+      {/* 06 — BRAND STATEMENT & 7-STAGE MANUFACTURING LIFECYCLE */}
+      <BrandStatementSection />
+
+      {/* 07 — SIX-STEP PRODUCTION TIMELINE */}
       <ProcessSection />
 
-      {/* SECTION 07 — FACTORY / CAPABILITIES */}
+      {/* 08 — SIALKOT FACTORY CAPABILITIES & MACHINERY */}
       <FactoryCapabilitiesSection />
 
-      {/* SECTION 08 — WHY GLOVES STORM */}
+      {/* 09 — WHY CHOOSE GLOVES STORM (PARTNERSHIP ADVANTAGE) */}
       <WhyUsSection />
 
-      {/* SECTION 09 — WHO WE WORK WITH */}
+      {/* 10 — WHO WE WORK WITH (BRANDS, GYMS, STARTUPS) */}
       <WhoWeWorkWithSection />
 
-      {/* SECTION 10 — PROJECTS / CASE STUDIES */}
+      {/* 11 — PREVIOUS WORK & CLIENT PRODUCTION DROPS */}
       <FeaturedProjectsSection projects={projects} />
 
-      {/* SECTION 11 — TESTIMONIALS */}
+      {/* 12 — VERIFIED CLIENT TESTIMONIALS */}
       <TestimonialsSection testimonials={testimonials} />
 
-      {/* SECTION 12 — GLOBAL REACH */}
+      {/* 13 — GLOBAL EXPORT REACH & 3D INTERACTIVE GLOBE */}
       <GlobalReachSection />
 
-      {/* SECTION 13 — FINAL FULLSCREEN CTA */}
+      {/* 14 — FINAL HIGH-CONVERSION CTA BANNER */}
       <FinalCtaSection />
     </div>
   );

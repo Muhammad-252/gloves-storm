@@ -117,7 +117,7 @@ export default function ProductExplorerSection({
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
               {filteredProducts.slice(0, 8).map((product) => {
                 const primaryImg =
                   product.images?.find((img) => img.is_primary)?.image_url ||
@@ -134,86 +134,76 @@ export default function ProductExplorerSection({
                 return (
                   <div
                     key={product.id}
-                    className="group bg-white rounded-3xl overflow-hidden border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.05)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.11)] hover:border-amber-500/50 hover:-translate-y-1.5 flex flex-col justify-between transition-all duration-500"
+                    className="group relative bg-white/70 backdrop-blur-xl border border-white/85 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(217,119,6,0.10)] hover:border-amber-400/50 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-3 sm:p-3.5 flex flex-col justify-between"
                   >
-                    {/* Image Container with Dual Image Flip on Hover */}
+                    {/* Image Container with Hover Cross-Fade */}
                     <Link
                       href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                      className="relative aspect-square overflow-hidden bg-neutral-100 block"
+                      className="relative aspect-square w-full rounded-2xl overflow-hidden bg-neutral-100/60 block mb-3"
                     >
-                      {/* Primary Image */}
                       <Image
                         src={primaryImg}
-                        alt={`${product.name} - Gloves Storm B2B Manufacturing`}
+                        alt={product.name}
                         fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                        className="object-cover transition-all duration-700 ease-out group-hover:scale-105"
+                        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                        className="object-cover transition-all duration-500 ease-out group-hover:scale-105"
                       />
-                      {/* Secondary Image on Hover */}
                       {secondaryImg !== primaryImg && (
                         <Image
                           src={secondaryImg}
                           alt={`${product.name} alternate view`}
                           fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                          className="object-cover transition-opacity duration-700 opacity-0 group-hover:opacity-100 group-hover:scale-105"
+                          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                          className="object-cover transition-opacity duration-500 opacity-0 group-hover:opacity-100 group-hover:scale-105"
                         />
                       )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60 pointer-events-none" />
 
-                      {/* MOQ Pill Badge */}
-                      <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3 py-1 rounded-full border border-black/[0.08] text-[10px] font-mono text-[#1A1A1A] font-semibold shadow-xs">
-                        <Box className="w-3 h-3 text-amber-600" />
-                        <span>MOQ: {product.moq} Units</span>
+                      {/* Frosted Glass MOQ Badge */}
+                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 bg-white/85 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/80 text-[10px] font-mono text-[#111827] font-semibold shadow-xs">
+                        <Box className="w-2.5 h-2.5 text-amber-700" />
+                        <span>MOQ: {product.moq}</span>
                       </div>
 
                       {product.featured && (
-                        <div className="absolute top-3 right-3 bg-amber-500 text-neutral-950 px-2.5 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
+                        <div className="absolute top-2.5 right-2.5 z-10 bg-amber-500 text-neutral-950 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
                           Featured
                         </div>
                       )}
                     </Link>
 
-                    {/* Body Content */}
-                    <div className="p-6 flex flex-col flex-1 justify-between">
-                      <div>
-                        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 block mb-1 font-bold">
-                          {categoryObj?.name || "Manufacturing Division"}
-                        </span>
-                        <Link
-                          href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                          className="text-base font-bold uppercase tracking-tight text-[#1A1A1A] group-hover:text-amber-800 transition-colors line-clamp-1 block mb-2"
-                        >
-                          {product.name}
-                        </Link>
-                        <p className="text-xs text-[#6B7280] line-clamp-2 leading-relaxed mb-4 font-normal">
-                          {product.short_description || "Custom specifications & private label available."}
-                        </p>
-                      </div>
+                    {/* Title */}
+                    <div className="mb-3 px-1">
+                      <Link
+                        href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                        className="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-amber-800 transition-colors line-clamp-1 block"
+                        title={product.name}
+                      >
+                        {product.name}
+                      </Link>
+                    </div>
 
-                      {/* Metadata & Actions */}
-                      <div className="pt-4 border-t border-black/[0.06] flex items-center justify-between">
-                        <Link
-                          href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                          className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#1A1A1A] group-hover:text-amber-600 transition-colors"
-                        >
-                          <span>EXPLORE</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                        </Link>
+                    {/* Action Buttons: Specs & Quote */}
+                    <div className="grid grid-cols-2 gap-2 pt-1 border-t border-black/[0.05]">
+                      <Link
+                        href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
+                        className="py-2 px-2.5 rounded-xl bg-white/80 hover:bg-white border border-black/[0.08] hover:border-black/[0.2] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827] flex items-center justify-center gap-1 transition-all"
+                      >
+                        <span>Specs</span>
+                        <ArrowUpRight className="w-3 h-3" />
+                      </Link>
 
-                        <button
-                          onClick={() =>
-                            setQuoteModalData({
-                              isOpen: true,
-                              productName: product.name,
-                              category: categoryObj?.name || "General",
-                            })
-                          }
-                          className="text-[11px] font-mono uppercase tracking-wider text-amber-800 hover:text-amber-900 font-bold px-2.5 py-1 rounded-md bg-amber-50 hover:bg-amber-100 transition-colors cursor-pointer border border-amber-200/60"
-                        >
-                          Quote
-                        </button>
-                      </div>
+                      <button
+                        onClick={() =>
+                          setQuoteModalData({
+                            isOpen: true,
+                            productName: product.name,
+                            category: categoryObj?.name || "General",
+                          })
+                        }
+                        className="py-2 px-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-[10px] sm:text-[11px] font-mono uppercase tracking-wider shadow-xs hover:shadow-sm transition-all flex items-center justify-center gap-1 cursor-pointer"
+                      >
+                        Quote
+                      </button>
                     </div>
                   </div>
                 );

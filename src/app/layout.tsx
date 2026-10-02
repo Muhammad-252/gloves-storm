@@ -202,9 +202,16 @@ export default function RootLayout({
         />
       </head>
       <body
-        className="min-h-full flex flex-col bg-white text-[#1A1A1A]"
+        className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 relative"
         suppressHydrationWarning
       >
+        {/* Fixed Ambient Radial Gradient Orbs for Frosted Glass Refraction */}
+        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+          <div className="absolute -top-40 -left-40 w-[650px] h-[650px] rounded-full bg-slate-200/60 blur-3xl opacity-75" />
+          <div className="absolute top-1/4 -right-40 w-[700px] h-[700px] rounded-full bg-slate-300/40 blur-3xl opacity-65" />
+          <div className="absolute top-2/3 left-1/3 w-[600px] h-[600px] rounded-full bg-slate-200/50 blur-3xl opacity-50" />
+        </div>
+
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
