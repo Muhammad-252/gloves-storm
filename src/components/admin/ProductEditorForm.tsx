@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Product, Category, ProductImage, PriceTier } from "@/types/database";
 import { saveProduct } from "@/lib/data/store";
@@ -16,6 +16,9 @@ import {
   DollarSign,
   Sparkles,
   RefreshCw,
+  Upload,
+  Image as ImageIcon,
+  Link as LinkIcon,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -100,6 +103,10 @@ export default function ProductEditorForm({
     ]
   );
   const [newImageUrl, setNewImageUrl] = useState("");
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [isDraggingImage, setIsDraggingImage] = useState(false);
+  const galleryFileInputRef = useRef<HTMLInputElement>(null);
 
   const [saving, setSaving] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
@@ -110,6 +117,55 @@ export default function ProductEditorForm({
     setName(newName);
     if (!isEditing) {
       setSlug(slugify(newName));
+    }
+  };
+
+  const handleDirectFileUpload = async (files: FileList | File[]) => {
+    if (!files || files.length === 0) return;
+    setIsUploadingImage(true);
+    setUploadError(null);
+
+    const newAddedImages: ProductImage[] = [];
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (!file.type.startsWith("image/")) continue;
+
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("folder", "products");
+
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success && data.url) {
+          newAddedImages.push({
+            id: `img-${Date.now()}-${i}`,
+            product_id: initialProduct?.id || "",
+            image_url: data.url,
+            alt_text: name || "Product Angle",
+            sort_order: images.length + newAddedImages.length + 1,
+            is_primary: images.length === 0 && newAddedImages.length === 0,
+            created_at: new Date().toISOString(),
+          });
+        } else {
+          setUploadError(data.error || "Failed to upload one or more images");
+        }
+      } catch (err: any) {
+        setUploadError(err?.message || "Upload failed. Please check network connection.");
+      }
+    }
+
+    if (newAddedImages.length > 0) {
+      setImages((prev) => [...prev, ...newAddedImages]);
+    }
+    setIsUploadingImage(false);
+    if (galleryFileInputRef.current) {
+      galleryFileInputRef.current.value = "";
     }
   };
 
@@ -571,26 +627,119 @@ export default function ProductEditorForm({
 
           {/* Product Gallery Manager */}
           <div className="p-6 bg-white border border-neutral-200 rounded-3xl shadow-sm space-y-4">
-            <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f172a] border-b border-neutral-100 pb-3">
-              Product Images Gallery
-            </h2>
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+              <div>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f172a]">
+                  Product Images Gallery ({images.length})
+                </h2>
+                <p className="text-[11px] text-neutral-500 mt-0.5">
+                  Directly upload product photos from your device or add external image URLs.
+                </p>
+              </div>
 
-            {/* Add Image by URL */}
-            <div className="flex items-center gap-2">
-              <input
-                type="url"
-                value={newImageUrl}
-                onChange={(e) => setNewImageUrl(e.target.value)}
-                placeholder="https://example.com/product-image.jpg"
-                className="flex-1 bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] px-3.5 py-2 text-xs outline-none focus:ring-1 focus:ring-amber-500/20"
-              />
               <button
                 type="button"
-                onClick={handleAddImage}
-                className="bg-neutral-100 hover:bg-neutral-200 text-[#0f172a] border border-neutral-200 rounded-xl px-4 py-2 text-xs uppercase font-bold tracking-wider shrink-0 transition-colors cursor-pointer"
+                onClick={() => galleryFileInputRef.current?.click()}
+                disabled={isUploadingImage}
+                className="inline-flex items-center gap-2 bg-[#0f172a] hover:bg-neutral-800 disabled:opacity-50 text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs"
               >
-                Add Image
+                {isUploadingImage ? (
+                  <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                ) : (
+                  <Upload className="w-3.5 h-3.5" />
+                )}
+                <span>Upload Photos</span>
               </button>
+            </div>
+
+            {/* Hidden multi-file input */}
+            <input
+              ref={galleryFileInputRef}
+              type="file"
+              multiple
+              accept="image/*"
+              className="hidden"
+              onChange={(e) => e.target.files && handleDirectFileUpload(e.target.files)}
+            />
+
+            {/* Drag & Drop Upload Zone */}
+            <div
+              onDrop={(e) => {
+                e.preventDefault();
+                setIsDraggingImage(false);
+                if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                  handleDirectFileUpload(e.dataTransfer.files);
+                }
+              }}
+              onDragOver={(e) => {
+                e.preventDefault();
+                setIsDraggingImage(true);
+              }}
+              onDragLeave={(e) => {
+                e.preventDefault();
+                setIsDraggingImage(false);
+              }}
+              onClick={() => !isUploadingImage && galleryFileInputRef.current?.click()}
+              className={`border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition-all ${
+                isDraggingImage
+                  ? "border-amber-600 bg-amber-50/50 scale-[0.99]"
+                  : "border-neutral-200 hover:border-amber-500 bg-neutral-50/50 hover:bg-neutral-50"
+              } ${isUploadingImage ? "pointer-events-none opacity-80" : ""}`}
+            >
+              {isUploadingImage ? (
+                <div className="py-2 flex flex-col items-center justify-center gap-2 text-amber-600">
+                  <Loader2 className="w-6 h-6 animate-spin" />
+                  <span className="text-xs font-semibold">Uploading photos from device...</span>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center gap-2">
+                  <div className="w-10 h-10 rounded-full bg-white border border-neutral-200 flex items-center justify-center text-neutral-600 shadow-xs">
+                    <Upload className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-semibold text-neutral-800">
+                      Click to upload photos <span className="text-neutral-500 font-normal">or drag & drop here</span>
+                    </p>
+                    <p className="text-[10px] text-neutral-400 mt-0.5">
+                      Select multiple images at once (PNG, JPG, WEBP, up to 15MB each).
+                    </p>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {uploadError && (
+              <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-600">
+                {uploadError}
+              </div>
+            )}
+
+            {/* Optional URL Input Alternative */}
+            <div className="pt-1">
+              <label className="block text-[10px] uppercase font-mono tracking-wider text-neutral-500 mb-1.5 font-semibold">
+                Or Add Image via URL:
+              </label>
+              <div className="flex items-center gap-2">
+                <div className="relative flex-1">
+                  <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-neutral-400">
+                    <LinkIcon className="w-3.5 h-3.5" />
+                  </span>
+                  <input
+                    type="url"
+                    value={newImageUrl}
+                    onChange={(e) => setNewImageUrl(e.target.value)}
+                    placeholder="https://example.com/product-image.jpg"
+                    className="w-full bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] pl-9 pr-3.5 py-2 text-xs outline-none focus:ring-1 focus:ring-amber-500/20"
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={handleAddImage}
+                  className="bg-neutral-100 hover:bg-neutral-200 text-[#0f172a] border border-neutral-200 rounded-xl px-4 py-2 text-xs uppercase font-bold tracking-wider shrink-0 transition-colors cursor-pointer"
+                >
+                  Add URL
+                </button>
+              </div>
             </div>
 
             {/* Gallery Preview List */}

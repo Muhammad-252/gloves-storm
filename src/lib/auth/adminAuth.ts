@@ -76,10 +76,44 @@ export function useAdminAuth() {
     setUserEmail(null);
   };
 
+  const resetPassword = async (
+    email: string
+  ): Promise<{ success: boolean; message?: string; error?: string }> => {
+    if (isSupabaseConfigured && supabase) {
+      try {
+        const { error } = await supabase.auth.resetPasswordForEmail(email, {
+          redirectTo: typeof window !== "undefined" ? `${window.location.origin}/admin` : undefined,
+        });
+
+        if (error) {
+          return { success: false, error: error.message };
+        }
+
+        return {
+          success: true,
+          message:
+            "Password recovery instructions have been sent to your email address. Please check your inbox or spam folder.",
+        };
+      } catch (err: any) {
+        return { success: false, error: err?.message || "Failed to send reset email." };
+      }
+    }
+
+    // Local / demo fallback mode
+    return {
+      success: true,
+      message:
+        "Password reset request received for " +
+        email +
+        ". If using local demo access, you can also sign in directly or configure administrator credentials in .env.local.",
+    };
+  };
+
   return {
     isAuthenticated,
     userEmail,
     login,
     logout,
+    resetPassword,
   };
 }

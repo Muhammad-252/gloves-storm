@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 import { Project, Category, ProjectImage } from "@/types/database";
 import { saveProject, deleteProject } from "@/lib/data/store";
@@ -18,6 +18,7 @@ import {
   CheckCircle,
   Eye,
   Sparkles,
+  Upload,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -37,6 +38,8 @@ export default function AdminProjectsClient({
   const [newImageInput, setNewImageInput] = useState<string>("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [notice, setNotice] = useState<string | null>(null);
 
   // Helper to extract image URLs from a project
@@ -89,6 +92,39 @@ export default function AdminProjectsClient({
       setImagesList([...imagesList, url]);
     }
     if (!urlToAdd) setNewImageInput("");
+  };
+
+  const handleFileUpload = async (files: FileList | File[]) => {
+    if (!files || files.length === 0) return;
+    setIsUploading(true);
+
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (!file.type.startsWith("image/")) continue;
+
+      try {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("folder", "projects");
+
+        const res = await fetch("/api/upload", {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await res.json();
+        if (res.ok && data.success && data.url) {
+          setImagesList((prev) => [...prev, data.url]);
+        }
+      } catch (err) {
+        console.error("Project image upload error:", err);
+      }
+    }
+
+    setIsUploading(false);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
   };
 
   const handleRemoveImage = (indexToRemove: number) => {
@@ -433,7 +469,16 @@ export default function AdminProjectsClient({
                   </div>
                 </div>
 
-                {/* Add Image Input */}
+                {/* Add Image Input & Direct Upload */}
+                <input
+                  ref={fileInputRef}
+                  type="file"
+                  multiple
+                  accept="image/*"
+                  className="hidden"
+                  onChange={(e) => e.target.files && handleFileUpload(e.target.files)}
+                />
+
                 <div className="flex items-center gap-2">
                   <input
                     type="text"
@@ -451,9 +496,22 @@ export default function AdminProjectsClient({
                   <button
                     type="button"
                     onClick={() => handleAddImage()}
-                    className="px-4 py-2 bg-[#0f172a] hover:bg-neutral-800 text-white rounded-xl text-xs font-bold whitespace-nowrap transition-colors"
+                    className="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-[#0f172a] rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer"
                   >
-                    Add Image
+                    Add URL
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={isUploading}
+                    className="px-4 py-2 bg-[#0f172a] hover:bg-neutral-800 disabled:opacity-50 text-white rounded-xl text-xs font-bold whitespace-nowrap transition-colors inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
+                  >
+                    {isUploading ? (
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    ) : (
+                      <Upload className="w-3.5 h-3.5" />
+                    )}
+                    <span>Upload Image</span>
                   </button>
                 </div>
 

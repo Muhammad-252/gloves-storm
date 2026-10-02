@@ -6,6 +6,7 @@ import { saveBlogPost, deleteBlogPost } from "@/lib/data/store";
 import { slugify, formatDate } from "@/lib/utils";
 import { Plus, Edit2, Trash2, X, ExternalLink, Calendar } from "lucide-react";
 import Link from "next/link";
+import ImageUploadField from "./ImageUploadField";
 
 interface AdminBlogClientProps {
   initialPosts: BlogPost[];
@@ -242,19 +243,14 @@ export default function AdminBlogClient({ initialPosts }: AdminBlogClientProps) 
                 </div>
               </div>
 
-              <div>
-                <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
-                  Featured Image URL
-                </label>
-                <input
-                  type="url"
-                  value={editingPost.featured_image || ""}
-                  onChange={(e) =>
-                    setEditingPost({ ...editingPost, featured_image: e.target.value })
-                  }
-                  className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
-                />
-              </div>
+              <ImageUploadField
+                label="Featured Cover Image"
+                value={editingPost.featured_image || ""}
+                onChange={(url) => setEditingPost({ ...editingPost, featured_image: url })}
+                folder="blog"
+                placeholder="https://images.unsplash.com/... or upload from computer"
+                helperText="Upload blog cover image directly from your device, or enter an image URL."
+              />
 
               <div>
                 <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">

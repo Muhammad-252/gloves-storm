@@ -14,6 +14,7 @@ import {
   X,
   Loader2,
 } from "lucide-react";
+import ImageUploadField from "./ImageUploadField";
 
 interface AdminCategoriesClientProps {
   initialCategories: Category[];
@@ -319,20 +320,14 @@ export default function AdminCategoriesClient({
                 </select>
               </div>
 
-              <div>
-                <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
-                  Cover Image URL
-                </label>
-                <input
-                  type="url"
-                  value={editingCat.image_url || ""}
-                  onChange={(e) =>
-                    setEditingCat({ ...editingCat, image_url: e.target.value })
-                  }
-                  className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
-                  placeholder="https://images.unsplash.com/..."
-                />
-              </div>
+              <ImageUploadField
+                label="Category Cover Image"
+                value={editingCat.image_url || ""}
+                onChange={(url) => setEditingCat({ ...editingCat, image_url: url })}
+                folder="categories"
+                placeholder="https://images.unsplash.com/... or upload from computer"
+                helperText="Upload category cover image directly from your device, or enter an image URL."
+              />
 
               <div>
                 <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
