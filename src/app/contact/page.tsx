@@ -6,16 +6,16 @@ import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get a Custom Manufacturing Quote — Boxing Gloves & Sportswear | Gloves Storm",
+  title: "Get a Custom Clothing & Sportswear Manufacturing Quote | Gloves Storm",
   description:
-    "Request a free OEM manufacturing quote from Gloves Storm. Custom boxing gloves, fight gear, sportswear and activewear. MOQ 25 pcs. Reply within 24 hours. USA and UK brands welcome.",
+    "Request a free OEM apparel manufacturing quote from Gloves Storm. Custom clothing, sportswear, activewear, streetwear, and private label garments. MOQ 35–50 pcs. Reply within 24 hours. USA, UK, and worldwide export.",
   alternates: {
     canonical: "https://www.glovesstorm.com/contact",
   },
   openGraph: {
-    title: "Get a Custom Manufacturing Quote — Boxing Gloves & Sportswear | Gloves Storm",
+    title: "Get a Custom Clothing & Sportswear Manufacturing Quote | Gloves Storm",
     description:
-      "Request a free OEM manufacturing quote from Gloves Storm. Custom boxing gloves, fight gear, sportswear and activewear. MOQ 25 pcs. Reply within 24 hours. USA and UK brands welcome.",
+      "Request a free OEM apparel manufacturing quote from Gloves Storm. Custom clothing, sportswear, activewear, streetwear, and private label garments. MOQ 35–50 pcs. Reply within 24 hours. USA, UK, and worldwide export.",
     url: "https://www.glovesstorm.com/contact",
     siteName: "Gloves Storm",
     type: "website",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Get a Custom Manufacturing Quote — Boxing Gloves & Sportswear | Gloves Storm",
+    title: "Get a Custom Clothing & Sportswear Manufacturing Quote | Gloves Storm",
     description:
-      "Request a free OEM manufacturing quote from Gloves Storm. Custom boxing gloves, fight gear, sportswear and activewear. MOQ 25 pcs. Reply within 24 hours.",
+      "Request a free OEM apparel manufacturing quote from Gloves Storm. Custom clothing, sportswear, activewear, streetwear, and private label garments. MOQ 35–50 pcs. Reply within 24 hours.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
@@ -53,13 +53,13 @@ export default async function ContactPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://glovesstorm.com",
+            item: "https://www.glovesstorm.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Contact & RFQ",
-            item: "https://glovesstorm.com/contact",
+            item: "https://www.glovesstorm.com/contact",
           },
         ],
       },

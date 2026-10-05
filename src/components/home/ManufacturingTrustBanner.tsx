@@ -5,17 +5,17 @@ import { ShieldCheck, Cpu, Box, Clock, Truck, Award } from "lucide-react";
 const credentials = [
   {
     icon: ShieldCheck,
-    title: "Direct Sialkot Factory",
+    title: "Direct Apparel Mill",
     detail: "Zero middlemen • Mill-direct pricing",
   },
   {
     icon: Box,
-    title: "Low MOQ: 25–50 Pcs",
+    title: "Low MOQ: 35–50 Pcs",
     detail: "Scales from startups to 50k+ units",
   },
   {
     icon: Clock,
-    title: "7–10 Days Prototyping",
+    title: "5–7 Days Prototyping",
     detail: "Door-to-door physical sample testing",
   },
   {
@@ -30,8 +30,8 @@ const credentials = [
   },
   {
     icon: Truck,
-    title: "Worldwide Freight",
-    detail: "DHL • FedEx • DDP Air & Ocean shipping",
+    title: "DDP Global Delivery",
+    detail: "USA & UK express • 50+ countries",
   },
 ];
 

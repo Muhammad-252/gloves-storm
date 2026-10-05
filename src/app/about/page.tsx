@@ -19,16 +19,16 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Gloves Storm — OEM Boxing Gloves & Sportswear Manufacturer Since 2019",
+  title: "About Gloves Storm — Custom Clothing & Sportswear Manufacturer & Exporter Since 2019",
   description:
-    "Gloves Storm is a direct Sialkot factory manufacturing custom boxing gloves, fight gear, sportswear and activewear for USA and UK brands since 2019. Learn about our facility, capabilities and values.",
+    "Gloves Storm is an international OEM/ODM manufacturer and exporter of custom clothing, sportswear, activewear, and private label apparel serving USA, UK, and worldwide brands since 2019.",
   alternates: {
     canonical: "https://www.glovesstorm.com/about",
   },
   openGraph: {
-    title: "About Gloves Storm — OEM Boxing Gloves & Sportswear Manufacturer Since 2019",
+    title: "About Gloves Storm — Custom Clothing & Sportswear Manufacturer & Exporter Since 2019",
     description:
-      "Direct Sialkot factory manufacturing custom boxing gloves, fight gear, sportswear and activewear for USA and UK brands since 2019.",
+      "International OEM/ODM manufacturer and exporter of custom clothing, sportswear, activewear, and private label apparel serving USA, UK, and worldwide brands since 2019.",
     url: "https://www.glovesstorm.com/about",
     siteName: "Gloves Storm",
     type: "website",
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Gloves Storm Sialkot Heritage & Ethical Manufacturing Since 2019",
+        alt: "Gloves Storm Apparel Manufacturing & Exporting Facility",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Gloves Storm — OEM Boxing Gloves & Sportswear Manufacturer Since 2019",
+    title: "About Gloves Storm — Custom Clothing & Sportswear Manufacturer & Exporter",
     description:
-      "Direct Sialkot factory manufacturing custom boxing gloves, fight gear, sportswear and activewear for USA and UK brands.",
+      "International OEM manufacturer and exporter of custom clothing, team sportswear, and activewear for USA, UK, and global brands.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
@@ -55,49 +55,49 @@ const keyFacts = [
     icon: Calendar,
     label: "Founded",
     value: "2019",
-    detail: "7+ years continuous export operations",
+    detail: "7+ years continuous global export operations",
   },
   {
     icon: MapPin,
-    label: "Location",
+    label: "Production Hub",
     value: "Sialkot, Punjab, Pakistan",
-    detail: "World capital of sports goods craftsmanship",
+    detail: "World capital of textile and sports goods manufacturing",
   },
   {
     icon: Globe,
-    label: "Primary Markets",
+    label: "Primary Export Corridors",
     value: "USA and United Kingdom",
-    detail: "Also serving EU, Canada, Australia & UAE",
+    detail: "Also serving EU, Canada, Australia, UAE & worldwide",
   },
   {
     icon: Package,
-    label: "Products",
-    value: "Boxing gloves, fight gear, sportswear, activewear, streetwear",
-    detail: "90+ verified manufacturing specifications",
+    label: "Product Divisions",
+    value: "Team sportswear, gym activewear, streetwear, private label",
+    detail: "Turnkey cut-and-sew and sublimation manufacturing",
   },
   {
     icon: Layers,
     label: "Minimum Order Quantity",
-    value: "25–50 pieces per design",
-    detail: "Accessible startup tiers to large bulk container runs",
+    value: "35–50 pieces per style",
+    detail: "Accessible startup tiers to large volume container programs",
   },
   {
     icon: Clock,
     label: "Sample Lead Time",
-    value: "7–10 working days",
-    detail: "Direct prototype sign-off before bulk cut",
+    value: "5–7 working days",
+    detail: "Master prototype sign-off before bulk cut-and-sew",
   },
   {
     icon: Clock,
-    label: "Bulk Lead Time",
-    value: "7–14 working days",
-    detail: "Rapid industrial line scheduling",
+    label: "Bulk Production",
+    value: "12–18 working days",
+    detail: "Automated cutting and multi-head embroidery lines",
   },
   {
     icon: Truck,
-    label: "Shipping",
+    label: "Worldwide Logistics",
     value: "DDP air and sea worldwide",
-    detail: "Customs duties and import documentation handled",
+    detail: "Customs duties and import clearance documentation handled",
   },
 ];
 
@@ -126,7 +126,7 @@ export default function AboutPage() {
         "@type": "AboutPage",
         name: "About Gloves Storm",
         description:
-          "Direct OEM and private label manufacturer based in Sialkot, Pakistan since 2019. Manufacturing custom boxing gloves, fight gear, sportswear and activewear for USA and UK brands.",
+          "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, and streetwear serving USA, UK, and worldwide brands since 2019.",
         mainEntity: {
           "@type": "Organization",
           name: "Gloves Storm",
@@ -137,11 +137,12 @@ export default function AboutPage() {
             name: "Sialkot, Pakistan",
           },
           knowsAbout: [
-            "Custom Boxing Gloves Manufacturing",
-            "OEM Sportswear Manufacturing",
+            "Custom Clothing Manufacturing",
+            "Custom Sportswear Manufacturing",
             "Private Label Activewear",
-            "Fight Gear Manufacturing",
+            "Sublimation Team Jerseys",
             "Screen Printing & Embroidery",
+            "Apparel Exports",
           ],
         },
       },
@@ -159,13 +160,13 @@ export default function AboutPage() {
         <div className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span>ESTABLISHED IN SIALKOT 2019 • GLOBAL OEM/ODM APPAREL &amp; GEAR</span>
+            <span>ESTABLISHED 2019 • INTERNATIONAL OEM/ODM APPAREL &amp; SPORTSWEAR EXPORTER</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-[1.08] uppercase">
             ABOUT GLOVES STORM
           </h1>
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-            Gloves Storm is a direct OEM and private label manufacturer based in Sialkot, Punjab, Pakistan — established in 2019. We manufacture custom boxing gloves, MMA gear, kickboxing equipment, sportswear, activewear, gym wear and streetwear for sports brands, fight academies, clothing labels and distributors across the United States and United Kingdom. Our factory operates with zero middlemen — when you work with Gloves Storm, you work directly with the production facility.
+            Gloves Storm is an international OEM and private label apparel manufacturer and exporter established in 2019. We specialize in custom sportswear, athletic kits, compression activewear, heavyweight streetwear hoodies, and turnkey private label apparel for sports brands, athletic clubs, fashion labels, and distributors across the USA, UK, Europe, and worldwide. Operating direct factory facilities with in-house design, laser cutting, digital sublimation, and Tajima embroidery, we eliminate middlemen to give you direct mill pricing, guaranteed lead times, and uncompromised quality.
           </p>
         </div>
 
@@ -221,10 +222,10 @@ export default function AboutPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-700 shadow-md text-white">
               <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400 font-bold block mb-1">
-                Sialkot Industrial Heritage
+                Industrial Textile Heritage
               </span>
               <p className="text-xs text-slate-200 leading-relaxed font-normal">
-                Sialkot produces more hand-stitched sports goods than any other city on earth. Gloves Storm combines this artisan heritage with modern automated laser cutting and Italian sublimation printing.
+                Sialkot is world-renowned for precision sports goods and technical apparel. Gloves Storm combines this craftsmanship with automated Gerber laser spreading, Juki 4-needle stitching, and Italian sublimation printing.
               </p>
             </div>
           </div>

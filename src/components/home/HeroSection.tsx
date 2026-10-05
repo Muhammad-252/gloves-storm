@@ -70,23 +70,23 @@ export default function HeroSection() {
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-sm mb-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
           <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-white/90 font-bold">
-            SIALKOT DIRECT FACTORY · EST. 2019
+            INTERNATIONAL APPAREL OEM &amp; EXPORTER · EST. 2019
           </span>
         </div>
 
         {/* Target H1 for SEO */}
         <h1 className="tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] max-w-5xl mb-4 drop-shadow-[0_3px_10px_rgba(0,0,0,0.8)] uppercase">
-          CUSTOM BOXING GLOVES &amp; SPORTSWEAR MANUFACTURER
+          CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER
         </h1>
 
-        {/* Subheadline (H2 style, not a heading tag for hierarchy) */}
+        {/* Subheadline */}
         <p className="text-base sm:text-xl md:text-2xl font-bold text-amber-400 tracking-tight max-w-3xl mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-          Direct Sialkot OEM &amp; Private Label Factory for USA and UK Brands
+          Direct OEM Factory &amp; Private Label Apparel Exporter for International Brands
         </p>
 
         {/* Technical Value Proposition Body Copy */}
         <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-3xl font-normal leading-relaxed mb-9 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
-          Gloves Storm is a direct-factory OEM and private label manufacturer of custom boxing gloves, fight gear, sportswear, activewear, and streetwear. Based in Sialkot, Pakistan — the world&apos;s largest sports goods manufacturing hub — we serve brands, gyms, sports teams and distributors across the USA and United Kingdom. Low MOQ starting from 25 pieces, 7-day prototyping, and door-to-door insured shipping worldwide.
+          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Operating direct manufacturing facilities in Sialkot, Pakistan, we supply high-growth apparel brands, sports organizations, and distributors across the USA, UK, Europe, and worldwide. Low MOQ starting from 35 pieces, 5–7 day prototyping, and door-to-door insured DDP global shipping.
         </p>
 
         {/* Action CTAs */}
@@ -113,7 +113,7 @@ export default function HeroSection() {
 
           <MagneticElement strength={0.2} className="w-full sm:w-auto">
             <a
-              href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
+              href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20apparel%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-emerald-500/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold text-xs uppercase tracking-wider transition-all shadow-xs backdrop-blur-md"
@@ -134,10 +134,10 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              25–50 Pcs / Design
+              35–50 Pcs / Style
             </span>
             <span className="text-[11px] text-slate-300/80 block mt-0.5">
-              Accessible startup batch
+              Flexible sizing &amp; colors
             </span>
           </div>
 
@@ -149,7 +149,7 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              7 Days
+              5–7 Days
             </span>
             <span className="text-[11px] text-slate-300/80 block mt-0.5">
               Rapid master prototype
@@ -160,14 +160,14 @@ export default function HeroSection() {
             <div className="flex items-center gap-1.5 mb-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-slate-300" />
               <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
-                Production Time
+                Production Standard
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              7–14 Working Days
+              AQL 2.5 Strict QC
             </span>
             <span className="text-[11px] text-slate-300/80 block mt-0.5">
-              High-speed bulk flow
+              100% pre-shipment audit
             </span>
           </div>
 
@@ -179,10 +179,10 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              USA, UK &amp; EU
+              USA, UK &amp; Worldwide
             </span>
             <span className="text-[11px] text-slate-300/80 block mt-0.5">
-              DDP Air &amp; Sea
+              DDP Air 3–5 Days &amp; Ocean
             </span>
           </div>
         </div>
@@ -209,8 +209,8 @@ export default function HeroSection() {
       <InteractiveRfqModal
         isOpen={quoteModalOpen}
         onClose={() => setQuoteModalOpen(false)}
-        initialProduct="Combat Equipment & Custom Apparel"
-        initialCategory="OEM Manufacturing"
+        initialProduct="Custom Clothing & Sportswear"
+        initialCategory="Custom Apparel Manufacturing"
       />
     </section>
   );

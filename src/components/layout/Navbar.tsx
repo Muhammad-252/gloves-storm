@@ -14,7 +14,6 @@ import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 
 const navLinks = [
   { name: "Products", href: "/products", hasMegaMenu: true },
-  { name: "Manufacturing", href: "/manufacturing" },
   {
     name: "Export Markets",
     href: "/manufacturers-usa",
@@ -151,7 +150,7 @@ export default function Navbar() {
                 GLOVES STORM
               </span>
               <span className="text-[9px] uppercase tracking-[0.2em] font-mono text-slate-500 font-semibold mt-1 leading-none">
-                Sialkot · OEM Factory
+                International OEM & Exporter
               </span>
             </div>
           </Link>
@@ -334,8 +333,8 @@ export default function Navbar() {
       <InteractiveRfqModal
         isOpen={rfqModalOpen}
         onClose={() => setRfqModalOpen(false)}
-        initialProduct="Custom OEM Inquiry"
-        initialCategory="Combat & Sportswear Manufacturing"
+        initialProduct="Custom Apparel Inquiry"
+        initialCategory="Custom Clothing & Sportswear"
       />
 
       {/* Mobile Navigation Drawer */}
@@ -359,7 +358,7 @@ export default function Navbar() {
                     GLOVES STORM
                   </span>
                   <span className="text-[9px] uppercase tracking-wider font-mono text-slate-500">
-                    Sialkot · OEM Factory
+                    International OEM & Exporter
                   </span>
                 </div>
               </div>

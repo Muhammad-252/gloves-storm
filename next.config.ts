@@ -80,6 +80,31 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/manufacturing",
+        destination: "/about",
+        permanent: true,
+      },
+      {
+        source: "/products/boxing-equipment",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/products/boxing-equipment/:slug*",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/products/swimwear-beachwear",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/products/swimwear-beachwear/:slug*",
+        destination: "/products",
+        permanent: true,
+      },
+      {
         source: "/customize",
         destination: "/products",
         permanent: true,

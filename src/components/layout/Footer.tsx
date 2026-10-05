@@ -7,22 +7,24 @@ import { ArrowUpRight, Globe, Mail, Phone, MapPin, ShieldCheck, MessageSquare } 
 import { InstagramIcon, LinkedInIcon } from "../ui/SocialIcons";
 
 const categories = [
-  { name: "Boxing Equipment", href: "/products/boxing-equipment" },
   { name: "Sportswear & Teamwear", href: "/products/sportswear-teamwear" },
-  { name: "Gym & Fitness Wear", href: "/products/gym-fitness-wear" },
+  { name: "Gym & Fitness Activewear", href: "/products/gym-fitness-wear" },
   { name: "Clothing & Streetwear", href: "/products/clothing-streetwear" },
   { name: "Custom Manufacturing & Private Label", href: "/products/custom-manufacturing-private-label" },
-  { name: "Swimwear & Beachwear", href: "/products/swimwear-beachwear" },
+  { name: "All Apparel Catalog", href: "/products" },
+];
+
+const exportMarkets = [
+  { name: "USA Brand Manufacturing", href: "/manufacturers-usa" },
+  { name: "UK Brand Manufacturing", href: "/manufacturers-uk" },
+  { name: "Worldwide DDP Air & Sea", href: "/about#export" },
+  { name: "Custom Tech Pack Prototyping", href: "/products/custom-manufacturing-private-label" },
 ];
 
 const navigation = [
-  { name: "All Products", href: "/products" },
-  { name: "Manufacturing & Capabilities", href: "/manufacturing" },
-  { name: "Manufacturing for USA", href: "/manufacturers-usa" },
-  { name: "Manufacturing for UK", href: "/manufacturers-uk" },
   { name: "About GLOVES STORM", href: "/about" },
-  { name: "Previous Work", href: "/previous-work" },
-  { name: "Manufacturing Journal", href: "/journal" },
+  { name: "Previous OEM Work", href: "/previous-work" },
+  { name: "Apparel Journal", href: "/journal" },
   { name: "Request a Quote", href: "/contact" },
   { name: "Privacy & IP Policy", href: "/privacy" },
 ];
@@ -46,7 +48,7 @@ export default function Footer() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] font-mono uppercase tracking-[0.25em] font-bold mb-3 border border-slate-200/60">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Direct Factory OEM &amp; Private Label Partner</span>
+              <span>International OEM &amp; Private Label Exporter</span>
             </div>
             <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight leading-tight text-slate-900">
               BUILT FOR BRANDS. <br />
@@ -84,12 +86,12 @@ export default function Footer() {
                     GLOVES STORM
                   </span>
                   <span className="text-[9px] uppercase tracking-[0.2em] font-mono text-slate-500 font-semibold mt-0.5">
-                    Sialkot · Direct Factory
+                    International Apparel Exporter
                   </span>
                 </div>
               </div>
               <p className="text-sm text-slate-600 leading-relaxed max-w-sm mb-6">
-                Premium custom sports equipment, combat gear, and high-performance athletic apparel manufactured for global brands, sports clubs, and fashion labels.
+                Custom clothing, performance sportswear, activewear, and private label apparel manufactured and exported for international brands, athletic clubs, and fashion labels across the USA, UK, and worldwide.
               </p>
             </div>
 
@@ -155,14 +157,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Categories Column 1 */}
+          {/* Apparel Divisions */}
           <div>
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900 mb-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
-              Equipment &amp; Fight
+              Apparel Divisions
             </h3>
             <ul className="flex flex-col gap-2.5 text-xs text-slate-600">
-              {categories.slice(0, 5).map((cat) => (
+              {categories.map((cat) => (
                 <li key={cat.name}>
                   <Link
                     href={cat.href}
@@ -175,20 +177,20 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Categories Column 2 */}
+          {/* Export Markets */}
           <div>
             <h3 className="text-xs uppercase tracking-[0.2em] font-bold text-slate-900 mb-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
-              Apparel &amp; Wear
+              Export Corridors
             </h3>
             <ul className="flex flex-col gap-2.5 text-xs text-slate-600">
-              {categories.slice(5).map((cat) => (
-                <li key={cat.name}>
+              {exportMarkets.map((market) => (
+                <li key={market.name}>
                   <Link
-                    href={cat.href}
+                    href={market.href}
                     className="hover:text-slate-900 hover:translate-x-1 inline-block transition-all"
                   >
-                    {cat.name}
+                    {market.name}
                   </Link>
                 </li>
               ))}
@@ -221,16 +223,16 @@ export default function Footer() {
           <div className="flex items-center justify-center sm:justify-start gap-2">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
             <span>
-              © {new Date().getFullYear()} GLOVES STORM. Handcrafted &amp; Manufactured in Sialkot, Pakistan. All Rights Reserved.
+              © {new Date().getFullYear()} GLOVES STORM. Custom Clothing &amp; Sportswear Manufacturer &amp; Exporter. All Rights Reserved.
             </span>
           </div>
           <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-6 gap-y-2 text-[11px] sm:text-xs">
-            <span>OEM / Private Label</span>
+            <span>OEM / ODM Private Label</span>
             <span>Custom Tech Packs</span>
             <Link href="/privacy" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
               Privacy &amp; IP Protection
             </Link>
-            <span>Worldwide Shipping</span>
+            <span>Worldwide DDP Shipping</span>
           </div>
         </div>
       </div>

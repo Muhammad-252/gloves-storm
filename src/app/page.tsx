@@ -21,9 +21,9 @@ import {
 import { loadPersistedCategories } from "@/lib/data/categoryPersistence";
 
 export const metadata: Metadata = {
-  title: "Custom Boxing Gloves & Sportswear OEM Manufacturer — Gloves Storm",
+  title: "Custom Clothing & Sportswear Manufacturer & Exporter — Gloves Storm",
   description:
-    "Direct Sialkot factory for custom boxing gloves, fight gear, sportswear and activewear. USA & UK brands. MOQ from 25 pcs. 7-day samples. DDP worldwide. Free tech pack review.",
+    "International OEM & private label manufacturer for custom clothing, sportswear, activewear, and streetwear. Direct factory export to USA, UK, and worldwide. Low MOQ, 7-day samples, DDP delivery.",
   alternates: {
     canonical: "https://www.glovesstorm.com",
   },
@@ -38,7 +38,7 @@ const homeOrgSchema = {
   url: "https://www.glovesstorm.com",
   logo: "https://www.glovesstorm.com/images/og-default.jpg",
   description:
-    "OEM and private label manufacturer of custom boxing gloves, fight gear, sportswear, activewear and streetwear. Based in Sialkot, Pakistan. Serving USA and UK brands since 2019.",
+    "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, streetwear, and team uniforms. Direct factory export to USA, UK, and worldwide.",
   foundingDate: "2019",
   address: {
     "@type": "PostalAddress",
@@ -54,7 +54,7 @@ const homeOrgSchema = {
       telephone: "+92-341-7146935",
       contactType: "sales",
       availableLanguage: "English",
-      areaServed: ["US", "GB", "EU", "CA", "AU"],
+      areaServed: ["US", "GB", "EU", "CA", "AU", "Worldwide"],
     },
   ],
   email: "glovesstorm@gmail.com",
@@ -63,12 +63,15 @@ const homeOrgSchema = {
     "https://www.linkedin.com/company/gloves-storm/",
   ],
   knowsAbout: [
-    "Custom Boxing Gloves Manufacturing",
-    "OEM Sportswear Manufacturing",
-    "Private Label Activewear",
-    "Fight Gear Manufacturing",
-    "Custom Team Uniforms",
-    "Sialkot Sports Goods",
+    "Custom Clothing Manufacturing",
+    "Custom Sportswear Manufacturing",
+    "Clothing Manufacturing",
+    "Sportswear Manufacturing",
+    "Private Label Clothing",
+    "Apparel Exports",
+    "Cut and Sew Apparel",
+    "Sublimation Teamwear",
+    "Activewear Manufacturing",
   ],
 };
 
@@ -78,42 +81,42 @@ const homeFaqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Where are Gloves Storm boxing gloves manufactured?",
+      name: "What custom apparel and sportswear does Gloves Storm manufacture?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Gloves Storm boxing gloves are manufactured at our direct factory in Sialkot, Pakistan. Sialkot produces over 70% of the world's hand-stitched sports goods and has been the global hub for boxing glove manufacturing for over a century.",
+        text: "Gloves Storm specializes in custom clothing and sportswear manufacturing, including custom team uniforms, athletic jerseys, gym and fitness activewear, compression sets, heavyweight streetwear hoodies, varsity jackets, and complete private label apparel lines.",
       },
     },
     {
       "@type": "Question",
-      name: "What is the minimum order quantity for custom boxing gloves?",
+      name: "What is the minimum order quantity (MOQ) for custom clothing and sportswear?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "The minimum order quantity for custom boxing gloves at Gloves Storm is 25–50 pairs per design, depending on the style. We work with startup brands and established distributors alike.",
+        text: "Our minimum order quantity starts from 35–50 pieces per style/colorway. This allows growing apparel brands, sports clubs, and established fashion labels to produce custom designs with low risk and flexible sizing breakdowns.",
       },
     },
     {
       "@type": "Question",
-      name: "Do you manufacture custom boxing gloves for USA brands?",
+      name: "Do you manufacture and export custom apparel to the USA and UK?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The USA is our primary export market. We manufacture custom boxing gloves, fight gear, sportswear and activewear for USA brands, gyms, sports teams and distributors with door-to-door DDP air and sea shipping.",
+        text: "Yes. The USA and UK are our primary export corridors, alongside the EU, Canada, and Australia. We manage end-to-end export logistics with door-to-door DDP (Delivered Duty Paid) air freight (3–5 days) and ocean shipping, handling all customs clearance and documentation.",
       },
     },
     {
       "@type": "Question",
-      name: "How long does it take to get a sample of custom boxing gloves?",
+      name: "How long does custom clothing sampling take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Pre-production master samples for custom boxing gloves are produced in 7–10 working days at Gloves Storm. Samples are shipped directly to your doorstep for fit, feel and quality sign-off before bulk production begins.",
+        text: "Pre-production master samples are typically completed in 5–7 working days once tech packs or design mockups are finalized. Master samples are shipped via express courier directly to you for fit, fabric hand-feel, and construction approval before full production.",
       },
     },
     {
       "@type": "Question",
-      name: "Can Gloves Storm manufacture private label sportswear for my brand?",
+      name: "What private label branding options are available for custom clothing?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes — Gloves Storm is a full private label manufacturer. Every product is produced with your branding: custom woven neck labels, hang tags, embossed patches, barcoding and retail-ready packaging. Your customers only ever see your brand.",
+        text: "We provide full turnkey private label manufacturing: custom woven neck labels, satin wash care labels, high-density embroidery, screen printing, silicone heat transfers, custom hang tags, barcoded polybags, and retail-ready packaging.",
       },
     },
   ],

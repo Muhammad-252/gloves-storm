@@ -5,19 +5,19 @@ export interface ExportFaqItem {
 
 export const usaFaqs: ExportFaqItem[] = [
   {
-    question: "Do you manufacture boxing gloves for USA brands?",
+    question: "Do you manufacture custom clothing and sportswear for USA brands?",
     answer:
-      "Yes. The United States is Gloves Storm's primary export market. We manufacture custom boxing gloves, MMA equipment, fight gear, and performance apparel for independent fight brands, commercial boxing gyms, martial arts academies, and sports distributors throughout California, Texas, Florida, New York, and nationwide.",
+      "Yes. The United States is Gloves Storm's primary export corridor. We manufacture custom apparel, athletic team uniforms, gym activewear, hoodies, tracksuits, and private label collections for independent apparel brands, athletic clubs, collegiate sports teams, and distributors throughout California, Texas, Florida, New York, and nationwide.",
   },
   {
     question: "How long does shipping take from Pakistan to the USA?",
     answer:
-      "Express air freight typically delivers to any US address within 3 to 5 business days after dispatch via DHL Express or FedEx. For large commercial container orders, ocean freight to East or West Coast ports takes approximately 24 to 30 days. Pre-production master samples are couriered in 7 to 10 working days.",
+      "Express air freight typically delivers to any US address within 3 to 5 business days after dispatch via DHL Express or FedEx. For large commercial container orders, ocean freight to East or West Coast ports takes approximately 24 to 30 days. Pre-production master samples are couriered in 5 to 7 working days.",
   },
   {
     question: "What is the minimum order for a USA client?",
     answer:
-      "Our minimum order quantity for American clients starts from just 25 to 50 pieces or pairs per design, depending on the product type. This low barrier allows startup brands and boutique fitness studios to launch custom collections without excessive upfront inventory capital.",
+      "Our minimum order quantity for American clients starts from just 35 to 50 pieces per style/colorway. This low threshold enables startup brands, fitness studios, and athletic programs to produce fully custom apparel collections with custom grading without excessive upfront inventory capital.",
   },
   {
     question: "Can you ship to Amazon FBA warehouses in the USA?",
@@ -48,13 +48,13 @@ export const ukFaqs: ExportFaqItem[] = [
       "Yes. While standard international export is often conducted in USD, we provide commercial invoicing and bank wire payment details in British Pounds Sterling (GBP) to simplify accounting for UK registered companies and eliminate currency exchange volatility.",
   },
   {
-    question: "Do your boxing gloves meet UK and European safety standards?",
+    question: "Do your custom garments and sportswear meet UK safety and textile standards?",
     answer:
-      "Yes. We engineer our boxing gloves, headgear, and protective fight gear in accordance with CE mark standards (BS EN 13277 protective equipment for martial arts) and UKCA compliance requirements. We utilize multi-density high-impact EVA and latex foam laminates, anatomical attached thumb construction, and calibrated weight tolerances to meet the requirements of British boxing clubs, sparring requirements, and commercial fitness facilities.",
+      "Yes. All our performance garments, gym wear, and sportswear comply with UK textile safety requirements, OEKO-TEX Standard 100 fabric parameters, and REACH chemical standards. We use certified non-toxic European sublimation inks, nickel-free zippers, reinforced flatlock seams, and high-tensile polyester stitching suitable for professional athletic and commercial retail use across the UK.",
   },
   {
     question: "What is the delivery time to the UK from order confirmation?",
     answer:
-      "Master prototype samples take 7 to 10 working days to produce, followed by 4 to 6 business days for express air courier delivery to your UK address. Once you approve the sample, bulk manufacturing takes 2 to 4 weeks depending on order size. Shipping to the UK takes 4 to 6 days via air freight, or 20 to 25 days via ocean freight for large container volumes.",
+      "Master prototype samples take 5 to 7 working days to produce, followed by 3 to 5 business days for express air courier delivery to your UK address. Once you approve the sample, bulk manufacturing takes 2 to 3 weeks depending on order size. Shipping to the UK takes 3 to 5 days via air freight, or 20 to 24 days via ocean freight for large container volumes.",
   },
 ];

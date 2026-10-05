@@ -20,14 +20,14 @@ export default function GlobalReachSection() {
           <div className="lg:col-span-6 space-y-6">
             <div>
               <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
-                Worldwide Supply Chain & Direct Export
+                Worldwide Supply Chain &amp; Direct Export
               </span>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.0] mb-6">
-                FROM SIALKOT <br />
-                <span className="text-[#6B7280]">TO THE WORLD.</span>
+                GLOBAL EXPORT NETWORK <br />
+                <span className="text-[#6B7280]">WORLDWIDE LOGISTICS.</span>
               </h2>
               <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed max-w-xl">
-                Sialkot manufactures over 70% of the world&apos;s hand-stitched sports goods. GLOVES STORM builds upon this century-old industrial mastery with automated cutting, precision stitching, and insured air-express freight corridors directly to your facility door.
+                GLOVES STORM operates dedicated international export corridors supplying custom apparel, performance sportswear, activewear, and private label collections to brands across North America, the UK, Europe, Australia, and the Middle East. With direct mill production and insured DDP air and ocean freight, we guarantee seamless delivery directly to your facility or fulfillment warehouse.
               </p>
             </div>
 
@@ -35,10 +35,10 @@ export default function GlobalReachSection() {
             <div className="grid grid-cols-2 gap-4 pt-2">
               <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
                 <span className="text-2xl sm:text-3xl font-black text-[#1A1A1A] font-mono block mb-1">
-                  70%+
+                  50+
                 </span>
                 <span className="text-xs text-[#6B7280] font-medium">
-                  Global Sports Goods Handcraft Heritage
+                  Countries Worldwide Export Network
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
@@ -46,7 +46,7 @@ export default function GlobalReachSection() {
                   3–5 Days
                 </span>
                 <span className="text-xs text-[#6B7280] font-medium">
-                  Air Express Dispatch to North America & EU
+                  Air Express DDP to USA &amp; UK
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
@@ -54,7 +54,7 @@ export default function GlobalReachSection() {
                   60+
                 </span>
                 <span className="text-xs text-[#6B7280] font-medium">
-                  International Destination Ports Served
+                  International Ports &amp; Hubs Served
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
@@ -62,7 +62,7 @@ export default function GlobalReachSection() {
                   100%
                 </span>
                 <span className="text-xs text-[#6B7280] font-medium">
-                  Insured Door-to-Door Customs Clearance
+                  Insured Door-to-Door DDP Delivery
                 </span>
               </div>
             </div>

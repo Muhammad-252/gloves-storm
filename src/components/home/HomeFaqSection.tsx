@@ -5,29 +5,29 @@ import { ChevronDown, HelpCircle, MessageSquare } from "lucide-react";
 
 const faqs = [
   {
-    question: "Where are Gloves Storm boxing gloves manufactured?",
+    question: "What custom apparel and sportswear does Gloves Storm manufacture?",
     answer:
-      "Gloves Storm boxing gloves are manufactured at our direct factory in Sialkot, Pakistan. Sialkot produces over 70% of the world's hand-stitched sports goods and has been the global hub for boxing glove manufacturing for over a century.",
+      "Gloves Storm specializes in custom clothing and sportswear manufacturing, including custom team uniforms, athletic jerseys, gym and fitness activewear, compression sets, heavyweight streetwear hoodies, varsity jackets, and complete private label apparel lines.",
   },
   {
-    question: "What is the minimum order quantity for custom boxing gloves?",
+    question: "What is the minimum order quantity (MOQ) for custom clothing and sportswear?",
     answer:
-      "The minimum order quantity for custom boxing gloves at Gloves Storm is 25–50 pairs per design, depending on the style. We work with startup brands and established distributors alike.",
+      "Our minimum order quantity starts from 35–50 pieces per style/colorway. This allows growing apparel brands, sports clubs, and established fashion labels to produce custom designs with low risk and flexible sizing breakdowns.",
   },
   {
-    question: "Do you manufacture custom boxing gloves for USA brands?",
+    question: "Do you manufacture and export custom apparel to the USA and UK?",
     answer:
-      "Yes. The USA is our primary export market. We manufacture custom boxing gloves, fight gear, sportswear and activewear for USA brands, gyms, sports teams and distributors with door-to-door DDP air and sea shipping.",
+      "Yes. The USA and UK are our primary export corridors, alongside the EU, Canada, and Australia. We manage end-to-end export logistics with door-to-door DDP (Delivered Duty Paid) air freight (3–5 days) and ocean shipping, handling all customs clearance and documentation.",
   },
   {
-    question: "How long does it take to get a sample of custom boxing gloves?",
+    question: "How long does custom clothing sampling take?",
     answer:
-      "Pre-production master samples for custom boxing gloves are produced in 7–10 working days at Gloves Storm. Samples are shipped directly to your doorstep for fit, feel and quality sign-off before bulk production begins.",
+      "Pre-production master samples are typically completed in 5–7 working days once tech packs or design mockups are finalized. Master samples are shipped via express courier directly to you for fit, fabric hand-feel, and construction approval before full production.",
   },
   {
-    question: "Can Gloves Storm manufacture private label sportswear for my brand?",
+    question: "What private label branding options are available for custom clothing?",
     answer:
-      "Yes — Gloves Storm is a full private label manufacturer. Every product is produced with your branding: custom woven neck labels, hang tags, embossed patches, barcoding and retail-ready packaging. Your customers only ever see your brand.",
+      "We provide full turnkey private label manufacturing: custom woven neck labels, satin wash care labels, high-density embroidery, screen printing, silicone heat transfers, custom hang tags, barcoded polybags, and retail-ready packaging.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function HomeFaqSection() {
             COMMON QUESTIONS ABOUT WORKING WITH US
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 font-normal">
-            Everything you need to know about our Sialkot manufacturing facility, minimum order quantities, and international delivery.
+            Everything you need to know about our direct apparel manufacturing facilities, minimum order quantities, private label services, and international DDP export delivery.
           </p>
         </div>
 

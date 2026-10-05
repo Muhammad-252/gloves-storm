@@ -35,22 +35,22 @@ interface MultiStepInquiryClientProps {
 }
 
 const CATEGORY_CARDS = [
-  { id: "boxing", name: "Boxing Equipment", desc: "Gloves, headguards, pads, fight accessories", icon: "🥊" },
-  { id: "sportswear", name: "Sportswear", desc: "Tracksuits, jackets, warmups, performance gear", icon: "🏃" },
-  { id: "teamwear", name: "Teamwear & Uniforms", desc: "American Football, Basketball, Baseball, Soccer", icon: "🏈" },
-  { id: "gym-wear", name: "Gym Wear", desc: "Compression, seamless, stringers, leggings", icon: "💪" },
-  { id: "streetwear", name: "Streetwear", desc: "450 GSM French Terry hoodies, boxy tees, utility", icon: "⚡" },
-  { id: "fashion", name: "Fashion & Outerwear", desc: "Bonded jackets, overshirts, luxury coats", icon: "🧥" },
-  { id: "custom", name: "Custom Product", desc: "Completely bespoke prototype from technical drawings", icon: "📐" },
-  { id: "other", name: "Other Inquiries", desc: "Bulk sourcing, distributor partnerships, tenders", icon: "🌐" },
+  { id: "sportswear", name: "Sportswear & Teamwear", desc: "Sublimated match kits, training shirts, rugby jerseys, shorts, tracksuits", icon: "⚽" },
+  { id: "gym-wear", name: "Gym & Activewear", desc: "Squat-proof leggings, sports bras, seamless sets, compression gear", icon: "💪" },
+  { id: "streetwear", name: "Streetwear & Hoodies", desc: "450–500 GSM French Terry hoodies, boxy tees, joggers, sweatpants", icon: "⚡" },
+  { id: "varsity", name: "Varsity & Outerwear", desc: "Melton wool jackets, genuine leather sleeves, coach jackets, bombers", icon: "🧥" },
+  { id: "private-label", name: "Private Label Packaging", desc: "Damask woven labels, embossed hang tags, barcoded custom polybags", icon: "🏷️" },
+  { id: "custom", name: "Custom Cut & Sew Apparel", desc: "Completely bespoke prototype from technical drawings & CAD tech packs", icon: "📐" },
+  { id: "commercial-export", name: "Commercial Apparel Export", desc: "High-volume OEM contracts, distributor supply, container orders", icon: "🌐" },
+  { id: "other", name: "Other Inquiries", desc: "Bulk sourcing, distributor partnerships, tenders", icon: "📦" },
 ];
 
 const QUANTITY_OPTIONS = [
-  { label: "Sample Only", sub: "Pre-production prototype run", val: 2 },
-  { label: "10 – 50 Units", sub: "Micro boutique run", val: 50 },
+  { label: "Sample Prototype", sub: "Pre-production sample run (35–50 pcs)", val: 35 },
   { label: "50 – 100 Units", sub: "Brand collection launch", val: 100 },
-  { label: "100 – 500 Units", sub: "Commercial wholesale batch", val: 300 },
-  { label: "500 – 1,000 Units", sub: "National team / distributor", val: 750 },
+  { label: "100 – 300 Units", sub: "Core retail inventory run", val: 300 },
+  { label: "300 – 500 Units", sub: "Commercial wholesale batch", val: 500 },
+  { label: "500 – 1,000 Units", sub: "National club / distributor", val: 750 },
   { label: "1,000+ Units", sub: "High-volume OEM contract", val: 1500 },
   { label: "Not Sure Yet", sub: "Need factory guidance", val: 50 },
 ];
@@ -65,10 +65,11 @@ const TIMELINE_OPTIONS = [
 ];
 
 const BUSINESS_TYPES = [
-  "Combat / Sports Brand",
-  "Athletic Club / Gym Academy",
+  "Apparel & Sportswear Brand",
+  "Athletic Club / Sports Academy",
   "College / School Team",
   "Streetwear / Fashion Label",
+  "Fitness Studio / Gym Chain",
   "Wholesaler / Distributor",
   "Startup / Independent Creator",
 ];
@@ -87,17 +88,17 @@ export default function MultiStepInquiryClient({
   const [generatedProjectId, setGeneratedProjectId] = useState<string>("GS-100001");
 
   // Form State
-  const [selectedCategory, setSelectedCategory] = useState<string>("Boxing Equipment");
-  const [selectedProduct, setSelectedProduct] = useState<string>("Pro Apex Lace-Up Boxing Gloves");
+  const [selectedCategory, setSelectedCategory] = useState<string>("Sportswear & Teamwear");
+  const [selectedProduct, setSelectedProduct] = useState<string>("Pro Sublimated Team Kit");
   const [searchFilter, setSearchFilter] = useState("");
 
   // Customization Specs
   const [customSpecs, setCustomSpecs] = useState({
-    material: "Full-Grain Cowhide Leather (1.1mm)",
-    colors: "Matte Black & Metallic Gold",
-    sizing: "12oz, 14oz, 16oz",
-    branding: "Debossed Leather + 3D Puff Print",
-    packaging: "Custom Matte Magnetic Gift Box",
+    material: "100% Combed Cotton French Terry (450 GSM)",
+    colors: "Vintage Washed Black & Off-White",
+    sizing: "XS, S, M, L, XL, 2XL",
+    branding: "3D Puff Screen Print + Woven Damask Label",
+    packaging: "Custom Matte Zip Polybag + Barcode Tag",
     notes: "",
   });
 
@@ -115,7 +116,7 @@ export default function MultiStepInquiryClient({
     brandName: "",
     website: "",
     instagram: "",
-    businessType: "Combat / Sports Brand",
+    businessType: "Apparel & Sportswear Brand",
     brandStory: "",
   });
 
@@ -456,13 +457,13 @@ export default function MultiStepInquiryClient({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
-                  Material / Substrate
+                  Material / Fabric Specification
                 </label>
                 <input
                   type="text"
                   value={customSpecs.material}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, material: e.target.value })}
-                  placeholder="e.g. 100% Full-Grain Cowhide or 450 GSM French Terry"
+                  placeholder="e.g. 450 GSM French Terry, 280 GSM Recycled Nylon Spandex, Dry-Fit Poly"
                   className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
                 />
               </div>
@@ -482,26 +483,26 @@ export default function MultiStepInquiryClient({
 
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
-                  Ounce Weights or Sizing Breakdown
+                  Sizing Breakdown & Dimensions
                 </label>
                 <input
                   type="text"
                   value={customSpecs.sizing}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, sizing: e.target.value })}
-                  placeholder="e.g. 12oz, 14oz, 16oz or S, M, L, XL"
+                  placeholder="e.g. S, M, L, XL, 2XL (Custom Size Curves)"
                   className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
                 />
               </div>
 
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
-                  Logo / Branding Method
+                  Logo / Branding & Embellishment Method
                 </label>
                 <input
                   type="text"
                   value={customSpecs.branding}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, branding: e.target.value })}
-                  placeholder="e.g. Debossed Leather, 3D Puff Print, Sublimation"
+                  placeholder="e.g. 3D Puff Screen Print, Tajima Embroidery, Sublimation, Silicone Patch"
                   className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
                 />
               </div>
@@ -515,7 +516,7 @@ export default function MultiStepInquiryClient({
                 rows={3}
                 value={customSpecs.notes}
                 onChange={(e) => setCustomSpecs({ ...customSpecs, notes: e.target.value })}
-                placeholder="Include custom aglets, woven neck tags, bar-tacking, magnetic gift boxes, or unique technical requirements..."
+                placeholder="Include custom aglets, woven neck tags, bar-tacking, custom zip polybags, or unique technical requirements..."
                 className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20 resize-none"
               />
             </div>

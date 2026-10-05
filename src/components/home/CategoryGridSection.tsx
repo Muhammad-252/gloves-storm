@@ -9,46 +9,32 @@ interface CategoryGridProps {
   categories: Category[];
 }
 
-// Category custom SEO titles & descriptions specified in prompt
+// Category custom SEO titles & descriptions
 const categorySeoMeta: Record<string, { title: string; description: string }> = {
-  "boxing-equipment": {
-    title: "Custom Boxing Equipment",
-    description:
-      "Custom boxing gloves, MMA gloves, kickboxing gloves, sparring gloves, headguards, shin guards and punching bags. 1.2mm cowhide leather. MOQ 25–50 pairs. Private label ready.",
-  },
   "sportswear-teamwear": {
     title: "Custom Sportswear & Team Kits",
     description:
-      "Sublimation team jerseys, football uniforms, basketball kits, tracksuits and match-day apparel. Full custom branding, player numbering and sponsor logos. MOQ 30 pcs.",
+      "Sublimation team jerseys, football uniforms, basketball kits, tracksuits and match-day apparel. Full custom branding, player numbering, and sponsor logos. MOQ 35 pcs.",
   },
   "gym-fitness-wear": {
     title: "Custom Gym & Activewear",
     description:
-      "Private label gym wear, compression leggings, sports bras, training shorts and athletic sets. 4-way stretch performance fabrics. MOQ 30 pcs per style.",
+      "Private label gym wear, seamless & compression leggings, sports bras, training shorts and athletic sets. 4-way stretch performance moisture-wicking fabrics. MOQ 35 pcs per style.",
   },
   "clothing-streetwear": {
-    title: "Custom Streetwear & Apparel",
+    title: "Custom Streetwear & Heavyweight Apparel",
     description:
-      "Heavyweight hoodies, varsity jackets, tees and joggers with embroidery, puff print or sublimation. 380–450 GSM fleece. Private label branding included. MOQ 30 pcs.",
+      "Heavyweight French Terry hoodies (450–500 GSM), varsity jackets, oversized tees, and tailored joggers with 3D embroidery, chenille patches, or puff print. MOQ 35 pcs.",
   },
   "custom-manufacturing-private-label": {
     title: "OEM & Private Label Manufacturing",
     description:
-      "Full OEM and ODM manufacturing service. Submit your tech pack or sketch — we handle pattern, sampling, bulk production, QC, and branded retail-ready packaging.",
-  },
-  "swimwear-beachwear": {
-    title: "Custom Swimwear & Beachwear",
-    description:
-      "Custom swimwear, rash guards and beachwear in chlorine-resistant fabrics. Private label branding, custom colourways and retail packaging available. MOQ 30 pcs.",
+      "Full OEM and ODM cut-and-sew manufacturing service. Submit your tech pack or mockup — we handle grading, master sampling, bulk production, QC, and branded retail-ready packaging.",
   },
 };
 
 // Internal high-res product photos from factory catalog
 const categoryHoverImages: Record<string, { primary: string; secondary: string }> = {
-  "boxing-equipment": {
-    primary: "/images/products/boxing-gloves-black.png",
-    secondary: "/images/products/boxing-gloves-red.png",
-  },
   "sportswear-teamwear": {
     primary: "/images/products/basketball-uniform.jpg",
     secondary: "/images/products/football-jersey-black.jpg",
@@ -64,10 +50,6 @@ const categoryHoverImages: Record<string, { primary: string; secondary: string }
   "custom-manufacturing-private-label": {
     primary: "/images/products/luxury-packaging.jpg",
     secondary: "/images/products/woven-labels.jpg",
-  },
-  "swimwear-beachwear": {
-    primary: "/images/products/board-shorts.jpg",
-    secondary: "/images/products/rash-guard.jpg",
   },
 };
 
@@ -87,14 +69,14 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 shadow-xs mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-slate-800 font-mono font-bold">
-                SIALKOT DIRECT OEM CATALOG
+                INTERNATIONAL APPAREL DIVISIONS
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827]">
-              WHAT WE MANUFACTURE
+              WHAT WE MANUFACTURE &amp; EXPORT
             </h2>
             <p className="mt-2 text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-              Six product categories. 90+ verified specifications. All available as custom OEM or private label.
+              Four specialized apparel divisions. From technical teamwear and gym activewear to heavyweight streetwear and turnkey private label manufacturing.
             </p>
           </div>
 
@@ -108,13 +90,13 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
         </div>
 
         {/* Category Grid: Shows Category Title, Description & Images */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
           {parentCategories.map((category, idx) => {
             const fallbackSet = categoryHoverImages[category.slug];
             const primaryImage =
               category.image_url ||
               fallbackSet?.primary ||
-              "/images/products/boxing-gloves-black.png";
+              "/images/products/varsity-jacket.jpg";
             const secondaryImage =
               fallbackSet?.secondary ||
               primaryImage;
@@ -182,7 +164,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
                       OEM &amp; Private Label
                     </span>
                     <span className="text-slate-500">
-                      Sialkot Direct
+                      Global Export Ready
                     </span>
                   </div>
                 </div>

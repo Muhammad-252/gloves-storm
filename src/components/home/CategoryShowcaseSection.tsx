@@ -13,18 +13,18 @@ interface CategoryShowcaseProps {
 }
 
 const CATEGORY_CHIPS = [
-  { id: "all", label: "All Products", filterKey: "all" },
-  { id: "tracksuits", label: "Tracksuits & Fleeces", filterKey: "tracksuit" },
-  { id: "streetwear", label: "Streetwear & Tees", filterKey: "streetwear" },
-  { id: "combat", label: "Combat & Boxing Gear", filterKey: "combat" },
-  { id: "outerwear", label: "Jackets & Outerwear", filterKey: "outerwear" },
+  { id: "all", label: "All Custom Apparel", filterKey: "all" },
+  { id: "teamwear", label: "Teamwear & Uniforms", filterKey: "teamwear" },
+  { id: "activewear", label: "Gym & Activewear", filterKey: "activewear" },
+  { id: "streetwear", label: "Streetwear & Hoodies", filterKey: "streetwear" },
+  { id: "outerwear", label: "Varsity & Jackets", filterKey: "outerwear" },
 ];
 
 const GSM_OPTIONS = [
   { label: "All Fabric GSM", value: "all" },
-  { label: "280–320 GSM (Lightweight)", value: "280" },
-  { label: "350–380 GSM (Midweight)", value: "350" },
-  { label: "400–450+ GSM (Heavyweight)", value: "400" },
+  { label: "240–280 GSM (Lightweight)", value: "280" },
+  { label: "320–380 GSM (Midweight)", value: "350" },
+  { label: "420–500+ GSM (Heavyweight)", value: "400" },
 ];
 
 const TECHNIQUE_OPTIONS = [
@@ -49,18 +49,34 @@ function getTechnicalBullets(product: Product, categorySlug?: string): string[] 
     if (split.length > 0) return split.slice(0, 3);
   }
 
-  // Combat / Boxing Equipment
+  // Activewear & Gym Wear
   if (
-    catLower.includes("box") ||
-    catLower.includes("combat") ||
-    nameLower.includes("glove") ||
-    nameLower.includes("mma") ||
-    nameLower.includes("guard")
+    catLower.includes("gym") ||
+    catLower.includes("active") ||
+    catLower.includes("fitness") ||
+    nameLower.includes("legging") ||
+    nameLower.includes("bra") ||
+    nameLower.includes("rash")
   ) {
     return [
-      "1.2mm AAA Full-Grain Cowhide",
-      "Multi-Layer IMF Shock Absorption",
-      "Ergonomic Padded Wrist Lock",
+      "4-Way Stretch Poly-Spandex Blend",
+      "Reinforced Flatlock Anti-Chafing Seams",
+      "Moisture-Wicking & Squat-Proof Tested",
+    ];
+  }
+
+  // Teamwear & Sublimation
+  if (
+    catLower.includes("team") ||
+    catLower.includes("sport") ||
+    nameLower.includes("jersey") ||
+    nameLower.includes("uniform") ||
+    nameLower.includes("kit")
+  ) {
+    return [
+      "Kiian Italian Dye Sublimation Printing",
+      "Breathable Micro-Mesh Performance Fabric",
+      "Custom Player Numbers, Names & Badges",
     ];
   }
 
@@ -86,8 +102,8 @@ function getTechnicalBullets(product: Product, categorySlug?: string): string[] 
     nameLower.includes("fleece")
   ) {
     return [
-      "450+ GSM 100% French Terry",
-      "Custom Distressed 3D Embroidery",
+      "450+ GSM 100% French Terry Fleece",
+      "Custom Distressed & 3D Puff Embroidery",
       "Pre-Shrunk & Double-Needle Seams",
     ];
   }
@@ -119,11 +135,14 @@ function getGsmBadge(product: Product): string {
   if (nameLower.includes("hoodie") || nameLower.includes("fleece") || nameLower.includes("tracksuit")) {
     return "Heavyweight 450 GSM";
   }
-  if (nameLower.includes("glove") || nameLower.includes("boxing")) {
-    return "1.2mm Cowhide";
+  if (nameLower.includes("jersey") || nameLower.includes("uniform")) {
+    return "180 GSM Micro-Mesh";
   }
   if (nameLower.includes("varsity") || nameLower.includes("jacket")) {
     return "650 GSM Melton Wool";
+  }
+  if (nameLower.includes("legging") || nameLower.includes("bra")) {
+    return "260 GSM Poly-Spandex";
   }
   if (nameLower.includes("tee") || nameLower.includes("t-shirt")) {
     return "280 GSM Combed";
@@ -164,14 +183,21 @@ export default function CategoryShowcaseSection({
       let matchesChip = false;
       if (selectedChip === "all") {
         matchesChip = true;
-      } else if (selectedChip === "tracksuits") {
+      } else if (selectedChip === "teamwear") {
         matchesChip =
           catSlug.includes("sportswear") ||
           catSlug.includes("teamwear") ||
-          name.includes("tracksuit") ||
-          name.includes("fleece") ||
-          name.includes("jogger") ||
-          name.includes("sweat");
+          name.includes("jersey") ||
+          name.includes("uniform") ||
+          name.includes("kit");
+      } else if (selectedChip === "activewear") {
+        matchesChip =
+          catSlug.includes("gym") ||
+          catSlug.includes("active") ||
+          catSlug.includes("fitness") ||
+          name.includes("legging") ||
+          name.includes("bra") ||
+          name.includes("rash");
       } else if (selectedChip === "streetwear") {
         matchesChip =
           catSlug.includes("streetwear") ||
@@ -179,15 +205,7 @@ export default function CategoryShowcaseSection({
           name.includes("hoodie") ||
           name.includes("tee") ||
           name.includes("shirt") ||
-          name.includes("cargo");
-      } else if (selectedChip === "combat") {
-        matchesChip =
-          catSlug.includes("boxing") ||
-          catSlug.includes("combat") ||
-          name.includes("glove") ||
-          name.includes("guard") ||
-          name.includes("mma") ||
-          name.includes("pad");
+          name.includes("jogger");
       } else if (selectedChip === "outerwear") {
         matchesChip =
           catSlug.includes("outerwear") ||
@@ -255,7 +273,7 @@ export default function CategoryShowcaseSection({
               </span>
             </div>
             <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-slate-900">
-              MANUFACTURING & PRODUCT CAPABILITIES
+              CUSTOM APPAREL &amp; SPORTSWEAR SPECIFICATIONS
             </h2>
           </div>
 
@@ -389,7 +407,7 @@ export default function CategoryShowcaseSection({
               const primaryImg =
                 product.images?.find((img) => img.is_primary)?.image_url ||
                 product.images?.[0]?.image_url ||
-                "/images/products/boxing-gloves-black.png";
+                "/images/products/varsity-jacket.jpg";
 
               const secondaryImg =
                 product.images?.[1]?.image_url || primaryImg;
@@ -434,7 +452,7 @@ export default function CategoryShowcaseSection({
                       {/* Floating Frosted Glass Tag: MOQ */}
                       <div className="absolute top-3 left-3 z-10 bg-white/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs flex items-center gap-1">
                         <Box className="w-3 h-3 text-slate-600" />
-                        <span>MOQ {product.moq || 30} pcs</span>
+                        <span>MOQ {product.moq || 35} pcs</span>
                       </div>
 
                       {/* Floating Frosted Glass Tag: Fabric Weight / GSM */}
@@ -481,7 +499,7 @@ export default function CategoryShowcaseSection({
                         setRfqModalData({
                           isOpen: true,
                           productName: product.name,
-                          category: categoryObj?.name || "Combat & Sportswear",
+                          category: categoryObj?.name || "Custom Clothing & Sportswear",
                         })
                       }
                       className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs"

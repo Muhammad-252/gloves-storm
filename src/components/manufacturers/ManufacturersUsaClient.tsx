@@ -22,20 +22,6 @@ import { usaFaqs } from "@/lib/data/exportFaqs";
 
 const usaCategories = [
   {
-    title: "Custom Boxing Gloves",
-    link: "/products/boxing-equipment",
-    image: "/images/products/boxing-gloves-black.png",
-    desc: "1.2mm AAA full-grain cowhide leather, 5-layer composite foam core, lace-up or hook-and-loop. 8oz to 16oz weight calibrated to within ±3g.",
-    tag: "USA Fight Brands",
-  },
-  {
-    title: "Custom MMA & Fight Gear",
-    link: "/products/boxing-equipment",
-    image: "/images/products/boxing-mma-gloves.jpg",
-    desc: "Open-palm grappling gloves, 250 GSM compression rash guards, ripstop fight shorts with 4-way crotch flex panels, and shin guards for US academies.",
-    tag: "American Gyms",
-  },
-  {
     title: "Custom Team Sports Uniforms",
     link: "/products/sportswear-teamwear",
     image: "/images/products/basketball-uniform.jpg",
@@ -50,18 +36,32 @@ const usaCategories = [
     tag: "USA Fitness Labels",
   },
   {
-    title: "Custom Heavyweight Streetwear",
+    title: "Heavyweight Streetwear Hoodies",
     link: "/products/clothing-streetwear",
     image: "/images/products/hoodie-black.png",
-    desc: "380–450 GSM combed cotton French Terry hoodies, oversized boxy tees, and varsity jackets with 3D puff embroidery and silicone print finishes.",
-    tag: "US Clothing Labels",
+    desc: "450–500 GSM combed cotton French Terry hoodies, oversized boxy tees, and sweatpants with 3D puff embroidery and high-density screen prints.",
+    tag: "US Streetwear Labels",
   },
   {
-    title: "Custom Gym Wear",
+    title: "Custom Varsity & Outerwear Jackets",
+    link: "/products/clothing-streetwear",
+    image: "/images/products/varsity-jacket.jpg",
+    desc: "Premium wool body varsity jackets with genuine leather sleeves, custom chenille patches, metal snap buttons, and quilted diamond lining.",
+    tag: "American Apparel Brands",
+  },
+  {
+    title: "Performance Gym & Training Wear",
     link: "/products/gym-fitness-wear",
     image: "/images/products/rash-guard.jpg",
-    desc: "Moisture-wicking athletic tees, dry-fit training tanks, 2-in-1 compression shorts, and fleece joggers tailored for American gym culture.",
+    desc: "Moisture-wicking athletic tees, dry-fit training tanks, 2-in-1 compression shorts, and fleece joggers tailored for American fitness culture.",
     tag: "USA Gym Brands",
+  },
+  {
+    title: "Custom Private Label Packaging",
+    link: "/products/custom-manufacturing-private-label",
+    image: "/images/products/luxury-packaging.jpg",
+    desc: "Custom woven damask neck labels, soft-touch matte hang tags, barcoded polybags, and retail-ready packaging optimized for USA warehousing.",
+    tag: "Turnkey OEM/ODM",
   },
 ];
 
@@ -79,7 +79,7 @@ const usaSteps = [
   {
     step: "03",
     title: "Prototype Sampling",
-    desc: "A physical master prototype is handcrafted in Sialkot in 7 to 10 days, complete with your custom branding.",
+    desc: "A physical master prototype is handcrafted in 5 to 7 days, complete with your custom branding and embroidery.",
   },
   {
     step: "04",
@@ -108,15 +108,15 @@ export default function ManufacturersUsaClient() {
         <div className="max-w-4xl mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-mono uppercase tracking-[0.2em] mb-5 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>🇺🇸 EXPORT MARKET CORRIDOR · DIRECT USA PARTNERSHIP</span>
+            <span>🇺🇸 EXPORT MARKET CORRIDOR · DIRECT USA APPAREL PARTNERSHIP</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-[1.08] uppercase">
-            CUSTOM BOXING GLOVES &amp; SPORTSWEAR MANUFACTURER FOR USA BRANDS
+            CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER FOR USA BRANDS
           </h1>
 
           <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-            Gloves Storm is a direct OEM manufacturing partner for sports brands, boxing gyms, fight academies and clothing labels across the United States. Based in Sialkot, Pakistan — the world&apos;s largest sports goods manufacturing hub — we supply custom boxing gloves, MMA gear, kickboxing equipment, team sportswear, activewear and streetwear direct to USA clients with door-to-door DDP air freight, full customs documentation and insured delivery to any US warehouse or 3PL facility.
+            Gloves Storm is a direct OEM apparel manufacturing partner for sportswear brands, athletic organizations, collegiate teams, and clothing labels across the United States. We manufacture custom athletic uniforms, technical activewear, heavyweight streetwear, and turnkey private label apparel direct to USA clients with door-to-door DDP air freight, full US customs documentation, and insured delivery to any US warehouse, 3PL, or Amazon FBA center.
           </p>
         </div>
 
@@ -163,7 +163,7 @@ export default function ManufacturersUsaClient() {
               The Manufacturing Advantage
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">
-              WHY USA SPORTS BRANDS SOURCE FROM SIALKOT
+              WHY USA APPAREL &amp; SPORTS BRANDS SOURCE FROM GLOVES STORM
             </h2>
           </div>
 
@@ -171,13 +171,13 @@ export default function ManufacturersUsaClient() {
             <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
               <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-amber-700" />
-                Century-Old Global Hub of Combat &amp; Sports Craftsmanship
+                Global Hub of Textile &amp; Sports Apparel Craftsmanship
               </h3>
               <p>
-                Sialkot, Pakistan is recognized globally as the undisputed capital of hand-stitched sports goods, producing over 70% of the world&apos;s soccer balls and premier boxing equipment. For over a century, master tanners, cutters, and leather artisans in Sialkot have refined the exact ergonomics, ounce weight distributions, and multi-layer foam padding required by elite professional combat sports commissions.
+                Sialkot, Pakistan is recognized globally as the premier export epicenter of high-performance sports goods and technical apparel. For decades, master textile technicians, pattern makers, and stitchers have refined precision grading, multi-panel athletic compression, and seam reinforcement required by leading international athletic brands.
               </p>
               <p>
-                Gloves Storm elevates this heritage with computerized Gerber laser cutting tables, Tajima multi-head 3D embroidery, and Italian digital sublimation machinery, giving American brand owners artisan craftsmanship married with automated industrial repeatability.
+                Gloves Storm elevates this foundation with computerized Gerber laser spreading tables, Tajima multi-head 3D embroidery, and Italian digital sublimation machinery, giving American brand owners uncompromised craftsmanship married with automated industrial repeatability.
               </p>
             </div>
 

@@ -95,19 +95,19 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://glovesstorm.com",
+        item: "https://www.glovesstorm.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Products",
-        item: "https://glovesstorm.com/products",
+        item: "https://www.glovesstorm.com/products",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: category.name,
-        item: `https://glovesstorm.com/products/${category.slug}`,
+        item: `https://www.glovesstorm.com/products/${category.slug}`,
       },
     ],
   };
@@ -122,7 +122,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           "@type": "ListItem",
           position: index + 1,
           name: prod.name,
-          url: `https://glovesstorm.com/products/${category.slug}/${prod.slug}`,
+          url: `https://www.glovesstorm.com/products/${category.slug}/${prod.slug}`,
         })),
       }
     : null;

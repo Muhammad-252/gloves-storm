@@ -3,16 +3,16 @@ import ProductCatalogClient from "@/components/products/ProductCatalogClient";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Custom Sports Equipment & Apparel Products — OEM Manufacturer | Gloves Storm",
+  title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
   description:
-    "Browse 90+ custom OEM products: boxing gloves, MMA gear, sportswear, activewear, gym wear and streetwear. Private label manufacturing from Sialkot, Pakistan. MOQ from 25 pcs. Get a free quote.",
+    "Explore custom apparel specifications: team sportswear, athletic uniforms, gym activewear, hoodies, and streetwear. Direct factory private label apparel manufacturing & global export.",
   alternates: {
     canonical: "https://www.glovesstorm.com/products",
   },
   openGraph: {
-    title: "Custom Sports Equipment & Apparel Products — OEM Manufacturer | Gloves Storm",
+    title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
     description:
-      "Browse 90+ custom OEM products: boxing gloves, MMA gear, sportswear, activewear, gym wear and streetwear. Private label manufacturing from Sialkot, Pakistan. MOQ from 25 pcs.",
+      "Explore custom apparel specifications: team sportswear, athletic uniforms, gym activewear, hoodies, and streetwear. Direct factory private label apparel manufacturing & global export.",
     url: "https://www.glovesstorm.com/products",
     siteName: "Gloves Storm",
     images: [
@@ -20,15 +20,15 @@ export const metadata: Metadata = {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Gloves Storm OEM Manufacturing Catalog — Sialkot Factory",
+        alt: "Gloves Storm Apparel OEM Manufacturing Catalog",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Sports Equipment & Apparel Products — OEM Manufacturer | Gloves Storm",
+    title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
     description:
-      "Explore 90+ custom OEM boxing gloves, combat equipment, and team sportswear manufactured in Sialkot, Pakistan.",
+      "Explore custom OEM and private label apparel, team sportswear, gym activewear, and streetwear manufactured and exported worldwide.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
@@ -36,46 +36,33 @@ export const metadata: Metadata = {
 const itemListSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Custom OEM Products — Gloves Storm",
+  name: "Custom Clothing & Sportswear Catalog — Gloves Storm",
   description:
-    "Custom boxing gloves, fight gear, sportswear, activewear and streetwear manufactured by Gloves Storm",
-  numberOfItems: 90,
+    "Custom sportswear, athletic uniforms, activewear, and streetwear manufactured and exported by Gloves Storm",
   itemListElement: [
     {
       "@type": "ListItem",
       position: 1,
-      name: "Custom Boxing Gloves",
-      url: "https://www.glovesstorm.com/products/boxing-equipment/custom-boxing-gloves",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Custom MMA Gloves",
-      url: "https://www.glovesstorm.com/products/boxing-equipment/custom-mma-gloves",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Custom Sparring Gloves",
-      url: "https://www.glovesstorm.com/products/boxing-equipment/custom-sparring-gloves",
-    },
-    {
-      "@type": "ListItem",
-      position: 4,
-      name: "Custom Kickboxing Gloves",
-      url: "https://www.glovesstorm.com/products/boxing-equipment/custom-kickboxing-gloves",
-    },
-    {
-      "@type": "ListItem",
-      position: 5,
-      name: "Custom Team Sports Jerseys",
+      name: "Custom Sportswear & Teamwear",
       url: "https://www.glovesstorm.com/products/sportswear-teamwear",
     },
     {
       "@type": "ListItem",
-      position: 6,
-      name: "Custom Gym Wear",
+      position: 2,
+      name: "Gym & Fitness Activewear",
       url: "https://www.glovesstorm.com/products/gym-fitness-wear",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: "Clothing & Streetwear",
+      url: "https://www.glovesstorm.com/products/clothing-streetwear",
+    },
+    {
+      "@type": "ListItem",
+      position: 4,
+      name: "Custom Manufacturing & Private Label",
+      url: "https://www.glovesstorm.com/products/custom-manufacturing-private-label",
     },
   ],
 };
@@ -122,16 +109,16 @@ export default async function ProductsPage() {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-white/90 shadow-xs mb-3">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
             <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-800 font-mono font-bold">
-              Factory Production Library • Sialkot OEM
+              Factory Production Library • International OEM &amp; Exporter
             </span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 mb-4">
-            CUSTOM OEM &amp; PRIVATE LABEL PRODUCTS
+            CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURING CATALOG
           </h1>
 
           <p className="text-sm sm:text-base text-slate-700 max-w-4xl leading-relaxed">
-            Gloves Storm manufactures 90+ custom products across six categories — from custom boxing gloves and MMA fight gear to sublimation sportswear, private label activewear, heavyweight streetwear and bespoke swimwear. Every product is available as OEM (you supply the design) or ODM (we design to your brief), with full private label branding and flexible MOQ starting from 25 pieces per design.
+            Gloves Storm manufactures and exports premium custom clothing, athletic sportswear, gym activewear, and luxury heavyweight streetwear for international brands. Every garment is produced as OEM (custom cut-and-sew from your tech packs) or ODM (developed to your aesthetic brief), with complete private label branding, low MOQs starting from 35 pieces per style, and insured door-to-door DDP global shipping.
           </p>
         </div>
 

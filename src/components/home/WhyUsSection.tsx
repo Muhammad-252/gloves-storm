@@ -11,37 +11,37 @@ import {
 const pillars = [
   {
     title: "Quality",
-    desc: "Consistent premium materials, high-density thread count, and professional finishing engineered to rival Tier-1 global labels.",
+    desc: "Consistent premium textiles, high-density stitching, and professional finishing engineered to rival Tier-1 international labels.",
     icon: ShieldCheck,
   },
   {
     title: "Customization",
-    desc: "Every product is developed around your brand DNA—custom cuts, unique ounce calibrations, bespoke fabrics, and specialized pantone shades.",
+    desc: "Every garment is developed around your brand DNA—custom apparel patterns, bespoke fabric knits, technical blends, and specialized pantone shades.",
     icon: Sliders,
   },
   {
     title: "OEM & Private Label",
-    desc: "Full private-label capability. Custom neck labels, embossed leather tags, hang tags, barcoding, and retail-ready packaging.",
+    desc: "Full private-label capability. Custom woven neck labels, satin wash tags, silicone badges, hang tags, barcoding, and retail-ready packaging.",
     icon: Tag,
   },
   {
     title: "Flexible Production",
-    desc: "Accessible minimums starting from 25–50 units for emerging startups, with capacity scaling to 50,000+ units for established distributors.",
+    desc: "Accessible minimums starting from 35–50 units for emerging brands, with capacity scaling to 50,000+ units for established international distributors.",
     icon: Repeat,
   },
   {
     title: "Clear Communication",
-    desc: "Direct access to our English-speaking production team via WhatsApp, Zoom, and email. Real-time video updates from the stitching floor.",
+    desc: "Direct access to our English-speaking production team via WhatsApp, video calls, and email. Real-time visual updates from the sewing floor.",
     icon: MessagesSquare,
   },
   {
     title: "Rigorous Quality Control",
-    desc: "Multi-point inspection during raw material prep, panel printing, assembly, and final pre-dispatch packing to ensure zero defects.",
+    desc: "Multi-point inspection during fabric cutting, panel printing, assembly, and final pre-dispatch packing adhering strictly to AQL 2.5 standards.",
     icon: SearchCheck,
   },
   {
-    title: "Worldwide Shipping",
-    desc: "Reliable air express and consolidated sea freight shipping directly to your warehouse with customs documentation provided.",
+    title: "Worldwide DDP Freight",
+    desc: "Reliable door-to-door DDP air express (3–5 days) and consolidated ocean freight directly to your warehouse with all customs clearance handled.",
     icon: Truck,
   },
 ];
@@ -56,10 +56,10 @@ export default function WhyUsSection() {
             The Partnership Advantage
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05] mb-5">
-            WHY USA &amp; UK BRANDS CHOOSE GLOVES STORM
+            WHY INTERNATIONAL BRANDS CHOOSE GLOVES STORM
           </h2>
           <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-            Sialkot has manufactured 70%+ of the world&apos;s hand-stitched sports goods for over a century. Gloves Storm combines this artisan heritage with automated industrial production to deliver consistent, retail-grade quality for brands of every size.
+            With world-class textile engineering and automated industrial manufacturing lines, Gloves Storm delivers consistent, retail-grade custom apparel and sportswear for international brands across the USA, UK, Europe, and worldwide.
           </p>
         </div>
 

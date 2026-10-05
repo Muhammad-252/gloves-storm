@@ -191,11 +191,11 @@ export default function MegaMenu({
             </button>
 
             <Link
-              href="/manufacturing"
+              href="/about"
               onClick={onClose}
               className="text-neutral-600 hover:text-neutral-950 font-medium transition-colors flex items-center gap-1.5"
             >
-              <span>Verified manufacturers</span>
+              <span>Production standards</span>
               <span className="hidden sm:inline-block px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-amber-500/20 text-amber-800">
                 AQL 2.5
               </span>
@@ -215,7 +215,7 @@ export default function MegaMenu({
             <Link href="/about" onClick={onClose} className="hover:text-neutral-900 transition-colors">
               About GLOVES STORM
             </Link>
-            <Link href="/manufacturing" onClick={onClose} className="hover:text-neutral-900 transition-colors">
+            <Link href="/about" onClick={onClose} className="hover:text-neutral-900 transition-colors">
               Factory Standards
             </Link>
             <Link
@@ -342,7 +342,7 @@ export default function MegaMenu({
                             {item.image ? (
                               <Image
                                 src={item.image}
-                                alt={`${item.name} - Gloves Storm Sialkot`}
+                                alt={`${item.name} - Gloves Storm Custom Apparel`}
                                 fill
                                 sizes="96px"
                                 className="rounded-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -367,11 +367,11 @@ export default function MegaMenu({
                   </div>
                 </div>
 
-                {/* Section 2: Apparel & Combat Gear */}
+                {/* Section 2: Streetwear & Lifestyle Apparel */}
                 <div className="pt-2 border-t border-neutral-100">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-sm sm:text-base font-extrabold text-neutral-950 tracking-tight">
-                      Apparel &amp; Accessories
+                      Streetwear &amp; Custom Apparel
                     </h3>
 
                     <Link
@@ -542,7 +542,7 @@ export default function MegaMenu({
           <div className="flex items-center gap-4 sm:gap-6 font-mono">
             <span className="flex items-center gap-1.5 text-neutral-700 font-semibold">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              Sialkot Verified OEM
+              Certified Apparel OEM &amp; Exporter
             </span>
             <span className="hidden sm:inline">&bull;</span>
             <span className="hidden sm:inline">100% Export Quality Guarantee</span>

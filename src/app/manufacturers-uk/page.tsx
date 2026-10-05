@@ -3,16 +3,16 @@ import ManufacturersUkClient from "@/components/manufacturers/ManufacturersUkCli
 import { ukFaqs } from "@/lib/data/exportFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom Boxing Gloves & Sportswear Manufacturer for UK Brands | Gloves Storm",
+  title: "Custom Clothing & Sportswear Manufacturer for UK Brands | Gloves Storm",
   description:
-    "OEM boxing gloves and sportswear manufacturer supplying UK brands, boxing gyms and sports clubs. Custom private label, low MOQ from 25 pcs. DDP shipping to UK. 7-day samples. Free quote.",
+    "OEM custom clothing and sportswear manufacturer supplying UK brands, athletic teams and streetwear labels. Custom private label, low MOQ from 35 pcs. DDP shipping to UK. 5-7 day samples. Free quote.",
   alternates: {
     canonical: "https://www.glovesstorm.com/manufacturers-uk",
   },
   openGraph: {
-    title: "Custom Boxing Gloves & Sportswear Manufacturer for UK Brands | Gloves Storm",
+    title: "Custom Clothing & Sportswear Manufacturer for UK Brands | Gloves Storm",
     description:
-      "OEM boxing gloves and sportswear manufacturer supplying UK brands, boxing gyms and sports clubs. Custom private label, low MOQ from 25 pcs. DDP shipping to UK.",
+      "OEM custom clothing and sportswear manufacturer supplying UK brands, athletic teams and streetwear labels. Custom private label, low MOQ from 35 pcs. DDP shipping to UK.",
     url: "https://www.glovesstorm.com/manufacturers-uk",
     siteName: "Gloves Storm",
     type: "website",
@@ -21,15 +21,15 @@ export const metadata: Metadata = {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Gloves Storm — Custom Boxing Gloves & Sportswear Manufacturer for UK Brands",
+        alt: "Gloves Storm — Custom Clothing & Sportswear Manufacturer for UK Brands",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Boxing Gloves & Sportswear Manufacturer for UK Brands | Gloves Storm",
+    title: "Custom Clothing & Sportswear Manufacturer for UK Brands | Gloves Storm",
     description:
-      "OEM boxing gloves and sportswear manufacturer supplying UK brands, gyms and clubs. DDP shipping, low MOQ, CE/UKCA compliant.",
+      "OEM clothing and sportswear manufacturer supplying UK brands, athletic clubs and labels. DDP shipping, low MOQ, GBP billing.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["LocalBusiness", "Organization"],
-  name: "Gloves Storm — UK OEM Manufacturer",
+  name: "Gloves Storm — UK Apparel OEM Manufacturer",
   description:
-    "Direct Sialkot OEM factory manufacturing custom boxing gloves, fight gear, sportswear, and activewear for British brands with DDP UK shipping.",
+    "Direct OEM factory manufacturing custom clothing, team sportswear, gym activewear, and streetwear for British brands with DDP UK shipping and GBP billing.",
   url: "https://www.glovesstorm.com/manufacturers-uk",
   telephone: "+92-341-7146935",
   email: "glovesstorm@gmail.com",

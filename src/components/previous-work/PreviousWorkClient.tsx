@@ -47,7 +47,7 @@ export default function PreviousWorkClient({
         }
       }
     }
-    return list.length > 0 ? list : [proj.featured_image || "/images/products/boxing-gloves-black.png"];
+    return list.length > 0 ? list : [proj.featured_image || "/images/products/basketball-uniform.jpg"];
   }, []);
 
   // Filter projects based on selected category
@@ -131,7 +131,7 @@ export default function PreviousWorkClient({
             </h1>
 
             <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-4xl font-normal">
-              Every order shown here was manufactured at our direct Sialkot facility — from single prototype samples to full container-load bulk orders. Browse custom boxing gloves, fight gear, team sportswear, activewear and streetwear manufactured for brands across the USA, United Kingdom and beyond.
+              Every order shown here was manufactured at our direct Sialkot facility — from single prototype samples to full container-load bulk orders. Browse custom sportswear, athletic team uniforms, seamless activewear, heavyweight hoodies, and private label garments manufactured for brands across the USA, United Kingdom, and international export markets.
             </p>
           </div>
 

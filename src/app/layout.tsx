@@ -27,25 +27,27 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.glovesstorm.com"),
   title: {
-    default: "Gloves Storm | Custom Boxing Gloves & Sportswear Manufacturer — Sialkot, Pakistan",
-    template: "%s | Gloves Storm — OEM Manufacturer",
+    default: "Gloves Storm | Custom Clothing & Sportswear Manufacturer — International Exporter",
+    template: "%s | Gloves Storm — Custom Apparel Manufacturer & Exporter",
   },
   description:
-    "Custom boxing gloves, sportswear, activewear and fight gear manufacturer for USA and UK brands. Low MOQ from 25 pcs, 7-day samples, door-to-door shipping. OEM/ODM private label. Direct Sialkot factory since 2019.",
+    "International OEM/ODM manufacturer and exporter of custom clothing, sportswear, activewear, and private label apparel. Serving brands across the USA, UK, Europe, and worldwide. Low MOQ, 7-day sampling, door-to-door DDP export delivery.",
   keywords: [
-    "custom boxing gloves manufacturer",
-    "boxing gloves OEM manufacturer",
-    "private label boxing gloves",
+    "custom clothing manufacturer",
     "custom sportswear manufacturer",
-    "OEM activewear manufacturer",
-    "private label clothing manufacturer USA",
+    "clothing manufacturing",
+    "sportswear manufacturing",
+    "private label clothing",
+    "apparel exports",
+    "OEM sportswear manufacturer",
     "custom team uniforms manufacturer",
-    "fight gear manufacturer Sialkot",
-    "boxing equipment manufacturer Pakistan",
-    "custom MMA gloves manufacturer",
-    "wholesale sports goods supplier",
     "custom gym wear manufacturer",
-    "private label hoodie manufacturer",
+    "private label activewear manufacturer",
+    "custom streetwear manufacturer",
+    "wholesale apparel manufacturer",
+    "cut and sew clothing manufacturer",
+    "sublimation sports jerseys manufacturer",
+    "apparel exporter USA UK",
   ],
   authors: [{ name: "Gloves Storm", url: "https://www.glovesstorm.com" }],
   creator: "Gloves Storm",
@@ -66,23 +68,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.glovesstorm.com",
     siteName: "Gloves Storm",
-    title: "Gloves Storm | Custom Boxing Gloves & Sportswear Manufacturer",
+    title: "Gloves Storm | Custom Clothing & Sportswear Manufacturer & Exporter",
     description:
-      "Direct OEM factory for custom boxing gloves, fight gear, team sportswear and activewear. Serving USA and UK brands since 2019. Low MOQ, 7-day sampling, DDP worldwide shipping.",
+      "Professional international OEM/ODM manufacturer and exporter of custom clothing, sportswear, fitness apparel, and private label collections. Low MOQ, rapid prototyping, global DDP delivery.",
     images: [
       {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Gloves Storm — Custom Boxing Gloves and Sportswear OEM Manufacturer Sialkot Pakistan",
+        alt: "Gloves Storm — Custom Clothing and Sportswear OEM Manufacturer & Exporter",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gloves Storm | Custom Boxing Gloves & Sportswear Manufacturer",
+    title: "Gloves Storm | Custom Clothing & Sportswear Manufacturer & Exporter",
     description:
-      "OEM manufacturer for custom boxing gloves, fight gear, sportswear and activewear. USA & UK brands. Low MOQ, direct factory.",
+      "International OEM manufacturer & exporter of custom clothing, team sportswear, activewear, and private label apparel. Serving USA, UK, and global brands.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
   alternates: {
@@ -113,7 +115,7 @@ const organizationSchema = {
       logo: "https://www.glovesstorm.com/images/logo.png",
       image: "https://www.glovesstorm.com/images/logo.png",
       description:
-        "OEM and private label manufacturer of custom boxing gloves, fight gear, sportswear, activewear and streetwear. Based in Sialkot, Pakistan. Serving USA and UK brands since 2019.",
+        "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, streetwear, and team uniforms. Direct factory manufacturing facility with global export corridors to the USA, UK, EU, and worldwide.",
       telephone: "+92-341-7146935",
       email: "glovesstorm@gmail.com",
       priceRange: "$$",
@@ -127,6 +129,7 @@ const organizationSchema = {
         "Australia",
         "United Arab Emirates",
         "Saudi Arabia",
+        "Worldwide",
       ],
       address: {
         "@type": "PostalAddress",
@@ -164,23 +167,23 @@ const organizationSchema = {
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "OEM Sports & Combat Gear Manufacturing Divisions",
+        name: "Custom Clothing & Sportswear Manufacturing Divisions",
         itemListElement: [
-          {
-            "@type": "OfferCatalog",
-            name: "Boxing Equipment & Fight Gear",
-          },
           {
             "@type": "OfferCatalog",
             name: "Custom Sportswear & Team Uniforms",
           },
           {
             "@type": "OfferCatalog",
-            name: "Gym & Fitness Compression Wear",
+            name: "Gym & Fitness Activewear",
           },
           {
             "@type": "OfferCatalog",
-            name: "Luxury Heavyweight Streetwear",
+            name: "Streetwear & Heavyweight Apparel",
+          },
+          {
+            "@type": "OfferCatalog",
+            name: "Custom Manufacturing & Private Label Services",
           },
         ],
       },

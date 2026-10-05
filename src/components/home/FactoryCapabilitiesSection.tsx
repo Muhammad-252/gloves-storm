@@ -12,9 +12,9 @@ const capabilities = [
     process: "Automated Cutting",
     category: "Cutting",
     iconType: "laser" as const,
-    alt: "Computerized Gerber laser cutting machines at Gloves Storm Sialkot factory",
+    alt: "Computerized Gerber laser cutting machines at Gloves Storm apparel factory",
     description:
-      "Computerized Gerber spreading and high-precision laser cutters ensuring sub-millimeter edge tolerances across complex fight glove and jersey patterns.",
+      "Computerized Gerber spreading and high-precision laser cutters ensuring sub-millimeter edge tolerances across complex sportswear, activewear panels, and jersey patterns.",
   },
   {
     title: "Industrial Juki Stitching Lines",
@@ -62,7 +62,7 @@ const capabilities = [
     process: "Quality Control",
     category: "Quality Control",
     iconType: "qc" as const,
-    alt: "AQL 2.5 quality control inspection at Gloves Storm boxing gloves and sportswear factory",
+    alt: "AQL 2.5 quality control inspection at Gloves Storm custom apparel and sportswear factory",
     description:
       "Rigorous needle detection, pull-force hardware testing, color fastness checks, and dimensional verification before custom branded packing.",
   },
@@ -79,18 +79,18 @@ export default function FactoryCapabilitiesSection() {
               In-House Industrial Infrastructure
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05]">
-              MANUFACTURING &amp; TECHNICAL CAPABILITIES
+              APPAREL MANUFACTURING &amp; TECHNICAL CAPABILITIES
             </h2>
             <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-              90+ verified product specifications across boxing equipment, sportswear, activewear and streetwear. Every product manufactured at our direct Sialkot factory with in-house sublimation, embroidery, cutting and QC.
+              Engineered specifications across custom teamwear, gym activewear, hoodies, and streetwear. Every garment manufactured at our direct production facilities with in-house sublimation, embroidery, laser cutting, and multi-stage QC.
             </p>
           </div>
           <GooeyButton
-            href="/manufacturing"
+            href="/about"
             variant="outline"
             size="sm"
           >
-            <span>Explore Technical Equipment</span>
+            <span>Learn About Production</span>
             <ArrowUpRight className="w-4 h-4" />
           </GooeyButton>
         </div>
@@ -102,7 +102,7 @@ export default function FactoryCapabilitiesSection() {
               key={cap.title}
               className="group bg-[#F9FAFB] rounded-3xl border border-black/[0.08] hover:border-amber-500/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
             >
-              {/* TODO: Replace with real factory photo */}
+              {/* Factory photo placeholder */}
               <div className="relative h-60 w-full overflow-hidden bg-neutral-900 p-2">
                 <FactoryPhotoPlaceholder
                   machineName={cap.machine}
@@ -124,13 +124,13 @@ export default function FactoryCapabilitiesSection() {
 
                 <div className="mt-6 pt-4 border-t border-black/[0.06] flex items-center justify-between">
                   <span className="text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">
-                    Sialkot Factory Unit
+                    Export Certified Unit
                   </span>
                   <Link
-                    href="/manufacturing"
+                    href="/about"
                     className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 hover:text-amber-700 transition-colors"
                   >
-                    <span>Full Specs</span>
+                    <span>Quality Standards</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>

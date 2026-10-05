@@ -47,13 +47,13 @@ const preProductionStages = [
   },
   {
     step: "04",
-    name: "Tooling & Custom Molds",
+    name: "Grading & Embellishment Setup",
     phase: "Industrial Tooling",
     icon: Layers,
     description:
-      "CNC glove mold cutting, 3D high-density embossing plates, custom silicone badges, and laser-cut die fabrication.",
-    deliverables: ["Embossing Dies", "Injection Molds", "Precision Cutting Dies"],
-    timeline: "3–4 Days",
+      "CAD vector grading across full size runs (XS–5XL), Tajima embroidery punch-digitizing, high-density screen stencil burning, and custom hardware fabrication.",
+    deliverables: ["Full Size Grading", "Embroidery Digitizing", "Screen Print Stencils"],
+    timeline: "2–3 Days",
   },
 ];
 
@@ -103,7 +103,7 @@ export default function BrandStatementSection() {
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300/70 mb-5 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
               <span className="text-xs font-mono uppercase tracking-[0.25em] text-amber-900 font-bold">
-                End-To-End Manufacturing Partner
+                End-To-End Apparel Manufacturing Partner
               </span>
             </div>
 
@@ -113,7 +113,7 @@ export default function BrandStatementSection() {
             </h2>
 
             <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed max-w-2xl">
-              GLOVES STORM provides comprehensive turnkey manufacturing for sports brands, fight academies, and luxury streetwear labels. We combine Sialkot’s century-old artisan mastery with automated industrial engineering to guarantee consistent, defect-free production.
+              GLOVES STORM provides comprehensive turnkey OEM/ODM manufacturing and export for sports brands, athletic clubs, and designer streetwear labels worldwide. We combine precision textile engineering with automated industrial machinery to guarantee consistent, defect-free apparel production.
             </p>
           </div>
 
@@ -123,8 +123,8 @@ export default function BrandStatementSection() {
               <span>Start Production</span>
               <ArrowRight className="w-4 h-4" />
             </GooeyButton>
-            <GooeyButton href="/manufacturing" variant="outline" size="md">
-              <span>Factory Tour</span>
+            <GooeyButton href="/about" variant="outline" size="md">
+              <span>About Production</span>
             </GooeyButton>
           </div>
         </div>

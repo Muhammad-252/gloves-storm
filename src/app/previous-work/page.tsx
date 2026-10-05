@@ -3,16 +3,16 @@ import { getProjects, getCategories } from "@/lib/data/store";
 import PreviousWorkClient from "@/components/previous-work/PreviousWorkClient";
 
 export const metadata: Metadata = {
-  title: "Previous Work & Portfolio — Custom Boxing Gloves & Sportswear | Gloves Storm",
+  title: "Previous Work & Portfolio — Custom Clothing & Sportswear | Gloves Storm",
   description:
-    "Browse completed orders from Gloves Storm — custom boxing gloves, fight gear, sportswear and activewear manufactured for USA and UK brands. Real production, real results.",
+    "Browse completed production orders from Gloves Storm — custom sportswear, teamwear uniforms, activewear, heavyweight hoodies, and private label apparel manufactured for USA, UK, and international brands.",
   alternates: {
     canonical: "https://www.glovesstorm.com/previous-work",
   },
   openGraph: {
-    title: "Previous Work & Portfolio — Custom Boxing Gloves & Sportswear | Gloves Storm",
+    title: "Previous Work & Portfolio — Custom Clothing & Sportswear | Gloves Storm",
     description:
-      "Browse completed orders from Gloves Storm — custom boxing gloves, fight gear, sportswear and activewear manufactured for USA and UK brands.",
+      "Browse completed production orders from Gloves Storm — custom sportswear, teamwear uniforms, activewear, heavyweight hoodies, and private label apparel manufactured for USA, UK, and international brands.",
     url: "https://www.glovesstorm.com/previous-work",
     siteName: "Gloves Storm",
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Previous Work & Portfolio — Custom Boxing Gloves & Sportswear | Gloves Storm",
+    title: "Previous Work & Portfolio — Custom Clothing & Sportswear | Gloves Storm",
     description:
       "Inspect real factory production runs, precision stitching close-ups, and export dispatches direct from our Sialkot manufacturing plant.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
@@ -52,13 +52,13 @@ export default async function PreviousWorkPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://glovesstorm.com",
+            item: "https://www.glovesstorm.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Previous Work",
-            item: "https://glovesstorm.com/previous-work",
+            item: "https://www.glovesstorm.com/previous-work",
           },
         ],
       },
@@ -66,8 +66,8 @@ export default async function PreviousWorkPage() {
         "@type": "CollectionPage",
         name: "GLOVES STORM Production Archive",
         description:
-          "Verified production gallery and case studies for custom apparel, fight gear, and combat sports equipment.",
-        url: "https://glovesstorm.com/previous-work",
+          "Verified production gallery and case studies for custom clothing, athletic sportswear, activewear, and private label apparel.",
+        url: "https://www.glovesstorm.com/previous-work",
       },
     ],
   };
