@@ -3,34 +3,34 @@ import { getProjects, getCategories } from "@/lib/data/store";
 import PreviousWorkClient from "@/components/previous-work/PreviousWorkClient";
 
 export const metadata: Metadata = {
-  title: "Previous Work & Production Archive | GLOVES STORM",
+  title: "Previous Work & Portfolio — Custom Boxing Gloves & Sportswear | Gloves Storm",
   description:
-    "Explore our factory archive of custom boxing equipment, sublimated sportswear, combat gear, and luxury streetwear manufactured for international brands in Sialkot, Pakistan.",
+    "Browse completed orders from Gloves Storm — custom boxing gloves, fight gear, sportswear and activewear manufactured for USA and UK brands. Real production, real results.",
   alternates: {
-    canonical: "https://glovesstorm.com/previous-work",
+    canonical: "https://www.glovesstorm.com/previous-work",
   },
   openGraph: {
-    title: "Previous Work & Production Archive | GLOVES STORM",
+    title: "Previous Work & Portfolio — Custom Boxing Gloves & Sportswear | Gloves Storm",
     description:
-      "Inspect real factory production runs, precision stitching close-ups, and export dispatches direct from our Sialkot manufacturing plant.",
-    url: "https://glovesstorm.com/previous-work",
-    siteName: "GLOVES STORM Manufacturing",
+      "Browse completed orders from Gloves Storm — custom boxing gloves, fight gear, sportswear and activewear manufactured for USA and UK brands.",
+    url: "https://www.glovesstorm.com/previous-work",
+    siteName: "Gloves Storm",
     type: "website",
     images: [
       {
-        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+        url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "GLOVES STORM Production Archive & Previous Work",
+        alt: "Gloves Storm Production Archive & Previous Work",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Previous Work & Production Archive | GLOVES STORM",
+    title: "Previous Work & Portfolio — Custom Boxing Gloves & Sportswear | Gloves Storm",
     description:
       "Inspect real factory production runs, precision stitching close-ups, and export dispatches direct from our Sialkot manufacturing plant.",
-    images: ["https://glovesstorm.com/images/products/boxing-gloves-black.png"],
+    images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
 

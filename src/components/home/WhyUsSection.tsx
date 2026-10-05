@@ -50,17 +50,16 @@ export default function WhyUsSection() {
   return (
     <section className="py-28 sm:py-36 bg-[#F9FAFB] border-b border-black/[0.07] relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-16">
+        {/* Section Header with Rewritten SEO Title & Subtitle */}
+        <div className="max-w-4xl mb-16">
           <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
             The Partnership Advantage
           </span>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.0] mb-6">
-            MORE THAN A SUPPLIER. <br />
-            <span className="text-[#6B7280]">A MANUFACTURING PARTNER.</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05] mb-5">
+            WHY USA &amp; UK BRANDS CHOOSE GLOVES STORM
           </h2>
-          <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed">
-            We don’t treat production as simple transactional work. We act as an extension of your product design and supply chain team, protecting your brand reputation with every stitch.
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+            Sialkot has manufactured 70%+ of the world&apos;s hand-stitched sports goods for over a century. Gloves Storm combines this artisan heritage with automated industrial production to deliver consistent, retail-grade quality for brands of every size.
           </p>
         </div>
 

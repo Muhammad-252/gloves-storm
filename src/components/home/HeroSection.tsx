@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Play, Pause, Film, ShieldCheck, Box, Clock, Globe2, Sparkles, MessageSquare } from "lucide-react";
 import MagneticElement from "../ui/MagneticElement";
@@ -8,8 +8,18 @@ import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const toggleVideo = () => {
     if (videoRef.current) {
@@ -24,24 +34,34 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center pt-32 pb-16 sm:pt-44 sm:pb-24">
-      {/* Complete Full-Bleed Hero Background Video */}
+      {/* Complete Full-Bleed Hero Background Video or Poster */}
       <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster="/images/products/varsity-jacket.jpg"
-          className="w-full h-full object-cover object-center scale-105 transform motion-safe:animate-fade-in"
-        >
-          <source src="/videos/varsity-jacket-hero.mp4" type="video/mp4" />
-        </video>
+        {isMobile ? (
+          <img
+            src="/images/hero-poster.jpg"
+            alt="Gloves Storm custom boxing gloves and sportswear manufacturing facility"
+            className="w-full h-full object-cover object-center scale-105"
+            loading="eager"
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="none"
+            poster="/images/hero-poster.jpg"
+            className="w-full h-full object-cover object-center scale-105 transform motion-safe:animate-fade-in"
+          >
+            <source src="/videos/varsity-jacket-hero.webm" type="video/webm" />
+            <source src="/videos/varsity-jacket-hero.mp4" type="video/mp4" />
+          </video>
+        )}
 
         {/* Reduced Black Overlay for High Video Clarity & Visibility */}
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30" />
+        <div className="absolute inset-0 bg-black/35" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35" />
       </div>
 
       {/* Hero Content Container */}
@@ -50,18 +70,23 @@ export default function HeroSection() {
         <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-sm mb-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
           <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-white/90 font-bold">
-            CUSTOM OEM/ODM APPAREL &amp; GEAR
+            SIALKOT DIRECT FACTORY · EST. 2019
           </span>
         </div>
 
-        {/* Short, Punchy, Bold Luxury Technical Heading */}
-        <h1 className="tracking-tight text-4xl sm:text-6xl md:text-7xl font-extrabold text-white leading-[1.06] max-w-4xl mb-5 drop-shadow-[0_3px_10px_rgba(0,0,0,0.8)]">
-          PRECISION GEAR &amp; APPAREL.
+        {/* Target H1 for SEO */}
+        <h1 className="tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] max-w-5xl mb-4 drop-shadow-[0_3px_10px_rgba(0,0,0,0.8)] uppercase">
+          CUSTOM BOXING GLOVES &amp; SPORTSWEAR MANUFACTURER
         </h1>
 
-        {/* Technical Value Proposition Subheading */}
-        <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-2xl font-medium leading-relaxed mb-9 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
-          Direct factory OEM and private label manufacturing for custom combat sports equipment and performance apparel. Low MOQ starting at 30 pcs per design with rapid 7-day sampling.
+        {/* Subheadline (H2 style, not a heading tag for hierarchy) */}
+        <p className="text-base sm:text-xl md:text-2xl font-bold text-amber-400 tracking-tight max-w-3xl mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+          Direct Sialkot OEM &amp; Private Label Factory for USA and UK Brands
+        </p>
+
+        {/* Technical Value Proposition Body Copy */}
+        <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-3xl font-normal leading-relaxed mb-9 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
+          Gloves Storm is a direct-factory OEM and private label manufacturer of custom boxing gloves, fight gear, sportswear, activewear, and streetwear. Based in Sialkot, Pakistan — the world&apos;s largest sports goods manufacturing hub — we serve brands, gyms, sports teams and distributors across the USA and United Kingdom. Low MOQ starting from 25 pieces, 7-day prototyping, and door-to-door insured shipping worldwide.
         </p>
 
         {/* Action CTAs */}
@@ -109,7 +134,7 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              30 Pcs / Design
+              25–50 Pcs / Design
             </span>
             <span className="text-[11px] text-slate-300/80 block mt-0.5">
               Accessible startup batch
@@ -154,28 +179,30 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              USA, UK &amp; Europe
+              USA, UK &amp; EU
             </span>
             <span className="text-[11px] text-slate-300/80 block mt-0.5">
-              Door-to-Door DDP Air
+              DDP Air &amp; Sea
             </span>
           </div>
         </div>
 
-        {/* Video Play/Pause Control Pill (Bottom Right Floating) */}
-        <button
-          onClick={toggleVideo}
-          className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 shadow-md backdrop-blur-xl text-[10px] font-mono uppercase text-white/80 transition-all cursor-pointer"
-          title={isPlaying ? "Pause background video" : "Play background video"}
-        >
-          <Film className="w-3 h-3 text-slate-300" />
-          <span>{isPlaying ? "Pause Video" : "Play Video"}</span>
-          {isPlaying ? (
-            <Pause className="w-2.5 h-2.5 text-slate-300" />
-          ) : (
-            <Play className="w-2.5 h-2.5 text-emerald-400 fill-current" />
-          )}
-        </button>
+        {/* Video Play/Pause Control Pill (Only on desktop when video is active) */}
+        {!isMobile && (
+          <button
+            onClick={toggleVideo}
+            className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 shadow-md backdrop-blur-xl text-[10px] font-mono uppercase text-white/80 transition-all cursor-pointer"
+            title={isPlaying ? "Pause background video" : "Play background video"}
+          >
+            <Film className="w-3 h-3 text-slate-300" />
+            <span>{isPlaying ? "Pause Video" : "Play Video"}</span>
+            {isPlaying ? (
+              <Pause className="w-2.5 h-2.5 text-slate-300" />
+            ) : (
+              <Play className="w-2.5 h-2.5 text-emerald-400 fill-current" />
+            )}
+          </button>
+        )}
       </div>
 
       {/* Quote / RFQ Modal */}

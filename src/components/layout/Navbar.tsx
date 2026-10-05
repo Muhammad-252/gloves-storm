@@ -14,6 +14,11 @@ import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 const navLinks = [
   { name: "Products", href: "/products", hasMegaMenu: true },
   { name: "Manufacturing", href: "/manufacturing" },
+  {
+    name: "Export Markets",
+    href: "/manufacturers-usa",
+    hasDropdown: true,
+  },
   { name: "About", href: "/about" },
   { name: "Previous Work", href: "/previous-work" },
   { name: "Journal", href: "/journal" },
@@ -23,11 +28,13 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
+  const [marketsDropdownOpen, setMarketsDropdownOpen] = useState(false);
   const [rfqModalOpen, setRfqModalOpen] = useState(false);
   const [mobileCategoriesExpanded, setMobileCategoriesExpanded] = useState(false);
   const [categories, setCategories] = useState<Category[]>(initialCategories);
   const pathname = usePathname();
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const marketsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,6 +60,7 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setMegaMenuOpen(false);
+    setMarketsDropdownOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -82,6 +90,24 @@ export default function Navbar() {
       setMegaMenuOpen(false);
       megaMenuTimeoutRef.current = null;
     }, 450); // Generous 450ms grace period to allow smooth cursor transition
+  };
+
+  const handleMouseEnterMarkets = () => {
+    if (marketsTimeoutRef.current) {
+      clearTimeout(marketsTimeoutRef.current);
+      marketsTimeoutRef.current = null;
+    }
+    setMarketsDropdownOpen(true);
+  };
+
+  const handleMouseLeaveMarkets = () => {
+    if (marketsTimeoutRef.current) {
+      clearTimeout(marketsTimeoutRef.current);
+    }
+    marketsTimeoutRef.current = setTimeout(() => {
+      setMarketsDropdownOpen(false);
+      marketsTimeoutRef.current = null;
+    }, 250);
   };
 
   const isAdminRoute = pathname.startsWith("/admin");
@@ -155,6 +181,84 @@ export default function Navbar() {
                         {categories.length}
                       </span>
                     </Link>
+                  </div>
+                );
+              }
+
+              if (link.hasDropdown) {
+                const isMarketActive =
+                  pathname.startsWith("/manufacturers-usa") ||
+                  pathname.startsWith("/manufacturers-uk");
+
+                return (
+                  <div
+                    key={link.name}
+                    onMouseEnter={handleMouseEnterMarkets}
+                    onMouseLeave={handleMouseLeaveMarkets}
+                    className="relative py-1"
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setMarketsDropdownOpen(!marketsDropdownOpen)}
+                      className={cn(
+                        "text-xs uppercase tracking-[0.16em] font-semibold transition-colors relative py-1 flex items-center gap-1.5 group cursor-pointer",
+                        isMarketActive || marketsDropdownOpen
+                          ? "text-slate-950 font-bold"
+                          : "text-slate-600 hover:text-slate-950"
+                      )}
+                    >
+                      <span>{link.name}</span>
+                      <ChevronDown
+                        className={cn(
+                          "w-3 h-3 transition-transform duration-200",
+                          marketsDropdownOpen ? "rotate-180 text-slate-900" : "text-slate-400"
+                        )}
+                      />
+                    </button>
+
+                    {marketsDropdownOpen && (
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-72 animate-in fade-in slide-in-from-top-1 duration-150">
+                        <div className="rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl p-2.5 space-y-1">
+                          <Link
+                            href="/manufacturers-usa"
+                            onClick={() => setMarketsDropdownOpen(false)}
+                            className={cn(
+                              "p-3 rounded-xl flex items-start gap-3 hover:bg-slate-50 transition-colors group/item",
+                              pathname.startsWith("/manufacturers-usa") && "bg-slate-50"
+                            )}
+                          >
+                            <span className="text-2xl shrink-0 mt-0.5">🇺🇸</span>
+                            <div className="flex flex-col">
+                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-amber-800 transition-colors uppercase tracking-tight">
+                                USA Manufacturing
+                              </span>
+                              <span className="text-[10px] text-slate-500 font-mono mt-0.5">
+                                DDP air freight · Low MOQ · US Customs
+                              </span>
+                            </div>
+                          </Link>
+
+                          <Link
+                            href="/manufacturers-uk"
+                            onClick={() => setMarketsDropdownOpen(false)}
+                            className={cn(
+                              "p-3 rounded-xl flex items-start gap-3 hover:bg-slate-50 transition-colors group/item",
+                              pathname.startsWith("/manufacturers-uk") && "bg-slate-50"
+                            )}
+                          >
+                            <span className="text-2xl shrink-0 mt-0.5">🇬🇧</span>
+                            <div className="flex flex-col">
+                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-amber-800 transition-colors uppercase tracking-tight">
+                                UK Manufacturing
+                              </span>
+                              <span className="text-[10px] text-slate-500 font-mono mt-0.5">
+                                CE/UKCA · DDP delivery · GBP (£) billing
+                              </span>
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               }
@@ -276,8 +380,45 @@ export default function Navbar() {
               )}
             </div>
 
+            {/* Export Markets Section for Mobile */}
+            <div className="border-b border-neutral-100 py-3">
+              <div className="text-[10px] tracking-[0.25em] text-neutral-400 uppercase font-mono mb-2">
+                Export Markets
+              </div>
+              <div className="grid grid-cols-2 gap-2">
+                <Link
+                  href="/manufacturers-usa"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col gap-1 hover:border-slate-900 transition-colors",
+                    pathname.startsWith("/manufacturers-usa") && "border-slate-900 bg-amber-50/40"
+                  )}
+                >
+                  <div className="flex items-center gap-1.5 font-bold text-xs text-slate-900 uppercase">
+                    <span>🇺🇸</span>
+                    <span>USA Brands</span>
+                  </div>
+                  <span className="text-[10px] text-slate-500 font-mono">DDP Air · Low MOQ</span>
+                </Link>
+                <Link
+                  href="/manufacturers-uk"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col gap-1 hover:border-slate-900 transition-colors",
+                    pathname.startsWith("/manufacturers-uk") && "border-slate-900 bg-amber-50/40"
+                  )}
+                >
+                  <div className="flex items-center gap-1.5 font-bold text-xs text-slate-900 uppercase">
+                    <span>🇬🇧</span>
+                    <span>UK Brands</span>
+                  </div>
+                  <span className="text-[10px] text-slate-500 font-mono">CE/UKCA · GBP (£)</span>
+                </Link>
+              </div>
+            </div>
+
             {navLinks
-              .filter((l) => !l.hasMegaMenu)
+              .filter((l) => !l.hasMegaMenu && !l.hasDropdown)
               .map((link) => {
                 const isActive = pathname.startsWith(link.href);
                 return (

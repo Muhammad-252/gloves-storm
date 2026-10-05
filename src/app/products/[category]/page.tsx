@@ -31,15 +31,15 @@ export async function generateMetadata({ params }: CategoryPageProps) {
       cat.description ||
       `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan. Handcrafted equipment, custom sublimation teamwear, and private label apparel.`,
     alternates: {
-      canonical: `/products/${slug}`,
+      canonical: `https://www.glovesstorm.com/products/${slug}`,
     },
     openGraph: {
-      title: `Custom ${cat.name} Manufacturer & OEM Factory Sialkot | GLOVES STORM`,
+      title: `Custom ${cat.name} Manufacturer & OEM Factory Sialkot | Gloves Storm`,
       description:
         cat.description ||
         `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan.`,
-      url: `https://glovesstorm.com/products/${slug}`,
-      siteName: "GLOVES STORM",
+      url: `https://www.glovesstorm.com/products/${slug}`,
+      siteName: "Gloves Storm",
       images: [
         {
           url: cat.image_url || "/images/products/boxing-gloves-black.png",

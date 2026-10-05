@@ -6,34 +6,34 @@ import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Manufacturing Journal & Technical Guides | GLOVES STORM",
+  title: "Manufacturing Journal — Boxing Gloves, Sportswear & OEM Guides | Gloves Storm",
   description:
-    "Insights, material breakdowns, and tech pack advisory from the master glove makers and apparel engineers at GLOVES STORM Sialkot.",
+    "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct boxing gloves and apparel factory.",
   alternates: {
-    canonical: "https://glovesstorm.com/journal",
+    canonical: "https://www.glovesstorm.com/journal",
   },
   openGraph: {
-    title: "Manufacturing Journal & Technical Guides | GLOVES STORM",
+    title: "Manufacturing Journal — Boxing Gloves, Sportswear & OEM Guides | Gloves Storm",
     description:
-      "Insights, material breakdowns, and tech pack advisory from the master glove makers and apparel engineers at GLOVES STORM Sialkot.",
-    url: "https://glovesstorm.com/journal",
-    siteName: "GLOVES STORM Manufacturing",
+      "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct boxing gloves and apparel factory.",
+    url: "https://www.glovesstorm.com/journal",
+    siteName: "Gloves Storm",
     type: "website",
     images: [
       {
-        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+        url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "GLOVES STORM Manufacturing Journal & Guides",
+        alt: "Gloves Storm Manufacturing Journal & Guides",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manufacturing Journal & Technical Guides | GLOVES STORM",
+    title: "Manufacturing Journal — Boxing Gloves, Sportswear & OEM Guides | Gloves Storm",
     description:
-      "Insights, material breakdowns, and tech pack advisory from the master glove makers and apparel engineers at GLOVES STORM Sialkot.",
-    images: ["https://glovesstorm.com/images/products/boxing-gloves-black.png"],
+      "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm.",
+    images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
 
@@ -77,17 +77,17 @@ export default async function JournalPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Header */}
-        <div className="max-w-3xl mb-16 pb-8 border-b border-slate-200/80">
+        {/* Header with Rewritten SEO H1 and Intro */}
+        <div className="max-w-4xl mb-16 pb-8 border-b border-slate-200/80">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>SIALKOT TECHNICAL JOURNAL &amp; OEM GUIDES</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-4">
-            MANUFACTURING JOURNAL
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-4">
+            THE GLOVES STORM MANUFACTURING JOURNAL
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Technical guides, fabric analysis, and production strategies published by our Sialkot pattern masters and supply chain directors.
+          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+            Guides, insights and production knowledge from our Sialkot factory — written for sports brands, boxing gym owners, clothing entrepreneurs and distributors building their businesses with Gloves Storm as their manufacturing partner.
           </p>
         </div>
 

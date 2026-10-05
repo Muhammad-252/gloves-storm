@@ -21,10 +21,10 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
   const post = await getBlogPostBySlug(slug);
   if (!post) return { title: "Article Not Found" };
 
-  const title = post.seo_title || `${post.title} | GLOVES STORM Journal`;
+  const title = post.seo_title || `${post.title} | Gloves Storm Journal`;
   const description = post.seo_description || post.excerpt || post.title;
-  const canonicalUrl = `https://glovesstorm.com/journal/${slug}`;
-  const ogImage = post.featured_image || "https://glovesstorm.com/images/products/boxing-gloves-black.png";
+  const canonicalUrl = `https://www.glovesstorm.com/journal/${slug}`;
+  const ogImage = post.featured_image || "https://www.glovesstorm.com/images/og-default.jpg";
 
   return {
     title,
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       title,
       description,
       url: canonicalUrl,
-      siteName: "GLOVES STORM Manufacturing Journal",
+      siteName: "Gloves Storm Manufacturing Journal",
       type: "article",
       images: [
         {

@@ -64,6 +64,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "host", value: "glovesstorm.com" }],
+        destination: "https://www.glovesstorm.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/projects",
         destination: "/previous-work",
         permanent: true,

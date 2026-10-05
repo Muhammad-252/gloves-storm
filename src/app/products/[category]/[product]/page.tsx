@@ -28,16 +28,20 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: ProductPageProps) {
   const { category: categorySlug, product: slug } = await params;
-  const prod = await getProductBySlug(slug);
+  const [prod, cat] = await Promise.all([
+    getProductBySlug(slug),
+    getCategoryBySlug(categorySlug),
+  ]);
   if (!prod) return { title: "Product Not Found" };
 
-  const title = prod.seo_title || `${prod.name} | GLOVES STORM Manufacturing`;
+  const categoryName = cat?.name || "Combat & Sports Gear";
+  const primaryMaterial = prod.materials?.[0] || "1.2mm cowhide leather";
+  const title = `Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`;
   const description =
     prod.seo_description ||
-    prod.short_description ||
-    `OEM and private label manufacturing for ${prod.name} in Sialkot, Pakistan. Rapid sampling, low MOQ, factory-direct export.`;
-  const canonicalUrl = `https://glovesstorm.com/products/${categorySlug}/${slug}`;
-  const ogImage = prod.images?.[0]?.image_url || "https://glovesstorm.com/images/products/boxing-gloves-black.png";
+    `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, IMF foam core, private label branding. MOQ ${prod.moq || 25}–50 pairs. 7-day samples. Ships to USA & UK. Get a free quote.`;
+  const canonicalUrl = `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
+  const ogImage = prod.images?.[0]?.image_url || "https://www.glovesstorm.com/images/og-default.jpg";
 
   return {
     title,
@@ -49,14 +53,14 @@ export async function generateMetadata({ params }: ProductPageProps) {
       title,
       description,
       url: canonicalUrl,
-      siteName: "GLOVES STORM Manufacturing",
+      siteName: "Gloves Storm",
       type: "website",
       images: [
         {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${prod.name} - GLOVES STORM OEM Factory`,
+          alt: `Custom ${prod.name} OEM manufacturer Sialkot Pakistan — ${primaryMaterial}`,
         },
       ],
     },
@@ -91,7 +95,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
 
   const productImages = product.images?.length
     ? product.images.map((img) => img.image_url)
-    : ["https://glovesstorm.com/images/products/boxing-gloves-black.png"];
+    : ["https://www.glovesstorm.com/images/og-default.jpg"];
 
   const productJsonLd = {
     "@context": "https://schema.org",
@@ -101,73 +105,39 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       product.seo_description ||
       product.short_description ||
       product.description ||
-      `Custom ${product.name} manufactured by GLOVES STORM in Sialkot, Pakistan.`,
-    image: productImages,
-    sku: product.id,
-    mpn: product.slug,
+      `Custom ${product.name} OEM manufacturer Sialkot Pakistan. High-precision manufacturing for USA and UK brands.`,
     brand: {
       "@type": "Brand",
-      name: "GLOVES STORM",
+      name: "Gloves Storm",
     },
     manufacturer: {
       "@type": "Organization",
-      name: "GLOVES STORM",
+      name: "Gloves Storm",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Sialkot",
         addressRegion: "Punjab",
-        postalCode: "51310",
         addressCountry: "PK",
       },
     },
     offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "USD",
-      lowPrice: lowTierPrice.toFixed(2),
-      highPrice: highTierPrice.toFixed(2),
-      offerCount: product.pricing_tiers?.length || 4,
+      "@type": "Offer",
       availability: "https://schema.org/InStock",
-      itemCondition: "https://schema.org/NewCondition",
-      url: `https://glovesstorm.com/products/${categorySlug}/${productSlug}`,
+      url: `https://www.glovesstorm.com/products/${categorySlug}/${productSlug}`,
+      priceCurrency: "USD",
+      price: lowTierPrice.toFixed(2),
       seller: {
         "@type": "Organization",
-        name: "GLOVES STORM",
+        name: "Gloves Storm",
       },
-      hasMerchantReturnPolicy: {
-        "@type": "MerchantReturnPolicy",
-        applicableCountry: "US",
-        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
-        merchantReturnDays: 30,
-        returnMethod: "https://schema.org/ReturnByMail",
-        returnFees: "https://schema.org/FreeReturn",
-      },
-      shippingDetails: {
-        "@type": "OfferShippingDetails",
-        shippingRate: {
-          "@type": "MonetaryAmount",
-          value: "0",
-          currency: "USD",
-        },
-        shippingDestination: {
-          "@type": "DefinedRegion",
-          addressCountry: "US",
-        },
-        deliveryTime: {
-          "@type": "ShippingDeliveryTime",
-          handlingTime: {
-            "@type": "QuantitativeValue",
-            minValue: 5,
-            maxValue: 10,
-            unitCode: "d",
-          },
-          transitTime: {
-            "@type": "QuantitativeValue",
-            minValue: 4,
-            maxValue: 7,
-            unitCode: "d",
-          },
-        },
-      },
+    },
+    image: productImages[0],
+    material: Array.isArray(product.materials)
+      ? product.materials.join(", ")
+      : product.materials || "1.2mm Cowhide Leather / Technical Fabric",
+    audience: {
+      "@type": "Audience",
+      audienceType: "B2B — Sports brands, gyms, retailers, distributors",
     },
   };
 
@@ -179,25 +149,25 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://glovesstorm.com",
+        item: "https://www.glovesstorm.com",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Products",
-        item: "https://glovesstorm.com/products",
+        item: "https://www.glovesstorm.com/products",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: category?.name || "Category",
-        item: `https://glovesstorm.com/products/${categorySlug}`,
+        item: `https://www.glovesstorm.com/products/${categorySlug}`,
       },
       {
         "@type": "ListItem",
         position: 4,
         name: product.name,
-        item: `https://glovesstorm.com/products/${categorySlug}/${productSlug}`,
+        item: `https://www.glovesstorm.com/products/${categorySlug}/${productSlug}`,
       },
     ],
   };

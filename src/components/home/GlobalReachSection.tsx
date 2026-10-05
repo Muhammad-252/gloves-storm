@@ -3,14 +3,11 @@
 import dynamic from "next/dynamic";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import StaticMapFallback from "./StaticMapFallback";
 
 const InteractiveGlobe = dynamic(() => import("./InteractiveGlobe"), {
   ssr: false,
-  loading: () => (
-    <div className="w-[300px] sm:w-[400px] h-[300px] sm:h-[400px] rounded-full bg-neutral-100/80 animate-pulse border border-black/[0.06] flex items-center justify-center text-xs font-mono text-neutral-400">
-      LOADING 3D GLOBE...
-    </div>
-  ),
+  loading: () => <StaticMapFallback />,
 });
 
 export default function GlobalReachSection() {

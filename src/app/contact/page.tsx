@@ -6,34 +6,34 @@ import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Start a Project | Multi-Step Project Inquiry & RFQ | GLOVES STORM",
+  title: "Get a Custom Manufacturing Quote — Boxing Gloves & Sportswear | Gloves Storm",
   description:
-    "Submit your bespoke project dossier or request an OEM quotation directly from GLOVES STORM. Fast turnaround, low MOQ (30 pcs), and professional Sialkot factory communication.",
+    "Request a free OEM manufacturing quote from Gloves Storm. Custom boxing gloves, fight gear, sportswear and activewear. MOQ 25 pcs. Reply within 24 hours. USA and UK brands welcome.",
   alternates: {
-    canonical: "https://glovesstorm.com/contact",
+    canonical: "https://www.glovesstorm.com/contact",
   },
   openGraph: {
-    title: "Start a Project | Multi-Step Project Inquiry & RFQ | GLOVES STORM",
+    title: "Get a Custom Manufacturing Quote — Boxing Gloves & Sportswear | Gloves Storm",
     description:
-      "Submit your bespoke project dossier or request an OEM quotation directly from GLOVES STORM. Fast turnaround, low MOQ (30 pcs), and professional Sialkot factory communication.",
-    url: "https://glovesstorm.com/contact",
-    siteName: "GLOVES STORM Manufacturing",
+      "Request a free OEM manufacturing quote from Gloves Storm. Custom boxing gloves, fight gear, sportswear and activewear. MOQ 25 pcs. Reply within 24 hours. USA and UK brands welcome.",
+    url: "https://www.glovesstorm.com/contact",
+    siteName: "Gloves Storm",
     type: "website",
     images: [
       {
-        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+        url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "GLOVES STORM Direct Factory Inquiry Studio",
+        alt: "Gloves Storm Direct Factory Inquiry Studio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Start a Project | Multi-Step Project Inquiry & RFQ | GLOVES STORM",
+    title: "Get a Custom Manufacturing Quote — Boxing Gloves & Sportswear | Gloves Storm",
     description:
-      "Submit your bespoke project dossier or request an OEM quotation directly from GLOVES STORM. Fast turnaround, low MOQ (30 pcs), and professional Sialkot factory communication.",
-    images: ["https://glovesstorm.com/images/products/boxing-gloves-black.png"],
+      "Request a free OEM manufacturing quote from Gloves Storm. Custom boxing gloves, fight gear, sportswear and activewear. MOQ 25 pcs. Reply within 24 hours.",
+    images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
 
@@ -99,11 +99,11 @@ export default async function ContactPage() {
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>DIRECT FACTORY COMMUNICATION &amp; RFQ STUDIO</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-3">
-            START YOUR PROJECT
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-4">
+            REQUEST A CUSTOM MANUFACTURING QUOTE
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-            Configure your technical specifications, upload tech packs, and submit your project requirements directly to our Sialkot engineering division.
+          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+            Tell us what you&apos;re building — product type, quantity, design details and target market. Our production team will review your requirements and respond with a detailed quote within 24 hours. No commitment required at the quote stage.
           </p>
         </div>
 

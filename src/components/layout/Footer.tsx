@@ -17,6 +17,8 @@ const categories = [
 const navigation = [
   { name: "All Products", href: "/products" },
   { name: "Manufacturing & Capabilities", href: "/manufacturing" },
+  { name: "Manufacturing for USA", href: "/manufacturers-usa" },
+  { name: "Manufacturing for UK", href: "/manufacturers-uk" },
   { name: "About GLOVES STORM", href: "/about" },
   { name: "Previous Work", href: "/previous-work" },
   { name: "Manufacturing Journal", href: "/journal" },

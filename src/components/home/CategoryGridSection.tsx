@@ -9,7 +9,41 @@ interface CategoryGridProps {
   categories: Category[];
 }
 
-// Primary and hover secondary images for dynamic image switch
+// Category custom SEO titles & descriptions specified in prompt
+const categorySeoMeta: Record<string, { title: string; description: string }> = {
+  "boxing-equipment": {
+    title: "Custom Boxing Equipment",
+    description:
+      "Custom boxing gloves, MMA gloves, kickboxing gloves, sparring gloves, headguards, shin guards and punching bags. 1.2mm cowhide leather. MOQ 25–50 pairs. Private label ready.",
+  },
+  "sportswear-teamwear": {
+    title: "Custom Sportswear & Team Kits",
+    description:
+      "Sublimation team jerseys, football uniforms, basketball kits, tracksuits and match-day apparel. Full custom branding, player numbering and sponsor logos. MOQ 30 pcs.",
+  },
+  "gym-fitness-wear": {
+    title: "Custom Gym & Activewear",
+    description:
+      "Private label gym wear, compression leggings, sports bras, training shorts and athletic sets. 4-way stretch performance fabrics. MOQ 30 pcs per style.",
+  },
+  "clothing-streetwear": {
+    title: "Custom Streetwear & Apparel",
+    description:
+      "Heavyweight hoodies, varsity jackets, tees and joggers with embroidery, puff print or sublimation. 380–450 GSM fleece. Private label branding included. MOQ 30 pcs.",
+  },
+  "custom-manufacturing-private-label": {
+    title: "OEM & Private Label Manufacturing",
+    description:
+      "Full OEM and ODM manufacturing service. Submit your tech pack or sketch — we handle pattern, sampling, bulk production, QC, and branded retail-ready packaging.",
+  },
+  "swimwear-beachwear": {
+    title: "Custom Swimwear & Beachwear",
+    description:
+      "Custom swimwear, rash guards and beachwear in chlorine-resistant fabrics. Private label branding, custom colourways and retail packaging available. MOQ 30 pcs.",
+  },
+};
+
+// Internal high-res product photos from factory catalog
 const categoryHoverImages: Record<string, { primary: string; secondary: string }> = {
   "boxing-equipment": {
     primary: "/images/products/boxing-gloves-black.png",
@@ -17,11 +51,11 @@ const categoryHoverImages: Record<string, { primary: string; secondary: string }
   },
   "sportswear-teamwear": {
     primary: "/images/products/basketball-uniform.jpg",
-    secondary: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
+    secondary: "/images/products/football-jersey-black.jpg",
   },
   "gym-fitness-wear": {
     primary: "/images/products/gym-leggings.jpg",
-    secondary: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
+    secondary: "/images/products/rash-guard.jpg",
   },
   "clothing-streetwear": {
     primary: "/images/products/hoodie-black.png",
@@ -29,11 +63,11 @@ const categoryHoverImages: Record<string, { primary: string; secondary: string }
   },
   "custom-manufacturing-private-label": {
     primary: "/images/products/luxury-packaging.jpg",
-    secondary: "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
+    secondary: "/images/products/woven-labels.jpg",
   },
   "swimwear-beachwear": {
     primary: "/images/products/board-shorts.jpg",
-    secondary: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop",
+    secondary: "/images/products/rash-guard.jpg",
   },
 };
 
@@ -42,35 +76,38 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
   const parentCategories = categories.filter((c) => !c.parent_id);
 
   return (
-    <section className="py-16 sm:py-24 bg-[#FFFFFF] border-b border-black/[0.06] relative overflow-hidden">
-      {/* Subtle ambient light for glassmorphic cards */}
+    <section className="py-20 sm:py-28 bg-[#FFFFFF] border-b border-black/[0.06] relative overflow-hidden">
+      {/* Subtle ambient light */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-amber-400/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 sm:mb-12 pb-5 border-b border-black/[0.06] gap-4">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/70 backdrop-blur-xl border border-white/80 shadow-xs mb-2">
+        {/* Section Header with Rewritten SEO Title & Subtitle */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b border-black/[0.06] gap-4">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 shadow-xs mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-amber-900 font-mono font-bold">
-                Bespoke Manufacturing Lines
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-slate-800 font-mono font-bold">
+                SIALKOT DIRECT OEM CATALOG
               </span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-[-0.03em] text-[#111827]">
-              PRODUCT CATEGORIES
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827]">
+              WHAT WE MANUFACTURE
             </h2>
+            <p className="mt-2 text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+              Six product categories. 90+ verified specifications. All available as custom OEM or private label.
+            </p>
           </div>
 
           <Link
             href="/products"
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-600 hover:text-amber-800 transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-slate-700 hover:text-amber-800 transition-colors"
           >
             <span>Explore Full Catalog</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
 
-        {/* Minimalist Glassmorphic Category Grid: Shows ONLY Category Name & Dual-Image on Hover */}
+        {/* Category Grid: Shows Category Title, Description & Images */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {parentCategories.map((category, idx) => {
             const fallbackSet = categoryHoverImages[category.slug];
@@ -82,48 +119,71 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
               fallbackSet?.secondary ||
               primaryImage;
 
+            const seoData = categorySeoMeta[category.slug] || {
+              title: category.name,
+              description: category.description || "Custom OEM and private label manufacturing direct from Sialkot factory.",
+            };
+
             return (
               <Link
                 key={category.id}
                 href={`/products/${category.slug}`}
-                className="group relative h-80 sm:h-96 rounded-3xl overflow-hidden bg-white/60 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(217,119,6,0.12)] hover:border-amber-400/50 hover:-translate-y-1.5 transition-all duration-500 block"
+                className="group relative rounded-3xl overflow-hidden bg-white border border-slate-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:border-amber-400/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
-                {/* Primary Image */}
-                <Image
-                  src={primaryImage}
-                  alt={`Custom ${category.name} - Gloves Storm Manufacturing`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-0"
-                />
+                {/* Image Canvas Container */}
+                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+                  {/* Primary Image */}
+                  <Image
+                    src={primaryImage}
+                    alt={`${seoData.title} OEM manufacturer Sialkot Pakistan`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-0"
+                  />
 
-                {/* Secondary Image: Cross-fades on Hover */}
-                <Image
-                  src={secondaryImage}
-                  alt={`${category.name} alternate view`}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-all duration-700 ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105"
-                />
+                  {/* Secondary Image: Cross-fades on Hover */}
+                  <Image
+                    src={secondaryImage}
+                    alt={`${seoData.title} production detail view`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-all duration-700 ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105"
+                  />
 
-                {/* Subtle vignette for high legibility */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/15 pointer-events-none" />
+                  {/* Vignette Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
 
-                {/* Top Division Glass Pill */}
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-[#111827] bg-white/80 backdrop-blur-xl px-3 py-1 rounded-full border border-white/80 shadow-xs font-bold">
-                    0{idx + 1}
-                  </span>
+                  {/* Top Division Badge */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-900 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-white shadow-xs font-bold">
+                      0{idx + 1}
+                    </span>
+                  </div>
+
+                  {/* Bottom Title on Image */}
+                  <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between">
+                    <h3 className="text-lg font-black uppercase tracking-tight text-white drop-shadow-md">
+                      {seoData.title}
+                    </h3>
+                    <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-950 transition-all duration-300 group-hover:bg-amber-400 shrink-0 shadow-sm">
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  </div>
                 </div>
 
-                {/* Floating Glassmorphic Category Name Plate at Bottom */}
-                <div className="absolute bottom-4 left-4 right-4 z-10 bg-white/80 backdrop-blur-2xl border border-white/90 rounded-2xl p-4 sm:p-5 shadow-[0_8px_32px_rgba(0,0,0,0.08)] flex items-center justify-between group-hover:bg-white/95 group-hover:border-amber-400/60 transition-all duration-300">
-                  <h3 className="text-base sm:text-lg font-black uppercase tracking-tight text-[#111827] group-hover:text-amber-800 transition-colors">
-                    {category.name}
-                  </h3>
+                {/* Card Body: Factual SEO Description */}
+                <div className="p-5 sm:p-6 bg-white flex flex-col justify-between flex-1">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {seoData.description}
+                  </p>
 
-                  <div className="w-8 h-8 rounded-full bg-neutral-100/80 border border-black/[0.08] flex items-center justify-center text-[#111827] group-hover:bg-[#111827] group-hover:text-white transition-all duration-300 transform group-hover:rotate-45 shrink-0">
-                    <ArrowUpRight className="w-4 h-4" />
+                  <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-mono text-slate-400">
+                    <span className="text-amber-700 font-semibold uppercase tracking-wider">
+                      OEM &amp; Private Label
+                    </span>
+                    <span className="text-slate-500">
+                      Sialkot Direct
+                    </span>
                   </div>
                 </div>
               </Link>

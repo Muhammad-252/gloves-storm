@@ -126,13 +126,12 @@ export default function PreviousWorkClient({
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 leading-tight mb-5">
-              PREVIOUS WORK &amp; <br />
-              <span className="text-slate-500">CLIENT SHOWCASE.</span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 leading-tight mb-5">
+              PREVIOUS WORK &amp; COMPLETED ORDERS
             </h1>
 
-            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-              Explore authentic production runs, custom fight gear lines, sublimated athletic teamwear, and private label apparel crafted directly in our Sialkot manufacturing plant for brands worldwide.
+            <p className="text-sm sm:text-base text-slate-700 leading-relaxed max-w-4xl font-normal">
+              Every order shown here was manufactured at our direct Sialkot facility — from single prototype samples to full container-load bulk orders. Browse custom boxing gloves, fight gear, team sportswear, activewear and streetwear manufactured for brands across the USA, United Kingdom and beyond.
             </p>
           </div>
 
@@ -271,14 +270,22 @@ export default function PreviousWorkClient({
                           {project.description}
                         </p>
                       )}
+
+                      {/* Verified Order Specification Badge */}
+                      <div className="mb-3 px-2.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] font-mono text-slate-700 leading-snug flex items-center gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <span className="truncate">
+                          {project.solution ? project.solution.replace(/\.$/, "") : "250+ Custom Uniforms"} — Delivered to USA / UK Client
+                        </span>
+                      </div>
                     </div>
 
                     <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
                       <span className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
-                        Inspect Photos
+                        Sialkot Factory Run
                       </span>
                       <span className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
-                        <span>View Gallery</span>
+                        <span>Inspect Specs</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>

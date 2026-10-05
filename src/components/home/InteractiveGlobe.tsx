@@ -85,12 +85,23 @@ export const HUBS: GlobeHub[] = [
   },
 ];
 
+import StaticMapFallback from "./StaticMapFallback";
+
 export default function InteractiveGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
   const [activeHub, setActiveHub] = useState<GlobeHub>(HUBS[0]);
   const [isDragging, setIsDragging] = useState(false);
+  const [globeReady, setGlobeReady] = useState(false);
+  const [timedOut, setTimedOut] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (!globeReady) setTimedOut(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [globeReady]);
 
   // Globe state references for continuous animation
   const phiRef = useRef(4.95);
@@ -112,7 +123,9 @@ export default function InteractiveGlobe() {
     window.addEventListener("resize", onResize);
     onResize();
 
-    const globe = createGlobe(currentCanvas, {
+    let globe: any;
+    try {
+      globe = createGlobe(currentCanvas, {
       devicePixelRatio: 2,
       width: width * 2,
       height: width * 2,
@@ -152,6 +165,11 @@ export default function InteractiveGlobe() {
       arcHeight: 0.4,
     });
 
+      setGlobeReady(true);
+    } catch {
+      setTimedOut(true);
+    }
+
     let animationFrameId: number;
     const isVisibleRef = { current: true };
 
@@ -177,12 +195,14 @@ export default function InteractiveGlobe() {
       phiRef.current += (targetPhiRef.current - phiRef.current) * 0.08;
       thetaRef.current += (targetThetaRef.current - thetaRef.current) * 0.08;
 
-      globe.update({
-        phi: phiRef.current,
-        theta: thetaRef.current,
-        width: width * 2,
-        height: width * 2,
-      });
+      if (globe && typeof globe.update === "function") {
+        globe.update({
+          phi: phiRef.current,
+          theta: thetaRef.current,
+          width: width * 2,
+          height: width * 2,
+        });
+      }
 
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -192,7 +212,9 @@ export default function InteractiveGlobe() {
     return () => {
       observer.disconnect();
       cancelAnimationFrame(animationFrameId);
-      globe.destroy();
+      if (globe && typeof globe.destroy === "function") {
+        globe.destroy();
+      }
       window.removeEventListener("resize", onResize);
     };
   }, []);
@@ -206,6 +228,11 @@ export default function InteractiveGlobe() {
       autoRotateRef.current = true;
     }, 8000);
   };
+
+  // If globe times out or fails WebGL initialization, smoothly show static map fallback
+  if (timedOut && !globeReady) {
+    return <StaticMapFallback />;
+  }
 
   return (
     <div className="relative flex flex-col items-center w-full">

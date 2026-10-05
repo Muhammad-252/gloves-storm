@@ -10,71 +10,103 @@ import {
   Truck,
   ArrowUpRight,
   Sparkles,
+  Info,
 } from "lucide-react";
 import type { Metadata } from "next";
+import FactoryPhotoPlaceholder from "@/components/ui/FactoryPhotoPlaceholder";
 
 export const metadata: Metadata = {
-  title: "Manufacturing Capabilities & Sialkot Factory | GLOVES STORM",
+  title: "OEM Manufacturing Capabilities — Direct Sialkot Factory | Gloves Storm",
   description:
-    "Explore our 45,000 sq ft industrial facility in Sialkot, Pakistan. Technical machinery, sublimation printing, precision laser cutting, and 4-stage quality control.",
+    "Tour the Gloves Storm direct manufacturing facility in Sialkot, Pakistan. Laser cutting, Juki stitching, Tajima embroidery, Italian sublimation and AQL 2.5 QC. Custom boxing gloves and sportswear OEM.",
   alternates: {
-    canonical: "https://glovesstorm.com/manufacturing",
+    canonical: "https://www.glovesstorm.com/manufacturing",
   },
   openGraph: {
-    title: "Manufacturing Capabilities & Sialkot Factory | GLOVES STORM",
+    title: "OEM Manufacturing Capabilities — Direct Sialkot Factory | Gloves Storm",
     description:
-      "Explore our 45,000 sq ft industrial facility in Sialkot, Pakistan. European & Japanese machinery, sublimation printing, precision laser cutting, and 4-stage quality control.",
-    url: "https://glovesstorm.com/manufacturing",
-    siteName: "GLOVES STORM Manufacturing",
+      "Tour the Gloves Storm direct manufacturing facility in Sialkot, Pakistan. Laser cutting, Juki stitching, Tajima embroidery, Italian sublimation and AQL 2.5 QC.",
+    url: "https://www.glovesstorm.com/manufacturing",
+    siteName: "Gloves Storm",
     type: "website",
     images: [
       {
-        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+        url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "GLOVES STORM Sialkot Industrial Manufacturing Facility",
+        alt: "Gloves Storm Direct Sialkot Manufacturing Facility",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manufacturing Capabilities & Sialkot Factory | GLOVES STORM",
+    title: "OEM Manufacturing Capabilities — Direct Sialkot Factory | Gloves Storm",
     description:
-      "Explore our 45,000 sq ft industrial facility in Sialkot, Pakistan. European & Japanese machinery, sublimation printing, precision laser cutting, and 4-stage quality control.",
-    images: ["https://glovesstorm.com/images/products/boxing-gloves-black.png"],
+      "Direct OEM manufacturing facility in Sialkot, Pakistan. Laser cutting, Juki stitching, Tajima embroidery, Italian sublimation and AQL 2.5 QC.",
+    images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
 
-const machinery = [
+const factoryLines = [
   {
-    name: "Tajima Multi-Head Computerized Embroidery",
-    specs: "Japanese computerized embroidery suites capable of 15,000 stitches per panel with 3D puff and metallic yarn calibration.",
-    type: "Embellishment",
-  },
-  {
-    name: "Gerber Automatic Spreading & Laser Cutters",
-    specs: "Automated digital pattern projection and laser cutting with 0.2mm precision tolerances across heavy leather and 4-way stretch fabrics.",
+    title: "Computerized Laser Cutting",
+    machine: "Gerber Spreading & Laser Cutters",
+    process: "Automated Cutting",
     type: "Pre-Production & Cutting",
+    iconType: "laser" as const,
+    alt: "Computerized Gerber laser cutting machines at Gloves Storm Sialkot factory",
+    specs:
+      "Automated digital pattern projection and laser cutting with 0.2mm precision tolerances across heavy leather and 4-way stretch fabrics.",
   },
   {
-    name: "Juki Industrial Heavy Cylinder & Flatlock Stitching",
-    specs: "Specialized post-bed and 4-needle flatlock machines engineered for reinforced combat glove seams and frictionless athletic wear.",
+    title: "Industrial Juki Stitching Lines",
+    machine: "Juki Heavy-Duty Sewing Lines",
+    process: "Precision Stitching",
     type: "Stitching & Assembly",
+    iconType: "stitching" as const,
+    alt: "Industrial Juki 4-needle stitching lines at Gloves Storm apparel manufacturing facility Sialkot",
+    specs:
+      "Specialized post-bed and 4-needle flatlock machines engineered for reinforced combat glove seams and frictionless athletic wear.",
   },
   {
-    name: "Kiian Industrial Wide-Format Sublimation Press",
-    specs: "Italian molecular digital dye transfer printers operating at 1200 DPI for vibrant, fade-proof performance sportswear prints.",
+    title: "Italian Digital Sublimation",
+    machine: "Kiian Digital Dye Transfer",
+    process: "Dye Sublimation",
     type: "Color & Printing",
+    iconType: "sublimation" as const,
+    alt: "Italian Kiian digital dye sublimation machines at Gloves Storm Sialkot factory",
+    specs:
+      "Italian molecular digital dye transfer printers operating at 1200 DPI for vibrant, fade-proof performance sportswear prints.",
   },
   {
-    name: "M&R Automated Carousel Screen Press",
-    specs: "High-volume carousel printing suites running discharge inks, high-density silicone prints, and heat-activated 3D puff coatings.",
+    title: "Tajima Computerized Embroidery",
+    machine: "Tajima 12-Needle Multi-Head",
+    process: "3D Puff Embroidery",
+    type: "Embellishment",
+    iconType: "embroidery" as const,
+    alt: "Tajima 12-needle 3D puff embroidery machines at Gloves Storm manufacturing facility",
+    specs:
+      "Japanese computerized embroidery suites capable of 15,000 stitches per panel with 3D puff and metallic yarn calibration.",
+  },
+  {
+    title: "Screen & DTF Printing",
+    machine: "Automatic Carousel & DTF Presses",
+    process: "Apparel Printing",
     type: "Printing & Texture",
+    iconType: "printing" as const,
+    alt: "Automatic carousel screen printing and DTF machines at Gloves Storm factory Sialkot Pakistan",
+    specs:
+      "High-volume carousel printing suites running discharge inks, high-density silicone prints, and heat-activated 3D puff coatings.",
   },
   {
-    name: "Hashima Conveyorized Needle & Metal Detector",
-    specs: "100% pre-pack magnetic sensor scanning ensuring complete consumer safety across all combat gear and youth athletic wear.",
+    title: "AQL 2.5 Quality Control",
+    machine: "Multi-Point AQL Inspection Line",
+    process: "Quality Control",
     type: "Safety & Compliance",
+    iconType: "qc" as const,
+    alt: "AQL 2.5 quality control inspection at Gloves Storm boxing gloves and sportswear factory",
+    specs:
+      "100% pre-pack magnetic sensor scanning and dimensional inspection ensuring complete consumer safety and retail-grade finishing.",
   },
 ];
 
@@ -97,69 +129,74 @@ const qcSteps = [
   },
 ];
 
-export default function ManufacturingPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            name: "Home",
-            item: "https://glovesstorm.com",
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            name: "Manufacturing",
-            item: "https://glovesstorm.com/manufacturing",
-          },
-        ],
-      },
-      {
-        "@type": "Service",
-        name: "Custom Apparel & Combat Sports Gear Manufacturing",
-        serviceType: "OEM/ODM Industrial Manufacturing",
-        provider: {
-          "@type": "Organization",
-          name: "GLOVES STORM",
-          url: "https://glovesstorm.com",
-          address: {
-            "@type": "PostalAddress",
-            addressLocality: "Sialkot",
-            addressRegion: "Punjab",
-            postalCode: "51310",
-            addressCountry: "PK",
-          },
-        },
-        areaServed: ["US", "CA", "GB", "DE", "FR", "AU"],
-        description:
-          "Industrial OEM and private label apparel and combat sports gear manufacturing facility in Sialkot, Pakistan. 45,000 sq ft capacity, automated cutting, multi-head embroidery, and 4-stage QC.",
-      },
-    ],
-  };
+const manufacturingSchema = {
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Corporation"],
+  name: "Gloves Storm",
+  description:
+    "Direct OEM and private label manufacturing facility for custom boxing gloves, fight gear, sportswear, activewear and streetwear in Sialkot, Pakistan.",
+  url: "https://www.glovesstorm.com",
+  telephone: "+92-341-7146935",
+  email: "glovesstorm@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Industrial Estate",
+    addressLocality: "Sialkot",
+    addressRegion: "Punjab",
+    postalCode: "51310",
+    addressCountry: "PK",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 32.4945,
+    longitude: 74.5229,
+  },
+  openingHours: "Mo-Sa 09:00-18:00",
+  currenciesAccepted: "USD, GBP, EUR",
+  paymentAccepted: "Bank Transfer, PayPal, Western Union",
+  areaServed: ["US", "GB", "DE", "FR", "AU", "CA", "AE"],
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Custom OEM Products",
+    url: "https://www.glovesstorm.com/products",
+  },
+};
 
+export default function ManufacturingPage() {
   return (
     <div className="pt-28 pb-24 bg-transparent min-h-screen">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(manufacturingSchema) }}
       />
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Admin Photo Upload Reminder Banner */}
+        <div className="mb-8 p-4 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-between gap-4 text-xs text-amber-900">
+          <div className="flex items-center gap-2.5">
+            <Info className="w-4 h-4 text-amber-700 shrink-0" />
+            <span>
+              <strong>Factory Photo Status:</strong> Professional dark machinery placeholders active for Google/AI crawlability. High-resolution factory floor photography can be updated anytime from the Admin Portal.
+            </span>
+          </div>
+          <Link
+            href="/admin"
+            className="px-3 py-1 rounded-full bg-slate-900 text-white hover:bg-slate-800 text-[10px] font-mono uppercase font-bold shrink-0 transition-colors"
+          >
+            Admin Panel
+          </Link>
+        </div>
+
         {/* Hero Section */}
-        <div className="max-w-3xl mb-16">
+        <div className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span>SIALKOT PRODUCTION FACILITY &amp; MACHINE FLEET</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-tight">
-            INDUSTRIAL PRECISION. <br />
-            <span className="text-slate-500">ARTISAN CRAFTSMANSHIP.</span>
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-[1.08] uppercase">
+            DIRECT SIALKOT MANUFACTURING FACILITY
           </h1>
-          <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            GLOVES STORM combines modern European and Japanese textile machinery with the historic leather and apparel craftsmanship of Sialkot, Pakistan. We eliminate guesswork through documented engineering tolerances and transparent production milestones.
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+            Gloves Storm operates a direct OEM manufacturing facility in Sialkot, Punjab, Pakistan — the city responsible for producing over 70% of the world&apos;s hand-stitched sports goods. Our in-house production lines cover laser cutting, industrial stitching, Italian digital sublimation, Tajima computerised embroidery, DTF and screen printing, and AQL 2.5 multi-point quality control. Zero middlemen. Mill-direct pricing.
           </p>
         </div>
 
@@ -195,37 +232,50 @@ export default function ManufacturingPage() {
           </div>
         </div>
 
-        {/* Machinery Fleet */}
+        {/* Machinery Fleet with Dark Technical Placeholders */}
         <div className="mb-24">
           <div className="mb-12 pb-6 border-b border-slate-200/80">
-            <span className="text-xs uppercase tracking-[0.25em] text-slate-500 font-mono block mb-2 font-bold">
-              Advanced Tooling
+            <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+              Advanced Industrial Equipment
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 uppercase">
               MACHINERY &amp; TECHNICAL FLEET
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {machinery.map((m) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {factoryLines.map((m) => (
               <div
-                key={m.name}
-                className="p-8 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                key={m.title}
+                className="rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between overflow-hidden"
               >
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 block mb-2 font-bold">
-                    {m.type}
-                  </span>
-                  <h3 className="text-lg font-bold tracking-tight text-slate-900 mb-3">
-                    {m.name}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {m.specs}
-                  </p>
+                {/* TODO: Replace with real factory photo */}
+                <div className="p-2 bg-slate-950">
+                  <FactoryPhotoPlaceholder
+                    machineName={m.machine}
+                    processName={m.process}
+                    alt={m.alt}
+                    iconType={m.iconType}
+                  />
                 </div>
-                <div className="mt-6 pt-4 border-t border-slate-100 text-[10px] font-mono text-slate-500 flex items-center justify-between">
-                  <span>Industrial Calibrated</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+
+                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
+                  <div>
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 block mb-2 font-bold">
+                      {m.type}
+                    </span>
+                    <h3 className="text-lg font-bold tracking-tight text-slate-900 mb-2">
+                      {m.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {m.specs}
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-slate-100 text-[10px] font-mono text-slate-500 flex items-center justify-between">
+                    <span className="font-semibold text-slate-700">Sialkot Unit #1 Certified</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                  </div>
                 </div>
               </div>
             ))}
@@ -238,8 +288,8 @@ export default function ManufacturingPage() {
             <span className="text-xs uppercase tracking-[0.25em] text-slate-500 font-mono block mb-2 font-bold">
               Zero-Defect Standards
             </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4">
-              4-STAGE QUALITY AUDIT PROTOCOL
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 uppercase">
+              AQL 2.5 QUALITY AUDIT PROTOCOL
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               We know that a single torn seam or misprinted logo can damage your brand’s relationship with your customer. That is why every garment and glove passes through four independent checkpoints.
@@ -277,7 +327,7 @@ export default function ManufacturingPage() {
             href="/contact"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm shrink-0"
           >
-            <span>Start a Project</span>
+            <span>Request Factory Quote</span>
             <ArrowUpRight className="w-4 h-4" />
           </Link>
         </div>

@@ -228,7 +228,7 @@ export default function ProductDetailClient({
                 >
                   <Image
                     src={img.image_url}
-                    alt={img.alt_text || `${product.name} sample view ${idx + 1}`}
+                    alt={img.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — detail view ${idx + 1}`}
                     fill
                     sizes="80px"
                     className="object-cover"
@@ -241,7 +241,7 @@ export default function ProductDetailClient({
             <div className="relative flex-1 aspect-square sm:aspect-4/3 rounded-2xl bg-neutral-100 border border-neutral-200/90 overflow-hidden shadow-xs group">
               <Image
                 src={activeImageUrl}
-                alt={activeImage?.alt_text || `${product.name} - Custom OEM Manufacturer Sialkot (GLOVES STORM)`}
+                alt={activeImage?.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — ${product.materials?.[0] || "1.2mm cowhide leather private label"}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -811,7 +811,7 @@ export default function ProductDetailClient({
                   <div className="relative aspect-[4/5] bg-slate-100/80 rounded-2xl overflow-hidden mb-3 border border-slate-200/50">
                     <Image
                       src={relImg}
-                      alt={rel.images?.[0]?.alt_text || `${rel.name} - Custom OEM Manufacturer Sialkot (GLOVES STORM)`}
+                      alt={rel.images?.[0]?.alt_text || `Custom ${rel.name} OEM manufacturer Sialkot Pakistan — ${rel.materials?.[0] || "private label direct factory"}`}
                       fill
                       sizes="(max-width: 640px) 100vw, 25vw"
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
