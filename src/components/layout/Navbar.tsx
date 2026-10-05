@@ -44,16 +44,51 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Fetch categories for mega menu
+  // Fetch categories for mega menu & sync with live updates
   useEffect(() => {
-    fetch("/api/categories")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.categories && data.categories.length > 0) {
-          setCategories(data.categories);
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("gs_dynamic_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setCategories(parsed);
+          }
         }
-      })
-      .catch(() => {});
+      } catch (e) {}
+
+      const handleUpdate = (e: Event) => {
+        const customEvent = e as CustomEvent<Category[]>;
+        if (customEvent.detail && Array.isArray(customEvent.detail)) {
+          setCategories(customEvent.detail);
+        }
+      };
+      window.addEventListener("gs_categories_updated", handleUpdate);
+
+      let channel: BroadcastChannel | null = null;
+      if ("BroadcastChannel" in window) {
+        channel = new BroadcastChannel("gs_categories_channel");
+        channel.onmessage = (msg) => {
+          if (msg.data?.type === "CATEGORIES_UPDATED" && Array.isArray(msg.data.categories)) {
+            setCategories(msg.data.categories);
+          }
+        };
+      }
+
+      fetch("/api/categories")
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.categories && data.categories.length > 0) {
+            setCategories(data.categories);
+          }
+        })
+        .catch(() => {});
+
+      return () => {
+        window.removeEventListener("gs_categories_updated", handleUpdate);
+        if (channel) channel.close();
+      };
+    }
   }, []);
 
   // Close menus on route change

@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
       siteName: "Gloves Storm",
       images: [
         {
-          url: cat.image_url || "/images/products/boxing-gloves-black.png",
+          url: cat.image_url || "/images/products/varsity-jacket.jpg",
           width: 1200,
           height: 630,
           alt: `Custom ${cat.name} OEM Manufacturing Sialkot - GLOVES STORM`,
@@ -53,7 +53,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
       card: "summary_large_image",
       title: `Custom ${cat.name} Manufacturer | GLOVES STORM`,
       description: cat.description || `Custom ${cat.name} OEM manufacturing in Sialkot, Pakistan.`,
-      images: [cat.image_url || "/images/products/boxing-gloves-black.png"],
+      images: [cat.image_url || "/images/products/varsity-jacket.jpg"],
     },
   };
 }

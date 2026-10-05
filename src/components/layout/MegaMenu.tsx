@@ -79,9 +79,28 @@ export default function MegaMenu({
   const [activeTab, setActiveTab] = useState<string>("for-you");
   const [apiFeaturedSelections, setApiFeaturedSelections] = useState<MegaMenuProductItem[]>([]);
 
-  // Dynamically fetch live counts & all products from /api/categories
+  // Dynamically fetch live counts & all products from /api/categories & sync with live updates
   useEffect(() => {
     let isMounted = true;
+
+    const handleUpdate = (e: Event) => {
+      const customEvent = e as CustomEvent<MegaMenuCategory[]>;
+      if (customEvent.detail && Array.isArray(customEvent.detail)) {
+        setMenuCategories(customEvent.detail);
+      }
+    };
+    window.addEventListener("gs_categories_updated", handleUpdate);
+
+    let channel: BroadcastChannel | null = null;
+    if ("BroadcastChannel" in window) {
+      channel = new BroadcastChannel("gs_categories_channel");
+      channel.onmessage = (msg) => {
+        if (msg.data?.type === "CATEGORIES_UPDATED" && Array.isArray(msg.data.categories)) {
+          setMenuCategories(msg.data.categories);
+        }
+      };
+    }
+
     fetch("/api/categories")
       .then((res) => res.json())
       .then((data) => {
@@ -96,8 +115,11 @@ export default function MegaMenu({
       .catch(() => {
         // Fallback to initialDataCategories
       });
+
     return () => {
       isMounted = false;
+      window.removeEventListener("gs_categories_updated", handleUpdate);
+      if (channel) channel.close();
     };
   }, []);
 

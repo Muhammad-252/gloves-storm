@@ -2,63 +2,90 @@ import { promises as fs } from "fs";
 import path from "path";
 import { Category } from "@/types/database";
 import { initialCategories } from "./initialData";
-import { setMemoryCategories, getMemoryCategories } from "./store";
+import { setMemoryCategories } from "./store";
+
+// Global cache to maintain persistent memory across serverless lambda executions
+declare global {
+  // eslint-disable-next-line no-var
+  var __gs_categories_cache: Category[] | undefined;
+}
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const CATEGORIES_FILE = path.join(DATA_DIR, "categories.json");
 
-let isInitialized = false;
-
 /**
- * Loads categories from local disk (data/categories.json).
- * If the file doesn't exist, initializes it from initialCategories.
+ * Loads categories from global memory cache or local disk (data/categories.json).
+ * Fallback to initialCategories if file is unavailable.
  */
 export async function loadPersistedCategories(): Promise<Category[]> {
-  try {
-    await fs.mkdir(DATA_DIR, { recursive: true });
-
-    try {
-      const content = await fs.readFile(CATEGORIES_FILE, "utf-8");
-      const parsed: Category[] = JSON.parse(content);
-      if (Array.isArray(parsed) && parsed.length > 0) {
-        setMemoryCategories(parsed);
-        isInitialized = true;
-        return parsed;
-      }
-    } catch {
-      // File does not exist yet or is empty
-    }
-
-    // Initialize with initialCategories
-    const currentMemory = getMemoryCategories();
-    const sourceData = currentMemory.length > 0 ? currentMemory : initialCategories;
-    await fs.writeFile(CATEGORIES_FILE, JSON.stringify(sourceData, null, 2), "utf-8");
-    setMemoryCategories(sourceData);
-    isInitialized = true;
-    return sourceData;
-  } catch (err) {
-    console.warn("Failed to read categories from disk, using in-memory store:", err);
-    return getMemoryCategories();
+  // 1. Return from global in-memory cache if already loaded or modified
+  if (
+    globalThis.__gs_categories_cache &&
+    Array.isArray(globalThis.__gs_categories_cache) &&
+    globalThis.__gs_categories_cache.length > 0
+  ) {
+    setMemoryCategories(globalThis.__gs_categories_cache);
+    return globalThis.__gs_categories_cache;
   }
+
+  // 2. Try loading from data/categories.json
+  try {
+    const content = await fs.readFile(CATEGORIES_FILE, "utf-8");
+    const parsed: Category[] = JSON.parse(content);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      globalThis.__gs_categories_cache = parsed;
+      setMemoryCategories(parsed);
+      return parsed;
+    }
+  } catch {
+    // File not readable or does not exist
+  }
+
+  // 3. Fallback to initialCategories
+  globalThis.__gs_categories_cache = [...initialCategories];
+  setMemoryCategories(globalThis.__gs_categories_cache);
+  return globalThis.__gs_categories_cache;
 }
 
 /**
- * Saves or updates a category and persists to data/categories.json.
+ * Synchronous accessor for in-memory categories cache
+ */
+export function getCachedCategories(): Category[] {
+  if (
+    globalThis.__gs_categories_cache &&
+    Array.isArray(globalThis.__gs_categories_cache) &&
+    globalThis.__gs_categories_cache.length > 0
+  ) {
+    return globalThis.__gs_categories_cache;
+  }
+  return initialCategories;
+}
+
+/**
+ * Updates the in-memory cache directly
+ */
+export function setCachedCategories(categories: Category[]) {
+  globalThis.__gs_categories_cache = categories;
+}
+
+/**
+ * Saves or updates a category, updating global memory cache and persisting to data/categories.json.
  */
 export async function savePersistedCategory(category: Partial<Category>): Promise<Category> {
   const currentCategories = await loadPersistedCategories();
+  const list = [...currentCategories];
 
   let savedCategory: Category;
 
   if (category.id) {
-    const index = currentCategories.findIndex((c) => c.id === category.id);
+    const index = list.findIndex((c) => c.id === category.id);
     if (index !== -1) {
       savedCategory = {
-        ...currentCategories[index],
+        ...list[index],
         ...category,
         updated_at: new Date().toISOString(),
       } as Category;
-      currentCategories[index] = savedCategory;
+      list[index] = savedCategory;
     } else {
       savedCategory = {
         id: category.id,
@@ -67,14 +94,14 @@ export async function savePersistedCategory(category: Partial<Category>): Promis
         description: category.description || null,
         image_url: category.image_url || null,
         parent_id: category.parent_id || null,
-        sort_order: category.sort_order || currentCategories.length + 1,
+        sort_order: category.sort_order ?? list.length + 1,
         is_active: category.is_active ?? true,
         featured_in_menu: category.featured_in_menu ?? true,
         menu_badge: category.menu_badge || null,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       };
-      currentCategories.push(savedCategory);
+      list.push(savedCategory);
     }
   } else {
     savedCategory = {
@@ -84,45 +111,47 @@ export async function savePersistedCategory(category: Partial<Category>): Promis
       description: category.description || null,
       image_url: category.image_url || null,
       parent_id: category.parent_id || null,
-      sort_order: category.sort_order || currentCategories.length + 1,
+      sort_order: category.sort_order ?? list.length + 1,
       is_active: category.is_active ?? true,
       featured_in_menu: category.featured_in_menu ?? true,
       menu_badge: category.menu_badge || null,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
     };
-    currentCategories.push(savedCategory);
+    list.push(savedCategory);
   }
 
-  // Update in-memory state
-  setMemoryCategories(currentCategories);
+  // Update global cache immediately
+  globalThis.__gs_categories_cache = list;
+  setMemoryCategories(list);
 
-  // Persist to disk
+  // Persist to disk if file system is writable (local dev & build)
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
-    await fs.writeFile(CATEGORIES_FILE, JSON.stringify(currentCategories, null, 2), "utf-8");
+    await fs.writeFile(CATEGORIES_FILE, JSON.stringify(list, null, 2), "utf-8");
   } catch (err) {
-    console.warn("Failed to write updated categories to disk:", err);
+    console.warn("Notice: File write skipped on serverless filesystem (cached in global memory):", err);
   }
 
   return savedCategory;
 }
 
 /**
- * Deletes a category and updates data/categories.json.
+ * Deletes a category and updates global memory cache and data/categories.json.
  */
 export async function deletePersistedCategory(id: string): Promise<boolean> {
   const currentCategories = await loadPersistedCategories();
   const filtered = currentCategories.filter((c) => c.id !== id);
 
+  globalThis.__gs_categories_cache = filtered;
   setMemoryCategories(filtered);
 
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
     await fs.writeFile(CATEGORIES_FILE, JSON.stringify(filtered, null, 2), "utf-8");
-    return true;
   } catch (err) {
-    console.warn("Failed to write after category deletion:", err);
-    return true;
+    console.warn("Notice: File write skipped on serverless filesystem (cached in global memory):", err);
   }
+
+  return true;
 }

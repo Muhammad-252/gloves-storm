@@ -413,7 +413,7 @@ export default function CategoryLandingClient({
           <Image
             src={
               category.image_url ||
-              "/images/products/boxing-gloves-black.png"
+              "/images/products/varsity-jacket.jpg"
             }
             alt={`${category.name} OEM Manufacturing Sialkot - GLOVES STORM`}
             fill

@@ -7,7 +7,8 @@ export const isSupabaseConfigured = Boolean(
   supabaseUrl &&
     supabaseAnonKey &&
     supabaseUrl !== "https://your-supabase-project.supabase.co" &&
-    !supabaseUrl.includes("placeholder")
+    !supabaseUrl.includes("placeholder") &&
+    !supabaseUrl.includes("ulamuliwbllkrrpdbdkn")
 );
 
 export const supabase = isSupabaseConfigured

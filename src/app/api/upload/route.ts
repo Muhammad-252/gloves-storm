@@ -47,18 +47,27 @@ export async function POST(req: NextRequest) {
       .slice(0, 40);
     const uniqueFileName = `${Date.now()}-${baseName || "image"}${originalExt.toLowerCase()}`;
 
-    // 1. Try uploading to Supabase Storage if configured and online
+    // 1. Try uploading to Supabase Storage if configured and online (with 2500ms timeout)
     if (isSupabaseConfigured && supabase) {
       try {
         const bucketName = "images";
         const storagePath = `${safeFolder}/${uniqueFileName}`;
 
-        const { error: uploadError } = await supabase.storage
+        const uploadPromise = supabase.storage
           .from(bucketName)
           .upload(storagePath, buffer, {
             contentType: file.type,
             upsert: true,
           });
+
+        const timeoutPromise = new Promise<{ error: Error }>((_, reject) =>
+          setTimeout(() => reject(new Error("Supabase storage timeout")), 2500)
+        );
+
+        const { error: uploadError } = (await Promise.race([
+          uploadPromise,
+          timeoutPromise,
+        ])) as any;
 
         if (!uploadError) {
           const { data: publicData } = supabase.storage

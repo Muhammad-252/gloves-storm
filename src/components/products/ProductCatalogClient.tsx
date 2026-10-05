@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product, Category } from "@/types/database";
@@ -40,6 +40,7 @@ export default function ProductCatalogClient({
   currentCategorySlug,
   selectedCategorySlug,
 }: ProductCatalogClientProps) {
+  const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
   const [selectedCat, setSelectedCat] = useState<string>(
     selectedCategorySlug || currentCategorySlug || "all"
   );
@@ -48,6 +49,44 @@ export default function ProductCatalogClient({
   const [moqFilter, setMoqFilter] = useState<"all" | "low" | "medium" | "high">("all");
   const [sortBy, setSortBy] = useState<"featured" | "moq-asc" | "newest">("featured");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
+
+  // Sync with live categories from storage and broadcast events
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("gs_dynamic_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setLiveCategories(parsed);
+          }
+        }
+      } catch (e) {}
+
+      const handleUpdate = (e: Event) => {
+        const customEvent = e as CustomEvent<Category[]>;
+        if (customEvent.detail && Array.isArray(customEvent.detail)) {
+          setLiveCategories(customEvent.detail);
+        }
+      };
+      window.addEventListener("gs_categories_updated", handleUpdate);
+
+      let channel: BroadcastChannel | null = null;
+      if ("BroadcastChannel" in window) {
+        channel = new BroadcastChannel("gs_categories_channel");
+        channel.onmessage = (msg) => {
+          if (msg.data?.type === "CATEGORIES_UPDATED" && Array.isArray(msg.data.categories)) {
+            setLiveCategories(msg.data.categories);
+          }
+        };
+      }
+
+      return () => {
+        window.removeEventListener("gs_categories_updated", handleUpdate);
+        if (channel) channel.close();
+      };
+    }
+  }, []);
   const [hoveredProductId, setHoveredProductId] = useState<string | null>(null);
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
@@ -84,7 +123,7 @@ export default function ProductCatalogClient({
     return initialProducts.filter((p) => {
       // Category filter
       if (selectedCat !== "all") {
-        const cat = categories.find((c) => c.slug === selectedCat);
+        const cat = liveCategories.find((c) => c.slug === selectedCat);
         if (cat && p.category_id !== cat.id) return false;
       }
 
@@ -115,7 +154,7 @@ export default function ProductCatalogClient({
       if (q !== "") {
         const matchesName = p.name.toLowerCase().includes(q);
         const matchesDesc = p.short_description?.toLowerCase().includes(q);
-        const matchesCat = categories
+        const matchesCat = liveCategories
           .find((c) => c.id === p.category_id)
           ?.name.toLowerCase()
           .includes(q);
@@ -124,7 +163,7 @@ export default function ProductCatalogClient({
 
       return true;
     });
-  }, [initialProducts, categories, selectedCat, capabilityFilter, moqFilter, search]);
+  }, [initialProducts, liveCategories, selectedCat, capabilityFilter, moqFilter, search]);
 
   // Sort products
   const sorted = useMemo(() => {
@@ -138,7 +177,7 @@ export default function ProductCatalogClient({
     });
   }, [filtered, sortBy]);
 
-  const activeCategoryObj = categories.find((c) => c.slug === selectedCat);
+  const activeCategoryObj = liveCategories.find((c) => c.slug === selectedCat);
 
   // Available capabilities for quick filter chips
   const capabilities = [
@@ -227,7 +266,7 @@ export default function ProductCatalogClient({
             <div>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold">
-                  Divisions ({categories.length})
+                  Divisions ({liveCategories.length})
                 </span>
                 {selectedCat !== "all" && (
                   <button
@@ -262,7 +301,7 @@ export default function ProductCatalogClient({
                 </button>
 
                 {/* Individual Categories */}
-                {categories.map((cat) => {
+                {liveCategories.map((cat) => {
                   const count = initialProducts.filter((p) => p.category_id === cat.id).length;
                   const isSelected = selectedCat === cat.slug;
 
@@ -524,7 +563,7 @@ export default function ProductCatalogClient({
             ===================================================================== */
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
               {sorted.map((product) => {
-                const categoryObj = categories.find((c) => c.id === product.category_id);
+                const categoryObj = liveCategories.find((c) => c.id === product.category_id);
                 const isHovered = hoveredProductId === product.id;
 
                 const firstImgObj = product.images?.[0];
@@ -644,7 +683,7 @@ export default function ProductCatalogClient({
                   </thead>
                   <tbody className="divide-y divide-neutral-100">
                     {sorted.map((product) => {
-                      const categoryObj = categories.find((c) => c.id === product.category_id);
+                      const categoryObj = liveCategories.find((c) => c.id === product.category_id);
                       const firstImgObj = product.images?.[0];
                       const primaryImgUrl =
                         (typeof firstImgObj === "string" ? firstImgObj : firstImgObj?.image_url) ||
@@ -794,7 +833,7 @@ export default function ProductCatalogClient({
                     <span>All Divisions</span>
                     <span className="text-[10px] font-mono">{initialProducts.length}</span>
                   </button>
-                  {categories.map((cat) => (
+                  {liveCategories.map((cat) => (
                     <button
                       key={cat.id}
                       onClick={() => setSelectedCat(cat.slug)}

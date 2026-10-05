@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product, Category } from "@/types/database";
@@ -154,10 +154,48 @@ export default function CategoryShowcaseSection({
   products,
   categories,
 }: CategoryShowcaseProps) {
+  const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
   const [selectedChip, setSelectedChip] = useState<string>("all");
   const [gsmFilter, setGsmFilter] = useState<string>("all");
   const [techniqueFilter, setTechniqueFilter] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
+
+  // Sync with live categories
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("gs_dynamic_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setLiveCategories(parsed);
+          }
+        }
+      } catch (e) {}
+
+      const handleUpdate = (e: Event) => {
+        const customEvent = e as CustomEvent<Category[]>;
+        if (customEvent.detail && Array.isArray(customEvent.detail)) {
+          setLiveCategories(customEvent.detail);
+        }
+      };
+      window.addEventListener("gs_categories_updated", handleUpdate);
+      return () => window.removeEventListener("gs_categories_updated", handleUpdate);
+    }
+  }, []);
+
+  const dynamicChips = useMemo(() => {
+    const parentCats = liveCategories.filter((c) => !c.parent_id && c.is_active !== false);
+    if (parentCats.length === 0) return CATEGORY_CHIPS;
+    return [
+      { id: "all", label: "All Custom Apparel", filterKey: "all" },
+      ...parentCats.map((cat) => ({
+        id: cat.slug,
+        label: cat.name,
+        filterKey: cat.slug,
+      })),
+    ];
+  }, [liveCategories]);
 
   const [rfqModalData, setRfqModalData] = useState<{
     isOpen: boolean;
@@ -175,13 +213,15 @@ export default function CategoryShowcaseSection({
       const name = product.name.toLowerCase();
       const desc = (product.short_description || "").toLowerCase();
       const categoryObj =
-        product.category || categories.find((c) => c.id === product.category_id);
+        product.category || liveCategories.find((c) => c.id === product.category_id);
       const catSlug = (categoryObj?.slug || "").toLowerCase();
       const catName = (categoryObj?.name || "").toLowerCase();
 
       // Category Chip Filter
       let matchesChip = false;
       if (selectedChip === "all") {
+        matchesChip = true;
+      } else if (catSlug === selectedChip || catSlug.includes(selectedChip) || selectedChip.includes(catSlug)) {
         matchesChip = true;
       } else if (selectedChip === "teamwear") {
         matchesChip =
@@ -288,7 +328,7 @@ export default function CategoryShowcaseSection({
         <div className="p-2 sm:p-2.5 rounded-2xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-8 space-y-3">
           {/* Top Row: Category Filter Chips */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
-            {CATEGORY_CHIPS.map((chip) => {
+            {dynamicChips.map((chip) => {
               const isActive = selectedChip === chip.id;
               return (
                 <button

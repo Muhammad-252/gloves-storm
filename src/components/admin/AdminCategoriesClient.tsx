@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Category } from "@/types/database";
 import { slugify } from "@/lib/utils";
@@ -33,6 +33,51 @@ export default function AdminCategoriesClient({
   const [notice, setNotice] = useState<string | null>(null);
 
   const parentCategories = categories.filter((c) => !c.parent_id);
+
+  const broadcastUpdate = (updatedList: Category[]) => {
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("gs_dynamic_categories", JSON.stringify(updatedList));
+        window.dispatchEvent(
+          new CustomEvent("gs_categories_updated", { detail: updatedList })
+        );
+        if ("BroadcastChannel" in window) {
+          const channel = new BroadcastChannel("gs_categories_channel");
+          channel.postMessage({ type: "CATEGORIES_UPDATED", categories: updatedList });
+          channel.close();
+        }
+      } catch (e) {
+        console.warn("Storage broadcast notice:", e);
+      }
+    }
+  };
+
+  // Sync with live categories on mount
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("gs_dynamic_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setCategories(parsed);
+          }
+        }
+      } catch (e) {
+        // Ignore JSON error
+      }
+    }
+
+    fetch("/api/categories")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.categories && Array.isArray(data.categories) && data.categories.length > 0) {
+          setCategories(data.categories);
+          broadcastUpdate(data.categories);
+        }
+      })
+      .catch((err) => console.warn("Live categories fetch error:", err));
+  }, []);
 
   const handleOpenNew = () => {
     setEditingCat({
@@ -73,7 +118,9 @@ export default function AdminCategoriesClient({
         throw new Error(data.error || "Failed to delete category.");
       }
 
-      setCategories((prev) => prev.filter((c) => c.id !== id));
+      const updated = categories.filter((c) => c.id !== id);
+      setCategories(updated);
+      broadcastUpdate(updated);
       toast.success("Category Deleted", `"${name}" was deleted successfully.`);
       router.refresh();
     } catch (err: any) {
@@ -93,7 +140,9 @@ export default function AdminCategoriesClient({
       const data = await res.json();
       if (!res.ok || !data.success) throw new Error(data.error || "Failed to update status");
 
-      setCategories((prev) => prev.map((c) => (c.id === cat.id ? data.category : c)));
+      const updated = categories.map((c) => (c.id === cat.id ? data.category : c));
+      setCategories(updated);
+      broadcastUpdate(updated);
       toast.info("Status Updated", `"${cat.name}" is now ${nextState ? "Active" : "Hidden"}.`);
       router.refresh();
     } catch (err: any) {
@@ -132,14 +181,18 @@ export default function AdminCategoriesClient({
 
       const saved: Category = data.category;
 
+      let updatedList: Category[];
       if (editingCat.id) {
-        setCategories((prev) => prev.map((c) => (c.id === saved.id ? saved : c)));
+        updatedList = categories.map((c) => (c.id === saved.id ? saved : c));
+        setCategories(updatedList);
         toast.success("Category Saved Successfully", `Updated "${saved.name}" with all details and images.`);
       } else {
-        setCategories((prev) => [...prev, saved]);
+        updatedList = [...categories, saved];
+        setCategories(updatedList);
         toast.success("Category Created Successfully", `New division "${saved.name}" is now live.`);
       }
 
+      broadcastUpdate(updatedList);
       setIsModalOpen(false);
       setEditingCat(null);
       router.refresh();

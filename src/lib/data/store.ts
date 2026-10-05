@@ -19,6 +19,12 @@ import {
 } from "./initialData";
 import { supabase, isSupabaseConfigured } from "../supabase/client";
 
+// Global cache across serverless lambda executions
+declare global {
+  // eslint-disable-next-line no-var
+  var __gs_categories_cache: Category[] | undefined;
+}
+
 // In-memory fallback state
 let memoryCategories: Category[] = [...initialCategories];
 let memoryProducts: Product[] = [...initialProducts];
@@ -30,115 +36,86 @@ let memoryInquiries: Inquiry[] = [...initialInquiries];
 
 export function setMemoryCategories(cats: Category[]) {
   memoryCategories = cats;
+  if (typeof window === "undefined") {
+    globalThis.__gs_categories_cache = cats;
+  }
 }
 
 export function getMemoryCategories(): Category[] {
+  if (typeof window === "undefined" && globalThis.__gs_categories_cache && globalThis.__gs_categories_cache.length > 0) {
+    return globalThis.__gs_categories_cache;
+  }
   return memoryCategories;
 }
 
 // ==========================================
-// CATEGORIES
+// CATEGORIES (Dynamic & Persisted)
 // ==========================================
 export async function getCategories(): Promise<Category[]> {
-  if (isSupabaseConfigured && supabase) {
-    try {
-      const { data, error } = await supabase
-        .from("categories")
-        .select("*")
-        .eq("is_active", true)
-        .order("sort_order", { ascending: true });
-      if (!error && data && data.length > 0) return data as Category[];
-    } catch {
-      // Supabase unavailable, fallback to memory
-    }
-  }
-  return memoryCategories.filter((c) => c.is_active);
+  const categories = getMemoryCategories();
+  return categories.filter((c) => c.is_active);
 }
 
 export async function getAllCategoriesAdmin(): Promise<Category[]> {
-  if (isSupabaseConfigured && supabase) {
-    try {
-      const { data, error } = await supabase
-        .from("categories")
-        .select("*")
-        .order("sort_order", { ascending: true });
-      if (!error && data && data.length > 0) return data as Category[];
-    } catch {
-      // Supabase unavailable, fallback to memory
-    }
-  }
-  return memoryCategories;
+  return getMemoryCategories();
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("categories")
-      .select("*")
-      .eq("slug", slug)
-      .single();
-    if (!error && data) return data as Category;
-  }
-  return memoryCategories.find((c) => c.slug === slug) || null;
+  const categories = getMemoryCategories();
+  return categories.find((c) => c.slug === slug) || null;
 }
 
 export async function saveCategory(category: Partial<Category>): Promise<Category> {
-  if (isSupabaseConfigured && supabase) {
-    if (category.id) {
-      const { data, error } = await supabase
-        .from("categories")
-        .update({ ...category, updated_at: new Date().toISOString() })
-        .eq("id", category.id)
-        .select()
-        .single();
-      if (!error && data) return data as Category;
-    } else {
-      const { data, error } = await supabase
-        .from("categories")
-        .insert([{ ...category, is_active: true }])
-        .select()
-        .single();
-      if (!error && data) return data as Category;
-    }
-  }
+  const current = [...getMemoryCategories()];
+  let saved: Category;
 
-  // Fallback
   if (category.id) {
-    const index = memoryCategories.findIndex((c) => c.id === category.id);
-    if (index !== -1) {
-      memoryCategories[index] = {
-        ...memoryCategories[index],
-        ...category,
+    const idx = current.findIndex((c) => c.id === category.id);
+    if (idx !== -1) {
+      saved = { ...current[idx], ...category, updated_at: new Date().toISOString() } as Category;
+      current[idx] = saved;
+    } else {
+      saved = {
+        id: category.id,
+        name: category.name || "Unnamed Category",
+        slug: category.slug || `category-${Date.now()}`,
+        description: category.description || null,
+        image_url: category.image_url || null,
+        parent_id: category.parent_id || null,
+        sort_order: category.sort_order ?? current.length + 1,
+        is_active: category.is_active ?? true,
+        featured_in_menu: category.featured_in_menu ?? true,
+        menu_badge: category.menu_badge || null,
+        created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
-      } as Category;
-      return memoryCategories[index];
+      };
+      current.push(saved);
     }
+  } else {
+    saved = {
+      id: `cat-${Date.now()}`,
+      name: category.name || "New Category",
+      slug: category.slug || `category-${Date.now()}`,
+      description: category.description || null,
+      image_url: category.image_url || null,
+      parent_id: category.parent_id || null,
+      sort_order: category.sort_order ?? current.length + 1,
+      is_active: category.is_active ?? true,
+      featured_in_menu: category.featured_in_menu ?? true,
+      menu_badge: category.menu_badge || null,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    current.push(saved);
   }
 
-  const newCat: Category = {
-    id: `c-local-${Date.now()}`,
-    name: category.name || "New Category",
-    slug: category.slug || `category-${Date.now()}`,
-    description: category.description || null,
-    image_url: category.image_url || null,
-    parent_id: category.parent_id || null,
-    sort_order: category.sort_order || memoryCategories.length + 1,
-    is_active: category.is_active ?? true,
-    featured_in_menu: category.featured_in_menu ?? true,
-    menu_badge: category.menu_badge || null,
-    created_at: new Date().toISOString(),
-    updated_at: new Date().toISOString(),
-  };
-  memoryCategories.push(newCat);
-  return newCat;
+  setMemoryCategories(current);
+  return saved;
 }
 
 export async function deleteCategory(id: string): Promise<boolean> {
-  if (isSupabaseConfigured && supabase) {
-    const { error } = await supabase.from("categories").delete().eq("id", id);
-    if (!error) return true;
-  }
-  memoryCategories = memoryCategories.filter((c) => c.id !== id);
+  const filtered = getMemoryCategories().filter((c) => c.id !== id);
+  setMemoryCategories(filtered);
   return true;
 }
 
@@ -180,7 +157,8 @@ export async function getProducts(options?: {
     products = products.filter((p) => p.category_id === options.categoryId && p.is_active);
   }
   if (options?.categorySlug) {
-    const cat = memoryCategories.find((c) => c.slug === options.categorySlug);
+    const cats = getMemoryCategories();
+    const cat = cats.find((c: Category) => c.slug === options.categorySlug);
     if (cat) {
       products = products.filter((p) => p.category_id === cat.id && p.is_active);
     }
@@ -296,7 +274,7 @@ export async function saveProduct(product: Partial<Product>): Promise<Product> {
     id: `prod-local-${Date.now()}`,
     name: product.name || "New Product",
     slug: product.slug || `product-${Date.now()}`,
-    category_id: product.category_id || memoryCategories[0]?.id || "",
+    category_id: product.category_id || getMemoryCategories()[0]?.id || "",
     short_description: product.short_description || "",
     description: product.description || "",
     materials: product.materials || [],
