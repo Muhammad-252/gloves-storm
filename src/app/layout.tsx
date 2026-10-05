@@ -88,6 +88,15 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.glovesstorm.com",
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   verification: {
     google: "googlec66e29b6126c6554",
   },
@@ -101,8 +110,8 @@ const organizationSchema = {
       "@id": "https://www.glovesstorm.com/#organization",
       name: "Gloves Storm",
       url: "https://www.glovesstorm.com",
-      logo: "https://www.glovesstorm.com/images/og-default.jpg",
-      image: "https://www.glovesstorm.com/images/og-default.jpg",
+      logo: "https://www.glovesstorm.com/images/logo.png",
+      image: "https://www.glovesstorm.com/images/logo.png",
       description:
         "OEM and private label manufacturer of custom boxing gloves, fight gear, sportswear, activewear and streetwear. Based in Sialkot, Pakistan. Serving USA and UK brands since 2019.",
       telephone: "+92-341-7146935",

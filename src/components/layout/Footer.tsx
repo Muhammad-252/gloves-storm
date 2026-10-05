@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Globe, Mail, Phone, MapPin, ShieldCheck, MessageSquare } from "lucide-react";
 import { InstagramIcon, LinkedInIcon } from "../ui/SocialIcons";
@@ -68,11 +69,24 @@ export default function Footer() {
           {/* Brand Info */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-2xl font-black uppercase tracking-tight text-slate-900">
-                  GLOVES STORM
-                </span>
-                <span className="w-2 h-2 rounded-full bg-slate-900" />
+              <div className="flex items-center gap-3 mb-4">
+                <div className="relative w-9 h-9 rounded-xl overflow-hidden bg-black shrink-0 border border-black/10 flex items-center justify-center">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Gloves Storm"
+                    width={36}
+                    height={36}
+                    className="object-cover scale-[1.05]"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-xl sm:text-2xl font-black uppercase tracking-tight text-slate-900 leading-none">
+                    GLOVES STORM
+                  </span>
+                  <span className="text-[9px] uppercase tracking-[0.2em] font-mono text-slate-500 font-semibold mt-0.5">
+                    Sialkot · Direct Factory
+                  </span>
+                </div>
               </div>
               <p className="text-sm text-slate-600 leading-relaxed max-w-sm mb-6">
                 Premium custom sports equipment, combat gear, and high-performance athletic apparel manufactured for global brands, sports clubs, and fashion labels.

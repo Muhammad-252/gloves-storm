@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Menu, X, Shield, ChevronDown, Sparkles } from "lucide-react";
+import { ArrowUpRight, Menu, X, Shield, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import GooeyButton from "../ui/GooeyButton";
 import MegaMenu from "./MegaMenu";
@@ -19,8 +20,8 @@ const navLinks = [
     href: "/manufacturers-usa",
     hasDropdown: true,
   },
-  { name: "About", href: "/about" },
   { name: "Previous Work", href: "/previous-work" },
+  { name: "About", href: "/about" },
   { name: "Journal", href: "/journal" },
 ];
 
@@ -38,7 +39,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 15);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -89,7 +90,7 @@ export default function Navbar() {
     megaMenuTimeoutRef.current = setTimeout(() => {
       setMegaMenuOpen(false);
       megaMenuTimeoutRef.current = null;
-    }, 450); // Generous 450ms grace period to allow smooth cursor transition
+    }, 350);
   };
 
   const handleMouseEnterMarkets = () => {
@@ -107,46 +108,56 @@ export default function Navbar() {
     marketsTimeoutRef.current = setTimeout(() => {
       setMarketsDropdownOpen(false);
       marketsTimeoutRef.current = null;
-    }, 250);
+    }, 200);
   };
 
   const isAdminRoute = pathname.startsWith("/admin");
 
   if (isAdminRoute) {
-    return null; // Admin has its dedicated dashboard layout
+    return null;
   }
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-6xl px-4 w-full">
+      <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 max-w-7xl px-4 sm:px-6 lg:px-8 w-full transition-all duration-300">
         <div
           className={cn(
-            "rounded-full bg-white/75 backdrop-blur-lg border border-white/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-6 py-3.5 flex items-center justify-between transition-all duration-300",
-            scrolled && "bg-white/85 shadow-md border-white/95"
+            "w-full rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between transition-all duration-300",
+            scrolled && "bg-white/95 shadow-md border-slate-300/80"
           )}
         >
-          {/* Brand Logo */}
+          {/* Brand Logo with Company Mark */}
           <Link
             href="/"
-            className="flex items-center gap-2 group transition-opacity hover:opacity-90"
+            className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
             onClick={() => {
               setMobileMenuOpen(false);
               setMegaMenuOpen(false);
+              setMarketsDropdownOpen(false);
             }}
           >
+            <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl overflow-hidden bg-black shrink-0 border border-black/10 shadow-xs flex items-center justify-center group-hover:scale-105 transition-transform">
+              <Image
+                src="/images/logo.png"
+                alt="Gloves Storm"
+                width={36}
+                height={36}
+                className="object-cover scale-[1.05]"
+                priority
+              />
+            </div>
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-[-0.04em] text-lg sm:text-xl uppercase flex items-center gap-2 text-slate-900">
+              <span className="font-black tracking-[-0.03em] text-base sm:text-lg uppercase text-slate-900 leading-none">
                 GLOVES STORM
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
               </span>
-              <span className="text-[9px] uppercase tracking-[0.22em] -mt-0.5 font-mono text-slate-500 font-medium">
-                Sialkot • Global OEM
+              <span className="text-[9px] uppercase tracking-[0.2em] font-mono text-slate-500 font-semibold mt-1 leading-none">
+                Sialkot · OEM Factory
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-7">
+          {/* Desktop Navigation Links — Strictly Single Row */}
+          <nav className="hidden lg:flex items-center gap-1 xl:gap-2 shrink-0 flex-nowrap whitespace-nowrap">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -164,10 +175,10 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-xs uppercase tracking-[0.16em] font-semibold transition-colors relative py-1 flex items-center gap-1.5 group cursor-pointer",
+                        "text-xs xl:text-[13px] uppercase tracking-[0.1em] font-bold transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
                         isActive || megaMenuOpen
-                          ? "text-slate-950 font-bold"
-                          : "text-slate-600 hover:text-slate-950"
+                          ? "text-slate-950 bg-slate-100"
+                          : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
                       )}
                     >
                       <span>{link.name}</span>
@@ -177,9 +188,6 @@ export default function Navbar() {
                           megaMenuOpen ? "rotate-180 text-slate-900" : "text-slate-400"
                         )}
                       />
-                      <span className="text-[9px] font-mono px-1.5 py-0.2 rounded-full bg-slate-100 text-slate-700 font-semibold border border-slate-200">
-                        {categories.length}
-                      </span>
                     </Link>
                   </div>
                 );
@@ -201,10 +209,10 @@ export default function Navbar() {
                       type="button"
                       onClick={() => setMarketsDropdownOpen(!marketsDropdownOpen)}
                       className={cn(
-                        "text-xs uppercase tracking-[0.16em] font-semibold transition-colors relative py-1 flex items-center gap-1.5 group cursor-pointer",
+                        "text-xs xl:text-[13px] uppercase tracking-[0.1em] font-bold transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
                         isMarketActive || marketsDropdownOpen
-                          ? "text-slate-950 font-bold"
-                          : "text-slate-600 hover:text-slate-950"
+                          ? "text-slate-950 bg-slate-100"
+                          : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
                       )}
                     >
                       <span>{link.name}</span>
@@ -268,41 +276,48 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-xs uppercase tracking-[0.16em] font-semibold transition-colors relative py-1",
+                    "text-xs xl:text-[13px] uppercase tracking-[0.1em] font-bold transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap shrink-0",
                     isActive
-                      ? "text-slate-950 font-bold"
-                      : "text-slate-600 hover:text-slate-950"
+                      ? "text-slate-950 bg-slate-100"
+                      : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
                   )}
                 >
                   {link.name}
-                  {isActive && (
-                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-slate-900 rounded-full" />
-                  )}
                 </Link>
               );
             })}
           </nav>
 
-          {/* Primary Action CTA: High-Contrast Request OEM Quote */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Desktop Primary Action CTA */}
+          <div className="hidden lg:flex items-center gap-3 shrink-0">
             <button
               type="button"
               onClick={() => setRfqModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
             >
               <span>Request OEM Quote</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-white/80" />
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-slate-900 hover:text-slate-700 transition-colors"
-            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+          {/* Mobile / Tablet Controls (< 1024px) */}
+          <div className="flex lg:hidden items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => setRfqModalOpen(true)}
+              className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-bold text-[11px] uppercase tracking-wider shadow-xs whitespace-nowrap"
+            >
+              <span>Quote</span>
+              <ArrowUpRight className="w-3 h-3 text-white/80" />
+            </button>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="p-2 rounded-full hover:bg-slate-100 text-slate-900 transition-colors"
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Desktop Mega Menu Dropdown Component */}
@@ -325,47 +340,73 @@ export default function Navbar() {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-white flex flex-col justify-between pt-24 pb-8 px-6 md:hidden animate-in fade-in duration-200 overflow-y-auto shadow-2xl">
-          <div className="flex flex-col gap-2">
-            <span className="text-[10px] tracking-[0.25em] text-neutral-400 uppercase font-mono mb-2">
-              Manufacturing Navigation
-            </span>
+        <div className="fixed inset-0 z-50 bg-white flex flex-col justify-between pt-5 pb-8 px-6 lg:hidden animate-in fade-in duration-200 overflow-y-auto shadow-2xl">
+          <div className="flex flex-col gap-3">
+            {/* Mobile Header with Logo */}
+            <div className="flex items-center justify-between pb-4 border-b border-neutral-100">
+              <div className="flex items-center gap-2.5">
+                <div className="relative w-8 h-8 rounded-xl overflow-hidden bg-black shrink-0 border border-black/10 flex items-center justify-center">
+                  <Image
+                    src="/images/logo.png"
+                    alt="Gloves Storm"
+                    width={32}
+                    height={32}
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-extrabold text-sm uppercase text-slate-900 leading-tight">
+                    GLOVES STORM
+                  </span>
+                  <span className="text-[9px] uppercase tracking-wider font-mono text-slate-500">
+                    Sialkot · OEM Factory
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={() => setMobileMenuOpen(false)}
+                className="p-2 rounded-full hover:bg-slate-100 text-slate-600 transition-colors"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
 
             {/* Products Accordion for Mobile */}
             <div className="border-b border-neutral-100 py-2">
               <button
                 type="button"
                 onClick={() => setMobileCategoriesExpanded(!mobileCategoriesExpanded)}
-                className="w-full text-xl font-bold uppercase tracking-tight transition-colors flex items-center justify-between py-2 text-neutral-900"
+                className="w-full text-lg font-bold uppercase tracking-tight transition-colors flex items-center justify-between py-2 text-neutral-900"
               >
                 <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#b45309]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
                   Products ({categories.length} Divisions)
                 </span>
                 <ChevronDown
                   className={cn(
-                    "w-5 h-5 text-neutral-500 transition-transform duration-200",
+                    "w-4 h-4 text-neutral-500 transition-transform duration-200",
                     mobileCategoriesExpanded ? "rotate-180 text-amber-600" : ""
                   )}
                 />
               </button>
 
               {mobileCategoriesExpanded && (
-                <div className="pl-2 pr-1 py-2 space-y-1.5 animate-in slide-in-from-top-2 duration-150">
+                <div className="pl-2 pr-1 py-2 space-y-1 animate-in slide-in-from-top-2 duration-150">
                   <Link
                     href="/products"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-xs font-bold uppercase tracking-wider text-amber-700 py-2.5 px-3 rounded-lg hover:bg-amber-50 border-b border-neutral-100 min-h-[44px] flex items-center"
+                    className="block text-xs font-bold uppercase tracking-wider text-amber-700 py-2 px-3 rounded-lg hover:bg-amber-50 border-b border-neutral-100 min-h-[40px] flex items-center"
                   >
                     → Browse All Products Catalog
                   </Link>
-                  <div className="grid grid-cols-1 gap-1 max-h-64 overflow-y-auto pt-1">
+                  <div className="grid grid-cols-1 gap-1 max-h-56 overflow-y-auto pt-1">
                     {categories.map((cat) => (
                       <Link
                         key={cat.id}
                         href={`/products/${cat.slug}`}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-xs font-medium text-neutral-700 hover:text-amber-800 py-2.5 px-3 rounded-lg hover:bg-neutral-50 flex items-center justify-between min-h-[44px] transition-colors"
+                        className="text-xs font-medium text-neutral-700 hover:text-amber-800 py-2 px-3 rounded-lg hover:bg-neutral-50 flex items-center justify-between min-h-[38px] transition-colors"
                       >
                         <span>{cat.name}</span>
                         {cat.menu_badge && (
@@ -382,7 +423,7 @@ export default function Navbar() {
 
             {/* Export Markets Section for Mobile */}
             <div className="border-b border-neutral-100 py-3">
-              <div className="text-[10px] tracking-[0.25em] text-neutral-400 uppercase font-mono mb-2">
+              <div className="text-[10px] tracking-[0.25em] text-neutral-400 uppercase font-mono mb-2 font-semibold">
                 Export Markets
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -417,6 +458,7 @@ export default function Navbar() {
               </div>
             </div>
 
+            {/* General Navigation Links */}
             {navLinks
               .filter((l) => !l.hasMegaMenu && !l.hasDropdown)
               .map((link) => {
@@ -427,18 +469,18 @@ export default function Navbar() {
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
-                      "text-xl font-bold uppercase tracking-tight transition-colors flex items-center justify-between py-3 border-b border-neutral-100",
-                      isActive ? "text-[#b45309]" : "text-neutral-900 hover:text-[#b45309]"
+                      "text-lg font-bold uppercase tracking-tight transition-colors flex items-center justify-between py-2.5 border-b border-neutral-100",
+                      isActive ? "text-amber-700" : "text-neutral-900 hover:text-amber-700"
                     )}
                   >
                     <span className="flex items-center gap-2">
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#b45309]" />}
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />}
                       {link.name}
                     </span>
                     <ArrowUpRight
                       className={cn(
-                        "w-5 h-5",
-                        isActive ? "text-[#b45309]" : "opacity-40 text-neutral-500"
+                        "w-4 h-4",
+                        isActive ? "text-amber-700" : "opacity-40 text-neutral-400"
                       )}
                     />
                   </Link>
@@ -446,7 +488,8 @@ export default function Navbar() {
               })}
           </div>
 
-          <div className="flex flex-col gap-4 border-t border-neutral-200 pt-6 mt-6">
+          {/* Drawer Bottom CTA */}
+          <div className="flex flex-col gap-3 border-t border-neutral-200 pt-5 mt-4">
             <GooeyButton
               href="/contact"
               variant="gold-solid"
@@ -457,9 +500,9 @@ export default function Navbar() {
               <span>Start a Project</span>
               <ArrowUpRight className="w-4 h-4" />
             </GooeyButton>
-            <div className="flex items-center justify-between text-xs text-neutral-500 pt-2 font-mono">
+            <div className="flex items-center justify-between text-xs text-neutral-500 pt-1 font-mono">
               <span className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-[#b45309]" /> Sialkot Verified OEM
+                <Shield className="w-3.5 h-3.5 text-amber-700" /> Sialkot Verified OEM
               </span>
               <span>Direct Export</span>
             </div>
