@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import os from "os";
 import {
   Category,
   Product,
@@ -18,6 +19,7 @@ import {
   initialSiteSettings,
   initialInquiries,
 } from "./initialData";
+import { supabase, isSupabaseConfigured } from "../supabase/client";
 
 // Global cache across serverless requests in the same worker
 declare global {
@@ -32,39 +34,118 @@ declare global {
   /* eslint-enable no-var */
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
-
-async function ensureDir() {
-  try {
-    await fs.mkdir(DATA_DIR, { recursive: true });
-  } catch {}
-}
+// In Vercel and AWS Lambda, /var/task is strictly read-only.
+// /tmp is the only writable directory in serverless environments.
+const PRIMARY_DATA_DIR = path.join(process.cwd(), "data");
+const TMP_DATA_DIR = path.join(os.tmpdir(), "glovesstorm_data");
 
 async function readJsonFile<T>(filename: string, fallback: T): Promise<T> {
-  const filePath = path.join(DATA_DIR, filename);
+  // 1. Try reading from TMP_DATA_DIR first (contains runtime admin updates on serverless)
+  const tmpPath = path.join(TMP_DATA_DIR, filename);
   try {
-    const data = await fs.readFile(filePath, "utf-8");
+    const data = await fs.readFile(tmpPath, "utf-8");
     const parsed = JSON.parse(data);
-    return parsed as T;
-  } catch {
-    // If file doesn't exist, seed it with fallback
-    try {
-      await ensureDir();
-      await fs.writeFile(filePath, JSON.stringify(fallback, null, 2), "utf-8");
-    } catch (e) {
-      console.warn(`Notice: Could not write fallback for ${filename}:`, e);
+    if (parsed) return parsed as T;
+  } catch {}
+
+  // 2. Try reading from PRIMARY_DATA_DIR (bundled with deployment build)
+  const primaryPath = path.join(PRIMARY_DATA_DIR, filename);
+  try {
+    const data = await fs.readFile(primaryPath, "utf-8");
+    const parsed = JSON.parse(data);
+    if (parsed) return parsed as T;
+  } catch {}
+
+  // 3. Fallback: try seeding to /tmp so subsequent reads find it
+  try {
+    await fs.mkdir(TMP_DATA_DIR, { recursive: true });
+    await fs.writeFile(tmpPath, JSON.stringify(fallback, null, 2), "utf-8");
+  } catch {}
+
+  return fallback;
+}
+
+// Optional background GitHub repository sync if GITHUB_TOKEN is provided in Vercel env
+async function syncToGitHub(filename: string, data: any) {
+  const token = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+  const repo = process.env.GITHUB_REPOSITORY || "Muhammad-252/gloves-storm";
+  if (!token) return;
+
+  try {
+    const filePath = `data/${filename}`;
+    const url = `https://api.github.com/repos/${repo}/contents/${filePath}`;
+
+    let sha: string | undefined;
+    const getRes = await fetch(url, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github.v3+json",
+        "User-Agent": "GlovesStorm-Admin",
+      },
+    });
+    if (getRes.ok) {
+      const existing = await getRes.json();
+      sha = existing.sha;
     }
-    return fallback;
+
+    const content = Buffer.from(JSON.stringify(data, null, 2)).toString("base64");
+    await fetch(url, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        Accept: "application/vnd.github.v3+json",
+        "Content-Type": "application/json",
+        "User-Agent": "GlovesStorm-Admin",
+      },
+      body: JSON.stringify({
+        message: `chore: update ${filename} via admin panel`,
+        content,
+        sha,
+        branch: "main",
+      }),
+    });
+  } catch (e) {
+    console.warn(`GitHub sync notice for ${filename}:`, e);
   }
 }
 
 async function writeJsonFile<T>(filename: string, data: T): Promise<void> {
-  const filePath = path.join(DATA_DIR, filename);
-  await ensureDir();
-  // Write to temporary file first then rename for atomic write
-  const tempPath = `${filePath}.tmp.${Date.now()}`;
-  await fs.writeFile(tempPath, JSON.stringify(data, null, 2), "utf-8");
-  await fs.rename(tempPath, filePath);
+  const jsonString = JSON.stringify(data, null, 2);
+  let writeSucceeded = false;
+
+  // 1. Try writing to PRIMARY_DATA_DIR (works locally in dev, VPS, Docker, or traditional Node.js server)
+  try {
+    await fs.mkdir(PRIMARY_DATA_DIR, { recursive: true });
+    const primaryPath = path.join(PRIMARY_DATA_DIR, filename);
+    const tempPath = `${primaryPath}.tmp.${Date.now()}`;
+    await fs.writeFile(tempPath, jsonString, "utf-8");
+    await fs.rename(tempPath, primaryPath);
+    writeSucceeded = true;
+  } catch (err: any) {
+    // EROFS (Read-only file system) happens in Vercel/AWS Lambda serverless environments
+    if (err?.code !== "EROFS" && !err?.message?.includes("read-only")) {
+      console.warn(`Primary write skipped for ${filename}:`, err?.message);
+    }
+  }
+
+  // 2. Always write to TMP_DATA_DIR (guaranteed writable on Vercel/Lambda serverless)
+  try {
+    await fs.mkdir(TMP_DATA_DIR, { recursive: true });
+    const tmpPath = path.join(TMP_DATA_DIR, filename);
+    const tempPath = `${tmpPath}.tmp.${Date.now()}`;
+    await fs.writeFile(tempPath, jsonString, "utf-8");
+    await fs.rename(tempPath, tmpPath);
+    writeSucceeded = true;
+  } catch (tmpErr: any) {
+    console.warn(`Tmp directory write notice for ${filename}:`, tmpErr?.message);
+  }
+
+  // 3. Trigger optional GitHub commit in background if token available
+  syncToGitHub(filename, data).catch(() => {});
+
+  if (!writeSucceeded) {
+    console.warn(`Notice: In-memory fallback used for ${filename}.`);
+  }
 }
 
 // =========================================================================
@@ -133,6 +214,15 @@ export async function saveDbCategory(category: Partial<Category>): Promise<Categ
 
   globalThis.__gs_db_categories = list;
   await writeJsonFile("categories.json", list);
+
+  if (isSupabaseConfigured && supabase) {
+    try {
+      await supabase.from("categories").upsert(saved);
+    } catch (e) {
+      console.warn("Supabase category sync notice:", e);
+    }
+  }
+
   return saved;
 }
 
@@ -141,6 +231,15 @@ export async function deleteDbCategory(id: string): Promise<boolean> {
   const filtered = list.filter((c) => c.id !== id);
   globalThis.__gs_db_categories = filtered;
   await writeJsonFile("categories.json", filtered);
+
+  if (isSupabaseConfigured && supabase) {
+    try {
+      await supabase.from("categories").delete().eq("id", id);
+    } catch (e) {
+      console.warn("Supabase category delete notice:", e);
+    }
+  }
+
   return true;
 }
 
@@ -243,6 +342,16 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
 
   globalThis.__gs_db_products = list;
   await writeJsonFile("products.json", list);
+
+  if (isSupabaseConfigured && supabase) {
+    try {
+      const { images, ...prodRecord } = saved;
+      await supabase.from("products").upsert(prodRecord);
+    } catch (e) {
+      console.warn("Supabase product sync notice:", e);
+    }
+  }
+
   return saved;
 }
 
@@ -251,6 +360,15 @@ export async function deleteDbProduct(id: string): Promise<boolean> {
   const filtered = list.filter((p) => p.id !== id);
   globalThis.__gs_db_products = filtered;
   await writeJsonFile("products.json", filtered);
+
+  if (isSupabaseConfigured && supabase) {
+    try {
+      await supabase.from("products").delete().eq("id", id);
+    } catch (e) {
+      console.warn("Supabase product delete notice:", e);
+    }
+  }
+
   return true;
 }
 
