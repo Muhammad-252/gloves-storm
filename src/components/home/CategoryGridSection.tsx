@@ -99,6 +99,9 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
         .then((data) => {
           if (data?.categories && Array.isArray(data.categories) && data.categories.length > 0) {
             setLiveCategories(data.categories);
+            try {
+              localStorage.setItem("gs_dynamic_categories", JSON.stringify(data.categories));
+            } catch (e) {}
           }
         })
         .catch((err) => console.warn("Live category grid sync warning:", err));

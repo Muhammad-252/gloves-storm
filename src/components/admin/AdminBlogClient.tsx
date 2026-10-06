@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { BlogPost } from "@/types/database";
-import { saveBlogPost, deleteBlogPost } from "@/lib/data/store";
+import { saveBlogPost, deleteBlogPost } from "@/lib/data/clientStore";
 import { slugify, formatDate } from "@/lib/utils";
 import { Plus, Edit2, Trash2, X, ExternalLink, Calendar } from "lucide-react";
 import Link from "next/link";

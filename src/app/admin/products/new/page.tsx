@@ -1,6 +1,7 @@
 import { getAllCategoriesAdmin } from "@/lib/data/store";
 import ProductEditorForm from "@/components/admin/ProductEditorForm";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function NewProductPage() {

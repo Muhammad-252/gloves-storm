@@ -1,6 +1,7 @@
 import { getSiteSettings } from "@/lib/data/store";
 import AdminSettingsClient from "@/components/admin/AdminSettingsClient";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function AdminSettingsPage() {

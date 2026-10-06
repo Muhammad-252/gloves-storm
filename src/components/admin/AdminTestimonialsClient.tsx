@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Testimonial } from "@/types/database";
-import { saveTestimonial, deleteTestimonial } from "@/lib/data/store";
+import { saveTestimonial, deleteTestimonial } from "@/lib/data/clientStore";
 import { Plus, Edit2, Trash2, Star, X } from "lucide-react";
 
 interface AdminTestimonialsClientProps {

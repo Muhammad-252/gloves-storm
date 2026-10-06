@@ -1,0 +1,54 @@
+[
+  {
+    "id": "d0000001-0000-0000-0000-000000000001",
+    "client_name": "Marcus Vance",
+    "company": "Vance Fight Gear & Apparel",
+    "country": "United Kingdom",
+    "role": "Founder & Product Director",
+    "testimonial": "Finding a manufacturer in Sialkot that understands luxury finishing, millimeter tolerances, and proactive communication is rare. GLOVES STORM engineered our 16oz lace-up gloves to a standard that rivals the most famous Mexican and Japanese fight brands. Our customer return rate dropped below 0.4%. They are truly our manufacturing backbone.",
+    "photo_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+    "rating": 5,
+    "featured": true,
+    "is_active": true,
+    "created_at": "2026-09-14T11:04:40.411Z"
+  },
+  {
+    "id": "d0000001-0000-0000-0000-000000000002",
+    "client_name": "Elena Rostova",
+    "company": "Kinetics Studio Brand",
+    "country": "United States",
+    "role": "Head of Supply Chain & Design",
+    "testimonial": "Our streetwear hoodie drop required 450 GSM custom-knit loopback French Terry and very specific boxy measurements. GLOVES STORM turned our tech packs into flawless physical samples within 9 days. The stitch density, custom neck tagging, and packaging exceeded our expectations. Our community raves about the quality.",
+    "photo_url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+    "rating": 5,
+    "featured": true,
+    "is_active": true,
+    "created_at": "2026-09-14T11:04:40.411Z"
+  },
+  {
+    "id": "d0000001-0000-0000-0000-000000000003",
+    "client_name": "Christian Dubois",
+    "company": "Athletica Pro Performance",
+    "country": "France / Europe",
+    "role": "Managing Director",
+    "testimonial": "We have imported sports goods for over 14 years. What distinguishes GLOVES STORM is their engineering discipline and transparent production tracking. You receive video updates from the stitching floor, lab tests on fabrics, and punctual worldwide dispatch. An indispensable partner for any brand scaling seriously.",
+    "photo_url": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+    "rating": 5,
+    "featured": true,
+    "is_active": true,
+    "created_at": "2026-09-14T11:04:40.411Z"
+  },
+  {
+    "id": "d0000001-0000-0000-0000-000000000004",
+    "client_name": "Tariq Al-Mansoor",
+    "company": "Vortex MMA Gyms",
+    "country": "United Arab Emirates",
+    "role": "Operations Director",
+    "testimonial": "We outfitted 8 commercial combat gyms across Dubai and Abu Dhabi with custom branded punching bags, sparring gloves, and coaching pads. The durability under daily heavy commercial use has been astonishing. Professional craftsmanship through and through.",
+    "photo_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=400&auto=format&fit=crop",
+    "rating": 5,
+    "featured": false,
+    "is_active": true,
+    "created_at": "2026-09-14T11:04:40.411Z"
+  }
+]

@@ -1,6 +1,7 @@
 import { getAllProjectsAdmin, getCategories } from "@/lib/data/store";
 import AdminProjectsClient from "@/components/admin/AdminProjectsClient";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function AdminProjectsPage() {

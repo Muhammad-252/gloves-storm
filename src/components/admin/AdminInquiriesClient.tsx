@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Inquiry, InquiryStatus } from "@/types/database";
-import { updateInquiryStatus } from "@/lib/data/store";
+import { updateInquiryStatus } from "@/lib/data/clientStore";
 import { formatDate } from "@/lib/utils";
 import {
   Inbox,

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
+import StoreMessagesBar from "@/components/layout/StoreMessagesBar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 
@@ -229,6 +230,7 @@ export default function RootLayout({
         </div>
 
         <Navbar />
+        <StoreMessagesBar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />
         <WhatsAppButton />

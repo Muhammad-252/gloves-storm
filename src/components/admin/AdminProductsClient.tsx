@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Product, Category } from "@/types/database";
-import { deleteProduct, saveProduct } from "@/lib/data/store";
+import { deleteProduct, saveProduct } from "@/lib/data/clientStore";
 import {
   Plus,
   Search,

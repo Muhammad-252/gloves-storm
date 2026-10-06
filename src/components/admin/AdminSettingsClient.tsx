@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { SiteSettings } from "@/types/database";
-import { saveSiteSettings } from "@/lib/data/store";
+import { saveSiteSettings } from "@/lib/data/clientStore";
 import {
   Save,
   Loader2,

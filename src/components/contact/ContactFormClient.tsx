@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Category } from "@/types/database";
-import { createInquiry } from "@/lib/data/store";
+import { createInquiry } from "@/lib/data/clientStore";
 import { CheckCircle, ArrowRight, Loader2, UploadCloud, Shield } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 

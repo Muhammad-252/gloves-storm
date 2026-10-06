@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { Category, Product, Inquiry } from "@/types/database";
-import { createInquiry } from "@/lib/data/store";
+import { createInquiry } from "@/lib/data/clientStore";
 import {
   Check,
   ChevronRight,

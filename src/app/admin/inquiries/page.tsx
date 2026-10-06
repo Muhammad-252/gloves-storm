@@ -1,6 +1,7 @@
 import { getInquiries } from "@/lib/data/store";
 import AdminInquiriesClient from "@/components/admin/AdminInquiriesClient";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function AdminInquiriesPage() {

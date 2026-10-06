@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Product, Category, ProductImage, PriceTier } from "@/types/database";
-import { saveProduct } from "@/lib/data/store";
+import { saveProduct } from "@/lib/data/clientStore";
 import { slugify } from "@/lib/utils";
 import {
   ArrowLeft,

@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { Project, Category, ProjectImage } from "@/types/database";
-import { saveProject, deleteProject } from "@/lib/data/store";
+import { saveProject, deleteProject } from "@/lib/data/clientStore";
 import { slugify } from "@/lib/utils";
 import {
   Plus,

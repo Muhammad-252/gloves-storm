@@ -2,7 +2,7 @@
 
 import { useState, useId } from "react";
 import { X, UploadCloud, CheckCircle2, MessageSquare, ArrowRight, ShieldCheck, FileText, Sliders } from "lucide-react";
-import { createInquiry } from "@/lib/data/store";
+import { createInquiry } from "@/lib/data/clientStore";
 
 interface RfqModalProps {
   isOpen: boolean;

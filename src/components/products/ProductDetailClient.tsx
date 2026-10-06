@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import QuoteModal from "../ui/QuoteModal";
 import GooeyButton from "../ui/GooeyButton";
+import JacketMakerProductCard from "./JacketMakerProductCard";
 
 interface ProductDetailClientProps {
   product: Product;
@@ -798,35 +799,17 @@ export default function ProductDetailClient({
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {relatedProducts.slice(0, 4).map((rel) => {
-              const relImg =
-                rel.images?.[0]?.image_url ||
-                "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop";
-              return (
-                <Link
-                  key={rel.id}
-                  href={`/products/${category?.slug || "general"}/${rel.slug}`}
-                  className="group bg-white/75 backdrop-blur-md rounded-3xl border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all p-4 flex flex-col justify-between"
-                >
-                  <div className="relative aspect-[4/5] bg-slate-100/80 rounded-2xl overflow-hidden mb-3 border border-slate-200/50">
-                    <Image
-                      src={relImg}
-                      alt={rel.images?.[0]?.alt_text || `Custom ${rel.name} OEM manufacturer Sialkot Pakistan — ${rel.materials?.[0] || "private label direct factory"}`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 25vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <h4 className="text-xs font-bold uppercase text-slate-900 group-hover:text-slate-700 transition-colors truncate mb-1">
-                    {rel.name}
-                  </h4>
-                  <div className="flex items-center justify-between text-[10px] font-mono text-slate-500 pt-2 border-t border-slate-100">
-                    <span>MOQ: {rel.moq} Pcs</span>
-                    <span className="text-slate-900 font-bold">Explore →</span>
-                  </div>
-                </Link>
-              );
-            })}
+            {relatedProducts.slice(0, 4).map((rel) => (
+              <JacketMakerProductCard
+                key={rel.id}
+                product={rel}
+                category={category || undefined}
+                onInquire={(p) => {
+                  setInquiryType("Quote");
+                  setModalOpen(true);
+                }}
+              />
+            ))}
           </div>
         </div>
       )}

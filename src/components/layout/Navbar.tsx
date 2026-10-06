@@ -80,6 +80,9 @@ export default function Navbar() {
         .then((data) => {
           if (data?.categories && data.categories.length > 0) {
             setCategories(data.categories);
+            try {
+              localStorage.setItem("gs_dynamic_categories", JSON.stringify(data.categories));
+            } catch (e) {}
           }
         })
         .catch(() => {});

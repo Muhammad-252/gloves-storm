@@ -1,6 +1,7 @@
 import { getAllTestimonialsAdmin } from "@/lib/data/store";
 import AdminTestimonialsClient from "@/components/admin/AdminTestimonialsClient";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function AdminTestimonialsPage() {

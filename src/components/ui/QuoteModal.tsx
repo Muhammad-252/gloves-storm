@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { X, CheckCircle, ArrowRight, Shield, Loader2 } from "lucide-react";
-import { createInquiry } from "@/lib/data/store";
+import { createInquiry } from "@/lib/data/clientStore";
 import GooeyButton from "./GooeyButton";
 
 interface QuoteModalProps {

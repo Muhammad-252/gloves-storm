@@ -1,6 +1,7 @@
 import { getAllBlogPostsAdmin } from "@/lib/data/store";
 import AdminBlogClient from "@/components/admin/AdminBlogClient";
 
+export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default async function AdminBlogPage() {
