@@ -13,8 +13,9 @@ interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
-export const revalidate = 60;
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const categories = await getCategories();

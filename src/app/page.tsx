@@ -29,7 +29,8 @@ export const metadata: Metadata = {
   },
 };
 
-export const revalidate = 60; // ISR revalidation
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const homeOrgSchema = {
   "@context": "https://schema.org",

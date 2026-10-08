@@ -11,8 +11,9 @@ interface ProductPageProps {
   params: Promise<{ category: string; product: string }>;
 }
 
+export const dynamic = "force-dynamic";
 export const dynamicParams = true;
-export const revalidate = 60;
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const [products, categories] = await Promise.all([

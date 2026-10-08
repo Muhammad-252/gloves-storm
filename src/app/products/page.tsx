@@ -1,6 +1,8 @@
 import { getCategories, getProducts } from "@/lib/data/store";
 import ProductCatalogClient from "@/components/products/ProductCatalogClient";
 import type { Metadata } from "next";
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
