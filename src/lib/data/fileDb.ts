@@ -1,6 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import os from "os";
+import { randomUUID } from "crypto";
 import {
   Category,
   Product,
@@ -19,7 +20,7 @@ import {
   initialSiteSettings,
   initialInquiries,
 } from "./initialData";
-import { supabase, isSupabaseConfigured } from "../supabase/client";
+import { supabase, supabaseAdmin, isSupabaseConfigured } from "../supabase/client";
 
 // Global cache across serverless requests in the same worker
 declare global {
@@ -38,6 +39,11 @@ declare global {
 // /tmp is the only writable directory in serverless environments.
 const PRIMARY_DATA_DIR = path.join(process.cwd(), "data");
 const TMP_DATA_DIR = path.join(os.tmpdir(), "glovesstorm_data");
+
+const isUuid = (val?: string | null): boolean =>
+  Boolean(val && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(val));
+
+const getDbClient = () => supabaseAdmin || supabase;
 
 async function readJsonFile<T>(filename: string, fallback: T): Promise<T> {
   // 1. Try reading from TMP_DATA_DIR first (contains runtime admin updates on serverless)
@@ -160,6 +166,25 @@ async function writeJsonFile<T>(filename: string, data: T): Promise<void> {
 // CATEGORIES
 // =========================================================================
 export async function getDbCategories(): Promise<Category[]> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("categories")
+          .select("*")
+          .order("sort_order", { ascending: true });
+
+        if (!error && data && data.length > 0) {
+          globalThis.__gs_db_categories = data as Category[];
+          return data as Category[];
+        }
+      } catch (e) {
+        console.warn("Supabase categories fetch notice, falling back to local:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<Category[]>("categories.json", [...initialCategories]);
     globalThis.__gs_db_categories = loaded;
@@ -173,80 +198,81 @@ export async function getDbCategories(): Promise<Category[]> {
 }
 
 export async function saveDbCategory(category: Partial<Category>): Promise<Category> {
-  const list = [...(await getDbCategories())];
-  let saved: Category;
+  const categoryId = category.id && isUuid(category.id) ? category.id : (category.id || randomUUID());
 
-  if (category.id) {
-    const idx = list.findIndex((c) => c.id === category.id);
+  // Clean data for DB (strip non-column fields like productCount, featuredItems)
+  const dbRecord: any = {
+    id: categoryId,
+    name: category.name || "New Category",
+    slug: category.slug || `category-${Date.now()}`,
+    description: category.description || null,
+    image_url: category.image_url || null,
+    parent_id: category.parent_id && isUuid(category.parent_id) ? category.parent_id : null,
+    sort_order: category.sort_order ?? 1,
+    is_active: category.is_active ?? true,
+    featured_in_menu: category.featured_in_menu ?? true,
+    menu_badge: category.menu_badge || null,
+    updated_at: new Date().toISOString(),
+  };
+
+  let saved: Category = dbRecord as Category;
+
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("categories")
+          .upsert(dbRecord)
+          .select()
+          .single();
+
+        if (!error && data) {
+          saved = data as Category;
+        } else if (error) {
+          console.error("Supabase category save error:", error);
+        }
+      } catch (e) {
+        console.warn("Supabase category save exception:", e);
+      }
+    }
+  }
+
+  // Update in-memory & local fallback JSON
+  try {
+    const list = [...(await getDbCategories())];
+    const idx = list.findIndex((c) => c.id === saved.id);
     if (idx !== -1) {
-      saved = {
-        ...list[idx],
-        ...category,
-        updated_at: new Date().toISOString(),
-      } as Category;
       list[idx] = saved;
     } else {
-      saved = {
-        id: category.id,
-        name: category.name || "Unnamed Category",
-        slug: category.slug || `category-${Date.now()}`,
-        description: category.description || null,
-        image_url: category.image_url || null,
-        parent_id: category.parent_id || null,
-        sort_order: category.sort_order ?? list.length + 1,
-        is_active: category.is_active ?? true,
-        featured_in_menu: category.featured_in_menu ?? true,
-        menu_badge: category.menu_badge || null,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      };
       list.push(saved);
     }
-  } else {
-    saved = {
-      id: `cat-${Date.now()}`,
-      name: category.name || "New Category",
-      slug: category.slug || `category-${Date.now()}`,
-      description: category.description || null,
-      image_url: category.image_url || null,
-      parent_id: category.parent_id || null,
-      sort_order: category.sort_order ?? list.length + 1,
-      is_active: category.is_active ?? true,
-      featured_in_menu: category.featured_in_menu ?? true,
-      menu_badge: category.menu_badge || null,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    list.push(saved);
-  }
-
-  globalThis.__gs_db_categories = list;
-  await writeJsonFile("categories.json", list);
-
-  if (isSupabaseConfigured && supabase) {
-    try {
-      await supabase.from("categories").upsert(saved);
-    } catch (e) {
-      console.warn("Supabase category sync notice:", e);
-    }
-  }
+    globalThis.__gs_db_categories = list;
+    await writeJsonFile("categories.json", list);
+  } catch {}
 
   return saved;
 }
 
 export async function deleteDbCategory(id: string): Promise<boolean> {
-  const list = [...(await getDbCategories())];
-  const filtered = list.filter((c) => c.id !== id);
-  globalThis.__gs_db_categories = filtered;
-  await writeJsonFile("categories.json", filtered);
-
-  if (isSupabaseConfigured && supabase) {
-    try {
-      await supabase.from("categories").delete().eq("id", id);
-    } catch (e) {
-      console.warn("Supabase category delete notice:", e);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { error } = await client.from("categories").delete().eq("id", id);
+        if (error) console.error("Supabase category delete error:", error);
+      } catch (e) {
+        console.warn("Supabase category delete notice:", e);
+      }
     }
   }
+
+  try {
+    const list = [...(await getDbCategories())];
+    const filtered = list.filter((c) => c.id !== id);
+    globalThis.__gs_db_categories = filtered;
+    await writeJsonFile("categories.json", filtered);
+  } catch {}
 
   return true;
 }
@@ -255,6 +281,25 @@ export async function deleteDbCategory(id: string): Promise<boolean> {
 // PRODUCTS
 // =========================================================================
 export async function getDbProducts(): Promise<Product[]> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("products")
+          .select("*, images:product_images(*), category:categories(*)")
+          .order("created_at", { ascending: false });
+
+        if (!error && data && data.length > 0) {
+          globalThis.__gs_db_products = data as Product[];
+          return data as Product[];
+        }
+      } catch (e) {
+        console.warn("Supabase products fetch notice, falling back to local:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<Product[]>("products.json", [...initialProducts]);
     globalThis.__gs_db_products = loaded;
@@ -268,114 +313,114 @@ export async function getDbProducts(): Promise<Product[]> {
 }
 
 export async function saveDbProduct(product: Partial<Product>): Promise<Product> {
-  const list = [...(await getDbProducts())];
-  let saved: Product;
+  const productId = product.id && isUuid(product.id) ? product.id : (product.id || randomUUID());
+  const { images, category: joinedCategory, ...productFields } = product as any;
 
-  if (product.id) {
-    const idx = list.findIndex((p) => p.id === product.id);
-    if (idx !== -1) {
-      saved = {
-        ...list[idx],
-        ...product,
-        updated_at: new Date().toISOString(),
-      } as Product;
-      list[idx] = saved;
-    } else {
-      saved = {
-        id: product.id,
-        name: product.name || "New Product",
-        slug: product.slug || `product-${Date.now()}`,
-        category_id: product.category_id || "",
-        short_description: product.short_description || "",
-        description: product.description || "",
-        materials: product.materials || [],
-        features: product.features || [],
-        customization_options: product.customization_options || [],
-        moq: product.moq || 50,
-        lead_time: product.lead_time || "2-4 Weeks",
-        featured: product.featured ?? false,
-        is_active: product.is_active ?? true,
-        seo_title: product.seo_title || null,
-        seo_description: product.seo_description || null,
-        primary_keyword: product.primary_keyword || null,
-        secondary_keywords: product.secondary_keywords || null,
-        pricing_tiers: product.pricing_tiers || [],
-        sample_price: product.sample_price || null,
-        show_pricing: product.show_pricing ?? true,
-        images: product.images || [],
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      };
-      list.push(saved);
-    }
-  } else {
-    saved = {
-      id: `prod-${Date.now()}`,
-      name: product.name || "New Product",
-      slug: product.slug || `product-${Date.now()}`,
-      category_id: product.category_id || "",
-      short_description: product.short_description || "",
-      description: product.description || "",
-      materials: product.materials || [],
-      features: product.features || [],
-      customization_options: product.customization_options || [],
-      moq: product.moq || 50,
-      lead_time: product.lead_time || "2-4 Weeks",
-      featured: product.featured ?? false,
-      is_active: product.is_active ?? true,
-      seo_title: product.seo_title || null,
-      seo_description: product.seo_description || null,
-      primary_keyword: product.primary_keyword || null,
-      secondary_keywords: product.secondary_keywords || null,
-      pricing_tiers: product.pricing_tiers || [],
-      sample_price: product.sample_price || null,
-      show_pricing: product.show_pricing ?? true,
-      images: product.images || [
-        {
-          id: `img-${Date.now()}`,
-          product_id: `prod-${Date.now()}`,
-          image_url:
-            "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-          alt_text: product.name || "Product Image",
-          sort_order: 1,
-          is_primary: true,
-          created_at: new Date().toISOString(),
-        },
-      ],
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    list.unshift(saved);
-  }
+  const prodRecord: any = {
+    id: productId,
+    name: product.name || "New Product",
+    slug: product.slug || `product-${Date.now()}`,
+    category_id: product.category_id && isUuid(product.category_id) ? product.category_id : null,
+    short_description: product.short_description || "",
+    description: product.description || "",
+    materials: product.materials || [],
+    features: product.features || [],
+    customization_options: product.customization_options || [],
+    moq: product.moq || 50,
+    lead_time: product.lead_time || "2-4 Weeks",
+    featured: product.featured ?? false,
+    is_active: product.is_active ?? true,
+    seo_title: product.seo_title || null,
+    seo_description: product.seo_description || null,
+    pricing_tiers: product.pricing_tiers || [],
+    sample_price: product.sample_price || null,
+    show_pricing: product.show_pricing ?? true,
+    updated_at: new Date().toISOString(),
+  };
 
-  globalThis.__gs_db_products = list;
-  await writeJsonFile("products.json", list);
+  let saved: Product = {
+    ...prodRecord,
+    images: images || [],
+    category: joinedCategory || null,
+  };
 
-  if (isSupabaseConfigured && supabase) {
-    try {
-      const { images, ...prodRecord } = saved;
-      await supabase.from("products").upsert(prodRecord);
-    } catch (e) {
-      console.warn("Supabase product sync notice:", e);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("products")
+          .upsert(prodRecord)
+          .select("*, images:product_images(*), category:categories(*)")
+          .single();
+
+        if (!error && data) {
+          saved = data as Product;
+
+          // Sync images to product_images table if provided
+          if (Array.isArray(images) && images.length > 0) {
+            try {
+              const imageRows = images.map((img: any, idx: number) => ({
+                id: img.id && isUuid(img.id) ? img.id : randomUUID(),
+                product_id: saved.id,
+                image_url: img.image_url || img,
+                alt_text: img.alt_text || saved.name,
+                sort_order: img.sort_order ?? idx + 1,
+                is_primary: img.is_primary ?? idx === 0,
+              }));
+              await client.from("product_images").upsert(imageRows);
+              const { data: refreshed } = await client
+                .from("products")
+                .select("*, images:product_images(*), category:categories(*)")
+                .eq("id", saved.id)
+                .single();
+              if (refreshed) saved = refreshed as Product;
+            } catch (imgErr) {
+              console.warn("Product images sync notice:", imgErr);
+            }
+          }
+        } else if (error) {
+          console.error("Supabase product save error:", error);
+        }
+      } catch (e) {
+        console.warn("Supabase product save exception:", e);
+      }
     }
   }
+
+  // Backup to local file & cache
+  try {
+    const list = [...(await getDbProducts())];
+    const idx = list.findIndex((p) => p.id === saved.id);
+    if (idx !== -1) list[idx] = saved;
+    else list.unshift(saved);
+    globalThis.__gs_db_products = list;
+    await writeJsonFile("products.json", list);
+  } catch {}
 
   return saved;
 }
 
 export async function deleteDbProduct(id: string): Promise<boolean> {
-  const list = [...(await getDbProducts())];
-  const filtered = list.filter((p) => p.id !== id);
-  globalThis.__gs_db_products = filtered;
-  await writeJsonFile("products.json", filtered);
-
-  if (isSupabaseConfigured && supabase) {
-    try {
-      await supabase.from("products").delete().eq("id", id);
-    } catch (e) {
-      console.warn("Supabase product delete notice:", e);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        await client.from("product_images").delete().eq("product_id", id);
+        const { error } = await client.from("products").delete().eq("id", id);
+        if (error) console.error("Supabase product delete error:", error);
+      } catch (e) {
+        console.warn("Supabase product delete notice:", e);
+      }
     }
   }
+
+  try {
+    const list = [...(await getDbProducts())];
+    const filtered = list.filter((p) => p.id !== id);
+    globalThis.__gs_db_products = filtered;
+    await writeJsonFile("products.json", filtered);
+  } catch {}
 
   return true;
 }
@@ -384,6 +429,25 @@ export async function deleteDbProduct(id: string): Promise<boolean> {
 // PROJECTS
 // =========================================================================
 export async function getDbProjects(): Promise<Project[]> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("projects")
+          .select("*, images:project_images(*)")
+          .order("created_at", { ascending: false });
+
+        if (!error && data && data.length > 0) {
+          globalThis.__gs_db_projects = data as Project[];
+          return data as Project[];
+        }
+      } catch (e) {
+        console.warn("Supabase projects fetch notice, falling back to local:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<Project[]>("projects.json", [...initialProjects]);
     globalThis.__gs_db_projects = loaded;
@@ -397,71 +461,60 @@ export async function getDbProjects(): Promise<Project[]> {
 }
 
 export async function saveDbProject(project: Partial<Project>): Promise<Project> {
-  const list = [...(await getDbProjects())];
-  let saved: Project;
+  const projectId = project.id && isUuid(project.id) ? project.id : (project.id || randomUUID());
+  const { images, ...projRecord } = project as any;
+  projRecord.id = projectId;
+  projRecord.updated_at = new Date().toISOString();
 
-  if (project.id) {
-    const idx = list.findIndex((p) => p.id === project.id);
-    if (idx !== -1) {
-      saved = {
-        ...list[idx],
-        ...project,
-        updated_at: new Date().toISOString(),
-      } as Project;
-      list[idx] = saved;
-    } else {
-      saved = {
-        id: project.id,
-        title: project.title || "New Project",
-        slug: project.slug || `project-${Date.now()}`,
-        industry: project.industry || "Apparel & Gear",
-        category_id: project.category_id || null,
-        description: project.description || "",
-        challenge: project.challenge || null,
-        approach: project.approach || null,
-        solution: project.solution || null,
-        outcome: project.outcome || null,
-        featured_image: project.featured_image || "/images/products/varsity-jacket.jpg",
-        featured: project.featured ?? false,
-        is_active: project.is_active ?? true,
-        images: project.images || [],
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      };
-      list.push(saved);
+  let saved: Project = { ...projRecord, images: images || [] };
+
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("projects")
+          .upsert(projRecord)
+          .select("*, images:project_images(*)")
+          .single();
+        if (!error && data) saved = data as Project;
+      } catch (e) {
+        console.warn("Supabase project save notice:", e);
+      }
     }
-  } else {
-    saved = {
-      id: `proj-${Date.now()}`,
-      title: project.title || "New Project",
-      slug: project.slug || `project-${Date.now()}`,
-      industry: project.industry || "Apparel & Gear",
-      category_id: project.category_id || null,
-      description: project.description || "",
-      challenge: project.challenge || null,
-      approach: project.approach || null,
-      solution: project.solution || null,
-      outcome: project.outcome || null,
-      featured_image: project.featured_image || "/images/products/varsity-jacket.jpg",
-      featured: project.featured ?? false,
-      is_active: project.is_active ?? true,
-      images: project.images || [],
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    list.unshift(saved);
   }
 
-  globalThis.__gs_db_projects = list;
-  await writeJsonFile("projects.json", list);
+  try {
+    const list = [...(await getDbProjects())];
+    const idx = list.findIndex((p) => p.id === saved.id);
+    if (idx !== -1) list[idx] = saved;
+    else list.unshift(saved);
+    globalThis.__gs_db_projects = list;
+    await writeJsonFile("projects.json", list);
+  } catch {}
+
   return saved;
 }
 
 export async function deleteDbProject(id: string): Promise<boolean> {
-  const list = [...(await getDbProjects())];
-  const filtered = list.filter((p) => p.id !== id);
-  globalThis.__gs_db_projects = filtered;
-  await writeJsonFile("projects.json", filtered);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        await client.from("projects").delete().eq("id", id);
+      } catch (e) {
+        console.warn("Supabase project delete notice:", e);
+      }
+    }
+  }
+
+  try {
+    const list = [...(await getDbProjects())];
+    const filtered = list.filter((p) => p.id !== id);
+    globalThis.__gs_db_projects = filtered;
+    await writeJsonFile("projects.json", filtered);
+  } catch {}
+
   return true;
 }
 
@@ -469,6 +522,25 @@ export async function deleteDbProject(id: string): Promise<boolean> {
 // TESTIMONIALS
 // =========================================================================
 export async function getDbTestimonials(): Promise<Testimonial[]> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("testimonials")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (!error && data && data.length > 0) {
+          globalThis.__gs_db_testimonials = data as Testimonial[];
+          return data as Testimonial[];
+        }
+      } catch (e) {
+        console.warn("Supabase testimonials fetch notice:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<Testimonial[]>("testimonials.json", [...initialTestimonials]);
     globalThis.__gs_db_testimonials = loaded;
@@ -482,57 +554,57 @@ export async function getDbTestimonials(): Promise<Testimonial[]> {
 }
 
 export async function saveDbTestimonial(t: Partial<Testimonial>): Promise<Testimonial> {
-  const list = [...(await getDbTestimonials())];
-  let saved: Testimonial;
+  const testimonialId = t.id && isUuid(t.id) ? t.id : (t.id || randomUUID());
+  const record: any = { ...t, id: testimonialId };
+  let saved: Testimonial = record as Testimonial;
 
-  if (t.id) {
-    const idx = list.findIndex((item) => item.id === t.id);
-    if (idx !== -1) {
-      saved = { ...list[idx], ...t } as Testimonial;
-      list[idx] = saved;
-    } else {
-      saved = {
-        id: t.id,
-        client_name: t.client_name || "Client",
-        company: t.company || "Company",
-        country: t.country || "United States",
-        role: t.role || "Founder",
-        testimonial: t.testimonial || "",
-        photo_url: t.photo_url || null,
-        rating: t.rating || 5,
-        featured: t.featured ?? true,
-        is_active: t.is_active ?? true,
-        created_at: new Date().toISOString(),
-      };
-      list.push(saved);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("testimonials")
+          .upsert(record)
+          .select()
+          .single();
+        if (!error && data) saved = data as Testimonial;
+      } catch (e) {
+        console.warn("Supabase testimonial save notice:", e);
+      }
     }
-  } else {
-    saved = {
-      id: `test-${Date.now()}`,
-      client_name: t.client_name || "Client",
-      company: t.company || "Company",
-      country: t.country || "United States",
-      role: t.role || "Founder",
-      testimonial: t.testimonial || "",
-      photo_url: t.photo_url || null,
-      rating: t.rating || 5,
-      featured: t.featured ?? true,
-      is_active: t.is_active ?? true,
-      created_at: new Date().toISOString(),
-    };
-    list.unshift(saved);
   }
 
-  globalThis.__gs_db_testimonials = list;
-  await writeJsonFile("testimonials.json", list);
+  try {
+    const list = [...(await getDbTestimonials())];
+    const idx = list.findIndex((item) => item.id === saved.id);
+    if (idx !== -1) list[idx] = saved;
+    else list.unshift(saved);
+    globalThis.__gs_db_testimonials = list;
+    await writeJsonFile("testimonials.json", list);
+  } catch {}
+
   return saved;
 }
 
 export async function deleteDbTestimonial(id: string): Promise<boolean> {
-  const list = [...(await getDbTestimonials())];
-  const filtered = list.filter((t) => t.id !== id);
-  globalThis.__gs_db_testimonials = filtered;
-  await writeJsonFile("testimonials.json", filtered);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        await client.from("testimonials").delete().eq("id", id);
+      } catch (e) {
+        console.warn("Supabase testimonial delete notice:", e);
+      }
+    }
+  }
+
+  try {
+    const list = [...(await getDbTestimonials())];
+    const filtered = list.filter((item) => item.id !== id);
+    globalThis.__gs_db_testimonials = filtered;
+    await writeJsonFile("testimonials.json", filtered);
+  } catch {}
+
   return true;
 }
 
@@ -540,6 +612,25 @@ export async function deleteDbTestimonial(id: string): Promise<boolean> {
 // BLOG POSTS
 // =========================================================================
 export async function getDbBlogPosts(): Promise<BlogPost[]> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("blog_posts")
+          .select("*")
+          .order("published_at", { ascending: false });
+
+        if (!error && data && data.length > 0) {
+          globalThis.__gs_db_blog_posts = data as BlogPost[];
+          return data as BlogPost[];
+        }
+      } catch (e) {
+        console.warn("Supabase blog posts fetch notice:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<BlogPost[]>("blog_posts.json", [...initialBlogPosts]);
     globalThis.__gs_db_blog_posts = loaded;
@@ -553,69 +644,57 @@ export async function getDbBlogPosts(): Promise<BlogPost[]> {
 }
 
 export async function saveDbBlogPost(post: Partial<BlogPost>): Promise<BlogPost> {
-  const list = [...(await getDbBlogPosts())];
-  let saved: BlogPost;
+  const postId = post.id && isUuid(post.id) ? post.id : (post.id || randomUUID());
+  const record: any = { ...post, id: postId, updated_at: new Date().toISOString() };
+  let saved: BlogPost = record as BlogPost;
 
-  if (post.id) {
-    const idx = list.findIndex((p) => p.id === post.id);
-    if (idx !== -1) {
-      saved = {
-        ...list[idx],
-        ...post,
-        updated_at: new Date().toISOString(),
-      } as BlogPost;
-      list[idx] = saved;
-    } else {
-      saved = {
-        id: post.id,
-        title: post.title || "New Article",
-        slug: post.slug || `article-${Date.now()}`,
-        excerpt: post.excerpt || "",
-        content: post.content || "",
-        featured_image: post.featured_image || "/images/products/varsity-jacket.jpg",
-        category: post.category || "Manufacturing",
-        author: post.author || "GLOVES STORM Editorial",
-        published_at: post.published_at || new Date().toISOString(),
-        is_published: post.is_published ?? true,
-        seo_title: post.seo_title || null,
-        seo_description: post.seo_description || null,
-        social_image: post.social_image || null,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString(),
-      };
-      list.push(saved);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("blog_posts")
+          .upsert(record)
+          .select()
+          .single();
+        if (!error && data) saved = data as BlogPost;
+      } catch (e) {
+        console.warn("Supabase blog post save notice:", e);
+      }
     }
-  } else {
-    saved = {
-      id: `post-${Date.now()}`,
-      title: post.title || "New Article",
-      slug: post.slug || `article-${Date.now()}`,
-      excerpt: post.excerpt || "",
-      content: post.content || "",
-      featured_image: post.featured_image || "/images/products/varsity-jacket.jpg",
-      category: post.category || "Manufacturing",
-      author: post.author || "GLOVES STORM Editorial",
-      published_at: post.published_at || new Date().toISOString(),
-      is_published: post.is_published ?? true,
-      seo_title: post.seo_title || null,
-      seo_description: post.seo_description || null,
-      social_image: post.social_image || null,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    list.unshift(saved);
   }
 
-  globalThis.__gs_db_blog_posts = list;
-  await writeJsonFile("blog_posts.json", list);
+  try {
+    const list = [...(await getDbBlogPosts())];
+    const idx = list.findIndex((p) => p.id === saved.id);
+    if (idx !== -1) list[idx] = saved;
+    else list.unshift(saved);
+    globalThis.__gs_db_blog_posts = list;
+    await writeJsonFile("blog_posts.json", list);
+  } catch {}
+
   return saved;
 }
 
 export async function deleteDbBlogPost(id: string): Promise<boolean> {
-  const list = [...(await getDbBlogPosts())];
-  const filtered = list.filter((p) => p.id !== id);
-  globalThis.__gs_db_blog_posts = filtered;
-  await writeJsonFile("blog_posts.json", filtered);
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        await client.from("blog_posts").delete().eq("id", id);
+      } catch (e) {
+        console.warn("Supabase blog post delete notice:", e);
+      }
+    }
+  }
+
+  try {
+    const list = [...(await getDbBlogPosts())];
+    const filtered = list.filter((p) => p.id !== id);
+    globalThis.__gs_db_blog_posts = filtered;
+    await writeJsonFile("blog_posts.json", filtered);
+  } catch {}
+
   return true;
 }
 
@@ -623,6 +702,25 @@ export async function deleteDbBlogPost(id: string): Promise<boolean> {
 // SITE SETTINGS
 // =========================================================================
 export async function getDbSiteSettings(): Promise<SiteSettings> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("site_settings")
+          .select("*")
+          .single();
+
+        if (!error && data) {
+          globalThis.__gs_db_site_settings = data as SiteSettings;
+          return data as SiteSettings;
+        }
+      } catch (e) {
+        console.warn("Supabase site settings fetch notice:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<SiteSettings>("site_settings.json", { ...initialSiteSettings });
     globalThis.__gs_db_site_settings = loaded;
@@ -642,6 +740,28 @@ export async function saveDbSiteSettings(settings: Partial<SiteSettings>): Promi
     ...settings,
     updated_at: new Date().toISOString(),
   };
+
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("site_settings")
+          .upsert(updated)
+          .select()
+          .single();
+
+        if (!error && data) {
+          globalThis.__gs_db_site_settings = data as SiteSettings;
+          await writeJsonFile("site_settings.json", data);
+          return data as SiteSettings;
+        }
+      } catch (e) {
+        console.warn("Supabase site settings save notice:", e);
+      }
+    }
+  }
+
   globalThis.__gs_db_site_settings = updated;
   await writeJsonFile("site_settings.json", updated);
   return updated;
@@ -651,6 +771,25 @@ export async function saveDbSiteSettings(settings: Partial<SiteSettings>): Promi
 // INQUIRIES
 // =========================================================================
 export async function getDbInquiries(): Promise<Inquiry[]> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("inquiries")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (!error && data) {
+          globalThis.__gs_db_inquiries = data as Inquiry[];
+          return data as Inquiry[];
+        }
+      } catch (e) {
+        console.warn("Supabase inquiries fetch notice:", e);
+      }
+    }
+  }
+
   try {
     const loaded = await readJsonFile<Inquiry[]>("inquiries.json", [...initialInquiries]);
     globalThis.__gs_db_inquiries = loaded;
@@ -664,13 +803,38 @@ export async function getDbInquiries(): Promise<Inquiry[]> {
 }
 
 export async function saveDbInquiry(inquiry: Omit<Inquiry, "id" | "status" | "created_at">): Promise<Inquiry> {
-  const list = [...(await getDbInquiries())];
+  const newId = randomUUID();
   const newInquiry: Inquiry = {
-    id: `inq-${Date.now()}`,
+    id: newId,
     ...inquiry,
     status: "New",
     created_at: new Date().toISOString(),
   };
+
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const { data, error } = await client
+          .from("inquiries")
+          .insert(newInquiry)
+          .select()
+          .single();
+
+        if (!error && data) {
+          const list = [...(await getDbInquiries())];
+          list.unshift(data as Inquiry);
+          globalThis.__gs_db_inquiries = list;
+          await writeJsonFile("inquiries.json", list);
+          return data as Inquiry;
+        }
+      } catch (e) {
+        console.warn("Supabase inquiry insert notice:", e);
+      }
+    }
+  }
+
+  const list = [...(await getDbInquiries())];
   list.unshift(newInquiry);
   globalThis.__gs_db_inquiries = list;
   await writeJsonFile("inquiries.json", list);
@@ -682,6 +846,30 @@ export async function updateDbInquiryStatus(
   status: any,
   internalNotes?: string
 ): Promise<boolean> {
+  if (isSupabaseConfigured) {
+    const client = getDbClient();
+    if (client) {
+      try {
+        const updatePayload: any = { status };
+        if (internalNotes !== undefined) updatePayload.internal_notes = internalNotes;
+        const { error } = await client.from("inquiries").update(updatePayload).eq("id", id);
+        if (!error) {
+          const list = [...(await getDbInquiries())];
+          const idx = list.findIndex((i) => i.id === id);
+          if (idx !== -1) {
+            list[idx].status = status;
+            if (internalNotes !== undefined) list[idx].internal_notes = internalNotes;
+            globalThis.__gs_db_inquiries = list;
+            await writeJsonFile("inquiries.json", list);
+          }
+          return true;
+        }
+      } catch (e) {
+        console.warn("Supabase inquiry status update notice:", e);
+      }
+    }
+  }
+
   const list = [...(await getDbInquiries())];
   const idx = list.findIndex((i) => i.id === id);
   if (idx !== -1) {

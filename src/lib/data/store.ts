@@ -30,7 +30,7 @@ import {
   saveDbInquiry,
   updateDbInquiryStatus,
 } from "./fileDb";
-import { supabase, isSupabaseConfigured } from "../supabase/client";
+import { supabase, supabaseAdmin, isSupabaseConfigured } from "../supabase/client";
 
 // In-memory fallback / cache for fast access
 export function setMemoryCategories(cats: Category[]) {

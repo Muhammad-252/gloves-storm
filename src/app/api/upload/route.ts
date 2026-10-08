@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
-import { supabase, isSupabaseConfigured } from "@/lib/supabase/client";
+import { supabase, supabaseAdmin, isSupabaseConfigured } from "@/lib/supabase/client";
 
 export const runtime = "nodejs";
 
@@ -47,44 +47,50 @@ export async function POST(req: NextRequest) {
       .slice(0, 40);
     const uniqueFileName = `${Date.now()}-${baseName || "image"}${originalExt.toLowerCase()}`;
 
-    // 1. Try uploading to Supabase Storage if configured and online (with 2500ms timeout)
-    if (isSupabaseConfigured && supabase) {
-      try {
-        const bucketName = "images";
-        const storagePath = `${safeFolder}/${uniqueFileName}`;
+    // 1. Try uploading to Supabase Storage if configured and online
+    if (isSupabaseConfigured) {
+      const storageClient = supabaseAdmin || supabase;
+      if (storageClient) {
+        try {
+          const bucketMap: Record<string, string> = {
+            categories: "products",
+            products: "products",
+            projects: "projects",
+            blog: "blog",
+            testimonials: "testimonials",
+            settings: "site-assets",
+            assets: "site-assets",
+            inquiries: "inquiries",
+          };
+          const bucketName = bucketMap[safeFolder] || "products";
+          const storagePath = `${safeFolder}/${uniqueFileName}`;
 
-        const uploadPromise = supabase.storage
-          .from(bucketName)
-          .upload(storagePath, buffer, {
-            contentType: file.type,
-            upsert: true,
-          });
-
-        const timeoutPromise = new Promise<{ error: Error }>((_, reject) =>
-          setTimeout(() => reject(new Error("Supabase storage timeout")), 2500)
-        );
-
-        const { error: uploadError } = (await Promise.race([
-          uploadPromise,
-          timeoutPromise,
-        ])) as any;
-
-        if (!uploadError) {
-          const { data: publicData } = supabase.storage
+          const { error: uploadError } = await storageClient.storage
             .from(bucketName)
-            .getPublicUrl(storagePath);
-
-          if (publicData?.publicUrl) {
-            return NextResponse.json({
-              success: true,
-              url: publicData.publicUrl,
-              filename: uniqueFileName,
-              source: "supabase",
+            .upload(storagePath, buffer, {
+              contentType: file.type,
+              upsert: true,
             });
+
+          if (!uploadError) {
+            const { data: publicData } = storageClient.storage
+              .from(bucketName)
+              .getPublicUrl(storagePath);
+
+            if (publicData?.publicUrl) {
+              return NextResponse.json({
+                success: true,
+                url: publicData.publicUrl,
+                filename: uniqueFileName,
+                source: "supabase",
+              });
+            }
+          } else {
+            console.warn("Supabase storage upload error:", uploadError);
           }
+        } catch (supabaseErr) {
+          console.warn("Supabase storage upload skipped/failed, falling back to local disk:", supabaseErr);
         }
-      } catch (supabaseErr) {
-        console.warn("Supabase storage upload skipped/failed, falling back to local disk:", supabaseErr);
       }
     }
 
