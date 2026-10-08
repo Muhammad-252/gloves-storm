@@ -30,19 +30,15 @@ import {
   saveDbInquiry,
   updateDbInquiryStatus,
 } from "./fileDb";
-import { supabase, supabaseAdmin, isSupabaseConfigured } from "../supabase/client";
 
-// In-memory fallback / cache for fast access
-export function setMemoryCategories(cats: Category[]) {
-  globalThis.__gs_db_categories = cats;
-}
-
+// Compatibility stubs
+export function setMemoryCategories(_cats: Category[]) {}
 export function getMemoryCategories(): Category[] {
-  return globalThis.__gs_db_categories || [];
+  return [];
 }
 
 // ==========================================
-// CATEGORIES (Persistent via data/categories.json)
+// CATEGORIES (Direct Supabase)
 // ==========================================
 export async function getCategories(): Promise<Category[]> {
   if (typeof window !== "undefined") {
@@ -53,7 +49,7 @@ export async function getCategories(): Promise<Category[]> {
         return (data.categories as Category[]).filter((c) => c.is_active);
       }
     } catch {}
-    return (globalThis.__gs_db_categories || []).filter((c) => c.is_active);
+    return [];
   }
 
   const categories = await getDbCategories();
@@ -67,7 +63,7 @@ export async function getAllCategoriesAdmin(): Promise<Category[]> {
       const data = await res.json();
       if (data?.categories) return data.categories as Category[];
     } catch {}
-    return globalThis.__gs_db_categories || [];
+    return [];
   }
   return getDbCategories();
 }
@@ -105,7 +101,7 @@ export async function deleteCategory(id: string): Promise<boolean> {
 }
 
 // ==========================================
-// PRODUCTS (Persistent via data/products.json)
+// PRODUCTS (Direct Supabase)
 // ==========================================
 export async function getProducts(options?: {
   categoryId?: string;
@@ -113,19 +109,6 @@ export async function getProducts(options?: {
   featured?: boolean;
   search?: string;
 }): Promise<Product[]> {
-  if (isSupabaseConfigured && supabase) {
-    let query = supabase
-      .from("products")
-      .select("*, images:product_images(*), category:categories(*)")
-      .eq("is_active", true);
-
-    if (options?.featured) query = query.eq("featured", true);
-    if (options?.categoryId) query = query.eq("category_id", options.categoryId);
-
-    const { data, error } = await query.order("created_at", { ascending: false });
-    if (!error && data) return data as Product[];
-  }
-
   let products = await getDbProducts();
 
   if (options?.featured) {
@@ -154,25 +137,10 @@ export async function getProducts(options?: {
 }
 
 export async function getAllProductsAdmin(): Promise<Product[]> {
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*, images:product_images(*), category:categories(*)")
-      .order("created_at", { ascending: false });
-    if (!error && data) return data as Product[];
-  }
   return getDbProducts();
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("products")
-      .select("*, images:product_images(*), category:categories(*)")
-      .eq("slug", slug)
-      .single();
-    if (!error && data) return data as Product;
-  }
   const products = await getDbProducts();
   return products.find((p) => p.slug === slug) || null;
 }
@@ -191,20 +159,6 @@ export async function saveProduct(product: Partial<Product>): Promise<Product> {
     return data.product;
   }
 
-  if (isSupabaseConfigured && supabase) {
-    try {
-      if (product.id) {
-        const { data, error } = await supabase
-          .from("products")
-          .update(product)
-          .eq("id", product.id)
-          .select("*, images:product_images(*)")
-          .single();
-        if (!error && data) return data as Product;
-      }
-    } catch {}
-  }
-
   return saveDbProduct(product);
 }
 
@@ -217,34 +171,18 @@ export async function deleteProduct(id: string): Promise<boolean> {
     return Boolean(data.success);
   }
 
-  if (isSupabaseConfigured && supabase) {
-    await supabase.from("products").delete().eq("id", id);
-  }
   return deleteDbProduct(id);
 }
 
 // ==========================================
-// PROJECTS / CASE STUDIES
+// PROJECTS / CASE STUDIES (Direct Supabase)
 // ==========================================
 export async function getProjects(featuredOnly?: boolean): Promise<Project[]> {
-  if (isSupabaseConfigured && supabase) {
-    let query = supabase.from("projects").select("*, images:project_images(*)").eq("is_active", true);
-    if (featuredOnly) query = query.eq("featured", true);
-    const { data, error } = await query.order("created_at", { ascending: false });
-    if (!error && data) return data as Project[];
-  }
   const projects = await getDbProjects();
   return projects.filter((p) => (featuredOnly ? p.featured && p.is_active : p.is_active));
 }
 
 export async function getAllProjectsAdmin(): Promise<Project[]> {
-  if (isSupabaseConfigured && supabase) {
-    const { data, error } = await supabase
-      .from("projects")
-      .select("*, images:project_images(*)")
-      .order("created_at", { ascending: false });
-    if (!error && data) return data as Project[];
-  }
   return getDbProjects();
 }
 
@@ -277,7 +215,7 @@ export async function deleteProject(id: string): Promise<boolean> {
 }
 
 // ==========================================
-// TESTIMONIALS
+// TESTIMONIALS (Direct Supabase)
 // ==========================================
 export async function getTestimonials(featuredOnly?: boolean): Promise<Testimonial[]> {
   const testimonials = await getDbTestimonials();
@@ -312,7 +250,7 @@ export async function deleteTestimonial(id: string): Promise<boolean> {
 }
 
 // ==========================================
-// BLOG / JOURNAL
+// BLOG / JOURNAL (Direct Supabase)
 // ==========================================
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const posts = await getDbBlogPosts();
@@ -352,7 +290,7 @@ export async function deleteBlogPost(id: string): Promise<boolean> {
 }
 
 // ==========================================
-// INQUIRIES
+// INQUIRIES (Direct Supabase)
 // ==========================================
 export async function createInquiry(
   inquiryData: Omit<Inquiry, "id" | "status" | "created_at">
@@ -392,7 +330,7 @@ export async function updateInquiryStatus(
 }
 
 // ==========================================
-// SITE SETTINGS
+// SITE SETTINGS (Direct Supabase)
 // ==========================================
 export async function getSiteSettings(): Promise<SiteSettings> {
   return getDbSiteSettings();
