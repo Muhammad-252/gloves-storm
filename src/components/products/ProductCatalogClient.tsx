@@ -49,6 +49,7 @@ export default function ProductCatalogClient({
   selectedCategorySlug,
 }: ProductCatalogClientProps) {
   const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
+  const [liveProducts, setLiveProducts] = useState<Product[]>(initialProducts);
   const [selectedCat, setSelectedCat] = useState<string>(
     selectedCategorySlug || currentCategorySlug || "all"
   );
@@ -59,6 +60,22 @@ export default function ProductCatalogClient({
   const [sortBy, setSortBy] = useState<"featured" | "moq-asc" | "newest">("featured");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+
+  // Sync products when initialProducts change or fetch live
+  useEffect(() => {
+    setLiveProducts(initialProducts);
+  }, [initialProducts]);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.products && Array.isArray(data.products) && data.products.length > 0) {
+          setLiveProducts(data.products);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   // Sync with live categories from storage and broadcast events
   useEffect(() => {
@@ -129,7 +146,7 @@ export default function ProductCatalogClient({
 
   // Filter products
   const filtered = useMemo(() => {
-    return initialProducts.filter((p) => {
+    return liveProducts.filter((p) => {
       // Category filter
       if (selectedCat !== "all") {
         const cat = liveCategories.find((c) => c.slug === selectedCat);
@@ -184,7 +201,7 @@ export default function ProductCatalogClient({
 
       return true;
     });
-  }, [initialProducts, liveCategories, selectedCat, capabilityFilter, selectedColor, moqFilter, search]);
+  }, [liveProducts, liveCategories, selectedCat, capabilityFilter, selectedColor, moqFilter, search]);
 
   // Sort products
   const sorted = useMemo(() => {

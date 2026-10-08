@@ -289,11 +289,10 @@ export default function AdminCategoriesClient({
                     <td className="py-3.5 px-4">
                       <div className="flex items-center gap-1.5 flex-wrap">
                         <span
-                          className={`text-[9px] font-mono px-2 py-0.5 rounded-full font-bold ${
-                            cat.featured_in_menu !== false
-                              ? "bg-amber-100 text-amber-900 border border-amber-300"
-                              : "bg-neutral-100 text-neutral-500"
-                          }`}
+                          className={`text-[9px] font-mono px-2 py-0.5 rounded-full font-bold ${cat.featured_in_menu !== false
+                            ? "bg-amber-100 text-amber-900 border border-amber-300"
+                            : "bg-neutral-100 text-neutral-500"
+                            }`}
                         >
                           {cat.featured_in_menu !== false ? "In Menu" : "Hidden"}
                         </span>
@@ -310,11 +309,10 @@ export default function AdminCategoriesClient({
                     <td className="py-3.5 px-4">
                       <button
                         onClick={() => handleToggleActive(cat)}
-                        className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border ${
-                          cat.is_active
-                            ? "bg-emerald-50 text-emerald-700 border-emerald-200"
-                            : "bg-neutral-100 text-neutral-500 border-neutral-200"
-                        }`}
+                        className={`text-[10px] font-mono uppercase px-2.5 py-1 rounded-full border ${cat.is_active
+                          ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                          : "bg-neutral-100 text-neutral-500 border-neutral-200"
+                          }`}
                       >
                         {cat.is_active ? "Active" : "Disabled"}
                       </button>

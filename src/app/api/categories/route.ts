@@ -77,6 +77,8 @@ export async function POST(req: NextRequest) {
       revalidatePath("/", "layout");
       revalidatePath("/products");
       revalidatePath("/admin/categories");
+      revalidatePath("/products/[category]", "page");
+      revalidatePath("/products/[category]/[product]", "page");
       if (saved.slug) {
         revalidatePath(`/products/${saved.slug}`);
       }
@@ -113,6 +115,8 @@ export async function DELETE(req: NextRequest) {
       revalidatePath("/", "layout");
       revalidatePath("/products");
       revalidatePath("/admin/categories");
+      revalidatePath("/products/[category]", "page");
+      revalidatePath("/products/[category]/[product]", "page");
     } catch (revalidateErr) {
       console.warn("Revalidation notice:", revalidateErr);
     }

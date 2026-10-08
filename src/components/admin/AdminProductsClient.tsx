@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { Product, Category } from "@/types/database";
 import { deleteProduct, saveProduct } from "@/lib/data/clientStore";
+import { useToast } from "@/components/ui/Toast";
 import {
   Plus,
   Search,
@@ -25,6 +27,8 @@ export default function AdminProductsClient({
   initialProducts,
   categories,
 }: AdminProductsClientProps) {
+  const router = useRouter();
+  const { toast } = useToast();
   const [products, setProducts] = useState<Product[]>(initialProducts);
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -40,12 +44,23 @@ export default function AdminProductsClient({
     return matchesCat && matchesSearch;
   });
 
+  useEffect(() => {
+    setProducts(initialProducts);
+  }, [initialProducts]);
+
   const handleDelete = async (id: string, name: string) => {
-    if (confirm(`Are you sure you want to delete "${name}"? This action cannot be undone.`)) {
+    if (!confirm(`Are you sure you want to delete "${name}"? This action cannot be undone.`)) return;
+
+    const toastId = toast.loading("Deleting Product...", `Removing "${name}"`);
+    try {
       await deleteProduct(id);
-      setProducts(products.filter((p) => p.id !== id));
-      setActionMessage(`Product "${name}" deleted.`);
-      setTimeout(() => setActionMessage(null), 4000);
+      setProducts((prev) => prev.filter((p) => p.id !== id));
+      toast.dismiss(toastId);
+      toast.success("Product Deleted", `"${name}" was deleted successfully.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Delete Failed", err?.message || "Could not delete product.");
     }
   };
 
@@ -68,26 +83,49 @@ export default function AdminProductsClient({
       seo_description: product.seo_description,
     };
 
-    const created = await saveProduct(duplicatePayload);
-    setProducts([created, ...products]);
-    setActionMessage(`Product duplicated as "${created.name}".`);
-    setTimeout(() => setActionMessage(null), 4000);
+    const toastId = toast.loading("Duplicating...", `Creating duplicate of "${product.name}"`);
+    try {
+      const created = await saveProduct(duplicatePayload);
+      setProducts((prev) => [created, ...prev]);
+      toast.dismiss(toastId);
+      toast.success("Product Duplicated", `Created "${created.name}".`);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Duplicate Failed", err?.message || "Could not duplicate product.");
+    }
   };
 
   const handleToggleActive = async (product: Product) => {
-    const updated = await saveProduct({
-      id: product.id,
-      is_active: !product.is_active,
-    });
-    setProducts(products.map((p) => (p.id === product.id ? { ...p, is_active: updated.is_active } : p)));
+    try {
+      const updated = await saveProduct({
+        id: product.id,
+        is_active: !product.is_active,
+      });
+      setProducts((prev) =>
+        prev.map((p) => (p.id === product.id ? { ...p, is_active: updated.is_active } : p))
+      );
+      toast.info("Status Updated", `"${product.name}" is now ${updated.is_active ? "Published" : "Draft"}.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Update Failed", err?.message || "Could not update status.");
+    }
   };
 
   const handleToggleFeatured = async (product: Product) => {
-    const updated = await saveProduct({
-      id: product.id,
-      featured: !product.featured,
-    });
-    setProducts(products.map((p) => (p.id === product.id ? { ...p, featured: updated.featured } : p)));
+    try {
+      const updated = await saveProduct({
+        id: product.id,
+        featured: !product.featured,
+      });
+      setProducts((prev) =>
+        prev.map((p) => (p.id === product.id ? { ...p, featured: updated.featured } : p))
+      );
+      toast.info("Featured Updated", `"${product.name}" is now ${updated.featured ? "Featured" : "Standard"}.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Update Failed", err?.message || "Could not update featured flag.");
+    }
   };
 
   return (

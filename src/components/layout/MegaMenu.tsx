@@ -83,11 +83,37 @@ export default function MegaMenu({
   useEffect(() => {
     let isMounted = true;
 
+    const refetchCategories = () => {
+      fetch("/api/categories")
+        .then((res) => res.json())
+        .then((data) => {
+          if (!isMounted) return;
+          if (data?.categories && data.categories.length > 0) {
+            setMenuCategories(data.categories);
+          }
+          if (data?.featuredSelections && data.featuredSelections.length > 0) {
+            setApiFeaturedSelections(data.featuredSelections);
+          }
+        })
+        .catch(() => {});
+    };
+
     const handleUpdate = (e: Event) => {
       const customEvent = e as CustomEvent<MegaMenuCategory[]>;
       if (customEvent.detail && Array.isArray(customEvent.detail)) {
-        setMenuCategories(customEvent.detail);
+        setMenuCategories((prev) => {
+          return customEvent.detail.map((newCat) => {
+            const existing = prev.find((c) => c.id === newCat.id);
+            return {
+              ...existing,
+              ...newCat,
+              featuredItems: existing?.featuredItems || newCat.featuredItems,
+              productCount: existing?.productCount ?? newCat.productCount,
+            };
+          });
+        });
       }
+      refetchCategories();
     };
     window.addEventListener("gs_categories_updated", handleUpdate);
 
@@ -95,26 +121,13 @@ export default function MegaMenu({
     if ("BroadcastChannel" in window) {
       channel = new BroadcastChannel("gs_categories_channel");
       channel.onmessage = (msg) => {
-        if (msg.data?.type === "CATEGORIES_UPDATED" && Array.isArray(msg.data.categories)) {
-          setMenuCategories(msg.data.categories);
+        if (msg.data?.type === "CATEGORIES_UPDATED") {
+          refetchCategories();
         }
       };
     }
 
-    fetch("/api/categories")
-      .then((res) => res.json())
-      .then((data) => {
-        if (!isMounted) return;
-        if (data?.categories && data.categories.length > 0) {
-          setMenuCategories(data.categories);
-        }
-        if (data?.featuredSelections && data.featuredSelections.length > 0) {
-          setApiFeaturedSelections(data.featuredSelections);
-        }
-      })
-      .catch(() => {
-        // Fallback to initialDataCategories
-      });
+    refetchCategories();
 
     return () => {
       isMounted = false;

@@ -1,17 +1,146 @@
 [
   {
     "id": "a0000001-0000-0000-0000-000000000002",
-    "name": "Sportswear & Teamwear",
-    "slug": "sportswear-teamwear",
+    "name": "Sportswear & Teamwearerr",
+    "slug": "sportswear-teamwearrr",
     "description": "Custom sublimated jerseys, basketball uniforms, football kits, soccer uniforms, tracksuits, and high-performance teamwear for clubs, leagues, and international sports brands.",
-    "image_url": "/images/products/basketball-uniform.jpg",
+    "image_url": "/uploads/categories/1791443431258-group-1580.webp",
     "parent_id": null,
-    "sort_order": 1,
+    "sort_order": 9,
     "is_active": true,
     "featured_in_menu": true,
     "menu_badge": "Teamwear OEM",
     "created_at": "2026-09-14T14:02:09.584Z",
-    "updated_at": "2026-10-06T11:34:40.638Z"
+    "updated_at": "2026-10-08T07:10:40.957Z",
+    "productCount": 15,
+    "featuredItems": [
+      {
+        "id": "b0000001-0000-0000-0000-000000000016",
+        "name": "Custom Basketball Uniforms",
+        "slug": "custom-basketball-uniforms",
+        "image": "/images/products/basketball-uniform.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000017",
+        "name": "Custom American Football Uniforms",
+        "slug": "custom-american-football-uniforms",
+        "image": "/images/products/football-jersey-black.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "3-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000018",
+        "name": "Custom Soccer Kits",
+        "slug": "custom-soccer-kits",
+        "image": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000019",
+        "name": "Custom Baseball Uniforms",
+        "slug": "custom-baseball-uniforms",
+        "image": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000020",
+        "name": "Custom Volleyball Uniforms",
+        "slug": "custom-volleyball-uniforms",
+        "image": "/images/products/basketball-uniform.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000021",
+        "name": "Custom Rugby Kits",
+        "slug": "custom-rugby-kits",
+        "image": "/images/products/polo-jersey-set.png",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000022",
+        "name": "Custom Cricket Uniforms",
+        "slug": "custom-cricket-uniforms",
+        "image": "/images/products/polo-jersey-set.png",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000023",
+        "name": "Custom Training Jerseys",
+        "slug": "custom-training-jerseys",
+        "image": "/images/products/football-jersey-black.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000024",
+        "name": "Custom Sports Shorts",
+        "slug": "custom-sports-shorts",
+        "image": "/images/products/board-shorts.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000025",
+        "name": "Custom Compression Wear",
+        "slug": "custom-compression-wear",
+        "image": "/images/products/rash-guard.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000026",
+        "name": "Custom Tracksuits",
+        "slug": "custom-tracksuits",
+        "image": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000027",
+        "name": "Custom Warm-Up Suits",
+        "slug": "custom-warm-up-suits",
+        "image": "/images/products/varsity-jacket.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000028",
+        "name": "Custom Team Jackets",
+        "slug": "custom-team-jackets",
+        "image": "/images/products/varsity-jacket.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "3-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000029",
+        "name": "Custom Training Wear",
+        "slug": "custom-training-wear",
+        "image": "/images/products/rash-guard.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      }
+    ]
   },
   {
     "id": "a0000001-0000-0000-0000-000000000003",

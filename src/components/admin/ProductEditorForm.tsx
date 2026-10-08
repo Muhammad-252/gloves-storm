@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Product, Category, ProductImage, PriceTier } from "@/types/database";
 import { saveProduct } from "@/lib/data/clientStore";
 import { slugify } from "@/lib/utils";
+import { useToast } from "@/components/ui/Toast";
 import {
   ArrowLeft,
   Save,
@@ -32,6 +33,7 @@ export default function ProductEditorForm({
   categories,
 }: ProductEditorFormProps) {
   const router = useRouter();
+  const { toast } = useToast();
   const isEditing = Boolean(initialProduct);
 
   const [name, setName] = useState(initialProduct?.name || "");
@@ -265,44 +267,72 @@ export default function ProductEditorForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!name.trim()) {
+      toast.error("Validation Error", "Product name/title is required.");
+      return;
+    }
+
+    if (!categoryId) {
+      toast.error("Validation Error", "Please select a category for this product.");
+      return;
+    }
+
     setSaving(true);
+    const savingToastId = toast.loading(
+      isEditing ? "Updating Product..." : "Creating Product...",
+      `Saving changes for "${name}"`
+    );
 
-    const payload: Partial<Product> = {
-      id: initialProduct?.id,
-      name,
-      slug: slug || slugify(name),
-      category_id: categoryId,
-      short_description: shortDesc,
-      description,
-      materials: materials.split("\n").map((s) => s.trim()).filter(Boolean),
-      features: features.split("\n").map((s) => s.trim()).filter(Boolean),
-      customization_options: customization.split("\n").map((s) => s.trim()).filter(Boolean),
-      moq: Number(moq) || 50,
-      lead_time: leadTime,
-      is_active: isActive,
-      featured,
-      pricing_tiers: pricingTiers.map((t) => ({
-        min_quantity: Number(t.min_quantity) || 1,
-        max_quantity: t.max_quantity ? Number(t.max_quantity) : null,
-        unit_price: Number(t.unit_price) || 0,
-        currency: "$",
-        label: t.label || "",
-      })),
-      sample_price: Number(samplePrice) || null,
-      show_pricing: showPricing,
-      seo_title: seoTitle || null,
-      seo_description: seoDesc || null,
-      primary_keyword: primaryKeyword || null,
-      secondary_keywords: secondaryKeywords || null,
-      images,
-    };
+    try {
+      const payload: Partial<Product> = {
+        id: initialProduct?.id,
+        name: name.trim(),
+        slug: slug || slugify(name),
+        category_id: categoryId,
+        short_description: shortDesc,
+        description,
+        materials: materials.split("\n").map((s) => s.trim()).filter(Boolean),
+        features: features.split("\n").map((s) => s.trim()).filter(Boolean),
+        customization_options: customization.split("\n").map((s) => s.trim()).filter(Boolean),
+        moq: Number(moq) || 50,
+        lead_time: leadTime,
+        is_active: isActive,
+        featured,
+        pricing_tiers: pricingTiers.map((t) => ({
+          min_quantity: Number(t.min_quantity) || 1,
+          max_quantity: t.max_quantity ? Number(t.max_quantity) : null,
+          unit_price: Number(t.unit_price) || 0,
+          currency: "$",
+          label: t.label || "",
+        })),
+        sample_price: Number(samplePrice) || null,
+        show_pricing: showPricing,
+        seo_title: seoTitle || null,
+        seo_description: seoDesc || null,
+        primary_keyword: primaryKeyword || null,
+        secondary_keywords: secondaryKeywords || null,
+        images,
+      };
 
-    await saveProduct(payload);
-    setSaving(false);
-    setSavedSuccess(true);
-    setTimeout(() => {
-      router.push("/admin/products");
-    }, 1200);
+      const saved = await saveProduct(payload);
+      toast.dismiss(savingToastId);
+      toast.success(
+        "Product Saved Successfully",
+        `"${saved.name}" has been saved and synced across live catalog.`
+      );
+      setSavedSuccess(true);
+      router.refresh();
+      setTimeout(() => {
+        router.push("/admin/products");
+        router.refresh();
+      }, 1000);
+    } catch (err: any) {
+      toast.dismiss(savingToastId);
+      toast.error("Save Failed", err?.message || "An error occurred while saving the product.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (

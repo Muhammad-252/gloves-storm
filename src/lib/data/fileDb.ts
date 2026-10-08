@@ -117,9 +117,13 @@ async function writeJsonFile<T>(filename: string, data: T): Promise<void> {
   try {
     await fs.mkdir(PRIMARY_DATA_DIR, { recursive: true });
     const primaryPath = path.join(PRIMARY_DATA_DIR, filename);
-    const tempPath = `${primaryPath}.tmp.${Date.now()}`;
-    await fs.writeFile(tempPath, jsonString, "utf-8");
-    await fs.rename(tempPath, primaryPath);
+    try {
+      const tempPath = `${primaryPath}.tmp.${Date.now()}`;
+      await fs.writeFile(tempPath, jsonString, "utf-8");
+      await fs.rename(tempPath, primaryPath);
+    } catch {
+      await fs.writeFile(primaryPath, jsonString, "utf-8");
+    }
     writeSucceeded = true;
   } catch (err: any) {
     // EROFS (Read-only file system) happens in Vercel/AWS Lambda serverless environments
@@ -132,9 +136,13 @@ async function writeJsonFile<T>(filename: string, data: T): Promise<void> {
   try {
     await fs.mkdir(TMP_DATA_DIR, { recursive: true });
     const tmpPath = path.join(TMP_DATA_DIR, filename);
-    const tempPath = `${tmpPath}.tmp.${Date.now()}`;
-    await fs.writeFile(tempPath, jsonString, "utf-8");
-    await fs.rename(tempPath, tmpPath);
+    try {
+      const tempPath = `${tmpPath}.tmp.${Date.now()}`;
+      await fs.writeFile(tempPath, jsonString, "utf-8");
+      await fs.rename(tempPath, tmpPath);
+    } catch {
+      await fs.writeFile(tmpPath, jsonString, "utf-8");
+    }
     writeSucceeded = true;
   } catch (tmpErr: any) {
     console.warn(`Tmp directory write notice for ${filename}:`, tmpErr?.message);

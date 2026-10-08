@@ -1,10 +1,12 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { Project, Category, ProjectImage } from "@/types/database";
 import { saveProject, deleteProject } from "@/lib/data/clientStore";
 import { slugify } from "@/lib/utils";
+import { useToast } from "@/components/ui/Toast";
 import {
   Plus,
   Edit2,
@@ -31,6 +33,8 @@ export default function AdminProjectsClient({
   initialProjects,
   categories,
 }: AdminProjectsClientProps) {
+  const router = useRouter();
+  const { toast } = useToast();
   const [projects, setProjects] = useState<Project[]>(initialProjects);
   const [selectedFilterCategory, setSelectedFilterCategory] = useState<string>("all");
   const [editingProj, setEditingProj] = useState<Partial<Project> | null>(null);
@@ -139,69 +143,104 @@ export default function AdminProjectsClient({
     setImagesList([target, ...rest]);
   };
 
+  useEffect(() => {
+    setProjects(initialProjects);
+  }, [initialProjects]);
+
   const handleDelete = async (id: string, title: string) => {
-    if (confirm(`Delete previous work item "${title}"?`)) {
+    if (!confirm(`Delete previous work item "${title}"?`)) return;
+
+    const toastId = toast.loading("Deleting...", `Removing "${title}"`);
+    try {
       await deleteProject(id);
-      setProjects(projects.filter((p) => p.id !== id));
-      setNotice(`Work item "${title}" deleted.`);
-      setTimeout(() => setNotice(null), 3000);
+      setProjects((prev) => prev.filter((p) => p.id !== id));
+      toast.dismiss(toastId);
+      toast.success("Item Deleted", `"${title}" has been deleted.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Delete Failed", err?.message || "Could not delete item.");
     }
   };
 
   const handleToggleFeatured = async (proj: Project) => {
-    const updated = await saveProject({
-      id: proj.id,
-      featured: !proj.featured,
-    });
-    setProjects(projects.map((p) => (p.id === proj.id ? updated : p)));
+    try {
+      const updated = await saveProject({
+        id: proj.id,
+        featured: !proj.featured,
+      });
+      setProjects((prev) => prev.map((p) => (p.id === proj.id ? updated : p)));
+      toast.info("Status Updated", `"${proj.title}" featured state changed.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Update Failed", err?.message || "Could not toggle featured.");
+    }
   };
 
   const handleToggleActive = async (proj: Project) => {
-    const updated = await saveProject({
-      id: proj.id,
-      is_active: !proj.is_active,
-    });
-    setProjects(projects.map((p) => (p.id === proj.id ? updated : p)));
+    try {
+      const updated = await saveProject({
+        id: proj.id,
+        is_active: !proj.is_active,
+      });
+      setProjects((prev) => prev.map((p) => (p.id === proj.id ? updated : p)));
+      toast.info("Status Updated", `"${proj.title}" is now ${updated.is_active ? "Published" : "Hidden"}.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Update Failed", err?.message || "Could not toggle active state.");
+    }
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingProj?.title) return;
+    if (!editingProj?.title?.trim()) {
+      toast.error("Validation Error", "Project title is required.");
+      return;
+    }
     if (imagesList.length === 0) {
-      alert("Please add at least one work image.");
+      toast.error("Validation Error", "Please add at least one work image.");
       return;
     }
 
     setSaving(true);
+    const toastId = toast.loading("Saving Item...", `Saving "${editingProj.title}"`);
 
-    const coverImage = imagesList[0];
-    const formattedImages: ProjectImage[] = imagesList.map((url, idx) => ({
-      id: `img-${Date.now()}-${idx}`,
-      project_id: editingProj.id || "new",
-      image_url: url,
-      alt_text: `${editingProj.title} photo ${idx + 1}`,
-      sort_order: idx + 1,
-    }));
+    try {
+      const coverImage = imagesList[0];
+      const formattedImages: ProjectImage[] = imagesList.map((url, idx) => ({
+        id: `img-${Date.now()}-${idx}`,
+        project_id: editingProj.id || "new",
+        image_url: url,
+        alt_text: `${editingProj.title} photo ${idx + 1}`,
+        sort_order: idx + 1,
+      }));
 
-    const saved = await saveProject({
-      ...editingProj,
-      slug: editingProj.slug || slugify(editingProj.title),
-      featured_image: coverImage,
-      images: formattedImages,
-    });
+      const saved = await saveProject({
+        ...editingProj,
+        slug: editingProj.slug || slugify(editingProj.title),
+        featured_image: coverImage,
+        images: formattedImages,
+      });
 
-    if (editingProj.id) {
-      setProjects(projects.map((p) => (p.id === saved.id ? saved : p)));
-      setNotice(`Previous work "${saved.title}" updated.`);
-    } else {
-      setProjects([saved, ...projects]);
-      setNotice(`New work item "${saved.title}" created.`);
+      if (editingProj.id) {
+        setProjects((prev) => prev.map((p) => (p.id === saved.id ? saved : p)));
+        toast.dismiss(toastId);
+        toast.success("Updated Successfully", `Previous work "${saved.title}" updated.`);
+      } else {
+        setProjects((prev) => [saved, ...prev]);
+        toast.dismiss(toastId);
+        toast.success("Created Successfully", `New work item "${saved.title}" created.`);
+      }
+
+      setIsModalOpen(false);
+      setEditingProj(null);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Save Failed", err?.message || "Could not save work item.");
+    } finally {
+      setSaving(false);
     }
-
-    setSaving(false);
-    setIsModalOpen(false);
-    setEditingProj(null);
-    setTimeout(() => setNotice(null), 3000);
   };
 
   // Filtered projects by category

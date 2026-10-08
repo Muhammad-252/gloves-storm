@@ -27,6 +27,7 @@ export async function POST(req: NextRequest) {
     try {
       revalidatePath("/", "layout");
       revalidatePath("/journal");
+      revalidatePath("/journal/[slug]", "page");
       revalidatePath("/admin/blog");
       if (saved.slug) revalidatePath(`/journal/${saved.slug}`);
     } catch {}
@@ -48,6 +49,7 @@ export async function DELETE(req: NextRequest) {
     try {
       revalidatePath("/", "layout");
       revalidatePath("/journal");
+      revalidatePath("/journal/[slug]", "page");
       revalidatePath("/admin/blog");
     } catch {}
 

@@ -57,8 +57,19 @@ export async function POST(req: NextRequest) {
       revalidatePath("/", "layout");
       revalidatePath("/products");
       revalidatePath("/admin/products");
+      revalidatePath("/products/[category]", "page");
+      revalidatePath("/products/[category]/[product]", "page");
+
       if (saved.slug) {
-        revalidatePath(`/products/${saved.slug}`);
+        if (saved.category_id) {
+          const { getDbCategories } = await import("@/lib/data/fileDb");
+          const categories = await getDbCategories();
+          const cat = categories.find((c) => c.id === saved.category_id);
+          if (cat?.slug) {
+            revalidatePath(`/products/${cat.slug}/${saved.slug}`);
+            revalidatePath(`/products/${cat.slug}`);
+          }
+        }
       }
     } catch (e) {
       console.warn("Revalidation notice:", e);
@@ -96,6 +107,8 @@ export async function DELETE(req: NextRequest) {
       revalidatePath("/", "layout");
       revalidatePath("/products");
       revalidatePath("/admin/products");
+      revalidatePath("/products/[category]", "page");
+      revalidatePath("/products/[category]/[product]", "page");
     } catch (e) {
       console.warn("Revalidation notice:", e);
     }

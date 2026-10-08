@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { SiteSettings } from "@/types/database";
 import { saveSiteSettings } from "@/lib/data/clientStore";
+import { useToast } from "@/components/ui/Toast";
 import {
   Save,
   Loader2,
@@ -23,12 +25,18 @@ interface AdminSettingsClientProps {
 }
 
 export default function AdminSettingsClient({ initialSettings }: AdminSettingsClientProps) {
+  const router = useRouter();
+  const { toast } = useToast();
   const [settings, setSettings] = useState<SiteSettings>(initialSettings);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [testingIg, setTestingIg] = useState(false);
   const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
   const [showToken, setShowToken] = useState(false);
+
+  useEffect(() => {
+    setSettings(initialSettings);
+  }, [initialSettings]);
 
   const handleTestInstagram = async () => {
     setTestingIg(true);
@@ -62,11 +70,21 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    const updated = await saveSiteSettings(settings);
-    setSettings(updated);
-    setSaving(false);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+    const toastId = toast.loading("Saving Settings...", "Applying global site configurations");
+    try {
+      const updated = await saveSiteSettings(settings);
+      setSettings(updated);
+      setSaved(true);
+      toast.dismiss(toastId);
+      toast.success("Settings Saved", "Global configurations updated and synchronized.");
+      router.refresh();
+      setTimeout(() => setSaved(false), 3000);
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Save Failed", err?.message || "Could not save settings.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (

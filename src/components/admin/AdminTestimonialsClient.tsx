@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { Testimonial } from "@/types/database";
 import { saveTestimonial, deleteTestimonial } from "@/lib/data/clientStore";
+import { useToast } from "@/components/ui/Toast";
 import { Plus, Edit2, Trash2, Star, X } from "lucide-react";
 
 interface AdminTestimonialsClientProps {
@@ -12,11 +14,17 @@ interface AdminTestimonialsClientProps {
 export default function AdminTestimonialsClient({
   initialTestimonials,
 }: AdminTestimonialsClientProps) {
+  const router = useRouter();
+  const { toast } = useToast();
   const [testimonials, setTestimonials] = useState<Testimonial[]>(initialTestimonials);
   const [editingItem, setEditingItem] = useState<Partial<Testimonial> | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+
+  useEffect(() => {
+    setTestimonials(initialTestimonials);
+  }, [initialTestimonials]);
 
   const handleOpenNew = () => {
     setEditingItem({
@@ -38,40 +46,70 @@ export default function AdminTestimonialsClient({
   };
 
   const handleDelete = async (id: string, name: string) => {
-    if (confirm(`Delete testimonial from "${name}"?`)) {
+    if (!confirm(`Delete testimonial from "${name}"?`)) return;
+
+    const toastId = toast.loading("Deleting...", `Removing testimonial from "${name}"`);
+    try {
       await deleteTestimonial(id);
-      setTestimonials(testimonials.filter((t) => t.id !== id));
-      setNotice("Testimonial deleted.");
-      setTimeout(() => setNotice(null), 3000);
+      setTestimonials((prev) => prev.filter((t) => t.id !== id));
+      toast.dismiss(toastId);
+      toast.success("Testimonial Deleted", `Removed testimonial from "${name}".`);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Delete Failed", err?.message || "Could not delete testimonial.");
     }
   };
 
   const handleToggleFeatured = async (t: Testimonial) => {
-    const updated = await saveTestimonial({
-      id: t.id,
-      featured: !t.featured,
-    });
-    setTestimonials(testimonials.map((item) => (item.id === t.id ? updated : item)));
+    try {
+      const updated = await saveTestimonial({
+        id: t.id,
+        featured: !t.featured,
+      });
+      setTestimonials((prev) => prev.map((item) => (item.id === t.id ? updated : item)));
+      toast.info("Status Updated", `"${t.client_name}" featured state updated.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Update Failed", err?.message || "Could not update featured state.");
+    }
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingItem?.client_name) return;
-    setSaving(true);
-
-    const saved = await saveTestimonial(editingItem);
-    if (editingItem.id) {
-      setTestimonials(testimonials.map((t) => (t.id === saved.id ? saved : t)));
-      setNotice("Testimonial updated.");
-    } else {
-      setTestimonials([saved, ...testimonials]);
-      setNotice("Testimonial created.");
+    if (!editingItem?.client_name?.trim()) {
+      toast.error("Validation Error", "Client name is required.");
+      return;
+    }
+    if (!editingItem?.testimonial?.trim()) {
+      toast.error("Validation Error", "Testimonial quote text is required.");
+      return;
     }
 
-    setSaving(false);
-    setIsModalOpen(false);
-    setEditingItem(null);
-    setTimeout(() => setNotice(null), 3000);
+    setSaving(true);
+    const toastId = toast.loading("Saving Testimonial...", `Saving feedback from "${editingItem.client_name}"`);
+
+    try {
+      const saved = await saveTestimonial(editingItem);
+      if (editingItem.id) {
+        setTestimonials((prev) => prev.map((t) => (t.id === saved.id ? saved : t)));
+        toast.dismiss(toastId);
+        toast.success("Updated Successfully", `Testimonial from "${saved.client_name}" updated.`);
+      } else {
+        setTestimonials((prev) => [saved, ...prev]);
+        toast.dismiss(toastId);
+        toast.success("Created Successfully", `New testimonial from "${saved.client_name}" created.`);
+      }
+
+      setIsModalOpen(false);
+      setEditingItem(null);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Save Failed", err?.message || "Could not save testimonial.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (

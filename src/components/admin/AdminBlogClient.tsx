@@ -1,9 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { BlogPost } from "@/types/database";
 import { saveBlogPost, deleteBlogPost } from "@/lib/data/clientStore";
 import { slugify, formatDate } from "@/lib/utils";
+import { useToast } from "@/components/ui/Toast";
 import { Plus, Edit2, Trash2, X, ExternalLink, Calendar } from "lucide-react";
 import Link from "next/link";
 import ImageUploadField from "./ImageUploadField";
@@ -13,11 +15,17 @@ interface AdminBlogClientProps {
 }
 
 export default function AdminBlogClient({ initialPosts }: AdminBlogClientProps) {
+  const router = useRouter();
+  const { toast } = useToast();
   const [posts, setPosts] = useState<BlogPost[]>(initialPosts);
   const [editingPost, setEditingPost] = useState<Partial<BlogPost> | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+
+  useEffect(() => {
+    setPosts(initialPosts);
+  }, [initialPosts]);
 
   const handleOpenNew = () => {
     setEditingPost({
@@ -42,44 +50,76 @@ export default function AdminBlogClient({ initialPosts }: AdminBlogClientProps) 
   };
 
   const handleDelete = async (id: string, title: string) => {
-    if (confirm(`Delete article "${title}"?`)) {
+    if (!confirm(`Delete article "${title}"?`)) return;
+
+    const toastId = toast.loading("Deleting Article...", `Removing "${title}"`);
+    try {
       await deleteBlogPost(id);
-      setPosts(posts.filter((p) => p.id !== id));
-      setNotice("Article deleted.");
-      setTimeout(() => setNotice(null), 3000);
+      setPosts((prev) => prev.filter((p) => p.id !== id));
+      toast.dismiss(toastId);
+      toast.success("Article Deleted", `"${title}" has been deleted.`);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Delete Failed", err?.message || "Could not delete article.");
     }
   };
 
   const handleTogglePublish = async (post: BlogPost) => {
-    const updated = await saveBlogPost({
-      id: post.id,
-      is_published: !post.is_published,
-    });
-    setPosts(posts.map((p) => (p.id === post.id ? updated : p)));
+    try {
+      const updated = await saveBlogPost({
+        id: post.id,
+        is_published: !post.is_published,
+      });
+      setPosts((prev) => prev.map((p) => (p.id === post.id ? updated : p)));
+      toast.info(
+        "Status Updated",
+        `"${post.title}" is now ${updated.is_published ? "Published" : "Draft"}.`
+      );
+      router.refresh();
+    } catch (err: any) {
+      toast.error("Update Failed", err?.message || "Could not update status.");
+    }
   };
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!editingPost?.title) return;
-    setSaving(true);
-
-    const saved = await saveBlogPost({
-      ...editingPost,
-      slug: editingPost.slug || slugify(editingPost.title),
-    });
-
-    if (editingPost.id) {
-      setPosts(posts.map((p) => (p.id === saved.id ? saved : p)));
-      setNotice("Article updated.");
-    } else {
-      setPosts([saved, ...posts]);
-      setNotice("Article published.");
+    if (!editingPost?.title?.trim()) {
+      toast.error("Validation Error", "Article title is required.");
+      return;
     }
 
-    setSaving(false);
-    setIsModalOpen(false);
-    setEditingPost(null);
-    setTimeout(() => setNotice(null), 3000);
+    setSaving(true);
+    const toastId = toast.loading(
+      editingPost.id ? "Updating Article..." : "Publishing Article...",
+      `Saving "${editingPost.title}"`
+    );
+
+    try {
+      const saved = await saveBlogPost({
+        ...editingPost,
+        slug: editingPost.slug || slugify(editingPost.title),
+      });
+
+      if (editingPost.id) {
+        setPosts((prev) => prev.map((p) => (p.id === saved.id ? saved : p)));
+        toast.dismiss(toastId);
+        toast.success("Updated Successfully", `Article "${saved.title}" updated.`);
+      } else {
+        setPosts((prev) => [saved, ...prev]);
+        toast.dismiss(toastId);
+        toast.success("Published Successfully", `Article "${saved.title}" published.`);
+      }
+
+      setIsModalOpen(false);
+      setEditingPost(null);
+      router.refresh();
+    } catch (err: any) {
+      toast.dismiss(toastId);
+      toast.error("Save Failed", err?.message || "Could not save article.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
