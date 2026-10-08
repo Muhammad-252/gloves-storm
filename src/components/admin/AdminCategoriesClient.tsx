@@ -180,6 +180,9 @@ export default function AdminCategoriesClient({
       }
 
       const saved: Category = data.category;
+      console.log(saved, "===========================");
+      console.table(saved);
+
 
       let updatedList: Category[];
       if (editingCat.id) {

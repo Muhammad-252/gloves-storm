@@ -144,21 +144,150 @@
   },
   {
     "id": "a0000001-0000-0000-0000-000000000003",
-    "name": "Gym & Fitness Wear",
+    "name": "Gym & Fitness Wearrrrrrrrrrrrrrrr",
     "slug": "gym-fitness-wear",
     "description": "Custom activewear, squat-proof gym leggings, high-support sports bras, dry-fit training shirts, seamless workout sets, and compression apparel for fitness brands.",
-    "image_url": "/images/products/gym-leggings.jpg",
+    "image_url": "/uploads/categories/1791450060717-gemini-generated-image-v0sae5v0sae5v0sa.webp",
     "parent_id": null,
     "sort_order": 2,
     "is_active": true,
     "featured_in_menu": true,
     "menu_badge": "Activewear",
     "created_at": "2026-09-14T14:02:09.584Z",
-    "updated_at": "2026-10-05T14:30:00.000Z"
+    "updated_at": "2026-10-08T09:01:02.303Z",
+    "productCount": 15,
+    "featuredItems": [
+      {
+        "id": "b0000001-0000-0000-0000-000000000031",
+        "name": "Custom Gym T-Shirts",
+        "slug": "custom-gym-t-shirts",
+        "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000032",
+        "name": "Custom Gym Shorts",
+        "slug": "custom-gym-shorts",
+        "image": "/images/products/board-shorts.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000033",
+        "name": "Custom Gym Leggings",
+        "slug": "custom-gym-leggings",
+        "image": "/images/products/gym-leggings.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000034",
+        "name": "Custom Sports Bras",
+        "slug": "custom-sports-bras",
+        "image": "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000035",
+        "name": "Custom Tank Tops",
+        "slug": "custom-tank-tops",
+        "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000036",
+        "name": "Custom Crop Tops",
+        "slug": "custom-crop-tops",
+        "image": "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000037",
+        "name": "Custom Compression Shirts",
+        "slug": "custom-compression-shirts",
+        "image": "/images/products/rash-guard.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000038",
+        "name": "Custom Compression Shorts",
+        "slug": "custom-compression-shorts",
+        "image": "/images/products/board-shorts.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000039",
+        "name": "Custom Joggers",
+        "slug": "custom-joggers",
+        "image": "/images/products/gym-leggings.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000040",
+        "name": "Custom Fitness Hoodies",
+        "slug": "custom-fitness-hoodies",
+        "image": "/images/products/hoodie-black.png",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000041",
+        "name": "Custom Gym Tracksuits",
+        "slug": "custom-gym-tracksuits",
+        "image": "/images/products/varsity-jacket.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "3-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000042",
+        "name": "Custom Performance Tees",
+        "slug": "custom-performance-tees",
+        "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000043",
+        "name": "Custom Fitness Sets",
+        "slug": "custom-fitness-sets",
+        "image": "/images/products/gym-leggings.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "3-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000044",
+        "name": "Custom Athleisure Wear",
+        "slug": "custom-athleisure-wear",
+        "image": "/images/products/hoodie-black.png",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      }
+    ]
   },
   {
     "id": "a0000001-0000-0000-0000-000000000004",
-    "name": "Clothing & Streetwear",
+    "name": "Clothing & Streetwear umar",
     "slug": "clothing-streetwear",
     "description": "Heavyweight 400–500 GSM French Terry hoodies, oversized boxy tees, varsity jackets, fleece joggers, and premium custom cut-and-sew streetwear apparel.",
     "image_url": "/images/products/hoodie-black.png",
@@ -168,7 +297,136 @@
     "featured_in_menu": true,
     "menu_badge": "Streetwear",
     "created_at": "2026-09-14T14:02:09.584Z",
-    "updated_at": "2026-10-05T14:30:00.000Z"
+    "updated_at": "2026-10-08T09:05:24.896Z",
+    "productCount": 15,
+    "featuredItems": [
+      {
+        "id": "b0000001-0000-0000-0000-000000000046",
+        "name": "Custom Oversized T-Shirts",
+        "slug": "custom-oversized-t-shirts",
+        "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000047",
+        "name": "Custom Boxy T-Shirts",
+        "slug": "custom-boxy-t-shirts",
+        "image": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000048",
+        "name": "Custom Heavyweight T-Shirts",
+        "slug": "custom-heavyweight-t-shirts",
+        "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000049",
+        "name": "Custom Hoodies",
+        "slug": "custom-hoodies",
+        "image": "/images/products/hoodie-black.png",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000050",
+        "name": "Custom Sweatshirts",
+        "slug": "custom-sweatshirts",
+        "image": "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000051",
+        "name": "Custom Zip-Up Hoodies",
+        "slug": "custom-zip-up-hoodies",
+        "image": "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000052",
+        "name": "Custom Sweatpants",
+        "slug": "custom-sweatpants",
+        "image": "https://images.unsplash.com/photo-1552902865-b72c031ac5ea?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000053",
+        "name": "Custom Cargo Pants",
+        "slug": "custom-cargo-pants",
+        "image": "https://images.unsplash.com/photo-1517445312882-bc9910d016b7?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "3-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000054",
+        "name": "Custom Varsity Jackets",
+        "slug": "custom-varsity-jackets",
+        "image": "/images/products/varsity-jacket.jpg",
+        "moq": 30,
+        "samplePrice": null,
+        "leadTime": "3-5 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000055",
+        "name": "Custom Bomber Jackets",
+        "slug": "custom-bomber-jackets",
+        "image": "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?q=80&w=1200&auto=format&fit=crop",
+        "moq": 40,
+        "samplePrice": null,
+        "leadTime": "3-4 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000056",
+        "name": "Custom Windbreaker Jackets",
+        "slug": "custom-windbreaker-jackets",
+        "image": "https://images.unsplash.com/photo-1578632767115-351597cf2477?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000057",
+        "name": "Custom Denim Jackets",
+        "slug": "custom-denim-jackets",
+        "image": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=1200&auto=format&fit=crop",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "3-5 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000058",
+        "name": "Custom Polo Shirts",
+        "slug": "custom-polo-shirts",
+        "image": "/images/products/polo-jersey-set.png",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      },
+      {
+        "id": "b0000001-0000-0000-0000-000000000059",
+        "name": "Custom Long Sleeve Shirts",
+        "slug": "custom-long-sleeve-shirts",
+        "image": "/images/products/rash-guard.jpg",
+        "moq": 50,
+        "samplePrice": null,
+        "leadTime": "2-3 Weeks"
+      }
+    ]
   },
   {
     "id": "a0000001-0000-0000-0000-000000000005",
