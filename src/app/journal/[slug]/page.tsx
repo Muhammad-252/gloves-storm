@@ -8,6 +8,9 @@ import { formatDate } from "@/lib/utils";
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
 }
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+export const revalidate = 0;
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();

@@ -15,13 +15,9 @@ const isUuid = (val?: string | null): boolean =>
 
 const getDbClient = () => {
   if (!isSupabaseConfigured) {
-    throw new Error("Supabase is not configured. Please ensure NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY are set.");
+    return null;
   }
-  const client = supabaseAdmin || supabase;
-  if (!client) {
-    throw new Error("Supabase client could not be initialized.");
-  }
-  return client;
+  return supabaseAdmin || supabase;
 };
 
 // =========================================================================
@@ -29,6 +25,11 @@ const getDbClient = () => {
 // =========================================================================
 export async function getDbCategories(): Promise<Category[]> {
   const client = getDbClient();
+  if (!client) {
+    console.warn("Supabase is not configured yet. Returning empty categories list.");
+    return [];
+  }
+
   const { data, error } = await client
     .from("categories")
     .select("*")
@@ -44,6 +45,10 @@ export async function getDbCategories(): Promise<Category[]> {
 
 export async function saveDbCategory(category: Partial<Category>): Promise<Category> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const categoryId = category.id && isUuid(category.id) ? category.id : (category.id || randomUUID());
 
   // Clean data for DB (strip non-column fields like productCount, featuredItems)
@@ -77,6 +82,10 @@ export async function saveDbCategory(category: Partial<Category>): Promise<Categ
 
 export async function deleteDbCategory(id: string): Promise<boolean> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const { error } = await client.from("categories").delete().eq("id", id);
   if (error) {
     console.error("Supabase deleteDbCategory error:", error);
@@ -90,6 +99,11 @@ export async function deleteDbCategory(id: string): Promise<boolean> {
 // =========================================================================
 export async function getDbProducts(): Promise<Product[]> {
   const client = getDbClient();
+  if (!client) {
+    console.warn("Supabase is not configured yet. Returning empty products list.");
+    return [];
+  }
+
   const { data, error } = await client
     .from("products")
     .select("*, images:product_images(*), category:categories(*)")
@@ -105,6 +119,10 @@ export async function getDbProducts(): Promise<Product[]> {
 
 export async function saveDbProduct(product: Partial<Product>): Promise<Product> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const productId = product.id && isUuid(product.id) ? product.id : (product.id || randomUUID());
   const { images, category: joinedCategory, ...productFields } = product as any;
 
@@ -167,6 +185,10 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
 
 export async function deleteDbProduct(id: string): Promise<boolean> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   await client.from("product_images").delete().eq("product_id", id);
   const { error } = await client.from("products").delete().eq("id", id);
   if (error) {
@@ -181,6 +203,11 @@ export async function deleteDbProduct(id: string): Promise<boolean> {
 // =========================================================================
 export async function getDbProjects(): Promise<Project[]> {
   const client = getDbClient();
+  if (!client) {
+    console.warn("Supabase is not configured yet. Returning empty projects list.");
+    return [];
+  }
+
   const { data, error } = await client
     .from("projects")
     .select("*, images:project_images(*)")
@@ -196,6 +223,10 @@ export async function getDbProjects(): Promise<Project[]> {
 
 export async function saveDbProject(project: Partial<Project>): Promise<Project> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const projectId = project.id && isUuid(project.id) ? project.id : (project.id || randomUUID());
   const { images, ...projRecord } = project as any;
   projRecord.id = projectId;
@@ -217,6 +248,10 @@ export async function saveDbProject(project: Partial<Project>): Promise<Project>
 
 export async function deleteDbProject(id: string): Promise<boolean> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const { error } = await client.from("projects").delete().eq("id", id);
   if (error) {
     console.error("Supabase deleteDbProject error:", error);
@@ -230,6 +265,11 @@ export async function deleteDbProject(id: string): Promise<boolean> {
 // =========================================================================
 export async function getDbTestimonials(): Promise<Testimonial[]> {
   const client = getDbClient();
+  if (!client) {
+    console.warn("Supabase is not configured yet. Returning empty testimonials list.");
+    return [];
+  }
+
   const { data, error } = await client
     .from("testimonials")
     .select("*")
@@ -245,6 +285,10 @@ export async function getDbTestimonials(): Promise<Testimonial[]> {
 
 export async function saveDbTestimonial(t: Partial<Testimonial>): Promise<Testimonial> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const testimonialId = t.id && isUuid(t.id) ? t.id : (t.id || randomUUID());
   const record: any = { ...t, id: testimonialId };
 
@@ -264,6 +308,10 @@ export async function saveDbTestimonial(t: Partial<Testimonial>): Promise<Testim
 
 export async function deleteDbTestimonial(id: string): Promise<boolean> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const { error } = await client.from("testimonials").delete().eq("id", id);
   if (error) {
     console.error("Supabase deleteDbTestimonial error:", error);
@@ -277,6 +325,11 @@ export async function deleteDbTestimonial(id: string): Promise<boolean> {
 // =========================================================================
 export async function getDbBlogPosts(): Promise<BlogPost[]> {
   const client = getDbClient();
+  if (!client) {
+    console.warn("Supabase is not configured yet. Returning empty blog posts list.");
+    return [];
+  }
+
   const { data, error } = await client
     .from("blog_posts")
     .select("*")
@@ -292,6 +345,10 @@ export async function getDbBlogPosts(): Promise<BlogPost[]> {
 
 export async function saveDbBlogPost(post: Partial<BlogPost>): Promise<BlogPost> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const postId = post.id && isUuid(post.id) ? post.id : (post.id || randomUUID());
   const record: any = { ...post, id: postId, updated_at: new Date().toISOString() };
 
@@ -311,6 +368,10 @@ export async function saveDbBlogPost(post: Partial<BlogPost>): Promise<BlogPost>
 
 export async function deleteDbBlogPost(id: string): Promise<boolean> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const { error } = await client.from("blog_posts").delete().eq("id", id);
   if (error) {
     console.error("Supabase deleteDbBlogPost error:", error);
@@ -323,15 +384,39 @@ export async function deleteDbBlogPost(id: string): Promise<boolean> {
 // SITE SETTINGS (Direct Supabase)
 // =========================================================================
 export async function getDbSiteSettings(): Promise<SiteSettings> {
+  const defaultSettings: SiteSettings = {
+    id: "default",
+    company_name: "GLOVES STORM",
+    email: "glovesstorm@gmail.com",
+    phone: "+923417146935",
+    whatsapp: "+923417146935",
+    address: "Industrial Estate, Sialkot 51310, Punjab, Pakistan",
+    instagram: "https://www.instagram.com/glovesstorm/",
+    facebook: "https://facebook.com/glovesstorm",
+    linkedin: "https://www.linkedin.com/company/gloves-storm/",
+    youtube: "https://youtube.com/@glovesstorm",
+    logo_url: null,
+    favicon_url: null,
+    hero_title: "BUILT FOR BRANDS. MADE TO PERFORM.",
+    hero_description: "Custom boxing gear, sportswear and apparel manufactured for brands worldwide.",
+    instagram_access_token: null,
+    instagram_feed_mode: "api",
+    instagram_widget_code: null,
+    updated_at: new Date().toISOString(),
+  };
+
   const client = getDbClient();
+  if (!client) {
+    return defaultSettings;
+  }
+
   const { data, error } = await client
     .from("site_settings")
     .select("*")
     .single();
 
   if (error || !data) {
-    console.error("Supabase getDbSiteSettings error:", error);
-    throw new Error(error?.message || "Failed to fetch site settings from Supabase");
+    return defaultSettings;
   }
 
   return data as SiteSettings;
@@ -339,7 +424,11 @@ export async function getDbSiteSettings(): Promise<SiteSettings> {
 
 export async function saveDbSiteSettings(settings: Partial<SiteSettings>): Promise<SiteSettings> {
   const client = getDbClient();
-  const current = await getDbSiteSettings().catch(() => ({} as SiteSettings));
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
+  const current = await getDbSiteSettings();
   const updated: SiteSettings = {
     ...current,
     ...settings,
@@ -365,6 +454,11 @@ export async function saveDbSiteSettings(settings: Partial<SiteSettings>): Promi
 // =========================================================================
 export async function getDbInquiries(): Promise<Inquiry[]> {
   const client = getDbClient();
+  if (!client) {
+    console.warn("Supabase is not configured yet. Returning empty inquiries list.");
+    return [];
+  }
+
   const { data, error } = await client
     .from("inquiries")
     .select("*")
@@ -380,6 +474,10 @@ export async function getDbInquiries(): Promise<Inquiry[]> {
 
 export async function saveDbInquiry(inquiry: Omit<Inquiry, "id" | "status" | "created_at">): Promise<Inquiry> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const newInquiry: Inquiry = {
     id: randomUUID(),
     ...inquiry,
@@ -407,6 +505,10 @@ export async function updateDbInquiryStatus(
   internalNotes?: string
 ): Promise<boolean> {
   const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
   const updatePayload: any = { status };
   if (internalNotes !== undefined) updatePayload.internal_notes = internalNotes;
 
