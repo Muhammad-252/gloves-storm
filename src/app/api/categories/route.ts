@@ -11,10 +11,13 @@ export const dynamic = "force-dynamic";
 
 export async function GET() {
   try {
+    console.log("[API /api/categories] 🚀 GET requested. Querying categories & products...");
     const [categories, products] = await Promise.all([
       loadPersistedCategories(),
       getProducts(),
     ]);
+
+    console.log(`[API /api/categories] 📊 DB returned ${categories.length} categories and ${products.length} products.`);
 
     // Attach product counts and preview items to categories
     const categoriesWithMeta = categories.map((cat) => {

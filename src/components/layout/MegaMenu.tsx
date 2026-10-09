@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Category } from "@/types/database";
-import { initialCategories, initialProducts } from "@/lib/data/initialData";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -54,28 +53,16 @@ export default function MegaMenu({
   onMouseLeave,
   categories,
 }: MegaMenuProps) {
-  // Build initial categories with initial products mapped
-  const initialDataCategories = useMemo(() => {
-    const baseCats = categories.length > 0 ? categories : initialCategories;
-    return baseCats.map((cat) => {
-      const catProducts = initialProducts.filter((p) => p.category_id === cat.id);
-      return {
-        ...cat,
-        productCount: catProducts.length,
-        featuredItems: catProducts.map((p) => ({
-          id: p.id,
-          name: p.name,
-          slug: p.slug,
-          categorySlug: cat.slug,
-          categoryName: cat.name,
-          image: p.images?.[0]?.image_url || null,
-          moq: p.moq,
-        })),
-      };
-    });
+  // Map provided categories from database props
+  const mappedCategories = useMemo(() => {
+    return categories.map((cat) => ({
+      ...cat,
+      productCount: (cat as MegaMenuCategory).productCount ?? 0,
+      featuredItems: (cat as MegaMenuCategory).featuredItems || [],
+    }));
   }, [categories]);
 
-  const [menuCategories, setMenuCategories] = useState<MegaMenuCategory[]>(initialDataCategories);
+  const [menuCategories, setMenuCategories] = useState<MegaMenuCategory[]>(mappedCategories);
   const [activeTab, setActiveTab] = useState<string>("for-you");
   const [apiFeaturedSelections, setApiFeaturedSelections] = useState<MegaMenuProductItem[]>([]);
 
@@ -137,41 +124,19 @@ export default function MegaMenu({
   }, []);
 
   // Top curated items for the "Categories for you" view
-  const forYouItems = useMemo(() => {
+  const forYouItems = useMemo<MegaMenuProductItem[]>(() => {
     if (apiFeaturedSelections.length > 0) {
       return apiFeaturedSelections.slice(0, 7);
     }
-    return initialProducts.slice(0, 7).map((p) => {
-      const cat = initialCategories.find((c) => c.id === p.category_id);
-      return {
-        id: p.id,
-        name: p.name,
-        slug: p.slug,
-        categorySlug: cat?.slug || "products",
-        categoryName: cat?.name || "Equipment",
-        image: p.images?.[0]?.image_url || null,
-        moq: p.moq,
-      };
-    });
+    return [];
   }, [apiFeaturedSelections]);
 
   // Secondary row of items for "Categories for you" (e.g., Apparel & Streetwear)
-  const secondaryForYouItems = useMemo(() => {
+  const secondaryForYouItems = useMemo<MegaMenuProductItem[]>(() => {
     if (apiFeaturedSelections.length > 7) {
       return apiFeaturedSelections.slice(7, 14);
     }
-    return initialProducts.slice(7, 14).map((p) => {
-      const cat = initialCategories.find((c) => c.id === p.category_id);
-      return {
-        id: p.id,
-        name: p.name,
-        slug: p.slug,
-        categorySlug: cat?.slug || "products",
-        categoryName: cat?.name || "Apparel",
-        image: p.images?.[0]?.image_url || null,
-        moq: p.moq,
-      };
-    });
+    return [];
   }, [apiFeaturedSelections]);
 
   if (!isOpen) return null;

@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 
 export async function GET(req: NextRequest) {
   try {
+    console.log("[API /api/products] 🚀 GET requested. Querying products from DB...");
     const products = await getDbProducts();
     const url = new URL(req.url);
     const categoryId = url.searchParams.get("categoryId");
@@ -29,9 +30,10 @@ export async function GET(req: NextRequest) {
       );
     }
 
+    console.log(`[API /api/products] 📊 Returning ${result.length} of ${products.length} total products.`);
     return NextResponse.json({ success: true, products: result, total: result.length });
   } catch (error: any) {
-    console.error("Failed to fetch products:", error);
+    console.error("[API /api/products] ❌ Failed to fetch products:", error);
     return NextResponse.json(
       { success: false, error: error?.message || "Failed to fetch products" },
       { status: 500 }

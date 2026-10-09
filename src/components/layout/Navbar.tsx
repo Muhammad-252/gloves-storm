@@ -8,7 +8,6 @@ import { ArrowUpRight, Menu, X, Shield, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import GooeyButton from "../ui/GooeyButton";
 import MegaMenu from "./MegaMenu";
-import { initialCategories } from "@/lib/data/initialData";
 import { Category } from "@/types/database";
 import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 
@@ -31,7 +30,7 @@ export default function Navbar() {
   const [marketsDropdownOpen, setMarketsDropdownOpen] = useState(false);
   const [rfqModalOpen, setRfqModalOpen] = useState(false);
   const [mobileCategoriesExpanded, setMobileCategoriesExpanded] = useState(false);
-  const [categories, setCategories] = useState<Category[]>(initialCategories);
+  const [categories, setCategories] = useState<Category[]>([]);
   const pathname = usePathname();
   const megaMenuTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const marketsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -75,17 +74,27 @@ export default function Navbar() {
         };
       }
 
+      console.log("[Navbar Debug] 🚀 Fetching /api/categories...");
       fetch("/api/categories")
-        .then((res) => res.json())
+        .then((res) => {
+          console.log("[Navbar Debug] 📡 /api/categories HTTP status:", res.status);
+          return res.json();
+        })
         .then((data) => {
+          console.log("[Navbar Debug] 📦 /api/categories data payload:", data);
           if (data?.categories && data.categories.length > 0) {
+            console.log(`[Navbar Debug] ✅ Loaded ${data.categories.length} categories into Navbar.`);
             setCategories(data.categories);
             try {
               localStorage.setItem("gs_dynamic_categories", JSON.stringify(data.categories));
             } catch (e) {}
+          } else {
+            console.warn("[Navbar Debug] ⚠️ Received 0 categories or invalid response payload:", data);
           }
         })
-        .catch(() => {});
+        .catch((err) => {
+          console.error("[Navbar Debug] ❌ Error fetching /api/categories:", err);
+        });
 
       return () => {
         window.removeEventListener("gs_categories_updated", handleUpdate);

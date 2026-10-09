@@ -26,7 +26,7 @@ const getDbClient = () => {
 export async function getDbCategories(): Promise<Category[]> {
   const client = getDbClient();
   if (!client) {
-    console.warn("Supabase is not configured yet. Returning empty categories list.");
+    console.warn("[fileDb] ⚠️ Supabase is not configured yet. Returning empty categories list.");
     return [];
   }
 
@@ -36,10 +36,11 @@ export async function getDbCategories(): Promise<Category[]> {
     .order("sort_order", { ascending: true });
 
   if (error) {
-    console.error("Supabase getDbCategories error:", error);
+    console.error("[fileDb] ❌ Supabase getDbCategories query error:", error);
     return [];
   }
 
+  console.log(`[fileDb] 📥 getDbCategories fetched ${data?.length || 0} categories from Supabase.`);
   return (data as Category[]) || [];
 }
 
@@ -73,7 +74,7 @@ export async function saveDbCategory(category: Partial<Category>): Promise<Categ
     .single();
 
   if (error || !data) {
-    console.error("Supabase saveDbCategory error:", error);
+    console.error("[fileDb] ❌ Supabase saveDbCategory error:", error);
     throw new Error(error?.message || "Failed to save category in Supabase");
   }
 
@@ -88,7 +89,7 @@ export async function deleteDbCategory(id: string): Promise<boolean> {
 
   const { error } = await client.from("categories").delete().eq("id", id);
   if (error) {
-    console.error("Supabase deleteDbCategory error:", error);
+    console.error("[fileDb] ❌ Supabase deleteDbCategory error:", error);
     throw new Error(error.message || "Failed to delete category from Supabase");
   }
   return true;
@@ -100,7 +101,7 @@ export async function deleteDbCategory(id: string): Promise<boolean> {
 export async function getDbProducts(): Promise<Product[]> {
   const client = getDbClient();
   if (!client) {
-    console.warn("Supabase is not configured yet. Returning empty products list.");
+    console.warn("[fileDb] ⚠️ Supabase is not configured yet. Returning empty products list.");
     return [];
   }
 
@@ -110,10 +111,11 @@ export async function getDbProducts(): Promise<Product[]> {
     .order("created_at", { ascending: false });
 
   if (error) {
-    console.error("Supabase getDbProducts error:", error);
+    console.error("[fileDb] ❌ Supabase getDbProducts error:", error);
     return [];
   }
 
+  console.log(`[fileDb] 📥 getDbProducts fetched ${data?.length || 0} products from Supabase.`);
   return (data as Product[]) || [];
 }
 
