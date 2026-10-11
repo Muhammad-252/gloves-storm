@@ -47,7 +47,7 @@ export default function ManufacturingTrustBanner() {
                 key={index}
                 className="flex items-center gap-2.5 p-2 rounded-2xl bg-white/50 backdrop-blur-md border border-white/80 shadow-xs group"
               >
-                <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-800 shrink-0 group-hover:bg-[#111827] group-hover:text-amber-400 transition-all">
+                <div className="w-9 h-9 rounded-xl bg-[#FFB900]/15 border border-[#FFB900]/30 flex items-center justify-center text-black shrink-0 group-hover:bg-black group-hover:text-[#FFB900] transition-all">
                   <Icon className="w-4 h-4" />
                 </div>
                 <div className="min-w-0">

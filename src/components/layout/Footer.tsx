@@ -46,22 +46,22 @@ export default function Footer() {
         {/* Top Big Statement */}
         <div className="pb-16 border-b border-slate-200/80 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] font-mono uppercase tracking-[0.25em] font-bold mb-3 border border-slate-200/60">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono uppercase tracking-[0.25em] font-bold mb-3 border border-neutral-200">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
               <span>International OEM &amp; Private Label Exporter</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight leading-tight text-slate-900">
+            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight leading-tight text-neutral-950">
               BUILT FOR BRANDS. <br />
-              <span className="text-slate-500">ENGINEERED TO SCALE.</span>
+              <span className="text-neutral-500">ENGINEERED TO SCALE.</span>
             </h2>
           </div>
           <div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
             >
               <span>Submit Your Tech Pack</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <ArrowUpRight className="w-4 h-4 text-black" />
             </Link>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function Footer() {
                 href="https://wa.me/923417146935"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-emerald-600 hover:text-emerald-600 flex items-center justify-center text-slate-600 shadow-2xs transition-all"
+                className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-[#FFB900] hover:text-[#FFB900] flex items-center justify-center text-slate-600 shadow-2xs transition-all"
                 aria-label="Chat with GLOVES STORM on WhatsApp"
               >
                 <MessageSquare className="w-4 h-4" />
@@ -221,7 +221,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-2">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+            <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
             <span>
               © {new Date().getFullYear()} GLOVES STORM. Custom Clothing &amp; Sportswear Manufacturer &amp; Exporter. All Rights Reserved.
             </span>

@@ -363,7 +363,7 @@ export default function CategoryLandingClient({
 
         <div className="relative z-10 max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono uppercase tracking-widest font-bold mb-4">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
             <span>{intel.heroSubtitle}</span>
           </div>
 
@@ -416,15 +416,15 @@ export default function CategoryLandingClient({
                   inquiryType: "Quote",
                 })
               }
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(255,185,0,0.3)] hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer"
             >
               <span>Request Factory Quote</span>
-              <ArrowUpRight className="w-4 h-4 text-white/80" />
+              <ArrowUpRight className="w-4 h-4 text-black" />
             </button>
 
             <a
               href="#products-grid"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 font-bold text-xs uppercase tracking-wider transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200 hover:border-[#FFB900] font-bold text-xs uppercase tracking-wider transition-all"
             >
               <span>Explore {products.length} Models</span>
               <ArrowRight className="w-4 h-4 text-neutral-500" />
@@ -438,7 +438,7 @@ export default function CategoryLandingClient({
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1 border-b border-neutral-200/90 pb-4">
           <Link
             href="/products"
-            className="px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-neutral-100 text-neutral-700 hover:bg-neutral-200 transition-colors"
+            className="px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900 transition-colors"
           >
             All Collections
           </Link>
@@ -450,8 +450,8 @@ export default function CategoryLandingClient({
                 href={`/products/${cat.slug}`}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-colors ${
                   isCurrent
-                    ? "bg-neutral-950 text-white shadow-xs"
-                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                    ? "bg-[#FFB900] text-black font-extrabold shadow-xs"
+                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900"
                 }`}
               >
                 {cat.name}

@@ -80,8 +80,8 @@ export default async function JournalPage() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Header with Rewritten SEO H1 and Intro */}
         <div className="max-w-4xl mb-16 pb-8 border-b border-slate-200/80">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
             <span>SIALKOT TECHNICAL JOURNAL &amp; OEM GUIDES</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-4">
@@ -98,7 +98,7 @@ export default async function JournalPage() {
             <Link
               key={post.id}
               href={`/journal/${post.slug}`}
-              className="rounded-3xl p-4 bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 flex flex-col justify-between overflow-hidden transition-all duration-300 group"
+              className="rounded-3xl p-4 bg-white/75 backdrop-blur-md border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:border-[#FFB900] hover:-translate-y-1 flex flex-col justify-between overflow-hidden transition-all duration-300 group"
             >
               <div>
                 {/* Cover image */}
@@ -113,7 +113,7 @@ export default async function JournalPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-0.5 text-[10px] font-mono uppercase tracking-wider text-slate-800 font-bold rounded-full border border-white/90 shadow-2xs">
+                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-0.5 text-[10px] font-mono uppercase tracking-wider text-slate-800 font-bold rounded-full border border-neutral-200 shadow-2xs">
                     {post.category}
                   </span>
                 </div>
@@ -125,7 +125,7 @@ export default async function JournalPage() {
                   </span>
                 </div>
 
-                <h2 className="text-base sm:text-lg font-bold tracking-tight text-slate-900 mb-2 group-hover:text-slate-700 transition-colors line-clamp-2">
+                <h2 className="text-base sm:text-lg font-bold tracking-tight text-slate-900 mb-2 group-hover:text-black transition-colors line-clamp-2">
                   {post.title}
                 </h2>
 
@@ -134,7 +134,7 @@ export default async function JournalPage() {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-900">
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#FFB900] transition-colors">
                 <span>Read Technical Guide</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>

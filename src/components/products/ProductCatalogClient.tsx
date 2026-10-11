@@ -248,7 +248,7 @@ export default function ProductCatalogClient({
       <div className="border-b border-neutral-200/90 pb-8 text-neutral-950">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono uppercase tracking-widest font-bold mb-3">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
             <span>Sialkot OEM Factory Collection</span>
           </div>
 
@@ -258,7 +258,7 @@ export default function ProductCatalogClient({
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
             {activeCategoryObj?.description ||
-              "Explore export-grade combat equipment, heavy French Terry hoodies, activewear sets, and custom team uniforms. Handcrafted in Sialkot, Pakistan with direct factory OEM manufacturing, custom sizing blocks, and rapid air freight."}
+              "Explore export-grade custom teamwear, heavy French Terry hoodies, gym activewear sets, and custom streetwear. Handcrafted in Sialkot, Pakistan with direct factory OEM manufacturing, custom sizing blocks, and rapid air freight."}
           </p>
         </div>
 
@@ -269,8 +269,8 @@ export default function ProductCatalogClient({
             onClick={() => setSelectedCat("all")}
             className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
               selectedCat === "all"
-                ? "bg-neutral-950 text-white shadow-xs"
-                : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                ? "bg-[#FFB900] text-black font-extrabold shadow-xs"
+                : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900"
             }`}
           >
             All Products ({initialProducts.length})
@@ -285,8 +285,8 @@ export default function ProductCatalogClient({
                 onClick={() => setSelectedCat(cat.slug)}
                 className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
                   isSelected
-                    ? "bg-neutral-950 text-white shadow-xs"
-                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
+                    ? "bg-[#FFB900] text-black font-extrabold shadow-xs"
+                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900"
                 }`}
               >
                 {cat.name} ({count})
@@ -481,7 +481,7 @@ export default function ProductCatalogClient({
                     quantity: 50,
                   })
                 }
-                className="w-full py-2 px-3 rounded-lg bg-neutral-950 hover:bg-neutral-800 text-white text-[11px] font-bold uppercase tracking-wider transition-colors cursor-pointer text-center"
+                className="w-full py-2 px-3 rounded-lg bg-[#FFB900] hover:bg-[#E5A700] text-black text-[11px] font-extrabold uppercase tracking-wider transition-all shadow-xs cursor-pointer text-center"
               >
                 Inquire Bespoke
               </button>
@@ -716,7 +716,7 @@ export default function ProductCatalogClient({
                           <td className="py-3 px-3 font-mono font-bold text-neutral-950">
                             {product.moq || 30} pcs
                           </td>
-                          <td className="py-3 px-3 font-mono text-emerald-700 font-bold">
+                          <td className="py-3 px-3 font-mono text-neutral-950 font-bold">
                             {product.lead_time || "2-3 Weeks"}
                           </td>
                           <td className="py-3 px-4 text-right">
@@ -731,7 +731,7 @@ export default function ProductCatalogClient({
                                   quantity: product.moq || 50,
                                 })
                               }
-                              className="py-1.5 px-3 rounded-lg bg-neutral-950 hover:bg-neutral-800 text-white font-bold text-[11px] transition-colors cursor-pointer"
+                              className="py-1.5 px-3 rounded-lg bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-[11px] transition-all cursor-pointer shadow-xs"
                             >
                               Inquire
                             </button>

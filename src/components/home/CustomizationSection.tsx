@@ -87,8 +87,8 @@ export default function CustomizationSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-50 border border-amber-300/80 text-xs font-mono uppercase tracking-[0.25em] text-amber-900 font-bold mb-4 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-mono uppercase tracking-[0.25em] text-neutral-900 font-bold mb-4 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-neutral-900" />
             <span>Artisan Engineering</span>
           </div>
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-neutral-950 leading-[1.0] mb-6">
@@ -112,16 +112,16 @@ export default function CustomizationSection() {
                   onClick={() => setActiveItem(item)}
                   className={`text-left p-4 sm:p-5 rounded-2xl transition-all border cursor-pointer shrink-0 w-[240px] sm:w-[280px] lg:w-full ${
                     isSelected
-                      ? "bg-amber-50/80 border-amber-500 shadow-xs"
+                      ? "bg-neutral-100 border-neutral-900 shadow-xs"
                       : "bg-neutral-50/70 border-neutral-200 hover:border-neutral-300"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 font-bold">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 font-bold">
                       {item.category}
                     </span>
                     {isSelected && (
-                      <span className="w-2 h-2 rounded-full bg-amber-600 shadow-[0_0_8px_rgba(217,119,6,0.6)]" />
+                      <span className="w-2 h-2 rounded-full bg-[#FFB900]" />
                     )}
                   </div>
                   <h3
@@ -152,7 +152,7 @@ export default function CustomizationSection() {
 
             {/* Description & Technical Specs */}
             <div className="p-8">
-              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-amber-800 font-bold block mb-2">
+              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-500 font-bold block mb-2">
                 {activeItem.category} Standard
               </span>
               <h3 className="text-2xl font-black uppercase tracking-tight text-neutral-950 mb-4">
@@ -166,7 +166,7 @@ export default function CustomizationSection() {
               <div className="space-y-2.5 mb-8 border-t border-neutral-100 pt-5">
                 {activeItem.specs.map((spec, i) => (
                   <div key={i} className="flex items-center gap-2.5 text-xs text-neutral-700 font-medium">
-                    <Check className="w-4 h-4 text-amber-600 shrink-0" />
+                    <Check className="w-4 h-4 text-neutral-900 shrink-0" />
                     <span>{spec}</span>
                   </div>
                 ))}

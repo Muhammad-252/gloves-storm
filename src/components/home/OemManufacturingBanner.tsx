@@ -33,16 +33,13 @@ export default function OemManufacturingBanner() {
 
   return (
     <section className="py-16 sm:py-24 bg-white border-b border-black/[0.06] relative overflow-hidden">
-      {/* Ambient Warm Glow for Glassmorphic Depth */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-amber-400/12 via-orange-300/8 to-transparent blur-[120px] pointer-events-none -z-10" />
-
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="rounded-3xl bg-white/70 backdrop-blur-2xl border border-white/90 p-8 sm:p-12 lg:p-14 shadow-[0_16px_50px_rgba(217,119,6,0.07)] relative overflow-hidden">
+        <div className="rounded-3xl bg-white border border-neutral-200/90 p-8 sm:p-12 lg:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
             {/* Top Frosted Brand Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-xl border border-white/90 shadow-xs mb-6">
-              <Sparkles className="w-3.5 h-3.5 text-amber-700" />
-              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-amber-950 font-bold">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 shadow-xs mb-6">
+              <Sparkles className="w-3.5 h-3.5 text-black" />
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.22em] text-neutral-900 font-bold">
                 Turnkey Private Label & OEM Engineering
               </span>
             </div>
@@ -51,7 +48,7 @@ export default function OemManufacturingBanner() {
             <div className="max-w-4xl mb-8">
               <h2 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827] leading-[1.08] sm:leading-[1.05] mb-4">
                 HAVE A TECH PACK OR CUSTOM SKETCH? <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-700 via-amber-600 to-amber-800">
+                <span className="text-black">
                   WE ENGINEER IT TO PHYSICAL PRODUCTION.
                 </span>
               </h2>
@@ -67,9 +64,9 @@ export default function OemManufacturingBanner() {
                 return (
                   <div
                     key={idx}
-                    className="p-5 rounded-2xl bg-white/75 backdrop-blur-xl border border-white/85 shadow-xs hover:border-amber-400/50 hover:shadow-md hover:-translate-y-1 transition-all group"
+                    className="p-5 rounded-2xl bg-neutral-50/70 border border-neutral-200/80 shadow-xs hover:border-black/30 hover:shadow-md hover:-translate-y-1 transition-all group"
                   >
-                    <div className="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-800 mb-3.5 group-hover:bg-[#111827] group-hover:text-amber-400 transition-all">
+                    <div className="w-9 h-9 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-3.5 group-hover:bg-black group-hover:text-white transition-all">
                       <Icon className="w-4 h-4" />
                     </div>
                     <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-[#111827] mb-1">
@@ -84,7 +81,7 @@ export default function OemManufacturingBanner() {
             </div>
 
             {/* Actions & Credentials Footer */}
-            <div className="pt-8 border-t border-amber-200/70 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div className="pt-8 border-t border-neutral-200 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
                 <GooeyButton
                   onClick={() => setQuoteModalOpen(true)}
@@ -100,9 +97,9 @@ export default function OemManufacturingBanner() {
                   href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I%20have%20a%20tech%20pack%20and%20would%20like%20to%20get%20a%20manufacturing%20quote."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-emerald-600/30 bg-emerald-50 hover:bg-emerald-100 text-emerald-900 font-bold text-xs uppercase tracking-wider transition-all shadow-xs"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full border border-black bg-black text-white hover:bg-neutral-800 font-bold text-xs uppercase tracking-wider transition-all shadow-xs"
                 >
-                  <MessageSquare className="w-4 h-4 text-emerald-600" />
+                  <MessageSquare className="w-4 h-4 text-white" />
                   <span>WhatsApp Lead Engineer</span>
                 </a>
               </div>
@@ -110,15 +107,15 @@ export default function OemManufacturingBanner() {
               {/* Trust Micro-Bullets */}
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-xs text-[#4B5563] font-medium">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-900 shrink-0" />
                   <span>Strict NDA Protection</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-900 shrink-0" />
                   <span>Low MOQ: 25–50 Pcs</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <CheckCircle2 className="w-4 h-4 text-neutral-900 shrink-0" />
                   <span>Free Tech Pack Review</span>
                 </div>
               </div>

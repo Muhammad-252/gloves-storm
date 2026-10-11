@@ -40,37 +40,37 @@ export default function GooeyButton({
     lg: "px-6 sm:px-9 py-3.5 sm:py-4 text-xs sm:text-sm tracking-[0.16em] sm:tracking-[0.22em]",
   }[size];
 
-  // Base colors & contrasting hover text colors
+  // Base colors & contrasting hover text colors (Black & White with #FFB900 interactive accent)
   const variantStyles = {
     gold: {
-      base: "bg-amber-500/10 border border-amber-600/40 text-amber-900 shadow-xs hover:border-amber-600 hover:shadow-[0_4px_20px_rgba(217,119,6,0.2)]",
-      blobBg: "bg-amber-600",
-      textTransition: "text-amber-900 group-hover:text-white",
+      base: "bg-[#FFB900] border border-[#FFB900] text-black shadow-[0_4px_18px_rgba(255,185,0,0.35)] hover:bg-[#E5A700] hover:border-[#E5A700] font-extrabold",
+      blobBg: "bg-black",
+      textTransition: "text-black group-hover:text-white",
     },
     "gold-solid": {
-      base: "bg-amber-500 border border-amber-500 text-neutral-950 shadow-[0_4px_18px_rgba(245,158,11,0.35)] hover:bg-amber-400 hover:border-amber-400 font-extrabold",
-      blobBg: "bg-neutral-950",
-      textTransition: "text-neutral-950 group-hover:text-amber-300",
+      base: "bg-[#FFB900] border border-[#FFB900] text-black shadow-[0_4px_18px_rgba(255,185,0,0.35)] hover:bg-[#E5A700] hover:border-[#E5A700] font-extrabold",
+      blobBg: "bg-black",
+      textTransition: "text-black group-hover:text-white",
     },
     dark: {
-      base: "bg-[#1A1A1A] border border-[#1A1A1A] text-white shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)]",
-      blobBg: "bg-amber-500",
-      textTransition: "text-white group-hover:text-[#1A1A1A]",
+      base: "bg-black border border-black text-white shadow-sm hover:shadow-[0_8px_24px_rgba(0,0,0,0.18)] hover:border-[#FFB900]",
+      blobBg: "bg-[#FFB900]",
+      textTransition: "text-white group-hover:text-black",
     },
     outline: {
-      base: "bg-white border border-black/[0.15] text-[#1A1A1A] shadow-[0_2px_8px_rgba(0,0,0,0.05)] hover:border-[#1A1A1A] hover:shadow-[0_6px_20px_rgba(0,0,0,0.10)]",
-      blobBg: "bg-[#1A1A1A]",
-      textTransition: "text-[#1A1A1A] group-hover:text-white",
+      base: "bg-white border border-neutral-300 text-black shadow-2xs hover:border-[#FFB900]",
+      blobBg: "bg-[#FFB900]",
+      textTransition: "text-black group-hover:text-black",
     },
     "outline-white": {
-      base: "bg-black/40 border border-white/35 text-white shadow-xl hover:border-white/70 backdrop-blur-md",
-      blobBg: "bg-white",
-      textTransition: "text-white group-hover:text-[#1A1A1A]",
+      base: "bg-black/50 border border-white/35 text-white shadow-xl hover:border-[#FFB900] backdrop-blur-md",
+      blobBg: "bg-[#FFB900]",
+      textTransition: "text-white group-hover:text-black",
     },
     "outline-gold": {
-      base: "bg-black/40 border border-amber-400/50 text-amber-300 shadow-xl hover:border-amber-400 backdrop-blur-md",
-      blobBg: "bg-amber-400",
-      textTransition: "text-amber-300 group-hover:text-neutral-950",
+      base: "bg-black/50 border border-[#FFB900] text-[#FFB900] shadow-xl hover:bg-[#FFB900] hover:text-black backdrop-blur-md",
+      blobBg: "bg-[#FFB900]",
+      textTransition: "text-[#FFB900] group-hover:text-black",
     },
   }[variant];
 

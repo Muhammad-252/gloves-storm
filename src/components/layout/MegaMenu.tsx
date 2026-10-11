@@ -190,7 +190,7 @@ export default function MegaMenu({
               className="text-neutral-600 hover:text-neutral-950 font-medium transition-colors flex items-center gap-1.5"
             >
               <span>Production standards</span>
-              <span className="hidden sm:inline-block px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-amber-500/20 text-amber-800">
+              <span className="hidden sm:inline-block px-1.5 py-0.2 rounded-full text-[9px] font-mono font-bold bg-neutral-100 text-neutral-800 border border-neutral-200">
                 AQL 2.5
               </span>
             </Link>
@@ -215,7 +215,7 @@ export default function MegaMenu({
             <Link
               href="/contact"
               onClick={onClose}
-              className="text-amber-700 hover:text-amber-800 font-bold transition-colors flex items-center gap-1"
+              className="text-neutral-950 hover:text-[#FFB900] font-bold transition-colors flex items-center gap-1"
             >
               <span>Direct Factory Inquiry</span>
               <ArrowUpRight className="w-3 h-3" />
@@ -246,7 +246,7 @@ export default function MegaMenu({
                 <div className="flex items-center gap-2.5">
                   <Star
                     className={`w-4 h-4 shrink-0 ${
-                      activeTab === "for-you" ? "text-amber-500 fill-amber-500" : "text-neutral-400"
+                      activeTab === "for-you" ? "text-[#FFB900] fill-[#FFB900]" : "text-neutral-400"
                     }`}
                   />
                   <span>Categories for you</span>
@@ -278,7 +278,7 @@ export default function MegaMenu({
                     <div className="flex items-center gap-2.5 truncate pr-1">
                       <IconComponent
                         className={`w-4 h-4 shrink-0 ${
-                          isActive ? "text-amber-600" : "text-neutral-400"
+                          isActive ? "text-neutral-950" : "text-neutral-400"
                         }`}
                       />
                       <span className="truncate">{cat.name}</span>
@@ -346,14 +346,14 @@ export default function MegaMenu({
                             )}
                           </div>
 
-                          {/* Signature Alibaba-style Blue Indicator Badge */}
-                          <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none">
-                            <ArrowUpRight className="w-2.5 h-2.5" />
+                          {/* Signature Arrow Indicator Badge */}
+                          <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#FFB900] text-black flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none font-bold">
+                            <ArrowUpRight className="w-2.5 h-2.5 text-black" />
                           </span>
                         </div>
 
                         {/* Centered Label Underneath */}
-                        <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-amber-800 transition-colors line-clamp-2 max-w-[90px] leading-tight">
+                        <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-black transition-colors line-clamp-2 max-w-[90px] leading-tight">
                           {item.name}
                         </span>
                       </Link>
@@ -401,12 +401,12 @@ export default function MegaMenu({
                             )}
                           </div>
 
-                          <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none">
+                          <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-neutral-900 group-hover:bg-[#FFB900] group-hover:text-black text-white flex items-center justify-center shadow-xs transition-colors duration-200 pointer-events-none">
                             <ArrowUpRight className="w-2.5 h-2.5" />
                           </span>
                         </div>
 
-                        <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-amber-800 transition-colors line-clamp-2 max-w-[90px] leading-tight">
+                        <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-[#FFB900] transition-colors line-clamp-2 max-w-[90px] leading-tight">
                           {item.name}
                         </span>
                       </Link>
@@ -426,7 +426,7 @@ export default function MegaMenu({
                           {activeCategory.name}
                         </h3>
                         {activeCategory.menu_badge && (
-                          <span className="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-amber-500/20 text-amber-900 border border-amber-500/30">
+                          <span className="px-2 py-0.5 rounded-full text-[9px] font-mono font-bold bg-neutral-100 text-neutral-800 border border-neutral-200">
                             {activeCategory.menu_badge}
                           </span>
                         )}
@@ -439,7 +439,7 @@ export default function MegaMenu({
                     <Link
                       href={`/products/${activeCategory.slug}`}
                       onClick={onClose}
-                      className="text-xs font-bold text-amber-800 hover:text-amber-900 flex items-center gap-1.5 transition-colors font-mono"
+                      className="text-xs font-bold text-neutral-950 hover:text-[#FFB900] flex items-center gap-1.5 transition-colors font-mono"
                     >
                       <span>VIEW ALL ({activeCategory.productCount || activeCategory.featuredItems?.length || 0})</span>
                       <ArrowRight className="w-3.5 h-3.5" />
@@ -472,12 +472,12 @@ export default function MegaMenu({
                               )}
                             </div>
 
-                            <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-[#1877F2] text-white flex items-center justify-center shadow-xs transition-transform duration-200 group-hover:scale-110 pointer-events-none">
+                            <span className="absolute -top-0.5 -right-0.5 z-10 w-4 h-4 rounded-full bg-neutral-900 group-hover:bg-[#FFB900] group-hover:text-black text-white flex items-center justify-center shadow-xs transition-colors duration-200 pointer-events-none">
                               <ArrowUpRight className="w-2.5 h-2.5" />
                             </span>
                           </div>
 
-                          <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-amber-800 transition-colors line-clamp-2 max-w-[90px] leading-tight">
+                          <span className="mt-2 text-xs font-medium text-neutral-800 group-hover:text-[#FFB900] transition-colors line-clamp-2 max-w-[90px] leading-tight">
                             {item.name}
                           </span>
                         </Link>
@@ -501,15 +501,15 @@ export default function MegaMenu({
                   <div className="mt-5 p-4 rounded-2xl bg-neutral-50 border border-neutral-200/80 flex flex-wrap items-center justify-between gap-4">
                     <div className="flex flex-wrap items-center gap-6 text-xs text-neutral-700">
                       <div className="flex items-center gap-2 font-mono">
-                        <Box className="w-4 h-4 text-amber-600" />
+                        <Box className="w-4 h-4 text-black" />
                         <span>MOQ: <strong>50 Units/Style</strong></span>
                       </div>
                       <div className="flex items-center gap-2 font-mono">
-                        <Clock className="w-4 h-4 text-amber-600" />
+                        <Clock className="w-4 h-4 text-black" />
                         <span>Sampling: <strong>5-7 Days</strong></span>
                       </div>
                       <div className="flex items-center gap-2 font-mono">
-                        <CheckCircle2 className="w-4 h-4 text-amber-600" />
+                        <CheckCircle2 className="w-4 h-4 text-black" />
                         <span>Quality: <strong>AQL 2.5 Standard</strong></span>
                       </div>
                     </div>
@@ -517,10 +517,10 @@ export default function MegaMenu({
                     <Link
                       href={`/contact?category=${activeCategory.slug}`}
                       onClick={onClose}
-                      className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs transition-colors shadow-2xs font-mono"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs transition-colors shadow-2xs font-mono"
                     >
                       <span>Inquire About {activeCategory.name}</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ArrowUpRight className="w-3.5 h-3.5 text-black" />
                     </Link>
                   </div>
                 </div>
@@ -535,7 +535,7 @@ export default function MegaMenu({
         <div className="py-2.5 border-t border-neutral-200/90 flex flex-wrap items-center justify-between text-[11px] text-neutral-500">
           <div className="flex items-center gap-4 sm:gap-6 font-mono">
             <span className="flex items-center gap-1.5 text-neutral-700 font-semibold">
-              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+              <ShieldCheck className="w-3.5 h-3.5 text-black" />
               Certified Apparel OEM &amp; Exporter
             </span>
             <span className="hidden sm:inline">&bull;</span>
@@ -550,9 +550,9 @@ export default function MegaMenu({
               target="_blank"
               rel="noopener noreferrer"
               onClick={onClose}
-              className="inline-flex items-center gap-1 text-emerald-700 hover:text-emerald-800 font-bold font-mono transition-colors"
+              className="inline-flex items-center gap-1 text-black hover:text-[#FFB900] font-bold font-mono transition-colors"
             >
-              <PhoneCall className="w-3 h-3" />
+              <PhoneCall className="w-3 h-3 text-black" />
               <span>WhatsApp Production Desk: +92 341 7146935</span>
             </a>
           </div>

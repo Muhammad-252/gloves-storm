@@ -120,7 +120,7 @@ export default function PreviousWorkClient({
         <section className="rounded-3xl bg-white/80 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-8 sm:p-14 relative overflow-hidden">
           <div className="max-w-3xl relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-white/90 mb-4 shadow-2xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
               <span className="text-[10px] font-mono uppercase tracking-[0.25em] text-slate-800 font-bold">
                 FACTORY PRODUCTION ARCHIVE
               </span>
@@ -164,7 +164,7 @@ export default function PreviousWorkClient({
               onClick={() => setSelectedCategoryId("all")}
               className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 selectedCategoryId === "all"
-                  ? "bg-slate-900 text-white shadow-sm"
+                  ? "bg-[#FFB900] text-black font-extrabold shadow-sm"
                   : "text-slate-600 hover:bg-white/90 hover:text-slate-900"
               }`}
             >
@@ -179,7 +179,7 @@ export default function PreviousWorkClient({
                   onClick={() => setSelectedCategoryId(cat.id)}
                   className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                     selectedCategoryId === cat.id
-                      ? "bg-slate-900 text-white shadow-sm"
+                      ? "bg-[#FFB900] text-black font-extrabold shadow-sm"
                       : "text-slate-600 hover:bg-white/90 hover:text-slate-900"
                   }`}
                 >
@@ -273,7 +273,7 @@ export default function PreviousWorkClient({
 
                       {/* Verified Order Specification Badge */}
                       <div className="mb-3 px-2.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200/80 text-[11px] font-mono text-slate-700 leading-snug flex items-center gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                        <CheckCircle2 className="w-3.5 h-3.5 text-slate-900 shrink-0" />
                         <span className="truncate">
                           {project.solution ? project.solution.replace(/\.$/, "") : "250+ Custom Uniforms"} — Delivered to USA / UK Client
                         </span>
@@ -418,9 +418,9 @@ export default function PreviousWorkClient({
               <div className="flex items-center gap-2.5 shrink-0">
                 <button
                   onClick={() => setIsQuoteModalOpen(true)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-slate-800 text-white px-5 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm transition-all cursor-pointer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black px-5 py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all cursor-pointer"
                 >
-                  <MessageSquare className="w-4 h-4" />
+                  <MessageSquare className="w-4 h-4 text-black" />
                   <span>Inquire Similar Production</span>
                 </button>
               </div>

@@ -202,7 +202,7 @@ export default function ProductDetailClient({
           </>
         )}
         <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-        <span className="text-amber-800 font-bold truncate max-w-xs">{product.name}</span>
+        <span className="text-neutral-900 font-bold truncate max-w-xs">{product.name}</span>
       </nav>
 
       {/* =========================================================================
@@ -331,11 +331,11 @@ export default function ProductDetailClient({
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <div className="text-sm font-bold text-neutral-950 hover:text-amber-800 transition-colors">
+                    <div className="text-sm font-bold text-neutral-950 hover:text-[#FFB900] transition-colors">
                       Gloves Storm Industrial Co., Ltd.
                     </div>
-                    <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-2 py-0.5 rounded inline-flex items-center gap-1">
-                      <BadgeCheck className="w-3 h-3" />
+                    <span className="text-[10px] font-bold text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded inline-flex items-center gap-1 border border-neutral-200">
+                      <BadgeCheck className="w-3 h-3 text-neutral-900" />
                       Verified
                     </span>
                   </div>
@@ -347,12 +347,12 @@ export default function ProductDetailClient({
             </div>
 
             <div className="text-xs text-neutral-600 space-y-1">
-              <div className="text-amber-800 font-semibold text-[11px] flex items-center gap-1">
-                <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-                <span>#1 Best Seller in OEM Fight Gear &amp; Leather Sports Products</span>
+              <div className="text-neutral-900 font-semibold text-[11px] flex items-center gap-1">
+                <Star className="w-3 h-3 fill-[#FFB900] text-[#FFB900]" />
+                <span>#1 Best Seller in OEM Sportswear &amp; Private Label Apparel</span>
               </div>
               <p className="text-[11px] text-neutral-500">
-                Verified Global OEM Supplier for Top Boutiques, Academies &amp; Fight Promotions
+                Verified Global OEM Supplier for International Brands, Clubs &amp; Retailers
               </p>
             </div>
 
@@ -382,13 +382,13 @@ export default function ProductDetailClient({
             {/* Verified Services */}
             <div className="flex items-center gap-4 text-xs text-neutral-600 pt-1 flex-wrap font-medium">
               <span className="inline-flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-blue-600" /> Minor customization
+                <Check className="w-3.5 h-3.5 text-neutral-900" /> Minor customization
               </span>
               <span className="inline-flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-blue-600" /> Drawing-based customization
+                <Check className="w-3.5 h-3.5 text-neutral-900" /> Drawing-based customization
               </span>
               <span className="inline-flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-blue-600" /> 100% Quality Inspection
+                <Check className="w-3.5 h-3.5 text-neutral-900" /> 100% Quality Inspection
               </span>
             </div>
           </div>
@@ -401,7 +401,7 @@ export default function ProductDetailClient({
           {/* Product Header */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-800 font-bold bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-800 font-bold bg-neutral-100 px-2.5 py-0.5 rounded-full border border-neutral-200">
                 {category?.name || "Manufacturing Division"}
               </span>
               <span className="text-xs text-neutral-500 font-mono">
@@ -413,21 +413,21 @@ export default function ProductDetailClient({
               {product.name}
             </h1>
 
-            {/* Rating & Social Proof Row (Matches reference image) */}
+            {/* Rating & Social Proof Row */}
             <div className="mt-2.5 flex items-center gap-3 text-xs text-neutral-600 flex-wrap">
-              <div className="flex items-center gap-1 text-amber-500">
+              <div className="flex items-center gap-1 text-[#FFB900]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-current" />
                 ))}
                 <span className="font-bold text-neutral-900 ml-1">5.0</span>
-                <span className="text-neutral-500 underline cursor-pointer">(28 reviews)</span>
+                <span className="text-neutral-500 underline cursor-pointer hover:text-neutral-900">(28 reviews)</span>
               </div>
               <span className="text-neutral-300">•</span>
               <span className="font-bold text-neutral-900">677+ sold</span>
               <span className="text-neutral-300">•</span>
-              <span className="text-amber-800 font-medium">#1 most popular in {category?.name || "Equipment"}</span>
+              <span className="text-neutral-800 font-medium">#1 most popular in {category?.name || "Apparel"}</span>
               <span className="text-neutral-300">•</span>
-              <span className="text-emerald-700 bg-emerald-50 px-2 py-0.2 rounded font-bold text-[10px]">
+              <span className="text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded font-bold text-[10px] border border-neutral-200">
                 Safe &amp; Sustainable
               </span>
             </div>
@@ -451,7 +451,7 @@ export default function ProductDetailClient({
                     onClick={() => setQuantity(tier.min_quantity)}
                     className={`cursor-pointer transition-all rounded-xl p-3 text-left ${
                       isSelected
-                        ? "bg-white border-2 border-neutral-900 shadow-xs ring-2 ring-amber-500/20"
+                        ? "bg-white border-2 border-neutral-900 shadow-xs ring-2 ring-[#FFB900]"
                         : "hover:bg-white/60 border border-transparent"
                     }`}
                   >
@@ -492,7 +492,7 @@ export default function ProductDetailClient({
               </span>
               <button
                 onClick={() => setSelectedColor((prev) => (prev + 1) % colorOptions.length)}
-                className="text-[11px] font-bold text-amber-800 hover:underline cursor-pointer font-mono"
+                className="text-[11px] font-bold text-neutral-900 hover:text-[#FFB900] underline cursor-pointer font-mono transition-colors"
               >
                 Select now
               </button>
@@ -550,8 +550,8 @@ export default function ProductDetailClient({
               <span className="text-xs font-bold text-neutral-900">
                 Supplier&apos;s customization ability
               </span>
-              <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-1.5 py-0.2 rounded inline-flex items-center gap-1">
-                <Check className="w-3 h-3" /> Verified
+              <span className="text-[10px] font-bold text-neutral-800 bg-neutral-100 px-1.5 py-0.5 rounded inline-flex items-center gap-1 border border-neutral-200">
+                <Check className="w-3 h-3 text-neutral-900" /> Verified
               </span>
             </div>
             <ul className="space-y-1 text-xs text-neutral-600">
@@ -675,10 +675,10 @@ export default function ProductDetailClient({
                   setInquiryType("Quote");
                   setModalOpen(true);
                 }}
-                className="flex-1 py-3.5 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm flex items-center justify-center gap-2 cursor-pointer font-sans"
+                className="flex-1 py-3.5 px-6 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_4px_20px_rgba(255,185,0,0.35)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer font-sans"
               >
                 <span>Start Order / Request Quote</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-black" />
               </button>
 
               <button
@@ -688,7 +688,7 @@ export default function ProductDetailClient({
                   setQuantity(1);
                   setModalOpen(true);
                 }}
-                className="py-3.5 px-5 rounded-xl bg-slate-100/90 hover:bg-slate-200/80 text-slate-900 border border-slate-200/80 font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono"
+                className="py-3.5 px-5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-950 border border-neutral-300 hover:border-[#FFB900] font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono"
               >
                 Order Sample
               </button>

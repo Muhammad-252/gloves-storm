@@ -95,10 +95,10 @@ export default function QuoteModal({
 
         {submitted ? (
           <div className="py-12 text-center flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-600 mb-6">
+            <div className="w-16 h-16 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/40 flex items-center justify-center text-black mb-6">
               <CheckCircle className="w-8 h-8" />
             </div>
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-700 font-mono mb-2 font-semibold">
+            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono mb-2 font-semibold">
               Inquiry Confirmed
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 mb-4">
@@ -122,7 +122,7 @@ export default function QuoteModal({
         ) : (
           <div>
             <div className="mb-6">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-amber-700 font-mono block mb-1 font-semibold">
+              <span className="text-[10px] uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-1 font-semibold">
                 {inquiryType === "Sample" ? "Physical Sample Development" : "Direct Factory Production Inquiries"}
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-neutral-950">
@@ -152,7 +152,7 @@ export default function QuoteModal({
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                     placeholder="e.g. John Doe"
                   />
                 </div>
@@ -165,8 +165,8 @@ export default function QuoteModal({
                     required
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
-                    placeholder="e.g. Apex Combat Athletics"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    placeholder="e.g. Apex Athletics"
                   />
                 </div>
               </div>
@@ -181,7 +181,7 @@ export default function QuoteModal({
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                     placeholder="name@brand.com"
                   />
                 </div>
@@ -194,7 +194,7 @@ export default function QuoteModal({
                     required
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                     placeholder="+1 (555) 000-0000"
                   />
                 </div>
@@ -210,7 +210,7 @@ export default function QuoteModal({
                     required
                     value={formData.country}
                     onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                     placeholder="e.g. USA, UK, UAE"
                   />
                 </div>
@@ -225,7 +225,7 @@ export default function QuoteModal({
                     onChange={(e) =>
                       setFormData({ ...formData, estimated_quantity: Number(e.target.value) })
                     }
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                     placeholder="50"
                   />
                 </div>
@@ -239,7 +239,7 @@ export default function QuoteModal({
                     onChange={(e) =>
                       setFormData({ ...formData, target_delivery_date: e.target.value })
                     }
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                   />
                 </div>
               </div>
@@ -253,14 +253,14 @@ export default function QuoteModal({
                   required
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full bg-neutral-50 border border-neutral-300 focus:border-amber-600 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
+                  className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
                   placeholder="Detail your target materials, logo finishes, size curves, or paste links to tech pack files (Dropbox, WeTransfer, Google Drive)..."
                 />
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="flex items-center gap-2 text-[11px] text-neutral-500">
-                  <Shield className="w-3.5 h-3.5 text-amber-600" />
+                  <Shield className="w-3.5 h-3.5 text-neutral-900" />
                   <span>NDAs honored • Direct factory pricing</span>
                 </div>
 

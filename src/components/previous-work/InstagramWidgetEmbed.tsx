@@ -54,19 +54,19 @@ export default function InstagramWidgetEmbed({ code }: InstagramWidgetEmbedProps
       {/* Top bar with widget controls */}
       <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-6">
         <div className="flex items-center gap-2">
-          <span className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#962fbf] flex items-center justify-center text-white shadow-sm">
-            <InstagramIcon className="w-4 h-4" />
+          <span className="w-8 h-8 rounded-full bg-neutral-950 flex items-center justify-center text-white shadow-sm">
+            <InstagramIcon className="w-4 h-4 fill-current" />
           </span>
           <div>
             <h2 className="text-sm font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-1.5">
               <span>Live Instagram Feed</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[10px] font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 animate-pulse" />
                 <span>Connected</span>
               </span>
             </h2>
             <p className="text-[11px] text-neutral-500">
-              Streaming real-time posts & reels from @glovesstorm
+              Streaming real-time posts &amp; reels from @glovesstorm
             </p>
           </div>
         </div>
@@ -83,10 +83,10 @@ export default function InstagramWidgetEmbed({ code }: InstagramWidgetEmbedProps
             href="https://www.instagram.com/glovesstorm/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-bold text-pink-600 hover:text-pink-700 px-3 py-1.5 rounded-xl bg-pink-50 border border-pink-100 transition-colors"
+            className="inline-flex items-center gap-1 text-xs font-extrabold text-black px-3 py-1.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] transition-colors shadow-xs"
           >
             <span>Follow</span>
-            <ExternalLink className="w-3 h-3" />
+            <ExternalLink className="w-3 h-3 text-black" />
           </a>
         </div>
       </div>

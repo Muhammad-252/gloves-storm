@@ -318,26 +318,26 @@ export default function CategoryShowcaseSection({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-5 border-b border-black/[0.06] gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 shadow-xs mb-2">
-              <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-800 font-mono font-bold">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 shadow-xs mb-2">
+              <span className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-800 font-mono font-bold">
                 Direct Mill Catalog
               </span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-neutral-950">
               CUSTOM APPAREL &amp; SPORTSWEAR SPECIFICATIONS
             </h2>
           </div>
 
-          <div className="text-xs text-slate-500 font-mono">
-            Showing <span className="font-bold text-slate-900">{filteredProducts.length}</span> verified specifications
+          <div className="text-xs text-neutral-500 font-mono">
+            Showing <span className="font-bold text-neutral-900">{filteredProducts.length}</span> verified specifications
           </div>
         </div>
 
         {/* ────────────────────────────────────────────────────────── */}
         {/* FLOATING FILTER & CATALOG CONTROLS DOCK                    */}
         {/* ────────────────────────────────────────────────────────── */}
-        <div className="p-2 sm:p-2.5 rounded-2xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-8 space-y-3">
+        <div className="p-2 sm:p-2.5 rounded-2xl bg-white/90 backdrop-blur-md border border-neutral-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-8 space-y-3">
           {/* Top Row: Category Filter Chips */}
           <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
             {dynamicChips.map((chip) => {
@@ -348,8 +348,8 @@ export default function CategoryShowcaseSection({
                   onClick={() => setSelectedChip(chip.id)}
                   className={
                     isActive
-                      ? "px-4 py-2 text-xs font-semibold bg-slate-900 text-white rounded-xl shadow-sm whitespace-nowrap transition-all cursor-pointer"
-                      : "px-4 py-2 text-xs font-semibold text-slate-600 rounded-xl hover:bg-white/90 hover:text-slate-900 whitespace-nowrap transition-all cursor-pointer"
+                      ? "px-4 py-2 text-xs font-extrabold bg-[#FFB900] text-black rounded-xl shadow-xs whitespace-nowrap transition-all cursor-pointer"
+                      : "px-4 py-2 text-xs font-semibold text-neutral-700 rounded-xl hover:bg-neutral-100 hover:text-black whitespace-nowrap transition-all cursor-pointer"
                   }
                 >
                   {chip.label}
@@ -418,7 +418,7 @@ export default function CategoryShowcaseSection({
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search specs, fabrics, models..."
-                className="w-full bg-white/70 backdrop-blur-md border border-white/90 rounded-xl focus:border-slate-400 focus:bg-white text-slate-900 pl-9 pr-8 py-2 text-xs outline-none shadow-xs transition-all placeholder:text-slate-400"
+                className="w-full bg-white/80 backdrop-blur-md border border-neutral-200 rounded-xl focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 focus:bg-white text-neutral-900 pl-9 pr-8 py-2 text-xs outline-none shadow-xs transition-all placeholder:text-neutral-400"
               />
               {searchQuery && (
                 <button
@@ -536,13 +536,13 @@ export default function CategoryShowcaseSection({
                   </div>
 
                   {/* Bottom Action Bar: View Tech Specs & Inquire Sample */}
-                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-200/60 mt-2">
+                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-neutral-200 mt-2">
                     <Link
                       href={productHref}
-                      className="py-2.5 px-3 rounded-xl bg-slate-100/90 hover:bg-slate-200/90 text-slate-800 text-xs font-semibold flex items-center justify-center gap-1 transition-all"
+                      className="py-2.5 px-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-bold flex items-center justify-center gap-1 transition-all"
                     >
                       <span>View Tech Specs</span>
-                      <ArrowUpRight className="w-3 h-3 text-slate-500" />
+                      <ArrowUpRight className="w-3 h-3 text-neutral-600" />
                     </Link>
 
                     <button
@@ -554,7 +554,7 @@ export default function CategoryShowcaseSection({
                           category: categoryObj?.name || "Custom Clothing & Sportswear",
                         })
                       }
-                      className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs"
+                      className="py-2.5 px-3 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs"
                     >
                       <span>Inquire Sample</span>
                     </button>
@@ -569,7 +569,7 @@ export default function CategoryShowcaseSection({
         <div className="text-center pt-12">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-widest transition-all shadow-[0_8px_24px_rgba(15,23,42,0.14)] hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-xs uppercase tracking-widest transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
           >
             <span>EXPLORE FULL {products.length}+ SPECIFICATION CATALOG</span>
             <ArrowUpRight className="w-4 h-4" />

@@ -1,25 +1,15 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Play, Pause, Film, ShieldCheck, Box, Clock, Globe2, Sparkles, MessageSquare } from "lucide-react";
+import { ArrowUpRight, Play, Pause, Film, Box, Clock, ShieldCheck, Globe2 } from "lucide-react";
 import MagneticElement from "../ui/MagneticElement";
 import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   const toggleVideo = () => {
     if (videoRef.current) {
@@ -33,176 +23,163 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-[85vh] sm:min-h-[92vh] flex items-center justify-center pt-32 pb-16 sm:pt-44 sm:pb-24">
-      {/* Complete Full-Bleed Hero Background Video or Poster */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-        {isMobile ? (
-          <img
-            src="/images/hero-poster.jpg"
-            alt="Gloves Storm custom sportswear and clothing manufacturing facility"
-            className="w-full h-full object-cover object-center scale-105"
-            loading="eager"
-          />
-        ) : (
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="none"
-            poster="/images/hero-poster.jpg"
-            className="w-full h-full object-cover object-center scale-105 transform motion-safe:animate-fade-in"
-          >
-            <source src="/videos/varsity-jacket-hero.webm" type="video/webm" />
-            <source src="/videos/varsity-jacket-hero.mp4" type="video/mp4" />
-          </video>
-        )}
+    <section className="relative overflow-hidden min-h-[100dvh] w-full flex items-center justify-center pt-24 pb-12 sm:pt-36 sm:pb-16 md:pt-40 md:pb-20">
+      {/* ─── 100% Full-Bleed Background Video (Covers entire section from top to bottom on all screens) ─── */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/images/hero-poster.jpg"
+          className="hero-bg-media"
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            minWidth: "100%",
+            minHeight: "100%",
+            objectFit: "cover",
+            objectPosition: "center center",
+          }}
+        >
+          <source src="/videos/varsity-jacket-hero.mp4" type="video/mp4" />
+        </video>
 
-        {/* Reduced Black Overlay for High Video Clarity & Visibility */}
-        <div className="absolute inset-0 bg-black/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/35" />
+        {/* Clean, High-Contrast Dark Overlay for Maximum Legibility */}
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/60" />
       </div>
 
-      {/* Hero Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 w-full flex flex-col items-center text-center">
-        {/* Eyebrow Badge with Pulsing Emerald Status Dot */}
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-sm mb-6 animate-in fade-in slide-in-from-bottom-2 duration-500">
-          <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse shrink-0 shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+      {/* ─── Hero Content (Perfect Center Balance on Mobile & Desktop) ─── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center my-auto">
+        {/* Eyebrow Status Badge with #FFB900 Interactive Pulse Dot */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-xs mb-3.5 sm:mb-5 animate-in fade-in slide-in-from-bottom-2 duration-500">
+          <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse shrink-0 shadow-[0_0_8px_rgba(255,185,0,0.8)]" />
           <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-white/90 font-bold">
             INTERNATIONAL APPAREL OEM &amp; EXPORTER · EST. 2019
           </span>
         </div>
 
-        {/* Target H1 for SEO */}
-        <h1 className="tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] max-w-5xl mb-4 drop-shadow-[0_3px_10px_rgba(0,0,0,0.8)] uppercase">
+        {/* Target H1 */}
+        <h1 className="tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] max-w-5xl mb-3 sm:mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
           CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER
         </h1>
 
-        {/* Subheadline */}
-        <p className="text-base sm:text-xl md:text-2xl font-bold text-amber-400 tracking-tight max-w-3xl mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+        {/* Subheadline (Clean High-Contrast White) */}
+        <p className="text-sm sm:text-lg md:text-xl font-bold text-neutral-100 tracking-tight max-w-3xl mb-3 sm:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           Direct OEM Factory &amp; Private Label Apparel Exporter for International Brands
         </p>
 
-        {/* Technical Value Proposition Body Copy */}
-        <p className="text-sm sm:text-base md:text-lg text-white/95 max-w-3xl font-normal leading-relaxed mb-9 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">
-          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Operating direct manufacturing facilities in Sialkot, Pakistan, we supply high-growth apparel brands, sports organizations, and distributors across the USA, UK, Europe, and worldwide. Low MOQ starting from 35 pieces, 5–7 day prototyping, and door-to-door insured DDP global shipping.
+        {/* Body Copy */}
+        <p className="text-xs sm:text-sm md:text-base text-white/90 max-w-2xl font-normal leading-relaxed mb-6 sm:mb-8 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from 35 pieces, 5–7 day prototyping, and insured DDP global shipping.
         </p>
 
         {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3.5 w-full sm:w-auto max-w-xs sm:max-w-none">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none">
           <MagneticElement strength={0.3} className="w-full sm:w-auto">
             <button
               onClick={() => setQuoteModalOpen(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white hover:bg-slate-100 text-slate-950 font-bold text-xs uppercase tracking-wider shadow-[0_8px_24px_rgba(0,0,0,0.3)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-9 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_24px_rgba(255,185,0,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <span>REQUEST OEM QUOTE</span>
-              <ArrowUpRight className="w-4 h-4 text-slate-900 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="w-4 h-4 text-black transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
           </MagneticElement>
 
           <MagneticElement strength={0.2} className="w-full sm:w-auto">
             <Link
               href="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white backdrop-blur-md font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/25 hover:border-[#FFB900] text-white hover:text-white backdrop-blur-md font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
             >
               <span>BROWSE CATALOG</span>
               <ArrowUpRight className="w-4 h-4 text-white/80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </MagneticElement>
-
-          <MagneticElement strength={0.2} className="w-full sm:w-auto">
-            <a
-              href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20apparel%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full border border-emerald-500/40 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 font-bold text-xs uppercase tracking-wider transition-all shadow-xs backdrop-blur-md"
-            >
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
-              <span>WhatsApp Direct</span>
-            </a>
-          </MagneticElement>
         </div>
 
-        {/* Instant Trust Bar: 4-Column Frosted Glass Stat Grid */}
-        <div className="mt-12 sm:mt-16 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-3.5 text-left">
-          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <Box className="w-3.5 h-3.5 text-slate-300" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
+        {/* 4-Column Trust Bar (Balanced & Compact on Mobile) */}
+        <div className="mt-8 sm:mt-12 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3.5 text-left">
+          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
+            <div className="flex items-center gap-1.5 mb-1">
+              <Box className="w-3.5 h-3.5 text-[#FFB900]" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
                 Low MOQ
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
               35–50 Pcs / Style
             </span>
-            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
               Flexible sizing &amp; colors
             </span>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <Clock className="w-3.5 h-3.5 text-slate-300" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
-                Sample Turnaround
+          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
+            <div className="flex items-center gap-1.5 mb-1">
+              <Clock className="w-3.5 h-3.5 text-[#FFB900]" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
+                Sampling
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
               5–7 Days
             </span>
-            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
               Rapid master prototype
             </span>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <ShieldCheck className="w-3.5 h-3.5 text-slate-300" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
-                Production Standard
+          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
+            <div className="flex items-center gap-1.5 mb-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#FFB900]" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
+                QC Standard
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
               AQL 2.5 Strict QC
             </span>
-            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
               100% pre-shipment audit
             </span>
           </div>
 
-          <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:bg-white/15 transition-all group">
-            <div className="flex items-center gap-1.5 mb-1.5">
-              <Globe2 className="w-3.5 h-3.5 text-slate-300" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-slate-300 font-semibold">
+          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
+            <div className="flex items-center gap-1.5 mb-1">
+              <Globe2 className="w-3.5 h-3.5 text-[#FFB900]" />
+              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
                 Global Export
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
               USA, UK &amp; Worldwide
             </span>
-            <span className="text-[11px] text-slate-300/80 block mt-0.5">
+            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
               DDP Air 3–5 Days &amp; Ocean
             </span>
           </div>
         </div>
 
-        {/* Video Play/Pause Control Pill (Only on desktop when video is active) */}
-        {!isMobile && (
-          <button
-            onClick={toggleVideo}
-            className="mt-6 sm:mt-8 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/40 hover:bg-black/60 border border-white/20 shadow-md backdrop-blur-xl text-[10px] font-mono uppercase text-white/80 transition-all cursor-pointer"
-            title={isPlaying ? "Pause background video" : "Play background video"}
-          >
-            <Film className="w-3 h-3 text-slate-300" />
-            <span>{isPlaying ? "Pause Video" : "Play Video"}</span>
-            {isPlaying ? (
-              <Pause className="w-2.5 h-2.5 text-slate-300" />
-            ) : (
-              <Play className="w-2.5 h-2.5 text-emerald-400 fill-current" />
-            )}
-          </button>
-        )}
+        {/* Video Play/Pause Control Button */}
+        <button
+          onClick={toggleVideo}
+          className="mt-4 sm:mt-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 hover:bg-black/70 border border-white/20 hover:border-[#FFB900]/60 shadow-sm backdrop-blur-md text-[10px] font-mono uppercase text-white/80 transition-all cursor-pointer"
+          title={isPlaying ? "Pause background video" : "Play background video"}
+        >
+          <Film className="w-3 h-3 text-[#FFB900]" />
+          <span>{isPlaying ? "Pause Video" : "Play Video"}</span>
+          {isPlaying ? (
+            <Pause className="w-2.5 h-2.5 text-white/80" />
+          ) : (
+            <Play className="w-2.5 h-2.5 text-[#FFB900] fill-current" />
+          )}
+        </button>
       </div>
 
       {/* Quote / RFQ Modal */}

@@ -105,24 +105,24 @@ function ToastContainer({
 function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void }) {
   const styles = {
     success: {
-      bg: "bg-white/95 border-emerald-500/30 text-slate-900 shadow-[0_10px_30px_rgba(16,185,129,0.15)]",
-      icon: <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />,
-      accentBar: "bg-emerald-500",
+      bg: "bg-white/95 border-neutral-300 text-slate-900 shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
+      icon: <CheckCircle2 className="w-5 h-5 text-neutral-900 shrink-0" />,
+      accentBar: "bg-[#FFB900]",
     },
     error: {
-      bg: "bg-white/95 border-rose-500/30 text-slate-900 shadow-[0_10px_30px_rgba(244,63,94,0.15)]",
-      icon: <AlertCircle className="w-5 h-5 text-rose-600 shrink-0" />,
-      accentBar: "bg-rose-500",
+      bg: "bg-white/95 border-neutral-300 text-slate-900 shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
+      icon: <AlertCircle className="w-5 h-5 text-neutral-900 shrink-0" />,
+      accentBar: "bg-neutral-900",
     },
     loading: {
-      bg: "bg-white/95 border-amber-500/30 text-slate-900 shadow-[0_10px_30px_rgba(245,158,11,0.15)]",
-      icon: <Loader2 className="w-5 h-5 text-amber-600 animate-spin shrink-0" />,
-      accentBar: "bg-amber-500",
+      bg: "bg-white/95 border-neutral-300 text-slate-900 shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
+      icon: <Loader2 className="w-5 h-5 text-neutral-900 animate-spin shrink-0" />,
+      accentBar: "bg-[#FFB900]",
     },
     info: {
-      bg: "bg-white/95 border-slate-300 text-slate-900 shadow-[0_10px_30px_rgba(15,23,42,0.1)]",
-      icon: <Info className="w-5 h-5 text-slate-700 shrink-0" />,
-      accentBar: "bg-slate-700",
+      bg: "bg-white/95 border-neutral-300 text-slate-900 shadow-[0_10px_30px_rgba(0,0,0,0.08)]",
+      icon: <Info className="w-5 h-5 text-neutral-900 shrink-0" />,
+      accentBar: "bg-[#FFB900]",
     },
   }[item.type];
 

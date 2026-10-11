@@ -23,19 +23,19 @@ export default function FactoryPhotoPlaceholder({
   const getIcon = () => {
     switch (iconType) {
       case "laser":
-        return <Scissors className="w-8 h-8 text-amber-400" />;
+        return <Scissors className="w-8 h-8 text-white" />;
       case "stitching":
-        return <Layers className="w-8 h-8 text-amber-400" />;
+        return <Layers className="w-8 h-8 text-white" />;
       case "sublimation":
-        return <Printer className="w-8 h-8 text-amber-400" />;
+        return <Printer className="w-8 h-8 text-white" />;
       case "embroidery":
-        return <Sparkles className="w-8 h-8 text-amber-400" />;
+        return <Sparkles className="w-8 h-8 text-white" />;
       case "printing":
-        return <Cpu className="w-8 h-8 text-amber-400" />;
+        return <Cpu className="w-8 h-8 text-white" />;
       case "qc":
-        return <CheckCircle2 className="w-8 h-8 text-emerald-400" />;
+        return <CheckCircle2 className="w-8 h-8 text-white" />;
       default:
-        return <Cpu className="w-8 h-8 text-amber-400" />;
+        return <Cpu className="w-8 h-8 text-white" />;
     }
   };
 
@@ -55,9 +55,6 @@ export default function FactoryPhotoPlaceholder({
         }}
       />
 
-      {/* Ambient Accent Radial Glow */}
-      <div className="absolute w-36 h-36 rounded-full bg-amber-500/10 blur-2xl pointer-events-none" />
-
       {/* Hidden crawlable alt tag element for SEO spiders */}
       <span className="sr-only">{alt}</span>
 
@@ -67,7 +64,7 @@ export default function FactoryPhotoPlaceholder({
           {getIcon()}
         </div>
 
-        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400 font-bold mb-1">
+        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-300 font-bold mb-1">
           {processName}
         </span>
 
@@ -86,8 +83,8 @@ export default function FactoryPhotoPlaceholder({
       </div>
 
       {/* Corner Status Badge */}
-      <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900/90 border border-slate-800 text-[9px] font-mono text-emerald-400">
-        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+      <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-slate-900/90 border border-slate-800 text-[9px] font-mono text-neutral-300">
+        <span className="w-1.5 h-1.5 rounded-full bg-neutral-300 animate-pulse" />
         <span>Sialkot Unit #1</span>
       </div>
     </div>

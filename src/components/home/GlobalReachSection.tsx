@@ -19,7 +19,7 @@ export default function GlobalReachSection() {
           {/* Left Column: Story & Metrics */}
           <div className="lg:col-span-6 space-y-6">
             <div>
-              <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+              <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
                 Worldwide Supply Chain &amp; Direct Export
               </span>
               <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.0] mb-6">
@@ -42,7 +42,7 @@ export default function GlobalReachSection() {
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-                <span className="text-2xl sm:text-3xl font-black text-amber-800 font-mono block mb-1">
+                <span className="text-2xl sm:text-3xl font-black text-[#1A1A1A] font-mono block mb-1">
                   3–5 Days
                 </span>
                 <span className="text-xs text-[#6B7280] font-medium">
@@ -58,7 +58,7 @@ export default function GlobalReachSection() {
                 </span>
               </div>
               <div className="p-4 rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-                <span className="text-2xl sm:text-3xl font-black text-amber-800 font-mono block mb-1">
+                <span className="text-2xl sm:text-3xl font-black text-[#1A1A1A] font-mono block mb-1">
                   100%
                 </span>
                 <span className="text-xs text-[#6B7280] font-medium">
@@ -71,7 +71,7 @@ export default function GlobalReachSection() {
             <div className="pt-2">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-[#1A1A1A] hover:bg-amber-600 text-white px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-sm transition-all"
+                className="inline-flex items-center gap-2 bg-[#1A1A1A] hover:bg-[#FFB900] text-white hover:text-black px-6 py-3 rounded-full font-extrabold text-xs uppercase tracking-wider shadow-sm transition-all"
               >
                 <span>Calculate Freight For Your Country</span>
                 <ArrowUpRight className="w-4 h-4" />

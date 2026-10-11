@@ -111,19 +111,19 @@ export default function TieredPricingTable({
       <div className="p-6 rounded-2xl bg-neutral-900 text-white border border-neutral-800 shadow-sm mb-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400 block mb-1">
+            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
               Confidential OEM Specification
             </span>
             <h3 className="text-base font-bold uppercase text-white">
               Bespoke Factory Quotation Available
             </h3>
             <p className="text-xs text-neutral-400 mt-1">
-              Pricing depends on exact leather grade, embroidery, and packaging requirements.
+              Pricing depends on exact fabric grade, printing, embroidery, and packaging requirements.
             </p>
           </div>
           <button
             onClick={() => onRequestQuote(moq)}
-            className="px-5 py-2.5 rounded-full bg-amber-500 hover:bg-amber-400 text-neutral-950 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+            className="px-5 py-2.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-[0_4px_16px_rgba(255,185,0,0.3)]"
           >
             Request Factory Quotation
           </button>
@@ -151,7 +151,7 @@ export default function TieredPricingTable({
                 onClick={() => setQuantity(tier.min_quantity)}
                 className={`cursor-pointer transition-all rounded-xl p-3 text-left ${
                   isSelected
-                    ? "bg-white border-2 border-neutral-900 shadow-xs ring-2 ring-amber-500/20"
+                    ? "bg-white border-2 border-neutral-900 shadow-xs ring-2 ring-[#FFB900]"
                     : "hover:bg-white/70 border border-transparent"
                 }`}
               >
@@ -169,8 +169,8 @@ export default function TieredPricingTable({
                   {tier.label && !tier.label.includes("Tier") ? tier.label : rangeLabel}
                 </div>
                 {isSelected && (
-                  <span className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-bold font-mono text-amber-700">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
+                  <span className="mt-1.5 inline-flex items-center gap-1 text-[10px] font-bold font-mono text-neutral-900">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900]" />
                     Selected Tier
                   </span>
                 )}
@@ -224,10 +224,10 @@ export default function TieredPricingTable({
             <button
               type="button"
               onClick={() => onRequestQuote(quantity, activeTier?.label)}
-              className="px-5 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-xs cursor-pointer flex items-center gap-1.5"
+              className="px-5 py-2.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center gap-1.5"
             >
               <span>Get Quote</span>
-              <ArrowRight className="w-3.5 h-3.5 text-amber-400" />
+              <ArrowRight className="w-3.5 h-3.5 text-black" />
             </button>
           </div>
         </div>
@@ -239,8 +239,8 @@ export default function TieredPricingTable({
           <h4 className="text-sm font-bold text-neutral-900">
             Supplier&apos;s customization ability
           </h4>
-          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-blue-600 bg-blue-50 px-2 py-0.5 rounded">
-            <ShieldCheck className="w-3.5 h-3.5" />
+          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-neutral-800 bg-neutral-100 border border-neutral-200 px-2 py-0.5 rounded">
+            <ShieldCheck className="w-3.5 h-3.5 text-neutral-900" />
             Verified
           </span>
         </div>
@@ -308,10 +308,10 @@ export default function TieredPricingTable({
       </div>
 
       {/* 4. Verified Supplier Profile Box (Matches bottom card in reference image) */}
-      <div className="p-5 rounded-2xl bg-neutral-50 border border-blue-100/80 shadow-2xs">
+      <div className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 shadow-2xs">
         <div className="flex items-start justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-neutral-950 text-amber-400 font-extrabold flex items-center justify-center text-sm shadow-xs">
+            <div className="w-10 h-10 rounded-xl bg-neutral-950 text-white font-extrabold flex items-center justify-center text-sm shadow-xs">
               GS
             </div>
             <div>
@@ -319,7 +319,7 @@ export default function TieredPricingTable({
                 <span className="font-bold text-sm text-neutral-950">
                   Gloves Storm Industrial Co., Ltd.
                 </span>
-                <span className="text-[10px] font-bold text-blue-700 bg-blue-100 px-1.5 py-0.2 rounded">
+                <span className="text-[10px] font-bold text-neutral-800 bg-neutral-200 px-1.5 py-0.5 rounded border border-neutral-300">
                   Verified
                 </span>
               </div>

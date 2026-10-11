@@ -101,7 +101,7 @@ export default function InteractiveRfqModal({
               <Sliders className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-emerald-600 font-bold block">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 font-bold block">
                 Direct Sialkot Factory Pricing
               </span>
               <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-slate-900">
@@ -121,7 +121,7 @@ export default function InteractiveRfqModal({
 
         {isSuccess ? (
           <div className="py-12 text-center flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-600 mb-4 animate-in zoom-in duration-300">
+            <div className="w-16 h-16 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/30 flex items-center justify-center text-black mb-4 animate-in zoom-in duration-300">
               <CheckCircle2 className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-bold text-slate-900 uppercase tracking-tight mb-2">
@@ -136,9 +136,9 @@ export default function InteractiveRfqModal({
                 href={`https://wa.me/923417146935?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-sm"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-400" />
+                <MessageSquare className="w-4 h-4 text-black" />
                 <span>Forward Spec Sheet via WhatsApp</span>
               </a>
 
@@ -170,7 +170,7 @@ export default function InteractiveRfqModal({
                 </div>
 
                 <div className="text-right">
-                  <span className="text-[10px] font-mono text-emerald-600 font-bold bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/80 inline-block mb-1">
+                  <span className="text-[10px] font-mono text-neutral-900 font-bold bg-neutral-100 px-2.5 py-1 rounded-full border border-neutral-200 inline-block mb-1">
                     {tierLabel}
                   </span>
                   <div className="text-xs font-mono text-slate-600">
@@ -360,26 +360,26 @@ export default function InteractiveRfqModal({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 py-3 px-6 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="flex-1 py-3 px-6 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 <span>{isSubmitting ? "Calculating & Submitting..." : "Submit Tech-Pack & Lock Factory Price"}</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-black" />
               </button>
 
               <a
                 href={`https://wa.me/923417146935?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3 px-5 rounded-full border border-emerald-600/30 bg-emerald-50 hover:bg-emerald-100 text-emerald-950 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                className="py-3 px-5 rounded-full border border-black bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-xs"
               >
-                <MessageSquare className="w-4 h-4 text-emerald-600" />
+                <MessageSquare className="w-4 h-4 text-white" />
                 <span>WhatsApp Quote</span>
               </a>
             </div>
 
             <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-slate-400 text-center">
               <span className="flex items-center gap-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
+                <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />
                 <span>NDA Protected</span>
               </span>
               <span>•</span>

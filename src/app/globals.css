@@ -1,38 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  /* ─── Ultra-Premium Technical Light Mode Canvas (Apple / Veilance) ─── */
-  --background: #F8FAFC;
-  --surface: #F1F5F9;
-  --foreground: #0F172A;
-  --foreground-muted: #334155;
-  --foreground-subtle: #64748B;
+  /* ─── Clean Minimal Black & White Light-Mode Theme ─── */
+  --background: #FFFFFF;
+  --surface: #FAFAFA;
+  --foreground: #0A0A0A;
+  --foreground-muted: #404040;
+  --foreground-subtle: #737373;
 
-  /* ─── Glass System ─── */
-  --card: rgba(255, 255, 255, 0.75);
-  --card-surface: rgba(255, 255, 255, 0.85);
+  /* ─── Pure Light-Mode Borders & Panels ─── */
+  --card: #FFFFFF;
+  --card-surface: #FAFAFA;
+  --border: #E5E5E5;
+  --border-subtle: #F0F0F0;
 
-  /* ─── Hairline Micro-Borders ─── */
-  --border: rgba(255, 255, 255, 0.90);
-  --border-subtle: rgba(15, 23, 42, 0.08);
+  /* ─── Interactive Accent Only (#FFB900) ─── */
+  --accent-gold: #FFB900;
+  --accent-gold-hover: #E5A700;
 
-  /* ─── Accent System ─── */
-  --accent-slate: #0F172A;
-  --accent-graphite: #334155;
-  --accent-emerald: #10B981;
-
-  /* ─── Refraction Shadows ─── */
-  --shadow-glass: 0 8px 30px rgba(0, 0, 0, 0.04);
-  --shadow-glass-hover: 0 16px 40px rgba(15, 23, 42, 0.08);
+  /* ─── Shadows ─── */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-surface: var(--surface);
   --color-foreground: var(--foreground);
-  --color-slate-obsidian: #0F172A;
-  --color-metallic-graphite: #334155;
-  --color-emerald-live: #10B981;
+  --color-accent-gold: #FFB900;
+  --color-accent-gold-hover: #E5A700;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -45,8 +41,8 @@ html {
 }
 
 body {
-  background-color: #F8FAFC;
-  color: #0F172A;
+  background-color: #FFFFFF;
+  color: #0A0A0A;
   font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
   max-width: 100vw;
@@ -54,15 +50,39 @@ body {
   min-height: 100vh;
 }
 
-/* Prevent any media breakout */
-img, video, canvas, svg {
+/* Prevent inline media breakout without breaking background covers */
+img:not(.hero-bg-media), canvas, svg {
   max-width: 100%;
   height: auto;
 }
 
-/* ─── Luxury Minimalist Selection ─── */
+video:not(.hero-bg-media) {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ─── Hero Background Media (Guaranteed 100% full-bleed coverage top-to-bottom on all viewports) ─── */
+.hero-bg-media {
+  position: absolute !important;
+  inset: 0 !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 100% !important;
+  min-height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  pointer-events: none !important;
+}
+
+/* ─── Minimalist Selection ─── */
 ::selection {
-  background-color: #0F172A;
+  background-color: #0A0A0A;
   color: #FFFFFF;
 }
 
@@ -73,47 +93,43 @@ img, video, canvas, svg {
 }
 
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: #FAFAFA;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #D4D4D4;
   border-radius: 99px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748B;
+  background: #737373;
 }
 
-/* ─── Hairline Micro-Border Glassmorphism ─── */
+/* ─── Clean Glassmorphic Panels ─── */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.90);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.90);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.90);
-  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
-  transform: translateY(-3px);
+  border-color: #0A0A0A;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 .glass-pill {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.90);
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 

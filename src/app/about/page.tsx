@@ -158,8 +158,8 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Hero */}
         <div className="max-w-4xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-4">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
             <span>ESTABLISHED 2019 • INTERNATIONAL OEM/ODM APPAREL &amp; SPORTSWEAR EXPORTER</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-[1.08] uppercase">
@@ -173,7 +173,7 @@ export default function AboutPage() {
         {/* Crawlable Key Facts Section */}
         <div className="mb-20">
           <div className="mb-8 pb-4 border-b border-slate-200">
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-1 font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] text-neutral-900 font-mono block mb-1 font-bold">
               Verified Entity Facts
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight uppercase">
@@ -187,10 +187,10 @@ export default function AboutPage() {
               return (
                 <div
                   key={fact.label}
-                  className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-amber-400/60 transition-all flex flex-col justify-between"
+                  className="p-5 sm:p-6 rounded-2xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-[#FFB900] transition-all flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center gap-2 text-amber-700 mb-2">
+                    <div className="flex items-center gap-2 text-neutral-900 mb-2">
                       <Icon className="w-4 h-4 shrink-0" />
                       <span className="text-[10px] font-mono uppercase tracking-wider font-semibold text-slate-500">
                         {fact.label}
@@ -221,7 +221,7 @@ export default function AboutPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-700 shadow-md text-white">
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-amber-400 font-bold block mb-1">
+              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white font-bold block mb-1">
                 Industrial Textile Heritage
               </span>
               <p className="text-xs text-slate-200 leading-relaxed font-normal">
@@ -231,7 +231,7 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs uppercase tracking-[0.2em] text-amber-800 font-mono block font-bold">
+            <span className="text-xs uppercase tracking-[0.2em] text-neutral-900 font-mono block font-bold">
               The Evolution of OEM
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight uppercase">
@@ -324,7 +324,7 @@ export default function AboutPage() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm shrink-0"
+            className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)] shrink-0"
           >
             <span>Request Factory Quote</span>
             <ArrowUpRight className="w-4 h-4" />

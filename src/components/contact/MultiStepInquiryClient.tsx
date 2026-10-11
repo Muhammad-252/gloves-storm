@@ -273,7 +273,7 @@ export default function MultiStepInquiryClient({
       {/* Step Indicator Header */}
       <div className="mb-8 sm:mb-10 text-center">
         <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 mb-3">
-          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#b45309] font-bold">
+          <span className="text-[11px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-black font-bold">
             Step 0{currentStep} of 08
           </span>
           <span className="text-neutral-400 text-xs font-mono">•</span>
@@ -292,7 +292,7 @@ export default function MultiStepInquiryClient({
         {/* Progress Bar Line */}
         <div className="w-full max-w-md mx-auto h-1.5 rounded-full bg-neutral-200 overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-amber-600 to-amber-400 transition-all duration-500"
+            className="h-full bg-[#FFB900] transition-all duration-500"
             style={{ width: `${(currentStep / 8) * 100}%` }}
           />
         </div>
@@ -321,7 +321,7 @@ export default function MultiStepInquiryClient({
                     type="button"
                     onClick={() => setSelectedCategory(cat.name)}
                     className={`p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between group ${isSelected
-                        ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
+                        ? "border-black bg-white ring-2 ring-[#FFB900]"
                         : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300 hover:bg-neutral-100/60"
                       }`}
                   >
@@ -338,7 +338,7 @@ export default function MultiStepInquiryClient({
                     <div className="mt-4 flex items-center justify-end">
                       <span
                         className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${isSelected
-                            ? "border-amber-600 bg-amber-600 text-white"
+                            ? "border-[#FFB900] bg-[#FFB900] text-black"
                             : "border-neutral-300 text-transparent"
                           }`}
                       >
@@ -370,7 +370,7 @@ export default function MultiStepInquiryClient({
               placeholder="Filter products by name or feature..."
               value={searchFilter}
               onChange={(e) => setSearchFilter(e.target.value)}
-              className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+              className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-h-[380px] overflow-y-auto pr-1">
@@ -388,7 +388,7 @@ export default function MultiStepInquiryClient({
                       type="button"
                       onClick={() => setSelectedProduct(prod.name)}
                       className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${isSelected
-                          ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
+                          ? "border-black bg-white ring-2 ring-[#FFB900]"
                           : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
                         }`}
                     >
@@ -402,7 +402,7 @@ export default function MultiStepInquiryClient({
                       </div>
                       <span
                         className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${isSelected
-                            ? "border-amber-600 bg-amber-600 text-white"
+                            ? "border-[#FFB900] bg-[#FFB900] text-black"
                             : "border-neutral-300"
                           }`}
                       >
@@ -417,12 +417,12 @@ export default function MultiStepInquiryClient({
                 type="button"
                 onClick={() => setSelectedProduct("Custom Bespoke Development (Original Design)")}
                 className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${selectedProduct.includes("Custom Bespoke")
-                    ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
+                    ? "border-black bg-white ring-2 ring-[#FFB900]"
                     : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
                   }`}
               >
                 <div>
-                  <span className="text-xs font-bold text-[#b45309] block mb-0.5">
+                  <span className="text-xs font-bold text-black block mb-0.5">
                     + Custom Prototype / New Cut
                   </span>
                   <span className="text-[10px] text-neutral-600">
@@ -431,7 +431,7 @@ export default function MultiStepInquiryClient({
                 </div>
                 <span
                   className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${selectedProduct.includes("Custom Bespoke")
-                      ? "border-amber-600 bg-amber-600 text-white"
+                      ? "border-[#FFB900] bg-[#FFB900] text-black"
                       : "border-neutral-300"
                     }`}
                 >
@@ -464,7 +464,7 @@ export default function MultiStepInquiryClient({
                   value={customSpecs.material}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, material: e.target.value })}
                   placeholder="e.g. 450 GSM French Terry, 280 GSM Recycled Nylon Spandex, Dry-Fit Poly"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -477,7 +477,7 @@ export default function MultiStepInquiryClient({
                   value={customSpecs.colors}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, colors: e.target.value })}
                   placeholder="e.g. Matte Black / Metallic Gold / White Trim"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -490,7 +490,7 @@ export default function MultiStepInquiryClient({
                   value={customSpecs.sizing}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, sizing: e.target.value })}
                   placeholder="e.g. S, M, L, XL, 2XL (Custom Size Curves)"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -503,7 +503,7 @@ export default function MultiStepInquiryClient({
                   value={customSpecs.branding}
                   onChange={(e) => setCustomSpecs({ ...customSpecs, branding: e.target.value })}
                   placeholder="e.g. 3D Puff Screen Print, Tajima Embroidery, Sublimation, Silicone Patch"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
             </div>
@@ -517,7 +517,7 @@ export default function MultiStepInquiryClient({
                 value={customSpecs.notes}
                 onChange={(e) => setCustomSpecs({ ...customSpecs, notes: e.target.value })}
                 placeholder="Include custom aglets, woven neck tags, bar-tacking, custom zip polybags, or unique technical requirements..."
-                className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20 resize-none"
+                className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40 resize-none"
               />
             </div>
           </div>
@@ -540,7 +540,7 @@ export default function MultiStepInquiryClient({
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
-              className="p-10 rounded-3xl border-2 border-dashed border-neutral-300 hover:border-amber-500 bg-neutral-50/60 text-center cursor-pointer transition-all hover:bg-neutral-100/60 group"
+              className="p-10 rounded-3xl border-2 border-dashed border-neutral-300 hover:border-[#FFB900] bg-neutral-50/60 text-center cursor-pointer transition-all hover:bg-neutral-100/60 group"
             >
               <input
                 ref={fileInputRef}
@@ -550,11 +550,11 @@ export default function MultiStepInquiryClient({
                 onChange={handleFileInput}
                 className="hidden"
               />
-              <div className="w-14 h-14 rounded-full bg-amber-50 border border-amber-500/20 text-[#b45309] mx-auto flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-14 h-14 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 mx-auto flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-[#FFB900] group-hover:text-[#FFB900] transition-all">
                 <Upload className="w-6 h-6" />
               </div>
               <h4 className="text-base font-bold uppercase text-[#0f172a] mb-1">
-                Drop your files here, or <span className="text-[#b45309] underline">Browse Files</span>
+                Drop your files here, or <span className="text-black underline group-hover:text-[#FFB900]">Browse Files</span>
               </h4>
               <p className="text-xs text-neutral-500">
                 Supports PDF, AI, PSD, SVG, PNG, JPG, or ZIP archives (Up to 50MB per file)
@@ -574,7 +574,7 @@ export default function MultiStepInquiryClient({
                       className="p-3 rounded-xl bg-neutral-50 border border-neutral-200 flex items-center justify-between text-xs"
                     >
                       <div className="flex items-center gap-2 truncate">
-                        <FileText className="w-4 h-4 text-[#b45309] shrink-0" />
+                        <FileText className="w-4 h-4 text-black shrink-0" />
                         <span className="text-[#0f172a] truncate font-medium">{file.name}</span>
                         <span className="text-[10px] font-mono text-neutral-500">({file.size})</span>
                       </div>
@@ -603,7 +603,7 @@ export default function MultiStepInquiryClient({
                 value={techPackLink}
                 onChange={(e) => setTechPackLink(e.target.value)}
                 placeholder="https://drive.google.com/..."
-                className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
               />
             </div>
           </div>
@@ -638,7 +638,7 @@ export default function MultiStepInquiryClient({
                         setNumericQuantity(q.val);
                       }}
                       className={`p-4 rounded-2xl border text-left transition-all ${isSelected
-                          ? "border-amber-600 bg-amber-50 ring-1 ring-amber-500/40"
+                          ? "border-black bg-white ring-2 ring-[#FFB900]"
                           : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
                         }`}
                     >
@@ -666,7 +666,7 @@ export default function MultiStepInquiryClient({
                       type="button"
                       onClick={() => setTimeline(t.label)}
                       className={`p-3 rounded-2xl border text-center transition-all ${isSelected
-                          ? "border-amber-600 bg-amber-50 font-bold text-[#b45309]"
+                          ? "border-black bg-white ring-2 ring-[#FFB900] font-bold text-black"
                           : "border-neutral-200 bg-neutral-50/60 text-neutral-600 hover:text-[#0f172a]"
                         }`}
                     >
@@ -703,7 +703,7 @@ export default function MultiStepInquiryClient({
                   value={brandInfo.brandName}
                   onChange={(e) => setBrandInfo({ ...brandInfo, brandName: e.target.value })}
                   placeholder="e.g. Apex Combat Club or Sterling Athletics"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -716,7 +716,7 @@ export default function MultiStepInquiryClient({
                   value={brandInfo.website}
                   onChange={(e) => setBrandInfo({ ...brandInfo, website: e.target.value })}
                   placeholder="https://yourbrand.com"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -729,7 +729,7 @@ export default function MultiStepInquiryClient({
                   value={brandInfo.instagram}
                   onChange={(e) => setBrandInfo({ ...brandInfo, instagram: e.target.value })}
                   placeholder="@yourbrand"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -740,7 +740,7 @@ export default function MultiStepInquiryClient({
                 <select
                   value={brandInfo.businessType}
                   onChange={(e) => setBrandInfo({ ...brandInfo, businessType: e.target.value })}
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] focus:outline-none focus:border-amber-600"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] focus:outline-none focus:border-[#FFB900]"
                 >
                   {BUSINESS_TYPES.map((b) => (
                     <option key={b} value={b} className="bg-white text-[#0f172a]">
@@ -760,7 +760,7 @@ export default function MultiStepInquiryClient({
                 value={brandInfo.brandStory}
                 onChange={(e) => setBrandInfo({ ...brandInfo, brandStory: e.target.value })}
                 placeholder="Share your aesthetic inspirations, competitive targets, or retail plans..."
-                className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20 resize-none"
+                className="w-full bg-white border border-neutral-300 rounded-2xl p-4 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40 resize-none"
               />
             </div>
           </div>
@@ -789,7 +789,7 @@ export default function MultiStepInquiryClient({
                   value={contactInfo.fullName}
                   onChange={(e) => setContactInfo({ ...contactInfo, fullName: e.target.value })}
                   placeholder="Alexander Sterling"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -803,7 +803,7 @@ export default function MultiStepInquiryClient({
                   value={contactInfo.email}
                   onChange={(e) => setContactInfo({ ...contactInfo, email: e.target.value })}
                   placeholder="alex@yourbrand.com"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -817,7 +817,7 @@ export default function MultiStepInquiryClient({
                   value={contactInfo.phone}
                   onChange={(e) => setContactInfo({ ...contactInfo, phone: e.target.value })}
                   placeholder="+1 (555) 234-5678"
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
 
@@ -831,7 +831,7 @@ export default function MultiStepInquiryClient({
                   value={contactInfo.country}
                   onChange={(e) => setContactInfo({ ...contactInfo, country: e.target.value })}
                   placeholder="United States, United Kingdom, Australia, UAE..."
-                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-amber-600 focus:ring-1 focus:ring-amber-500/20"
+                  className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] placeholder-neutral-400 focus:outline-none focus:border-[#FFB900] focus:ring-1 focus:ring-[#FFB900]/40"
                 />
               </div>
             </div>
@@ -856,7 +856,7 @@ export default function MultiStepInquiryClient({
               <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 relative">
                 <button
                   onClick={() => setCurrentStep(2)}
-                  className="absolute top-3 right-3 text-[10px] font-mono text-[#b45309] font-bold flex items-center gap-1 hover:underline"
+                  className="absolute top-3 right-3 text-[10px] font-mono text-neutral-900 font-bold flex items-center gap-1 hover:text-[#FFB900] hover:underline"
                 >
                   <Edit2 className="w-3 h-3" /> Edit
                 </button>
@@ -871,7 +871,7 @@ export default function MultiStepInquiryClient({
               <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 relative">
                 <button
                   onClick={() => setCurrentStep(3)}
-                  className="absolute top-3 right-3 text-[10px] font-mono text-[#b45309] font-bold flex items-center gap-1 hover:underline"
+                  className="absolute top-3 right-3 text-[10px] font-mono text-neutral-900 font-bold flex items-center gap-1 hover:text-[#FFB900] hover:underline"
                 >
                   <Edit2 className="w-3 h-3" /> Edit
                 </button>
@@ -893,7 +893,7 @@ export default function MultiStepInquiryClient({
               <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 relative">
                 <button
                   onClick={() => setCurrentStep(5)}
-                  className="absolute top-3 right-3 text-[10px] font-mono text-[#b45309] font-bold flex items-center gap-1 hover:underline"
+                  className="absolute top-3 right-3 text-[10px] font-mono text-neutral-900 font-bold flex items-center gap-1 hover:text-[#FFB900] hover:underline"
                 >
                   <Edit2 className="w-3 h-3" /> Edit
                 </button>
@@ -915,7 +915,7 @@ export default function MultiStepInquiryClient({
               <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 relative">
                 <button
                   onClick={() => setCurrentStep(7)}
-                  className="absolute top-3 right-3 text-[10px] font-mono text-[#b45309] font-bold flex items-center gap-1 hover:underline"
+                  className="absolute top-3 right-3 text-[10px] font-mono text-neutral-900 font-bold flex items-center gap-1 hover:text-[#FFB900] hover:underline"
                 >
                   <Edit2 className="w-3 h-3" /> Edit
                 </button>

@@ -153,10 +153,10 @@ export default function StaticMapFallback() {
           style={{ left: `${SIALKOT.x}%`, top: `${SIALKOT.y}%` }}
         >
           <span className="relative flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-amber-500 border-2 border-white shadow-lg shadow-amber-500/50" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" />
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-[#FFB900] border-2 border-white shadow-lg shadow-black/50" />
           </span>
-          <span className="mt-1 px-2 py-0.5 rounded-md bg-amber-500/90 text-slate-950 font-mono text-[9px] font-bold whitespace-nowrap shadow-md">
+          <span className="mt-1 px-2 py-0.5 rounded-md bg-black text-white font-mono text-[9px] font-bold whitespace-nowrap shadow-md">
             📍 Sialkot HQ (Origin)
           </span>
         </div>
@@ -175,14 +175,14 @@ export default function StaticMapFallback() {
               <span
                 className={`relative flex h-3.5 w-3.5 rounded-full border-2 transition-all ${
                   isSelected
-                    ? "bg-emerald-400 border-white shadow-lg shadow-emerald-400/80 scale-125"
-                    : "bg-slate-400 border-slate-700 group-hover:bg-amber-300"
+                    ? "bg-[#FFB900] border-white shadow-lg scale-125"
+                    : "bg-slate-400 border-slate-700 group-hover:bg-[#FFB900]"
                 }`}
               />
               <span
                 className={`mt-1 px-1.5 py-0.5 rounded font-mono text-[8px] sm:text-[9px] whitespace-nowrap transition-all ${
                   isSelected
-                    ? "bg-emerald-500 text-slate-950 font-bold shadow-md"
+                    ? "bg-[#FFB900] text-black font-extrabold shadow-md"
                     : "bg-slate-800/80 text-slate-300 opacity-80 group-hover:opacity-100"
                 }`}
               >
@@ -194,7 +194,7 @@ export default function StaticMapFallback() {
 
         {/* Top Floating Badge */}
         <div className="absolute top-3 left-4 z-10 flex items-center gap-2">
-          <span className="flex h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="flex h-2 w-2 rounded-full bg-white animate-pulse" />
           <span className="text-[10px] font-mono uppercase tracking-wider text-slate-300 font-semibold">
             Active Global Export Corridors
           </span>
@@ -215,7 +215,7 @@ export default function StaticMapFallback() {
               </p>
             </div>
           </div>
-          <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-600 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+          <span className="inline-flex items-center gap-1 text-[11px] font-bold text-neutral-900 bg-neutral-100 px-2.5 py-1 rounded-full border border-neutral-200">
             <CheckCircle2 className="w-3.5 h-3.5" />
             100% Insured DDP
           </span>
@@ -223,7 +223,7 @@ export default function StaticMapFallback() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-3">
           <div className="flex items-start gap-2.5">
-            <div className="p-1.5 rounded-lg bg-amber-50 text-amber-600 shrink-0">
+            <div className="p-1.5 rounded-lg bg-neutral-100 text-neutral-900 shrink-0">
               <Plane className="w-4 h-4" />
             </div>
             <div>
@@ -237,7 +237,7 @@ export default function StaticMapFallback() {
           </div>
 
           <div className="flex items-start gap-2.5">
-            <div className="p-1.5 rounded-lg bg-blue-50 text-blue-600 shrink-0">
+            <div className="p-1.5 rounded-lg bg-neutral-100 text-neutral-900 shrink-0">
               <Ship className="w-4 h-4" />
             </div>
             <div>
@@ -253,7 +253,7 @@ export default function StaticMapFallback() {
 
         <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
           <span className="inline-flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+            <ShieldCheck className="w-3.5 h-3.5 text-neutral-900" />
             {selectedDest.terms}
           </span>
           <span className="font-mono text-[10px] text-slate-400">

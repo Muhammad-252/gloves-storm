@@ -43,7 +43,7 @@ export default function HomeFaqSection() {
       <div className="max-w-4xl mx-auto px-6 sm:px-8">
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[11px] font-mono uppercase tracking-[0.2em] mb-3">
-            <HelpCircle className="w-3.5 h-3.5 text-amber-600" />
+            <HelpCircle className="w-3.5 h-3.5 text-neutral-800" />
             <span>OEM FREQUENTLY ASKED QUESTIONS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight uppercase">
@@ -89,10 +89,10 @@ export default function HomeFaqSection() {
           })}
         </div>
 
-        <div className="mt-10 p-5 rounded-2xl bg-amber-50/70 border border-amber-200/80 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-10 p-5 rounded-2xl bg-neutral-50 border border-neutral-200 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-2xs">
           <div className="flex items-center gap-3">
-            <MessageSquare className="w-5 h-5 text-amber-700 shrink-0" />
-            <span className="text-xs sm:text-sm font-medium text-amber-950">
+            <MessageSquare className="w-5 h-5 text-neutral-900 shrink-0" />
+            <span className="text-xs sm:text-sm font-medium text-neutral-900">
               Have a custom tech pack or specific question not covered here?
             </span>
           </div>
@@ -100,7 +100,7 @@ export default function HomeFaqSection() {
             href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I%20have%20a%20question%20about%20custom%20manufacturing."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-slate-900 text-white hover:bg-slate-800 text-xs font-bold uppercase tracking-wider whitespace-nowrap shrink-0 transition-all"
+            className="px-5 py-2.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold uppercase tracking-wider whitespace-nowrap shrink-0 transition-all shadow-xs"
           >
             Chat With Factory Team
           </a>

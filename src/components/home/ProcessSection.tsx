@@ -47,7 +47,7 @@ export default function ProcessSection() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+          <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
             Standard Operating Procedure
           </span>
           <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.0] mb-6">
@@ -64,16 +64,16 @@ export default function ProcessSection() {
           {steps.map((step) => (
             <div
               key={step.num}
-              className="group bg-white rounded-3xl border border-black/[0.08] hover:border-amber-500/50 p-6 sm:p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] transition-all duration-300 relative overflow-hidden"
+              className="group bg-white rounded-3xl border border-black/[0.08] hover:border-black/30 p-6 sm:p-8 flex flex-col justify-between hover:-translate-y-1.5 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] transition-all duration-300 relative overflow-hidden"
             >
               {/* Background Step Number Accent */}
-              <span className="absolute -top-4 -right-2 text-7xl font-black text-black/[0.03] group-hover:text-amber-500/[0.07] transition-colors pointer-events-none select-none">
+              <span className="absolute -top-4 -right-2 text-7xl font-black text-black/[0.03] group-hover:text-black/[0.06] transition-colors pointer-events-none select-none">
                 {step.num}
               </span>
 
               <div>
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="text-xs font-mono font-bold text-amber-900 bg-amber-50 px-3 py-1 rounded-full border border-amber-300/70">
+                  <span className="text-xs font-mono font-bold text-black bg-neutral-100 px-3 py-1 rounded-full border border-neutral-200">
                     Step {step.num}
                   </span>
                   <span className="text-[10px] uppercase tracking-[0.2em] text-[#9CA3AF] font-mono">
@@ -81,7 +81,7 @@ export default function ProcessSection() {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A] mb-3 group-hover:text-amber-800 transition-colors">
+                <h3 className="text-xl font-bold uppercase tracking-tight text-[#1A1A1A] mb-3 group-hover:text-black transition-colors">
                   {step.title}
                 </h3>
 
@@ -92,7 +92,7 @@ export default function ProcessSection() {
 
               <div className="mt-8 pt-4 border-t border-black/[0.06] flex items-center justify-between text-[11px] text-[#9CA3AF]">
                 <span>Phase {step.num} of 06</span>
-                <span className="w-2 h-2 rounded-full bg-amber-500 opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_6px_rgba(217,119,6,0.6)]" />
+                <span className="w-2 h-2 rounded-full bg-[#FFB900] opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_6px_rgba(255,185,0,0.6)]" />
               </div>
             </div>
           ))}

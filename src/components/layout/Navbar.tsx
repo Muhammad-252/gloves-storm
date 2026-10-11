@@ -286,7 +286,7 @@ export default function Navbar() {
                           >
                             <span className="text-2xl shrink-0 mt-0.5">🇺🇸</span>
                             <div className="flex flex-col">
-                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-amber-800 transition-colors uppercase tracking-tight">
+                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-[#FFB900] transition-colors uppercase tracking-tight">
                                 USA Manufacturing
                               </span>
                               <span className="text-[10px] text-slate-500 font-mono mt-0.5">
@@ -305,7 +305,7 @@ export default function Navbar() {
                           >
                             <span className="text-2xl shrink-0 mt-0.5">🇬🇧</span>
                             <div className="flex flex-col">
-                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-amber-800 transition-colors uppercase tracking-tight">
+                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-[#FFB900] transition-colors uppercase tracking-tight">
                                 UK Manufacturing
                               </span>
                               <span className="text-[10px] text-slate-500 font-mono mt-0.5">
@@ -342,10 +342,10 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setRfqModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
+              className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
             >
               <span>Request OEM Quote</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-white/80" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-black" />
             </button>
           </div>
 
@@ -354,10 +354,10 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setRfqModalOpen(true)}
-              className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-slate-900 text-white font-bold text-[11px] uppercase tracking-wider shadow-xs whitespace-nowrap"
+              className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-[#FFB900] text-black font-extrabold text-[11px] uppercase tracking-wider shadow-xs whitespace-nowrap active:scale-95"
             >
               <span>Quote</span>
-              <ArrowUpRight className="w-3 h-3 text-white/80" />
+              <ArrowUpRight className="w-3 h-3 text-black" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -429,13 +429,13 @@ export default function Navbar() {
                 className="w-full text-lg font-bold uppercase tracking-tight transition-colors flex items-center justify-between py-2 text-neutral-900"
               >
                 <span className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900]" />
                   Products ({categories.length} Divisions)
                 </span>
                 <ChevronDown
                   className={cn(
                     "w-4 h-4 text-neutral-500 transition-transform duration-200",
-                    mobileCategoriesExpanded ? "rotate-180 text-amber-600" : ""
+                    mobileCategoriesExpanded ? "rotate-180 text-black" : ""
                   )}
                 />
               </button>
@@ -445,7 +445,7 @@ export default function Navbar() {
                   <Link
                     href="/products"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="block text-xs font-bold uppercase tracking-wider text-amber-700 py-2 px-3 rounded-lg hover:bg-amber-50 border-b border-neutral-100 min-h-[40px] flex items-center"
+                    className="block text-xs font-bold uppercase tracking-wider text-black py-2 px-3 rounded-lg hover:bg-neutral-100 border-b border-neutral-100 min-h-[40px] flex items-center"
                   >
                     → Browse All Products Catalog
                   </Link>
@@ -455,11 +455,11 @@ export default function Navbar() {
                         key={cat.id}
                         href={`/products/${cat.slug}`}
                         onClick={() => setMobileMenuOpen(false)}
-                        className="text-xs font-medium text-neutral-700 hover:text-amber-800 py-2 px-3 rounded-lg hover:bg-neutral-50 flex items-center justify-between min-h-[38px] transition-colors"
+                        className="text-xs font-medium text-neutral-700 hover:text-black py-2 px-3 rounded-lg hover:bg-neutral-50 flex items-center justify-between min-h-[38px] transition-colors"
                       >
                         <span>{cat.name}</span>
                         {cat.menu_badge && (
-                          <span className="text-[9px] font-mono bg-amber-100 text-amber-800 px-2 py-0.5 rounded font-semibold">
+                          <span className="text-[9px] font-mono bg-black text-[#FFB900] px-2 py-0.5 rounded font-bold">
                             {cat.menu_badge}
                           </span>
                         )}
@@ -480,29 +480,29 @@ export default function Navbar() {
                   href="/manufacturers-usa"
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col gap-1 hover:border-slate-900 transition-colors",
-                    pathname.startsWith("/manufacturers-usa") && "border-slate-900 bg-amber-50/40"
+                    "p-3 rounded-xl bg-neutral-50 border border-neutral-200 flex flex-col gap-1 hover:border-black transition-colors",
+                    pathname.startsWith("/manufacturers-usa") && "border-black bg-neutral-100"
                   )}
                 >
-                  <div className="flex items-center gap-1.5 font-bold text-xs text-slate-900 uppercase">
+                  <div className="flex items-center gap-1.5 font-bold text-xs text-neutral-900 uppercase">
                     <span>🇺🇸</span>
                     <span>USA Brands</span>
                   </div>
-                  <span className="text-[10px] text-slate-500 font-mono">DDP Air · Low MOQ</span>
+                  <span className="text-[10px] text-neutral-500 font-mono">DDP Air · Low MOQ</span>
                 </Link>
                 <Link
                   href="/manufacturers-uk"
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex flex-col gap-1 hover:border-slate-900 transition-colors",
-                    pathname.startsWith("/manufacturers-uk") && "border-slate-900 bg-amber-50/40"
+                    "p-3 rounded-xl bg-neutral-50 border border-neutral-200 flex flex-col gap-1 hover:border-black transition-colors",
+                    pathname.startsWith("/manufacturers-uk") && "border-black bg-neutral-100"
                   )}
                 >
-                  <div className="flex items-center gap-1.5 font-bold text-xs text-slate-900 uppercase">
+                  <div className="flex items-center gap-1.5 font-bold text-xs text-neutral-900 uppercase">
                     <span>🇬🇧</span>
                     <span>UK Brands</span>
                   </div>
-                  <span className="text-[10px] text-slate-500 font-mono">CE/UKCA · GBP (£)</span>
+                  <span className="text-[10px] text-neutral-500 font-mono">CE/UKCA · GBP (£)</span>
                 </Link>
               </div>
             </div>
@@ -519,17 +519,17 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
                       "text-lg font-bold uppercase tracking-tight transition-colors flex items-center justify-between py-2.5 border-b border-neutral-100",
-                      isActive ? "text-amber-700" : "text-neutral-900 hover:text-amber-700"
+                      isActive ? "text-black" : "text-neutral-700 hover:text-black"
                     )}
                   >
                     <span className="flex items-center gap-2">
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-amber-600" />}
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900]" />}
                       {link.name}
                     </span>
                     <ArrowUpRight
                       className={cn(
                         "w-4 h-4",
-                        isActive ? "text-amber-700" : "opacity-40 text-neutral-400"
+                        isActive ? "text-[#FFB900]" : "opacity-40 text-neutral-400"
                       )}
                     />
                   </Link>
@@ -551,7 +551,7 @@ export default function Navbar() {
             </GooeyButton>
             <div className="flex items-center justify-between text-xs text-neutral-500 pt-1 font-mono">
               <span className="flex items-center gap-1.5">
-                <Shield className="w-3.5 h-3.5 text-amber-700" /> Sialkot Verified OEM
+                <Shield className="w-3.5 h-3.5 text-[#FFB900]" /> Sialkot Verified OEM
               </span>
               <span>Direct Export</span>
             </div>

@@ -21,16 +21,13 @@ export default function InquirySuccessScreen({
   onReset,
 }: InquirySuccessScreenProps) {
   return (
-    <div className="max-w-3xl mx-auto p-8 sm:p-14 rounded-3xl bg-white border border-amber-500/40 shadow-xl text-center animate-in fade-in zoom-in-95 duration-500 relative overflow-hidden">
-      {/* Background Ambient Gold Halo */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none" />
-
+    <div className="max-w-3xl mx-auto p-8 sm:p-14 rounded-3xl bg-white border border-neutral-200 shadow-xl text-center animate-in fade-in zoom-in-95 duration-500 relative overflow-hidden">
       {/* Success Badge */}
-      <div className="w-16 h-16 rounded-full bg-amber-50 border border-amber-500/30 text-[#b45309] mx-auto flex items-center justify-center mb-6 shadow-sm">
+      <div className="w-16 h-16 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 mx-auto flex items-center justify-center mb-6 shadow-sm">
         <CheckCircle2 className="w-8 h-8" />
       </div>
 
-      <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#b45309] block mb-2">
+      <span className="text-xs font-mono uppercase tracking-[0.25em] text-neutral-900 font-bold block mb-2">
         Project Dossier Transmitted
       </span>
 
@@ -39,7 +36,7 @@ export default function InquirySuccessScreen({
       </h2>
 
       <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto mb-8">
-        Thank you, <strong className="text-[#0f172a]">{customerName}</strong>. We have securely received your manufacturing specifications for <span className="text-[#b45309] font-bold">{productName}</span>. A confirmation has been logged to our Sialkot production team.
+        Thank you, <strong className="text-[#0f172a]">{customerName}</strong>. We have securely received your manufacturing specifications for <span className="text-black font-bold">{productName}</span>. A confirmation has been logged to our Sialkot production team.
       </p>
 
       {/* Project ID Box */}
@@ -59,7 +56,7 @@ export default function InquirySuccessScreen({
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-6 h-6 rounded-full bg-amber-100 text-[#b45309] text-xs font-bold flex items-center justify-center font-mono">
+              <span className="w-6 h-6 rounded-full bg-black text-white text-xs font-bold flex items-center justify-center font-mono">
                 01
               </span>
               <span className="text-xs font-bold text-[#0f172a] uppercase">Technical Review</span>
@@ -71,7 +68,7 @@ export default function InquirySuccessScreen({
 
           <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-6 h-6 rounded-full bg-amber-100 text-[#b45309] text-xs font-bold flex items-center justify-center font-mono">
+              <span className="w-6 h-6 rounded-full bg-black text-white text-xs font-bold flex items-center justify-center font-mono">
                 02
               </span>
               <span className="text-xs font-bold text-[#0f172a] uppercase">Formal Quotation</span>
@@ -83,7 +80,7 @@ export default function InquirySuccessScreen({
 
           <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200">
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-6 h-6 rounded-full bg-amber-100 text-[#b45309] text-xs font-bold flex items-center justify-center font-mono">
+              <span className="w-6 h-6 rounded-full bg-black text-white text-xs font-bold flex items-center justify-center font-mono">
                 03
               </span>
               <span className="text-xs font-bold text-[#0f172a] uppercase">Sample Run</span>
@@ -121,7 +118,7 @@ export default function InquirySuccessScreen({
 
       {/* NDA Notice */}
       <div className="mt-8 pt-6 border-t border-neutral-200 flex items-center justify-center gap-2 text-xs text-neutral-500">
-        <ShieldCheck className="w-4 h-4 text-[#b45309]" />
+        <ShieldCheck className="w-4 h-4 text-neutral-900" />
         <span>Strict Non-Disclosure Agreement (NDA) privacy binding all uploaded assets.</span>
       </div>
     </div>

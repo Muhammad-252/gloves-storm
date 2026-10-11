@@ -53,8 +53,8 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b border-black/[0.07] gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-pink-500 animate-pulse" />
-              <span className="text-xs uppercase tracking-[0.25em] text-pink-700 font-mono font-bold">
+              <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
+              <span className="text-xs uppercase tracking-[0.25em] text-neutral-800 font-mono font-bold">
                 Follow @glovesstorm on Instagram
               </span>
             </div>
@@ -84,7 +84,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
               <Link
                 key={drop.id}
                 href="/previous-work"
-                className="group bg-white rounded-3xl border border-black/[0.08] hover:border-pink-500/40 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
+                className="group bg-white rounded-3xl border border-black/[0.08] hover:border-black/30 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
               >
                 {/* Media banner */}
                 <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-900">
@@ -106,11 +106,11 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
                   <div className="absolute top-4 right-4 flex items-center gap-1.5">
                     {isReel && (
                       <span className="bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-[10px] font-mono flex items-center gap-1 border border-white/20">
-                        <Play className="w-2.5 h-2.5 fill-current text-amber-400" />
+                        <Play className="w-2.5 h-2.5 fill-current text-white" />
                         <span>{drop.views}</span>
                       </span>
                     )}
-                    <span className="w-7 h-7 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-pink-600 shadow-sm border border-white/40">
+                    <span className="w-7 h-7 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-black shadow-sm border border-white/40">
                       <InstagramIcon className="w-3.5 h-3.5" />
                     </span>
                   </div>
@@ -134,7 +134,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
                 {/* Body Content */}
                 <div className="p-6 flex flex-col flex-1 justify-between">
                   <div>
-                    <h3 className="text-lg font-bold uppercase tracking-tight text-[#1A1A1A] mb-2 group-hover:text-amber-800 transition-colors line-clamp-2">
+                    <h3 className="text-lg font-bold uppercase tracking-tight text-[#1A1A1A] mb-2 group-hover:text-black transition-colors line-clamp-2">
                       {drop.title}
                     </h3>
                     <p className="text-xs text-[#6B7280] leading-relaxed line-clamp-2 mb-4">
@@ -144,11 +144,11 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
 
                   <div className="border-t border-black/[0.06] pt-4 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-mono">
-                      <Heart className="w-3.5 h-3.5 fill-red-500/20 text-red-500" />
+                      <Heart className="w-3.5 h-3.5 text-neutral-400" />
                       <span>{drop.likes} likes</span>
                     </div>
 
-                    <span className="text-xs font-bold uppercase tracking-wider text-amber-800 group-hover:text-[#1A1A1A] transition-colors inline-flex items-center gap-1">
+                    <span className="text-xs font-bold uppercase tracking-wider text-black group-hover:text-[#FFB900] transition-colors inline-flex items-center gap-1">
                       <span>Inspect On Reel</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>

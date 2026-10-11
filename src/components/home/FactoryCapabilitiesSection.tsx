@@ -75,7 +75,7 @@ export default function FactoryCapabilitiesSection() {
         {/* Section Header with Rewritten SEO Title & Subtitle */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-black/[0.07] gap-6">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
               In-House Industrial Infrastructure
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05]">
@@ -100,7 +100,7 @@ export default function FactoryCapabilitiesSection() {
           {capabilities.map((cap) => (
             <div
               key={cap.title}
-              className="group bg-[#F9FAFB] rounded-3xl border border-black/[0.08] hover:border-amber-500/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
+              className="group bg-[#F9FAFB] rounded-3xl border border-black/[0.08] hover:border-black/30 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden transition-all duration-300"
             >
               {/* Factory photo placeholder */}
               <div className="relative h-60 w-full overflow-hidden bg-neutral-900 p-2">
@@ -114,7 +114,7 @@ export default function FactoryCapabilitiesSection() {
 
               <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
                 <div>
-                  <h3 className="text-lg font-bold text-[#1A1A1A] mb-2 tracking-tight group-hover:text-amber-800 transition-colors">
+                  <h3 className="text-lg font-bold text-[#1A1A1A] mb-2 tracking-tight group-hover:text-black transition-colors">
                     {cap.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -128,7 +128,7 @@ export default function FactoryCapabilitiesSection() {
                   </span>
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 hover:text-amber-700 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs font-bold text-slate-900 hover:text-[#FFB900] transition-colors"
                   >
                     <span>Quality Standards</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

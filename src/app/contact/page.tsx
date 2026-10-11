@@ -95,8 +95,8 @@ export default async function ContactPage() {
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Page Banner */}
         <div className="max-w-3xl mb-12 pb-6 border-b border-slate-200/80">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
             <span>DIRECT FACTORY COMMUNICATION &amp; RFQ STUDIO</span>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-4">
@@ -207,7 +207,7 @@ export default async function ContactPage() {
                   href="https://wa.me/923417146935"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/90 border border-slate-200/80 hover:border-emerald-600 hover:text-emerald-600 flex items-center justify-center text-slate-600 transition-all shadow-2xs"
+                  className="w-8 h-8 rounded-full bg-white/90 border border-slate-200/80 hover:border-black hover:text-black flex items-center justify-center text-slate-600 transition-all shadow-2xs"
                   aria-label="WhatsApp"
                 >
                   <MessageSquare className="w-4 h-4" />
@@ -217,10 +217,10 @@ export default async function ContactPage() {
           </div>
 
           {/* Direct WhatsApp Box */}
-          <div className="p-6 bg-white/80 backdrop-blur-md border border-white/90 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between">
+          <div className="p-6 bg-white/80 backdrop-blur-md border border-neutral-200 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)] flex flex-col justify-between">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-800 text-[10px] font-mono font-bold mb-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 text-[10px] font-mono font-bold mb-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
                 <span>Instant Chat Available</span>
               </div>
               <h4 className="text-base font-bold tracking-tight text-slate-900 mb-2">
@@ -234,17 +234,17 @@ export default async function ContactPage() {
               href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all"
+              className="w-full py-3 px-4 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all"
             >
-              <MessageSquare className="w-4 h-4 text-emerald-400" />
+              <MessageSquare className="w-4 h-4 text-black" />
               <span>OPEN WHATSAPP CHAT</span>
             </a>
           </div>
 
           {/* NDA & Guarantee */}
-          <div className="p-6 bg-white/75 backdrop-blur-md border border-white/90 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <div className="p-6 bg-white/75 backdrop-blur-md border border-neutral-200 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase tracking-wider mb-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-600" />
+              <ShieldCheck className="w-4 h-4 text-neutral-900" />
               <span>NDA Protected Production</span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed mb-4">

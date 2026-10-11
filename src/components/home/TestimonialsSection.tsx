@@ -88,14 +88,14 @@ export default function TestimonialsSection() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-mono uppercase tracking-[0.2em] mb-4 shadow-xs">
-            <Globe className="w-3.5 h-3.5 text-amber-400" />
+            <Globe className="w-3.5 h-3.5 text-white" />
             <span>GLOBAL B2B EXPORT NETWORK</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.1]">
             TRUSTED BY BRANDS WORLDWIDE
           </h2>
           <p className="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-            Gloves Storm manufactures custom combat sports equipment and performance apparel for independent labels, professional academies, and wholesale distributors across 6 primary international territories.
+            Gloves Storm manufactures custom sportswear, athletic team uniforms, gym fitness wear, and private label streetwear collections for independent labels, professional academies, and wholesale distributors across 6 primary international territories.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function TestimonialsSection() {
           {regions.map((reg) => (
             <div
               key={reg.country}
-              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-amber-400/60 hover:shadow-md transition-all group"
+              className="p-6 rounded-2xl bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-black/30 hover:shadow-md transition-all group"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2.5">
@@ -141,8 +141,8 @@ export default function TestimonialsSection() {
                   key={stat.value}
                   className={`pt-4 lg:pt-0 ${idx !== 0 ? "lg:pl-6" : ""}`}
                 >
-                  <div className="flex items-center gap-2 mb-2 text-amber-400">
-                    <Icon className="w-4 h-4 shrink-0" />
+                  <div className="flex items-center gap-2 mb-2 text-white">
+                    <Icon className="w-4 h-4 shrink-0 text-[#FFB900]" />
                     <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
                       VERIFIED FACT
                     </span>
@@ -163,12 +163,12 @@ export default function TestimonialsSection() {
 
           <div className="mt-6 pt-5 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-white shrink-0" />
               <span>
                 Confidential OEM manufacturing contracts with NDAs standard on all private label orders.
               </span>
             </div>
-            <span className="font-mono text-[11px] text-amber-400/90 font-semibold uppercase tracking-wider">
+            <span className="font-mono text-[11px] text-slate-300 font-semibold uppercase tracking-wider">
               Sialkot Industrial Zone · Direct Factory Access
             </span>
           </div>

@@ -47,7 +47,7 @@ export default function ProductExplorerSection({
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-black/[0.07]">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-amber-800 font-mono block mb-2 font-bold">
+            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
               Featured Lineup
             </span>
             <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
@@ -65,10 +65,10 @@ export default function ProductExplorerSection({
           <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none w-full lg:w-auto">
             <button
               onClick={() => setSelectedCategory("all")}
-              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${
                 selectedCategory === "all"
-                  ? "bg-[#1A1A1A] text-white border-[#1A1A1A] shadow-sm"
-                  : "bg-[#F9FAFB] text-[#4B4B4B] border-black/[0.08] hover:border-black/[0.2] hover:text-[#1A1A1A]"
+                  ? "bg-[#FFB900] text-black border-[#FFB900] shadow-xs"
+                  : "bg-neutral-100 text-neutral-700 border-neutral-200 hover:border-black/30 hover:text-black"
               }`}
             >
               All Products
@@ -77,10 +77,10 @@ export default function ProductExplorerSection({
               <button
                 key={cat.id}
                 onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-extrabold uppercase tracking-wider whitespace-nowrap transition-all border shrink-0 ${
                   selectedCategory === cat.id
-                    ? "bg-[#1A1A1A] text-white border-[#1A1A1A] shadow-sm"
-                    : "bg-[#F9FAFB] text-[#4B4B4B] border-black/[0.08] hover:border-black/[0.2] hover:text-[#1A1A1A]"
+                    ? "bg-[#FFB900] text-black border-[#FFB900] shadow-xs"
+                    : "bg-neutral-100 text-neutral-700 border-neutral-200 hover:border-black/30 hover:text-black"
                 }`}
               >
                 {cat.name}
@@ -96,7 +96,7 @@ export default function ProductExplorerSection({
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search products or materials..."
-              className="w-full bg-[#F9FAFB] border border-black/[0.09] rounded-full focus:border-amber-600 focus:bg-white text-[#1A1A1A] pl-11 pr-4 py-2.5 text-xs outline-none shadow-sm transition-all"
+              className="w-full bg-[#F9FAFB] border border-black/[0.09] rounded-full focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 focus:bg-white text-[#1A1A1A] pl-11 pr-4 py-2.5 text-xs outline-none shadow-sm transition-all"
             />
           </div>
         </div>
@@ -110,7 +110,7 @@ export default function ProductExplorerSection({
                 setSelectedCategory("all");
                 setSearchQuery("");
               }}
-              className="text-xs uppercase tracking-wider text-amber-800 font-bold underline cursor-pointer"
+              className="text-xs uppercase tracking-wider text-black hover:text-[#FFB900] font-bold underline cursor-pointer"
             >
               Reset Filters
             </button>
@@ -134,7 +134,7 @@ export default function ProductExplorerSection({
                 return (
                   <div
                     key={product.id}
-                    className="group relative bg-white/70 backdrop-blur-xl border border-white/85 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(217,119,6,0.10)] hover:border-amber-400/50 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-3 sm:p-3.5 flex flex-col justify-between"
+                    className="group relative bg-white border border-neutral-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.03)] hover:shadow-lg hover:border-black/30 hover:-translate-y-1 transition-all duration-300 rounded-3xl p-3 sm:p-3.5 flex flex-col justify-between"
                   >
                     {/* Image Container with Hover Cross-Fade */}
                     <Link
@@ -159,13 +159,13 @@ export default function ProductExplorerSection({
                       )}
 
                       {/* Frosted Glass MOQ Badge */}
-                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 bg-white/85 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-white/80 text-[10px] font-mono text-[#111827] font-semibold shadow-xs">
-                        <Box className="w-2.5 h-2.5 text-amber-700" />
+                      <div className="absolute top-2.5 left-2.5 z-10 flex items-center gap-1 bg-white/90 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-neutral-200 text-[10px] font-mono text-[#111827] font-semibold shadow-xs">
+                        <Box className="w-2.5 h-2.5 text-black" />
                         <span>MOQ: {product.moq}</span>
                       </div>
 
                       {product.featured && (
-                        <div className="absolute top-2.5 right-2.5 z-10 bg-amber-500 text-neutral-950 px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
+                        <div className="absolute top-2.5 right-2.5 z-10 bg-black text-white px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
                           Featured
                         </div>
                       )}
@@ -175,7 +175,7 @@ export default function ProductExplorerSection({
                     <div className="mb-3 px-1">
                       <Link
                         href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                        className="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-amber-800 transition-colors line-clamp-1 block"
+                        className="text-xs sm:text-sm font-bold text-[#111827] group-hover:text-black transition-colors line-clamp-1 block"
                         title={product.name}
                       >
                         {product.name}
@@ -186,10 +186,10 @@ export default function ProductExplorerSection({
                     <div className="grid grid-cols-2 gap-2 pt-1 border-t border-black/[0.05]">
                       <Link
                         href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                        className="py-2 px-2.5 rounded-xl bg-white/80 hover:bg-white border border-black/[0.08] hover:border-black/[0.2] text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827] flex items-center justify-center gap-1 transition-all"
+                        className="py-2 px-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827] flex items-center justify-center gap-1 transition-all"
                       >
                         <span>Specs</span>
-                        <ArrowUpRight className="w-3 h-3" />
+                        <ArrowUpRight className="w-3 h-3 text-neutral-600" />
                       </Link>
 
                       <button
@@ -200,7 +200,7 @@ export default function ProductExplorerSection({
                             category: categoryObj?.name || "General",
                           })
                         }
-                        className="py-2 px-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-neutral-950 font-bold text-[10px] sm:text-[11px] font-mono uppercase tracking-wider shadow-xs hover:shadow-sm transition-all flex items-center justify-center gap-1 cursor-pointer"
+                        className="py-2 px-2.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-[10px] sm:text-[11px] font-mono uppercase tracking-wider shadow-xs hover:shadow-sm transition-all flex items-center justify-center gap-1 cursor-pointer"
                       >
                         Quote
                       </button>
@@ -214,7 +214,7 @@ export default function ProductExplorerSection({
             <div className="text-center pt-6 px-4">
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#1A1A1A] hover:bg-amber-600 text-white font-bold text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 max-w-full text-center"
+                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 max-w-full text-center"
               >
                 <span>EXPLORE ALL 90 PRODUCTS IN CATALOG</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />

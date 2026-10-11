@@ -148,11 +148,11 @@ export default function JacketMakerProductCard({
 
         {/* 3. Star Ratings & Review Count */}
         <div className="flex items-center gap-1.5 mb-1 px-1">
-          <div className="flex items-center text-amber-500">
+          <div className="flex items-center text-[#FFB900]">
             {[...Array(5)].map((_, i) => (
               <Star
                 key={i}
-                className="w-3 h-3 fill-amber-400 text-amber-400"
+                className="w-3 h-3 fill-[#FFB900] text-[#FFB900]"
               />
             ))}
           </div>
@@ -168,7 +168,7 @@ export default function JacketMakerProductCard({
         <div className="px-1 mb-2">
           <Link
             href={`/products/${categorySlug}/${product.slug}`}
-            className="text-sm font-bold text-neutral-950 group-hover:text-neutral-700 transition-colors line-clamp-1 block leading-snug"
+            className="text-sm font-bold text-neutral-950 group-hover:text-[#FFB900] transition-colors line-clamp-1 block leading-snug"
           >
             {product.name}
           </Link>
@@ -185,7 +185,7 @@ export default function JacketMakerProductCard({
           <span className="text-xs text-neutral-400 line-through font-mono">
             ${msrpPrice.toFixed(0)}.00
           </span>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded font-semibold ml-auto">
+          <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-700 bg-neutral-100 border border-neutral-200 px-1.5 py-0.5 rounded font-semibold ml-auto">
             Factory Direct
           </span>
         </div>
@@ -195,14 +195,14 @@ export default function JacketMakerProductCard({
       <div className="grid grid-cols-2 gap-2 pt-2.5 border-t border-neutral-100 mt-auto">
         <Link
           href={`/products/${categorySlug}/${product.slug}`}
-          className="py-2 px-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-800 text-xs font-semibold flex items-center justify-center gap-1 transition-colors text-center"
+          className="py-2 px-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-semibold flex items-center justify-center gap-1 transition-colors text-center border border-neutral-200 hover:border-[#FFB900]"
         >
           <span>Specs</span>
         </Link>
         <button
           type="button"
           onClick={() => onInquire(product)}
-          className="py-2 px-2.5 rounded-xl bg-neutral-950 hover:bg-neutral-800 text-white text-xs font-semibold flex items-center justify-center gap-1 transition-colors cursor-pointer shadow-xs text-center"
+          className="py-2 px-2.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs text-center"
         >
           <span>Get Quote</span>
         </button>

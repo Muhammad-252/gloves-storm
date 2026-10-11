@@ -74,8 +74,8 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-6 sm:px-8">
         {/* Header */}
         <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-white/90 text-slate-800 text-[11px] font-mono uppercase tracking-wider mb-4 shadow-2xs">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono uppercase tracking-wider mb-4 shadow-2xs">
+            <ShieldCheck className="w-3.5 h-3.5 text-neutral-900" />
             <span>Industrial Confidentiality &amp; Security Standard</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-slate-900 mb-4">
@@ -119,19 +119,19 @@ export default function PrivacyPolicyPage() {
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pl-2">
               <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle className="w-4 h-4 text-neutral-900 shrink-0" />
                 <span>Contact details (Name, Corporate Email, Phone/WhatsApp)</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle className="w-4 h-4 text-neutral-900 shrink-0" />
                 <span>Company information and country of destination</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle className="w-4 h-4 text-neutral-900 shrink-0" />
                 <span>Production specs (Quantities, Materials, Delivery targets)</span>
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                <CheckCircle className="w-4 h-4 text-neutral-900 shrink-0" />
                 <span>Design attachments &amp; Tech packs (.pdf, .ai, .png, etc.)</span>
               </li>
             </ul>
