@@ -38,7 +38,11 @@ interface CategoryLandingClientProps {
 export const CATEGORY_INTEL: Record<
   string,
   {
+    h1: string;
+    metaTitle: string;
+    metaDescription: string;
     heroSubtitle: string;
+    intro: string;
     capabilities: { title: string; desc: string; icon: string }[];
     customizationHighlights: string[];
     faqs: { q: string; a: string }[];
@@ -47,275 +51,253 @@ export const CATEGORY_INTEL: Record<
     standardMoq: string;
   }
 > = {
-  "boxing-equipment": {
-    heroSubtitle: "Handcrafted Combat Equipment • Sialkot OEM Facility",
+  "sportswear-teamwear": {
+    h1: "Custom Sportswear & Team Uniforms Manufacturer",
+    metaTitle: "Custom Sportswear & Team Uniforms Manufacturer — Low MOQ, Full Sublimation | Gloves Storm",
+    metaDescription: "Custom sportswear, team jerseys, football uniforms and sports kits manufacturer. Full sublimation print, custom branding, MOQ from 30 pcs. Ships to USA and UK. 7-day samples. Free quote.",
+    heroSubtitle: "Direct Sialkot Factory • Custom Team Uniforms & Sublimation Sportswear",
+    intro: "Gloves Storm is a leading custom sportswear manufacturer and OEM supplier based in Sialkot, Pakistan. We engineer custom team uniforms, sublimation jerseys, football uniforms, basketball kits, soccer jerseys, and athletic training wear for sports brands, collegiate athletic departments, clubs, and distributors across the USA, UK, and worldwide. Enjoy low MOQ from 30 pieces, precision CAD grading, Italian dye sublimation, and rapid 5–7 day physical sampling.",
     capabilities: [
       {
-        title: "Grade-A Cowhide & Technical Microfiber",
-        desc: "Sourced from premier certified tanneries with uniform 1.1-1.2mm thickness, ensuring superior tear strength and tensile endurance.",
-        icon: "shield",
-      },
-      {
-        title: "Multi-Layer Handcrafted Foam Sandwich",
-        desc: "Calibrated 5-layer EVA, natural open-cell latex, and under-knuckle orthopedic sponges engineered for maximum kinetic shock attenuation.",
+        title: "Italian HD Digital Dye Sublimation",
+        desc: "Sublimation jersey manufacturer printing with non-fading Italian inks that bond molecularly with technical poly-spandex fibers for zero cracking or peeling.",
         icon: "layers",
       },
-      {
-        title: "Anatomical Hand & Wrist Stabilization",
-        desc: "Rigid ergonomic thumb-locks and dual-density wrist channels prevent hyperextension during high-velocity impacts.",
-        icon: "scissors",
-      },
-      {
-        title: "Double-Welted Master Seam Stitching",
-        desc: "Heavy-gauge bonded nylon threads with reinforced bar-tacks withstand daily championship training regimens.",
-        icon: "check",
-      },
-    ],
-    customizationHighlights: [
-      "Custom leather debossing & metallic foil stamping",
-      "High-definition 3D embroidery on wrist cuffs & thumb",
-      "Tailored ounce calibrations (8oz, 10oz, 12oz, 14oz, 16oz, 18oz)",
-      "Custom printed water-repellent satin silk lining",
-      "Lace-up pro competition or hook-and-loop velcro closures",
-      "Custom rigid luxury presentation boxes & breathable mesh bags",
-    ],
-    faqs: [
-      {
-        q: "What is the minimum order quantity (MOQ) for custom boxing gloves?",
-        a: "Our standard starting MOQ is 50 pairs per design/colorway across standard ounce weights. For multi-item gym kits or mixed collections, we offer flexible low-MOQ programs.",
-      },
-      {
-        q: "How fast can I receive a physical prototype sample?",
-        a: "Master physical samples are handcrafted and dispatched via express courier (DHL/FedEx) within 5 to 7 business days following tech pack and artwork sign-off.",
-      },
-      {
-        q: "Can GLOVES STORM match our exact brand Pantone colors on leather?",
-        a: "Yes. We offer custom leather vat dyeing matched directly to your specified Pantone TCX or TPX color standards.",
-      },
-      {
-        q: "Do you supply complete boxing equipment sets for fight promotions and gyms?",
-        a: "Yes, we produce matched collections including competition gloves, sparring gloves, MMA fight gloves, headguards, groin protectors, coach focus pads, and heavy punching bags.",
-      },
-    ],
-    sampleLeadTime: "5-7 Days",
-    productionLeadTime: "3-4 Weeks",
-    standardMoq: "50 Pairs",
-  },
-  "sportswear-teamwear": {
-    heroSubtitle: "High-Performance Athletic Apparel • Digital Sublimation & Cut-and-Sew",
-    capabilities: [
       {
         title: "Moisture-Wicking Technical Poly-Spandex",
-        desc: "Hydrophilic micro-mesh and interlock textiles engineered to pull perspiration rapidly away from the skin during intense match play.",
+        desc: "Hydrophilic micro-mesh, interlock, and birds-eye textiles engineered for maximum breathability during competitive match play.",
         icon: "shield",
       },
       {
-        title: "High-Definition Italian Dye Sublimation",
-        desc: "Sublimation printing using premium non-fading Italian inks that bond molecularly with textile fibers for zero peeling or cracking.",
-        icon: "layers",
-      },
-      {
-        title: "Non-Chafing Flatlock & 4-Needle Seams",
-        desc: "Ultra-flat seam architecture engineered to minimize friction against athletes' skin under continuous motion.",
+        title: "Reinforced Flatlock & 4-Needle Seams",
+        desc: "Heavy-duty non-chafing seam architecture engineered to withstand high-tensile athletic friction and physical contact.",
         icon: "scissors",
       },
       {
-        title: "Graded Team Sizing Blocks (Youth to 5XL)",
-        desc: "Precision CAD patterns tailored for competitive sports leagues, athletic clubs, and university athletic departments.",
+        title: "Full Team Grading & Custom Roster Numbering",
+        desc: "Youth to 5XL sizing blocks with individual player names, numbers, team logos, and sponsor graphics printed at no extra charge.",
         icon: "check",
       },
     ],
     customizationHighlights: [
-      "All-over dynamic digital dye sublimation",
-      "Tackle-twill, flocking, and high-density 3D silicone crests",
-      "Individual player names, roster numbers, and sponsor placements",
-      "Custom ribbed collars, arm cuffs, and ventilation mesh side panels",
-      "Elasticated drawcord waistbands with non-slip silicone interior grips",
-      "Branded team packaging, barcode stickers, and heat-seal inner size tags",
+      "Custom football uniforms, basketball jerseys & soccer kits",
+      "American football uniforms with reinforced shoulder & chest yokes",
+      "All-over Italian digital dye sublimation printing",
+      "3D high-density silicone club crests & tackle twill embroidery",
+      "Custom team tracksuits, warm-up jackets & training bibs",
+      "Custom branded neck labels, barcode swing tags & team polybags",
     ],
     faqs: [
       {
-        q: "Can we submit our own team roster with individual names and numbers?",
-        a: "Yes. Once your primary jersey design is approved, you simply submit your roster spreadsheet. We render and print each athlete's custom name and number at no extra per-name charge.",
+        q: "What is the minimum order quantity (MOQ) for custom team uniforms and sportswear?",
+        a: "Our standard starting MOQ is just 30 kits or jerseys per style and colorway. We offer flexible low MOQ programs for small brands, startup clubs, and mixed roster collections across standard size ranges from Youth to 5XL.",
       },
       {
-        q: "What sports do you produce uniforms and kits for?",
-        a: "We manufacture match kits and warm-up apparel for Basketball, American Football, Soccer/Football, Baseball, Rugby, Volleyball, Cricket, and Track & Field.",
+        q: "How fast can I receive a prototype sample of custom sublimation jerseys?",
+        a: "Master physical pre-production samples are completed and couriered via DHL Express or FedEx within 5 to 7 business days following tech pack and artwork sign-off.",
       },
       {
-        q: "What is your sample lead time for custom team kits?",
-        a: "Printed prototype samples are completed and couriered within 4 to 6 business days.",
+        q: "Can you manufacture American football, basketball, and baseball uniforms?",
+        a: "Yes. As an experienced OEM sportswear manufacturer, we specialize in American football uniforms with heavy-gauge dazzle fabrics, reversible basketball jerseys, full-button baseball uniforms, soccer match kits, and custom team tracksuits.",
       },
       {
-        q: "Can you reproduce discontinued historic or vintage team designs?",
-        a: "Yes. Our digital design studio can replicate vintage jersey patterns, retro knits, and heritage color palettes with photographic accuracy.",
+        q: "Do you offer individual player names and roster numbers on custom jerseys?",
+        a: "Yes. Once your primary jersey design is approved, you provide your roster spreadsheet. We print each athlete's custom surname and roster number directly into the dye sublimation layout at zero additional per-name fee.",
+      },
+      {
+        q: "How does shipping and customs clearance work for USA and UK sports brands?",
+        a: "We provide turnkey DDP (Delivered Duty Paid) shipping to the USA and UK. We handle all export paperwork in Pakistan, air freight (3–5 days), customs clearance, and import duties directly to your doorstep with no surprise fees.",
       },
     ],
-    sampleLeadTime: "4-6 Days",
-    productionLeadTime: "2-3 Weeks",
+    sampleLeadTime: "5–7 Days",
+    productionLeadTime: "2–3 Weeks",
     standardMoq: "30 Kits",
   },
   "gym-fitness-wear": {
-    heroSubtitle: "Seamless Activewear & High-Gauge Compression • Engineered for Movement",
+    h1: "Custom Gym Wear & Private Label Activewear Manufacturer",
+    metaTitle: "Custom Gym Wear & Private Label Activewear Manufacturer — MOQ 30 Pcs | Gloves Storm",
+    metaDescription: "Private label gym wear, custom leggings, sports bras and activewear manufacturer. 4-way stretch nylon-spandex fabrics. MOQ 30 pcs. Your branding on every piece. Ships to USA and UK. Free quote.",
+    heroSubtitle: "Sialkot OEM Factory • 4-Way Stretch Activewear & Seamless Fitness Apparel",
+    intro: "Gloves Storm is a specialized private label activewear manufacturer and custom gym wear supplier located in Sialkot, Pakistan. We manufacture custom leggings, sports bras, compression wear, workout shorts, gym hoodies, and yoga wear for high-growth fitness brands across the USA, UK, and Europe. Milled with premium 4-way stretch nylon-spandex and squat-proof moisture-wicking knits. Starting MOQ from 30 pieces with full turnkey private labeling.",
     capabilities: [
       {
-        title: "Santoni Seamless Circular Knitting",
-        desc: "Precision tubular knitting creating second-skin leggings and tops with engineered body-mapped compression and zero side seams.",
+        title: "Squat-Proof 4-Way Stretch Nylon-Spandex",
+        desc: "High-gauge interwoven compression textiles tested extensively under directional studio lighting for zero opacity drop under maximum athletic flexion.",
         icon: "shield",
       },
       {
-        title: "Squat-Proof High-Gauge Nylon-Elastane",
-        desc: "Interwoven 4-way stretch fabrics tested extensively for zero opacity drop under maximum athletic flexion.",
+        title: "Santoni Seamless & Circular Knitting",
+        desc: "Precision tubular body-mapped compression creating second-skin leggings and tops with engineered contour shading and zero side seams.",
         icon: "layers",
       },
       {
-        title: "Antimicrobial & Thermo-Regulating Finishes",
-        desc: "Silver-ion odor protection and breathable micro-porous textures designed to sustain high-intensity training sessions.",
+        title: "Laser-Cut Hems & Flatlock Seaming",
+        desc: "Ultrasonic bonded edges and non-chafing flatlock stitching designed to eliminate friction during high-intensity workouts and yoga sessions.",
         icon: "scissors",
       },
       {
-        title: "Laser-Cut & Ultrasonic Bonded Hems",
-        desc: "Clean, frictionless bonded finishes that maintain structural elasticity wash after wash.",
+        title: "Antimicrobial & Silver-Ion Moisture Wicking",
+        desc: "Hydrophilic treatments and odor-resistant silver-ion finishes that pull sweat away from skin and maintain freshness through repeated washing.",
         icon: "check",
       },
     ],
     customizationHighlights: [
-      "3D high-density silicone and reflective transfer logos",
-      "Custom jacquard elastic waistbands and under-bust bands",
-      "Removable perforated bra cups and customized strap configurations",
-      "Custom scrunch butt and contour shading knit patterns",
-      "Scratch-free heat-sealed inner care and size labels",
-      "Custom branded frosted zip-slider polybags & hang tags",
+      "Custom leggings with high-waist tummy control & scrunch butt details",
+      "Supportive sports bras with removable perforated cups & custom straps",
+      "Men's athletic gym shorts with built-in compression liner & zip pockets",
+      "3D high-density silicone transfer logos & reflective safety branding",
+      "Custom jacquard woven elastic waistbands with brand typography",
+      "Scratch-free heat-seal inner care labels & branded frosted slider bags",
     ],
     faqs: [
       {
-        q: "Are your gym leggings and bike shorts 100% squat-proof?",
-        a: "Yes. All our activewear knits undergo rigorous stretch-opacity testing under directional studio lighting to ensure complete opacity at maximum stretch.",
+        q: "What is the minimum order quantity (MOQ) for custom gym wear and private label activewear?",
+        a: "Our starting MOQ is 30 pieces per style/colorway for cut-and-sew activewear, and 50 to 100 pieces for custom seamless knit collections. This low threshold enables startup fitness brands and studios to launch custom collections without excessive inventory risk.",
       },
       {
-        q: "Can we create custom seamless knit textures with our brand logo woven in?",
-        a: "Yes. We program our computerized Santoni seamless machines to weave your patterns, ribbing, and logos directly into the structural knit.",
+        q: "Are your custom gym leggings and bike shorts 100% squat-proof?",
+        a: "Yes, absolutely. All our gym wear fabrics undergo rigorous tensile elongation and opacity testing under direct studio lighting to guarantee 100% squat-proof opacity at maximum flexion.",
       },
       {
-        q: "What is the typical MOQ for custom gym and fitness apparel?",
-        a: "For cut-and-sew activewear, our MOQ is 50 pieces per style/color. For custom seamless knit garments, starting MOQ is typically 100 pieces per colorway.",
+        q: "What private label branding options do you offer for custom fitness apparel?",
+        a: "We offer turnkey private label branding: custom 3D silicone heat-seal logos, reflective print transfers, jacquard woven elastic bands, custom hang tags, barcode stickers, and frosted zip-slider polybags.",
       },
       {
-        q: "Do you offer private-label branding services?",
-        a: "Yes. We offer complete turnkey private label solutions: custom heat-seal neck labels, woven tags, hang tags, barcode labels, and retail packaging.",
+        q: "Can you manufacture compression wear and athletic workout clothes from our tech packs?",
+        a: "Yes. We build directly from your digital CAD tech packs, measurement charts, or physical reference samples. Our master pattern makers create graded size specifications from XS to 3XL.",
+      },
+      {
+        q: "What is the timeline for gym wear sampling and bulk production?",
+        a: "Physical master samples are completed and couriered within 5 to 7 business days. Bulk production takes approximately 3 to 4 weeks, with fast 3 to 5 day DDP air courier delivery to USA and UK addresses.",
       },
     ],
-    sampleLeadTime: "5-7 Days",
-    productionLeadTime: "3-4 Weeks",
-    standardMoq: "50 Pieces",
+    sampleLeadTime: "5–7 Days",
+    productionLeadTime: "3–4 Weeks",
+    standardMoq: "30 Pieces",
   },
   "clothing-streetwear": {
-    heroSubtitle: "Heavyweight 450+ GSM French Terry & Luxury Blanks • Cut & Sew Manufacturing",
+    h1: "Custom Streetwear & Private Label Clothing Manufacturer",
+    metaTitle: "Custom Streetwear & Private Label Clothing Manufacturer — Hoodies, Tees & Joggers | Gloves Storm",
+    metaDescription: "Custom streetwear, private label hoodies, tees, joggers and jackets manufacturer. Heavyweight 380–420 GSM fabrics. Embroidery, puff print, sublimation. MOQ 30 pcs. Ships to USA and UK. Free quote.",
+    heroSubtitle: "Heavyweight 400+ GSM French Terry • Cut-and-Sew Streetwear Manufacturing",
+    intro: "Gloves Storm is a dedicated custom streetwear manufacturer and private label clothing factory in Sialkot, Pakistan. We craft heavyweight hoodies (380–500 GSM), luxury blank t-shirts (240–280 GSM), custom fleece joggers, cargo pants, varsity jackets, and bomber jackets for independent streetwear labels across the USA, UK, and worldwide. Master decoration techniques including 3D puff print, Tajima direct embroidery, vintage acid washes, and bespoke cut-and-sew silhouettes.",
     capabilities: [
       {
-        title: "Custom-Milled 450-500 GSM French Terry",
-        desc: "100% combed organic loopback cotton milled to proprietary weights, providing architectural silhouettes that hold their shape.",
+        title: "Custom-Milled 400–500 GSM French Terry",
+        desc: "Heavyweight 100% combed organic cotton loopback French Terry milled to proprietary densities, giving hoodies structured architectural drape and longevity.",
         icon: "shield",
       },
       {
-        title: "Heavyweight 240-280 GSM Jersey",
-        desc: "Dense, pre-shrunk single jersey with heavy 1.25-inch double-ribbed collars that do not stretch out with wear.",
+        title: "Heavyweight 240–280 GSM Combed Jersey",
+        desc: "Ultra-dense, pre-shrunk single jersey with heavy 1.25-inch double-needle ribbed collars that maintain elasticity without stretching out.",
         icon: "layers",
       },
       {
-        title: "Specialty Vintage Enzyme & Pigment Washes",
-        desc: "Mineral washes, sun-fade treatments, and organic enzyme washes engineered for a genuine vintage drape and luxury hand-feel.",
+        title: "Vintage Acid, Mineral & Enzyme Washes",
+        desc: "Specialty wash laboratory producing sun-fade treatments, vintage enzyme distressing, and pigment dye washes for an authentic streetwear hand-feel.",
         icon: "scissors",
       },
       {
-        title: "Boxy & Dropped-Shoulder Silhouettes",
-        desc: "Contemporary oversized streetwear blocks drafted and graded to perfection by our in-house pattern masters.",
+        title: "Boxy Oversized & Dropped-Shoulder Pattern CAD",
+        desc: "Contemporary streetwear silhouettes drafted and graded with millimeter precision: boxy crops, relaxed drop-shoulders, and tapered jogger cuffs.",
         icon: "check",
       },
     ],
     customizationHighlights: [
-      "High-density 3D puff silicone & cracked distressed screen printing",
-      "Chenille patch & multi-color computerized direct embroidery",
-      "Custom antique silver or matte black heavy-duty metal zippers",
-      "Custom engraved metal drawcord aglets and eyelets",
-      "High-density woven damask neck labels and tyvek side seam tabs",
-      "Heavyweight biodegradable retail mailers and custom dust bags",
+      "High-density 3D puff screen printing & cracked distressed vintage inks",
+      "Tajima multi-needle direct embroidery & chenille varsity patches",
+      "Custom Melton wool and genuine leather sleeve varsity jackets",
+      "Custom engraved metal aglets, branded eyelets & heavy-duty YKK zippers",
+      "High-density woven damask neck tags & tyvek side seam labels",
+      "Heavyweight biodegradable matte retail mailers & branded dust bags",
     ],
     faqs: [
       {
-        q: "Can we supply our own custom tech pack or garment measurements?",
-        a: "Yes. We build exactly to your measurement charts and tech packs. If you only have reference physical samples or photos, our pattern makers can draft the complete digital CAD patterns for you.",
+        q: "What fabric weights and GSM options do you offer for custom streetwear hoodies?",
+        a: "We offer custom-milled loopback French Terry and brushed fleece in 380 GSM, 420 GSM, 460 GSM, and ultra-heavyweight 500 GSM. Every roll is tension-relaxed for 24 hours to ensure post-wash shrinkage is under 2%.",
       },
       {
-        q: "How do you prevent shrinkage on heavyweight cotton hoodies and tees?",
-        a: "Every fabric roll is tension-relaxed for 24 hours and undergoes pre-shrinkage and enzyme washing before laser cutting, ensuring post-wash dimensional stability below 2%.",
+        q: "What printing and embroidery techniques do you offer on custom streetwear?",
+        a: "We provide 3D puff screen printing, discharge vintage screen printing, direct-to-film (DTF), Tajima direct embroidery, chenille chain-stitch patches, and custom rhinestone applications.",
       },
       {
-        q: "What is your MOQ for custom streetwear collections?",
-        a: "Our standard starting MOQ is 50 pieces per style/colorway across standard size ranges (XS to 3XL).",
+        q: "What is the minimum order quantity (MOQ) for custom streetwear and hoodies?",
+        a: "Our starting MOQ is 30 to 50 pieces per style/colorway across standard size ranges (XS to 3XL). This allows streetwear startups to drop limited capsules and test colorways without holding thousands of units.",
       },
       {
-        q: "Can we customize metal zipper pulls and drawcord tips with our logo?",
-        a: "Yes. We cast and engrave custom metal alloy zipper pullers, branded aglets, and grommets in silver, brass, gunmetal, or matte black finishes.",
+        q: "Can you manufacture custom varsity jackets with real leather sleeves?",
+        a: "Yes. We produce varsity jackets with 24oz Melton wool bodies, premium top-grain cowhide leather sleeves, diamond-quilted satin linings, and multi-layer chenille embroidery.",
+      },
+      {
+        q: "Can we provide our own custom streetwear measurement charts or tech packs?",
+        a: "Yes. We build exactly to your measurement charts and tech packs. If you only have physical reference samples or mockup sketches, our in-house pattern engineers will draft full digital CAD grading for you.",
       },
     ],
-    sampleLeadTime: "5-7 Days",
-    productionLeadTime: "3-4 Weeks",
-    standardMoq: "50 Pieces",
+    sampleLeadTime: "5–7 Days",
+    productionLeadTime: "3–4 Weeks",
+    standardMoq: "30 Pieces",
   },
   "custom-manufacturing-private-label": {
-    heroSubtitle: "Full-Package OEM/ODM Production • Prototyping to Retail Packaging",
+    h1: "OEM & Private Label Clothing Manufacturer",
+    metaTitle: "Custom OEM & Private Label Clothing Manufacturer — Low MOQ, Full Branding | Gloves Storm",
+    metaDescription: "Full-service OEM and private label clothing manufacturer based in Sialkot, Pakistan. Custom sportswear, activewear, streetwear. MOQ from 30 pcs, 7-day sampling, DDP shipping to USA and UK. Free tech pack review.",
+    heroSubtitle: "Full-Package Apparel OEM/ODM • Sialkot Pakistan Direct Factory Facility",
+    intro: "Gloves Storm is a full-service OEM and private label clothing manufacturer operating direct production facilities in Sialkot, Pakistan. We serve as the trusted backend manufacturing partner for independent apparel brands, athletic clubs, corporate clients, and fashion labels across the USA, UK, Canada, and Europe. From digital tech pack CAD drafting and low MOQ sampling to mass cut-and-sew production, custom private label trims, and insured DDP doorstep delivery.",
     capabilities: [
       {
-        title: "Comprehensive Tech Pack Prototyping",
-        desc: "Complete digital CAD pattern drafting, seam allowance grading, and material sourcing validation.",
+        title: "Complete Tech Pack Prototyping & CAD Grading",
+        desc: "Digital pattern drafting, grading from XS to 5XL, seam allowance validation, and precise fabric consumption optimization before cutting.",
         icon: "shield",
       },
       {
-        title: "Certified Tannery & Mill Partnerships",
-        desc: "Direct integration with REACH and OEKO-TEX certified leather tanneries and textile knitting mills.",
+        title: "Certified Mill Sourcing & Technical Knits",
+        desc: "Direct integration with OEKO-TEX Standard 100 certified knitting mills and sustainable organic cotton, poly-spandex, and fleece suppliers.",
         icon: "layers",
       },
       {
-        title: "Multi-Point Inline Quality Audits",
-        desc: "AQL 2.5 quality control standards covering fabric inspection, tensile stitch tests, and dimensional verification.",
+        title: "Strict Inline AQL 2.5 Quality Assurance",
+        desc: "Multi-point quality control audits covering raw material inspection, tensile seam tests, dimensional tolerance checks, and pre-shipment sign-off.",
         icon: "scissors",
       },
       {
-        title: "DDP Global Logistics & Customs Clearance",
-        desc: "Seamless door-to-door freight to the USA, UK, Canada, and Europe with zero hidden import fees.",
+        title: "Turnkey DDP Global Freight Logistics",
+        desc: "Door-to-door insured air courier (3–5 days) and ocean container shipping to USA, UK, and European ports with all customs clearance handled.",
         icon: "check",
       },
     ],
     customizationHighlights: [
-      "Custom woven damask, printed satin, and heat-seal neck labels",
-      "Laser-engraved buttons, branded snaps, and custom zipper pulls",
-      "Debossed leather patches, metal badges, and silicone tags",
-      "FSC-certified paper hang tags with custom string and safety pins",
-      "Custom branded frosted zip-slider bags with air-release holes",
-      "Full export master cartons with custom shipping marks and barcodes",
+      "Turnkey private labeling: woven damask labels, satin care tags & hang tags",
+      "Custom hardware: laser-engraved metal buttons, snaps & branded zipper pulls",
+      "Full-package apparel manufacturing covering sportswear, activewear & streetwear",
+      "Bilateral Non-Disclosure Agreements (NDAs) to protect proprietary designs",
+      "Custom retail packaging: frosted slider bags, custom printed boxes & barcode tags",
+      "Fulfillment prep ready for Amazon FBA and retail distribution centers",
     ],
     faqs: [
       {
-        q: "What is the difference between OEM and Private Label manufacturing?",
-        a: "Private label means we manufacture products entirely with your brand identity. The finished products bear exclusively your logos, custom neck tags, labels, and packaging. GLOVES STORM acts as your confidential backend factory.",
+        q: "What is the difference between OEM, ODM, and Private Label clothing manufacturing?",
+        a: "OEM (Original Equipment Manufacturing) means we build strictly to your custom designs and tech packs. ODM means you choose from our pre-developed catalog and apply your branding. Private Label means every finished piece carries solely your brand labels, custom neck tags, care labels, and packaging — Gloves Storm operates as your invisible backend factory.",
       },
       {
-        q: "Can I order a mixed collection of products under one production run?",
-        a: "Yes. Many of our brand partners produce coordinated drops combining combat equipment, performance activewear, and lifestyle streetwear in one shipment.",
+        q: "What is your minimum order quantity (MOQ) for custom private label apparel?",
+        a: "Our starting MOQ is 30 to 50 pieces per style/colorway across standard size ranges. This allows startup brands and athletic programs to test new collections with low upfront capital.",
       },
       {
-        q: "Do you sign non-disclosure agreements (NDAs) before reviewing designs?",
-        a: "Absolutely. We routinely sign bilateral NDAs before receiving tech packs, CAD designs, or proprietary specifications.",
+        q: "Do you sign Non-Disclosure Agreements (NDAs) before reviewing tech packs?",
+        a: "Yes, absolutely. We routinely execute bilateral NDAs with our clients before reviewing proprietary designs, tech packs, CAD sketches, or artwork files.",
       },
       {
-        q: "How do payments and sample approvals work?",
-        a: "Sample fees are paid upfront and are credited back toward your bulk order. Bulk production requires a standard 50% deposit upon sample approval and 50% upon final QC inspection prior to dispatch.",
+        q: "How does the sampling and order process work?",
+        a: "Step 1: Submit your tech pack or design sketch for an instant manufacturing quotation. Step 2: We craft a physical pre-production sample in 5 to 7 business days. Step 3: Upon sample approval, bulk production begins (2–3 weeks). Step 4: Final QC audit and DDP doorstep delivery.",
+      },
+      {
+        q: "Do you handle international customs clearance and shipping to the USA and UK?",
+        a: "Yes. With our DDP (Delivered Duty Paid) shipping service, Gloves Storm handles export documentation in Pakistan, US Customs / HMRC UK entry, payment of applicable import duties, and final delivery directly to your facility or Amazon FBA warehouse.",
       },
     ],
-    sampleLeadTime: "5-7 Days",
-    productionLeadTime: "3-4 Weeks",
-    standardMoq: "Flexible / 50 Units",
+    sampleLeadTime: "5–7 Days",
+    productionLeadTime: "2–3 Weeks",
+    standardMoq: "30 Pieces",
   },
 };
 
@@ -326,7 +308,7 @@ export default function CategoryLandingClient({
   relatedProjects = [],
 }: CategoryLandingClientProps) {
   const intel =
-    CATEGORY_INTEL[category.slug] || CATEGORY_INTEL["boxing-equipment"];
+    CATEGORY_INTEL[category.slug] || CATEGORY_INTEL["sportswear-teamwear"];
 
   const [quoteModalData, setQuoteModalData] = useState<{
     isOpen: boolean;
@@ -386,12 +368,13 @@ export default function CategoryLandingClient({
           </div>
 
           <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-4 leading-[1.08]">
-            Custom {category.name}
+            {intel.h1 || `Custom ${category.name}`}
           </h1>
 
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed mb-6 font-normal">
-            {category.description ||
-              `Direct Sialkot OEM factory manufacturing for ${category.name}. Precision-engineered for combat athletes, performance sports teams, and private-label apparel brands worldwide.`}
+            {intel.intro ||
+              category.description ||
+              `Direct Sialkot OEM factory manufacturing for ${category.name}. Precision-engineered for performance sports teams, fitness labels, and private-label apparel brands worldwide.`}
           </p>
 
           {/* Key Manufacturing Metrics */}

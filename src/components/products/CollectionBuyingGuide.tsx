@@ -18,7 +18,7 @@ export default function CollectionBuyingGuide({
 }: CollectionBuyingGuideProps) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
-  const categoryName = category?.name || "Custom Apparel & Combat Equipment";
+  const categoryName = category?.name || "Custom Apparel & Sportswear";
 
   const defaultFaqs = faqs.length > 0 ? faqs : [
     {
@@ -159,15 +159,17 @@ export default function CollectionBuyingGuide({
             Explore Sister Production Categories:
           </span>
           <div className="flex flex-wrap gap-2.5">
-            {categories.map((cat) => (
-              <Link
-                key={cat.id}
-                href={`/products/${cat.slug}`}
-                className="px-4 py-2 rounded-full bg-white border border-neutral-200 hover:border-neutral-900 text-xs font-semibold text-neutral-800 hover:text-neutral-950 transition-colors shadow-2xs"
-              >
-                Custom {cat.name}
-              </Link>
-            ))}
+            {categories
+              .filter((c) => !["boxing-equipment", "swimwear-beachwear"].includes(c.slug))
+              .map((cat) => (
+                <Link
+                  key={cat.id}
+                  href={`/products/${cat.slug}`}
+                  className="px-4 py-2 rounded-full bg-white border border-neutral-200 hover:border-neutral-900 text-xs font-semibold text-neutral-800 hover:text-neutral-950 transition-colors shadow-2xs"
+                >
+                  Custom {cat.name}
+                </Link>
+              ))}
             <Link
               href="/manufacturers-usa"
               className="px-4 py-2 rounded-full bg-neutral-100 border border-neutral-200 hover:border-neutral-900 text-xs font-semibold text-neutral-800 hover:text-neutral-950 transition-colors"

@@ -3,34 +3,34 @@ import { ShieldCheck, Lock, FileText, CheckCircle, Mail, MapPin, ArrowUpRight } 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy & Data Protection Policy | GLOVES STORM",
+  title: "Privacy & Data Protection Policy | Gloves Storm",
   description:
-    "GLOVES STORM privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+    "Gloves Storm privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
   alternates: {
-    canonical: "https://glovesstorm.com/privacy",
+    canonical: "https://www.glovesstorm.com/privacy",
   },
   openGraph: {
-    title: "Privacy & Data Protection Policy | GLOVES STORM",
+    title: "Privacy & Data Protection Policy | Gloves Storm",
     description:
-      "GLOVES STORM privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
-    url: "https://glovesstorm.com/privacy",
-    siteName: "GLOVES STORM Manufacturing",
+      "Gloves Storm privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+    url: "https://www.glovesstorm.com/privacy",
+    siteName: "Gloves Storm",
     type: "website",
     images: [
       {
-        url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+        url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "GLOVES STORM Privacy & IP Protection Policy",
+        alt: "Gloves Storm Privacy & IP Protection Policy",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy & Data Protection Policy | GLOVES STORM",
+    title: "Privacy & Data Protection Policy | Gloves Storm",
     description:
-      "GLOVES STORM privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
-    images: ["https://glovesstorm.com/images/products/boxing-gloves-black.png"],
+      "Gloves Storm privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+    images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
 
@@ -45,22 +45,22 @@ export default function PrivacyPolicyPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://glovesstorm.com",
+            item: "https://www.glovesstorm.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Privacy Policy",
-            item: "https://glovesstorm.com/privacy",
+            item: "https://www.glovesstorm.com/privacy",
           },
         ],
       },
       {
         "@type": "WebPage",
-        name: "GLOVES STORM Privacy & IP Confidentiality Policy",
+        name: "Gloves Storm Privacy & IP Confidentiality Policy",
         description:
           "Institutional data protection, bilateral NDA guarantees, and proprietary design safeguards for custom OEM manufacturing clients.",
-        url: "https://glovesstorm.com/privacy",
+        url: "https://www.glovesstorm.com/privacy",
       },
     ],
   };

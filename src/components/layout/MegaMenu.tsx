@@ -13,14 +13,12 @@ import {
   Dumbbell,
   Tag,
   Factory,
-  Waves,
   Package,
   Box,
   Clock,
   ChevronRight,
   CheckCircle2,
   PhoneCall,
-  Sparkles,
 } from "lucide-react";
 
 interface MegaMenuProductItem {
@@ -148,8 +146,6 @@ export default function MegaMenu({
     switch (slug) {
       case "for-you":
         return Star;
-      case "boxing-equipment":
-        return ShieldCheck;
       case "sportswear-teamwear":
         return Shirt;
       case "gym-fitness-wear":
@@ -158,8 +154,6 @@ export default function MegaMenu({
         return Tag;
       case "custom-manufacturing-private-label":
         return Factory;
-      case "swimwear-beachwear":
-        return Waves;
       default:
         return Package;
     }
@@ -171,7 +165,7 @@ export default function MegaMenu({
       onMouseLeave={onMouseLeave || onClose}
       className="absolute top-full left-0 right-0 z-50 mt-3 bg-white/95 backdrop-blur-2xl rounded-3xl border border-white/90 shadow-[0_25px_60px_rgba(15,23,42,0.12)] animate-in fade-in slide-in-from-top-1 duration-150 overflow-hidden before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 before:content-['']"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-7">
+      <div className="px-5 sm:px-7">
         {/* =====================================================================
             TOP SUB-NAV / ALIBABA-STYLE TAB BAR
         ===================================================================== */}

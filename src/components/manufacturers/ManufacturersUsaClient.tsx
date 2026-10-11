@@ -187,7 +187,7 @@ export default function ManufacturersUsaClient() {
                 60%–80% Cost Advantage vs Domestic US Manufacturing
               </h3>
               <p>
-                Domestic cut-and-sew factories in the United States face severe labor and overhead constraints, routinely charging $35 to $65 for an unbranded basic fleece hoodie or blank boxing glove. By partnering directly with Gloves Storm in Sialkot, American brands obtain full retail-grade, custom-milled, fully branded products at 60% to 80% lower unit costs.
+                Domestic cut-and-sew factories in the United States face severe labor and overhead constraints, routinely charging $35 to $65 for an unbranded basic fleece hoodie or custom team jersey. By partnering directly with Gloves Storm in Sialkot, American brands obtain full retail-grade, custom-milled, fully branded products at 60% to 80% lower unit costs.
               </p>
               <p>
                 These savings allow American brands to preserve healthy 65%+ gross margins, fund digital customer acquisition, and scale inventory without surrendering product quality or craftsmanship.

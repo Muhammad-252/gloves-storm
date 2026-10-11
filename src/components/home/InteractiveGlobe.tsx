@@ -37,7 +37,7 @@ export const HUBS: GlobeHub[] = [
     theta: 0.65,
     transitAir: "4–6 Days (DHL Express)",
     transitSea: "28–35 Days (Maersk Ocean)",
-    popular: "Varsity Jackets, Fight Gear, Streetwear",
+    popular: "Varsity Jackets, Activewear, Streetwear",
   },
   {
     id: "eu",
@@ -48,7 +48,7 @@ export const HUBS: GlobeHub[] = [
     theta: 0.85,
     transitAir: "3–5 Days (DHL / FedEx)",
     transitSea: "24–30 Days (Port of Felixstowe/Rotterdam)",
-    popular: "Championship Boxing Gloves, Football Kits",
+    popular: "Teamwear Uniforms, Football Kits, Activewear",
   },
   {
     id: "me",
@@ -59,7 +59,7 @@ export const HUBS: GlobeHub[] = [
     theta: 0.45,
     transitAir: "2–4 Days (Emirates SkyCargo)",
     transitSea: "12–16 Days (Jebel Ali)",
-    popular: "Combat Gyms, Luxury Athleisure, Custom Shorts",
+    popular: "Gym Activewear, Luxury Athleisure, Custom Hoodies",
   },
   {
     id: "oc",
@@ -70,7 +70,7 @@ export const HUBS: GlobeHub[] = [
     theta: -0.55,
     transitAir: "5–7 Days (Air Freight)",
     transitSea: "30–38 Days (Sydney/Melbourne)",
-    popular: "MMA Gloves, Rashguards, Gym Uniforms",
+    popular: "Compression Sets, Activewear, Gym Uniforms",
   },
   {
     id: "asia",

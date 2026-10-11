@@ -109,6 +109,11 @@ const nextConfig: NextConfig = {
         destination: "/products",
         permanent: true,
       },
+      {
+        source: "/journal/how-championship-boxing-gloves-are-made",
+        destination: "/journal",
+        permanent: true,
+      },
     ];
   },
 };

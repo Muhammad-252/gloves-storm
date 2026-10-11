@@ -13,35 +13,54 @@ interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
 
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 export const revalidate = 0;
 
 export async function generateStaticParams() {
   const categories = await getCategories();
-  return categories.map((cat) => ({
-    category: cat.slug,
-  }));
+  return categories
+    .filter((cat) => !HIDDEN_CATEGORY_SLUGS.includes(cat.slug))
+    .map((cat) => ({
+      category: cat.slug,
+    }));
 }
 
 export async function generateMetadata({ params }: CategoryPageProps) {
   const { category: slug } = await params;
+  if (HIDDEN_CATEGORY_SLUGS.includes(slug)) {
+    return {
+      title: "Category Not Found | Gloves Storm",
+      robots: { index: false, follow: false },
+    };
+  }
+
   const cat = await getCategoryBySlug(slug);
-  if (!cat) return { title: "Category Not Found | GLOVES STORM" };
+  if (!cat) {
+    return {
+      title: "Category Not Found | Gloves Storm",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const intel = CATEGORY_INTEL[slug];
+  const title = intel?.metaTitle || `Custom ${cat.name} Manufacturer & OEM Factory | Gloves Storm`;
+  const description =
+    intel?.metaDescription ||
+    cat.description ||
+    `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan. Custom sublimation teamwear, activewear, and private label apparel.`;
 
   return {
-    title: `Custom ${cat.name} Manufacturer & OEM Factory Sialkot | GLOVES STORM`,
-    description:
-      cat.description ||
-      `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan. Handcrafted equipment, custom sublimation teamwear, and private label apparel.`,
+    title,
+    description,
     alternates: {
       canonical: `https://www.glovesstorm.com/products/${slug}`,
     },
     openGraph: {
-      title: `Custom ${cat.name} Manufacturer & OEM Factory Sialkot | Gloves Storm`,
-      description:
-        cat.description ||
-        `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan.`,
+      title,
+      description,
       url: `https://www.glovesstorm.com/products/${slug}`,
       siteName: "Gloves Storm",
       images: [
@@ -49,13 +68,13 @@ export async function generateMetadata({ params }: CategoryPageProps) {
           url: cat.image_url || "/images/products/varsity-jacket.jpg",
           width: 1200,
           height: 630,
-          alt: `Custom ${cat.name} OEM Manufacturing Sialkot - GLOVES STORM`,
+          alt: `Custom ${cat.name} OEM Manufacturing Sialkot - Gloves Storm`,
         },
       ],
     },
     twitter: {
       card: "summary_large_image",
-      title: `Custom ${cat.name} Manufacturer | GLOVES STORM`,
+      title: `Custom ${cat.name} Manufacturer | Gloves Storm`,
       description: cat.description || `Custom ${cat.name} OEM manufacturing in Sialkot, Pakistan.`,
       images: [cat.image_url || "/images/products/varsity-jacket.jpg"],
     },
@@ -64,6 +83,10 @@ export async function generateMetadata({ params }: CategoryPageProps) {
 
 export default async function CategoryPage({ params }: CategoryPageProps) {
   const { category: slug } = await params;
+  if (HIDDEN_CATEGORY_SLUGS.includes(slug)) {
+    notFound();
+  }
+
   const [category, allCategories, categoryProducts, projects] = await Promise.all([
     getCategoryBySlug(slug),
     getCategories(),

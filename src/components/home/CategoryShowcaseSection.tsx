@@ -150,11 +150,15 @@ function getGsmBadge(product: Product): string {
   return "Heavyweight 400 GSM";
 }
 
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 export default function CategoryShowcaseSection({
   products,
   categories,
 }: CategoryShowcaseProps) {
-  const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
+  const [liveCategories, setLiveCategories] = useState<Category[]>(() =>
+    categories.filter((c) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug))
+  );
   const [selectedChip, setSelectedChip] = useState<string>("all");
   const [gsmFilter, setGsmFilter] = useState<string>("all");
   const [techniqueFilter, setTechniqueFilter] = useState<string>("all");
@@ -168,7 +172,9 @@ export default function CategoryShowcaseSection({
         if (cached) {
           const parsed = JSON.parse(cached);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            setLiveCategories(parsed);
+            setLiveCategories(
+              parsed.filter((c: any) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug))
+            );
           }
         }
       } catch (e) {}
@@ -176,7 +182,9 @@ export default function CategoryShowcaseSection({
       const handleUpdate = (e: Event) => {
         const customEvent = e as CustomEvent<Category[]>;
         if (customEvent.detail && Array.isArray(customEvent.detail)) {
-          setLiveCategories(customEvent.detail);
+          setLiveCategories(
+            customEvent.detail.filter((c: any) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug))
+          );
         }
       };
       window.addEventListener("gs_categories_updated", handleUpdate);
@@ -185,7 +193,9 @@ export default function CategoryShowcaseSection({
   }, []);
 
   const dynamicChips = useMemo(() => {
-    const parentCats = liveCategories.filter((c) => !c.parent_id && c.is_active !== false);
+    const parentCats = liveCategories.filter(
+      (c) => !c.parent_id && c.is_active !== false && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
+    );
     if (parentCats.length === 0) return CATEGORY_CHIPS;
     return [
       { id: "all", label: "All Custom Apparel", filterKey: "all" },
@@ -216,6 +226,8 @@ export default function CategoryShowcaseSection({
         product.category || liveCategories.find((c) => c.id === product.category_id);
       const catSlug = (categoryObj?.slug || "").toLowerCase();
       const catName = (categoryObj?.name || "").toLowerCase();
+
+      if (HIDDEN_CATEGORY_SLUGS.includes(catSlug)) return false;
 
       // Category Chip Filter
       let matchesChip = false;

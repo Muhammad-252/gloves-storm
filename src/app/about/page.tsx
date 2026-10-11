@@ -19,9 +19,9 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Gloves Storm — Custom Clothing & Sportswear Manufacturer & Exporter Since 2019",
+  title: "About Gloves Storm — Direct Factory Since 2019 | OEM Manufacturer Sialkot Pakistan",
   description:
-    "Gloves Storm is an international OEM/ODM manufacturer and exporter of custom clothing, sportswear, activewear, and private label apparel serving USA, UK, and worldwide brands since 2019.",
+    "Gloves Storm is an international OEM/ODM apparel manufacturer in Sialkot, Pakistan. Custom sportswear, activewear, streetwear, and private label manufacturing for USA & UK brands since 2019.",
   alternates: {
     canonical: "https://www.glovesstorm.com/about",
   },

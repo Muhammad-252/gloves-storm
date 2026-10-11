@@ -45,13 +45,16 @@ export default function Navbar() {
 
   // Fetch categories for mega menu & sync with live updates
   useEffect(() => {
+    const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
     if (typeof window !== "undefined") {
       try {
         const cached = localStorage.getItem("gs_dynamic_categories");
         if (cached) {
           const parsed = JSON.parse(cached);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            setCategories(parsed);
+            setCategories(
+              parsed.filter((c: any) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug))
+            );
           }
         }
       } catch (e) {}

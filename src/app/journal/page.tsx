@@ -6,16 +6,16 @@ import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Manufacturing Journal — Boxing Gloves, Sportswear & OEM Guides | Gloves Storm",
+  title: "Manufacturing Journal — Custom Clothing, Sportswear & OEM Guides | Gloves Storm",
   description:
-    "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct boxing gloves and apparel factory.",
+    "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct custom apparel and sportswear factory.",
   alternates: {
     canonical: "https://www.glovesstorm.com/journal",
   },
   openGraph: {
-    title: "Manufacturing Journal — Boxing Gloves, Sportswear & OEM Guides | Gloves Storm",
+    title: "Manufacturing Journal — Custom Clothing, Sportswear & OEM Guides | Gloves Storm",
     description:
-      "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct boxing gloves and apparel factory.",
+      "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct custom apparel and sportswear factory.",
     url: "https://www.glovesstorm.com/journal",
     siteName: "Gloves Storm",
     type: "website",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manufacturing Journal — Boxing Gloves, Sportswear & OEM Guides | Gloves Storm",
+    title: "Manufacturing Journal — Custom Clothing, Sportswear & OEM Guides | Gloves Storm",
     description:
       "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
@@ -50,25 +50,26 @@ export default async function JournalPage() {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://glovesstorm.com",
+            item: "https://www.glovesstorm.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Journal",
-            item: "https://glovesstorm.com/journal",
+            item: "https://www.glovesstorm.com/journal",
           },
         ],
       },
       {
         "@type": "CollectionPage",
-        name: "GLOVES STORM Manufacturing Journal",
+        name: "Gloves Storm Manufacturing Journal",
         description:
-          "Technical guides, fabric specifications, and pattern engineering articles from Sialkot master manufacturers.",
-        url: "https://glovesstorm.com/journal",
+          "Technical guides, fabric specifications, OEM production knowledge, and pattern engineering articles from Sialkot master manufacturers.",
+        url: "https://www.glovesstorm.com/journal",
       },
     ],
   };
+
 
   return (
     <div className="pt-28 pb-24 bg-transparent min-h-screen">
@@ -87,7 +88,7 @@ export default async function JournalPage() {
             THE GLOVES STORM MANUFACTURING JOURNAL
           </h1>
           <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
-            Guides, insights and production knowledge from our Sialkot factory — written for sports brands, boxing gym owners, clothing entrepreneurs and distributors building their businesses with Gloves Storm as their manufacturing partner.
+            Guides, insights and technical production knowledge from our Sialkot factory — written for sports apparel brands, athletic teams, gym wear founders, streetwear labels and international distributors building their businesses with Gloves Storm as their direct OEM manufacturing partner.
           </p>
         </div>
 

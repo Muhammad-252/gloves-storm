@@ -15,15 +15,15 @@ import HomeFaqSection from "@/components/home/HomeFaqSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
 import type { Metadata } from "next";
 import {
+  getCategories,
   getProducts,
   getProjects,
 } from "@/lib/data/store";
-import { loadPersistedCategories } from "@/lib/data/categoryPersistence";
 
 export const metadata: Metadata = {
-  title: "Custom Clothing & Sportswear Manufacturer & Exporter — Gloves Storm",
+  title: "Custom Sportswear & Private Label Clothing Manufacturer — Sialkot Pakistan | Gloves Storm",
   description:
-    "International OEM & private label manufacturer for custom clothing, sportswear, activewear, and streetwear. Direct factory export to USA, UK, and worldwide. Low MOQ, 7-day samples, DDP delivery.",
+    "Custom clothing manufacturer & direct Sialkot OEM factory. Custom sportswear, team uniforms, gym wear, hoodies & streetwear for USA and UK brands. Low MOQ 30 pcs, 7-day samples, DDP shipping. Free quote.",
   alternates: {
     canonical: "https://www.glovesstorm.com",
   },
@@ -125,7 +125,7 @@ const homeFaqSchema = {
 
 export default async function HomePage() {
   const [categories, products, projects] = await Promise.all([
-    loadPersistedCategories(),
+    getCategories(),
     getProducts(),
     getProjects(true),
   ]);

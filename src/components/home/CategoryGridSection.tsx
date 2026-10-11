@@ -54,8 +54,12 @@ const categoryHoverImages: Record<string, { primary: string; secondary: string }
   },
 };
 
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 export default function CategoryGridSection({ categories }: CategoryGridProps) {
-  const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
+  const [liveCategories, setLiveCategories] = useState<Category[]>(() =>
+    categories.filter((c) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug))
+  );
 
   // Sync with live categories from localStorage, BroadcastChannel, and /api/categories
   useEffect(() => {
@@ -66,7 +70,9 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
         if (cached) {
           const parsed = JSON.parse(cached);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            setLiveCategories(parsed);
+            setLiveCategories(
+              parsed.filter((c: any) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug))
+            );
           }
         }
       } catch (e) {
@@ -114,7 +120,9 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
   }, []);
 
   // Parent active categories only
-  const parentCategories = liveCategories.filter((c) => !c.parent_id && c.is_active !== false);
+  const parentCategories = liveCategories.filter(
+    (c) => !c.parent_id && c.is_active !== false && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
+  );
 
   return (
     <section className="py-20 sm:py-28 bg-[#FFFFFF] border-b border-black/[0.06] relative overflow-hidden">

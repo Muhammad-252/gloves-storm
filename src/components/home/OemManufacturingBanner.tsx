@@ -8,8 +8,8 @@ import QuoteModal from "../ui/QuoteModal";
 const customizationPillars = [
   {
     icon: Layers,
-    title: "Bespoke Fabrics & Leathers",
-    desc: "1.2mm AAA full-grain cowhide, 450+ GSM organic cotton French terry, and high-tensile 4-way compression lycra.",
+    title: "Bespoke Textiles & Milled Fabrics",
+    desc: "450+ GSM combed cotton French terry, 280 GSM 4-way compression spandex, micro-mesh performance poly, and 24oz Melton varsity wool.",
   },
   {
     icon: Cpu,
@@ -24,7 +24,7 @@ const customizationPillars = [
   {
     icon: ShieldCheck,
     title: "Retail-Ready Packaging",
-    desc: "Frosted matte zip-lock bags, custom branded cardboard boxing, silica packs, and master carton export palletizing.",
+    desc: "Frosted matte zip-lock bags, custom branded presentation boxes, silica packs, and master carton export palletizing.",
   },
 ];
 

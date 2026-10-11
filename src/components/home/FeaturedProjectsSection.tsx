@@ -7,16 +7,16 @@ import GooeyButton from "../ui/GooeyButton";
 const PREVIEW_DROPS = [
   {
     id: "ig-01",
-    client: "Apex Combat UK",
-    tag: "@apexcombat.uk",
+    client: "Apex Athletics UK",
+    tag: "@apexathletics.uk",
     country: "London, UK",
     type: "Reel",
     views: "54.8K",
     likes: "3.1K",
-    title: "Championship 16oz Metallic Gold Sparring Gloves",
-    desc: "1.2mm AAA full-grain cowhide leather with 4-layer EVA/latex knuckle matrix. Laser-cut leather and metallic foil wrist patch.",
-    image: "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
-    category: "Boxing & Combat",
+    title: "Pro Performance Sublimated Football Match Kits",
+    desc: "Italian digital dye sublimation on moisture-wicking micro-mesh with reinforced flatlock stitching and 3D silicone club badges.",
+    image: "/images/products/football-jersey-black.jpg",
+    category: "Sportswear & Teamwear",
   },
   {
     id: "ig-02",
@@ -27,21 +27,21 @@ const PREVIEW_DROPS = [
     likes: "4.2K",
     title: "460 GSM Heavyweight French Terry Tracksuits",
     desc: "Bespoke acid mineral enzyme wash with 3D high-density silicone typography and double-stitched kangaroo pocket.",
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1200&auto=format&fit=crop",
-    category: "Streetwear & Fashion",
+    image: "/images/products/hoodie-black.png",
+    category: "Clothing & Streetwear",
   },
   {
     id: "ig-03",
-    client: "Vanquish Fight Club",
-    tag: "@vanquishfight",
+    client: "Vanquish Athletics",
+    tag: "@vanquishathletics",
     country: "Melbourne, Australia",
     type: "Reel",
     views: "92.4K",
     likes: "5.8K",
-    title: "Tajima 12-Needle Gold Bullion Embroidery Trunks",
-    desc: "22,000 stitches of metallic Japanese bullion thread stitched onto heavy satin fight trunks. Zero puckering or thread breaks.",
-    image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop",
-    category: "Embroidery & Fightwear",
+    title: "Custom Wool & Leather Varsity Jackets",
+    desc: "24oz Melton wool body with genuine top-grain cowhide leather sleeves, chenille chain-stitch chest crests, and quilted satin lining.",
+    image: "/images/products/varsity-jacket.jpg",
+    category: "Custom Manufacturing & Private Label",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
               PREVIOUS WORK & REELS
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-xl mt-2 leading-relaxed">
-              Every production run manufactured at our Sialkot factory is documented live on our official Instagram feed. Inspect real client unboxings, embroidery close-ups, and fight night deliveries.
+              Every production run manufactured at our Sialkot factory is documented live on our official Instagram feed. Inspect real client unboxings, embroidery close-ups, and teamwear deliveries.
             </p>
           </div>
           <GooeyButton

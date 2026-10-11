@@ -9,15 +9,26 @@ import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
+// Slugs hidden from the public site (still manageable in Admin)
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 export async function GET() {
   try {
     console.log("[API /api/categories] 🚀 GET requested. Querying categories & products...");
-    const [categories, products] = await Promise.all([
+    const [allCategories, allProducts] = await Promise.all([
       loadPersistedCategories(),
       getProducts(),
     ]);
 
-    console.log(`[API /api/categories] 📊 DB returned ${categories.length} categories and ${products.length} products.`);
+    // Filter out hidden categories for the public site
+    const categories = allCategories.filter((c) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug));
+    // Collect IDs of hidden categories so we can exclude their products too
+    const hiddenCatIds = new Set(
+      allCategories.filter((c) => HIDDEN_CATEGORY_SLUGS.includes(c.slug)).map((c) => c.id)
+    );
+    const products = allProducts.filter((p) => !hiddenCatIds.has(p.category_id ?? ""));
+
+    console.log(`[API /api/categories] 📊 Serving ${categories.length} categories and ${products.length} products (hidden: ${HIDDEN_CATEGORY_SLUGS.join(", ")}).`);
 
     // Attach product counts and preview items to categories
     const categoriesWithMeta = categories.map((cat) => {

@@ -37,10 +37,13 @@ export const metadata: Metadata = {
 export const revalidate = 60; // ISR revalidation
 
 export default async function PreviousWorkPage() {
-  const [projects, categories] = await Promise.all([
+  const [allProjects, categories] = await Promise.all([
     getProjects(false),
     getCategories(),
   ]);
+
+  const visibleCatIds = new Set(categories.map((c) => c.id));
+  const projects = allProjects.filter((p) => !p.category_id || visibleCatIds.has(p.category_id));
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -64,7 +67,7 @@ export default async function PreviousWorkPage() {
       },
       {
         "@type": "CollectionPage",
-        name: "GLOVES STORM Production Archive",
+        name: "Gloves Storm Production Archive",
         description:
           "Verified production gallery and case studies for custom clothing, athletic sportswear, activewear, and private label apparel.",
         url: "https://www.glovesstorm.com/previous-work",

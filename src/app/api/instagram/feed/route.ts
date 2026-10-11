@@ -49,23 +49,25 @@ function parseRelativeTime(isoDateString: string): string {
 }
 
 function inferCategoryAndSpecs(caption: string = "", isReel: boolean): {
-  category: "combat" | "streetwear" | "shipments" | "reels";
+  category: "teamwear" | "activewear" | "streetwear" | "shipments" | "reels";
   specs: IgItem["specs"];
 } {
   const lower = caption.toLowerCase();
 
-  let category: "combat" | "streetwear" | "shipments" | "reels" = isReel ? "reels" : "combat";
+  let category: "teamwear" | "activewear" | "streetwear" | "shipments" | "reels" = isReel ? "reels" : "teamwear";
   if (lower.includes("shipment") || lower.includes("dispatch") || lower.includes("export") || lower.includes("dhl") || lower.includes("container") || lower.includes("pallet")) {
     category = "shipments";
   } else if (lower.includes("hoodie") || lower.includes("tracksuit") || lower.includes("tee") || lower.includes("streetwear") || lower.includes("french terry") || lower.includes("fleece") || lower.includes("jogger")) {
     category = "streetwear";
-  } else if (lower.includes("glove") || lower.includes("boxing") || lower.includes("muay thai") || lower.includes("bjj") || lower.includes("mma") || lower.includes("sparring") || lower.includes("combat")) {
-    category = "combat";
+  } else if (lower.includes("legging") || lower.includes("bra") || lower.includes("activewear") || lower.includes("gym") || lower.includes("compression") || lower.includes("fitness")) {
+    category = "activewear";
+  } else if (lower.includes("jersey") || lower.includes("uniform") || lower.includes("football") || lower.includes("basketball") || lower.includes("soccer") || lower.includes("teamwear") || lower.includes("kit")) {
+    category = "teamwear";
   }
 
   const specs: IgItem["specs"] = {
-    materials: lower.includes("leather") ? "AAA Full-Grain Leather" : lower.includes("fleece") ? "460 GSM Heavyweight Terry" : "Pro-Spec OEM Performance Material",
-    technique: lower.includes("embroidery") ? "Tajima Computerized Bullion Stitch" : lower.includes("print") ? "3D High-Density Silicone Print" : "Calibrated Precision Manufacturing",
+    materials: lower.includes("fleece") ? "460 GSM Heavyweight Terry" : lower.includes("spandex") ? "280 GSM 4-Way Stretch Spandex" : "Pro-Spec OEM Performance Material",
+    technique: lower.includes("embroidery") ? "Tajima Computerized Bullion Stitch" : lower.includes("print") ? "3D High-Density Silicone Print" : lower.includes("sublimation") ? "Italian Dye Sublimation" : "Calibrated Precision Manufacturing",
     batchSize: "OEM Custom Client Run",
     leadTime: "12-18 Business Days",
     destination: "Worldwide Export (Air / Ocean)",

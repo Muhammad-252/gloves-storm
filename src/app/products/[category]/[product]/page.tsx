@@ -11,6 +11,8 @@ interface ProductPageProps {
   params: Promise<{ category: string; product: string }>;
 }
 
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 export const revalidate = 0;
@@ -21,29 +23,41 @@ export async function generateStaticParams() {
     getCategories(),
   ]);
 
-  return products.map((prod) => {
-    const cat = categories.find((c) => c.id === prod.category_id);
-    return {
-      category: cat?.slug || "general",
-      product: prod.slug,
-    };
-  });
+  const visibleCategories = categories.filter((c) => !HIDDEN_CATEGORY_SLUGS.includes(c.slug));
+  const visibleCatIds = new Set(visibleCategories.map((c) => c.id));
+
+  return products
+    .filter((prod) => prod.category_id && visibleCatIds.has(prod.category_id))
+    .map((prod) => {
+      const cat = visibleCategories.find((c) => c.id === prod.category_id);
+      return {
+        category: cat?.slug || "general",
+        product: prod.slug,
+      };
+    });
 }
 
 export async function generateMetadata({ params }: ProductPageProps) {
   const { category: categorySlug, product: slug } = await params;
+  if (HIDDEN_CATEGORY_SLUGS.includes(categorySlug)) {
+    return { title: "Product Not Found | Gloves Storm", robots: { index: false, follow: false } };
+  }
+
   const [prod, cat] = await Promise.all([
     getProductBySlug(slug),
     getCategoryBySlug(categorySlug),
   ]);
-  if (!prod) return { title: "Product Not Found" };
+  if (!prod) return { title: "Product Not Found | Gloves Storm", robots: { index: false, follow: false } };
+  if (cat && HIDDEN_CATEGORY_SLUGS.includes(cat.slug)) {
+    return { title: "Product Not Found | Gloves Storm", robots: { index: false, follow: false } };
+  }
 
-  const categoryName = cat?.name || "Combat & Sports Gear";
-  const primaryMaterial = prod.materials?.[0] || "1.2mm cowhide leather";
+  const categoryName = cat?.name || "Custom Apparel";
+  const primaryMaterial = prod.materials?.[0] || "premium technical fabric";
   const title = `Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`;
   const description =
     prod.seo_description ||
-    `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, IMF foam core, private label branding. MOQ ${prod.moq || 25}–50 pairs. 7-day samples. Ships to USA & UK. Get a free quote.`;
+    `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, private label branding. MOQ ${prod.moq || 35}–50 pcs. 7-day samples. Ships worldwide. Get a free quote.`;
   const canonicalUrl = `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
   const ogImage = prod.images?.[0]?.image_url || "https://www.glovesstorm.com/images/og-default.jpg";
 
@@ -64,7 +78,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `Custom ${prod.name} OEM manufacturer Sialkot Pakistan — ${primaryMaterial}`,
+          alt: `Custom ${prod.name} OEM manufacturer Sialkot Pakistan`,
         },
       ],
     },
@@ -79,13 +93,17 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
 export default async function ProductDetailPage({ params }: ProductPageProps) {
   const { category: categorySlug, product: productSlug } = await params;
+  if (HIDDEN_CATEGORY_SLUGS.includes(categorySlug)) {
+    notFound();
+  }
+
   const [product, category, relatedProducts] = await Promise.all([
     getProductBySlug(productSlug),
     getCategoryBySlug(categorySlug),
     getProducts({ categorySlug }),
   ]);
 
-  if (!product) {
+  if (!product || (category && HIDDEN_CATEGORY_SLUGS.includes(category.slug))) {
     notFound();
   }
 
@@ -138,10 +156,10 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     image: productImages[0],
     material: Array.isArray(product.materials)
       ? product.materials.join(", ")
-      : product.materials || "1.2mm Cowhide Leather / Technical Fabric",
+      : product.materials || "Premium Technical Fabric / Cut-and-Sew Construction",
     audience: {
       "@type": "Audience",
-      audienceType: "B2B — Sports brands, gyms, retailers, distributors",
+      audienceType: "B2B — Sports brands, athletic clubs, gyms, retailers, and distributors",
     },
   };
 

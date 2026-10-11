@@ -37,6 +37,8 @@ export function getMemoryCategories(): Category[] {
   return [];
 }
 
+export const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 // ==========================================
 // CATEGORIES (Direct Supabase)
 // ==========================================
@@ -46,14 +48,18 @@ export async function getCategories(): Promise<Category[]> {
       const res = await fetch("/api/categories");
       const data = await res.json();
       if (data?.categories) {
-        return (data.categories as Category[]).filter((c) => c.is_active);
+        return (data.categories as Category[]).filter(
+          (c) => c.is_active && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
+        );
       }
     } catch {}
     return [];
   }
 
   const categories = await getDbCategories();
-  return categories.filter((c) => c.is_active);
+  return categories.filter(
+    (c) => c.is_active && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
+  );
 }
 
 export async function getAllCategoriesAdmin(): Promise<Category[]> {
@@ -109,7 +115,12 @@ export async function getProducts(options?: {
   featured?: boolean;
   search?: string;
 }): Promise<Product[]> {
-  let products = await getDbProducts();
+  const [allProducts, allCats] = await Promise.all([getDbProducts(), getDbCategories()]);
+  const hiddenCatIds = new Set(
+    allCats.filter((c) => HIDDEN_CATEGORY_SLUGS.includes(c.slug)).map((c) => c.id)
+  );
+
+  let products = allProducts.filter((p) => !hiddenCatIds.has(p.category_id ?? ""));
 
   if (options?.featured) {
     products = products.filter((p) => p.featured && p.is_active);
@@ -118,8 +129,7 @@ export async function getProducts(options?: {
     products = products.filter((p) => p.category_id === options.categoryId && p.is_active);
   }
   if (options?.categorySlug && options.categorySlug !== "all") {
-    const cats = await getDbCategories();
-    const cat = cats.find((c: Category) => c.slug === options.categorySlug);
+    const cat = allCats.find((c: Category) => c.slug === options.categorySlug);
     if (cat) {
       products = products.filter((p) => p.category_id === cat.id && p.is_active);
     }
@@ -254,7 +264,13 @@ export async function deleteTestimonial(id: string): Promise<boolean> {
 // ==========================================
 export async function getBlogPosts(): Promise<BlogPost[]> {
   const posts = await getDbBlogPosts();
-  return posts.filter((b) => b.is_published);
+  return posts.filter(
+    (b) =>
+      b.is_published &&
+      !b.category?.toLowerCase().includes("boxing") &&
+      !b.slug.toLowerCase().includes("boxing") &&
+      !b.title?.toLowerCase().includes("boxing")
+  );
 }
 
 export async function getAllBlogPostsAdmin(): Promise<BlogPost[]> {
@@ -262,7 +278,7 @@ export async function getAllBlogPostsAdmin(): Promise<BlogPost[]> {
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
-  const posts = await getDbBlogPosts();
+  const posts = await getBlogPosts();
   return posts.find((b) => b.slug === slug) || null;
 }
 

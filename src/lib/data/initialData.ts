@@ -27,7 +27,7 @@ export const initialSiteSettings: SiteSettings = {
   logo_url: null,
   favicon_url: null,
   hero_title: "BUILT FOR BRANDS. MADE TO PERFORM.",
-  hero_description: "Custom boxing gear, sportswear and apparel manufactured for brands worldwide.",
+  hero_description: "Custom sportswear, activewear, team uniforms and private label clothing manufactured for brands worldwide.",
   updated_at: new Date().toISOString(),
 };
 export const initialInquiries: Inquiry[] = [];

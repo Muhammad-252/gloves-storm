@@ -39,7 +39,7 @@ export default function HeroSection() {
         {isMobile ? (
           <img
             src="/images/hero-poster.jpg"
-            alt="Gloves Storm custom boxing gloves and sportswear manufacturing facility"
+            alt="Gloves Storm custom sportswear and clothing manufacturing facility"
             className="w-full h-full object-cover object-center scale-105"
             loading="eager"
           />

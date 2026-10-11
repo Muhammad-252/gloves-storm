@@ -1,19 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDbProducts, saveDbProduct, deleteDbProduct } from "@/lib/data/fileDb";
+import { getDbProducts, getDbCategories, saveDbProduct, deleteDbProduct } from "@/lib/data/fileDb";
 import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
+// Slugs hidden from the public site (keep in sync with /api/categories)
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+
 export async function GET(req: NextRequest) {
   try {
     console.log("[API /api/products] 🚀 GET requested. Querying products from DB...");
-    const products = await getDbProducts();
+    const [allProducts, allCategories] = await Promise.all([getDbProducts(), getDbCategories()]);
+
+    // Build a set of IDs for hidden categories so we can exclude their products
+    const hiddenCatIds = new Set(
+      allCategories.filter((c) => HIDDEN_CATEGORY_SLUGS.includes(c.slug)).map((c) => c.id)
+    );
+
     const url = new URL(req.url);
     const categoryId = url.searchParams.get("categoryId");
     const featured = url.searchParams.get("featured");
     const search = url.searchParams.get("search");
 
-    let result = products;
+    // Start by removing hidden-category products
+    let result = allProducts.filter((p) => !hiddenCatIds.has(p.category_id ?? ""));
 
     if (categoryId && categoryId !== "all") {
       result = result.filter((p) => p.category_id === categoryId);
@@ -30,7 +40,7 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    console.log(`[API /api/products] 📊 Returning ${result.length} of ${products.length} total products.`);
+    console.log(`[API /api/products] 📊 Returning ${result.length} of ${allProducts.length} total products.`);
     return NextResponse.json({ success: true, products: result, total: result.length });
   } catch (error: any) {
     console.error("[API /api/products] ❌ Failed to fetch products:", error);

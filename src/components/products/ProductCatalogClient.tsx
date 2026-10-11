@@ -75,6 +75,14 @@ export default function ProductCatalogClient({
         }
       })
       .catch(() => {});
+
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const q = params.get("search");
+      if (q) {
+        setSearch(q);
+      }
+    }
   }, []);
 
   // Sync with live categories from storage and broadcast events

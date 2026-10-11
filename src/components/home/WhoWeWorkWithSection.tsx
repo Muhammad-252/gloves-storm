@@ -2,18 +2,18 @@ import { Trophy, Dumbbell, Rocket, Store, Users, ShoppingBag } from "lucide-reac
 
 const segments = [
   {
-    title: "CLOTHING & FIGHT BRANDS",
-    desc: "Established fashion labels and combat brands looking to elevate garment weights, reduce defect rates, and scale recurring collections.",
+    title: "CLOTHING & STREETWEAR LABELS",
+    desc: "Established fashion labels and independent streetwear brands looking to elevate fabric weights (450 GSM French Terry), eliminate defect rates, and scale recurring collections.",
     icon: ShoppingBag,
   },
   {
     title: "SPORTS TEAMS & ACADEMIES",
-    desc: "Collegiate programs, professional clubs, and martial arts academies requiring high-durability match kits, tracksuits, and fight uniforms.",
+    desc: "Collegiate programs, professional clubs, and athletic academies requiring high-durability match kits, tracksuits, and training uniforms.",
     icon: Trophy,
   },
   {
     title: "COMMERCIAL GYMS",
-    desc: "Boutique boxing gyms, CrossFit boxes, and fitness facilities needing heavy-duty custom branded punching bags, gloves, and retail apparel.",
+    desc: "Fitness studios, CrossFit boxes, and athletic facilities needing custom branded activewear, compression wear, and retail apparel.",
     icon: Dumbbell,
   },
   {
@@ -28,7 +28,7 @@ const segments = [
   },
   {
     title: "WHOLESALE SUPPLIERS",
-    desc: "Wholesalers requiring bulk container-load production of certified sports goods, boxing gear, and activewear with consistent QC.",
+    desc: "Wholesalers requiring bulk container-load production of certified sportswear, team uniforms, and activewear with consistent QC.",
     icon: Store,
   },
 ];
@@ -47,7 +47,7 @@ export default function WhoWeWorkWithSection() {
             <span className="text-[#6B7280]">THAT BUILD BRANDS.</span>
           </h2>
           <p className="text-sm sm:text-base text-[#6B7280] leading-relaxed">
-            Whether you are launching your initial 50-piece capsule drop or distributing 10,000 gloves across international gyms, we tailor our production lines to your operational stage.
+            Whether you are launching your initial 30-piece capsule drop or distributing 10,000 custom uniforms across nationwide athletic programs, we tailor our production lines to your operational stage.
           </p>
         </div>
 

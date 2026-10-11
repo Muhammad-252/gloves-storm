@@ -82,19 +82,19 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://glovesstorm.com",
+            item: "https://www.glovesstorm.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Journal",
-            item: "https://glovesstorm.com/journal",
+            item: "https://www.glovesstorm.com/journal",
           },
           {
             "@type": "ListItem",
             position: 3,
             name: post.title,
-            item: `https://glovesstorm.com/journal/${post.slug}`,
+            item: `https://www.glovesstorm.com/journal/${post.slug}`,
           },
         ],
       },
@@ -104,28 +104,28 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         description: post.seo_description || post.excerpt || post.title,
         image: post.featured_image
           ? [post.featured_image]
-          : ["https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop"],
+          : ["https://www.glovesstorm.com/images/og-default.jpg"],
         datePublished: post.published_at || post.created_at || "2026-03-01T00:00:00.000Z",
         dateModified: post.updated_at || post.created_at || "2026-03-01T00:00:00.000Z",
         author: {
           "@type": "Person",
-          name: post.author || "GLOVES STORM Engineering Team",
+          name: post.author || "Gloves Storm Engineering Team",
           worksFor: {
             "@type": "Organization",
-            name: "GLOVES STORM",
+            name: "Gloves Storm",
           },
         },
         publisher: {
           "@type": "Organization",
-          name: "GLOVES STORM",
+          name: "Gloves Storm",
           logo: {
             "@type": "ImageObject",
-            url: "https://glovesstorm.com/images/products/boxing-gloves-black.png",
+            url: "https://www.glovesstorm.com/images/logo.png",
           },
         },
         mainEntityOfPage: {
           "@type": "WebPage",
-          "@id": `https://glovesstorm.com/journal/${post.slug}`,
+          "@id": `https://www.glovesstorm.com/journal/${post.slug}`,
         },
       },
     ],
