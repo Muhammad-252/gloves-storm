@@ -116,6 +116,18 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: "/blog",
+        destination: "/journal",
+      },
+      {
+        source: "/blog/:slug*",
+        destination: "/journal/:slug*",
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -196,9 +196,43 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         )}
 
         {/* Article Body */}
-        <div className="prose prose-neutral max-w-none mb-16 text-slate-700 leading-relaxed space-y-6 text-sm sm:text-base border-b border-slate-200/80 pb-16 whitespace-pre-line">
-          {post.content}
-        </div>
+        {post.content && post.content.includes("<") && post.content.includes(">") ? (
+          <div
+            className="prose prose-neutral max-w-none mb-16 text-slate-700 leading-relaxed space-y-6 text-sm sm:text-base border-b border-slate-200/80 pb-16
+              prose-headings:text-black prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
+              prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4
+              prose-h3:text-lg sm:prose-h3:text-xl prose-h3:mt-6 prose-h3:mb-2
+              prose-p:leading-relaxed prose-p:mb-4
+              prose-strong:text-black prose-strong:font-bold
+              prose-a:text-black prose-a:font-bold prose-a:underline prose-a:decoration-[#FFB900] prose-a:decoration-2 prose-a:underline-offset-4 hover:prose-a:text-[#FFB900]
+              prose-ul:list-disc prose-ul:pl-6 prose-ul:my-4 prose-li:my-1
+              prose-ol:list-decimal prose-ol:pl-6 prose-ol:my-4 prose-li:my-1
+              prose-hr:my-8 prose-hr:border-neutral-200
+              prose-table:w-full prose-table:my-6 prose-table:border-collapse prose-table:overflow-x-auto
+              prose-th:bg-neutral-100 prose-th:text-black prose-th:font-mono prose-th:uppercase prose-th:text-xs prose-th:p-3 prose-th:border prose-th:border-neutral-200
+              prose-td:p-3 prose-td:text-xs sm:prose-td:text-sm prose-td:border prose-td:border-neutral-200"
+            dangerouslySetInnerHTML={{
+              __html: (() => {
+                const raw = post.content;
+                const siteUrl = "https://www.glovesstorm.com";
+                const parts = raw.split(/(<a\b[^>]*>[\s\S]*?<\/a>)/gi);
+                for (let i = 0; i < parts.length; i++) {
+                  if (i % 2 === 0) {
+                    parts[i] = parts[i].replace(
+                      /\b(Gloves\s+Storm|GloveStorm|Glove\s+Storm)\b/gi,
+                      (match) => `<a href="${siteUrl}" title="Gloves Storm" class="text-neutral-900 font-bold underline decoration-[#FFB900] decoration-2 underline-offset-4 hover:text-[#FFB900] transition-colors">${match}</a>`
+                    );
+                  }
+                }
+                return parts.join("");
+              })(),
+            }}
+          />
+        ) : (
+          <div className="prose prose-neutral max-w-none mb-16 text-slate-700 leading-relaxed space-y-6 text-sm sm:text-base border-b border-slate-200/80 pb-16 whitespace-pre-line">
+            {post.content}
+          </div>
+        )}
 
         {/* Related Articles */}
         {related.length > 0 && (
@@ -244,7 +278,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-white rounded-2xl px-6 py-3.5 font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+                className="inline-flex items-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold rounded-2xl px-6 py-3.5 text-xs uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)]"
               >
                 <span>Request Factory Quote</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -257,7 +291,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <span>Browse All Products &amp; MOQs</span>
               </Link>
               <Link
-                href="/manufacturing"
+                href="/about"
                 className="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-slate-500 hover:text-slate-900 transition-colors ml-auto pt-2 sm:pt-0"
               >
                 <Scissors className="w-3.5 h-3.5" />
@@ -279,7 +313,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 bg-slate-900 text-white hover:bg-slate-800 rounded-2xl px-8 py-3.5 font-bold text-xs uppercase tracking-wider shrink-0 transition-all shadow-sm"
+            className="inline-flex items-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold rounded-2xl px-8 py-3.5 text-xs uppercase tracking-wider shrink-0 transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)]"
           >
             <span>Inquire Now</span>
             <ArrowUpRight className="w-4 h-4" />
