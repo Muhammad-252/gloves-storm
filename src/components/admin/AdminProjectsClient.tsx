@@ -43,40 +43,111 @@ export default function AdminProjectsClient({
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
+  const [uploadStatusText, setUploadStatusText] = useState<string>("");
+  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [notice, setNotice] = useState<string | null>(null);
+
+  // Client-side image compression for fast, reliable multi-image uploads on live serverless
+  const compressImageFile = async (
+    file: File,
+    maxWidth = 1600,
+    maxHeight = 1600,
+    quality = 0.85
+  ): Promise<File> => {
+    if (typeof window === "undefined" || file.type === "image/svg+xml" || file.type === "image/gif") {
+      return file;
+    }
+
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onerror = () => resolve(file);
+      reader.onload = (e) => {
+        const img = new window.Image();
+        img.onerror = () => resolve(file);
+        img.onload = () => {
+          let width = img.width;
+          let height = img.height;
+
+          if (width > maxWidth || height > maxHeight) {
+            if (width / height > maxWidth / maxHeight) {
+              height = Math.round((height * maxWidth) / width);
+              width = maxWidth;
+            } else {
+              width = Math.round((width * maxHeight) / height);
+              height = maxHeight;
+            }
+          }
+
+          const canvas = document.createElement("canvas");
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext("2d");
+          if (!ctx) {
+            resolve(file);
+            return;
+          }
+
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = "high";
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob(
+            (blob) => {
+              if (blob) {
+                const compressed = new File(
+                  [blob],
+                  file.name.replace(/\.[^/.]+$/, ".webp"),
+                  { type: "image/webp" }
+                );
+                resolve(compressed);
+              } else {
+                resolve(file);
+              }
+            },
+            "image/webp",
+            quality
+          );
+        };
+        img.src = e.target?.result as string;
+      };
+      reader.readAsDataURL(file);
+    });
+  };
 
   // Helper to extract image URLs from a project
   const extractImages = (proj: Partial<Project>): string[] => {
     const list: string[] = [];
-    if (proj.featured_image) {
-      list.push(proj.featured_image);
-    }
-    if (Array.isArray(proj.images)) {
-      for (const img of proj.images) {
+    if (Array.isArray(proj.images) && proj.images.length > 0) {
+      const sorted = [...proj.images].sort(
+        (a: any, b: any) => (a?.sort_order ?? 0) - (b?.sort_order ?? 0)
+      );
+      for (const img of sorted) {
         const url = typeof img === "string" ? img : img?.image_url;
         if (url && !list.includes(url)) {
           list.push(url);
         }
       }
     }
+    if (proj.featured_image && !list.includes(proj.featured_image)) {
+      list.unshift(proj.featured_image);
+    }
     return list;
   };
 
   const handleOpenNew = () => {
     const defaultCategory = categories[0] || null;
-    const initialImgs = ["/images/products/boxing-gloves-black.png"];
     setEditingProj({
       title: "",
       slug: "",
       category_id: defaultCategory?.id || null,
-      industry: defaultCategory?.name || "Boxing Equipment",
+      industry: defaultCategory?.name || "Sportswear & Teamwear",
       description: "",
-      featured_image: initialImgs[0],
+      featured_image: "",
       featured: false,
       is_active: true,
     });
-    setImagesList(initialImgs);
+    setImagesList([]);
     setNewImageInput("");
     setIsModalOpen(true);
   };
@@ -84,7 +155,7 @@ export default function AdminProjectsClient({
   const handleOpenEdit = (proj: Project) => {
     const extracted = extractImages(proj);
     setEditingProj({ ...proj });
-    setImagesList(extracted.length > 0 ? extracted : [proj.featured_image]);
+    setImagesList(extracted.length > 0 ? extracted : proj.featured_image ? [proj.featured_image] : []);
     setNewImageInput("");
     setIsModalOpen(true);
   };
@@ -92,23 +163,29 @@ export default function AdminProjectsClient({
   const handleAddImage = (urlToAdd?: string) => {
     const url = (urlToAdd || newImageInput).trim();
     if (!url) return;
-    if (!imagesList.includes(url)) {
-      setImagesList([...imagesList, url]);
-    }
+    setImagesList((prev) => (prev.includes(url) ? prev : [...prev, url]));
     if (!urlToAdd) setNewImageInput("");
   };
 
   const handleFileUpload = async (files: FileList | File[]) => {
-    if (!files || files.length === 0) return;
-    setIsUploading(true);
+    const fileArray = Array.from(files || []).filter((f) => f.type.startsWith("image/"));
+    if (fileArray.length === 0) {
+      toast.error("Invalid File", "Please select one or more valid image files (JPG, PNG, WEBP).");
+      return;
+    }
 
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-      if (!file.type.startsWith("image/")) continue;
+    setIsUploading(true);
+    const uploadedUrls: string[] = [];
+    let failedCount = 0;
+
+    for (let i = 0; i < fileArray.length; i++) {
+      const rawFile = fileArray[i];
+      setUploadStatusText(`Uploading ${i + 1} of ${fileArray.length}...`);
 
       try {
+        const processedFile = await compressImageFile(rawFile);
         const formData = new FormData();
-        formData.append("file", file);
+        formData.append("file", processedFile);
         formData.append("folder", "projects");
 
         const res = await fetch("/api/upload", {
@@ -118,29 +195,49 @@ export default function AdminProjectsClient({
 
         const data = await res.json();
         if (res.ok && data.success && data.url) {
-          setImagesList((prev) => [...prev, data.url]);
+          uploadedUrls.push(data.url);
+          setImagesList((prev) => (prev.includes(data.url) ? prev : [...prev, data.url]));
+        } else {
+          failedCount++;
+          console.error("Project image upload error:", data.error);
         }
       } catch (err) {
+        failedCount++;
         console.error("Project image upload error:", err);
       }
     }
 
     setIsUploading(false);
+    setUploadStatusText("");
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
+    }
+
+    if (uploadedUrls.length > 0) {
+      toast.success(
+        "Images Uploaded",
+        `Added ${uploadedUrls.length} ${uploadedUrls.length === 1 ? "image" : "images"} to this work item.`
+      );
+    }
+    if (failedCount > 0) {
+      toast.error(
+        "Upload Warning",
+        `${failedCount} ${failedCount === 1 ? "image" : "images"} failed to upload.`
+      );
     }
   };
 
   const handleRemoveImage = (indexToRemove: number) => {
-    const updated = imagesList.filter((_, idx) => idx !== indexToRemove);
-    setImagesList(updated);
+    setImagesList((prev) => prev.filter((_, idx) => idx !== indexToRemove));
   };
 
   const handleSetCover = (index: number) => {
     if (index === 0) return;
-    const target = imagesList[index];
-    const rest = imagesList.filter((_, idx) => idx !== index);
-    setImagesList([target, ...rest]);
+    setImagesList((prev) => {
+      const target = prev[index];
+      const rest = prev.filter((_, idx) => idx !== index);
+      return [target, ...rest];
+    });
   };
 
   useEffect(() => {
@@ -194,16 +291,16 @@ export default function AdminProjectsClient({
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editingProj?.title?.trim()) {
-      toast.error("Validation Error", "Project title is required.");
+      toast.error("Validation Error", "Product / Work title is required.");
       return;
     }
     if (imagesList.length === 0) {
-      toast.error("Validation Error", "Please add at least one work image.");
+      toast.error("Validation Error", "Please upload at least one image.");
       return;
     }
 
     setSaving(true);
-    const toastId = toast.loading("Saving Item...", `Saving "${editingProj.title}"`);
+    const toastId = toast.loading("Saving Item...", `Saving "${editingProj.title}" with ${imagesList.length} ${imagesList.length === 1 ? "photo" : "photos"}`);
 
     try {
       const coverImage = imagesList[0];
@@ -211,7 +308,7 @@ export default function AdminProjectsClient({
         id: `img-${Date.now()}-${idx}`,
         project_id: editingProj.id || "new",
         image_url: url,
-        alt_text: `${editingProj.title} photo ${idx + 1}`,
+        alt_text: `${editingProj.title} — Photo ${idx + 1}`,
         sort_order: idx + 1,
       }));
 
@@ -225,11 +322,11 @@ export default function AdminProjectsClient({
       if (editingProj.id) {
         setProjects((prev) => prev.map((p) => (p.id === saved.id ? saved : p)));
         toast.dismiss(toastId);
-        toast.success("Updated Successfully", `Previous work "${saved.title}" updated.`);
+        toast.success("Updated Successfully", `"${saved.title}" saved with ${imagesList.length} ${imagesList.length === 1 ? "image" : "images"}.`);
       } else {
         setProjects((prev) => [saved, ...prev]);
         toast.dismiss(toastId);
-        toast.success("Created Successfully", `New work item "${saved.title}" created.`);
+        toast.success("Created Successfully", `"${saved.title}" created with ${imagesList.length} ${imagesList.length === 1 ? "image" : "images"}.`);
       }
 
       setIsModalOpen(false);
@@ -292,7 +389,7 @@ export default function AdminProjectsClient({
 
         <button
           onClick={handleOpenNew}
-          className="inline-flex items-center justify-center gap-2 bg-[#0f172a] hover:bg-neutral-800 text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-sm transition-all shrink-0"
+          className="inline-flex items-center justify-center gap-2 bg-[#0f172a] hover:bg-neutral-800 text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider shadow-sm transition-all shrink-0 cursor-pointer"
         >
           <Plus className="w-4 h-4" />
           <span>Add Previous Work</span>
@@ -330,14 +427,14 @@ export default function AdminProjectsClient({
                         <div className="flex items-center gap-3">
                           <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-neutral-100 border border-neutral-200 shrink-0">
                             <Image
-                              src={proj.featured_image || "/images/products/boxing-gloves-black.png"}
+                              src={imgs[0] || proj.featured_image || "/images/products/basketball-uniform.jpg"}
                               alt={proj.title}
                               fill
                               sizes="48px"
                               className="object-cover"
                             />
                             {imgs.length > 1 && (
-                              <span className="absolute bottom-0 right-0 bg-black/70 text-[9px] font-mono text-white px-1 rounded-tl-sm">
+                              <span className="absolute bottom-0 right-0 bg-black/75 text-[9px] font-mono text-white px-1 rounded-tl-sm">
                                 +{imgs.length - 1}
                               </span>
                             )}
@@ -480,7 +577,7 @@ export default function AdminProjectsClient({
                   <input
                     type="text"
                     required
-                    placeholder="e.g. 16oz Metallic Sparring Gloves"
+                    placeholder="e.g. Custom Sublimated Baseball Uniform Set"
                     value={editingProj.title || ""}
                     onChange={(e) => {
                       const val = e.target.value;
@@ -496,32 +593,95 @@ export default function AdminProjectsClient({
               </div>
 
               {/* Multiple Images Section */}
-              <div className="border border-neutral-200 rounded-2xl p-4 sm:p-5 bg-neutral-50/60 space-y-3">
-                <div className="flex items-center justify-between">
+              <div className="border border-neutral-200 rounded-2xl p-4 sm:p-5 bg-neutral-50/60 space-y-3.5">
+                <div className="flex items-center justify-between gap-2">
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-neutral-700 font-bold">
-                      Work Images ({imagesList.length}) *
+                    <label className="block text-[11px] uppercase tracking-wider text-neutral-800 font-bold">
+                      Product Work Images ({imagesList.length}) *
                     </label>
-                    <span className="text-[10px] text-neutral-500">
-                      Add multiple images of this product. The first image is the cover photo.
+                    <span className="text-[11px] text-neutral-500">
+                      Select or drag &amp; drop multiple images at once. You can also add more images anytime.
                     </span>
                   </div>
+
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    disabled={isUploading}
+                    className="px-3.5 py-2 bg-[#0f172a] hover:bg-neutral-800 disabled:opacity-50 text-white rounded-xl text-xs font-bold whitespace-nowrap transition-colors inline-flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0"
+                  >
+                    {isUploading ? (
+                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                    ) : (
+                      <Upload className="w-3.5 h-3.5" />
+                    )}
+                    <span>{isUploading ? uploadStatusText || "Uploading..." : "Upload Multiple Images"}</span>
+                  </button>
                 </div>
 
-                {/* Add Image Input & Direct Upload */}
+                {/* Hidden Multi-File Input */}
                 <input
                   ref={fileInputRef}
                   type="file"
                   multiple
                   accept="image/*"
                   className="hidden"
-                  onChange={(e) => e.target.files && handleFileUpload(e.target.files)}
+                  onChange={(e) => {
+                    if (e.target.files && e.target.files.length > 0) {
+                      handleFileUpload(e.target.files);
+                    }
+                  }}
                 />
 
+                {/* Drag & Drop Multi-Upload Zone */}
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault();
+                    setIsDragging(true);
+                  }}
+                  onDragLeave={(e) => {
+                    e.preventDefault();
+                    setIsDragging(false);
+                  }}
+                  onDrop={(e) => {
+                    e.preventDefault();
+                    setIsDragging(false);
+                    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                      handleFileUpload(e.dataTransfer.files);
+                    }
+                  }}
+                  onClick={() => !isUploading && fileInputRef.current?.click()}
+                  className={`border-2 border-dashed rounded-2xl p-4 text-center cursor-pointer transition-all ${
+                    isDragging
+                      ? "border-amber-600 bg-amber-50/60"
+                      : "border-neutral-300 hover:border-[#0f172a] bg-white hover:bg-neutral-50/80"
+                  } ${isUploading ? "pointer-events-none opacity-75" : ""}`}
+                >
+                  {isUploading ? (
+                    <div className="py-2 flex items-center justify-center gap-2 text-amber-700">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span className="text-xs font-bold">{uploadStatusText || "Uploading images..."}</span>
+                    </div>
+                  ) : (
+                    <div className="flex flex-col items-center justify-center gap-1.5 py-1">
+                      <div className="w-9 h-9 rounded-full bg-neutral-100 border border-neutral-200 flex items-center justify-center text-[#0f172a]">
+                        <Upload className="w-4 h-4" />
+                      </div>
+                      <p className="text-xs font-bold text-[#0f172a]">
+                        Click to select multiple images <span className="font-normal text-neutral-500">or drag &amp; drop them here</span>
+                      </p>
+                      <p className="text-[10px] text-neutral-400">
+                        Supports PNG, JPG, WEBP — Hold Ctrl / Shift (or Cmd) to select multiple photos at once
+                      </p>
+                    </div>
+                  )}
+                </div>
+
+                {/* Optional Direct Image URL Input */}
                 <div className="flex items-center gap-2">
                   <input
                     type="text"
-                    placeholder="Enter image URL or path (e.g. /images/products/boxing-gloves-red.png)"
+                    placeholder="Or paste an image URL (e.g. https://... or /images/...)"
                     value={newImageInput}
                     onChange={(e) => setNewImageInput(e.target.value)}
                     onKeyDown={(e) => {
@@ -535,57 +695,18 @@ export default function AdminProjectsClient({
                   <button
                     type="button"
                     onClick={() => handleAddImage()}
-                    className="px-4 py-2 bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-[#0f172a] rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer"
+                    className="px-3.5 py-2 bg-white hover:bg-neutral-100 border border-neutral-200 text-[#0f172a] rounded-xl text-xs font-bold whitespace-nowrap transition-colors cursor-pointer"
                   >
                     Add URL
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    disabled={isUploading}
-                    className="px-4 py-2 bg-[#0f172a] hover:bg-neutral-800 disabled:opacity-50 text-white rounded-xl text-xs font-bold whitespace-nowrap transition-colors inline-flex items-center gap-1.5 cursor-pointer shadow-xs"
-                  >
-                    {isUploading ? (
-                      <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                    ) : (
-                      <Upload className="w-3.5 h-3.5" />
-                    )}
-                    <span>Upload Image</span>
-                  </button>
-                </div>
-
-                {/* Preset Suggestions for Quick Fill */}
-                <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                  <span className="text-[10px] font-mono text-neutral-400">Quick presets:</span>
-                  {[
-                    { label: "+ Boxing Red", url: "/images/products/boxing-gloves-red.png" },
-                    { label: "+ Basketball Kit", url: "/images/products/basketball-uniform.jpg" },
-                    { label: "+ Black Hoodie", url: "/images/products/hoodie-black.png" },
-                    { label: "+ Gym Leggings", url: "/images/products/gym-leggings.jpg" },
-                    { label: "+ Focus Pads", url: "/images/products/boxing-focuspads.jpg" },
-                    { label: "+ Board Shorts", url: "/images/products/board-shorts.jpg" },
-                  ].map((preset) => (
-                    <button
-                      key={preset.url}
-                      type="button"
-                      onClick={() => handleAddImage(preset.url)}
-                      className="px-2 py-0.5 rounded-md bg-white border border-neutral-200 hover:border-amber-500 text-[10px] font-mono text-neutral-600 hover:text-amber-800 transition-colors"
-                    >
-                      {preset.label}
-                    </button>
-                  ))}
                 </div>
 
                 {/* Image Thumbnails List */}
-                {imagesList.length === 0 ? (
-                  <div className="py-6 text-center text-xs text-neutral-400 border border-dashed border-neutral-200 rounded-xl bg-white">
-                    No images added yet. Add at least one image URL above.
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+                {imagesList.length > 0 && (
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 pt-1">
                     {imagesList.map((url, idx) => (
                       <div
-                        key={idx}
+                        key={`${url}-${idx}`}
                         className="group relative aspect-square rounded-xl overflow-hidden bg-neutral-200 border border-neutral-300 shadow-xs"
                       >
                         <Image
@@ -604,7 +725,7 @@ export default function AdminProjectsClient({
                           <button
                             type="button"
                             onClick={() => handleSetCover(idx)}
-                            className="absolute top-1.5 left-1.5 bg-black/75 hover:bg-black text-white text-[9px] font-mono px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute top-1.5 left-1.5 bg-black/75 hover:bg-black text-white text-[9px] font-mono px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                           >
                             Set Cover
                           </button>
@@ -613,16 +734,30 @@ export default function AdminProjectsClient({
                         <button
                           type="button"
                           onClick={() => handleRemoveImage(idx)}
-                          className="absolute top-1.5 right-1.5 bg-red-600 hover:bg-red-700 text-white p-1 rounded-full shadow-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                          title="Remove image"
+                          className="absolute top-1.5 right-1.5 bg-red-600 hover:bg-red-700 text-white p-1 rounded-full shadow-xs opacity-90 hover:opacity-100 transition-opacity cursor-pointer"
                         >
                           <X className="w-3 h-3" />
                         </button>
                         {/* Number Index */}
-                        <span className="absolute bottom-1.5 right-1.5 bg-black/60 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">
+                        <span className="absolute bottom-1.5 right-1.5 bg-black/65 text-white font-mono text-[9px] px-1.5 py-0.5 rounded">
                           #{idx + 1}
                         </span>
                       </div>
                     ))}
+
+                    {/* Add More Photos Tile */}
+                    <button
+                      type="button"
+                      onClick={() => fileInputRef.current?.click()}
+                      disabled={isUploading}
+                      className="aspect-square rounded-xl border-2 border-dashed border-neutral-300 hover:border-[#0f172a] bg-white/80 hover:bg-white flex flex-col items-center justify-center gap-1 text-neutral-500 hover:text-[#0f172a] transition-all cursor-pointer"
+                    >
+                      <Plus className="w-5 h-5" />
+                      <span className="text-[10px] font-bold uppercase tracking-wider">
+                        Add More
+                      </span>
+                    </button>
                   </div>
                 )}
               </div>

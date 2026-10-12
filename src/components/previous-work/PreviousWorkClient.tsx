@@ -33,21 +33,26 @@ export default function PreviousWorkClient({
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
 
-  // Helper to extract clean array of image URLs for any project
+  // Helper to extract clean array of image URLs for any project in sort_order
   const getProjectImages = useCallback((proj: Project): string[] => {
     const list: string[] = [];
-    if (proj.featured_image) {
-      list.push(proj.featured_image);
-    }
-    if (Array.isArray(proj.images)) {
-      for (const img of proj.images) {
+    if (Array.isArray(proj.images) && proj.images.length > 0) {
+      const sorted = [...proj.images].sort(
+        (a: any, b: any) => (a?.sort_order ?? 0) - (b?.sort_order ?? 0)
+      );
+      for (const img of sorted) {
         const url = typeof img === "string" ? img : img?.image_url;
         if (url && !list.includes(url)) {
           list.push(url);
         }
       }
     }
-    return list.length > 0 ? list : [proj.featured_image || "/images/products/basketball-uniform.jpg"];
+    if (proj.featured_image && !list.includes(proj.featured_image)) {
+      list.unshift(proj.featured_image);
+    }
+    return list.length > 0
+      ? list
+      : [proj.featured_image || "/images/products/basketball-uniform.jpg"];
   }, []);
 
   // Filter projects based on selected category
@@ -297,95 +302,122 @@ export default function PreviousWorkClient({
         </section>
       </div>
 
-      {/* BIG VIEW MODAL WITH IMAGE SLIDER */}
+      {/* COMPACT PRODUCT WORK POPUP WITH IMAGE SLIDER */}
       {activeProject && (
         <div
           role="dialog"
           aria-modal="true"
           aria-labelledby="modal-project-title"
-          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-950/80 backdrop-blur-md animate-in fade-in duration-200"
           onClick={(e) => {
             if (e.target === e.currentTarget) handleCloseModal();
           }}
         >
-          {/* Modal Container */}
-          <div className="relative w-full max-w-5xl bg-white border border-white/90 rounded-3xl shadow-2xl flex flex-col overflow-hidden max-h-[95vh]">
-            {/* Top Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-slate-200/80 bg-white/90 backdrop-blur-md z-20">
-              <div className="flex items-center gap-3 min-w-0 pr-4">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase font-bold bg-slate-100 text-slate-800 border border-slate-200/60 shrink-0">
+          {/* Compact Modal Container */}
+          <div className="relative w-full max-w-lg sm:max-w-[540px] bg-white border border-slate-200/90 rounded-2xl shadow-2xl flex flex-col overflow-hidden max-h-[92vh] animate-in zoom-in-95 duration-150">
+            {/* Compact Top Header */}
+            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-white z-20">
+              <div className="flex items-center gap-2 min-w-0 pr-2">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-mono uppercase font-bold bg-slate-100 text-slate-800 border border-slate-200/70 shrink-0">
                   {categories.find((c) => c.id === activeProject.category_id)?.name ||
                     activeProject.industry ||
-                    "OEM Production"}
+                    "OEM Work"}
                 </span>
                 <h2
                   id="modal-project-title"
-                  className="text-sm sm:text-base font-bold text-slate-900 truncate"
+                  className="text-xs sm:text-sm font-bold text-slate-900 truncate"
                 >
                   {activeProject.title}
                 </h2>
               </div>
 
-              <div className="flex items-center gap-3 shrink-0">
-                <span className="text-xs font-mono text-slate-500">
+              <div className="flex items-center gap-2.5 shrink-0">
+                <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">
                   {activeImageIndex + 1} / {activeImages.length}
                 </span>
                 <button
                   onClick={handleCloseModal}
                   aria-label="Close modal"
-                  className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
+                  className="w-7 h-7 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
-            {/* Central Slider Area */}
-            <div className="relative flex-1 flex items-center justify-center bg-slate-50 min-h-[320px] sm:min-h-[460px] max-h-[65vh] p-4 sm:p-6 select-none overflow-hidden">
-              {/* Active Image Presentation */}
-              <div className="relative w-full h-full max-w-4xl aspect-[4/3] sm:aspect-[16/10] max-h-[58vh]">
-                <Image
-                  src={activeImages[activeImageIndex]}
-                  alt={`${activeProject.title} — Photo ${activeImageIndex + 1}`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 1200px"
-                  priority
-                  className="object-contain transition-all duration-200"
-                />
-              </div>
+            {/* Full-Bleed Image Stage (No Excessive Empty Space) */}
+            <div className="relative w-full aspect-[4/3] bg-slate-900 select-none overflow-hidden">
+              <Image
+                key={activeImages[activeImageIndex]}
+                src={activeImages[activeImageIndex]}
+                alt={`${activeProject.title} — Photo ${activeImageIndex + 1}`}
+                fill
+                sizes="(max-width: 640px) 100vw, 540px"
+                priority
+                className="object-cover transition-all duration-200"
+              />
 
-              {/* Slider Arrows (Only if multiple images) */}
+              {/* Left & Right Navigation Arrows */}
               {activeImages.length > 1 && (
                 <>
                   <button
-                    onClick={handlePrevImage}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handlePrevImage();
+                    }}
                     aria-label="Previous image"
-                    className="absolute left-3 sm:left-6 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white text-slate-900 border border-slate-200/80 flex items-center justify-center shadow-lg transition-all cursor-pointer"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-slate-900 border border-slate-200/80 flex items-center justify-center shadow-md hover:scale-105 transition-all cursor-pointer"
                   >
-                    <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <ChevronLeft className="w-5 h-5" />
                   </button>
 
                   <button
-                    onClick={handleNextImage}
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleNextImage();
+                    }}
                     aria-label="Next image"
-                    className="absolute right-3 sm:right-6 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white text-slate-900 border border-slate-200/80 flex items-center justify-center shadow-lg transition-all cursor-pointer"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/90 hover:bg-white text-slate-900 border border-slate-200/80 flex items-center justify-center shadow-md hover:scale-105 transition-all cursor-pointer"
                   >
-                    <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                    <ChevronRight className="w-5 h-5" />
                   </button>
+
+                  {/* Slide Indicator Dots */}
+                  <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/60 backdrop-blur-sm">
+                    {activeImages.map((_, idx) => (
+                      <button
+                        key={idx}
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveImageIndex(idx);
+                        }}
+                        aria-label={`Go to image ${idx + 1}`}
+                        className={`h-1.5 rounded-full transition-all cursor-pointer ${
+                          activeImageIndex === idx
+                            ? "w-4 bg-white"
+                            : "w-1.5 bg-white/50 hover:bg-white/80"
+                        }`}
+                      />
+                    ))}
+                  </div>
                 </>
               )}
             </div>
 
-            {/* Bottom Thumbnail Strip (if multiple images) */}
+            {/* Compact Thumbnail Strip (when multiple images exist) */}
             {activeImages.length > 1 && (
-              <div className="px-4 py-3 bg-slate-100/80 border-t border-slate-200/80 overflow-x-auto scrollbar-none flex items-center justify-center gap-2 sm:gap-3">
+              <div className="px-4 py-2.5 bg-slate-50 border-t border-slate-100 overflow-x-auto scrollbar-none flex items-center justify-center gap-2">
                 {activeImages.map((imgUrl, idx) => (
                   <button
                     key={idx}
+                    type="button"
                     onClick={() => setActiveImageIndex(idx)}
-                    className={`relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                    className={`relative w-12 h-12 rounded-lg overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
                       activeImageIndex === idx
-                        ? "border-slate-900 scale-105 shadow-md"
+                        ? "border-slate-900 ring-1 ring-slate-900/20 opacity-100"
                         : "border-transparent opacity-60 hover:opacity-100"
                     }`}
                   >
@@ -393,7 +425,7 @@ export default function PreviousWorkClient({
                       src={imgUrl}
                       alt={`Thumbnail ${idx + 1}`}
                       fill
-                      sizes="60px"
+                      sizes="48px"
                       className="object-cover"
                     />
                   </button>
@@ -401,29 +433,21 @@ export default function PreviousWorkClient({
               </div>
             )}
 
-            {/* Modal Bottom Footer / CTA */}
-            <div className="px-6 py-4 bg-white border-t border-slate-200/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-              <div className="max-w-xl">
-                {activeProject.description ? (
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {activeProject.description}
-                  </p>
-                ) : (
-                  <p className="text-xs text-slate-500">
-                    Direct factory production run manufactured to international standards.
-                  </p>
-                )}
-              </div>
+            {/* Compact Footer / CTA */}
+            <div className="px-4 py-3 bg-white border-t border-slate-100 flex items-center justify-between gap-3">
+              <p className="text-xs text-slate-600 line-clamp-2 leading-snug flex-1">
+                {activeProject.description ||
+                  "Direct factory production run manufactured to international export standards."}
+              </p>
 
-              <div className="flex items-center gap-2.5 shrink-0">
-                <button
-                  onClick={() => setIsQuoteModalOpen(true)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black px-5 py-2.5 rounded-xl font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all cursor-pointer"
-                >
-                  <MessageSquare className="w-4 h-4 text-black" />
-                  <span>Inquire Similar Production</span>
-                </button>
-              </div>
+              <button
+                type="button"
+                onClick={() => setIsQuoteModalOpen(true)}
+                className="shrink-0 inline-flex items-center justify-center gap-1.5 bg-[#FFB900] hover:bg-[#E5A700] text-black px-4 py-2 rounded-xl font-extrabold text-[11px] uppercase tracking-wider shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all cursor-pointer"
+              >
+                <MessageSquare className="w-3.5 h-3.5 text-black" />
+                <span>Inquire Similar</span>
+              </button>
             </div>
           </div>
         </div>

@@ -45,7 +45,8 @@ export async function POST(req: NextRequest) {
       .toLowerCase()
       .replace(/[^a-z0-9]/g, "-")
       .slice(0, 40);
-    const uniqueFileName = `${Date.now()}-${baseName || "image"}${originalExt.toLowerCase()}`;
+    const randSuffix = Math.random().toString(36).slice(2, 7);
+    const uniqueFileName = `${Date.now()}-${randSuffix}-${baseName || "image"}${originalExt.toLowerCase()}`;
 
     // 1. Try uploading to Supabase Storage if configured and online
     if (isSupabaseConfigured) {

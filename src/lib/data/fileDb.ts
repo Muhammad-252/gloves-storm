@@ -220,7 +220,12 @@ export async function getDbProjects(): Promise<Project[]> {
     return [];
   }
 
-  return (data as Project[]) || [];
+  return ((data as Project[]) || []).map((proj) => ({
+    ...proj,
+    images: Array.isArray(proj.images)
+      ? [...proj.images].sort((a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0))
+      : [],
+  }));
 }
 
 export async function saveDbProject(project: Partial<Project>): Promise<Project> {
@@ -234,9 +239,14 @@ export async function saveDbProject(project: Partial<Project>): Promise<Project>
   projRecord.id = projectId;
   projRecord.updated_at = new Date().toISOString();
 
-  const { data, error } = await client
-    .from("projects")
-    .upsert(projRecord)
+  // Handle partial updates (e.g. toggling featured or is_active) vs full upserts
+  const isPartialUpdate = Boolean(project.id && isUuid(project.id) && project.title === undefined);
+
+  const query = isPartialUpdate
+    ? client.from("projects").update(projRecord).eq("id", projectId)
+    : client.from("projects").upsert(projRecord);
+
+  const { data, error } = await query
     .select("*, images:project_images(*)")
     .single();
 
@@ -245,7 +255,58 @@ export async function saveDbProject(project: Partial<Project>): Promise<Project>
     throw new Error(error?.message || "Failed to save project in Supabase");
   }
 
-  return data as Project;
+  let saved = data as Project;
+
+  // Sync multiple images to project_images table when images array is provided
+  if (Array.isArray(images)) {
+    await client.from("project_images").delete().eq("project_id", saved.id);
+
+    const seenUrls = new Set<string>();
+    const imageRows = images
+      .map((img: any, idx: number) => {
+        const url = (typeof img === "string" ? img : img?.image_url || "").trim();
+        if (!url || seenUrls.has(url)) return null;
+        seenUrls.add(url);
+        return {
+          id: img?.id && isUuid(img.id) ? img.id : randomUUID(),
+          project_id: saved.id,
+          image_url: url,
+          alt_text:
+            (typeof img === "object" && img?.alt_text) ||
+            `${saved.title} — Photo ${idx + 1}`,
+          sort_order:
+            typeof img === "object" && typeof img?.sort_order === "number"
+              ? img.sort_order
+              : idx + 1,
+        };
+      })
+      .filter((row): row is NonNullable<typeof row> => row !== null);
+
+    if (imageRows.length > 0) {
+      const { error: imgError } = await client.from("project_images").insert(imageRows);
+      if (imgError) {
+        console.error("Supabase saveDbProject project_images insert error:", imgError);
+      }
+    }
+
+    const { data: refreshed } = await client
+      .from("projects")
+      .select("*, images:project_images(*)")
+      .eq("id", saved.id)
+      .single();
+
+    if (refreshed) {
+      saved = refreshed as Project;
+    }
+  }
+
+  if (Array.isArray(saved.images)) {
+    saved.images = [...saved.images].sort(
+      (a, b) => (a.sort_order ?? 0) - (b.sort_order ?? 0)
+    );
+  }
+
+  return saved;
 }
 
 export async function deleteDbProject(id: string): Promise<boolean> {
@@ -254,6 +315,7 @@ export async function deleteDbProject(id: string): Promise<boolean> {
     throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
   }
 
+  await client.from("project_images").delete().eq("project_id", id);
   const { error } = await client.from("projects").delete().eq("id", id);
   if (error) {
     console.error("Supabase deleteDbProject error:", error);
