@@ -77,27 +77,17 @@ export default function Navbar() {
         };
       }
 
-      console.log("[Navbar Debug] 🚀 Fetching /api/categories...");
       fetch("/api/categories")
-        .then((res) => {
-          console.log("[Navbar Debug] 📡 /api/categories HTTP status:", res.status);
-          return res.json();
-        })
+        .then((res) => res.json())
         .then((data) => {
-          console.log("[Navbar Debug] 📦 /api/categories data payload:", data);
           if (data?.categories && data.categories.length > 0) {
-            console.log(`[Navbar Debug] ✅ Loaded ${data.categories.length} categories into Navbar.`);
             setCategories(data.categories);
             try {
               localStorage.setItem("gs_dynamic_categories", JSON.stringify(data.categories));
             } catch (e) {}
-          } else {
-            console.warn("[Navbar Debug] ⚠️ Received 0 categories or invalid response payload:", data);
           }
         })
-        .catch((err) => {
-          console.error("[Navbar Debug] ❌ Error fetching /api/categories:", err);
-        });
+        .catch(() => {});
 
       return () => {
         window.removeEventListener("gs_categories_updated", handleUpdate);
