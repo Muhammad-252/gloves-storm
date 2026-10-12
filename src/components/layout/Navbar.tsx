@@ -168,17 +168,17 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 max-w-7xl px-4 sm:px-6 lg:px-8 w-full transition-all duration-300">
+      <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 max-w-7xl px-3 sm:px-6 lg:px-8 w-full transition-all duration-300">
         <div
           className={cn(
-            "w-full rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-4 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between transition-all duration-300",
+            "w-full rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-3.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-2 transition-all duration-300",
             scrolled && "bg-white/95 shadow-md border-slate-300/80"
           )}
         >
           {/* Brand Logo with Company Mark */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 sm:gap-3 group shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group min-w-0"
             onClick={() => {
               setMobileMenuOpen(false);
               setMegaMenuOpen(false);
@@ -195,11 +195,11 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <div className="flex flex-col">
-              <span className="font-black tracking-[-0.03em] text-base sm:text-lg uppercase text-slate-900 leading-none">
+            <div className="flex flex-col min-w-0">
+              <span className="font-black tracking-[-0.03em] text-sm min-[380px]:text-base sm:text-lg uppercase text-slate-900 leading-none truncate">
                 GLOVES STORM
               </span>
-              <span className="text-[9px] uppercase tracking-[0.2em] font-mono text-slate-500 font-semibold mt-1 leading-none">
+              <span className="text-[8px] min-[380px]:text-[9px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-mono text-slate-500 font-semibold mt-1 leading-none truncate">
                 International OEM & Exporter
               </span>
             </div>
@@ -349,19 +349,12 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile / Tablet Controls (< 1024px) */}
-          <div className="flex lg:hidden items-center gap-2 shrink-0">
+          {/* Mobile / Tablet Controls (< 1024px) — Only Burger Icon */}
+          <div className="flex lg:hidden items-center shrink-0">
             <button
               type="button"
-              onClick={() => setRfqModalOpen(true)}
-              className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-[#FFB900] text-black font-extrabold text-[11px] uppercase tracking-wider shadow-xs whitespace-nowrap active:scale-95"
-            >
-              <span>Quote</span>
-              <ArrowUpRight className="w-3 h-3 text-black" />
-            </button>
-            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-full hover:bg-slate-100 text-slate-900 transition-colors"
+              className="p-2 rounded-full hover:bg-slate-100 text-slate-900 transition-colors shrink-0 flex items-center justify-center cursor-pointer"
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -393,7 +386,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-3">
             {/* Mobile Header with Logo */}
             <div className="flex items-center justify-between pb-4 border-b border-neutral-100">
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 min-w-0">
                 <div className="relative w-8 h-8 rounded-xl overflow-hidden bg-black shrink-0 border border-black/10 flex items-center justify-center">
                   <Image
                     src="/images/logo.png"
@@ -403,18 +396,19 @@ export default function Navbar() {
                     className="object-cover"
                   />
                 </div>
-                <div className="flex flex-col">
-                  <span className="font-extrabold text-sm uppercase text-slate-900 leading-tight">
+                <div className="flex flex-col min-w-0">
+                  <span className="font-extrabold text-sm uppercase text-slate-900 leading-tight truncate">
                     GLOVES STORM
                   </span>
-                  <span className="text-[9px] uppercase tracking-wider font-mono text-slate-500">
+                  <span className="text-[9px] uppercase tracking-wider font-mono text-slate-500 truncate">
                     International OEM & Exporter
                   </span>
                 </div>
               </div>
               <button
+                type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-full hover:bg-slate-100 text-slate-600 transition-colors"
+                className="p-2 rounded-full hover:bg-slate-100 text-slate-600 transition-colors shrink-0 cursor-pointer"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -538,10 +532,21 @@ export default function Navbar() {
           </div>
 
           {/* Drawer Bottom CTA */}
-          <div className="flex flex-col gap-3 border-t border-neutral-200 pt-5 mt-4">
+          <div className="flex flex-col gap-2.5 border-t border-neutral-200 pt-5 mt-4">
+            <button
+              type="button"
+              onClick={() => {
+                setMobileMenuOpen(false);
+                setRfqModalOpen(true);
+              }}
+              className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-sm transition-all active:scale-[0.98] cursor-pointer"
+            >
+              <span>Request OEM Quote</span>
+              <ArrowUpRight className="w-4 h-4 text-black" />
+            </button>
             <GooeyButton
               href="/contact"
-              variant="gold-solid"
+              variant="dark"
               size="md"
               className="w-full"
               onClick={() => setMobileMenuOpen(false)}

@@ -92,13 +92,18 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico" },
+      { url: "/favicon.ico", sizes: "48x48", type: "image/x-icon" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
+    shortcut: [{ url: "/favicon.ico", type: "image/x-icon" }],
     apple: [
       { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
     ],
   },
+  manifest: "/manifest.webmanifest",
   verification: {
     google: "googlec66e29b6126c6554",
   },
@@ -112,7 +117,15 @@ const organizationSchema = {
       "@id": "https://www.glovesstorm.com/#organization",
       name: "Gloves Storm",
       url: "https://www.glovesstorm.com",
-      logo: "https://www.glovesstorm.com/images/logo.png",
+      logo: {
+        "@type": "ImageObject",
+        "@id": "https://www.glovesstorm.com/#logo",
+        url: "https://www.glovesstorm.com/images/logo.png",
+        contentUrl: "https://www.glovesstorm.com/images/logo.png",
+        width: 1024,
+        height: 1024,
+        caption: "Gloves Storm",
+      },
       image: "https://www.glovesstorm.com/images/logo.png",
       description:
         "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, streetwear, and team uniforms. Direct factory manufacturing facility with global export corridors to the USA, UK, EU, and worldwide.",
