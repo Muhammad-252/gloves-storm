@@ -114,6 +114,57 @@ const nextConfig: NextConfig = {
         destination: "/journal",
         permanent: true,
       },
+      // Legacy WordPress / WooCommerce URL 301 redirects to live pages
+      {
+        source: "/contact-us",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/contact-us/",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/product-category/fitness-wears/:slug*",
+        destination: "/products/gym-fitness-wear",
+        permanent: true,
+      },
+      {
+        source: "/product-category/sports-uniforms/:slug*",
+        destination: "/products/sportswear-teamwear",
+        permanent: true,
+      },
+      {
+        source: "/product-category/mens/:slug*",
+        destination: "/products/clothing-streetwear",
+        permanent: true,
+      },
+      {
+        source: "/product-category/casual-wear/:slug*",
+        destination: "/products/clothing-streetwear",
+        permanent: true,
+      },
+      {
+        source: "/product-category/womens/:slug*",
+        destination: "/products/gym-fitness-wear",
+        permanent: true,
+      },
+      {
+        source: "/product-category/:slug*",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/product/:slug*",
+        destination: "/products",
+        permanent: true,
+      },
+      {
+        source: "/shop/:slug*",
+        destination: "/products",
+        permanent: true,
+      },
     ];
   },
   async rewrites() {
