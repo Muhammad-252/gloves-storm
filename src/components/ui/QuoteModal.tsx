@@ -82,30 +82,30 @@ export default function QuoteModal({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
-      <div className="relative w-full max-w-2xl bg-white rounded-3xl border border-neutral-200 p-5 sm:p-8 text-neutral-900 my-auto max-h-[calc(100dvh-2rem)] overflow-y-auto shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-black/60 backdrop-blur-sm overflow-y-auto">
+      <div className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl border border-neutral-200 p-4 sm:p-6 md:p-8 text-neutral-900 my-auto max-h-[calc(100dvh-2rem)] overflow-y-auto shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 sm:top-5 sm:right-5 text-neutral-400 hover:text-neutral-900 p-2 transition-colors rounded-full hover:bg-neutral-100 cursor-pointer"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 text-neutral-400 hover:text-neutral-900 p-1.5 sm:p-2 transition-colors rounded-full hover:bg-neutral-100 cursor-pointer"
           aria-label="Close quote modal"
         >
-          <X className="w-5 h-5 sm:w-6 sm:h-6" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
         </button>
 
         {submitted ? (
-          <div className="py-12 text-center flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/40 flex items-center justify-center text-black mb-6">
-              <CheckCircle className="w-8 h-8" />
+          <div className="py-8 sm:py-12 text-center flex flex-col items-center">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/40 flex items-center justify-center text-black mb-4 sm:mb-6">
+              <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono mb-2 font-semibold">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono mb-2 font-semibold">
               Inquiry Confirmed
             </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 mb-4">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
               THANK YOU. <br />
               YOUR PROJECT IS NOW IN REVIEW.
             </h3>
-            <p className="text-sm text-neutral-600 max-w-md mb-8 leading-relaxed">
+            <p className="text-xs sm:text-sm text-neutral-600 max-w-md mb-6 sm:mb-8 leading-relaxed">
               Our engineering and production team in Sialkot will review your specifications, volume requirements, and timeline. You will receive a formal quotation within 12 business hours.
             </p>
             <GooeyButton
@@ -121,15 +121,15 @@ export default function QuoteModal({
           </div>
         ) : (
           <div>
-            <div className="mb-6">
-              <span className="text-[10px] uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-1 font-semibold">
+            <div className="mb-4 sm:mb-6 pr-8">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-1 font-semibold">
                 {inquiryType === "Sample" ? "Physical Sample Development" : "Direct Factory Production Inquiries"}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold uppercase tracking-tight text-neutral-950">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 leading-tight">
                 {inquiryType === "Sample" ? "Request a Sample" : "Request a Quote"}
               </h2>
               {defaultProductName && (
-                <p className="text-xs text-neutral-500 mt-1">
+                <p className="text-[11px] sm:text-xs text-neutral-500 mt-1">
                   Product: <span className="text-neutral-900 font-medium">{defaultProductName}</span>
                 </p>
               )}

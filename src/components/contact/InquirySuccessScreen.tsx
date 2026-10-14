@@ -21,28 +21,28 @@ export default function InquirySuccessScreen({
   onReset,
 }: InquirySuccessScreenProps) {
   return (
-    <div className="max-w-3xl mx-auto p-8 sm:p-14 rounded-3xl bg-white border border-neutral-200 shadow-xl text-center animate-in fade-in zoom-in-95 duration-500 relative overflow-hidden">
+    <div className="max-w-3xl mx-auto p-4 sm:p-8 md:p-12 lg:p-14 rounded-2xl sm:rounded-3xl bg-white border border-neutral-200 shadow-xl text-center animate-in fade-in zoom-in-95 duration-500 relative overflow-hidden">
       {/* Success Badge */}
-      <div className="w-16 h-16 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 mx-auto flex items-center justify-center mb-6 shadow-sm">
-        <CheckCircle2 className="w-8 h-8" />
+      <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 mx-auto flex items-center justify-center mb-4 sm:mb-6 shadow-sm">
+        <CheckCircle2 className="w-6 h-6 sm:w-8 sm:h-8" />
       </div>
 
-      <span className="text-xs font-mono uppercase tracking-[0.25em] text-neutral-900 font-bold block mb-2">
+      <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-900 font-bold block mb-1.5 sm:mb-2">
         Project Dossier Transmitted
       </span>
 
-      <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-3">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-2.5 sm:mb-3 leading-tight">
         PROJECT RECEIVED
       </h2>
 
-      <p className="text-sm sm:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto mb-8">
+      <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto mb-6 sm:mb-8">
         Thank you, <strong className="text-[#0f172a]">{customerName}</strong>. We have securely received your manufacturing specifications for <span className="text-black font-bold">{productName}</span>. A confirmation has been logged to our Sialkot production team.
       </p>
 
       {/* Project ID Box */}
-      <div className="inline-flex items-center gap-4 px-6 py-3 rounded-2xl bg-neutral-50 border border-neutral-200 mb-10">
-        <span className="text-xs font-mono uppercase text-neutral-500">PROJECT REFERENCE ID</span>
-        <span className="text-lg sm:text-xl font-mono font-bold tracking-widest text-[#0f172a]">
+      <div className="inline-flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-neutral-50 border border-neutral-200 mb-8 sm:mb-10">
+        <span className="text-[10px] sm:text-xs font-mono uppercase text-neutral-500">PROJECT REFERENCE ID</span>
+        <span className="text-base sm:text-xl font-mono font-bold tracking-widest text-[#0f172a]">
           {projectId}
         </span>
       </div>

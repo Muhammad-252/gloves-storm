@@ -38,19 +38,19 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-white/85 backdrop-blur-xl border-t border-white/90 text-slate-900 pt-20 pb-12 relative overflow-hidden shadow-[0_-8px_30px_rgb(0,0,0,0.02)]">
+    <footer className="bg-white/85 backdrop-blur-xl border-t border-white/90 text-slate-900 pt-12 sm:pt-16 lg:pt-20 pb-8 sm:pb-12 relative overflow-hidden shadow-[0_-8px_30px_rgb(0,0,0,0.02)]">
       {/* Subtle top hairline gradient */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Big Statement */}
-        <div className="pb-16 border-b border-slate-200/80 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+        <div className="pb-8 sm:pb-12 lg:pb-16 border-b border-slate-200/80 flex flex-col lg:flex-row lg:items-end justify-between gap-6 sm:gap-8">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono uppercase tracking-[0.25em] font-bold mb-3 border border-neutral-200">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] font-bold mb-2.5 sm:mb-3 border border-neutral-200">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
               <span>International OEM &amp; Private Label Exporter</span>
             </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight leading-tight text-neutral-950">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-tight text-neutral-950">
               BUILT FOR BRANDS. <br />
               <span className="text-neutral-500">ENGINEERED TO SCALE.</span>
             </h2>
@@ -58,16 +58,16 @@ export default function Footer() {
           <div>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-sm active:scale-95 w-full sm:w-auto text-center"
             >
               <span>Submit Your Tech Pack</span>
-              <ArrowUpRight className="w-4 h-4 text-black" />
+              <ArrowUpRight className="w-4 h-4 text-black shrink-0" />
             </Link>
           </div>
         </div>
 
         {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16 border-b border-slate-200/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 py-8 sm:py-12 lg:py-16 border-b border-slate-200/80">
           {/* Brand Info */}
           <div className="lg:col-span-2 flex flex-col justify-between">
             <div>
@@ -219,7 +219,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4 text-center sm:text-left">
           <div className="flex items-center justify-center sm:justify-start gap-2">
             <ShieldCheck className="w-4 h-4 text-slate-900 shrink-0" />
             <span>

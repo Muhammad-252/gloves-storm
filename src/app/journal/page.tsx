@@ -72,33 +72,33 @@ export default async function JournalPage() {
 
 
   return (
-    <div className="pt-28 pb-24 bg-transparent min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-24 bg-transparent min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Rewritten SEO H1 and Intro */}
-        <div className="max-w-4xl mb-16 pb-8 border-b border-slate-200/80">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
+        <div className="max-w-4xl mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-slate-200/80">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono font-medium shadow-xs mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
             <span>SIALKOT TECHNICAL JOURNAL &amp; OEM GUIDES</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-3 sm:mb-4">
             THE GLOVES STORM MANUFACTURING JOURNAL
           </h1>
-          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-3xl leading-relaxed">
             Guides, insights and technical production knowledge from our Sialkot factory — written for sports apparel brands, athletic teams, gym wear founders, streetwear labels and international distributors building their businesses with Gloves Storm as their direct OEM manufacturing partner.
           </p>
         </div>
 
         {/* Blog Posts Grid with Tactile Frosted Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {posts.map((post) => (
             <Link
               key={post.id}
               href={`/journal/${post.slug}`}
-              className="rounded-3xl p-4 bg-white/75 backdrop-blur-md border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:border-[#FFB900] hover:-translate-y-1 flex flex-col justify-between overflow-hidden transition-all duration-300 group"
+              className="rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 bg-white/75 backdrop-blur-md border border-neutral-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:border-[#FFB900] hover:-translate-y-1 flex flex-col justify-between overflow-hidden transition-all duration-300 group"
             >
               <div>
                 {/* Cover image */}

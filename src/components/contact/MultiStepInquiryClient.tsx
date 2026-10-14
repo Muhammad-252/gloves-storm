@@ -299,12 +299,12 @@ export default function MultiStepInquiryClient({
       </div>
 
       {/* STEP CONTAINER CARD */}
-      <div className="p-5 sm:p-10 lg:p-12 rounded-3xl bg-white border border-neutral-200 shadow-md relative">
+      <div className="p-4 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl bg-white border border-neutral-200 shadow-md relative">
         {/* STEP 01: DIVISION SELECTION */}
         {currentStep === 1 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 What are you looking to manufacture?
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -312,7 +312,7 @@ export default function MultiStepInquiryClient({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-3.5">
               {CATEGORY_CARDS.map((cat) => {
                 const isSelected = selectedCategory.toLowerCase().includes(cat.id);
                 return (
@@ -320,14 +320,14 @@ export default function MultiStepInquiryClient({
                     key={cat.id}
                     type="button"
                     onClick={() => setSelectedCategory(cat.name)}
-                    className={`p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between group ${isSelected
+                    className={`p-3.5 sm:p-4 md:p-5 rounded-2xl border text-left transition-all relative flex flex-col justify-between group ${isSelected
                         ? "border-black bg-white ring-2 ring-[#FFB900]"
                         : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300 hover:bg-neutral-100/60"
                       }`}
                   >
                     <div>
-                      <span className="text-2xl mb-3 block">{cat.icon}</span>
-                      <h4 className="text-sm font-bold uppercase text-[#0f172a] mb-1">
+                      <span className="text-xl sm:text-2xl mb-2 sm:mb-3 block">{cat.icon}</span>
+                      <h4 className="text-xs sm:text-sm font-bold uppercase text-[#0f172a] mb-1">
                         {cat.name}
                       </h4>
                       <p className="text-[11px] text-neutral-600 leading-relaxed">
@@ -335,7 +335,7 @@ export default function MultiStepInquiryClient({
                       </p>
                     </div>
 
-                    <div className="mt-4 flex items-center justify-end">
+                    <div className="mt-3 sm:mt-4 flex items-center justify-end">
                       <span
                         className={`w-5 h-5 rounded-full border flex items-center justify-center transition-all ${isSelected
                             ? "border-[#FFB900] bg-[#FFB900] text-black"
@@ -354,9 +354,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 02: PRODUCT MODEL */}
         {currentStep === 2 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Which product model are you manufacturing?
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -444,9 +444,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 03: CUSTOMIZE YOUR PRODUCT */}
         {currentStep === 3 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Specify Customization Details
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -454,7 +454,7 @@ export default function MultiStepInquiryClient({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
                   Material / Fabric Specification
@@ -525,9 +525,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 04: UPLOAD FILES */}
         {currentStep === 4 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Upload Artwork, Logos & Tech Packs
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -540,7 +540,7 @@ export default function MultiStepInquiryClient({
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop}
               onClick={() => fileInputRef.current?.click()}
-              className="p-10 rounded-3xl border-2 border-dashed border-neutral-300 hover:border-[#FFB900] bg-neutral-50/60 text-center cursor-pointer transition-all hover:bg-neutral-100/60 group"
+              className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl border-2 border-dashed border-neutral-300 hover:border-[#FFB900] bg-neutral-50/60 text-center cursor-pointer transition-all hover:bg-neutral-100/60 group"
             >
               <input
                 ref={fileInputRef}
@@ -611,9 +611,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 05: QUANTITY & TIMELINE */}
         {currentStep === 5 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Production Quantity & Timeline
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -682,9 +682,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 06: TELL US ABOUT YOUR BRAND */}
         {currentStep === 6 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Tell us about your brand
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -692,7 +692,7 @@ export default function MultiStepInquiryClient({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
                   Brand or Company Name *
@@ -768,9 +768,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 07: CONTACT INFORMATION */}
         {currentStep === 7 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Where should we send your quote?
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -778,7 +778,7 @@ export default function MultiStepInquiryClient({
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
                 <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
                   Full Name *
@@ -840,9 +840,9 @@ export default function MultiStepInquiryClient({
 
         {/* STEP 08: EXECUTIVE REVIEW & SUBMIT */}
         {currentStep === 8 && (
-          <div className="space-y-6 animate-in fade-in duration-300">
+          <div className="space-y-5 sm:space-y-6 animate-in fade-in duration-300">
             <div>
-              <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-2">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-tight text-[#0f172a] mb-1.5 sm:mb-2 leading-tight">
                 Review Your Project Dossier
               </h2>
               <p className="text-xs sm:text-sm text-neutral-600">
@@ -851,7 +851,7 @@ export default function MultiStepInquiryClient({
             </div>
 
             {/* Review Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
               {/* Product & Division */}
               <div className="p-4 rounded-2xl bg-neutral-50 border border-neutral-200 relative">
                 <button

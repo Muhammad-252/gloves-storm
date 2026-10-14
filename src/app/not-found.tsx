@@ -3,12 +3,12 @@ import { ArrowUpRight, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#fafafa] flex items-center justify-center px-6 py-24 text-center">
-      <div className="max-w-xl p-8 sm:p-12 rounded-3xl bg-white border border-neutral-200 shadow-sm">
-        <span className="text-xs font-mono uppercase tracking-[0.3em] text-neutral-900 block mb-4 font-bold">
+    <div className="min-h-screen bg-[#fafafa] flex items-center justify-center px-4 sm:px-6 py-16 sm:py-24 text-center">
+      <div className="max-w-xl p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-white border border-neutral-200 shadow-sm w-full">
+        <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.3em] text-neutral-900 block mb-3 sm:mb-4 font-bold">
           404 Error • Specification Missing
         </span>
-        <h1 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-6 leading-tight">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-4 sm:mb-6 leading-tight">
           THIS PAGE DOESN&apos;T EXIST. <br />
           <span className="text-neutral-400">BUT YOUR NEXT PRODUCT COULD.</span>
         </h1>

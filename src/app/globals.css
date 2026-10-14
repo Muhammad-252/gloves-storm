@@ -50,6 +50,11 @@ body {
   min-height: 100vh;
 }
 
+/* Ensure text doesn't overflow containers on narrow mobile viewports */
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
 /* Prevent inline media breakout without breaking background covers */
 img:not(.hero-bg-media), canvas, svg {
   max-width: 100%;

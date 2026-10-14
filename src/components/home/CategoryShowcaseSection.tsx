@@ -313,23 +313,23 @@ export default function CategoryShowcaseSection({
   }, [products, categories, selectedChip, gsmFilter, techniqueFilter, searchQuery]);
 
   return (
-    <section className="py-16 sm:py-24 bg-transparent border-b border-black/[0.06] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <section className="py-12 sm:py-18 lg:py-24 bg-transparent border-b border-black/[0.06] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-5 border-b border-black/[0.06] gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-4 sm:pb-5 border-b border-black/[0.06] gap-3 sm:gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 shadow-xs mb-2">
+            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 shadow-xs mb-2">
               <span className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
               <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-800 font-mono font-bold">
                 Direct Mill Catalog
               </span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold uppercase tracking-tight text-neutral-950">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-neutral-950">
               CUSTOM APPAREL &amp; SPORTSWEAR SPECIFICATIONS
             </h2>
           </div>
 
-          <div className="text-xs text-neutral-500 font-mono">
+          <div className="text-[11px] sm:text-xs text-neutral-500 font-mono">
             Showing <span className="font-bold text-neutral-900">{filteredProducts.length}</span> verified specifications
           </div>
         </div>
@@ -476,11 +476,11 @@ export default function CategoryShowcaseSection({
               return (
                 <div
                   key={product.id}
-                  className="rounded-3xl p-4 bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
+                  className="rounded-2xl sm:rounded-3xl p-3 sm:p-4 bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 group flex flex-col justify-between"
                 >
                   <div>
                     {/* Image Wrapper: Rounded-2xl media box aspect-[4/5] */}
-                    <div className="bg-slate-100/80 aspect-[4/5] relative overflow-hidden rounded-2xl flex items-center justify-center mb-4">
+                    <div className="bg-slate-100/80 aspect-[4/5] relative overflow-hidden rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-4">
                       {/* Primary Image */}
                       <Image
                         src={primaryImg}
@@ -502,31 +502,31 @@ export default function CategoryShowcaseSection({
                       )}
 
                       {/* Floating Frosted Glass Tag: MOQ */}
-                      <div className="absolute top-3 left-3 z-10 bg-white/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs flex items-center gap-1">
+                      <div className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs flex items-center gap-1">
                         <Box className="w-3 h-3 text-slate-600" />
                         <span>MOQ {product.moq || 35} pcs</span>
                       </div>
 
                       {/* Floating Frosted Glass Tag: Fabric Weight / GSM */}
-                      <div className="absolute top-3 right-3 z-10 bg-white/85 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs">
+                      <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs">
                         <span>{gsmBadge}</span>
                       </div>
                     </div>
 
                     {/* Card Body: Title in bold slate-900 */}
-                    <div className="px-1 mb-3">
+                    <div className="px-1 mb-2.5 sm:mb-3">
                       <Link
                         href={productHref}
-                        className="font-bold text-base text-slate-900 group-hover:text-slate-700 transition-colors line-clamp-1 block mb-2"
+                        className="font-bold text-sm sm:text-base text-slate-900 group-hover:text-slate-700 transition-colors line-clamp-1 block mb-1.5 sm:mb-2"
                         title={product.name}
                       >
                         {product.name}
                       </Link>
 
                       {/* Bulleted Technical Features */}
-                      <ul className="space-y-1.5 text-xs text-slate-600">
+                      <ul className="space-y-1 sm:space-y-1.5 text-[11px] sm:text-xs text-slate-600">
                         {bullets.map((feature, idx) => (
-                          <li key={idx} className="flex items-center gap-2">
+                          <li key={idx} className="flex items-center gap-1.5 sm:gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-slate-400 shrink-0" />
                             <span className="truncate">{feature}</span>
                           </li>
@@ -536,13 +536,13 @@ export default function CategoryShowcaseSection({
                   </div>
 
                   {/* Bottom Action Bar: View Tech Specs & Inquire Sample */}
-                  <div className="grid grid-cols-2 gap-2 pt-3 border-t border-neutral-200 mt-2">
+                  <div className="grid grid-cols-2 gap-2 pt-2.5 sm:pt-3 border-t border-neutral-200 mt-2">
                     <Link
                       href={productHref}
-                      className="py-2.5 px-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-xs font-bold flex items-center justify-center gap-1 transition-all"
+                      className="py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 transition-all text-center"
                     >
-                      <span>View Tech Specs</span>
-                      <ArrowUpRight className="w-3 h-3 text-neutral-600" />
+                      <span className="truncate">Tech Specs</span>
+                      <ArrowUpRight className="w-3 h-3 text-neutral-600 shrink-0" />
                     </Link>
 
                     <button
@@ -554,9 +554,9 @@ export default function CategoryShowcaseSection({
                           category: categoryObj?.name || "Custom Clothing & Sportswear",
                         })
                       }
-                      className="py-2.5 px-3 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs"
+                      className="py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-[11px] sm:text-xs font-extrabold flex items-center justify-center gap-1 transition-all cursor-pointer shadow-xs text-center"
                     >
-                      <span>Inquire Sample</span>
+                      <span className="truncate">Inquire Sample</span>
                     </button>
                   </div>
                 </div>
@@ -566,13 +566,13 @@ export default function CategoryShowcaseSection({
         )}
 
         {/* Catalog Navigation Footer */}
-        <div className="text-center pt-12">
+        <div className="text-center pt-8 sm:pt-12">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-xs uppercase tracking-widest transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
           >
             <span>EXPLORE FULL {products.length}+ SPECIFICATION CATALOG</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <ArrowUpRight className="w-4 h-4 shrink-0" />
           </Link>
         </div>
       </div>

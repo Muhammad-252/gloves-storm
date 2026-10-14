@@ -40,109 +40,109 @@ export default function CollectionBuyingGuide({
   ];
 
   return (
-    <section className="mt-20 pt-16 border-t border-neutral-200/90 text-neutral-900">
+    <section className="mt-12 sm:mt-20 pt-10 sm:pt-16 border-t border-neutral-200/90 text-neutral-900">
       {/* 1. Guide Header */}
-      <div className="max-w-3xl mb-12">
-        <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-500 font-bold block mb-2">
+      <div className="max-w-3xl mb-8 sm:mb-12">
+        <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-bold block mb-2">
           Technical Buyer&apos;s Guide &amp; Factory Specifications
         </span>
-        <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-neutral-950 mb-4 leading-tight">
+        <h2 className="text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
           {categoryName} Procurement &amp; Manufacturing Guide
         </h2>
-        <p className="text-sm text-neutral-600 leading-relaxed font-normal">
+        <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
           Designed for independent brands, athletic clubs, and commercial apparel buyers. Learn how GLOVES STORM engineers premium craftsmanship with direct Sialkot OEM factory pricing, strict quality tolerances, and worldwide export compliance.
         </p>
       </div>
 
       {/* 2. Four Technical Pillars Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-        <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
-          <div className="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-4 shadow-2xs">
-            <Layers className="w-5 h-5" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-10 sm:mb-16">
+        <div className="p-4 sm:p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
+            <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-sm font-bold uppercase tracking-tight text-neutral-950 mb-2">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
             1. Premium Raw Materials
           </h3>
-          <p className="text-xs text-neutral-600 leading-relaxed">
+          <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
             From certified full-grain cowhides and butter-soft sheepskin to 450+ GSM loopback French Terry and Italian sublimation inks, all textiles undergo colorfastness and tensile stress testing.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
-          <div className="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-4 shadow-2xs">
-            <Ruler className="w-5 h-5" />
+        <div className="p-4 sm:p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
+            <Ruler className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-sm font-bold uppercase tracking-tight text-neutral-950 mb-2">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
             2. Precision Pattern CAD
           </h3>
-          <p className="text-xs text-neutral-600 leading-relaxed">
+          <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
             In-house computerized pattern grading across standard US/EU sizing blocks (XS to 5XL) or tailored made-to-measure custom dimensions with millimeter accuracy.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
-          <div className="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-4 shadow-2xs">
-            <Sparkles className="w-5 h-5" />
+        <div className="p-4 sm:p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
+            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-sm font-bold uppercase tracking-tight text-neutral-950 mb-2">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
             3. Turnkey Private Label
           </h3>
-          <p className="text-xs text-neutral-600 leading-relaxed">
+          <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
             Full bespoke decoration capabilities: 3D high-density silicone prints, chenille varsity patches, laser debossing, direct computerized embroidery, and custom hardware.
           </p>
         </div>
 
-        <div className="p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
-          <div className="w-10 h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-4 shadow-2xs">
-            <Truck className="w-5 h-5" />
+        <div className="p-4 sm:p-6 rounded-2xl bg-neutral-50 border border-neutral-200/80 hover:border-neutral-900 transition-colors">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
+            <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-sm font-bold uppercase tracking-tight text-neutral-950 mb-2">
+          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
             4. Global Express Logistics
           </h3>
-          <p className="text-xs text-neutral-600 leading-relaxed">
+          <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
             Rapid 5–7 day sample delivery with 3–4 week bulk production cycles. Seamless door-to-door air freight with customs duties prepaid to USA, UK, and European ports.
           </p>
         </div>
       </div>
 
       {/* 3. High-Converting FAQ Accordion with Schema Support */}
-      <div className="bg-neutral-50 rounded-3xl border border-neutral-200/80 p-6 sm:p-10 mb-16">
-        <div className="max-w-2xl mb-8">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 font-bold block mb-1">
+      <div className="bg-neutral-50 rounded-2xl sm:rounded-3xl border border-neutral-200/80 p-4 sm:p-8 md:p-10 mb-10 sm:mb-16">
+        <div className="max-w-2xl mb-6 sm:mb-8">
+          <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-neutral-500 font-bold block mb-1">
             Frequently Asked Questions
           </span>
-          <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-neutral-950">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-neutral-950">
             Common Questions About Manufacturing &amp; Ordering
           </h3>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-2.5 sm:space-y-3">
           {defaultFaqs.map((faq, idx) => {
             const isOpen = openFaq === idx;
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl border border-neutral-200/90 overflow-hidden transition-all duration-200 shadow-2xs"
+                className="bg-white rounded-xl sm:rounded-2xl border border-neutral-200/90 overflow-hidden transition-all duration-200 shadow-2xs"
               >
                 <button
                   type="button"
                   onClick={() => setOpenFaq(isOpen ? null : idx)}
-                  className="w-full py-4 px-5 sm:px-6 flex items-center justify-between text-left gap-4 cursor-pointer"
+                  className="w-full py-3.5 sm:py-4 px-4 sm:px-6 flex items-center justify-between text-left gap-3 sm:gap-4 cursor-pointer"
                 >
                   <span className="text-xs sm:text-sm font-bold text-neutral-950 tracking-tight">
                     {faq.q}
                   </span>
                   <div
-                    className={`w-7 h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-neutral-100 flex items-center justify-center shrink-0 transition-transform duration-200 ${
                       isOpen ? "rotate-180 bg-neutral-950 text-white" : "text-neutral-700"
                     }`}
                   >
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-5 sm:px-6 pb-5 pt-1 text-xs text-neutral-600 leading-relaxed border-t border-neutral-100 font-normal">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 text-xs text-neutral-600 leading-relaxed border-t border-neutral-100 font-normal">
                     {faq.a}
                   </div>
                 )}

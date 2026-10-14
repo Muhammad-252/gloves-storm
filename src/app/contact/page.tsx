@@ -87,33 +87,33 @@ export default async function ContactPage() {
   };
 
   return (
-    <div className="pt-28 pb-24 bg-transparent min-h-screen">
+    <div className="pt-20 sm:pt-28 pb-16 sm:pb-24 bg-transparent min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Banner */}
-        <div className="max-w-3xl mb-12 pb-6 border-b border-slate-200/80">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono font-medium shadow-xs mb-3">
+        <div className="max-w-3xl mb-8 sm:mb-12 pb-4 sm:pb-6 border-b border-slate-200/80">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono font-medium shadow-xs mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
             <span>DIRECT FACTORY COMMUNICATION &amp; RFQ STUDIO</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-3 sm:mb-4 leading-[1.1]">
             REQUEST A CUSTOM MANUFACTURING QUOTE
           </h1>
-          <p className="text-sm sm:text-base text-slate-700 max-w-3xl leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-3xl leading-relaxed">
             Tell us what you&apos;re building — product type, quantity, design details and target market. Our production team will review your requirements and respond with a detailed quote within 24 hours. No commitment required at the quote stage.
           </p>
         </div>
 
         {/* Conversational Multi-Step Inquiry Studio */}
-        <div className="mb-16">
+        <div className="mb-12 sm:mb-16">
           <Suspense
             fallback={
-              <div className="p-12 rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-sm flex flex-col items-center justify-center text-center">
+              <div className="p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-sm flex flex-col items-center justify-center text-center">
                 <Loader2 className="w-8 h-8 text-slate-900 animate-spin mb-4" />
-                <p className="text-sm font-mono text-slate-600">LOADING INQUIRY STUDIO...</p>
+                <p className="text-xs sm:text-sm font-mono text-slate-600">LOADING INQUIRY STUDIO...</p>
               </div>
             }
           >
@@ -122,10 +122,10 @@ export default async function ContactPage() {
         </div>
 
         {/* Direct Factory Credentials & Trust Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-slate-200/80">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pt-8 sm:pt-12 border-t border-slate-200/80">
           {/* Direct Factory Contacts */}
-          <div className="p-6 bg-white/75 backdrop-blur-md border border-white/90 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900 mb-4 flex items-center gap-2">
+          <div className="p-4 sm:p-6 bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900 mb-3 sm:mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
               Factory Headquarters
             </h3>

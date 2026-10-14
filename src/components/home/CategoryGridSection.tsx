@@ -125,24 +125,24 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
   );
 
   return (
-    <section className="py-20 sm:py-28 bg-[#FFFFFF] border-b border-black/[0.06] relative overflow-hidden">
+    <section className="py-12 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-black/[0.06] relative overflow-hidden">
       {/* Subtle ambient light */}
       <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-black/[0.02] rounded-full blur-[120px] pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b border-black/[0.06] gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-5 sm:pb-6 border-b border-black/[0.06] gap-4">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 shadow-xs mb-3">
+            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 shadow-xs mb-2.5 sm:mb-3">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.22em] text-neutral-800 font-mono font-bold">
+              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.22em] text-neutral-800 font-mono font-bold">
                 INTERNATIONAL APPAREL DIVISIONS
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827]">
               WHAT WE MANUFACTURE &amp; EXPORT
             </h2>
-            <p className="mt-2 text-sm sm:text-base text-neutral-600 font-normal leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm md:text-base text-neutral-600 font-normal leading-relaxed">
               Specialized apparel divisions direct from our Sialkot factory. From technical teamwear and gym activewear to heavyweight streetwear and turnkey private label manufacturing.
             </p>
           </div>
@@ -157,7 +157,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
         </div>
 
         {/* Dynamic Category Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {parentCategories.map((category, idx) => {
             const fallbackSet = categoryHoverImages[category.slug];
 
@@ -191,7 +191,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
                 className="group relative rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:border-[#FFB900] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Image Canvas Container */}
-                <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+                <div className="relative h-52 sm:h-64 lg:h-72 w-full overflow-hidden bg-slate-900">
                   {/* Primary Image */}
                   <Image
                     src={primaryImage}
@@ -214,30 +214,30 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
 
                   {/* Top Division Badge */}
-                  <div className="absolute top-4 left-4 z-10 flex items-center gap-2">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-900 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full border border-white shadow-xs font-bold">
+                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 flex items-center gap-2">
+                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-900 bg-white/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white shadow-xs font-bold">
                       0{idx + 1}
                     </span>
                     {category.menu_badge && (
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-black bg-[#FFB900] backdrop-blur-md px-2.5 py-0.5 rounded-full border border-[#FFB900] shadow-xs font-bold">
+                      <span className="text-[9px] font-mono uppercase tracking-wider text-black bg-[#FFB900] backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full border border-[#FFB900] shadow-xs font-bold">
                         {category.menu_badge}
                       </span>
                     )}
                   </div>
 
                   {/* Bottom Title on Image */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10 flex items-center justify-between">
-                    <h3 className="text-lg font-black uppercase tracking-tight text-white drop-shadow-md">
+                  <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-center justify-between gap-2">
+                    <h3 className="text-base sm:text-lg font-black uppercase tracking-tight text-white drop-shadow-md">
                       {displayName}
                     </h3>
-                    <div className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-950 transition-all duration-300 group-hover:bg-[#FFB900] group-hover:text-black shrink-0 shadow-sm">
-                      <ArrowUpRight className="w-4 h-4" />
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-950 transition-all duration-300 group-hover:bg-[#FFB900] group-hover:text-black shrink-0 shadow-sm">
+                      <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </div>
                 </div>
 
                 {/* Card Body: Factual Description */}
-                <div className="p-5 sm:p-6 bg-white flex flex-col justify-between flex-1">
+                <div className="p-4 sm:p-5 lg:p-6 bg-white flex flex-col justify-between flex-1">
                   <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
                     {displayDescription}
                   </p>

@@ -92,38 +92,36 @@ const productionStages = [
 
 export default function BrandStatementSection() {
   return (
-    <section className="py-28 sm:py-36 bg-white border-b border-black/[0.07] relative overflow-hidden">
-
-
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+    <section className="py-12 sm:py-20 lg:py-28 bg-white border-b border-black/[0.07] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-16 gap-6 sm:gap-8">
           <div className="max-w-3xl">
             {/* Eyebrow badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 mb-5 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-neutral-100 border border-neutral-200 mb-3.5 sm:mb-5 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse" />
-              <span className="text-xs font-mono uppercase tracking-[0.25em] text-neutral-900 font-bold">
+              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-900 font-bold">
                 End-To-End Apparel Manufacturing Partner
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.0] mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05] sm:leading-[1.0] mb-4 sm:mb-6">
               FROM YOUR IDEA <br />
               <span className="text-[#6B7280]">TO THE FINAL PRODUCT.</span>
             </h2>
 
-            <p className="text-base sm:text-lg text-[#6B7280] leading-relaxed max-w-2xl">
+            <p className="text-xs sm:text-base lg:text-lg text-[#6B7280] leading-relaxed max-w-2xl">
               GLOVES STORM provides comprehensive turnkey OEM/ODM manufacturing and export for sports brands, athletic clubs, and designer streetwear labels worldwide. We combine precision textile engineering with automated industrial machinery to guarantee consistent, defect-free apparel production.
             </p>
           </div>
 
           {/* Quick CTA and highlights */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <GooeyButton href="/contact" variant="gold-solid" size="md">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <GooeyButton href="/contact" variant="gold-solid" size="md" className="w-full sm:w-auto">
               <span>Start Production</span>
               <ArrowRight className="w-4 h-4" />
             </GooeyButton>
-            <GooeyButton href="/about" variant="outline" size="md">
+            <GooeyButton href="/about" variant="outline" size="md" className="w-full sm:w-auto">
               <span>About Production</span>
             </GooeyButton>
           </div>
@@ -147,37 +145,37 @@ export default function BrandStatementSection() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {preProductionStages.map((stage) => {
                 const Icon = stage.icon;
                 return (
                   <div
                     key={stage.step}
-                    className="group relative bg-[#F9FAFB] rounded-3xl p-6 sm:p-7 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)] hover:border-black/30 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-[#F9FAFB] rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_16px_40px_rgba(0,0,0,0.09)] hover:border-black/30 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   >
                     {/* Top row with step number and icon */}
                     <div>
-                      <div className="flex items-center justify-between mb-5">
-                        <span className="text-xs font-mono font-bold text-black bg-neutral-100 border border-neutral-200 px-3 py-1 rounded-full">
+                      <div className="flex items-center justify-between mb-4 sm:mb-5">
+                        <span className="text-xs font-mono font-bold text-black bg-neutral-100 border border-neutral-200 px-2.5 sm:px-3 py-1 rounded-full">
                           Stage {stage.step}
                         </span>
-                        <div className="w-10 h-10 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-xs">
-                          <Icon className="w-5 h-5" />
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-xs">
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                         </div>
                       </div>
 
                       <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
                         {stage.phase}
                       </span>
-                      <h4 className="text-base font-bold uppercase tracking-tight text-neutral-900 mb-3 group-hover:text-black transition-colors">
+                      <h4 className="text-sm sm:text-base font-bold uppercase tracking-tight text-neutral-900 mb-2 sm:mb-3 group-hover:text-black transition-colors">
                         {stage.name}
                       </h4>
-                      <p className="text-xs text-neutral-600 leading-relaxed mb-5">
+                      <p className="text-xs text-neutral-600 leading-relaxed mb-4 sm:mb-5">
                         {stage.description}
                       </p>
 
                       {/* Deliverables tags */}
-                      <div className="space-y-1.5 mb-6 pt-3 border-t border-black/[0.06]">
+                      <div className="space-y-1.5 mb-5 sm:mb-6 pt-3 border-t border-black/[0.06]">
                         {stage.deliverables.map((item) => (
                           <div
                             key={item}
@@ -191,7 +189,7 @@ export default function BrandStatementSection() {
                     </div>
 
                     {/* Timeline pill footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-black/[0.06] text-[11px] text-[#6B7280]">
+                    <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-black/[0.06] text-[11px] text-[#6B7280]">
                       <div className="flex items-center gap-1.5 text-neutral-700 font-medium">
                         <Clock className="w-3.5 h-3.5 text-neutral-500" />
                         <span>{stage.timeline}</span>
@@ -211,9 +209,9 @@ export default function BrandStatementSection() {
 
           {/* Phase 02: Mass Production, Quality Assurance & Delivery */}
           <div>
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-black/[0.07]">
-              <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap">
-                <span className="text-xs font-mono font-bold tracking-widest text-neutral-900 bg-neutral-100 border border-neutral-200 px-2.5 py-1 rounded-md uppercase">
+            <div className="flex items-center justify-between mb-5 sm:mb-6 pb-3 border-b border-black/[0.07]">
+              <div className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap">
+                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-neutral-900 bg-neutral-100 border border-neutral-200 px-2 sm:px-2.5 py-1 rounded-md uppercase">
                   Phase 02
                 </span>
                 <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-800">
@@ -225,40 +223,40 @@ export default function BrandStatementSection() {
               </span>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {productionStages.map((stage) => {
                 const Icon = stage.icon;
                 return (
                   <div
                     key={stage.step}
-                    className="group relative bg-[#F9FAFB] rounded-3xl p-6 sm:p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:border-black/30 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                    className="group relative bg-[#F9FAFB] rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:bg-white hover:shadow-[0_20px_48px_rgba(0,0,0,0.10)] hover:border-black/30 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-5">
-                        <span className="text-xs font-mono font-bold text-black bg-neutral-100 border border-neutral-200 px-3 py-1 rounded-full">
+                      <div className="flex items-center justify-between mb-4 sm:mb-5">
+                        <span className="text-xs font-mono font-bold text-black bg-neutral-100 border border-neutral-200 px-2.5 sm:px-3 py-1 rounded-full">
                           Stage {stage.step}
                         </span>
-                        <div className="w-12 h-12 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-xs">
-                          <Icon className="w-6 h-6" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 group-hover:bg-black group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-xs">
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
                       </div>
 
                       <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
                         {stage.phase}
                       </span>
-                      <h4 className="text-lg font-bold uppercase tracking-tight text-neutral-900 mb-3 group-hover:text-black transition-colors">
+                      <h4 className="text-base sm:text-lg font-bold uppercase tracking-tight text-neutral-900 mb-2 sm:mb-3 group-hover:text-black transition-colors">
                         {stage.name}
                       </h4>
-                      <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-6">
+                      <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4 sm:mb-6">
                         {stage.description}
                       </p>
 
                       {/* Deliverables tags */}
-                      <div className="space-y-2 mb-6 pt-3 border-t border-black/[0.06]">
+                      <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6 pt-3 border-t border-black/[0.06]">
                         {stage.deliverables.map((item) => (
                           <div
                             key={item}
-                            className="flex items-center gap-2 text-xs text-neutral-700 font-medium"
+                            className="flex items-center gap-2 text-[11px] sm:text-xs text-neutral-700 font-medium"
                           >
                             <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" />
                             <span>{item}</span>
@@ -268,9 +266,9 @@ export default function BrandStatementSection() {
                     </div>
 
                     {/* Timeline pill footer */}
-                    <div className="flex items-center justify-between pt-4 border-t border-black/[0.06] text-xs text-[#6B7280]">
+                    <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-black/[0.06] text-xs text-[#6B7280]">
                       <div className="flex items-center gap-1.5 text-neutral-700 font-semibold">
-                        <Clock className="w-4 h-4 text-neutral-500" />
+                        <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-neutral-500" />
                         <span>{stage.timeline}</span>
                       </div>
                       <span className="text-xs font-mono uppercase text-neutral-400 group-hover:text-black group-hover:translate-x-1 transition-all">
@@ -288,21 +286,21 @@ export default function BrandStatementSection() {
         </div>
 
         {/* Bottom Trust Guarantee Strip */}
-        <div className="mt-16 p-6 sm:p-8 rounded-3xl bg-[#F9FAFB] border border-black/[0.08] shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 shrink-0">
-              <Sparkles className="w-6 h-6" />
+        <div className="mt-10 sm:mt-16 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-[#F9FAFB] border border-black/[0.08] shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6">
+          <div className="flex items-center gap-3.5 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 shrink-0">
+              <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <h4 className="text-sm font-bold uppercase tracking-wide text-neutral-900">
+              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-neutral-900">
                 Guaranteed Lead Times & Milestone Tracking
               </h4>
-              <p className="text-xs text-neutral-500">
+              <p className="text-[11px] sm:text-xs text-neutral-500">
                 Direct WhatsApp, video call inspection, and photo updates at every critical production step.
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-3 shrink-0">
+          <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               href="/contact"
               className="text-xs font-bold uppercase tracking-wider text-black hover:text-[#FFB900] flex items-center gap-1 group transition-colors"

@@ -168,7 +168,7 @@ export default function Navbar() {
           {/* Brand Logo with Company Mark */}
           <Link
             href="/"
-            className="flex items-center gap-2 sm:gap-3 group min-w-0"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0"
             onClick={() => {
               setMobileMenuOpen(false);
               setMegaMenuOpen(false);
@@ -339,7 +339,7 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile / Tablet Controls (< 1024px) — Only Burger Icon */}
+          {/* Mobile / Tablet Controls (< 1024px) */}
           <div className="flex lg:hidden items-center shrink-0">
             <button
               type="button"
@@ -372,7 +372,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-white flex flex-col justify-between pt-5 pb-8 px-6 lg:hidden animate-in fade-in duration-200 overflow-y-auto shadow-2xl">
+        <div className="fixed inset-0 z-50 bg-white flex flex-col justify-between pt-4 sm:pt-5 pb-6 sm:pb-8 px-4 sm:px-6 lg:hidden animate-in fade-in duration-200 overflow-y-auto shadow-2xl">
           <div className="flex flex-col gap-3">
             {/* Mobile Header with Logo */}
             <div className="flex items-center justify-between pb-4 border-b border-neutral-100">

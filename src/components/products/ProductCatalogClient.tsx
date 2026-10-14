@@ -252,11 +252,11 @@ export default function ProductCatalogClient({
             <span>Sialkot OEM Factory Collection</span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-4 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
             {activeCategoryObj ? `Custom ${activeCategoryObj.name}` : "All Apparel & Teamwear Collections"}
           </h1>
 
-          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed font-normal">
             {activeCategoryObj?.description ||
               "Explore export-grade custom teamwear, heavy French Terry hoodies, gym activewear sets, and custom streetwear. Handcrafted in Sialkot, Pakistan with direct factory OEM manufacturing, custom sizing blocks, and rapid air freight."}
           </p>
@@ -663,7 +663,7 @@ export default function ProductCatalogClient({
             /* Spec Table View */
             <div className="bg-white rounded-2xl border border-neutral-200/90 shadow-2xs overflow-hidden">
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs border-collapse">
+                <table className="w-full text-left text-xs border-collapse min-w-[650px]">
                   <thead>
                     <tr className="bg-neutral-950 text-white font-mono text-[10px] uppercase tracking-wider">
                       <th className="py-3.5 px-4">Manufacturing Model</th>
@@ -752,6 +752,179 @@ export default function ProductCatalogClient({
         category={activeCategoryObj}
         categories={liveCategories}
       />
+
+      {/* Mobile Filters Drawer Modal */}
+      {mobileFiltersOpen && (
+        <div className="fixed inset-0 z-50 lg:hidden flex justify-end">
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
+            onClick={() => setMobileFiltersOpen(false)}
+          />
+          <div className="relative w-full max-w-xs sm:max-w-sm bg-white h-full shadow-2xl z-10 flex flex-col p-5 overflow-y-auto">
+            <div className="flex items-center justify-between pb-4 border-b border-neutral-100">
+              <div className="flex items-center gap-2">
+                <SlidersHorizontal className="w-4 h-4 text-neutral-900" />
+                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-900">
+                  Filter Catalog
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setMobileFiltersOpen(false)}
+                className="p-1.5 rounded-full hover:bg-neutral-100 text-neutral-500 hover:text-neutral-900 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="space-y-5 py-4 flex-1">
+              {/* Search */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                  Search Style
+                </span>
+                <div className="relative">
+                  <Search className="w-3.5 h-3.5 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <input
+                    type="text"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    placeholder="e.g. Hoodie, Varsity..."
+                    className="w-full bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 pl-8.5 pr-8 py-2 text-xs outline-none focus:border-neutral-950"
+                  />
+                  {search && (
+                    <button
+                      type="button"
+                      onClick={() => setSearch("")}
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-neutral-400"
+                    >
+                      <X className="w-3.5 h-3.5" />
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Collections */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                  Collection
+                </span>
+                <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCat("all")}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-colors cursor-pointer ${
+                      selectedCat === "all"
+                        ? "bg-neutral-950 text-white font-bold"
+                        : "text-neutral-700 hover:bg-neutral-100 font-normal"
+                    }`}
+                  >
+                    <span>All Collections</span>
+                    <span className="font-mono text-[10px] opacity-75">{initialProducts.length}</span>
+                  </button>
+                  {liveCategories.map((c) => {
+                    const isSelected = selectedCat === c.slug;
+                    const count = initialProducts.filter((p) => p.category_id === c.id).length;
+                    return (
+                      <button
+                        key={c.id}
+                        type="button"
+                        onClick={() => setSelectedCat(c.slug)}
+                        className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs transition-colors cursor-pointer ${
+                          isSelected
+                            ? "bg-neutral-950 text-white font-bold"
+                            : "text-neutral-700 hover:bg-neutral-100 font-normal"
+                        }`}
+                      >
+                        <span className="truncate pr-2">{c.name}</span>
+                        <span className="font-mono text-[10px] opacity-75">{count}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Colors */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                  Colorway
+                </span>
+                <div className="grid grid-cols-4 gap-2">
+                  {COLOR_FILTERS.map((col) => {
+                    const isSelected = selectedColor === col.name;
+                    return (
+                      <button
+                        key={col.name}
+                        type="button"
+                        onClick={() => setSelectedColor(isSelected ? "all" : col.name)}
+                        className={`flex flex-col items-center gap-1 p-1.5 rounded-xl border text-[10px] transition-all cursor-pointer ${
+                          isSelected
+                            ? "border-neutral-950 bg-neutral-50 font-bold text-neutral-950"
+                            : "border-neutral-200 text-neutral-600"
+                        }`}
+                      >
+                        <span
+                          className="w-3.5 h-3.5 rounded-full border border-black/10 shrink-0"
+                          style={{ backgroundColor: col.hex }}
+                        />
+                        <span className="truncate max-w-[40px] text-[9px]">{col.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* MOQ */}
+              <div>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                  MOQ Tier
+                </span>
+                <div className="space-y-1.5">
+                  {[
+                    { label: "All MOQs", val: "all" },
+                    { label: "Low MOQ (< 50 Units)", val: "low" },
+                    { label: "Standard MOQ (50 - 100)", val: "medium" },
+                    { label: "Bulk Tier (100+ Units)", val: "high" },
+                  ].map((tier) => (
+                    <label
+                      key={tier.val}
+                      className="flex items-center gap-2.5 text-xs text-neutral-700 cursor-pointer py-1"
+                    >
+                      <input
+                        type="radio"
+                        name="mobileMoqTier"
+                        checked={moqFilter === tier.val}
+                        onChange={() => setMoqFilter(tier.val as any)}
+                        className="accent-neutral-950 w-3.5 h-3.5"
+                      />
+                      <span>{tier.label}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-3 border-t border-neutral-100 flex items-center gap-2">
+              {hasActiveFilters && (
+                <button
+                  type="button"
+                  onClick={handleResetFilters}
+                  className="py-2.5 px-3 rounded-xl border border-neutral-200 text-xs font-bold text-neutral-700 hover:text-neutral-950"
+                >
+                  Reset
+                </button>
+              )}
+              <button
+                type="button"
+                onClick={() => setMobileFiltersOpen(false)}
+                className="flex-1 py-2.5 px-4 rounded-xl bg-neutral-950 text-white text-xs font-bold uppercase tracking-wider text-center"
+              >
+                Apply Filters ({sorted.length})
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Quote / RFQ Modal */}
       <QuoteModal

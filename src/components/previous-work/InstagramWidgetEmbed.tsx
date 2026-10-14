@@ -50,31 +50,31 @@ export default function InstagramWidgetEmbed({ code }: InstagramWidgetEmbedProps
   }, [code, key]);
 
   return (
-    <div className="w-full bg-white rounded-3xl border border-black/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.03)] p-6 sm:p-10 relative overflow-hidden">
+    <div className="w-full bg-white rounded-2xl sm:rounded-3xl border border-black/[0.08] shadow-[0_4px_30px_rgba(0,0,0,0.03)] p-4 sm:p-6 lg:p-10 relative overflow-hidden">
       {/* Top bar with widget controls */}
-      <div className="flex items-center justify-between border-b border-neutral-100 pb-4 mb-6">
-        <div className="flex items-center gap-2">
-          <span className="w-8 h-8 rounded-full bg-neutral-950 flex items-center justify-center text-white shadow-sm">
-            <InstagramIcon className="w-4 h-4 fill-current" />
+      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-neutral-100 pb-4 mb-4 sm:mb-6">
+        <div className="flex items-center gap-2.5">
+          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-950 flex items-center justify-center text-white shadow-sm shrink-0">
+            <InstagramIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
           </span>
           <div>
-            <h2 className="text-sm font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-1.5">
+            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-1.5 flex-wrap">
               <span>Live Instagram Feed</span>
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[10px] font-mono">
+              <span className="inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[9px] sm:text-[10px] font-mono">
                 <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 animate-pulse" />
                 <span>Connected</span>
               </span>
             </h2>
-            <p className="text-[11px] text-neutral-500">
+            <p className="text-[10px] sm:text-[11px] text-neutral-500">
               Streaming real-time posts &amp; reels from @glovesstorm
             </p>
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ml-auto">
           <button
             onClick={() => setKey((k) => k + 1)}
-            className="p-2 text-neutral-500 hover:text-[#1A1A1A] rounded-xl hover:bg-neutral-100 transition-colors"
+            className="p-1.5 sm:p-2 text-neutral-500 hover:text-[#1A1A1A] rounded-xl hover:bg-neutral-100 transition-colors"
             title="Reload widget"
           >
             <RefreshCw className="w-3.5 h-3.5" />
@@ -83,7 +83,7 @@ export default function InstagramWidgetEmbed({ code }: InstagramWidgetEmbedProps
             href="https://www.instagram.com/glovesstorm/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-extrabold text-black px-3 py-1.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] transition-colors shadow-xs"
+            className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-extrabold text-black px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] transition-colors shadow-xs"
           >
             <span>Follow</span>
             <ExternalLink className="w-3 h-3 text-black" />

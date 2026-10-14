@@ -23,7 +23,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative overflow-hidden min-h-[100dvh] w-full flex items-center justify-center pt-24 pb-12 sm:pt-36 sm:pb-16 md:pt-40 md:pb-20">
+    <section className="relative overflow-hidden min-h-[100dvh] w-full flex items-center justify-center pt-20 pb-10 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
       {/* ─── 100% Full-Bleed Background Video (Covers entire section from top to bottom on all screens) ─── */}
       <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <video
@@ -58,34 +58,34 @@ export default function HeroSection() {
       {/* ─── Hero Content (Perfect Center Balance on Mobile & Desktop) ─── */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center my-auto">
         {/* Eyebrow Status Badge with #FFB900 Interactive Pulse Dot */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-xs mb-3.5 sm:mb-5 animate-in fade-in slide-in-from-bottom-2 duration-500">
+        <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-xs mb-3 sm:mb-5 animate-in fade-in slide-in-from-bottom-2 duration-500">
           <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse shrink-0 shadow-[0_0_8px_rgba(255,185,0,0.8)]" />
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-white/90 font-bold">
+          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white/90 font-bold">
             INTERNATIONAL APPAREL OEM &amp; EXPORTER · EST. 2019
           </span>
         </div>
 
         {/* Target H1 */}
-        <h1 className="tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] max-w-5xl mb-3 sm:mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+        <h1 className="tracking-tight text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.1] sm:leading-[1.08] max-w-5xl mb-2.5 sm:mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
           CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER
         </h1>
 
         {/* Subheadline (Clean High-Contrast White) */}
-        <p className="text-sm sm:text-lg md:text-xl font-bold text-neutral-100 tracking-tight max-w-3xl mb-3 sm:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+        <p className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-neutral-100 tracking-tight max-w-3xl mb-2.5 sm:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           Direct OEM Factory &amp; Private Label Apparel Exporter for International Brands
         </p>
 
         {/* Body Copy */}
-        <p className="text-xs sm:text-sm md:text-base text-white/90 max-w-2xl font-normal leading-relaxed mb-6 sm:mb-8 px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+        <p className="text-[11px] sm:text-sm md:text-base text-white/90 max-w-2xl font-normal leading-relaxed mb-5 sm:mb-8 px-1 sm:px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
           Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from 35 pieces, 5–7 day prototyping, and insured DDP global shipping.
         </p>
 
         {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto max-w-xs sm:max-w-none">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto max-w-xs sm:max-w-none">
           <MagneticElement strength={0.3} className="w-full sm:w-auto">
             <button
               onClick={() => setQuoteModalOpen(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 sm:px-9 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_24px_rgba(255,185,0,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-9 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_24px_rgba(255,185,0,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
             >
               <span>REQUEST OEM QUOTE</span>
               <ArrowUpRight className="w-4 h-4 text-black transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -95,7 +95,7 @@ export default function HeroSection() {
           <MagneticElement strength={0.2} className="w-full sm:w-auto">
             <Link
               href="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/25 hover:border-[#FFB900] text-white hover:text-white backdrop-blur-md font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/25 hover:border-[#FFB900] text-white hover:text-white backdrop-blur-md font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
             >
               <span>BROWSE CATALOG</span>
               <ArrowUpRight className="w-4 h-4 text-white/80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -104,8 +104,8 @@ export default function HeroSection() {
         </div>
 
         {/* 4-Column Trust Bar (Balanced & Compact on Mobile) */}
-        <div className="mt-8 sm:mt-12 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3.5 text-left">
-          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
+        <div className="mt-6 sm:mt-12 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3.5 text-left">
+          <div className="p-2.5 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
             <div className="flex items-center gap-1.5 mb-1">
               <Box className="w-3.5 h-3.5 text-[#FFB900]" />
               <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">

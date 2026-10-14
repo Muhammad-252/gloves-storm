@@ -300,14 +300,14 @@ export default function InteractiveGlobe() {
 
       {/* Corridor Quick Selector Buttons */}
       <div className="w-full mt-4">
-        <div className="flex items-center justify-center gap-2 flex-wrap mb-4">
+        <div className="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap mb-3 sm:mb-4">
           {HUBS.map((hub) => {
             const isActive = activeHub.id === hub.id;
             return (
               <button
                 key={hub.id}
                 onClick={() => selectHub(hub)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all flex items-center gap-1.5 cursor-pointer ${
+                className={`px-2.5 sm:px-3.5 py-1 sm:py-1.5 rounded-full text-[11px] sm:text-xs font-mono transition-all flex items-center gap-1 sm:gap-1.5 cursor-pointer ${
                   isActive
                     ? "bg-[#FFB900] text-black font-extrabold shadow-sm"
                     : "bg-white text-neutral-600 hover:text-neutral-950 border border-neutral-200 hover:border-neutral-300 shadow-2xs"
@@ -321,38 +321,38 @@ export default function InteractiveGlobe() {
         </div>
 
         {/* Selected Hub Interactive Dossier */}
-        <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-sm transition-all animate-in fade-in duration-300 text-left">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-100 pb-3 mb-3">
+        <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-neutral-200 shadow-sm transition-all animate-in fade-in duration-300 text-left">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-neutral-100 pb-2.5 sm:pb-3 mb-2.5 sm:mb-3">
             <div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FFB900]" />
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 font-bold">
+                <span className="text-[11px] sm:text-xs font-mono uppercase tracking-wider text-neutral-500 font-bold">
                   Active Corridor
                 </span>
               </div>
-              <h4 className="text-base font-bold uppercase text-neutral-950">
+              <h4 className="text-sm sm:text-base font-bold uppercase text-neutral-950">
                 {activeHub.name} ({activeHub.country})
               </h4>
             </div>
 
-            <div className="text-right">
+            <div className="text-left sm:text-right">
               <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider block">
                 Direct Route From Sialkot
               </span>
-              <span className="text-xs font-semibold text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200 inline-block">
+              <span className="text-[11px] sm:text-xs font-semibold text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200 inline-block">
                 Door-to-Door Delivery
               </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-            <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 text-xs">
+            <div className="p-2.5 sm:p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
               <span className="text-neutral-500 font-medium block text-[10px] uppercase font-mono mb-0.5">
                 Air Express Courier
               </span>
               <span className="text-neutral-900 font-semibold">{activeHub.transitAir}</span>
             </div>
-            <div className="p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+            <div className="p-2.5 sm:p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
               <span className="text-neutral-500 font-medium block text-[10px] uppercase font-mono mb-0.5">
                 Bulk Cargo Transit
               </span>
@@ -360,7 +360,7 @@ export default function InteractiveGlobe() {
             </div>
           </div>
 
-          <p className="text-xs text-neutral-600 mt-3 flex items-center gap-1.5">
+          <p className="text-[11px] sm:text-xs text-neutral-600 mt-2.5 sm:mt-3 flex items-center gap-1.5">
             <Sparkles className="w-3.5 h-3.5 text-[#FFB900] shrink-0" />
             <span><strong className="text-neutral-900">Key Exports:</strong> {activeHub.popular}</span>
           </p>

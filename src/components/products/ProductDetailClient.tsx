@@ -214,14 +214,14 @@ export default function ProductDetailClient({
         ======================================================================= */}
         <div className="lg:col-span-6 space-y-6">
           {/* Gallery Row: Left Vertical Thumbnails + Main Stage */}
-          <div className="flex gap-3 sm:gap-4 items-start">
-            {/* Vertical Thumbnail Strip (Matches reference image) */}
-            <div className="flex flex-col gap-2.5 w-16 sm:w-20 shrink-0">
+          <div className="flex gap-2 sm:gap-4 items-start">
+            {/* Vertical Thumbnail Strip */}
+            <div className="flex flex-col gap-2 w-14 sm:w-20 shrink-0">
               {images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`relative aspect-square w-full rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
+                  className={`relative aspect-square w-full rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
                     activeImageIndex === idx
                       ? "border-neutral-950 ring-2 ring-neutral-950/20 shadow-xs"
                       : "border-neutral-200 hover:border-neutral-400 opacity-70 hover:opacity-100"
@@ -239,7 +239,7 @@ export default function ProductDetailClient({
             </div>
 
             {/* Main Stage Image with Navigation Arrows & Floating Actions */}
-            <div className="relative flex-1 aspect-square sm:aspect-4/3 rounded-2xl bg-neutral-100 border border-neutral-200/90 overflow-hidden shadow-xs group">
+            <div className="relative flex-1 aspect-square sm:aspect-4/3 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200/90 overflow-hidden shadow-xs group">
               <Image
                 src={activeImageUrl}
                 alt={activeImage?.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — ${product.materials?.[0] || "1.2mm cowhide leather private label"}`}
@@ -249,58 +249,58 @@ export default function ProductDetailClient({
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              {/* Prev / Next Arrows (Matches reference image) */}
+              {/* Prev / Next Arrows */}
               {images.length > 1 && (
                 <>
                   <button
                     onClick={() =>
                       setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))
                     }
-                    className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md transition-all cursor-pointer"
+                    className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md transition-all cursor-pointer"
                     aria-label="Previous image"
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                   <button
                     onClick={() =>
                       setActiveImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
                     }
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md transition-all cursor-pointer"
+                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md transition-all cursor-pointer"
                     aria-label="Next image"
                   >
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   </button>
                 </>
               )}
 
-              {/* Top Right Action Icons (Favorite / Zoom) */}
-              <div className="absolute top-3 right-3 flex flex-col gap-2">
+              {/* Top Right Action Icons */}
+              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 flex flex-col gap-1.5 sm:gap-2">
                 <button
-                  className="w-8 h-8 rounded-full bg-white/90 hover:bg-white text-neutral-700 flex items-center justify-center shadow-xs transition-colors cursor-pointer"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-700 flex items-center justify-center shadow-xs transition-colors cursor-pointer"
                   title="Save to Favorites"
                 >
-                  <Heart className="w-4 h-4" />
+                  <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
                 <button
-                  className="w-8 h-8 rounded-full bg-white/90 hover:bg-white text-neutral-700 flex items-center justify-center shadow-xs transition-colors cursor-pointer"
+                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-700 flex items-center justify-center shadow-xs transition-colors cursor-pointer"
                   title="Expand Fullscreen"
                 >
-                  <Maximize2 className="w-4 h-4" />
+                  <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </button>
               </div>
 
               {/* Angle Index Indicator */}
-              <div className="absolute bottom-3 right-3 bg-black/60 backdrop-blur-xs text-white text-[10px] font-mono px-2.5 py-0.5 rounded-full">
+              <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 bg-black/60 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded-full">
                 {activeImageIndex + 1} / {images.length}
               </div>
             </div>
           </div>
 
-          {/* Photos / Video Toggle Pills (Matches reference image) */}
+          {/* Photos / Video Toggle Pills */}
           <div className="flex items-center justify-center gap-2">
             <button
               onClick={() => setMediaMode("photos")}
-              className={`px-4 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 mediaMode === "photos"
                   ? "bg-neutral-900 text-white shadow-xs"
                   : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
@@ -310,7 +310,7 @@ export default function ProductDetailClient({
             </button>
             <button
               onClick={() => setMediaMode("video")}
-              className={`px-4 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
+              className={`px-3.5 sm:px-4 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 mediaMode === "video"
                   ? "bg-neutral-900 text-white shadow-xs"
                   : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
@@ -321,25 +321,25 @@ export default function ProductDetailClient({
           </div>
 
           {/* ===================================================================
-              VERIFIED FACTORY SUPPLIER CARD (Exact match to reference image)
+              VERIFIED FACTORY SUPPLIER CARD
           =================================================================== */}
-          <div className="p-5 sm:p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-4">
+          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3.5 sm:space-y-4">
             <div className="flex items-start justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white font-black flex items-center justify-center text-sm shadow-xs shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-slate-900 text-white font-black flex items-center justify-center text-xs sm:text-sm shadow-xs shrink-0">
                   GS
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <div className="text-sm font-bold text-neutral-950 hover:text-[#FFB900] transition-colors">
+                    <div className="text-xs sm:text-sm font-bold text-neutral-950 hover:text-[#FFB900] transition-colors">
                       Gloves Storm Industrial Co., Ltd.
                     </div>
-                    <span className="text-[10px] font-bold text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded inline-flex items-center gap-1 border border-neutral-200">
+                    <span className="text-[9px] sm:text-[10px] font-bold text-neutral-800 bg-neutral-100 px-1.5 py-0.5 rounded inline-flex items-center gap-1 border border-neutral-200">
                       <BadgeCheck className="w-3 h-3 text-neutral-900" />
                       Verified
                     </span>
                   </div>
-                  <p className="text-xs text-neutral-500 mt-0.5">
+                  <p className="text-[11px] sm:text-xs text-neutral-500 mt-0.5">
                     🇵🇰 Sialkot, Pakistan • 15+ yrs OEM/ODM • Custom Manufacturer
                   </p>
                 </div>
@@ -357,30 +357,30 @@ export default function ProductDetailClient({
             </div>
 
             {/* 4-Stat Metric Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 border-t border-neutral-200/80 text-center">
-              <div className="p-2.5 rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-sm font-black text-neutral-950 flex items-center justify-center gap-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-neutral-200/80 text-center">
+              <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
+                <div className="text-xs sm:text-sm font-black text-neutral-950 flex items-center justify-center gap-1">
                   <span>4.9/5</span>
                   <span className="text-[10px] text-neutral-400 font-normal">(1,840)</span>
                 </div>
-                <span className="text-[10px] text-neutral-500 font-medium">Store rating</span>
+                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">Store rating</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-sm font-black text-neutral-950">≤3h</div>
-                <span className="text-[10px] text-neutral-500 font-medium">Response Time</span>
+              <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
+                <div className="text-xs sm:text-sm font-black text-neutral-950">≤3h</div>
+                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">Response Time</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-sm font-black text-neutral-950">≥98%</div>
-                <span className="text-[10px] text-neutral-500 font-medium">On-time dispatch</span>
+              <div className="p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
+                <div className="text-xs sm:text-sm font-black text-neutral-950">≥98%</div>
+                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">On-time dispatch</span>
               </div>
-              <div className="p-2.5 rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-sm font-black text-neutral-950">88%</div>
-                <span className="text-[10px] text-neutral-500 font-medium">Reorder rate</span>
+              <div className="p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
+                <div className="text-xs sm:text-sm font-black text-neutral-950">88%</div>
+                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">Reorder rate</span>
               </div>
             </div>
 
             {/* Verified Services */}
-            <div className="flex items-center gap-4 text-xs text-neutral-600 pt-1 flex-wrap font-medium">
+            <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-neutral-600 pt-1 flex-wrap font-medium">
               <span className="inline-flex items-center gap-1">
                 <Check className="w-3.5 h-3.5 text-neutral-900" /> Minor customization
               </span>
@@ -397,7 +397,7 @@ export default function ProductDetailClient({
         {/* =======================================================================
             RIGHT COLUMN: PRODUCT DETAILS, ALIBABA TIERS, SPEC SHEET & ORDER BAR
         ======================================================================= */}
-        <div className="lg:col-span-6 space-y-6">
+        <div className="lg:col-span-6 space-y-5 sm:space-y-6">
           {/* Product Header */}
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -409,12 +409,12 @@ export default function ProductDetailClient({
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-neutral-950 uppercase leading-snug">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-neutral-950 uppercase leading-snug">
               {product.name}
             </h1>
 
             {/* Rating & Social Proof Row */}
-            <div className="mt-2.5 flex items-center gap-3 text-xs text-neutral-600 flex-wrap">
+            <div className="mt-2 flex items-center gap-2.5 sm:gap-3 text-xs text-neutral-600 flex-wrap">
               <div className="flex items-center gap-1 text-[#FFB900]">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-current" />
@@ -434,36 +434,36 @@ export default function ProductDetailClient({
           </div>
 
           {/* ===================================================================
-              ALIBABA PRICE TIERS SECTION (Exact match to reference image)
+              ALIBABA PRICE TIERS SECTION
           =================================================================== */}
-          <div className="p-4 sm:p-5 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3">
-            <div className="grid grid-cols-3 gap-3 items-end">
+          <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-3 items-stretch">
               {tiers.map((tier, idx) => {
                 const isSelected = activeTier === tier;
                 const rangeLabel =
                   tier.max_quantity === null || tier.max_quantity === undefined
-                    ? `≥${tier.min_quantity} pieces`
-                    : `${tier.min_quantity}-${tier.max_quantity} pieces`;
+                    ? `≥${tier.min_quantity} pcs`
+                    : `${tier.min_quantity}-${tier.max_quantity} pcs`;
 
                 return (
                   <div
                     key={idx}
                     onClick={() => setQuantity(tier.min_quantity)}
-                    className={`cursor-pointer transition-all rounded-xl p-3 text-left ${
+                    className={`cursor-pointer transition-all rounded-lg sm:rounded-xl p-2 sm:p-3 text-left flex flex-col justify-between ${
                       isSelected
-                        ? "bg-white border-2 border-neutral-900 shadow-xs ring-2 ring-[#FFB900]"
-                        : "hover:bg-white/60 border border-transparent"
+                        ? "bg-white border-2 border-neutral-900 shadow-xs ring-1 sm:ring-2 ring-[#FFB900]"
+                        : "hover:bg-white/60 border border-neutral-100 sm:border-transparent"
                     }`}
                   >
-                    <div className="text-xl sm:text-2xl font-black text-neutral-950 font-sans tracking-tight">
+                    <div className="text-sm sm:text-xl lg:text-2xl font-black text-neutral-950 font-sans tracking-tight leading-tight">
                       US${tier.unit_price.toFixed(0)}
                       {tier.unit_price % 1 !== 0 && (
-                        <span className="text-xs font-bold text-neutral-600">
+                        <span className="text-[10px] sm:text-xs font-bold text-neutral-600">
                           .{(tier.unit_price % 1).toFixed(2).substring(2)}
                         </span>
                       )}
                     </div>
-                    <div className="mt-1 text-xs text-neutral-500 font-medium">
+                    <div className="mt-1 text-[10px] sm:text-xs text-neutral-500 font-medium leading-tight">
                       {tier.label && !tier.label.includes("Tier") ? tier.label : rangeLabel}
                     </div>
                   </div>
@@ -473,10 +473,10 @@ export default function ProductDetailClient({
 
             {/* Sample Price Notice */}
             <div className="pt-2 border-t border-neutral-200 flex items-center justify-between text-xs">
-              <span className="text-neutral-500 font-mono text-[11px]">
+              <span className="text-neutral-500 font-mono text-[10px] sm:text-[11px]">
                 Single Evaluation Sample:
               </span>
-              <span className="font-bold text-neutral-900 font-mono">
+              <span className="font-bold text-neutral-900 font-mono text-[11px] sm:text-xs">
                 US${(product.sample_price || 35.0).toFixed(2)} / prototype
               </span>
             </div>
@@ -622,11 +622,12 @@ export default function ProductDetailClient({
           </div>
 
           {/* ===================================================================
+          {/* ===================================================================
               QUANTITY COUNTER & ORDER ACTION BAR
           =================================================================== */}
-          <div className="p-5 sm:p-6 rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-4">
+          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3.5 sm:space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2.5 sm:gap-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
                   Quantity:
                 </span>
@@ -634,7 +635,7 @@ export default function ProductDetailClient({
                   <button
                     type="button"
                     onClick={() => setQuantity(Math.max(product.moq || 10, quantity - 25))}
-                    className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+                    className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
                     -
                   </button>
@@ -644,12 +645,12 @@ export default function ProductDetailClient({
                     step={10}
                     value={quantity}
                     onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 50))}
-                    className="w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-slate-200"
+                    className="w-16 sm:w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-slate-200"
                   />
                   <button
                     type="button"
                     onClick={() => setQuantity(quantity + 25)}
-                    className="px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+                    className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
                     +
                   </button>
@@ -661,24 +662,24 @@ export default function ProductDetailClient({
                 <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-500">
                   Est. Total (FOB)
                 </span>
-                <span className="text-lg font-black font-mono text-slate-900">
+                <span className="text-base sm:text-lg font-black font-mono text-slate-900">
                   US${estimatedTotal}
                 </span>
               </div>
             </div>
 
             {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-1 sm:pt-2">
               <button
                 type="button"
                 onClick={() => {
                   setInquiryType("Quote");
                   setModalOpen(true);
                 }}
-                className="flex-1 py-3.5 px-6 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_4px_20px_rgba(255,185,0,0.35)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer font-sans"
+                className="w-full sm:flex-1 py-3 sm:py-3.5 px-4 sm:px-6 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_4px_20px_rgba(255,185,0,0.35)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer font-sans"
               >
                 <span>Start Order / Request Quote</span>
-                <ArrowRight className="w-4 h-4 text-black" />
+                <ArrowRight className="w-4 h-4 text-black shrink-0" />
               </button>
 
               <button
@@ -688,7 +689,7 @@ export default function ProductDetailClient({
                   setQuantity(1);
                   setModalOpen(true);
                 }}
-                className="py-3.5 px-5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-950 border border-neutral-300 hover:border-[#FFB900] font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono"
+                className="w-full sm:w-auto py-3 sm:py-3.5 px-4 sm:px-5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-950 border border-neutral-300 hover:border-[#FFB900] font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono text-center"
               >
                 Order Sample
               </button>
@@ -700,19 +701,19 @@ export default function ProductDetailClient({
       {/* =========================================================================
           TECHNICAL SPECIFICATIONS TABS / DEEP DIVE SECTION
       ========================================================================= */}
-      <div className="border-t border-neutral-200 pt-12 mb-16">
-        <h2 className="text-xl font-bold uppercase tracking-tight text-neutral-950 mb-6">
+      <div className="border-t border-neutral-200 pt-8 sm:pt-12 mb-10 sm:mb-16">
+        <h2 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-neutral-950 mb-4 sm:mb-6">
           Factory Technical Blueprint &amp; Quality Specifications
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {/* Column 1: Materials */}
-          <div className="p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               Raw Materials &amp; Tanning
             </h3>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-600">
               {materialsList.length > 0 ? (
                 materialsList.map((mat, i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -727,12 +728,12 @@ export default function ProductDetailClient({
           </div>
 
           {/* Column 2: Construction Features */}
-          <div className="p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               Ergonomics &amp; Safety
             </h3>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-600">
               {featuresList.length > 0 ? (
                 featuresList.map((feat, i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -747,12 +748,12 @@ export default function ProductDetailClient({
           </div>
 
           {/* Column 3: Customization */}
-          <div className="p-6 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-3 flex items-center gap-2">
+          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               Bespoke Branding
             </h3>
-            <ul className="space-y-2 text-xs text-slate-600">
+            <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-600">
               {customList.length > 0 ? (
                 customList.map((opt, i) => (
                   <li key={i} className="flex items-start gap-2">
@@ -770,11 +771,11 @@ export default function ProductDetailClient({
 
       {/* Product Detailed Description */}
       {product.description && (
-        <div className="mb-16 p-6 sm:p-8 rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-bold block mb-2">
+        <div className="mb-10 sm:mb-16 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-bold block mb-1.5 sm:mb-2">
             Sialkot Factory Overview
           </span>
-          <h2 className="text-lg font-bold uppercase tracking-tight text-slate-900 mb-3">
+          <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-2 sm:mb-3">
             Manufacturing &amp; Engineering Brief
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">

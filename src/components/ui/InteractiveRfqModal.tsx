@@ -92,19 +92,19 @@ export default function InteractiveRfqModal({
   );
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/40 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
-      <div className="relative w-full max-w-2xl bg-white/90 backdrop-blur-2xl rounded-3xl border border-white/95 shadow-[0_25px_60px_rgba(15,23,42,0.18)] p-6 sm:p-8 text-slate-900 my-auto max-h-[92vh] overflow-y-auto">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 bg-slate-900/40 backdrop-blur-md overflow-y-auto animate-in fade-in duration-200">
+      <div className="relative w-full max-w-2xl bg-white/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl border border-white/95 shadow-[0_25px_60px_rgba(15,23,42,0.18)] p-4 sm:p-6 md:p-8 text-slate-900 my-auto max-h-[92vh] overflow-y-auto">
         {/* Header Bar */}
-        <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-6">
-          <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-sm">
-              <Sliders className="w-4 h-4" />
+        <div className="flex items-center justify-between pb-3 sm:pb-4 border-b border-slate-200/80 mb-4 sm:mb-6">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-slate-900 flex items-center justify-center text-white shadow-sm shrink-0">
+              <Sliders className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 font-bold block">
+              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 font-bold block">
                 Direct Sialkot Factory Pricing
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-slate-900">
+              <h2 className="text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-slate-900">
                 Interactive RFQ & Tech-Pack
               </h2>
             </div>
@@ -112,7 +112,7 @@ export default function InteractiveRfqModal({
 
           <button
             onClick={onClose}
-            className="w-9 h-9 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer shrink-0"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
@@ -153,8 +153,8 @@ export default function InteractiveRfqModal({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* 1. Dynamic Quantity Slider with Live Tier Recalculation */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-white/90 shadow-sm space-y-3">
-              <div className="flex items-center justify-between">
+            <div className="p-3.5 sm:p-5 rounded-2xl bg-white/70 backdrop-blur-md border border-white/90 shadow-sm space-y-3">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3">
                 <div>
                   <span className="text-[10px] font-mono uppercase tracking-wider text-slate-500 font-semibold block">
                     1. Select Order Volume
@@ -169,7 +169,7 @@ export default function InteractiveRfqModal({
                   </div>
                 </div>
 
-                <div className="text-right">
+                <div className="text-left sm:text-right">
                   <span className="text-[10px] font-mono text-neutral-900 font-bold bg-neutral-100 px-2.5 py-1 rounded-full border border-neutral-200 inline-block mb-1">
                     {tierLabel}
                   </span>
@@ -192,11 +192,11 @@ export default function InteractiveRfqModal({
                 className="w-full accent-slate-900 cursor-pointer h-2 bg-slate-200 rounded-lg"
               />
 
-              <div className="flex justify-between text-[10px] font-mono text-slate-400">
-                <span>30 pcs (Minimum)</span>
+              <div className="flex justify-between text-[9px] sm:text-[10px] font-mono text-slate-400 flex-wrap gap-1">
+                <span>30 pcs (MOQ)</span>
                 <span>250 pcs</span>
                 <span>500 pcs</span>
-                <span>1,000+ pcs (Enterprise)</span>
+                <span>1,000+ pcs</span>
               </div>
             </div>
 
@@ -356,28 +356,28 @@ export default function InteractiveRfqModal({
             </div>
 
             {/* Submission Actions */}
-            <div className="pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+            <div className="pt-4 border-t border-slate-200/80 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 sm:gap-3">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="flex-1 py-3 px-6 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full sm:flex-1 py-3 px-4 sm:px-6 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 text-center"
               >
-                <span>{isSubmitting ? "Calculating & Submitting..." : "Submit Tech-Pack & Lock Factory Price"}</span>
-                <ArrowRight className="w-4 h-4 text-black" />
+                <span className="truncate">{isSubmitting ? "Submitting..." : "Submit Tech-Pack & Lock Price"}</span>
+                <ArrowRight className="w-4 h-4 text-black shrink-0" />
               </button>
 
               <a
                 href={`https://wa.me/923417146935?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="py-3 px-5 rounded-full border border-black bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-xs"
+                className="w-full sm:w-auto py-3 px-4 sm:px-5 rounded-full border border-black bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 shadow-xs shrink-0"
               >
                 <MessageSquare className="w-4 h-4 text-white" />
                 <span>WhatsApp Quote</span>
               </a>
             </div>
 
-            <div className="flex items-center justify-center gap-4 text-[10px] font-mono text-slate-400 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-[10px] font-mono text-slate-400 text-center">
               <span className="flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5 text-slate-700" />
                 <span>NDA Protected</span>

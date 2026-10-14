@@ -102,54 +102,54 @@ export default function ManufacturersUsaClient() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
-    <div className="pt-28 pb-24 bg-transparent min-h-screen">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+    <div className="pt-20 sm:pt-28 pb-16 sm:pb-24 bg-transparent min-h-screen">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
-        <div className="max-w-4xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900 text-white text-[11px] font-mono uppercase tracking-[0.2em] mb-5 shadow-xs">
+        <div className="max-w-4xl mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900 text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-4 sm:mb-5 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse" />
             <span>🇺🇸 EXPORT MARKET CORRIDOR · DIRECT USA APPAREL PARTNERSHIP</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-6 leading-[1.08] uppercase">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1] uppercase">
             CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER FOR USA BRANDS
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
+          <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
             Gloves Storm is a direct OEM apparel manufacturing partner for sportswear brands, athletic organizations, collegiate teams, and clothing labels across the United States. We manufacture custom athletic uniforms, technical activewear, heavyweight streetwear, and turnkey private label apparel direct to USA clients with door-to-door DDP air freight, full US customs documentation, and insured delivery to any US warehouse, 3PL, or Amazon FBA center.
           </p>
         </div>
 
         {/* USA Trust Bar */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl mb-20">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+        <div className="p-4 sm:p-6 lg:p-7 rounded-2xl sm:rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-xl mb-12 sm:mb-16 lg:mb-20">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-5 sm:gap-6">
             <div className="flex items-center gap-3">
-              <span className="text-4xl">🇺🇸</span>
+              <span className="text-3xl sm:text-4xl">🇺🇸</span>
               <div>
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block font-bold">
+                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block font-bold">
                   United States Corridor
                 </span>
-                <span className="text-base sm:text-lg font-bold text-white tracking-tight">
+                <span className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
                   USA is Our Primary Export Market
                 </span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 text-xs">
               <div className="flex items-center gap-2 text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
                 <span>DDP Air in 3–5 days after dispatch</span>
               </div>
               <div className="flex items-center gap-2 text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
                 <span>Full US customs docs provided</span>
               </div>
               <div className="flex items-center gap-2 text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
                 <span>Ships to any 3PL or Amazon FBA</span>
               </div>
               <div className="flex items-center gap-2 text-slate-300">
-                <CheckCircle2 className="w-4 h-4 text-white/80 shrink-0" />
+                <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
                 <span>Standard USD invoicing</span>
               </div>
             </div>
@@ -157,21 +157,21 @@ export default function ManufacturersUsaClient() {
         </div>
 
         {/* Section: Why USA Brands Source From Sialkot */}
-        <div className="mb-24">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+        <div className="mb-12 sm:mb-20 lg:mb-24">
+          <div className="max-w-3xl mb-8 sm:mb-12">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
               The Manufacturing Advantage
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
               WHY USA APPAREL &amp; SPORTS BRANDS SOURCE FROM GLOVES STORM
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm sm:text-base text-slate-600 leading-relaxed">
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                <Building2 className="w-5 h-5 text-slate-900" />
-                Global Hub of Textile &amp; Sports Apparel Craftsmanship
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
+            <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
+                <span>Global Hub of Textile &amp; Sports Apparel Craftsmanship</span>
               </h3>
               <p>
                 Sialkot, Pakistan is recognized globally as the premier export epicenter of high-performance sports goods and technical apparel. For decades, master textile technicians, pattern makers, and stitchers have refined precision grading, multi-panel athletic compression, and seam reinforcement required by leading international athletic brands.
@@ -181,10 +181,10 @@ export default function ManufacturersUsaClient() {
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                <DollarSign className="w-5 h-5 text-slate-900" />
-                60%–80% Cost Advantage vs Domestic US Manufacturing
+            <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
+                <span>60%–80% Cost Advantage vs Domestic US Manufacturing</span>
               </h3>
               <p>
                 Domestic cut-and-sew factories in the United States face severe labor and overhead constraints, routinely charging $35 to $65 for an unbranded basic fleece hoodie or custom team jersey. By partnering directly with Gloves Storm in Sialkot, American brands obtain full retail-grade, custom-milled, fully branded products at 60% to 80% lower unit costs.
@@ -194,10 +194,10 @@ export default function ManufacturersUsaClient() {
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                <Box className="w-5 h-5 text-slate-900" />
-                Startup-Accessible Low MOQs (From 25 Pieces)
+            <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                <Box className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
+                <span>Startup-Accessible Low MOQs (From 25 Pieces)</span>
               </h3>
               <p>
                 Most large overseas and domestic factories demand rigid minimum order quantities of 300 to 500 units per colorway, locking emerging brands out of custom manufacturing. Gloves Storm offers flexible startup tiers starting at just 25 to 50 pieces per style.
@@ -207,10 +207,10 @@ export default function ManufacturersUsaClient() {
               </p>
             </div>
 
-            <div className="p-6 sm:p-8 rounded-3xl bg-white border border-slate-200 shadow-sm space-y-4">
-              <h3 className="text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-slate-900" />
-                Direct Factory Partnership with Zero Middlemen
+            <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
+                <span>Direct Factory Partnership with Zero Middlemen</span>
               </h3>
               <p>
                 When you work with Gloves Storm, there are no trading houses, third-party sales brokers, or overseas agents inflating prices and distorting communication. You communicate directly with English-speaking factory engineers and master pattern makers who read tech packs, review CAD sizing curves, and provide unedited video updates from the stitching floor.
@@ -223,25 +223,25 @@ export default function ManufacturersUsaClient() {
         </div>
 
         {/* Section: What We Manufacture for USA Clients */}
-        <div className="mb-24">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+        <div className="mb-12 sm:mb-20 lg:mb-24">
+          <div className="max-w-3xl mb-8 sm:mb-12">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
               Product Catalog for American Brands
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
               WHAT WE MANUFACTURE FOR USA CLIENTS
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {usaCategories.map((item) => (
               <Link
                 key={item.title}
                 href={item.link}
-                className="group p-5 sm:p-6 rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] hover:-translate-y-1.5 transition-all flex flex-col justify-between"
+                className="group p-4 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] hover:-translate-y-1.5 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative h-52 w-full rounded-2xl overflow-hidden bg-slate-900 mb-4">
+                  <div className="relative h-44 sm:h-52 w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 mb-3.5 sm:mb-4">
                     <Image
                       src={item.image}
                       alt={`${item.title} manufacturer for USA brands`}
@@ -249,21 +249,21 @@ export default function ManufacturersUsaClient() {
                       sizes="(max-width: 640px) 100vw, 33vw"
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-mono text-slate-900 font-bold">
+                    <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/90 backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono text-slate-900 font-bold">
                       {item.tag}
                     </span>
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#FFB900] transition-colors mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#FFB900] transition-colors mb-1.5 sm:mb-2">
                     {item.title}
                   </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
+                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
                   <span>View Specifications</span>
-                  <ArrowUpRight className="w-4 h-4 text-slate-900 group-hover:text-[#FFB900] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-900 group-hover:text-[#FFB900] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </div>
               </Link>
             ))}
@@ -271,76 +271,76 @@ export default function ManufacturersUsaClient() {
         </div>
 
         {/* Section: Shipping & Logistics to the USA */}
-        <div className="mb-24 p-8 sm:p-12 rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-400 font-mono block mb-2 font-bold">
+        <div className="mb-12 sm:mb-20 lg:mb-24 p-5 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">
+          <div className="max-w-3xl mb-8 sm:mb-12">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 font-mono block mb-2 font-bold">
               Door-to-Door Logistics
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-tight">
               SHIPPING &amp; LOGISTICS TO THE USA
             </h2>
-            <p className="mt-3 text-sm sm:text-base text-slate-300">
+            <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-300">
               We eliminate international freight anxiety. From customs clearance to final delivery at your loading dock, your shipment is fully tracked and insured.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                <Plane className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2.5 sm:space-y-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                <Plane className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-white">Air Freight: 3–5 Days</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-bold text-white">Air Freight: 3–5 Days</h3>
+              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                 Direct express air via DHL Express and FedEx. Ideal for master sample prototypes, urgent replenishment runs, and high-margin seasonal drops.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                <Ship className="w-5 h-5" />
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2.5 sm:space-y-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                <Ship className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-white">Sea Freight: 24–30 Days</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-bold text-white">Sea Freight: 24–30 Days</h3>
+              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                 Cost-effective LCL and FCL ocean container shipping into major US ports (Long Beach, Los Angeles, New York/New Jersey, Savannah).
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                <Truck className="w-5 h-5" />
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2.5 sm:space-y-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-white">Turnkey DDP Delivery</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-bold text-white">Turnkey DDP Delivery</h3>
+              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                 We handle export documentation in Pakistan, international transit, US customs duties, and final delivery to any US commercial address or 3PL.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                <FileCheck className="w-5 h-5" />
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2.5 sm:space-y-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                <FileCheck className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-white">Complete US Documentation</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-bold text-white">Complete US Documentation</h3>
+              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                 Full documentation pack supplied: Commercial Invoice, Packing List, Bill of Lading / Airway Bill, and Certificate of Origin for US Customs.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                <Box className="w-5 h-5" />
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2.5 sm:space-y-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                <Box className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-white">Amazon FBA &amp; 3PL Ready</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-bold text-white">Amazon FBA &amp; 3PL Ready</h3>
+              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                 FNSKU item barcoding, suffocation warning polybags, and Amazon-compliant carton dimensions applied at the factory before export.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-3">
-              <div className="w-10 h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
-                <Clock className="w-5 h-5" />
+            <div className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-slate-800/80 border border-slate-700/80 space-y-2.5 sm:space-y-3">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white/10 text-white flex items-center justify-center">
+                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <h3 className="text-base font-bold text-white">Total Timeline: 6–8 Weeks</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
+              <h3 className="text-sm sm:text-base font-bold text-white">Total Timeline: 6–8 Weeks</h3>
+              <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
                 From initial tech pack review and prototype sign-off to bulk stitching, AQL 2.5 inspection, and final doorstep delivery in the USA.
               </p>
             </div>
@@ -348,30 +348,30 @@ export default function ManufacturersUsaClient() {
         </div>
 
         {/* Section: How to Start Your USA Order */}
-        <div className="mb-24">
-          <div className="max-w-3xl mb-12">
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+        <div className="mb-12 sm:mb-20 lg:mb-24">
+          <div className="max-w-3xl mb-8 sm:mb-12">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
               Simple 6-Stage Process
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black uppercase tracking-tight text-slate-900">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
               HOW TO START YOUR USA ORDER
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {usaSteps.map((step) => (
               <div
                 key={step.step}
-                className="p-6 rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-neutral-900 transition-all flex flex-col justify-between"
+                className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-sm hover:border-neutral-900 transition-all flex flex-col justify-between"
               >
                 <div>
-                  <span className="text-2xl font-black font-mono text-slate-900 block mb-2">
+                  <span className="text-xl sm:text-2xl font-black font-mono text-slate-900 block mb-1.5 sm:mb-2">
                     {step.step}
                   </span>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 sm:mb-2">
                     {step.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                  <p className="text-[11px] sm:text-xs md:text-sm text-slate-600 leading-relaxed">
                     {step.desc}
                   </p>
                 </div>
@@ -381,42 +381,42 @@ export default function ManufacturersUsaClient() {
         </div>
 
         {/* FAQ Section */}
-        <div className="mb-24 max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono uppercase tracking-[0.2em] mb-3">
+        <div className="mb-12 sm:mb-20 lg:mb-24 max-w-4xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3">
               <HelpCircle className="w-3.5 h-3.5 text-neutral-900" />
               <span>USA EXPORT FAQS</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase leading-tight">
               FREQUENTLY ASKED QUESTIONS — USA CLIENTS
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {usaFaqs.map((faq, idx) => {
               const isOpen = openFaq === idx;
               return (
                 <div
                   key={faq.question}
-                  className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs"
+                  className="rounded-xl sm:rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-xs"
                 >
                   <button
                     onClick={() => setOpenFaq(isOpen ? null : idx)}
-                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+                    className="w-full p-4 sm:p-5 md:p-6 text-left flex items-center justify-between gap-3 sm:gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
                   >
-                    <span className="text-base font-bold text-slate-900 tracking-tight">
+                    <span className="text-xs sm:text-sm md:text-base font-bold text-slate-900 tracking-tight">
                       {faq.question}
                     </span>
                     <div
-                      className={`w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 transition-transform ${
+                      className={`w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 transition-transform ${
                         isOpen ? "rotate-180 bg-slate-900 text-white" : ""
                       }`}
                     >
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                     </div>
                   </button>
                   {isOpen && (
-                    <div className="px-5 sm:px-6 pb-6 pt-1 text-sm text-slate-600 leading-relaxed border-t border-slate-100">
+                    <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
                       {faq.answer}
                     </div>
                   )}
@@ -427,23 +427,23 @@ export default function ManufacturersUsaClient() {
         </div>
 
         {/* CTA Banner */}
-        <div className="p-8 sm:p-14 rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-8 text-center lg:text-left">
+        <div className="p-6 sm:p-10 lg:p-14 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 text-center lg:text-left">
           <div className="max-w-2xl">
-            <span className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2 font-bold">
               Fast 24-Hour Quotation
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white mb-3">
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white mb-2.5 sm:mb-3 leading-tight">
               GET A FREE QUOTE FOR YOUR USA ORDER
             </h2>
-            <p className="text-sm sm:text-base text-slate-300">
+            <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
               Share your tech packs, target quantities, and design specifications. Our direct Sialkot engineering team will review requirements and respond with tiered pricing within 24 hours.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3.5 shrink-0">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-3.5 shrink-0 w-full sm:w-auto">
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,185,0,0.4)]"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,185,0,0.4)]"
             >
               <span>Request USA Quote</span>
               <ArrowUpRight className="w-4 h-4 text-black" />
@@ -452,7 +452,7 @@ export default function ManufacturersUsaClient() {
               href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20a%20USA%20brand%20interested%20in%20custom%20manufacturing."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-4 rounded-full bg-white/10 border border-white/20 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all"
+              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-full bg-white/10 border border-white/20 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all text-center"
             >
               WhatsApp Direct
             </a>

@@ -66,37 +66,37 @@ export default function PrivacyPolicyPage() {
   };
 
   return (
-    <div className="pt-28 pb-24 bg-transparent min-h-screen text-slate-900">
+    <div className="pt-24 sm:pt-28 pb-16 sm:pb-24 bg-transparent min-h-screen text-slate-900">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-4xl mx-auto px-6 sm:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[11px] font-mono uppercase tracking-wider mb-4 shadow-2xs">
+        <div className="mb-10 sm:mb-14">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5 text-neutral-900" />
             <span>Industrial Confidentiality &amp; Security Standard</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-slate-900 mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-slate-900 mb-3 sm:mb-4">
             PRIVACY &amp; DATA PROTECTION POLICY
           </h1>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
             At GLOVES STORM, we protect your brand&apos;s proprietary designs, confidential tech packs, trade secrets, and business communications with strict institutional security standards.
           </p>
-          <div className="text-xs text-slate-400 font-mono mt-3">
+          <div className="text-[11px] sm:text-xs text-slate-400 font-mono mt-3">
             Last Updated &amp; Verified: March 2026 • Compliant with Global B2B Standards &amp; GDPR Principles
           </div>
         </div>
 
         {/* Highlight Banner: Tech Pack Non-Disclosure Guarantee */}
-        <div className="bg-white/80 backdrop-blur-xl border border-white/90 rounded-3xl p-6 sm:p-8 mb-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-          <div className="flex items-start gap-4">
-            <div className="p-3 rounded-2xl bg-slate-100 text-slate-900 shrink-0">
-              <Lock className="w-6 h-6" />
+        <div className="bg-white/80 backdrop-blur-xl border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 mb-8 sm:mb-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <div className="flex items-start gap-3.5 sm:gap-4">
+            <div className="p-2.5 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-100 text-slate-900 shrink-0">
+              <Lock className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-1">
+              <h2 className="text-sm sm:text-base md:text-lg font-bold uppercase tracking-tight text-slate-900 mb-1">
                 Strict IP &amp; Design Confidentiality (NDA Guarantee)
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -107,9 +107,9 @@ export default function PrivacyPolicyPage() {
         </div>
 
         {/* Content Sections */}
-        <div className="space-y-8 text-xs sm:text-sm text-slate-700 leading-relaxed">
+        <div className="space-y-6 sm:space-y-8 text-xs sm:text-sm text-slate-700 leading-relaxed">
           {/* Section 1 */}
-          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-3xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
             <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               1. Information We Collect
@@ -138,7 +138,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Section 2 */}
-          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-3xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
             <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               2. Data Protection &amp; Cryptographic Security
@@ -163,7 +163,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Section 3 */}
-          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-3xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
             <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               3. Non-Sale &amp; Non-Sharing Policy
@@ -174,7 +174,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Section 4 */}
-          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-3xl p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
             <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               4. Your Rights (Access, Correction &amp; Deletion)
@@ -197,7 +197,7 @@ export default function PrivacyPolicyPage() {
           </section>
 
           {/* Contact & Verification Box */}
-          <div className="bg-white/80 backdrop-blur-xl border border-white/90 rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="bg-white/80 backdrop-blur-xl border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-6">
             <div className="space-y-1">
               <div className="font-bold text-slate-900 text-sm">Have Questions Regarding Compliance or Custom NDAs?</div>
               <div className="text-xs text-slate-500">Our commercial team is ready to review your standard supplier agreement.</div>
@@ -205,7 +205,7 @@ export default function PrivacyPolicyPage() {
             <div className="shrink-0">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full sm:rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm text-center"
               >
                 <span>Contact Legal / Production</span>
                 <ArrowUpRight className="w-4 h-4" />
