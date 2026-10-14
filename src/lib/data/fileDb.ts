@@ -115,8 +115,65 @@ export async function getDbProducts(): Promise<Product[]> {
     return [];
   }
 
-  console.log(`[fileDb] 📥 getDbProducts fetched ${data?.length || 0} products from Supabase.`);
-  return (data as Product[]) || [];
+  return ((data as any[]) || []).map((p) => {
+    let customList = p.customization_options;
+    let primary_keyword = null;
+    let secondary_keywords = null;
+    let specifications = null;
+    let size_chart = null;
+    let faqs = null;
+    let related_product_slugs = null;
+    let noindex = false;
+    let og_title = null;
+    let og_description = null;
+    let og_image = null;
+    let canonical_url = null;
+    let pricing_tiers = [];
+    let sample_price = null;
+    let show_pricing = true;
+
+    if (
+      p.customization_options &&
+      typeof p.customization_options === "object" &&
+      !Array.isArray(p.customization_options)
+    ) {
+      const meta = p.customization_options;
+      customList = meta.list || [];
+      primary_keyword = meta.primary_keyword || null;
+      secondary_keywords = meta.secondary_keywords || null;
+      specifications = meta.specifications || null;
+      size_chart = meta.size_chart || null;
+      faqs = meta.faqs || null;
+      related_product_slugs = meta.related_product_slugs || null;
+      noindex = Boolean(meta.noindex);
+      og_title = meta.og_title || null;
+      og_description = meta.og_description || null;
+      og_image = meta.og_image || null;
+      canonical_url = meta.canonical_url || null;
+      pricing_tiers = meta.pricing_tiers || [];
+      sample_price = meta.sample_price || null;
+      show_pricing = meta.show_pricing ?? true;
+    }
+
+    return {
+      ...p,
+      customization_options: customList,
+      primary_keyword,
+      secondary_keywords,
+      specifications,
+      size_chart,
+      faqs,
+      related_product_slugs,
+      noindex,
+      og_title,
+      og_description,
+      og_image,
+      canonical_url,
+      pricing_tiers,
+      sample_price,
+      show_pricing,
+    } as Product;
+  });
 }
 
 export async function saveDbProduct(product: Partial<Product>): Promise<Product> {
@@ -128,6 +185,31 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
   const productId = product.id && isUuid(product.id) ? product.id : (product.id || randomUUID());
   const { images, category: joinedCategory, ...productFields } = product as any;
 
+  // Bundle extended fields into customization_options JSONB
+  const customList = Array.isArray(product.customization_options)
+    ? product.customization_options
+    : typeof product.customization_options === "string"
+    ? product.customization_options.split("\n").map((s) => s.trim()).filter(Boolean)
+    : [];
+
+  const metaBundle = {
+    list: customList,
+    primary_keyword: product.primary_keyword || null,
+    secondary_keywords: product.secondary_keywords || null,
+    specifications: product.specifications || null,
+    size_chart: product.size_chart || null,
+    faqs: product.faqs || null,
+    related_product_slugs: product.related_product_slugs || null,
+    noindex: Boolean(product.noindex),
+    og_title: product.og_title || null,
+    og_description: product.og_description || null,
+    og_image: product.og_image || null,
+    canonical_url: product.canonical_url || null,
+    pricing_tiers: product.pricing_tiers || [],
+    sample_price: product.sample_price || null,
+    show_pricing: product.show_pricing ?? true,
+  };
+
   const prodRecord: any = {
     id: productId,
     name: product.name || "New Product",
@@ -137,16 +219,13 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
     description: product.description || "",
     materials: product.materials || [],
     features: product.features || [],
-    customization_options: product.customization_options || [],
-    moq: product.moq || 50,
-    lead_time: product.lead_time || "2-4 Weeks",
+    customization_options: metaBundle,
+    moq: Number(product.moq) || 30,
+    lead_time: product.lead_time || "2-3 Weeks",
     featured: product.featured ?? false,
     is_active: product.is_active ?? true,
     seo_title: product.seo_title || null,
     seo_description: product.seo_description || null,
-    pricing_tiers: product.pricing_tiers || [],
-    sample_price: product.sample_price || null,
-    show_pricing: product.show_pricing ?? true,
     updated_at: new Date().toISOString(),
   };
 
@@ -161,10 +240,11 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
     throw new Error(error?.message || "Failed to save product in Supabase");
   }
 
-  let saved = data as Product;
+  let saved = data as any;
 
   // Sync images to product_images table if provided
   if (Array.isArray(images) && images.length > 0) {
+    await client.from("product_images").delete().eq("product_id", saved.id);
     const imageRows = images.map((img: any, idx: number) => ({
       id: img.id && isUuid(img.id) ? img.id : randomUUID(),
       product_id: saved.id,
@@ -179,10 +259,27 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
       .select("*, images:product_images(*), category:categories(*)")
       .eq("id", saved.id)
       .single();
-    if (refreshed) saved = refreshed as Product;
+    if (refreshed) saved = refreshed;
   }
 
-  return saved;
+  return {
+    ...saved,
+    customization_options: metaBundle.list,
+    primary_keyword: metaBundle.primary_keyword,
+    secondary_keywords: metaBundle.secondary_keywords,
+    specifications: metaBundle.specifications,
+    size_chart: metaBundle.size_chart,
+    faqs: metaBundle.faqs,
+    related_product_slugs: metaBundle.related_product_slugs,
+    noindex: metaBundle.noindex,
+    og_title: metaBundle.og_title,
+    og_description: metaBundle.og_description,
+    og_image: metaBundle.og_image,
+    canonical_url: metaBundle.canonical_url,
+    pricing_tiers: metaBundle.pricing_tiers,
+    sample_price: metaBundle.sample_price,
+    show_pricing: metaBundle.show_pricing,
+  } as Product;
 }
 
 export async function deleteDbProduct(id: string): Promise<boolean> {

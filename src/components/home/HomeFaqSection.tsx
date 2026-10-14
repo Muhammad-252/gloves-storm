@@ -12,7 +12,7 @@ const faqs = [
   {
     question: "What is the minimum order quantity (MOQ) for custom clothing and sportswear?",
     answer:
-      "Our minimum order quantity starts from 35–50 pieces per style/colorway. This allows growing apparel brands, sports clubs, and established fashion labels to produce custom designs with low risk and flexible sizing breakdowns.",
+      "Our minimum order quantity starts from 30 pieces per style/colorway. This allows growing apparel brands, sports clubs, and established fashion labels to produce custom designs with low risk and flexible sizing breakdowns.",
   },
   {
     question: "Do you manufacture and export custom apparel to the USA and UK?",

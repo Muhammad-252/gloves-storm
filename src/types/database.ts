@@ -52,6 +52,49 @@ export interface ProductVideo {
   created_at: string;
 }
 
+export interface SizeChartRow {
+  size: string;
+  [measurementKey: string]: string | number;
+}
+
+export interface HowToMeasureItem {
+  point: string;
+  instruction: string;
+}
+
+export interface SizeChartData {
+  template_key: "mens_top" | "womens_top" | "youth_kids" | "shorts_pants" | "tracksuit_jacket" | "unisex" | "custom";
+  unit?: "cm" | "in";
+  columns: Array<{ key: string; label: string }>;
+  rows_cm: SizeChartRow[];
+  rows_in: SizeChartRow[];
+  tolerance: string;
+  note?: string;
+  how_to_measure: HowToMeasureItem[];
+}
+
+export interface ProductFaq {
+  question: string;
+  answer: string;
+}
+
+export interface ProductSpecifications {
+  fabric?: string;
+  gsm_range?: string;
+  fit?: string;
+  decoration_methods?: string[];
+  colors?: string[];
+  sizes?: string[];
+  moq?: number | string;
+  sample_time?: string;
+  lead_time?: string;
+  packaging?: string;
+  labels?: string;
+  stitching?: string;
+  origin?: string;
+  [key: string]: any;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -73,9 +116,17 @@ export interface Product {
   pricing_tiers?: PriceTier[];
   sample_price?: number | null;
   show_pricing?: boolean;
-  specifications?: Record<string, any> | null;
-  created_at: string;
-  updated_at: string;
+  specifications?: ProductSpecifications | Record<string, any> | null;
+  size_chart?: SizeChartData | null;
+  faqs?: ProductFaq[] | null;
+  related_product_slugs?: string[] | null;
+  noindex?: boolean;
+  og_title?: string | null;
+  og_description?: string | null;
+  og_image?: string | null;
+  canonical_url?: string | null;
+  created_at?: string;
+  updated_at?: string;
   images?: ProductImage[];
   videos?: ProductVideo[];
   category?: Category;

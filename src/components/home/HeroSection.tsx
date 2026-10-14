@@ -77,7 +77,7 @@ export default function HeroSection() {
 
         {/* Body Copy */}
         <p className="text-[11px] sm:text-sm md:text-base text-white/90 max-w-2xl font-normal leading-relaxed mb-5 sm:mb-8 px-1 sm:px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from 35 pieces, 5–7 day prototyping, and insured DDP global shipping.
+          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from 30 pieces, 5–7 day prototyping, and insured DDP global shipping.
         </p>
 
         {/* Action CTAs */}

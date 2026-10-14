@@ -54,22 +54,42 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
   const categoryName = cat?.name || "Custom Apparel";
   const primaryMaterial = prod.materials?.[0] || "premium technical fabric";
-  const title = `Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`;
+
+  // Prioritize the custom SEO title and description from admin/data
+  const title =
+    prod.seo_title ||
+    `Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`;
+
   const description =
     prod.seo_description ||
-    `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, private label branding. MOQ ${prod.moq || 35}–50 pcs. 7-day samples. Ships worldwide. Get a free quote.`;
-  const canonicalUrl = `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
-  const ogImage = prod.images?.[0]?.image_url || "https://www.glovesstorm.com/images/og-default.jpg";
+    `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, private label branding. MOQ from ${prod.moq || 30} pcs. 5-7 day samples. Ships to USA, UK & worldwide. Free quote.`;
+
+  const canonicalUrl =
+    prod.canonical_url || `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
+
+  const ogImage =
+    prod.og_image ||
+    prod.images?.[0]?.image_url ||
+    "https://www.glovesstorm.com/images/og-default.jpg";
+
+  const ogTitle = prod.og_title || title;
+  const ogDescription = prod.og_description || description;
+
+  const isNoIndex = Boolean(prod.noindex);
 
   return {
     title,
     description,
+    robots: {
+      index: !isNoIndex,
+      follow: !isNoIndex,
+    },
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       url: canonicalUrl,
       siteName: "Gloves Storm",
       type: "website",
@@ -84,8 +104,8 @@ export async function generateMetadata({ params }: ProductPageProps) {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       images: [ogImage],
     },
   };
@@ -110,16 +130,28 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
   // Filter out current product from related items
   const filteredRelated = relatedProducts.filter((p) => p.id !== product.id).slice(0, 4);
 
-  const lowTierPrice = product.pricing_tiers?.length
-    ? Math.min(...product.pricing_tiers.map((t) => t.unit_price))
-    : (product.sample_price ? product.sample_price * 0.4 : 15.0);
-  const highTierPrice = product.sample_price || 35.0;
-
   const productImages = product.images?.length
     ? product.images.map((img) => img.image_url)
     : ["https://www.glovesstorm.com/images/og-default.jpg"];
 
-  const productJsonLd = {
+  // Strictly respect real pricing: only render offer price if pricing_tiers or sample_price are provided
+  const hasRealPricing =
+    (product.pricing_tiers && product.pricing_tiers.length > 0) ||
+    typeof product.sample_price === "number";
+
+  const lowTierPrice = product.pricing_tiers?.length
+    ? Math.min(...product.pricing_tiers.map((t) => t.unit_price))
+    : typeof product.sample_price === "number"
+    ? product.sample_price
+    : null;
+
+  const highTierPrice = product.pricing_tiers?.length
+    ? Math.max(...product.pricing_tiers.map((t) => t.unit_price))
+    : typeof product.sample_price === "number"
+    ? product.sample_price
+    : null;
+
+  const productJsonLd: Record<string, any> = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
@@ -127,30 +159,19 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       product.seo_description ||
       product.short_description ||
       product.description ||
-      `Custom ${product.name} OEM manufacturer Sialkot Pakistan. High-precision manufacturing for USA and UK brands.`,
+      `Custom ${product.name} OEM manufacturer Sialkot Pakistan. High-precision manufacturing for USA, UK and worldwide brands.`,
     brand: {
       "@type": "Brand",
       name: "Gloves Storm",
     },
     manufacturer: {
       "@type": "Organization",
-      name: "Gloves Storm",
+      name: "Gloves Storm Industrial Co.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Sialkot",
         addressRegion: "Punjab",
         addressCountry: "PK",
-      },
-    },
-    offers: {
-      "@type": "Offer",
-      availability: "https://schema.org/InStock",
-      url: `https://www.glovesstorm.com/products/${categorySlug}/${productSlug}`,
-      priceCurrency: "USD",
-      price: lowTierPrice.toFixed(2),
-      seller: {
-        "@type": "Organization",
-        name: "Gloves Storm",
       },
     },
     image: productImages[0],
@@ -159,9 +180,40 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
       : product.materials || "Premium Technical Fabric / Cut-and-Sew Construction",
     audience: {
       "@type": "Audience",
-      audienceType: "B2B — Sports brands, athletic clubs, gyms, retailers, and distributors",
+      audienceType: "B2B — Sports brands, athletic clubs, scholastic teams, and apparel distributors",
     },
   };
+
+  // Only attach offers if real pricing exists (never fabricate prices or reviews)
+  if (hasRealPricing && lowTierPrice !== null) {
+    if (highTierPrice !== null && highTierPrice > lowTierPrice) {
+      productJsonLd.offers = {
+        "@type": "AggregateOffer",
+        priceCurrency: "USD",
+        lowPrice: lowTierPrice.toFixed(2),
+        highPrice: highTierPrice.toFixed(2),
+        offerCount: product.pricing_tiers?.length || 1,
+        availability: "https://schema.org/InStock",
+        url: `https://www.glovesstorm.com/products/${categorySlug}/${productSlug}`,
+        seller: {
+          "@type": "Organization",
+          name: "Gloves Storm",
+        },
+      };
+    } else {
+      productJsonLd.offers = {
+        "@type": "Offer",
+        priceCurrency: "USD",
+        price: lowTierPrice.toFixed(2),
+        availability: "https://schema.org/InStock",
+        url: `https://www.glovesstorm.com/products/${categorySlug}/${productSlug}`,
+        seller: {
+          "@type": "Organization",
+          name: "Gloves Storm",
+        },
+      };
+    }
+  }
 
   const breadcrumbsJsonLd = {
     "@context": "https://schema.org",
@@ -194,6 +246,46 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     ],
   };
 
+  const organizationJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Gloves Storm Industrial Co.",
+    legalName: "Gloves Storm Private Limited",
+    url: "https://www.glovesstorm.com",
+    logo: "https://www.glovesstorm.com/images/logo.png",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Sialkot",
+      addressRegion: "Punjab",
+      postalCode: "51310",
+      addressCountry: "PK",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+923417146935",
+      contactType: "sales",
+      availableLanguage: ["English", "Urdu"],
+      areaServed: ["US", "GB", "AU", "DE", "FR", "CA"],
+    },
+  };
+
+  // FAQ structured data if product has FAQs
+  const faqJsonLd =
+    product.faqs && product.faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: product.faqs.map((faq) => ({
+            "@type": "Question",
+            name: faq.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: faq.answer,
+            },
+          })),
+        }
+      : null;
+
   return (
     <div className="pt-28 pb-24 bg-transparent min-h-screen">
       <script
@@ -204,6 +296,16 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <ProductDetailClient
           product={product}

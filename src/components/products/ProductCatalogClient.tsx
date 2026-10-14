@@ -215,7 +215,7 @@ export default function ProductCatalogClient({
   const sorted = useMemo(() => {
     return [...filtered].sort((a, b) => {
       if (sortBy === "moq-asc") return a.moq - b.moq;
-      if (sortBy === "newest") return b.created_at.localeCompare(a.created_at);
+      if (sortBy === "newest") return (b.created_at || "").localeCompare(a.created_at || "");
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
       return 0;

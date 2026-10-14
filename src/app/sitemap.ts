@@ -19,11 +19,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     (c) => c.is_active && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
   );
 
-  // Only index products from visible categories
   const hiddenCatIds = new Set(
     allCategories.filter((c) => HIDDEN_CATEGORY_SLUGS.includes(c.slug)).map((c) => c.id)
   );
-  const products = allProducts.filter((p) => p.is_active && !hiddenCatIds.has(p.category_id ?? ""));
+
+  // Only index published products from visible categories, excluding noindex items
+  const products = allProducts.filter(
+    (p) => p.is_active && !p.noindex && !hiddenCatIds.has(p.category_id ?? "")
+  );
 
   const coreRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },

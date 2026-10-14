@@ -1,0 +1,1126 @@
+[
+  {
+    "id": "b0000001-0000-0000-0000-000000000016",
+    "name": "Custom Basketball Uniforms",
+    "slug": "custom-basketball-uniforms",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Basketball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Basketball Uniforms engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "100% Micro-Mesh Polyester (180 GSM)",
+      "Dry-Fit Moisture Wicking Fiber",
+      "Ribbed Collar & Armhole Trim"
+    ],
+    "features": [
+      "Reversible or Single Layer Construction",
+      "Italian Sublimation Color Infusion",
+      "Deep-V or Round Neck Options",
+      "Reinforced Overlock Stitching"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Basketball Uniforms | GLOVES STORM",
+    "seo_description": "Custom Basketball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000160001",
+        "alt_text": "Custom Basketball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000016",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000160002",
+        "alt_text": "Custom Basketball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000016",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000160003",
+        "alt_text": "Custom Basketball Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000016",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000160004",
+        "alt_text": "Custom Basketball Uniforms — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000016",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000017",
+    "name": "Custom American Football Uniforms",
+    "slug": "custom-american-football-uniforms",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom American Football Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom American Football Uniforms engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Heavy Spandex Body (300 GSM)",
+      "Dazzle Cloth Shoulder Yoke",
+      "Breathable Stretch Mesh Side Panels"
+    ],
+    "features": [
+      "Pad-Lock Snug Fit Ergonomics",
+      "Tackle Twill Number Applique",
+      "Elasticized Sleeve Cuffs",
+      "Reinforced Bar-Tack Stress Points"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom American Football Uniforms | GLOVES STORM",
+    "seo_description": "Custom American Football Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000170001",
+        "alt_text": "Custom American Football Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000017",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000170002",
+        "alt_text": "Custom American Football Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000017",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000170003",
+        "alt_text": "Custom American Football Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000017",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000170004",
+        "alt_text": "Custom American Football Uniforms — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000017",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000018",
+    "name": "Custom Soccer Kits",
+    "slug": "custom-soccer-kits",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Soccer Kits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Soccer Kits engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "150 GSM Engineered Jacquard Poly",
+      "Aero-Mesh Ventilation Inserts",
+      "Comfort Ribbed Crewneck"
+    ],
+    "features": [
+      "Jersey + Shorts + Sock Matching Kit",
+      "All-Over Sublimated Vector Graphics",
+      "Silicone Club Crest Application",
+      "Lightweight Dynamic Movement"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Soccer Kits | GLOVES STORM",
+    "seo_description": "Custom Soccer Kits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000180001",
+        "alt_text": "Custom Soccer Kits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200&auto=format&fit=crop",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000018",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000180002",
+        "alt_text": "Custom Soccer Kits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "https://images.unsplash.com/photo-1515523110800-9415d13b84a8?q=80&w=1200&auto=format&fit=crop",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000018",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000180003",
+        "alt_text": "Custom Soccer Kits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000018",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000180004",
+        "alt_text": "Custom Soccer Kits — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000018",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000019",
+    "name": "Custom Baseball Uniforms",
+    "slug": "custom-baseball-uniforms",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Baseball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Baseball Uniforms engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "220 GSM Pro-Weight Poly Warp Knit",
+      "Authentic Melamine Buttons",
+      "Durable Double-Knit Pants Mesh"
+    ],
+    "features": [
+      "Full-Button or 2-Button Placket",
+      "Multi-Layer Tackle Twill Lettering",
+      "Pro-Inseam Reinforced Knees",
+      "Moisture Resistance"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Baseball Uniforms | GLOVES STORM",
+    "seo_description": "Custom Baseball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000190001",
+        "alt_text": "Custom Baseball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000019",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000190002",
+        "alt_text": "Custom Baseball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000019",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000190003",
+        "alt_text": "Custom Baseball Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000019",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000190004",
+        "alt_text": "Custom Baseball Uniforms — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000019",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000020",
+    "name": "Custom Volleyball Uniforms",
+    "slug": "custom-volleyball-uniforms",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Volleyball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Volleyball Uniforms engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "88% Polyester / 12% Spandex Interlock",
+      "4-Way High Elasticity Fabric",
+      "Anti-Odor Bio-Wash"
+    ],
+    "features": [
+      "Raglan Sleeve Athletic Mobility",
+      "Sleeveless or Short-Sleeve Fit",
+      "Flatlock Anti-Chafe Seaming",
+      "Sublimated Numbers & Names"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Volleyball Uniforms | GLOVES STORM",
+    "seo_description": "Custom Volleyball Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000200001",
+        "alt_text": "Custom Volleyball Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000020",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000200002",
+        "alt_text": "Custom Volleyball Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/rash-guard.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000020",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000200003",
+        "alt_text": "Custom Volleyball Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000020",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000200004",
+        "alt_text": "Custom Volleyball Uniforms — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000020",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000021",
+    "name": "Custom Rugby Kits",
+    "slug": "custom-rugby-kits",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Rugby Kits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Rugby Kits engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "280 GSM Heavy Pro-Lock Polyester",
+      "Tear-Resistant Spandex Collar",
+      "Reinforced Binding Tapes"
+    ],
+    "features": [
+      "Scrum-Proof Gripper Collar",
+      "Reinforced Taped Placket",
+      "Anti-Grab Athletic Cut",
+      "Sublimated Team Crests"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Rugby Kits | GLOVES STORM",
+    "seo_description": "Custom Rugby Kits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000210001",
+        "alt_text": "Custom Rugby Kits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000021",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000210002",
+        "alt_text": "Custom Rugby Kits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000021",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000210003",
+        "alt_text": "Custom Rugby Kits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000021",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000210004",
+        "alt_text": "Custom Rugby Kits — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/board-shorts.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000021",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000022",
+    "name": "Custom Cricket Uniforms",
+    "slug": "custom-cricket-uniforms",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Cricket Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Cricket Uniforms engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "180 GSM Honeycomb Aerolite Mesh",
+      "Polyester Pique Weave",
+      "UV Protection Finish"
+    ],
+    "features": [
+      "White Ball Colored T20 Kits",
+      "Traditional Test White Polo & Trousers",
+      "Ribbed Polo Collar with Placket",
+      "Deep Slit Pockets"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Cricket Uniforms | GLOVES STORM",
+    "seo_description": "Custom Cricket Uniforms for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000220001",
+        "alt_text": "Custom Cricket Uniforms — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000022",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000220002",
+        "alt_text": "Custom Cricket Uniforms — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000022",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000220003",
+        "alt_text": "Custom Cricket Uniforms — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000022",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000220004",
+        "alt_text": "Custom Cricket Uniforms — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000022",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000023",
+    "name": "Custom Training Jerseys",
+    "slug": "custom-training-jerseys",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Training Jerseys for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Training Jerseys engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "140 GSM Featherweight Interlock Poly",
+      "Micro-Laser Perforated Back",
+      "Reflective Transfer Accents"
+    ],
+    "features": [
+      "Drop-Tail Hem Cut",
+      "Breathable Venting Zones",
+      "High Stretch Athletic Recovery",
+      "Screen Print or Sublimation Ready"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Training Jerseys | GLOVES STORM",
+    "seo_description": "Custom Training Jerseys for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000230001",
+        "alt_text": "Custom Training Jerseys — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000023",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000230002",
+        "alt_text": "Custom Training Jerseys — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/rash-guard.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000023",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000230003",
+        "alt_text": "Custom Training Jerseys — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000023",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000230004",
+        "alt_text": "Custom Training Jerseys — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000023",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000024",
+    "name": "Custom Sports Shorts",
+    "slug": "custom-sports-shorts",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Sports Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Sports Shorts engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "4-Way Stretch Poly/Elastane (160 GSM)",
+      "Internal Breathable Compression Liner",
+      "Water-Repellent Coating"
+    ],
+    "features": [
+      "Concealed Zipper Pockets",
+      "Elastic Drawcord Waistband",
+      "Side Split Mobility Hem",
+      "Custom Embroidered or Printed Logo"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Sports Shorts | GLOVES STORM",
+    "seo_description": "Custom Sports Shorts for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000240001",
+        "alt_text": "Custom Sports Shorts — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/board-shorts.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000024",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000240002",
+        "alt_text": "Custom Sports Shorts — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000024",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000240003",
+        "alt_text": "Custom Sports Shorts — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000024",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000240004",
+        "alt_text": "Custom Sports Shorts — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000024",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000025",
+    "name": "Custom Compression Wear",
+    "slug": "custom-compression-wear",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Compression Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Compression Wear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "82% High-Grade Nylon / 18% Elastane (240 GSM)",
+      "Thermal Moisture Management Yarn"
+    ],
+    "features": [
+      "Graduated Muscular Compression",
+      "6-Needle Flatlock Stitching",
+      "Anti-Chafe Ergonomic Panels",
+      "Silicone Hem Grip Strip"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Compression Wear | GLOVES STORM",
+    "seo_description": "Custom Compression Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000250001",
+        "alt_text": "Custom Compression Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/rash-guard.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000025",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000250002",
+        "alt_text": "Custom Compression Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000025",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000250003",
+        "alt_text": "Custom Compression Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/boxing-mma-gloves.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000025",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000250004",
+        "alt_text": "Custom Compression Wear — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000025",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000026",
+    "name": "Custom Tracksuits",
+    "slug": "custom-tracksuits",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Tracksuits engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Polyester Tricot Matte or Shiny",
+      "Cotton Poly French Terry",
+      "Heavy-Duty YKK Full Zipper"
+    ],
+    "features": [
+      "Ribbed Cuffs & Hem",
+      "Matching Jacket and Slim Tapered Pants",
+      "Custom Piping & Contrast Panels",
+      "Zip Pockets on Jacket & Bottoms"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Custom Tracksuits | GLOVES STORM",
+    "seo_description": "Custom Tracksuits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000260001",
+        "alt_text": "Custom Tracksuits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1200&auto=format&fit=crop",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000026",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000260002",
+        "alt_text": "Custom Tracksuits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000026",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000260003",
+        "alt_text": "Custom Tracksuits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/hoodie-black.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000026",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000260004",
+        "alt_text": "Custom Tracksuits — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000026",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000027",
+    "name": "Custom Warm-Up Suits",
+    "slug": "custom-warm-up-suits",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Warm-Up Suits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Warm-Up Suits engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Water-Resistant Ripstop Polyester Shell",
+      "Lightweight Mesh Interior Lining",
+      "Reflective 3M Piping"
+    ],
+    "features": [
+      "Windproof & Water Repellent",
+      "Ankle Zippers for Easy Shoe Removal",
+      "High Stand-Up Wind Collar",
+      "Elastic Cuffs"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Warm-Up Suits | GLOVES STORM",
+    "seo_description": "Custom Warm-Up Suits for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000270001",
+        "alt_text": "Custom Warm-Up Suits — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000027",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000270002",
+        "alt_text": "Custom Warm-Up Suits — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/rash-guard.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000027",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000270003",
+        "alt_text": "Custom Warm-Up Suits — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000027",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000270004",
+        "alt_text": "Custom Warm-Up Suits — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/hoodie-black.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000027",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000028",
+    "name": "Custom Team Jackets",
+    "slug": "custom-team-jackets",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Team Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Team Jackets engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Softshell Poly with Bonded Polar Fleece",
+      "Waterproof Breathable Membrane (8000mm)",
+      "Gunmetal Metal Snaps / YKK Zippers"
+    ],
+    "features": [
+      "Articulated Elbow Paneling",
+      "Adjustable Drawcord Hem",
+      "Interior Media Pocket",
+      "Chest & Back Team Embroidery"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-4 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Team Jackets | GLOVES STORM",
+    "seo_description": "Custom Team Jackets for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000280001",
+        "alt_text": "Custom Team Jackets — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/varsity-jacket.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000028",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000280002",
+        "alt_text": "Custom Team Jackets — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/hoodie-black.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000028",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000280003",
+        "alt_text": "Custom Team Jackets — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/woven-labels.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000028",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000280004",
+        "alt_text": "Custom Team Jackets — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/polo-jersey-set.png",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000028",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000029",
+    "name": "Custom Training Wear",
+    "slug": "custom-training-wear",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Custom Training Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Custom Training Wear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Blended Polyester Spandex Active Knit",
+      "Silver Ion Anti-Microbial Finish",
+      "Four-Way Flexibility"
+    ],
+    "features": [
+      "Athletic Slim Cut",
+      "Odor Resistant Technology",
+      "Flatlock Seams for Friction Reduction",
+      "Custom Heat Seal Branding"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "2-3 Weeks",
+    "featured": false,
+    "is_active": true,
+    "seo_title": "Custom Training Wear | GLOVES STORM",
+    "seo_description": "Custom Training Wear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000290001",
+        "alt_text": "Custom Training Wear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/rash-guard.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000029",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000290002",
+        "alt_text": "Custom Training Wear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/board-shorts.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000029",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000290003",
+        "alt_text": "Custom Training Wear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000029",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000290004",
+        "alt_text": "Custom Training Wear — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/gym-leggings.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000029",
+        "sort_order": 4
+      }
+    ]
+  },
+  {
+    "id": "b0000001-0000-0000-0000-000000000030",
+    "name": "Private Label Teamwear",
+    "slug": "private-label-teamwear",
+    "category_id": "a0000001-0000-0000-0000-000000000002",
+    "short_description": "Private Label Teamwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "description": "Private Label Teamwear engineered and manufactured by GLOVES STORM in Sialkot, Pakistan. Designed for international brands, fight gyms, sports teams, and growing private labels requiring rigorous craftsmanship, consistent sizing, and premium materials. Fully customizable with your logo, brand colors, custom labeling, and retail-ready packaging.",
+    "materials": [
+      "Full Custom Fabric Milling",
+      "Proprietary Blends & Colors",
+      "Custom Neck Tapes & Poly Bags"
+    ],
+    "features": [
+      "Bespoke Cut & Sew Patterns",
+      "Exclusive Club Numbering Systems",
+      "Custom Silicon & 3D Badges",
+      "Global Distribution Packaging"
+    ],
+    "customization_options": [
+      "Logo",
+      "colors",
+      "materials",
+      "sizing",
+      "branding",
+      "labels",
+      "packaging",
+      "printing and embroidery where applicable"
+    ],
+    "moq": 50,
+    "lead_time": "3-5 Weeks",
+    "featured": true,
+    "is_active": true,
+    "seo_title": "Private Label Teamwear | GLOVES STORM",
+    "seo_description": "Private Label Teamwear for brands, gyms, teams and growing businesses. Customize materials, colors, sizing, branding and packaging with GLOVES STORM.",
+    "created_at": "2026-09-14T14:02:04.612+00:00",
+    "updated_at": "2026-09-14T14:02:04.612+00:00",
+    "images": [
+      {
+        "id": "e0000001-0000-0000-0000-000000300001",
+        "alt_text": "Private Label Teamwear — Image 01 Hero Product Presentation (GLOVES STORM OEM)",
+        "image_url": "/images/products/basketball-uniform.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": true,
+        "product_id": "b0000001-0000-0000-0000-000000000030",
+        "sort_order": 1
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000300002",
+        "alt_text": "Private Label Teamwear — Image 02 Material, Stitching & Craftsmanship Detail",
+        "image_url": "/images/products/woven-labels.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000030",
+        "sort_order": 2
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000300003",
+        "alt_text": "Private Label Teamwear — Image 03 GLOVES STORM Branding & Angle Presentation",
+        "image_url": "/images/products/luxury-packaging.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000030",
+        "sort_order": 3
+      },
+      {
+        "id": "e0000001-0000-0000-0000-000000300004",
+        "alt_text": "Private Label Teamwear — Image 04 Coordinated Variant & Colorway",
+        "image_url": "/images/products/football-jersey-black.jpg",
+        "created_at": "2026-09-14T14:02:04.612+00:00",
+        "is_primary": false,
+        "product_id": "b0000001-0000-0000-0000-000000000030",
+        "sort_order": 4
+      }
+    ]
+  }
+]

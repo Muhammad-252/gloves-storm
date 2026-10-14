@@ -1,0 +1,42 @@
+{
+  "site_name": "Gloves Storm",
+  "default_meta_title_template": "%s | Gloves Storm",
+  "default_meta_description": "Gloves Storm is an international OEM/ODM custom sportswear, teamwear, and private label apparel manufacturer in Sialkot, Pakistan. Direct factory mill pricing and fast DDP export to USA, UK, and worldwide.",
+  "default_og_image": "https://www.glovesstorm.com/images/og-default.jpg",
+  "organization": {
+    "name": "Gloves Storm Industrial Co.",
+    "legal_name": "Gloves Storm Private Limited",
+    "url": "https://www.glovesstorm.com",
+    "logo": "https://www.glovesstorm.com/images/logo.png",
+    "founding_year": 2019,
+    "address_locality": "Sialkot",
+    "address_region": "Punjab",
+    "postal_code": "51310",
+    "address_country": "PK",
+    "telephone": "+923417146935",
+    "email": "glovesstorm@gmail.com"
+  },
+  "robots_custom_rules": "User-agent: *\nAllow: /\nAllow: /api/\nDisallow: /admin/\nDisallow: /*?orderby=*\nDisallow: /*?per_row=*\nDisallow: /*?per_page=*\nDisallow: /*?shop_view=*\nSitemap: https://www.glovesstorm.com/sitemap.xml",
+  "redirects": [
+    {
+      "source": "/contact-us",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/sports-uniforms/:slug*",
+      "destination": "/products/sportswear-teamwear",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/fitness-wears/:slug*",
+      "destination": "/products/gym-fitness-wear",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/casual-wear/:slug*",
+      "destination": "/products/clothing-streetwear",
+      "permanent": true
+    }
+  ]
+}

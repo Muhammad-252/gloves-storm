@@ -216,7 +216,7 @@ export default function ProductExplorerSection({
                 href="/products"
                 className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 max-w-full text-center"
               >
-                <span>EXPLORE ALL 90 PRODUCTS IN CATALOG</span>
+                <span>EXPLORE FULL PRODUCT CATALOG</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
               </Link>
             </div>

@@ -17,8 +17,37 @@ import {
   EyeOff,
   AlertCircle,
   Sparkles,
+  Globe,
+  Plus,
+  Trash2,
 } from "lucide-react";
 import { InstagramIcon } from "@/components/ui/SocialIcons";
+
+interface GlobalSeoConfig {
+  site_name: string;
+  default_meta_title_template: string;
+  default_meta_description: string;
+  default_og_image: string;
+  organization: {
+    name: string;
+    legal_name: string;
+    url: string;
+    logo: string;
+    founding_year: number;
+    address_locality: string;
+    address_region: string;
+    postal_code: string;
+    address_country: string;
+    telephone: string;
+    email: string;
+  };
+  robots_custom_rules: string;
+  redirects: Array<{
+    source: string;
+    destination: string;
+    permanent: boolean;
+  }>;
+}
 
 interface AdminSettingsClientProps {
   initialSettings: SiteSettings;
@@ -34,9 +63,72 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
   const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
   const [showToken, setShowToken] = useState(false);
 
+  // Global SEO Settings State
+  const [seoConfig, setSeoConfig] = useState<GlobalSeoConfig>({
+    site_name: "Gloves Storm",
+    default_meta_title_template: "%s | Gloves Storm",
+    default_meta_description:
+      "Gloves Storm is an international OEM/ODM custom sportswear, teamwear, and private label apparel manufacturer in Sialkot, Pakistan.",
+    default_og_image: "https://www.glovesstorm.com/images/og-default.jpg",
+    organization: {
+      name: "Gloves Storm Industrial Co.",
+      legal_name: "Gloves Storm Private Limited",
+      url: "https://www.glovesstorm.com",
+      logo: "https://www.glovesstorm.com/images/logo.png",
+      founding_year: 2019,
+      address_locality: "Sialkot",
+      address_region: "Punjab",
+      postal_code: "51310",
+      address_country: "PK",
+      telephone: "+923417146935",
+      email: "glovesstorm@gmail.com",
+    },
+    robots_custom_rules:
+      "User-agent: *\nAllow: /\nAllow: /api/\nDisallow: /admin/\nSitemap: https://www.glovesstorm.com/sitemap.xml",
+    redirects: [],
+  });
+
   useEffect(() => {
     setSettings(initialSettings);
+    // Fetch global SEO settings
+    fetch("/api/settings/seo")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success && data.settings) {
+          setSeoConfig(data.settings);
+        }
+      })
+      .catch(() => {});
   }, [initialSettings]);
+
+  const handleAddRedirect = () => {
+    setSeoConfig((prev) => ({
+      ...prev,
+      redirects: [
+        ...prev.redirects,
+        { source: "/old-page", destination: "/products/sportswear-teamwear", permanent: true },
+      ],
+    }));
+  };
+
+  const handleUpdateRedirect = (
+    index: number,
+    field: "source" | "destination" | "permanent",
+    val: any
+  ) => {
+    setSeoConfig((prev) => {
+      const updated = [...prev.redirects];
+      updated[index] = { ...updated[index], [field]: val };
+      return { ...prev, redirects: updated };
+    });
+  };
+
+  const handleRemoveRedirect = (index: number) => {
+    setSeoConfig((prev) => ({
+      ...prev,
+      redirects: prev.redirects.filter((_, i) => i !== index),
+    }));
+  };
 
   const handleTestInstagram = async () => {
     setTestingIg(true);
@@ -70,13 +162,20 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-    const toastId = toast.loading("Saving Settings...", "Applying global site configurations");
+    const toastId = toast.loading("Saving Settings...", "Applying global site and SEO configurations");
     try {
-      const updated = await saveSiteSettings(settings);
+      const [updated] = await Promise.all([
+        saveSiteSettings(settings),
+        fetch("/api/settings/seo", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ settings: seoConfig }),
+        }),
+      ]);
       setSettings(updated);
       setSaved(true);
       toast.dismiss(toastId);
-      toast.success("Settings Saved", "Global configurations updated and synchronized.");
+      toast.success("Settings Saved", "Global and technical SEO configurations updated.");
       router.refresh();
       setTimeout(() => setSaved(false), 3000);
     } catch (err: any) {
@@ -468,6 +567,172 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
             onChange={(e) => setSettings({ ...settings, hero_description: e.target.value })}
             className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
           />
+        </div>
+      </div>
+
+      {/* Global Technical SEO & Search Engine Architecture (Phase 5 Mandate) */}
+      <div className="p-6 sm:p-8 bg-white border border-neutral-200 rounded-3xl shadow-sm space-y-6">
+        <div className="flex items-center justify-between border-b border-neutral-100 pb-3">
+          <div className="flex items-center gap-2">
+            <Globe className="w-5 h-5 text-amber-600" />
+            <div>
+              <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f172a]">
+                Global Technical SEO &amp; Schema Settings
+              </h2>
+              <span className="text-[11px] text-neutral-500">
+                Site-wide search defaults, organization structured data, robots.txt, and 301 redirects
+              </span>
+            </div>
+          </div>
+          <span className="text-[10px] font-mono uppercase bg-neutral-100 text-neutral-700 font-bold px-2.5 py-1 rounded-full border border-neutral-200">
+            SEO Controls
+          </span>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
+              Global Site Brand Name
+            </label>
+            <input
+              type="text"
+              value={seoConfig.site_name}
+              onChange={(e) => setSeoConfig({ ...seoConfig, site_name: e.target.value })}
+              className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
+            />
+          </div>
+
+          <div>
+            <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
+              Default Meta Title Template
+            </label>
+            <input
+              type="text"
+              value={seoConfig.default_meta_title_template}
+              onChange={(e) =>
+                setSeoConfig({ ...seoConfig, default_meta_title_template: e.target.value })
+              }
+              className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors font-mono"
+            />
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
+            Default Fallback Meta Description
+          </label>
+          <textarea
+            rows={2}
+            value={seoConfig.default_meta_description}
+            onChange={(e) =>
+              setSeoConfig({ ...seoConfig, default_meta_description: e.target.value })
+            }
+            className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
+          />
+        </div>
+
+        <div>
+          <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
+            Default Social Share Image URL (Open Graph / Twitter)
+          </label>
+          <input
+            type="url"
+            value={seoConfig.default_og_image}
+            onChange={(e) => setSeoConfig({ ...seoConfig, default_og_image: e.target.value })}
+            className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors font-mono"
+          />
+        </div>
+
+        {/* Robots.txt Custom Rules */}
+        <div>
+          <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-semibold">
+            Robots.txt Crawl Directives
+          </label>
+          <textarea
+            rows={4}
+            value={seoConfig.robots_custom_rules}
+            onChange={(e) => setSeoConfig({ ...seoConfig, robots_custom_rules: e.target.value })}
+            className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl p-3 text-xs font-mono outline-none transition-colors"
+          />
+          <p className="text-[10px] text-neutral-400 mt-1">
+            Defines crawl allowances for search engine user-agents and sitemap location.
+          </p>
+        </div>
+
+        {/* 301 Redirects Table Manager */}
+        <div className="space-y-3 pt-2">
+          <div className="flex items-center justify-between">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-neutral-800 font-mono">
+                Permanent 301 Redirects ({seoConfig.redirects.length})
+              </span>
+              <p className="text-[10px] text-neutral-500">
+                Preserves link equity and prevents 404s for moved or restructured URLs.
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={handleAddRedirect}
+              className="inline-flex items-center gap-1 bg-amber-50 hover:bg-amber-100 text-amber-900 border border-amber-200 px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all cursor-pointer"
+            >
+              <Plus className="w-3.5 h-3.5 text-amber-700" />
+              <span>Add 301 Redirect</span>
+            </button>
+          </div>
+
+          <div className="overflow-x-auto border border-neutral-200 rounded-xl">
+            <table className="w-full text-left text-xs font-mono">
+              <thead className="bg-neutral-100 text-neutral-700 border-b border-neutral-200">
+                <tr>
+                  <th className="py-2.5 px-3 uppercase text-[10px]">Source Path</th>
+                  <th className="py-2.5 px-3 uppercase text-[10px]">Destination</th>
+                  <th className="py-2.5 px-3 uppercase text-[10px] text-center">Permanent (301)</th>
+                  <th className="py-2.5 px-3 text-right uppercase text-[10px]">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-neutral-200 bg-white">
+                {seoConfig.redirects.map((red, idx) => (
+                  <tr key={idx} className="hover:bg-neutral-50">
+                    <td className="py-2 px-3">
+                      <input
+                        type="text"
+                        value={red.source}
+                        onChange={(e) => handleUpdateRedirect(idx, "source", e.target.value)}
+                        className="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-2.5 py-1 text-xs text-neutral-900 outline-none focus:bg-white focus:border-amber-600"
+                        placeholder="/old-url"
+                      />
+                    </td>
+                    <td className="py-2 px-3">
+                      <input
+                        type="text"
+                        value={red.destination}
+                        onChange={(e) => handleUpdateRedirect(idx, "destination", e.target.value)}
+                        className="w-full bg-neutral-50 border border-neutral-200 rounded-lg px-2.5 py-1 text-xs text-neutral-900 outline-none focus:bg-white focus:border-amber-600"
+                        placeholder="/new-url"
+                      />
+                    </td>
+                    <td className="py-2 px-3 text-center">
+                      <input
+                        type="checkbox"
+                        checked={red.permanent}
+                        onChange={(e) => handleUpdateRedirect(idx, "permanent", e.target.checked)}
+                        className="w-4 h-4 accent-amber-600"
+                      />
+                    </td>
+                    <td className="py-2 px-3 text-right">
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveRedirect(idx)}
+                        className="p-1 text-neutral-400 hover:text-red-600 transition-colors cursor-pointer"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
