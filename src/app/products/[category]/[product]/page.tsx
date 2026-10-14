@@ -6,6 +6,7 @@ import {
   getCategories,
 } from "@/lib/data/store";
 import ProductDetailClient from "@/components/products/ProductDetailClient";
+import { toTitleCase } from "@/lib/utils";
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string }>;
@@ -54,7 +55,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
 
   const categoryName = cat?.name || "Custom Apparel";
   const primaryMaterial = prod.materials?.[0] || "premium technical fabric";
-  const title = `Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`;
+  const title = toTitleCase(`Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`);
   const description =
     prod.seo_description ||
     `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, private label branding. MOQ ${prod.moq || 35}–50 pcs. 7-day samples. Ships worldwide. Get a free quote.`;

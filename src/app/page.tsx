@@ -37,7 +37,7 @@ const homeOrgSchema = {
   "@type": "Organization",
   name: "Gloves Storm",
   url: "https://www.glovesstorm.com",
-  logo: "https://www.glovesstorm.com/images/og-default.jpg",
+  logo: "https://www.glovesstorm.com/images/logo.png",
   description:
     "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, streetwear, and team uniforms. Direct factory export to USA, UK, and worldwide.",
   foundingDate: "2019",

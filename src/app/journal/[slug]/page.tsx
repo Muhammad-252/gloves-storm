@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getBlogPostBySlug, getBlogPosts } from "@/lib/data/store";
 import { ArrowUpRight, Calendar, User, ChevronRight, Sparkles, Box, Scissors } from "lucide-react";
-import { formatDate } from "@/lib/utils";
+import { formatDate, toTitleCase } from "@/lib/utils";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -22,9 +22,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-  if (!post) return { title: "Article Not Found" };
+  if (!post) return { title: "Article Not Found | Gloves Storm" };
 
-  const title = post.seo_title || `${post.title} | Gloves Storm Journal`;
+  const rawTitle = post.seo_title || `${post.title} | Gloves Storm Journal`;
+  const title = toTitleCase(rawTitle);
   const description = post.seo_description || post.excerpt || post.title;
   const canonicalUrl = `https://www.glovesstorm.com/journal/${slug}`;
   const ogImage = post.featured_image || "https://www.glovesstorm.com/images/og-default.jpg";

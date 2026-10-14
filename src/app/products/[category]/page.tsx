@@ -9,6 +9,8 @@ import CategoryLandingClient, {
   CATEGORY_INTEL,
 } from "@/components/products/CategoryLandingClient";
 
+import { toTitleCase } from "@/lib/utils";
+
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
 }
@@ -46,7 +48,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   }
 
   const intel = CATEGORY_INTEL[slug];
-  const title = intel?.metaTitle || `Custom ${cat.name} Manufacturer & OEM Factory | Gloves Storm`;
+  const title = toTitleCase(intel?.metaTitle || `Custom ${cat.name} Manufacturer & OEM Factory | Gloves Storm`);
   const description =
     intel?.metaDescription ||
     cat.description ||
@@ -74,7 +76,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
     },
     twitter: {
       card: "summary_large_image",
-      title: `Custom ${cat.name} Manufacturer | Gloves Storm`,
+      title,
       description: cat.description || `Custom ${cat.name} OEM manufacturing in Sialkot, Pakistan.`,
       images: [cat.image_url || "/images/products/varsity-jacket.jpg"],
     },

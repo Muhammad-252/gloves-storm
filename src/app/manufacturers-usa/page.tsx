@@ -3,14 +3,14 @@ import ManufacturersUsaClient from "@/components/manufacturers/ManufacturersUsaC
 import { usaFaqs } from "@/lib/data/exportFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom Clothing & Sportswear Manufacturer for USA Brands | Gloves Storm",
+  title: "Custom Clothing & Sportswear Manufacturer For USA Brands | Gloves Storm",
   description:
     "Direct OEM apparel manufacturer supplying USA sportswear brands, athletic teams and streetwear labels. Custom private label apparel, jerseys, activewear, hoodies. Low MOQ from 35 pcs. DDP air shipping to USA. 5-7 day samples. Free quote.",
   alternates: {
     canonical: "https://www.glovesstorm.com/manufacturers-usa",
   },
   openGraph: {
-    title: "Custom Clothing & Sportswear Manufacturer for USA Brands | Gloves Storm",
+    title: "Custom Clothing & Sportswear Manufacturer For USA Brands | Gloves Storm",
     description:
       "Direct OEM apparel manufacturer supplying USA sportswear brands, athletic teams and streetwear labels. Custom private label apparel, jerseys, activewear, hoodies. Low MOQ from 35 pcs. DDP air shipping to USA.",
     url: "https://www.glovesstorm.com/manufacturers-usa",
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Gloves Storm — Custom Clothing & Sportswear Manufacturer for USA Brands",
+        alt: "Gloves Storm — Custom Clothing & Sportswear Manufacturer For USA Brands",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Clothing & Sportswear Manufacturer for USA Brands | Gloves Storm",
+    title: "Custom Clothing & Sportswear Manufacturer For USA Brands | Gloves Storm",
     description:
       "Direct OEM factory supplying USA sports apparel brands, athletic teams and streetwear labels. Low MOQ from 35 pcs. DDP air shipping.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],

@@ -33,3 +33,8 @@ export function formatDate(dateString: string): string {
     return dateString;
   }
 }
+
+export function toTitleCase(str: string): string {
+  if (!str) return "";
+  return str.replace(/\b([a-z])/g, (char) => char.toUpperCase());
+}

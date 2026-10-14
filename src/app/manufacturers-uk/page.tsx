@@ -3,14 +3,14 @@ import ManufacturersUkClient from "@/components/manufacturers/ManufacturersUkCli
 import { ukFaqs } from "@/lib/data/exportFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom Clothing & Sportswear Manufacturer for UK Brands | Gloves Storm",
+  title: "Custom Clothing & Sportswear Manufacturer For UK Brands | Gloves Storm",
   description:
     "OEM custom clothing and sportswear manufacturer supplying UK brands, athletic teams and streetwear labels. Custom private label, low MOQ from 35 pcs. DDP shipping to UK. 5-7 day samples. Free quote.",
   alternates: {
     canonical: "https://www.glovesstorm.com/manufacturers-uk",
   },
   openGraph: {
-    title: "Custom Clothing & Sportswear Manufacturer for UK Brands | Gloves Storm",
+    title: "Custom Clothing & Sportswear Manufacturer For UK Brands | Gloves Storm",
     description:
       "OEM custom clothing and sportswear manufacturer supplying UK brands, athletic teams and streetwear labels. Custom private label, low MOQ from 35 pcs. DDP shipping to UK.",
     url: "https://www.glovesstorm.com/manufacturers-uk",
@@ -21,13 +21,13 @@ export const metadata: Metadata = {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: "Gloves Storm — Custom Clothing & Sportswear Manufacturer for UK Brands",
+        alt: "Gloves Storm — Custom Clothing & Sportswear Manufacturer For UK Brands",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Clothing & Sportswear Manufacturer for UK Brands | Gloves Storm",
+    title: "Custom Clothing & Sportswear Manufacturer For UK Brands | Gloves Storm",
     description:
       "OEM clothing and sportswear manufacturer supplying UK brands, athletic clubs and labels. DDP shipping, low MOQ, GBP billing.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
