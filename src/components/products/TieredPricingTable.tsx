@@ -53,21 +53,21 @@ export default function TieredPricingTable({
         max_quantity: Math.max(moq, 499),
         unit_price: Math.round(baseSample * 0.52 * 100) / 100,
         currency: "$",
-        label: "10-49 pieces",
+        label: `${moq}-499 pieces`,
       },
       {
         min_quantity: 500,
         max_quantity: 999,
         unit_price: Math.round(baseSample * 0.4 * 100) / 100,
         currency: "$",
-        label: "50-99 pieces",
+        label: "500-999 pieces",
       },
       {
         min_quantity: 1000,
         max_quantity: null,
         unit_price: Math.round(baseSample * 0.32 * 100) / 100,
         currency: "$",
-        label: "≥100 pieces",
+        label: "≥1000 pieces",
       },
     ];
   }, [moq, samplePrice]);

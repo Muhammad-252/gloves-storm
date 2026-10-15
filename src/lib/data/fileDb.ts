@@ -116,7 +116,23 @@ export async function getDbProducts(): Promise<Product[]> {
   }
 
   console.log(`[fileDb] 📥 getDbProducts fetched ${data?.length || 0} products from Supabase.`);
-  return (data as Product[]) || [];
+  return ((data as any[]) || []).map((p) => {
+    const custom =
+      typeof p.customization_options === "object" &&
+      p.customization_options !== null &&
+      !Array.isArray(p.customization_options)
+        ? p.customization_options
+        : {};
+    return {
+      ...p,
+      pricing_tiers: p.pricing_tiers ?? custom.pricing_tiers ?? [],
+      sample_price: p.sample_price ?? custom.sample_price ?? null,
+      show_pricing: p.show_pricing ?? custom.show_pricing ?? true,
+      primary_keyword: p.primary_keyword ?? custom.primary_keyword ?? null,
+      secondary_keywords: p.secondary_keywords ?? custom.secondary_keywords ?? null,
+      image_alt_texts: p.image_alt_texts ?? custom.image_alt_texts ?? [],
+    } as Product;
+  });
 }
 
 export async function saveDbProduct(product: Partial<Product>): Promise<Product> {
@@ -128,6 +144,30 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
   const productId = product.id && isUuid(product.id) ? product.id : (product.id || randomUUID());
   const { images, category: joinedCategory, ...productFields } = product as any;
 
+  // Preserve existing customization object properties or merge
+  const customBase =
+    typeof product.customization_options === "object" &&
+    product.customization_options !== null &&
+    !Array.isArray(product.customization_options)
+      ? product.customization_options
+      : {
+          list: Array.isArray(product.customization_options)
+            ? product.customization_options
+            : typeof product.customization_options === "string"
+            ? product.customization_options.split("\n").map((s: string) => s.trim()).filter(Boolean)
+            : [],
+        };
+
+  const mergedCustomization: any = {
+    ...customBase,
+    pricing_tiers: product.pricing_tiers || customBase.pricing_tiers || [],
+    sample_price: product.sample_price ?? customBase.sample_price ?? null,
+    show_pricing: product.show_pricing ?? customBase.show_pricing ?? true,
+    primary_keyword: product.primary_keyword ?? customBase.primary_keyword ?? null,
+    secondary_keywords: product.secondary_keywords ?? customBase.secondary_keywords ?? null,
+    image_alt_texts: (product as any).image_alt_texts ?? customBase.image_alt_texts ?? [],
+  };
+
   const prodRecord: any = {
     id: productId,
     name: product.name || "New Product",
@@ -137,16 +177,13 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
     description: product.description || "",
     materials: product.materials || [],
     features: product.features || [],
-    customization_options: product.customization_options || [],
+    customization_options: mergedCustomization,
     moq: product.moq || 50,
     lead_time: product.lead_time || "2-4 Weeks",
     featured: product.featured ?? false,
     is_active: product.is_active ?? true,
     seo_title: product.seo_title || null,
     seo_description: product.seo_description || null,
-    pricing_tiers: product.pricing_tiers || [],
-    sample_price: product.sample_price || null,
-    show_pricing: product.show_pricing ?? true,
     updated_at: new Date().toISOString(),
   };
 
@@ -161,7 +198,22 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
     throw new Error(error?.message || "Failed to save product in Supabase");
   }
 
-  let saved = data as Product;
+  const savedCustom =
+    typeof data.customization_options === "object" &&
+    data.customization_options !== null &&
+    !Array.isArray(data.customization_options)
+      ? data.customization_options
+      : {};
+
+  let saved: Product = {
+    ...data,
+    pricing_tiers: data.pricing_tiers ?? savedCustom.pricing_tiers ?? product.pricing_tiers ?? [],
+    sample_price: data.sample_price ?? savedCustom.sample_price ?? product.sample_price ?? null,
+    show_pricing: data.show_pricing ?? savedCustom.show_pricing ?? product.show_pricing ?? true,
+    primary_keyword: data.primary_keyword ?? savedCustom.primary_keyword ?? product.primary_keyword ?? null,
+    secondary_keywords: data.secondary_keywords ?? savedCustom.secondary_keywords ?? product.secondary_keywords ?? null,
+    image_alt_texts: data.image_alt_texts ?? savedCustom.image_alt_texts ?? (product as any).image_alt_texts ?? [],
+  } as Product;
 
   // Sync images to product_images table if provided
   if (Array.isArray(images) && images.length > 0) {

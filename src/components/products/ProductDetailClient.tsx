@@ -84,11 +84,10 @@ export default function ProductDetailClient({
   // Wholesale Tiers setup (Alibaba format)
   const defaultTiers: PriceTier[] = useMemo(() => {
     const baseSample = product.sample_price || 35.0;
-    const moq = product.moq || 50;
     return [
       {
-        min_quantity: moq,
-        max_quantity: Math.max(moq, 49),
+        min_quantity: 10,
+        max_quantity: 49,
         unit_price: Math.round(baseSample * 0.52 * 100) / 100,
         currency: "$",
         label: "10-49 pieces",
@@ -121,6 +120,7 @@ export default function ProductDetailClient({
 
   // Order quantity state
   const [quantity, setQuantity] = useState<number>(product.moq || 50);
+  const [selectedTierIndex, setSelectedTierIndex] = useState<number | null>(null);
 
   // Selected variation state
   const [selectedColor, setSelectedColor] = useState<number>(0);
@@ -131,8 +131,20 @@ export default function ProductDetailClient({
   const [modalOpen, setModalOpen] = useState(false);
   const [inquiryType, setInquiryType] = useState<"Quote" | "Sample">("Quote");
 
-  // Determine active tier for current quantity
+  // Determine active tier for current quantity or explicit tier click
   const activeTier = useMemo(() => {
+    if (selectedTierIndex !== null && tiers[selectedTierIndex]) {
+      const manualTier = tiers[selectedTierIndex];
+      const meetsMin = quantity >= manualTier.min_quantity;
+      const meetsMax =
+        manualTier.max_quantity === null ||
+        manualTier.max_quantity === undefined ||
+        quantity <= manualTier.max_quantity;
+      if (meetsMin && meetsMax) {
+        return manualTier;
+      }
+    }
+
     return (
       tiers.find((tier) => {
         const meetsMin = quantity >= tier.min_quantity;
@@ -141,9 +153,9 @@ export default function ProductDetailClient({
           tier.max_quantity === undefined ||
           quantity <= tier.max_quantity;
         return meetsMin && meetsMax;
-      }) || tiers[tiers.length - 1]
+      }) || tiers[0]
     );
-  }, [quantity, tiers]);
+  }, [quantity, tiers, selectedTierIndex]);
 
   const unitPrice = activeTier?.unit_price || tiers[0]?.unit_price || 15;
   const estimatedTotal = (quantity * unitPrice).toLocaleString("en-US", {
@@ -478,56 +490,80 @@ export default function ProductDetailClient({
                 Safe &amp; Sustainable
               </span>
             </div>
+            {product.short_description && (
+              <p className="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
+                {product.short_description}
+              </p>
+            )}
           </div>
 
           {/* ===================================================================
               ALIBABA PRICE TIERS SECTION
           =================================================================== */}
-          <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3">
-            <div className="grid grid-cols-3 gap-1.5 sm:gap-3 items-stretch">
-              {tiers.map((tier, idx) => {
-                const isSelected = activeTier === tier;
-                const rangeLabel =
-                  tier.max_quantity === null || tier.max_quantity === undefined
-                    ? `≥${tier.min_quantity} pcs`
-                    : `${tier.min_quantity}-${tier.max_quantity} pcs`;
+          {product.show_pricing !== false ? (
+            <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3">
+              <div className="grid grid-cols-3 gap-1.5 sm:gap-3 items-stretch">
+                {tiers.map((tier, idx) => {
+                  const isSelected = activeTier === tier;
+                  const rangeLabel =
+                    tier.max_quantity === null || tier.max_quantity === undefined
+                      ? `≥${tier.min_quantity} pcs`
+                      : `${tier.min_quantity}-${tier.max_quantity} pcs`;
 
-                return (
-                  <div
-                    key={idx}
-                    onClick={() => setQuantity(tier.min_quantity)}
-                    className={`cursor-pointer transition-all rounded-lg sm:rounded-xl p-2 sm:p-3 text-left flex flex-col justify-between ${
-                      isSelected
-                        ? "bg-white border-2 border-neutral-900 shadow-xs ring-1 sm:ring-2 ring-[#FFB900]"
-                        : "hover:bg-white/60 border border-neutral-100 sm:border-transparent"
-                    }`}
-                  >
-                    <div className="text-sm sm:text-xl lg:text-2xl font-black text-neutral-950 font-sans tracking-tight leading-tight">
-                      US${tier.unit_price.toFixed(0)}
-                      {tier.unit_price % 1 !== 0 && (
-                        <span className="text-[10px] sm:text-xs font-bold text-neutral-600">
-                          .{(tier.unit_price % 1).toFixed(2).substring(2)}
-                        </span>
-                      )}
+                  return (
+                    <div
+                      key={idx}
+                      onClick={() => {
+                        setSelectedTierIndex(idx);
+                        setQuantity(tier.min_quantity);
+                      }}
+                      className={`cursor-pointer transition-all rounded-lg sm:rounded-xl p-2 sm:p-3 text-left flex flex-col justify-between ${
+                        isSelected
+                          ? "bg-white border-2 border-neutral-900 shadow-xs ring-1 sm:ring-2 ring-[#FFB900]"
+                          : "hover:bg-white/60 border border-neutral-100 sm:border-transparent"
+                      }`}
+                    >
+                      <div className="text-sm sm:text-xl lg:text-2xl font-black text-neutral-950 font-sans tracking-tight leading-tight">
+                        US${tier.unit_price.toFixed(0)}
+                        {tier.unit_price % 1 !== 0 && (
+                          <span className="text-[10px] sm:text-xs font-bold text-neutral-600">
+                            .{(tier.unit_price % 1).toFixed(2).substring(2)}
+                          </span>
+                        )}
+                      </div>
+                      <div className="mt-1 text-[10px] sm:text-xs text-neutral-500 font-medium leading-tight">
+                        {tier.label && !tier.label.includes("Tier") ? tier.label : rangeLabel}
+                      </div>
                     </div>
-                    <div className="mt-1 text-[10px] sm:text-xs text-neutral-500 font-medium leading-tight">
-                      {tier.label && !tier.label.includes("Tier") ? tier.label : rangeLabel}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                  );
+                })}
+              </div>
 
-            {/* Sample Price Notice */}
-            <div className="pt-2 border-t border-neutral-200 flex items-center justify-between text-xs">
-              <span className="text-neutral-500 font-mono text-[10px] sm:text-[11px]">
-                Single Evaluation Sample:
-              </span>
-              <span className="font-bold text-neutral-900 font-mono text-[11px] sm:text-xs">
-                US${(product.sample_price || 35.0).toFixed(2)} / prototype
-              </span>
+              {/* Sample Price Notice */}
+              <div className="pt-2 border-t border-neutral-200 flex items-center justify-between text-xs">
+                <span className="text-neutral-500 font-mono text-[10px] sm:text-[11px]">
+                  Single Evaluation Sample:
+                </span>
+                <span className="font-bold text-neutral-900 font-mono text-[11px] sm:text-xs">
+                  US${(product.sample_price || 35.0).toFixed(2)} / prototype
+                </span>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+                  Custom OEM Wholesale Quotation
+                </span>
+                <span className="text-[10px] font-mono font-bold text-neutral-800 bg-neutral-100 px-2.5 py-0.5 rounded border border-neutral-200">
+                  MOQ: {product.moq || 50} PCS
+                </span>
+              </div>
+              <p className="text-xs text-neutral-600 leading-relaxed">
+                Direct factory manufacturing with custom GSM, sizing, custom trims and private label packaging. Volume wholesale tiers and rapid sample dispatch available upon request.
+              </p>
+            </div>
+          )}
 
           {/* ===================================================================
               COLOR / MATERIAL VARIATION SWATCHES (Matches reference image)
@@ -681,22 +717,31 @@ export default function ProductDetailClient({
                 <div className="flex items-center border border-slate-200 rounded-xl bg-white overflow-hidden shadow-2xs">
                   <button
                     type="button"
-                    onClick={() => setQuantity(Math.max(product.moq || 10, quantity - 25))}
+                    onClick={() => {
+                      setSelectedTierIndex(null);
+                      setQuantity(Math.max(tiers[0]?.min_quantity || 10, quantity - 25));
+                    }}
                     className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
                     -
                   </button>
                   <input
                     type="number"
-                    min={product.moq || 10}
+                    min={tiers[0]?.min_quantity || 10}
                     step={10}
                     value={quantity}
-                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 50))}
+                    onChange={(e) => {
+                      setSelectedTierIndex(null);
+                      setQuantity(Math.max(1, parseInt(e.target.value) || tiers[0]?.min_quantity || 10));
+                    }}
                     className="w-16 sm:w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-slate-200"
                   />
                   <button
                     type="button"
-                    onClick={() => setQuantity(quantity + 25)}
+                    onClick={() => {
+                      setSelectedTierIndex(null);
+                      setQuantity(quantity + 25);
+                    }}
                     className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
                     +
