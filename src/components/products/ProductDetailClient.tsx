@@ -152,15 +152,62 @@ export default function ProductDetailClient({
   });
 
   // Parse lists
-  const parseList = (item: string[] | string | null): string[] => {
+  const parseList = (item: unknown): string[] => {
     if (!item) return [];
-    if (Array.isArray(item)) return item;
-    try {
-      const parsed = JSON.parse(item);
-      return Array.isArray(parsed) ? parsed : [item];
-    } catch {
-      return item.split(",").map((s) => s.trim());
+    if (Array.isArray(item)) {
+      return item
+        .map((x) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+        .filter(Boolean);
     }
+    if (typeof item === "object") {
+      const obj = item as Record<string, any>;
+      if (Array.isArray(obj.list)) {
+        return obj.list
+          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+          .filter(Boolean);
+      }
+      if (Array.isArray(obj.options)) {
+        return obj.options
+          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+          .filter(Boolean);
+      }
+      if (Array.isArray(obj.items)) {
+        return obj.items
+          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+          .filter(Boolean);
+      }
+      if (Array.isArray(obj.features)) {
+        return obj.features
+          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+          .filter(Boolean);
+      }
+      if (Array.isArray(obj.materials)) {
+        return obj.materials
+          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+          .filter(Boolean);
+      }
+      return Object.values(obj)
+        .filter((v): v is string => typeof v === "string" && Boolean(v.trim()))
+        .map((s) => s.trim());
+    }
+    if (typeof item === "string") {
+      const trimmed = item.trim();
+      if (!trimmed) return [];
+      if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
+        try {
+          const parsed = JSON.parse(trimmed);
+          const result = parseList(parsed);
+          if (result.length > 0) return result;
+        } catch {
+          // Fallback to comma split
+        }
+      }
+      return trimmed
+        .split(",")
+        .map((s) => s.trim())
+        .filter(Boolean);
+    }
+    return [String(item).trim()].filter(Boolean);
   };
 
   const materialsList = parseList(product.materials);
@@ -242,7 +289,7 @@ export default function ProductDetailClient({
             <div className="relative flex-1 aspect-square sm:aspect-4/3 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200/90 overflow-hidden shadow-xs group">
               <Image
                 src={activeImageUrl}
-                alt={activeImage?.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — ${product.materials?.[0] || "1.2mm cowhide leather private label"}`}
+                alt={activeImage?.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — ${materialsList[0] || "1.2mm cowhide leather private label"}`}
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 50vw"

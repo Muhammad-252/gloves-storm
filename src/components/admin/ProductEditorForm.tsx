@@ -48,10 +48,27 @@ export default function ProductEditorForm({
   const stringifyArray = (val: unknown): string => {
     if (!val) return "";
     if (Array.isArray(val)) return val.join("\n");
-    try {
-      const parsed = JSON.parse(val as string);
-      if (Array.isArray(parsed)) return parsed.join("\n");
-    } catch {}
+    if (typeof val === "object" && val !== null) {
+      const obj = val as Record<string, any>;
+      if (Array.isArray(obj.list)) return obj.list.join("\n");
+      if (Array.isArray(obj.options)) return obj.options.join("\n");
+      if (Array.isArray(obj.items)) return obj.items.join("\n");
+      return Object.values(obj)
+        .filter((v): v is string => typeof v === "string")
+        .join("\n");
+    }
+    if (typeof val === "string") {
+      try {
+        const parsed = JSON.parse(val);
+        if (Array.isArray(parsed)) return parsed.join("\n");
+        if (typeof parsed === "object" && parsed !== null) {
+          if (Array.isArray(parsed.list)) return parsed.list.join("\n");
+          if (Array.isArray(parsed.options)) return parsed.options.join("\n");
+          if (Array.isArray(parsed.items)) return parsed.items.join("\n");
+        }
+      } catch {}
+      return val;
+    }
     return String(val);
   };
 
@@ -294,7 +311,15 @@ export default function ProductEditorForm({
         description,
         materials: materials.split("\n").map((s) => s.trim()).filter(Boolean),
         features: features.split("\n").map((s) => s.trim()).filter(Boolean),
-        customization_options: customization.split("\n").map((s) => s.trim()).filter(Boolean),
+        customization_options:
+          typeof initialProduct?.customization_options === "object" &&
+          initialProduct.customization_options !== null &&
+          !Array.isArray(initialProduct.customization_options)
+            ? {
+                ...initialProduct.customization_options,
+                list: customization.split("\n").map((s) => s.trim()).filter(Boolean),
+              }
+            : customization.split("\n").map((s) => s.trim()).filter(Boolean),
         moq: Number(moq) || 50,
         lead_time: leadTime,
         is_active: isActive,

@@ -166,12 +166,20 @@ export default function ProductCatalogClient({
         const cap = capabilityFilter.toLowerCase();
         const stringifiedMaterials = Array.isArray(p.materials)
           ? p.materials.join(" ")
+          : typeof p.materials === "object" && p.materials !== null
+          ? JSON.stringify(p.materials)
           : String(p.materials || "");
         const stringifiedFeatures = Array.isArray(p.features)
           ? p.features.join(" ")
+          : typeof p.features === "object" && p.features !== null
+          ? JSON.stringify(p.features)
           : String(p.features || "");
         const stringifiedCustom = Array.isArray(p.customization_options)
           ? p.customization_options.join(" ")
+          : typeof p.customization_options === "object" && p.customization_options !== null
+          ? (Array.isArray((p.customization_options as any).list)
+              ? (p.customization_options as any).list.join(" ")
+              : JSON.stringify(p.customization_options))
           : String(p.customization_options || "");
 
         const fullText = `${stringifiedMaterials} ${stringifiedFeatures} ${stringifiedCustom} ${p.name}`.toLowerCase();

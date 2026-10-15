@@ -54,7 +54,11 @@ export async function generateMetadata({ params }: ProductPageProps) {
   }
 
   const categoryName = cat?.name || "Custom Apparel";
-  const primaryMaterial = prod.materials?.[0] || "premium technical fabric";
+  const primaryMaterial = Array.isArray(prod.materials) && prod.materials[0]
+    ? prod.materials[0]
+    : typeof prod.materials === "string"
+    ? prod.materials
+    : "premium technical fabric";
   const title = toTitleCase(`Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`);
   const description =
     prod.seo_description ||
@@ -157,7 +161,9 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     image: productImages[0],
     material: Array.isArray(product.materials)
       ? product.materials.join(", ")
-      : product.materials || "Premium Technical Fabric / Cut-and-Sew Construction",
+      : typeof product.materials === "string"
+      ? product.materials
+      : "Premium Technical Fabric / Cut-and-Sew Construction",
     audience: {
       "@type": "Audience",
       audienceType: "B2B — Sports brands, athletic clubs, gyms, retailers, and distributors",

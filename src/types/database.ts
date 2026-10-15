@@ -59,9 +59,9 @@ export interface Product {
   category_id: string;
   short_description: string | null;
   description: string | null;
-  materials: string[] | string | null;
-  features: string[] | string | null;
-  customization_options: string[] | string | null;
+  materials: string[] | string | Record<string, any> | null;
+  features: string[] | string | Record<string, any> | null;
+  customization_options: string[] | string | Record<string, any> | null;
   moq: number;
   lead_time: string | null;
   featured: boolean;
