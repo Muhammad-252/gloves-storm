@@ -180,7 +180,7 @@ export default function ProductDetailClient({
   const sizeOptions = ["8oz", "10oz", "12oz", "14oz", "16oz", "Custom Fit"];
 
   return (
-    <div className="max-w-7xl mx-auto pb-20">
+    <div className="w-full pb-20">
       {/* Breadcrumbs */}
       <nav className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-500 mb-6 font-medium">
         <Link href="/" className="hover:text-neutral-950 transition-colors">

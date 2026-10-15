@@ -240,8 +240,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <div className="max-w-7xl 2xl:max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb - Aligned strictly with site max-w-7xl header and content */}
         <nav className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-slate-500 mb-6 sm:mb-8 font-medium overflow-x-auto whitespace-nowrap scrollbar-none py-1">
           <Link href="/" className="hover:text-slate-900 transition-colors shrink-0">
             Home
@@ -254,60 +254,61 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <span className="text-slate-900 truncate font-semibold">{post.title}</span>
         </nav>
 
-        {/* Article Header (Centered, Clean Reading Layout) */}
-        <div className="max-w-4xl mx-auto mb-8 sm:mb-10 text-left">
-          <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-slate-700 mb-3 sm:mb-4">
-            <span className="bg-white/80 backdrop-blur-md px-3 py-1 border border-white/90 uppercase tracking-wider font-bold rounded-full shadow-2xs text-[10px] sm:text-xs">
-              {post.category}
-            </span>
-            {post.published_at && (
-              <span className="text-slate-500 flex items-center gap-1 font-medium text-[11px] sm:text-xs">
-                <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                {formatDate(post.published_at)}
-              </span>
-            )}
-          </div>
-
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1]">
-            {post.title}
-          </h1>
-
-          {post.excerpt && (
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed border-l-2 border-slate-900 pl-3 sm:pl-4">
-              {post.excerpt}
-            </p>
-          )}
-
-          <div className="flex items-center gap-2 pt-4 sm:pt-6 text-xs text-slate-500 font-medium">
-            <User className="w-3.5 h-3.5 text-slate-700" />
-            <span>Authored by {post.author}</span>
-          </div>
-        </div>
-
-        {/* Hero Image */}
-        {post.featured_image && (
-          <div className="max-w-5xl mx-auto relative aspect-[16/9] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-10 sm:mb-14">
-            <Image
-              src={post.featured_image}
-              alt={post.title}
-              fill
-              priority
-              sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover"
-            />
-          </div>
-        )}
-
-        {/* 3-Column Reading Layout: Left Sticky TOC | Center Scrollable Content | Right Sticky Factory CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-8 items-start">
+        {/* 3-Column Reading Layout: Left Fixed TOC | Center Scrollable Content | Right Fixed Factory CTA */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 xl:gap-8 relative">
           
-          {/* Left Column: Sticky Non-Scrollable Table of Contents (3 cols on lg and above) */}
+          {/* Left Column: Fixed Non-Scrollable Table of Contents (3 cols on lg and above) */}
           <div className="hidden lg:block lg:col-span-3">
             <JournalTableOfContents headings={headings} />
           </div>
 
           {/* Center Column: Scrollable Blog Content (6 cols on lg and above) */}
           <main className="col-span-1 lg:col-span-6 min-w-0">
+            {/* Article Header (Title, Category, Date, Author) */}
+            <div className="mb-6 sm:mb-8 text-left">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-slate-700 mb-3 sm:mb-4">
+                <span className="bg-white/80 backdrop-blur-md px-3 py-1 border border-neutral-200 uppercase tracking-wider font-bold rounded-full shadow-2xs text-[10px] sm:text-xs">
+                  {post.category}
+                </span>
+                {post.published_at && (
+                  <span className="text-slate-500 flex items-center gap-1 font-medium text-[11px] sm:text-xs">
+                    <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                    {formatDate(post.published_at)}
+                  </span>
+                )}
+              </div>
+
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 sm:mb-5 leading-[1.15]">
+                {post.title}
+              </h1>
+
+              {post.excerpt && (
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed border-l-2 border-slate-900 pl-3 sm:pl-4 mb-4">
+                  {post.excerpt}
+                </p>
+              )}
+
+              <div className="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                <User className="w-3.5 h-3.5 text-slate-700" />
+                <span>Authored by {post.author}</span>
+              </div>
+            </div>
+
+            {/* Hero Image */}
+            {post.featured_image && (
+              <div className="relative aspect-[16/9] w-full rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-100 border border-neutral-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] mb-8 sm:mb-10">
+                <Image
+                  src={post.featured_image}
+                  alt={post.title}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 750px"
+                  className="object-cover"
+                />
+              </div>
+            )}
+
+            {/* Article Body */}
             <div
               className="prose prose-neutral max-w-none mb-12 text-slate-700 leading-relaxed space-y-4 sm:space-y-6 text-sm sm:text-base
                 prose-headings:text-black prose-headings:font-black prose-headings:uppercase prose-headings:tracking-tight
@@ -363,7 +364,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             )}
           </main>
 
-          {/* Right Column: Sticky Non-Scrollable Factory CTA (3 cols on lg and above) */}
+          {/* Right Column: Fixed Non-Scrollable Factory CTA (3 cols on lg and above) */}
           <div className="hidden lg:block lg:col-span-3">
             <JournalStickyCta />
           </div>

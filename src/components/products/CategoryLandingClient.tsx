@@ -333,7 +333,7 @@ export default function CategoryLandingClient({
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+    <div className="w-full py-8 space-y-12">
       {/* 1. Breadcrumbs */}
       <nav aria-label="Breadcrumbs" className="flex items-center gap-1.5 text-xs text-neutral-500 font-medium">
         <Link href="/" className="hover:text-neutral-950 flex items-center gap-1 transition-colors">

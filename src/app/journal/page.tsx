@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getBlogPosts } from "@/lib/data/store";
-import { ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowUpRight, Calendar, ChevronRight } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 
@@ -78,6 +78,15 @@ export default async function JournalPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Breadcrumb - Aligned strictly with site max-w-7xl header and content */}
+        <nav className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono uppercase tracking-wider text-slate-500 mb-6 sm:mb-8 font-medium overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+          <Link href="/" className="hover:text-slate-900 transition-colors shrink-0">
+            Home
+          </Link>
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+          <span className="text-slate-900 truncate font-semibold">Journal</span>
+        </nav>
+
         {/* Header with Rewritten SEO H1 and Intro */}
         <div className="max-w-4xl mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-slate-200/80">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono font-medium shadow-xs mb-3">

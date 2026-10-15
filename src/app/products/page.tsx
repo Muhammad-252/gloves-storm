@@ -105,7 +105,7 @@ export default async function ProductsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Catalog Banner with Luxury Frosted Header */}
         <div className="mb-10 pb-6 border-b border-black/[0.06]">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-white/90 shadow-xs mb-3">

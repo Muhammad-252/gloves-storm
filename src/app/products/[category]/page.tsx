@@ -174,7 +174,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       )}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <CategoryLandingClient
           category={category}
           products={categoryProducts}
