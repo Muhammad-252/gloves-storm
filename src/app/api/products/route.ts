@@ -56,9 +56,9 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
     const productData = body.product || body;
 
-    if (!productData || !productData.name) {
+    if (!productData || (!productData.name && !productData.id)) {
       return NextResponse.json(
-        { success: false, error: "Product name is required" },
+        { success: false, error: "Product name or ID is required" },
         { status: 400 }
       );
     }

@@ -67,11 +67,24 @@ export async function saveDbCategory(category: Partial<Category>): Promise<Categ
     updated_at: new Date().toISOString(),
   };
 
-  const { data, error } = await client
+  let { data, error } = await client
     .from("categories")
     .upsert(dbRecord)
     .select()
     .single();
+
+  if (error && (error.message?.includes("featured_in_menu") || error.message?.includes("menu_badge") || error.message?.includes("schema cache"))) {
+    console.warn("[fileDb] ⚠️ Optional columns missing in Supabase schema. Retrying without featured_in_menu / menu_badge.");
+    delete dbRecord.featured_in_menu;
+    delete dbRecord.menu_badge;
+    const retry = await client
+      .from("categories")
+      .upsert(dbRecord)
+      .select()
+      .single();
+    data = retry.data;
+    error = retry.error;
+  }
 
   if (error || !data) {
     console.error("[fileDb] ❌ Supabase saveDbCategory error:", error);
@@ -125,6 +138,13 @@ export async function getDbProducts(): Promise<Product[]> {
         : {};
     return {
       ...p,
+      images: Array.isArray(p.images)
+        ? [...p.images].sort((a, b) => {
+            if (a.is_primary && !b.is_primary) return -1;
+            if (!a.is_primary && b.is_primary) return 1;
+            return (a.sort_order ?? 0) - (b.sort_order ?? 0);
+          })
+        : [],
       pricing_tiers: p.pricing_tiers ?? custom.pricing_tiers ?? [],
       sample_price: p.sample_price ?? custom.sample_price ?? null,
       show_pricing: p.show_pricing ?? custom.show_pricing ?? true,
@@ -144,52 +164,70 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
   const productId = product.id && isUuid(product.id) ? product.id : (product.id || randomUUID());
   const { images, category: joinedCategory, ...productFields } = product as any;
 
-  // Preserve existing customization object properties or merge
-  const customBase =
-    typeof product.customization_options === "object" &&
-    product.customization_options !== null &&
-    !Array.isArray(product.customization_options)
-      ? product.customization_options
-      : {
-          list: Array.isArray(product.customization_options)
-            ? product.customization_options
-            : typeof product.customization_options === "string"
-            ? product.customization_options.split("\n").map((s: string) => s.trim()).filter(Boolean)
-            : [],
-        };
+  // Handle partial updates (e.g. toggling featured or is_active from admin table) vs full upserts
+  const isPartialUpdate = Boolean(product.id && isUuid(product.id) && product.name === undefined);
 
-  const mergedCustomization: any = {
-    ...customBase,
-    pricing_tiers: product.pricing_tiers || customBase.pricing_tiers || [],
-    sample_price: product.sample_price ?? customBase.sample_price ?? null,
-    show_pricing: product.show_pricing ?? customBase.show_pricing ?? true,
-    primary_keyword: product.primary_keyword ?? customBase.primary_keyword ?? null,
-    secondary_keywords: product.secondary_keywords ?? customBase.secondary_keywords ?? null,
-    image_alt_texts: (product as any).image_alt_texts ?? customBase.image_alt_texts ?? [],
-  };
+  let prodRecord: any;
 
-  const prodRecord: any = {
-    id: productId,
-    name: product.name || "New Product",
-    slug: product.slug || `product-${Date.now()}`,
-    category_id: product.category_id && isUuid(product.category_id) ? product.category_id : null,
-    short_description: product.short_description || "",
-    description: product.description || "",
-    materials: product.materials || [],
-    features: product.features || [],
-    customization_options: mergedCustomization,
-    moq: product.moq || 50,
-    lead_time: product.lead_time || "2-4 Weeks",
-    featured: product.featured ?? false,
-    is_active: product.is_active ?? true,
-    seo_title: product.seo_title || null,
-    seo_description: product.seo_description || null,
-    updated_at: new Date().toISOString(),
-  };
+  if (isPartialUpdate) {
+    prodRecord = {
+      ...productFields,
+      id: productId,
+      updated_at: new Date().toISOString(),
+    };
+    if (prodRecord.category_id && !isUuid(prodRecord.category_id)) {
+      delete prodRecord.category_id;
+    }
+  } else {
+    // Preserve existing customization object properties or merge
+    const customBase =
+      typeof product.customization_options === "object" &&
+      product.customization_options !== null &&
+      !Array.isArray(product.customization_options)
+        ? product.customization_options
+        : {
+            list: Array.isArray(product.customization_options)
+              ? product.customization_options
+              : typeof product.customization_options === "string"
+              ? product.customization_options.split("\n").map((s: string) => s.trim()).filter(Boolean)
+              : [],
+          };
 
-  const { data, error } = await client
-    .from("products")
-    .upsert(prodRecord)
+    const mergedCustomization: any = {
+      ...customBase,
+      pricing_tiers: product.pricing_tiers || customBase.pricing_tiers || [],
+      sample_price: product.sample_price ?? customBase.sample_price ?? null,
+      show_pricing: product.show_pricing ?? customBase.show_pricing ?? true,
+      primary_keyword: product.primary_keyword ?? customBase.primary_keyword ?? null,
+      secondary_keywords: product.secondary_keywords ?? customBase.secondary_keywords ?? null,
+      image_alt_texts: (product as any).image_alt_texts ?? customBase.image_alt_texts ?? [],
+    };
+
+    prodRecord = {
+      id: productId,
+      name: product.name || "New Product",
+      slug: product.slug || `product-${Date.now()}`,
+      category_id: product.category_id && isUuid(product.category_id) ? product.category_id : null,
+      short_description: product.short_description || "",
+      description: product.description || "",
+      materials: product.materials || [],
+      features: product.features || [],
+      customization_options: mergedCustomization,
+      moq: product.moq || 50,
+      lead_time: product.lead_time || "2-4 Weeks",
+      featured: product.featured ?? false,
+      is_active: product.is_active ?? true,
+      seo_title: product.seo_title || null,
+      seo_description: product.seo_description || null,
+      updated_at: new Date().toISOString(),
+    };
+  }
+
+  const query = isPartialUpdate
+    ? client.from("products").update(prodRecord).eq("id", productId)
+    : client.from("products").upsert(prodRecord);
+
+  const { data, error } = await query
     .select("*, images:product_images(*), category:categories(*)")
     .single();
 
@@ -215,23 +253,79 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
     image_alt_texts: data.image_alt_texts ?? savedCustom.image_alt_texts ?? (product as any).image_alt_texts ?? [],
   } as Product;
 
-  // Sync images to product_images table if provided
-  if (Array.isArray(images) && images.length > 0) {
-    const imageRows = images.map((img: any, idx: number) => ({
-      id: img.id && isUuid(img.id) ? img.id : randomUUID(),
-      product_id: saved.id,
-      image_url: img.image_url || img,
-      alt_text: img.alt_text || saved.name,
-      sort_order: img.sort_order ?? idx + 1,
-      is_primary: img.is_primary ?? idx === 0,
-    }));
-    await client.from("product_images").upsert(imageRows);
+  // Fully sync multiple images to product_images table when images array is provided
+  if (Array.isArray(images)) {
+    // 1. Delete previous images for this product so removed images are actually deleted
+    const { error: delError } = await client
+      .from("product_images")
+      .delete()
+      .eq("product_id", saved.id);
+
+    if (delError) {
+      console.error("[fileDb] ❌ Supabase product_images delete error:", delError);
+    }
+
+    // 2. Map and deduplicate new image rows
+    const seenUrls = new Set<string>();
+    const imageRows = images
+      .map((img: any, idx: number) => {
+        const url = (typeof img === "string" ? img : img?.image_url || "").trim();
+        if (!url || seenUrls.has(url)) return null;
+        seenUrls.add(url);
+        return {
+          id: img?.id && isUuid(img.id) ? img.id : randomUUID(),
+          product_id: saved.id,
+          image_url: url,
+          alt_text:
+            (typeof img === "object" && img?.alt_text) ||
+            `${saved.name} — Photo ${idx + 1}`,
+          sort_order:
+            typeof img === "object" && typeof img?.sort_order === "number"
+              ? img.sort_order
+              : idx + 1,
+          is_primary:
+            typeof img === "object" && typeof img?.is_primary === "boolean"
+              ? img.is_primary
+              : idx === 0,
+        };
+      })
+      .filter((row): row is NonNullable<typeof row> => row !== null);
+
+    // If images exist and none is marked primary, make the first one primary
+    if (imageRows.length > 0 && !imageRows.some((r) => r.is_primary)) {
+      imageRows[0].is_primary = true;
+    }
+
+    // 3. Insert fresh image rows
+    if (imageRows.length > 0) {
+      const { error: imgError } = await client
+        .from("product_images")
+        .insert(imageRows);
+
+      if (imgError) {
+        console.error("[fileDb] ❌ Supabase saveDbProduct product_images insert error:", imgError);
+      }
+    }
+
+    // 4. Refetch product with fresh images from DB
     const { data: refreshed } = await client
       .from("products")
       .select("*, images:product_images(*), category:categories(*)")
       .eq("id", saved.id)
       .single();
-    if (refreshed) saved = refreshed as Product;
+
+    if (refreshed) {
+      saved = refreshed as Product;
+    }
+  }
+
+  // Ensure images are sorted with primary first, then sort_order
+  if (Array.isArray(saved.images)) {
+    saved.images = [...saved.images].sort((a, b) => {
+      if (a.is_primary && !b.is_primary) return -1;
+      if (!a.is_primary && b.is_primary) return 1;
+      return (a.sort_order ?? 0) - (b.sort_order ?? 0);
+    });
   }
 
   return saved;

@@ -20,6 +20,8 @@ import {
   Upload,
   Image as ImageIcon,
   Link as LinkIcon,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -107,11 +109,21 @@ export default function ProductEditorForm({
   const [secondaryKeywords, setSecondaryKeywords] = useState(initialProduct?.secondary_keywords || "");
 
   // Images state
-  const [images, setImages] = useState<ProductImage[]>(
-    initialProduct?.images || [
+  const [images, setImages] = useState<ProductImage[]>(() => {
+    if (initialProduct?.images && initialProduct.images.length > 0) {
+      return [...initialProduct.images].sort((a, b) => {
+        if (a.is_primary && !b.is_primary) return -1;
+        if (!a.is_primary && b.is_primary) return 1;
+        return (a.sort_order ?? 0) - (b.sort_order ?? 0);
+      });
+    }
+    if (isEditing) {
+      return [];
+    }
+    return [
       {
         id: "img-init",
-        product_id: initialProduct?.id || "",
+        product_id: "",
         image_url:
           "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
         alt_text: initialProduct?.name || "Product Image",
@@ -119,8 +131,8 @@ export default function ProductEditorForm({
         is_primary: true,
         created_at: "",
       },
-    ]
-  );
+    ];
+  });
   const [newImageUrl, setNewImageUrl] = useState("");
   const [isUploadingImage, setIsUploadingImage] = useState(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -212,12 +224,30 @@ export default function ProductEditorForm({
     );
   };
 
+  const handleMoveImage = (fromIndex: number, toIndex: number) => {
+    if (toIndex < 0 || toIndex >= images.length) return;
+    const updated = [...images];
+    const [moved] = updated.splice(fromIndex, 1);
+    updated.splice(toIndex, 0, moved);
+    setImages(
+      updated.map((img, i) => ({
+        ...img,
+        sort_order: i + 1,
+      }))
+    );
+  };
+
   const handleRemoveImage = (index: number) => {
     const updated = images.filter((_, i) => i !== index);
     if (updated.length > 0 && !updated.some((img) => img.is_primary)) {
       updated[0].is_primary = true;
     }
-    setImages(updated);
+    setImages(
+      updated.map((img, i) => ({
+        ...img,
+        sort_order: i + 1,
+      }))
+    );
   };
 
   const handleAddTier = () => {
@@ -814,33 +844,61 @@ export default function ProductEditorForm({
                   />
 
                   {/* Overlay Controls */}
-                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
+                  <div className="absolute inset-0 bg-black/65 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-2">
                     <div className="flex justify-between items-center">
-                      <button
-                        type="button"
-                        onClick={() => handleSetPrimary(idx)}
-                        title="Set Primary Image"
-                        className={`p-1 cursor-pointer ${
-                          img.is_primary ? "text-amber-400" : "text-white/70 hover:text-white"
-                        }`}
-                      >
-                        <Star className={`w-4 h-4 ${img.is_primary ? "fill-current" : ""}`} />
-                      </button>
+                      <div className="flex items-center gap-1">
+                        <button
+                          type="button"
+                          onClick={() => handleSetPrimary(idx)}
+                          title="Set Primary Image"
+                          className={`p-1.5 rounded-md hover:bg-white/20 transition-colors cursor-pointer ${
+                            img.is_primary ? "text-amber-400" : "text-white/80 hover:text-white"
+                          }`}
+                        >
+                          <Star className={`w-4 h-4 ${img.is_primary ? "fill-current" : ""}`} />
+                        </button>
+                        {idx > 0 && (
+                          <button
+                            type="button"
+                            onClick={() => handleMoveImage(idx, idx - 1)}
+                            title="Move Left"
+                            className="p-1.5 rounded-md hover:bg-white/20 text-white/80 hover:text-white transition-colors cursor-pointer"
+                          >
+                            <ChevronLeft className="w-4 h-4" />
+                          </button>
+                        )}
+                        {idx < images.length - 1 && (
+                          <button
+                            type="button"
+                            onClick={() => handleMoveImage(idx, idx + 1)}
+                            title="Move Right"
+                            className="p-1.5 rounded-md hover:bg-white/20 text-white/80 hover:text-white transition-colors cursor-pointer"
+                          >
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        )}
+                      </div>
+
                       <button
                         type="button"
                         onClick={() => handleRemoveImage(idx)}
                         title="Remove Image"
-                        className="p-1 text-red-400 hover:text-red-300 cursor-pointer"
+                        className="p-1.5 rounded-md hover:bg-red-500/30 text-red-400 hover:text-red-300 transition-colors cursor-pointer"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
                     </div>
 
-                    {img.is_primary && (
-                      <span className="text-[9px] font-mono text-amber-300 uppercase tracking-wider font-bold">
-                        Primary
+                    <div className="flex items-center justify-between">
+                      {img.is_primary ? (
+                        <span className="text-[9px] font-mono text-amber-300 bg-amber-950/70 border border-amber-500/40 px-1.5 py-0.5 rounded uppercase tracking-wider font-bold">
+                          Primary
+                        </span>
+                      ) : <span />}
+                      <span className="text-[9px] font-mono text-white/70">
+                        #{idx + 1}
                       </span>
-                    )}
+                    </div>
                   </div>
 
                   {/* Angle Label Badge */}
