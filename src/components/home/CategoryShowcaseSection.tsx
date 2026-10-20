@@ -364,8 +364,7 @@ export default function CategoryShowcaseSection({
             <div className="flex flex-wrap items-center gap-2">
               {/* Fabric GSM Dropdown */}
               <div className="relative">
-                <select
-                  value={gsmFilter}
+                <select id="filter-fabric-gsm" aria-label="Filter products by Fabric GSM weight" value={gsmFilter}
                   onChange={(e) => setGsmFilter(e.target.value)}
                   className="appearance-none bg-white/70 hover:bg-white/90 border border-white/90 text-slate-700 text-xs font-medium rounded-xl pl-3.5 pr-8 py-2 outline-none shadow-xs transition-all cursor-pointer"
                 >
@@ -380,8 +379,7 @@ export default function CategoryShowcaseSection({
 
               {/* Print Technique Dropdown */}
               <div className="relative">
-                <select
-                  value={techniqueFilter}
+                <select id="filter-technique" aria-label="Filter products by customization and print technique" value={techniqueFilter}
                   onChange={(e) => setTechniqueFilter(e.target.value)}
                   className="appearance-none bg-white/70 hover:bg-white/90 border border-white/90 text-slate-700 text-xs font-medium rounded-xl pl-3.5 pr-8 py-2 outline-none shadow-xs transition-all cursor-pointer"
                 >
@@ -537,9 +535,7 @@ export default function CategoryShowcaseSection({
 
                   {/* Bottom Action Bar: View Tech Specs & Inquire Sample */}
                   <div className="grid grid-cols-2 gap-2 pt-2.5 sm:pt-3 border-t border-neutral-200 mt-2">
-                    <Link
-                      href={productHref}
-                      className="py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 transition-all text-center"
+                    <Link href={productHref} aria-label={`View technical specifications for ${product.name}`} className="py-2 sm:py-2.5 px-2 sm:px-3 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1 transition-all text-center"
                     >
                       <span className="truncate">Tech Specs</span>
                       <ArrowUpRight className="w-3 h-3 text-neutral-600 shrink-0" />

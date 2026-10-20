@@ -187,8 +187,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
             return (
               <Link
                 key={category.id}
-                href={`/products/${category.slug}`}
-                className="group relative rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:border-[#FFB900] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                href={`/products/${category.slug}`} aria-label={`Explore ${displayName} manufacturing catalog`} className="group relative rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:border-[#FFB900] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
               >
                 {/* Image Canvas Container */}
                 <div className="relative h-52 sm:h-64 lg:h-72 w-full overflow-hidden bg-slate-900">

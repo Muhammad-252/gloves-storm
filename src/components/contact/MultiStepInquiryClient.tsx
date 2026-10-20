@@ -734,11 +734,8 @@ export default function MultiStepInquiryClient({
               </div>
 
               <div>
-                <label className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">
-                  Business Entity Type
-                </label>
-                <select
-                  value={brandInfo.businessType}
+                <label htmlFor="business-entity-type-select" className="text-xs font-mono uppercase tracking-wider text-neutral-700 block mb-2 font-medium">Business Entity Type</label>
+                <select id="business-entity-type-select" aria-label="Business Entity Type" value={brandInfo.businessType}
                   onChange={(e) => setBrandInfo({ ...brandInfo, businessType: e.target.value })}
                   className="w-full bg-white border border-neutral-300 rounded-2xl px-4 py-3 text-xs text-[#0f172a] focus:outline-none focus:border-[#FFB900]"
                 >

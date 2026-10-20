@@ -207,9 +207,9 @@ export default function StaticMapFallback() {
           <div className="flex items-center gap-2">
             <span className="text-xl">{selectedDest.flag}</span>
             <div>
-              <h4 className="text-sm font-bold text-slate-900 tracking-tight">
+              <h3 className="text-sm font-bold text-slate-900 tracking-tight">
                 {selectedDest.name}
-              </h4>
+              </h3>
               <p className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
                 {selectedDest.country} · Direct Export Route
               </p>
@@ -227,7 +227,7 @@ export default function StaticMapFallback() {
               <Plane className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-[10px] font-mono uppercase text-slate-400 block font-semibold">
+              <span className="text-[10px] font-mono uppercase text-slate-600 block font-semibold">
                 Air Express Freight
               </span>
               <span className="text-xs font-bold text-slate-800">
@@ -241,7 +241,7 @@ export default function StaticMapFallback() {
               <Ship className="w-4 h-4" />
             </div>
             <div>
-              <span className="text-[10px] font-mono uppercase text-slate-400 block font-semibold">
+              <span className="text-[10px] font-mono uppercase text-slate-600 block font-semibold">
                 Container Sea Freight
               </span>
               <span className="text-xs font-bold text-slate-800">
@@ -251,12 +251,12 @@ export default function StaticMapFallback() {
           </div>
         </div>
 
-        <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+        <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-600">
           <span className="inline-flex items-center gap-1.5">
             <ShieldCheck className="w-3.5 h-3.5 text-neutral-900" />
             {selectedDest.terms}
           </span>
-          <span className="font-mono text-[10px] text-slate-400">
+          <span className="font-mono text-[10px] text-slate-600">
             Tap destination pins to switch
           </span>
         </div>

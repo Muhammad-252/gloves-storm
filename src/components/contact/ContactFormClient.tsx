@@ -193,11 +193,8 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
           />
         </div>
         <div>
-          <label className="block text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] mb-1.5">
-            Product Category *
-          </label>
-          <select
-            value={formData.product_category}
+          <label htmlFor="contact-category-select" className="block text-[11px] font-medium uppercase tracking-wider text-[#a1a1aa] mb-1.5">Product Category *</label>
+          <select id="contact-category-select" aria-label="Product Category" value={formData.product_category}
             onChange={(e) => setFormData({ ...formData, product_category: e.target.value })}
             className="w-full bg-[#181818] border border-white/[0.1] focus:border-[#d4af37] text-white px-4 py-3 text-xs outline-none transition-colors"
           >

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
@@ -11,10 +12,22 @@ const InteractiveGlobe = dynamic(() => import("./InteractiveGlobe"), {
 });
 
 export default function GlobalReachSection() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    // Only load the 3D WebGL Globe on desktop viewports (>= 1024px)
+    if (typeof window !== "undefined") {
+      setIsDesktop(window.innerWidth >= 1024);
+      const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+      window.addEventListener("resize", handleResize, { passive: true });
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
+
   return (
     <section className="py-12 sm:py-20 lg:py-28 bg-[#F9FAFB] border-b border-black/[0.07] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Showcase: Editorial Header & Interactive 360° Globe */}
+        {/* Showcase: Editorial Header & Interactive Logistics Display */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* Left Column: Story & Metrics */}
           <div className="lg:col-span-6 space-y-5 sm:space-y-6">
@@ -79,9 +92,9 @@ export default function GlobalReachSection() {
             </div>
           </div>
 
-          {/* Right Column: 360° Interactive 3D Globe */}
-          <div className="lg:col-span-6 flex justify-center">
-            <InteractiveGlobe />
+          {/* Right Column: 360° Interactive 3D Globe on Desktop / Vector Map on Mobile */}
+          <div className="lg:col-span-6 flex justify-center w-full">
+            {isDesktop ? <InteractiveGlobe /> : <StaticMapFallback />}
           </div>
         </div>
       </div>

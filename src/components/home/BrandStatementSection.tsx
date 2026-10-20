@@ -292,9 +292,9 @@ export default function BrandStatementSection() {
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wide text-neutral-900">
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-wide text-neutral-900">
                 Guaranteed Lead Times & Milestone Tracking
-              </h4>
+              </p>
               <p className="text-[11px] sm:text-xs text-neutral-500">
                 Direct WhatsApp, video call inspection, and photo updates at every critical production step.
               </p>

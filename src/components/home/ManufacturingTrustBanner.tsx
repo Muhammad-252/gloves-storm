@@ -51,9 +51,9 @@ export default function ManufacturingTrustBanner() {
                   <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
                 <div className="min-w-0">
-                  <h4 className="text-[10px] sm:text-[11px] font-bold text-[#111827] uppercase tracking-wide truncate">
+                  <p className="text-[10px] sm:text-[11px] font-bold text-[#111827] uppercase tracking-wide truncate">
                     {item.title}
-                  </h4>
+                  </p>
                   <p className="text-[9px] sm:text-[10px] text-neutral-500 leading-tight truncate">
                     {item.detail}
                   </p>

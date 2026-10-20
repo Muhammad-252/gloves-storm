@@ -246,7 +246,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         {/* Fixed Ambient Radial Gradient Orbs for Frosted Glass Refraction */}
-        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden hidden sm:block" aria-hidden="true">
           <div className="absolute -top-40 -left-40 w-[650px] h-[650px] rounded-full bg-slate-200/60 blur-3xl opacity-75" />
           <div className="absolute top-1/4 -right-40 w-[700px] h-[700px] rounded-full bg-slate-300/40 blur-3xl opacity-65" />
           <div className="absolute top-2/3 left-1/3 w-[600px] h-[600px] rounded-full bg-slate-200/50 blur-3xl opacity-50" />

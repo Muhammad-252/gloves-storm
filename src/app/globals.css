@@ -142,3 +142,9 @@ video:not(.hero-bg-media) {
 .transition-smooth {
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* ─── Performance: Offscreen content visibility to reduce DOM layout & style calculation overhead ─── */
+.content-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 700px;
+}

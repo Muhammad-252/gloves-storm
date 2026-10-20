@@ -330,13 +330,13 @@ export default function InteractiveGlobe() {
                   Active Corridor
                 </span>
               </div>
-              <h4 className="text-sm sm:text-base font-bold uppercase text-neutral-950">
+              <h3 className="text-sm sm:text-base font-bold uppercase text-neutral-950">
                 {activeHub.name} ({activeHub.country})
-              </h4>
+              </h3>
             </div>
 
             <div className="text-left sm:text-right">
-              <span className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider block">
+              <span className="text-[10px] font-mono text-neutral-600 uppercase tracking-wider block">
                 Direct Route From Sialkot
               </span>
               <span className="text-[11px] sm:text-xs font-semibold text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded border border-neutral-200 inline-block">

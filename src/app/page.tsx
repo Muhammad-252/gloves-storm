@@ -29,8 +29,7 @@ export const metadata: Metadata = {
   },
 };
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
+export const revalidate = 300; // ISR cache revalidation (5 mins) for sub-50ms TTFB
 
 const homeOrgSchema = {
   "@context": "https://schema.org",
@@ -158,34 +157,54 @@ export default async function HomePage() {
       <OemManufacturingBanner />
 
       {/* 06 — BRAND STATEMENT & 7-STAGE MANUFACTURING LIFECYCLE */}
-      <BrandStatementSection />
+      <div className="content-auto">
+        <BrandStatementSection />
+      </div>
 
       {/* 07 — SIX-STEP PRODUCTION TIMELINE */}
-      <ProcessSection />
+      <div className="content-auto">
+        <ProcessSection />
+      </div>
 
       {/* 08 — SIALKOT FACTORY CAPABILITIES & MACHINERY */}
-      <FactoryCapabilitiesSection />
+      <div className="content-auto">
+        <FactoryCapabilitiesSection />
+      </div>
 
       {/* 09 — WHY CHOOSE GLOVES STORM (PARTNERSHIP ADVANTAGE) */}
-      <WhyUsSection />
+      <div className="content-auto">
+        <WhyUsSection />
+      </div>
 
       {/* 10 — WHO WE WORK WITH (BRANDS, GYMS, STARTUPS) */}
-      <WhoWeWorkWithSection />
+      <div className="content-auto">
+        <WhoWeWorkWithSection />
+      </div>
 
       {/* 11 — PREVIOUS WORK & CLIENT PRODUCTION DROPS */}
-      <FeaturedProjectsSection projects={projects} />
+      <div className="content-auto">
+        <FeaturedProjectsSection projects={projects} />
+      </div>
 
       {/* 12 — TRUSTED BY BRANDS IN (OPTION B TRUST SIGNALS) */}
-      <TestimonialsSection />
+      <div className="content-auto">
+        <TestimonialsSection />
+      </div>
 
       {/* 13 — GLOBAL EXPORT REACH & 3D INTERACTIVE GLOBE / MAP */}
-      <GlobalReachSection />
+      <div className="content-auto">
+        <GlobalReachSection />
+      </div>
 
       {/* 14 — FAQS (FOR HUMAN BUYERS & AI SEARCH OVERVIEWS) */}
-      <HomeFaqSection />
+      <div className="content-auto">
+        <HomeFaqSection />
+      </div>
 
       {/* 15 — FINAL HIGH-CONVERSION CTA BANNER */}
-      <FinalCtaSection />
+      <div className="content-auto">
+        <FinalCtaSection />
+      </div>
     </div>
   );
 }

@@ -101,9 +101,9 @@ export default function ProcessSection() {
         {/* Bottom Callout Banner */}
         <div className="mt-8 sm:mt-12 p-4 sm:p-6 lg:p-8 bg-white rounded-2xl sm:rounded-3xl border border-black/[0.08] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-6 shadow-[0_4px_24px_rgba(0,0,0,0.04)]">
           <div>
-            <h4 className="text-sm sm:text-base font-bold uppercase tracking-wider text-[#1A1A1A] mb-1">
+            <h3 className="text-sm sm:text-base font-bold uppercase tracking-wider text-[#1A1A1A] mb-1">
               Have a tech pack ready to review?
-            </h4>
+            </h3>
             <p className="text-xs sm:text-sm text-[#6B7280]">
               Our pattern masters can review your artwork and estimate sampling timelines within 24 hours.
             </p>

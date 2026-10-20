@@ -526,8 +526,7 @@ export default function ProductCatalogClient({
               {/* Sort By Dropdown */}
               <div className="flex items-center gap-2">
                 <span className="text-xs text-neutral-500 hidden sm:inline">Sort:</span>
-                <select
-                  value={sortBy}
+                <select id="sort-products-select" aria-label="Sort products by" value={sortBy}
                   onChange={(e) => setSortBy(e.target.value as any)}
                   className="bg-neutral-50 border border-neutral-200 rounded-xl text-neutral-900 text-xs font-semibold py-1.5 pl-3 pr-8 outline-none focus:border-neutral-950 cursor-pointer"
                 >

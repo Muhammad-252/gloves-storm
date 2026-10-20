@@ -182,9 +182,7 @@ export default function InteractiveRfqModal({
               </div>
 
               {/* Slider Control */}
-              <input
-                type="range"
-                min={30}
+              <input type="range" aria-label="Order Quantity Slider" min={30}
                 max={1500}
                 step={10}
                 value={quantity}
@@ -203,11 +201,8 @@ export default function InteractiveRfqModal({
             {/* 2. Fabric & Branding Dropdowns */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="text-[10px] font-mono uppercase tracking-wider text-slate-600 font-bold block mb-1.5">
-                  Fabric Weight & Material
-                </label>
-                <select
-                  value={fabric}
+                <label htmlFor="rfq-fabric-select" className="text-[10px] font-mono uppercase tracking-wider text-slate-600 font-bold block mb-1.5">Fabric Weight & Material</label>
+                <select id="rfq-fabric-select" aria-label="Fabric Weight & Material" value={fabric}
                   onChange={(e) => setFabric(e.target.value)}
                   className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium outline-none focus:border-slate-900 transition-all shadow-xs"
                 >
@@ -222,11 +217,8 @@ export default function InteractiveRfqModal({
               </div>
 
               <div>
-                <label className="text-[10px] font-mono uppercase tracking-wider text-slate-600 font-bold block mb-1.5">
-                  Custom Branding Technique
-                </label>
-                <select
-                  value={branding}
+                <label htmlFor="rfq-branding-select" className="text-[10px] font-mono uppercase tracking-wider text-slate-600 font-bold block mb-1.5">Custom Branding Technique</label>
+                <select id="rfq-branding-select" aria-label="Custom Branding Technique" value={branding}
                   onChange={(e) => setBranding(e.target.value)}
                   className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 font-medium outline-none focus:border-slate-900 transition-all shadow-xs"
                 >
@@ -302,10 +294,7 @@ export default function InteractiveRfqModal({
             {/* 4. Buyer Contact Info */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
               <div>
-                <input
-                  type="text"
-                  required
-                  placeholder="Your Name *"
+                <input type="text" required aria-label="Your Name" placeholder="Your Name *"
                   value={clientName}
                   onChange={(e) => setClientName(e.target.value)}
                   className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-900 transition-all shadow-xs"
@@ -313,9 +302,7 @@ export default function InteractiveRfqModal({
               </div>
 
               <div>
-                <input
-                  type="text"
-                  placeholder="Brand / Company Name"
+                <input type="text" aria-label="Brand or Company Name" placeholder="Brand / Company Name"
                   value={company}
                   onChange={(e) => setCompany(e.target.value)}
                   className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-900 transition-all shadow-xs"
@@ -323,10 +310,7 @@ export default function InteractiveRfqModal({
               </div>
 
               <div>
-                <input
-                  type="email"
-                  required
-                  placeholder="Corporate Work Email *"
+                <input type="email" required aria-label="Corporate Work Email" placeholder="Corporate Work Email *"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-900 transition-all shadow-xs"
@@ -334,9 +318,7 @@ export default function InteractiveRfqModal({
               </div>
 
               <div>
-                <input
-                  type="tel"
-                  placeholder="WhatsApp / Phone (for fast quotes)"
+                <input type="tel" aria-label="WhatsApp or Phone number" placeholder="WhatsApp / Phone (for fast quotes)"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-900 transition-all shadow-xs"
@@ -346,9 +328,7 @@ export default function InteractiveRfqModal({
 
             {/* Additional Project Specs / Sizing Notes */}
             <div>
-              <textarea
-                rows={2}
-                placeholder="Specific dimensions, pantone codes, oz weight calibrations, or custom trims..."
+              <textarea rows={2} aria-label="Additional Project Specifications" placeholder="Specific dimensions, pantone codes, oz weight calibrations, or custom trims..."
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 className="w-full bg-white/80 border border-slate-200/90 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 placeholder:text-slate-400 outline-none focus:border-slate-900 transition-all shadow-xs resize-none"
