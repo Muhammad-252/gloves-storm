@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { CheckCircle2, ArrowRight, ShieldCheck, Clock, FileCheck } from "lucide-react";
+import { CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 import MagneticElement from "../ui/MagneticElement";
 
@@ -94,10 +93,20 @@ export default function InquirySuccessScreen({
 
       {/* Action Buttons */}
       <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        {onReset && (
+          <button
+            type="button"
+            onClick={onReset}
+            className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer"
+          >
+            Submit Another Project
+          </button>
+        )}
+
         <MagneticElement strength={0.25}>
           <GooeyButton
             href="/products"
-            variant="gold-solid"
+            variant={onReset ? "outline" : "gold-solid"}
             size="lg"
             className="w-full sm:w-auto"
           >

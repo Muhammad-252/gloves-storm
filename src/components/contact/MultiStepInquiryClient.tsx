@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useSearchParams } from "next/navigation";
 import { Category, Product, Inquiry } from "@/types/database";
 import { createInquiry } from "@/lib/data/clientStore";
@@ -86,6 +86,12 @@ export default function MultiStepInquiryClient({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [generatedProjectId, setGeneratedProjectId] = useState<string>("GS-100001");
+  const [submittedSummary, setSubmittedSummary] = useState({
+    customerName: "",
+    projectId: "GS-100001",
+    email: "",
+    productName: "",
+  });
 
   // Form State
   const [selectedCategory, setSelectedCategory] = useState<string>("Sportswear & Teamwear");
@@ -130,6 +136,41 @@ export default function MultiStepInquiryClient({
 
   // File Input Ref
   const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const resetForm = useCallback(() => {
+    setSelectedCategory(categories[0]?.name || "Sportswear & Teamwear");
+    setSelectedProduct(products[0]?.name || "Pro Sublimated Team Kit");
+    setSearchFilter("");
+    setCustomSpecs({
+      material: "100% Combed Cotton French Terry (450 GSM)",
+      colors: "Vintage Washed Black & Off-White",
+      sizing: "XS, S, M, L, XL, 2XL",
+      branding: "3D Puff Screen Print + Woven Damask Label",
+      packaging: "Custom Matte Zip Polybag + Barcode Tag",
+      notes: "",
+    });
+    setUploadedFiles([]);
+    setTechPackLink("");
+    setQuantity("50 – 100 Units");
+    setNumericQuantity(100);
+    setTimeline("1 – 3 Months");
+    setBrandInfo({
+      brandName: "",
+      website: "",
+      instagram: "",
+      businessType: "Apparel & Sportswear Brand",
+      brandStory: "",
+    });
+    setContactInfo({
+      fullName: "",
+      email: "",
+      phone: "",
+      country: "United States",
+    });
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  }, [categories, products]);
 
   // Check for prefilled data from URL or Customizer Studio
   useEffect(() => {
@@ -244,6 +285,17 @@ export default function MultiStepInquiryClient({
         sessionStorage.removeItem("gs_customization_payload");
       }
 
+      // Save summary for confirmation screen before resetting form fields
+      setSubmittedSummary({
+        customerName: contactInfo.fullName,
+        projectId: generatedId,
+        email: contactInfo.email,
+        productName: selectedProduct,
+      });
+
+      // Reset all form field values immediately after submission
+      resetForm();
+
       setIsSubmitted(true);
     } catch (err: unknown) {
       setErrorMessage((err as Error).message || "An unexpected error occurred.");
@@ -256,13 +308,14 @@ export default function MultiStepInquiryClient({
   if (isSubmitted) {
     return (
       <InquirySuccessScreen
-        customerName={contactInfo.fullName}
-        projectId={generatedProjectId}
-        email={contactInfo.email}
-        productName={selectedProduct}
+        customerName={submittedSummary.customerName}
+        projectId={submittedSummary.projectId}
+        email={submittedSummary.email}
+        productName={submittedSummary.productName}
         onReset={() => {
           setIsSubmitted(false);
           setCurrentStep(1);
+          resetForm();
         }}
       />
     );

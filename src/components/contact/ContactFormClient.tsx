@@ -11,7 +11,7 @@ interface ContactFormClientProps {
 }
 
 export default function ContactFormClient({ categories }: ContactFormClientProps) {
-  const [formData, setFormData] = useState({
+  const getInitialFormData = () => ({
     name: "",
     company: "",
     email: "",
@@ -25,9 +25,15 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
     tech_pack_url: "",
   });
 
+  const [formData, setFormData] = useState(getInitialFormData);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const resetForm = () => {
+    setFormData(getInitialFormData());
+    setError(null);
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -50,6 +56,8 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
         reference_files: [],
       });
 
+      // Reset form field values immediately after submission
+      resetForm();
       setSubmitted(true);
     } catch (err: unknown) {
       setError((err as Error).message || "An error occurred. Please try again.");
@@ -72,27 +80,15 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
           YOUR PROJECT IS NOW IN REVIEW.
         </h2>
         <p className="text-sm text-[#8e8e93] max-w-lg mb-8 leading-relaxed">
-          Your inquiry has been assigned to our Sialkot production directors. We are analyzing your specifications, sizing, and quantity requirements. You will receive an official response and quotation within 12 business hours.
+          Your inquiry has been assigned to our Sialkot production directors and transmitted for formal quotation. You will receive an official response and quotation within 12 business hours.
         </p>
 
         <button
           onClick={() => {
+            resetForm();
             setSubmitted(false);
-            setFormData({
-              name: "",
-              company: "",
-              email: "",
-              phone: "",
-              country: "",
-              product_category: categories[0]?.name || "Sportswear & Teamwear",
-              product_name: "",
-              estimated_quantity: 100,
-              target_delivery_date: "",
-              message: "",
-              tech_pack_url: "",
-            });
           }}
-          className="bg-[#d4af37] hover:bg-[#e5c058] text-black px-8 py-3.5 font-bold text-xs uppercase tracking-wider transition-all"
+          className="bg-[#d4af37] hover:bg-[#e5c058] text-black px-8 py-3.5 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
         >
           Submit Another Project
         </button>

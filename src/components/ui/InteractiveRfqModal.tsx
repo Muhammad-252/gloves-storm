@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useId } from "react";
+import { useState, useCallback } from "react";
 import { X, UploadCloud, CheckCircle2, MessageSquare, ArrowRight, ShieldCheck, FileText, Sliders } from "lucide-react";
 import { createInquiry } from "@/lib/data/clientStore";
 
@@ -20,7 +20,7 @@ export default function InteractiveRfqModal({
   const [quantity, setQuantity] = useState<number>(100);
   const [fabric, setFabric] = useState<string>("450+ GSM Heavyweight French Terry");
   const [branding, setBranding] = useState<string>("Tajima 3D Puff Embroidery");
-  const [productName, setProductName] = useState<string>(initialProduct);
+  const [productName] = useState<string>(initialProduct);
   const [files, setFiles] = useState<string[]>([]);
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [clientName, setClientName] = useState("");
@@ -42,6 +42,24 @@ export default function InteractiveRfqModal({
 
   const { unit: unitPrice, label: tierLabel } = calculateTierPrice(quantity);
   const estimatedTotal = (quantity * unitPrice).toFixed(2);
+
+  const resetFields = useCallback(() => {
+    setClientName("");
+    setCompany("");
+    setEmail("");
+    setPhone("");
+    setNotes("");
+    setFiles([]);
+    setQuantity(100);
+    setFabric("450+ GSM Heavyweight French Terry");
+    setBranding("Tajima 3D Puff Embroidery");
+  }, []);
+
+  const handleClose = () => {
+    setIsSuccess(false);
+    resetFields();
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -79,8 +97,12 @@ export default function InteractiveRfqModal({
         tech_pack_url: files.length > 0 ? files[0] : null,
         reference_files: files,
       });
+
+      // Reset form field values immediately after submission
+      resetFields();
       setIsSuccess(true);
     } catch {
+      resetFields();
       setIsSuccess(true); // graceful fallback
     } finally {
       setIsSubmitting(false);
@@ -111,7 +133,7 @@ export default function InteractiveRfqModal({
           </div>
 
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100/80 hover:bg-slate-200 text-slate-600 hover:text-slate-900 flex items-center justify-center transition-colors cursor-pointer shrink-0"
             aria-label="Close modal"
           >
@@ -143,7 +165,7 @@ export default function InteractiveRfqModal({
               </a>
 
               <button
-                onClick={onClose}
+                onClick={handleClose}
                 className="px-6 py-3 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
               >
                 Close Window

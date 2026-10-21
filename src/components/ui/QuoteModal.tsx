@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { X, CheckCircle, ArrowRight, Shield, Loader2 } from "lucide-react";
 import { createInquiry } from "@/lib/data/clientStore";
 import GooeyButton from "./GooeyButton";
@@ -22,7 +22,7 @@ export default function QuoteModal({
   inquiryType = "Quote",
   defaultQuantity,
 }: QuoteModalProps) {
-  const [formData, setFormData] = useState({
+  const getInitialFormData = useCallback(() => ({
     name: "",
     company: "",
     email: "",
@@ -33,11 +33,17 @@ export default function QuoteModal({
     estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 2 : 100),
     target_delivery_date: "",
     message: "",
-  });
+  }), [defaultCategory, defaultProductName, defaultQuantity, inquiryType]);
 
+  const [formData, setFormData] = useState(getInitialFormData);
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const resetForm = useCallback(() => {
+    setFormData(getInitialFormData());
+    setError(null);
+  }, [getInitialFormData]);
 
   useEffect(() => {
     if (isOpen) {
@@ -49,6 +55,12 @@ export default function QuoteModal({
       }));
     }
   }, [isOpen, defaultProductName, defaultCategory, defaultQuantity, inquiryType]);
+
+  const handleClose = () => {
+    setSubmitted(false);
+    resetForm();
+    onClose();
+  };
 
   if (!isOpen) return null;
 
@@ -73,6 +85,8 @@ export default function QuoteModal({
         reference_files: [],
       });
 
+      // Reset form field values immediately after submission
+      resetForm();
       setSubmitted(true);
     } catch (err: unknown) {
       setError((err as Error).message || "Failed to submit inquiry. Please try again.");
@@ -86,7 +100,7 @@ export default function QuoteModal({
       <div className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-3xl border border-neutral-200 p-4 sm:p-6 md:p-8 text-neutral-900 my-auto max-h-[calc(100dvh-2rem)] overflow-y-auto shadow-[0_25px_60px_rgba(0,0,0,0.2)]">
         {/* Close Button */}
         <button
-          onClick={onClose}
+          onClick={handleClose}
           className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 text-neutral-400 hover:text-neutral-900 p-1.5 sm:p-2 transition-colors rounded-full hover:bg-neutral-100 cursor-pointer"
           aria-label="Close quote modal"
         >
@@ -106,13 +120,10 @@ export default function QuoteModal({
               YOUR PROJECT IS NOW IN REVIEW.
             </h3>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-md mb-6 sm:mb-8 leading-relaxed">
-              Our engineering and production team in Sialkot will review your specifications, volume requirements, and timeline. You will receive a formal quotation within 12 business hours.
+              Our engineering and production team in Sialkot will review your specifications, volume requirements, and timeline. An official quotation will be dispatched to your email and logged to our factory floor.
             </p>
             <GooeyButton
-              onClick={() => {
-                setSubmitted(false);
-                onClose();
-              }}
+              onClick={handleClose}
               variant="gold-solid"
               size="md"
             >
