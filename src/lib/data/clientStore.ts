@@ -145,6 +145,44 @@ export async function saveSiteSettings(settings: Partial<SiteSettings>): Promise
 export async function createInquiry(
   inquiry: Omit<Inquiry, "id" | "status" | "created_at">
 ): Promise<Inquiry> {
+  // Direct client-side dispatch to FormSubmit so notification reaches glovesstorm@gmail.com immediately
+  if (typeof window !== "undefined") {
+    try {
+      const customSpecsSummary = inquiry.customization_details
+        ? Object.entries(inquiry.customization_details)
+            .map(([k, v]) => `${k}: ${v}`)
+            .join(" | ")
+        : "";
+
+      fetch("https://formsubmit.co/ajax/glovesstorm@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `New Manufacturing Inquiry: ${inquiry.product_name || inquiry.product_category || "Custom Apparel"} from ${inquiry.name}`,
+          _template: "table",
+          _captcha: "false",
+          "Client Name": inquiry.name,
+          "Company / Brand": inquiry.company || inquiry.brand_name || "N/A",
+          "Client Email": inquiry.email,
+          "Phone / WhatsApp": inquiry.phone || "N/A",
+          "Destination Country": inquiry.country || "International",
+          "Product Model": inquiry.product_name || "N/A",
+          "Category Division": inquiry.product_category || "N/A",
+          "Order Volume": inquiry.estimated_quantity ? `${inquiry.estimated_quantity} Units` : "N/A",
+          "Target Timeline": inquiry.target_delivery_date || inquiry.timeline || "N/A",
+          "Customization Specs": customSpecsSummary || "Standard",
+          "Tech Pack / Files": inquiry.tech_pack_url || inquiry.reference_files?.join(", ") || "None",
+          "Project Notes / Message": inquiry.message || "None",
+        }),
+      }).catch((e) => console.warn("[clientStore] FormSubmit client dispatch notice:", e));
+    } catch {
+      // ignore
+    }
+  }
+
   const res = await fetch("/api/inquiries", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

@@ -28,7 +28,7 @@ function getTransporter(): Transporter | null {
     return nodemailer.createTransport({
       host,
       port: port || 465,
-      secure: process.env.SMTP_SECURE === "true" || (port === 465) || (!port),
+      secure: process.env.SMTP_SECURE === "true" || port === 465 || !port,
       auth: {
         user: user || DEFAULT_RECIPIENT,
         pass,
@@ -272,6 +272,10 @@ Delivered to: ${DEFAULT_RECIPIENT}
 
 /**
  * Sends a notification email to glovesstorm@gmail.com for every form submission.
+ * Uses a multi-tier delivery strategy:
+ * 1. Resend API (if RESEND_API_KEY is defined)
+ * 2. Nodemailer SMTP (if SMTP_PASS or GMAIL_APP_PASSWORD is defined)
+ * 3. FormSubmit HTTP API (automated fallback to guarantee delivery)
  */
 export async function sendInquiryNotificationEmail(
   inquiry: Partial<Inquiry>
@@ -281,41 +285,115 @@ export async function sendInquiryNotificationEmail(
   const clientName = inquiry.name || "Prospective Client";
   const subject = `🏷️ New Inquiry: ${productName} from ${clientName}`;
 
-  const transporter = getTransporter();
-
-  if (!transporter) {
-    const warningMsg = `[Email Service] ⚠️ SMTP transport is not configured yet (set SMTP_USER / SMTP_PASS or GMAIL_APP_PASSWORD in .env.local). Form submission was safely recorded for notification to ${recipient}.`;
-    console.warn(warningMsg);
-    console.log(`[Email Service] Preview of email for ${recipient}:\nSubject: ${subject}\nClient: ${clientName} (${inquiry.email})\nProduct: ${productName} (${inquiry.estimated_quantity} pcs)`);
-
-    return {
-      success: false,
-      reason: "SMTP transport not configured (missing SMTP_PASS / GMAIL_APP_PASSWORD in environment)",
-    };
+  // 1. Attempt Resend if configured
+  if (process.env.RESEND_API_KEY) {
+    try {
+      const resendRes = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${process.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          from: process.env.RESEND_FROM || "Gloves Storm <onboarding@resend.dev>",
+          to: [recipient],
+          reply_to: inquiry.email,
+          subject,
+          html: buildInquiryHtml(inquiry),
+          text: buildInquiryText(inquiry),
+        }),
+      });
+      const resendData = await resendRes.json();
+      if (resendRes.ok) {
+        console.log(`[Email Service] ✅ Delivered via Resend to ${recipient}:`, resendData.id);
+        return { success: true, messageId: resendData.id };
+      }
+    } catch (e: any) {
+      console.warn("[Email Service] Resend attempt warning:", e?.message || e);
+    }
   }
 
-  try {
-    const sender = process.env.SMTP_FROM || process.env.SMTP_USER || process.env.EMAIL_USER || `"Gloves Storm Inquiries" <${DEFAULT_RECIPIENT}>`;
+  // 2. Attempt Nodemailer SMTP if credentials configured
+  const transporter = getTransporter();
+  if (transporter) {
+    try {
+      const sender = process.env.SMTP_FROM || process.env.SMTP_USER || process.env.EMAIL_USER || `"Gloves Storm Inquiries" <${DEFAULT_RECIPIENT}>`;
 
-    const info = await transporter.sendMail({
-      from: sender,
-      to: recipient,
-      replyTo: inquiry.email || undefined,
-      subject,
-      text: buildInquiryText(inquiry),
-      html: buildInquiryHtml(inquiry),
+      const info = await transporter.sendMail({
+        from: sender,
+        to: recipient,
+        replyTo: inquiry.email || undefined,
+        subject,
+        text: buildInquiryText(inquiry),
+        html: buildInquiryHtml(inquiry),
+      });
+
+      console.log(`[Email Service] ✅ Delivered via SMTP to ${recipient} (Message ID: ${info.messageId})`);
+      return {
+        success: true,
+        messageId: info.messageId,
+      };
+    } catch (err: any) {
+      console.warn(`[Email Service] SMTP transport failed, trying automated fallback:`, err?.message || err);
+    }
+  }
+
+  // 3. Automated Webhook / FormSubmit fallback to guarantee delivery to glovesstorm@gmail.com
+  try {
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://glovesstorm.com";
+    const customSpecsSummary = inquiry.customization_details
+      ? Object.entries(inquiry.customization_details)
+          .map(([k, v]) => `${k}: ${v}`)
+          .join(" | ")
+      : "";
+
+    const response = await fetch(`https://formsubmit.co/ajax/${recipient}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Referer": `${siteUrl}/contact`,
+        "Origin": siteUrl,
+      },
+      body: JSON.stringify({
+        _subject: subject,
+        _template: "table",
+        _captcha: "false",
+        "Customer Name": inquiry.name || "N/A",
+        "Company / Brand": inquiry.company || inquiry.brand_name || "N/A",
+        "Email Address": inquiry.email || "N/A",
+        "Phone / WhatsApp": inquiry.phone || "N/A",
+        "Destination Country": inquiry.country || "International",
+        "Product Name": inquiry.product_name || "N/A",
+        "Category Division": inquiry.product_category || "N/A",
+        "Order Volume": inquiry.estimated_quantity ? `${inquiry.estimated_quantity} Units` : "Custom / Sample",
+        "Timeline / Target Delivery": inquiry.target_delivery_date || inquiry.timeline || "Standard production slot",
+        "Customization Details": customSpecsSummary || "None",
+        "Tech Pack / Attached Files": inquiry.tech_pack_url || inquiry.reference_files?.join(", ") || "None",
+        "Project Notes": inquiry.message || "None",
+      }),
     });
 
-    console.log(`[Email Service] ✅ Inquiry notification sent successfully to ${recipient} (Message ID: ${info.messageId})`);
-    return {
-      success: true,
-      messageId: info.messageId,
-    };
-  } catch (err: any) {
-    console.error(`[Email Service] ❌ Failed to send email to ${recipient}:`, err?.message || err);
+    const data = await response.json().catch(() => ({}));
+
+    if (data.success === "true" || data.success === true) {
+      console.log(`[Email Service] ✅ Inquiry notification sent via FormSubmit to ${recipient}`);
+      return {
+        success: true,
+        messageId: `formsubmit-${Date.now()}`,
+      };
+    } else {
+      console.warn(`[Email Service] FormSubmit notice:`, data.message);
+      return {
+        success: false,
+        reason: data.message || "FormSubmit pending one-time activation",
+      };
+    }
+  } catch (httpErr: any) {
+    console.error(`[Email Service] ❌ All delivery attempts failed:`, httpErr?.message || httpErr);
     return {
       success: false,
-      error: err?.message || "Failed to send email",
+      error: httpErr?.message || "Delivery failed",
     };
   }
 }
