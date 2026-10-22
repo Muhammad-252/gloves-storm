@@ -223,7 +223,8 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
           </label>
           <input
             type="number"
-            min={20}
+            min={1}
+            step={1}
             required
             value={formData.estimated_quantity}
             onChange={(e) =>

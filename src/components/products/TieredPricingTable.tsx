@@ -188,22 +188,22 @@ export default function TieredPricingTable({
             <div className="flex items-center border border-neutral-300 rounded-lg bg-white overflow-hidden shadow-2xs">
               <button
                 type="button"
-                onClick={() => setQuantity(Math.max(moq, quantity - 25))}
+                onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                 className="px-3 py-1.5 text-xs font-bold text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 -
               </button>
               <input
                 type="number"
-                min={moq}
-                step={5}
+                min={1}
+                step={1}
                 value={quantity}
-                onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || moq))}
+                onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
                 className="w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-neutral-200"
               />
               <button
                 type="button"
-                onClick={() => setQuantity(quantity + 25)}
+                onClick={() => setQuantity((prev) => prev + 1)}
                 className="px-3 py-1.5 text-xs font-bold text-neutral-700 hover:bg-neutral-100 transition-colors"
               >
                 +

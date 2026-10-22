@@ -108,6 +108,37 @@ export default function ProductEditorForm({
   const [primaryKeyword, setPrimaryKeyword] = useState(initialProduct?.primary_keyword || "");
   const [secondaryKeywords, setSecondaryKeywords] = useState(initialProduct?.secondary_keywords || "");
 
+  // Dynamic Sizes State
+  const [availableSizes, setAvailableSizes] = useState<string[]>(() => {
+    if (initialProduct?.available_sizes && initialProduct.available_sizes.length > 0) {
+      return initialProduct.available_sizes;
+    }
+    const customSizes = (initialProduct?.customization_options as any)?.available_sizes;
+    if (Array.isArray(customSizes) && customSizes.length > 0) {
+      return customSizes;
+    }
+    return ["XS", "S", "M", "L", "XL", "2XL"];
+  });
+  const [newSizeInput, setNewSizeInput] = useState("");
+
+  const handleAddSize = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const trimmed = newSizeInput.trim();
+    if (!trimmed) return;
+    if (!availableSizes.includes(trimmed)) {
+      setAvailableSizes((prev) => [...prev, trimmed]);
+    }
+    setNewSizeInput("");
+  };
+
+  const handleRemoveSize = (indexToRemove: number) => {
+    setAvailableSizes((prev) => prev.filter((_, idx) => idx !== indexToRemove));
+  };
+
+  const applySizePreset = (preset: string[]) => {
+    setAvailableSizes(preset);
+  };
+
   // Images state
   const [images, setImages] = useState<ProductImage[]>(() => {
     if (initialProduct?.images && initialProduct.images.length > 0) {
@@ -341,12 +372,14 @@ export default function ProductEditorForm({
         description,
         materials: materials.split("\n").map((s) => s.trim()).filter(Boolean),
         features: features.split("\n").map((s) => s.trim()).filter(Boolean),
+        available_sizes: availableSizes,
         customization_options:
           typeof initialProduct?.customization_options === "object" &&
           initialProduct.customization_options !== null &&
           !Array.isArray(initialProduct.customization_options)
             ? {
                 ...initialProduct.customization_options,
+                available_sizes: availableSizes,
                 list: customization.split("\n").map((s) => s.trim()).filter(Boolean),
               }
             : customization.split("\n").map((s) => s.trim()).filter(Boolean),
@@ -544,6 +577,116 @@ export default function ProductEditorForm({
                 className="w-full bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] px-3.5 py-2 text-xs outline-none font-mono focus:ring-1 focus:ring-amber-500/20"
                 placeholder="Custom brand leather debossing&#10;High-density 3D puff silicone printing&#10;Custom woven wrist tag and care labels"
               />
+            </div>
+          </div>
+
+          {/* Dynamic Available Sizes / Measurement Specs */}
+          <div className="p-6 bg-white border border-neutral-200 rounded-3xl shadow-sm space-y-4">
+            <div className="flex items-center justify-between border-b border-neutral-100 pb-3 flex-wrap gap-2">
+              <div>
+                <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f172a]">
+                  Available Product Sizes &amp; Dimensions
+                </h2>
+                <p className="text-[11px] text-neutral-500 mt-0.5">
+                  Manage the sizes available for this product on its detail page. Add custom sizes, remove unwanted sizes, or use quick presets.
+                </p>
+              </div>
+
+              {/* Quick Presets */}
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <span className="text-[10px] uppercase font-bold text-neutral-400 mr-1">Presets:</span>
+                <button
+                  type="button"
+                  onClick={() => applySizePreset(["XS", "S", "M", "L", "XL", "2XL", "3XL"])}
+                  className="px-2.5 py-1 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[10px] font-semibold transition-colors cursor-pointer"
+                >
+                  Apparel (XS–3XL)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => applySizePreset(["8oz", "10oz", "12oz", "14oz", "16oz"])}
+                  className="px-2.5 py-1 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[10px] font-semibold transition-colors cursor-pointer"
+                >
+                  Gloves (8oz–16oz)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => applySizePreset(["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"])}
+                  className="px-2.5 py-1 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[10px] font-semibold transition-colors cursor-pointer"
+                >
+                  Footwear (US 7–12)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => applySizePreset(["Custom Fit"])}
+                  className="px-2.5 py-1 rounded-lg bg-neutral-100 hover:bg-neutral-200 text-neutral-700 text-[10px] font-semibold transition-colors cursor-pointer"
+                >
+                  Custom Fit
+                </button>
+                <button
+                  type="button"
+                  onClick={() => applySizePreset([])}
+                  className="px-2 py-1 rounded-lg bg-red-50 hover:bg-red-100 text-red-600 text-[10px] font-semibold transition-colors cursor-pointer"
+                >
+                  Clear All
+                </button>
+              </div>
+            </div>
+
+            {/* Active Sizes Chips */}
+            <div>
+              <label className="block text-[11px] font-medium uppercase tracking-wider text-neutral-700 mb-2">
+                Active Sizes ({availableSizes.length})
+              </label>
+              {availableSizes.length === 0 ? (
+                <div className="p-4 rounded-xl border border-dashed border-neutral-300 text-center text-xs text-neutral-400">
+                  No sizes defined yet for this product. Use presets above or add sizes below.
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-2 p-3 bg-neutral-50 rounded-xl border border-neutral-200/80">
+                  {availableSizes.map((sz, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-neutral-300 text-xs font-mono font-bold text-neutral-900 shadow-2xs group"
+                    >
+                      <span>{sz}</span>
+                      <button
+                        type="button"
+                        onClick={() => handleRemoveSize(idx)}
+                        className="text-neutral-400 hover:text-red-600 transition-colors cursor-pointer p-0.5 rounded"
+                        title={`Remove size ${sz}`}
+                      >
+                        <Trash2 className="w-3 h-3" />
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Add Size Input */}
+            <div className="flex items-center gap-2 pt-1">
+              <input
+                type="text"
+                value={newSizeInput}
+                onChange={(e) => setNewSizeInput(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    handleAddSize();
+                  }
+                }}
+                placeholder="Type a size (e.g. 10oz, XL, 34W, Custom) and press Enter"
+                className="flex-1 bg-white border border-neutral-300 rounded-xl focus:border-amber-600 text-[#0f172a] px-3.5 py-2 text-xs outline-none font-mono focus:ring-1 focus:ring-amber-500/20"
+              />
+              <button
+                type="button"
+                onClick={() => handleAddSize()}
+                className="inline-flex items-center gap-1.5 bg-neutral-900 hover:bg-neutral-800 text-white px-4 py-2 rounded-xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs"
+              >
+                <Plus className="w-3.5 h-3.5" />
+                <span>Add Size</span>
+              </button>
             </div>
           </div>
 

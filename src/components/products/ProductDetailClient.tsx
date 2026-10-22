@@ -124,7 +124,19 @@ export default function ProductDetailClient({
 
   // Selected variation state
   const [selectedColor, setSelectedColor] = useState<number>(0);
-  const [selectedSize, setSelectedSize] = useState<string>("12oz");
+  // Dynamic Sizes / Specs options from admin panel
+  const sizeOptions: string[] = useMemo(() => {
+    if (Array.isArray(product.available_sizes) && product.available_sizes.length > 0) {
+      return product.available_sizes;
+    }
+    const customSizes = (product.customization_options as any)?.available_sizes;
+    if (Array.isArray(customSizes) && customSizes.length > 0) {
+      return customSizes;
+    }
+    return ["XS", "S", "M", "L", "XL", "2XL"];
+  }, [product.available_sizes, product.customization_options]);
+
+  const [selectedSize, setSelectedSize] = useState<string>(() => sizeOptions[0] || "M");
   const [mediaMode, setMediaMode] = useState<"photos" | "video">("photos");
 
   // RFQ Modal State
@@ -235,8 +247,8 @@ export default function ProductDetailClient({
     { name: "Custom Pantone Match", color: "#b45309", isCustom: true },
   ];
 
-  // Sizes / Specs options
-  const sizeOptions = ["8oz", "10oz", "12oz", "14oz", "16oz", "Custom Fit"];
+
+
 
   return (
     <div className="w-full pb-20">
@@ -481,11 +493,13 @@ export default function ProductDetailClient({
                 <span className="font-bold text-neutral-900 ml-1">5.0</span>
                 <span className="text-neutral-500 underline cursor-pointer hover:text-neutral-900">(28 reviews)</span>
               </div>
-              <span className="text-neutral-300">•</span>
-              <span className="font-bold text-neutral-900">677+ sold</span>
+
+
+
               <span className="text-neutral-300">•</span>
               <span className="text-neutral-800 font-medium">#1 most popular in {category?.name || "Apparel"}</span>
               <span className="text-neutral-300">•</span>
+
               <span className="text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded font-bold text-[10px] border border-neutral-200">
                 Safe &amp; Sustainable
               </span>
@@ -719,7 +733,7 @@ export default function ProductDetailClient({
                     type="button"
                     onClick={() => {
                       setSelectedTierIndex(null);
-                      setQuantity(Math.max(tiers[0]?.min_quantity || 10, quantity - 25));
+                      setQuantity((prev) => Math.max(1, prev - 1));
                     }}
                     className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
@@ -727,12 +741,12 @@ export default function ProductDetailClient({
                   </button>
                   <input
                     type="number"
-                    min={tiers[0]?.min_quantity || 10}
-                    step={10}
+                    min={1}
+                    step={1}
                     value={quantity}
                     onChange={(e) => {
                       setSelectedTierIndex(null);
-                      setQuantity(Math.max(1, parseInt(e.target.value) || tiers[0]?.min_quantity || 10));
+                      setQuantity(Math.max(1, parseInt(e.target.value) || 1));
                     }}
                     className="w-16 sm:w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-slate-200"
                   />
@@ -740,7 +754,7 @@ export default function ProductDetailClient({
                     type="button"
                     onClick={() => {
                       setSelectedTierIndex(null);
-                      setQuantity(quantity + 25);
+                      setQuantity((prev) => prev + 1);
                     }}
                     className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
                   >
@@ -912,7 +926,7 @@ export default function ProductDetailClient({
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         inquiryType={inquiryType}
-        defaultProductName={`${inquiryType === "Sample" ? "[Sample] " : ""}${product.name}`}
+        defaultProductName={`${inquiryType === "Sample" ? "[Sample] " : ""}${product.name}${selectedSize ? ` (Size: ${selectedSize})` : ""}`}
         defaultCategory={category?.name || "General"}
         defaultQuantity={quantity}
       />

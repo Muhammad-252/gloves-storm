@@ -151,6 +151,7 @@ export async function getDbProducts(): Promise<Product[]> {
       primary_keyword: p.primary_keyword ?? custom.primary_keyword ?? null,
       secondary_keywords: p.secondary_keywords ?? custom.secondary_keywords ?? null,
       image_alt_texts: p.image_alt_texts ?? custom.image_alt_texts ?? [],
+      available_sizes: p.available_sizes ?? custom.available_sizes ?? [],
     } as Product;
   });
 }
@@ -201,6 +202,7 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
       primary_keyword: product.primary_keyword ?? customBase.primary_keyword ?? null,
       secondary_keywords: product.secondary_keywords ?? customBase.secondary_keywords ?? null,
       image_alt_texts: (product as any).image_alt_texts ?? customBase.image_alt_texts ?? [],
+      available_sizes: product.available_sizes || customBase.available_sizes || [],
     };
 
     prodRecord = {
@@ -251,6 +253,7 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
     primary_keyword: data.primary_keyword ?? savedCustom.primary_keyword ?? product.primary_keyword ?? null,
     secondary_keywords: data.secondary_keywords ?? savedCustom.secondary_keywords ?? product.secondary_keywords ?? null,
     image_alt_texts: data.image_alt_texts ?? savedCustom.image_alt_texts ?? (product as any).image_alt_texts ?? [],
+    available_sizes: data.available_sizes ?? savedCustom.available_sizes ?? product.available_sizes ?? [],
   } as Product;
 
   // Fully sync multiple images to product_images table when images array is provided
@@ -315,7 +318,22 @@ export async function saveDbProduct(product: Partial<Product>): Promise<Product>
       .single();
 
     if (refreshed) {
-      saved = refreshed as Product;
+      const refreshedCustom =
+        typeof refreshed.customization_options === "object" &&
+        refreshed.customization_options !== null &&
+        !Array.isArray(refreshed.customization_options)
+          ? refreshed.customization_options
+          : {};
+      saved = {
+        ...refreshed,
+        pricing_tiers: refreshed.pricing_tiers ?? refreshedCustom.pricing_tiers ?? saved.pricing_tiers ?? [],
+        sample_price: refreshed.sample_price ?? refreshedCustom.sample_price ?? saved.sample_price ?? null,
+        show_pricing: refreshed.show_pricing ?? refreshedCustom.show_pricing ?? saved.show_pricing ?? true,
+        primary_keyword: refreshed.primary_keyword ?? refreshedCustom.primary_keyword ?? saved.primary_keyword ?? null,
+        secondary_keywords: refreshed.secondary_keywords ?? refreshedCustom.secondary_keywords ?? saved.secondary_keywords ?? null,
+        image_alt_texts: refreshed.image_alt_texts ?? refreshedCustom.image_alt_texts ?? (saved as any).image_alt_texts ?? [],
+        available_sizes: refreshed.available_sizes ?? refreshedCustom.available_sizes ?? saved.available_sizes ?? [],
+      } as Product;
     }
   }
 

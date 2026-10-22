@@ -30,7 +30,7 @@ export default function QuoteModal({
     country: "United States",
     product_category: defaultCategory,
     product_name: defaultProductName,
-    estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 2 : 100),
+    estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 1 : 100),
     target_delivery_date: "",
     message: "",
   }), [defaultCategory, defaultProductName, defaultQuantity, inquiryType]);
@@ -51,7 +51,7 @@ export default function QuoteModal({
         ...prev,
         product_name: defaultProductName,
         product_category: defaultCategory,
-        estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 2 : 100),
+        estimated_quantity: defaultQuantity || (inquiryType === "Sample" ? 1 : 100),
       }));
     }
   }, [isOpen, defaultProductName, defaultCategory, defaultQuantity, inquiryType]);
@@ -229,16 +229,46 @@ export default function QuoteModal({
                   <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-medium">
                     Est. Quantity (Units)
                   </label>
-                  <input
-                    type="number"
-                    min={20}
-                    value={formData.estimated_quantity}
-                    onChange={(e) =>
-                      setFormData({ ...formData, estimated_quantity: Number(e.target.value) })
-                    }
-                    className="w-full bg-neutral-50 border border-neutral-300 focus:border-[#FFB900] focus:ring-2 focus:ring-[#FFB900]/20 text-neutral-900 px-3.5 py-2.5 text-xs outline-none rounded-lg transition-colors"
-                    placeholder="50"
-                  />
+                  <div className="flex items-center border border-neutral-300 rounded-lg bg-neutral-50 overflow-hidden focus-within:border-[#FFB900] focus-within:ring-2 focus-within:ring-[#FFB900]/20 transition-all">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          estimated_quantity: Math.max(1, (Number(prev.estimated_quantity) || 1) - 1),
+                        }))
+                      }
+                      className="px-3.5 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-200 transition-colors cursor-pointer select-none"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      min={1}
+                      step={1}
+                      value={formData.estimated_quantity}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          estimated_quantity: Math.max(1, parseInt(e.target.value) || 1),
+                        }))
+                      }
+                      className="w-full bg-transparent text-center font-mono font-bold text-xs py-2.5 outline-none text-neutral-900 border-x border-neutral-200"
+                      placeholder="1"
+                    />
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          estimated_quantity: (Number(prev.estimated_quantity) || 0) + 1,
+                        }))
+                      }
+                      className="px-3.5 py-2.5 text-xs font-bold text-neutral-700 hover:bg-neutral-200 transition-colors cursor-pointer select-none"
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
                 <div>
                   <label className="block text-[11px] uppercase tracking-wider text-neutral-600 mb-1 font-medium">

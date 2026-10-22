@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product, Category } from "@/types/database";
-import { Star, ArrowUpRight, Scissors } from "lucide-react";
+import { Star, ArrowUpRight } from "lucide-react";
 
 interface JacketMakerProductCardProps {
   product: Product;
@@ -13,15 +13,6 @@ interface JacketMakerProductCardProps {
   priority?: boolean;
 }
 
-// Preset colorways for preview swatches (representing available custom leather/fabric dyeings)
-const PRESET_SWATCHES = [
-  { name: "Obsidian Black", hex: "#171717" },
-  { name: "Rich Tobacco Brown", hex: "#5c3a21" },
-  { name: "Heather Slate Grey", hex: "#64748b" },
-  { name: "Midnight Navy", hex: "#1e293b" },
-  { name: "British Racing Green", hex: "#14532d" },
-];
-
 export default function JacketMakerProductCard({
   product,
   category,
@@ -29,7 +20,6 @@ export default function JacketMakerProductCard({
   priority = false,
 }: JacketMakerProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
-  const [activeSwatch, setActiveSwatch] = useState(0);
 
   const categorySlug = category?.slug || product.category?.slug || "general";
   const categoryName = category?.name || product.category?.name || "Apparel";
@@ -99,12 +89,7 @@ export default function JacketMakerProductCard({
             />
           )}
 
-          {/* Top Pill Badges */}
-          <div className="absolute top-2.5 left-2.5 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-neutral-200/90 text-[10px] font-medium text-neutral-900 shadow-xs">
-            <Scissors className="w-3 h-3 text-neutral-700" />
-            <span>Custom Sizing</span>
-          </div>
-
+          {/* Top MOQ Pill Badge */}
           <div className="absolute top-2.5 right-2.5 flex items-center gap-1 bg-neutral-950 text-white px-2.5 py-1 rounded-full text-[10px] font-mono tracking-tight font-semibold shadow-xs">
             <span>MOQ: {product.moq || 30} pcs</span>
           </div>
@@ -122,31 +107,7 @@ export default function JacketMakerProductCard({
           </div>
         </Link>
 
-        {/* 2. Color Swatches Preview Strip */}
-        <div className="flex items-center gap-1.5 mb-2 px-1">
-          {PRESET_SWATCHES.map((swatch, idx) => (
-            <button
-              key={idx}
-              type="button"
-              onClick={(e) => {
-                e.preventDefault();
-                setActiveSwatch(idx);
-              }}
-              title={swatch.name}
-              className={`w-3.5 h-3.5 rounded-full transition-transform cursor-pointer ${
-                activeSwatch === idx
-                  ? "ring-2 ring-neutral-950 ring-offset-1 scale-110"
-                  : "hover:scale-110 opacity-80 hover:opacity-100"
-              }`}
-              style={{ backgroundColor: swatch.hex }}
-            />
-          ))}
-          <span className="text-[10px] font-mono text-neutral-400 ml-1">
-            +Custom Dye
-          </span>
-        </div>
-
-        {/* 3. Star Ratings & Review Count */}
+        {/* 2. Star Ratings & Review Count */}
         <div className="flex items-center gap-1.5 mb-1 px-1">
           <div className="flex items-center text-[#FFB900]">
             {[...Array(5)].map((_, i) => (
@@ -164,7 +125,7 @@ export default function JacketMakerProductCard({
           </span>
         </div>
 
-        {/* 4. Product Title & Category */}
+        {/* 3. Product Title & Category */}
         <div className="px-1 mb-2">
           <Link
             href={`/products/${categorySlug}/${product.slug}`}
@@ -177,7 +138,7 @@ export default function JacketMakerProductCard({
           </p>
         </div>
 
-        {/* 5. Pricing & Wholesale Indicator */}
+        {/* 4. Pricing */}
         <div className="flex items-baseline gap-2 px-1 mb-3">
           <span className="text-sm font-extrabold text-neutral-950 font-mono">
             ${basePrice}.00
@@ -185,13 +146,10 @@ export default function JacketMakerProductCard({
           <span className="text-xs text-neutral-400 line-through font-mono">
             ${msrpPrice.toFixed(0)}.00
           </span>
-          <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-700 bg-neutral-100 border border-neutral-200 px-1.5 py-0.5 rounded font-semibold ml-auto">
-            Factory Direct
-          </span>
         </div>
       </div>
 
-      {/* 6. Action CTAs */}
+      {/* 5. Action CTAs */}
       <div className="grid grid-cols-2 gap-2 pt-2.5 border-t border-neutral-100 mt-auto">
         <Link
           href={`/products/${categorySlug}/${product.slug}`}
