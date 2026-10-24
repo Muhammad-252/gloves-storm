@@ -88,8 +88,8 @@ function parseArticleContent(content: string, slug: string) {
 
   // 2. Remove any static/embedded FAQ section from content so JournalFaqAccordion renders it uniformly
   const faqPatterns = [
-    /<div[^>]*id=["']faqs["'][\s\S]*$/i,
-    /<h2[^>]*>(?:Frequently Asked Questions|FAQs)[\s\S]*$/i,
+    /<(?:div|section)[^>]*id=["']faqs["'][\s\S]*$/i,
+    /<h2[^>]*>[\s\r\n]*(?:Frequently Asked Questions|FAQs)[\s\S]*$/i,
   ];
   for (const pat of faqPatterns) {
     html = html.replace(pat, "");
