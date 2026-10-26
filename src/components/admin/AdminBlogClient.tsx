@@ -321,6 +321,54 @@ export default function AdminBlogClient({ initialPosts }: AdminBlogClientProps) 
                 />
               </div>
 
+              <div className="pt-3 border-t border-neutral-200/80">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-amber-700 font-bold block mb-2">
+                  Search Engine Optimization (SEO)
+                </span>
+                
+                <div className="space-y-3">
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="text-[11px] uppercase tracking-wider text-neutral-600 font-semibold">
+                        SEO Meta Title Tag (Max 60 chars)
+                      </label>
+                      <span className={`text-[10px] font-mono ${(editingPost.seo_title?.length || 0) > 60 ? "text-red-500 font-bold" : "text-neutral-400"}`}>
+                        {editingPost.seo_title?.length || 0}/60
+                      </span>
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="e.g. Private Label Activewear Manufacturer: 30 Pc MOQ"
+                      value={editingPost.seo_title || ""}
+                      onChange={(e) =>
+                        setEditingPost({ ...editingPost, seo_title: e.target.value })
+                      }
+                      className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="text-[11px] uppercase tracking-wider text-neutral-600 font-semibold">
+                        SEO Meta Description (Max 155 chars)
+                      </label>
+                      <span className={`text-[10px] font-mono ${(editingPost.seo_description?.length || 0) > 155 ? "text-red-500 font-bold" : "text-neutral-400"}`}>
+                        {editingPost.seo_description?.length || 0}/155
+                      </span>
+                    </div>
+                    <textarea
+                      rows={2}
+                      placeholder="e.g. Custom activewear manufacturer shipping to the US. 30-pc MOQ, 10-12 day samples..."
+                      value={editingPost.seo_description || ""}
+                      onChange={(e) =>
+                        setEditingPost({ ...editingPost, seo_description: e.target.value })
+                      }
+                      className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
+                    />
+                  </div>
+                </div>
+              </div>
+
               <div className="pt-4 flex items-center justify-end gap-3 border-t border-neutral-100">
                 <button
                   type="button"

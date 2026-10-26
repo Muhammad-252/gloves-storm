@@ -282,7 +282,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the MOQ for private label activewear at Gloves Storm?",
       answer:
-        "Our activewear MOQ starts from 35 pieces per style, allowing brands to produce matching sports bra and legging sets across complete size breakdowns (XS to XXL) without massive capital lockup.",
+        "Our activewear MOQ starts from 30 pieces per style, allowing brands to produce matching sports bra and legging sets across complete size breakdowns (XS to XXL) without massive capital lockup.",
     },
   ],
 
