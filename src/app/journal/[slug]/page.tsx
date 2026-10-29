@@ -276,6 +276,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     {formatDate(post.published_at)}
                   </span>
                 )}
+                {post.updated_at && (
+                  <span className="text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full flex items-center gap-1.5 font-mono font-medium text-[10px] sm:text-[11px]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Updated: {formatDate(post.updated_at)}
+                  </span>
+                )}
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 sm:mb-5 leading-[1.15]">

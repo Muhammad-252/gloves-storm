@@ -260,29 +260,44 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
   // 8. Private Label Activewear Manufacturer Guide
   "private-label-activewear-manufacturer-guide": [
     {
-      question: "How do you guarantee activewear leggings are 100% squat-proof?",
+      question: "What is a private label activewear manufacturer?",
       answer:
-        "Squat-proof opacity requires the correct balance of yarn denier, knit density, and fabric weight. We recommend a minimum of 220–260 GSM in high-gauge 80/20 or 75/25 nylon-spandex interlock. Every production batch undergoes a 120-degree opacity flexion test before bulk cutting.",
-    },
-    {
-      question: "Why is flatlock stitching critical for high-performance activewear?",
-      answer:
-        "Flatlock stitching joins fabric edges flush without bulk, creating a seamless, chafing-free interior seam that lies completely flat against the skin under intense compression and dynamic movement.",
-    },
-    {
-      question: "What is the difference between nylon-spandex and polyester-spandex for gym wear?",
-      answer:
-        "Nylon-spandex offers a significantly softer, buttery hand feel, superior elasticity recovery, and higher tensile durability, making it the choice for premium activewear. Polyester-spandex offers superior moisture evaporation speed and is ideal for vibrant dye-sublimated graphics.",
-    },
-    {
-      question: "What branding techniques work best on compressive activewear?",
-      answer:
-        "High-elastic silicone heat transfers and high-density reflective transfers are optimal for activewear because they stretch up to 200% alongside the fabric without cracking, peeling, or degrading under heavy sweat.",
+        "A factory that makes activewear such as leggings, sports bras, and gym tops and finishes it with your brand's labels, logos, and packaging, so you can sell it as your own.",
     },
     {
       question: "What is the MOQ for private label activewear at Gloves Storm?",
       answer:
-        "Our activewear MOQ starts from 30 pieces per style, allowing brands to produce matching sports bra and legging sets across complete size breakdowns (XS to XXL) without massive capital lockup.",
+        "30 to 50 pieces per style and colour. Confirm the exact number for your product in writing.",
+    },
+    {
+      question: "How do you make sure leggings are squat-proof?",
+      answer:
+        "We make leggings at 240 to 280 GSM in a dense double-knit interlock and test every production lot with a 90-degree bend light-box opacity test before cut panels are approved.",
+    },
+    {
+      question: "Why is flatlock stitching used in activewear?",
+      answer:
+        "Flatlock seams lie flat against the skin and stretch with the fabric, which reduces chafing during running, cycling, and heavy lifting.",
+    },
+    {
+      question: "What is the difference between nylon and polyester blends for gym wear?",
+      answer:
+        "Nylon with elastane is softer and resists pilling, which suits premium leggings and bras. Polyester with elastane dries quickly and holds prints well, which suits printed and training pieces.",
+    },
+    {
+      question: "Which branding methods work best on activewear?",
+      answer:
+        "Silicone heat transfers, tagless heat-sealed labels, and jacquard waistbands all stretch with the fabric. Woven labels suit hoodies and joggers.",
+    },
+    {
+      question: "Can you make private label gym clothes and athleisure as well as leggings?",
+      answer:
+        "Yes. We make sports bras, tops, shorts, hoodies, joggers, and matching sets.",
+    },
+    {
+      question: "Do you ship private label activewear to the UK?",
+      answer:
+        "Yes, DDP to the UK, with air freight taking about 3 to 5 days. Confirm current UK import VAT and duty for your product.",
     },
   ],
 
