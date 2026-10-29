@@ -127,10 +127,14 @@ export default async function JournalPage() {
                   </span>
                 </div>
 
-                <div className="flex items-center gap-4 text-[11px] font-mono text-slate-500 mb-2">
+                <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 mb-2">
                   <span className="flex items-center gap-1.5">
                     <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                    {post.published_at ? formatDate(post.published_at) : "Recent"}
+                    Published: {post.published_at ? formatDate(post.published_at) : "Recent"}
+                  </span>
+                  <span className="flex items-center gap-1 text-emerald-700 font-medium">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Updated: {formatDate(post.updated_at || post.published_at || new Date().toISOString())}
                   </span>
                 </div>
 

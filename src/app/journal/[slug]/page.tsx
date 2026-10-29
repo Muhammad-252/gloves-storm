@@ -266,22 +266,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           <main className="col-span-1 lg:col-span-6 min-w-0">
             {/* Article Header (Title, Category, Date, Author) */}
             <div className="mb-6 sm:mb-8 text-left">
-              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs font-mono text-slate-700 mb-3 sm:mb-4">
-                <span className="bg-white/80 backdrop-blur-md px-3 py-1 border border-neutral-200 uppercase tracking-wider font-bold rounded-full shadow-2xs text-[10px] sm:text-xs">
-                  {post.category}
-                </span>
-                {post.published_at && (
-                  <span className="text-slate-500 flex items-center gap-1 font-medium text-[11px] sm:text-xs">
-                    <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                    {formatDate(post.published_at)}
+              <div className="flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-slate-700 mb-3 sm:mb-4">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                  <span className="bg-white/80 backdrop-blur-md px-3 py-1 border border-neutral-200 uppercase tracking-wider font-bold rounded-full shadow-2xs text-[10px] sm:text-xs">
+                    {post.category}
                   </span>
-                )}
-                {post.updated_at && (
+                  {post.published_at && (
+                    <span className="text-slate-500 flex items-center gap-1 font-medium text-[11px] sm:text-xs">
+                      <Calendar className="w-3.5 h-3.5 text-slate-400" />
+                      Published: {formatDate(post.published_at)}
+                    </span>
+                  )}
+                </div>
+                <div className="flex items-center">
                   <span className="text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full flex items-center gap-1.5 font-mono font-medium text-[10px] sm:text-[11px]">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    Updated: {formatDate(post.updated_at)}
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Updated: {formatDate(post.updated_at || post.published_at)}
                   </span>
-                )}
+                </div>
               </div>
 
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-4 sm:mb-5 leading-[1.15]">
