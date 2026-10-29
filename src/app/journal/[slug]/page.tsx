@@ -281,7 +281,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 <div className="flex items-center">
                   <span className="text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full flex items-center gap-1.5 font-mono font-medium text-[10px] sm:text-[11px]">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Updated: {formatDate(post.updated_at || post.published_at)}
+                    Updated: {formatDate(post.updated_at || post.published_at || new Date().toISOString())}
                   </span>
                 </div>
               </div>
