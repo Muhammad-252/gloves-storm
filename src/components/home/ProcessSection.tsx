@@ -5,37 +5,37 @@ import GooeyButton from "../ui/GooeyButton";
 const steps = [
   {
     num: "01",
-    title: "SHARE YOUR IDEA",
+    title: "Share your idea",
     subtitle: "Briefing & Concept",
     desc: "Send your design, reference image, sketch, or complete tech pack. Our technical team evaluates material feasibility, pattern cuts, and cost efficiencies.",
   },
   {
     num: "02",
-    title: "PRODUCT DEVELOPMENT",
+    title: "Product development",
     subtitle: "Engineering & Sourcing",
     desc: "We review specifications, materials, sizing curves, and construction. Digital CAD patterns and exact Pantone dye formulas are established.",
   },
   {
     num: "03",
-    title: "SAMPLING",
+    title: "Sampling",
     subtitle: "Physical Prototyping",
     desc: "A prototype master sample is handcrafted and delivered to your doorstep for fitting, fabric feel, and dimensional sign-off.",
   },
   {
     num: "04",
-    title: "PRODUCTION",
+    title: "Production",
     subtitle: "Precision Manufacturing",
     desc: "Once samples are approved, bulk raw materials are inspected and your order moves onto our specialized cutting, stitching, and printing lines.",
   },
   {
     num: "05",
-    title: "QUALITY CONTROL",
+    title: "Quality control",
     subtitle: "Multi-Point Inspection",
     desc: "Every product is systematically inspected for seam tension, print accuracy, dimensional tolerances, and clean thread finishing.",
   },
   {
     num: "06",
-    title: "GLOBAL DELIVERY",
+    title: "Global delivery",
     subtitle: "Insured Worldwide Dispatch",
     desc: "Finished products are custom-packed, barcoded, and shipped directly to your warehouse or 3PL facility via air or sea freight.",
   },
@@ -51,8 +51,8 @@ export default function ProcessSection() {
             Standard Operating Procedure
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05] sm:leading-[1.0] mb-3 sm:mb-5">
-            THE SIX-STEP <br />
-            <span className="text-[#6B7280]">PRODUCTION TIMELINE</span>
+            The six-step <br />
+            <span className="text-[#6B7280]">production timeline</span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-[#6B7280] leading-relaxed">
             Predictability is essential for growing apparel and gear brands. We maintain transparent milestones from initial tech pack consultation to final customs clearance.

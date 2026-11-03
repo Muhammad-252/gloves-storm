@@ -142,7 +142,7 @@ export default function ManufacturersUkClient() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1] uppercase">
-            CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER FOR UK BRANDS
+            Custom clothing &amp; sportswear manufacturer for UK brands
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
@@ -193,7 +193,7 @@ export default function ManufacturersUkClient() {
               The Manufacturing Advantage
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              WHY UK CLOTHING BRANDS &amp; SPORTSWEAR LABELS SOURCE FROM SIALKOT
+              Why UK clothing brands &amp; sportswear labels source from Sialkot
             </h2>
           </div>
 
@@ -259,7 +259,7 @@ export default function ManufacturersUkClient() {
               Product Catalog for British Brands
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              WHAT WE MANUFACTURE FOR UK CLIENTS
+              What we manufacture for UK clients
             </h2>
           </div>
 
@@ -307,7 +307,7 @@ export default function ManufacturersUkClient() {
               Door-to-Door Logistics
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-tight">
-              SHIPPING &amp; LOGISTICS TO THE UNITED KINGDOM
+              Shipping &amp; logistics to the United Kingdom
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-300">
               We eliminate post-Brexit customs friction. From Pakistan export clearance to HMRC declarations and final delivery via DPD or Parcelforce, your shipment is fully tracked and insured.
@@ -384,7 +384,7 @@ export default function ManufacturersUkClient() {
               Proven Production Profiles
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              MOST POPULAR UK ORDERS
+              Most popular UK orders
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600">
               Representative examples of regular apparel production runs dispatched from our Sialkot factory to UK streetwear labels, gym operators, and athletic clubs.
@@ -432,7 +432,7 @@ export default function ManufacturersUkClient() {
               Simple 6-Stage Process
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              HOW TO START YOUR UK ORDER
+              How to start your UK order
             </h2>
           </div>
 
@@ -466,7 +466,7 @@ export default function ManufacturersUkClient() {
               <span>UK EXPORT FAQS</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase leading-tight">
-              FREQUENTLY ASKED QUESTIONS — UK CLIENTS
+              Frequently asked questions — UK clients
             </h2>
           </div>
 
@@ -511,7 +511,7 @@ export default function ManufacturersUkClient() {
               Fast 24-Hour UK Quotation
             </span>
             <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white mb-2.5 sm:mb-3 leading-tight">
-              GET A FREE QUOTE FOR YOUR UK ORDER
+              Get a free quote for your UK order
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
               Share your tech packs, target quantities, and design specifications. Our direct Sialkot engineering team will review requirements and respond with tiered pricing within 24 hours.

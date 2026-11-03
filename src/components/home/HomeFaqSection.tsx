@@ -48,7 +48,7 @@ export default function HomeFaqSection() {
             <span>OEM FREQUENTLY ASKED QUESTIONS</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase leading-[1.1]">
-            COMMON QUESTIONS ABOUT WORKING WITH US
+            Common questions about working with us
           </h2>
           <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600 font-normal">
             Everything you need to know about our direct apparel manufacturing facilities, minimum order quantities, private label services, and international DDP export delivery.

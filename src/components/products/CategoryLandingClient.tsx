@@ -639,9 +639,9 @@ export default function CategoryLandingClient({
                 <span className="text-lg sm:text-xl font-mono font-black text-neutral-950 block mb-1.5 sm:mb-2">
                   {s.step}
                 </span>
-                <h4 className="text-xs font-bold uppercase tracking-tight text-neutral-950 mb-1 sm:mb-1.5">
+                <h3 className="text-xs font-bold uppercase tracking-tight text-neutral-950 mb-1 sm:mb-1.5">
                   {s.title}
-                </h4>
+                </h3>
                 <p className="text-[11px] text-neutral-600 leading-relaxed font-normal">
                   {s.desc}
                 </p>

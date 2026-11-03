@@ -21,9 +21,9 @@ export default function FinalCtaSection() {
           </div>
 
           <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827] leading-[1.12] sm:leading-[1.05] mb-3 sm:mb-4">
-            READY TO BUILD <br />
+            Ready to build <br />
             <span className="text-black">
-              YOUR NEXT COLLECTION?
+              your next collection?
             </span>
           </h2>
 

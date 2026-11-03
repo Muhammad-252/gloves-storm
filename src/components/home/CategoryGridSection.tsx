@@ -140,7 +140,7 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827]">
-              WHAT WE MANUFACTURE &amp; EXPORT
+              What we manufacture &amp; export
             </h2>
             <p className="mt-2 text-xs sm:text-sm md:text-base text-neutral-600 font-normal leading-relaxed">
               Specialized apparel divisions direct from our Sialkot factory. From technical teamwear and gym activewear to heavyweight streetwear and turnkey private label manufacturing.

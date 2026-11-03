@@ -260,9 +260,9 @@ export default function ProductCatalogClient({
             <span>Sialkot OEM Factory Collection</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
-            {activeCategoryObj ? `Custom ${activeCategoryObj.name}` : "All Apparel & Teamwear Collections"}
-          </h1>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
+            {activeCategoryObj ? `Custom ${activeCategoryObj.name}` : "All apparel & teamwear collections"}
+          </h2>
 
           <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed font-normal">
             {activeCategoryObj?.description ||

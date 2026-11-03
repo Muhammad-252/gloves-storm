@@ -301,7 +301,7 @@ export default function CategoryShowcaseSection({
               </span>
             </div>
             <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-neutral-950">
-              CUSTOM APPAREL &amp; SPORTSWEAR SPECIFICATIONS
+              Custom apparel &amp; sportswear specifications
             </h2>
           </div>
 

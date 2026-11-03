@@ -380,9 +380,9 @@ export default function MultiStepInquiryClient({
                   >
                     <div>
                       <span className="text-xl sm:text-2xl mb-2 sm:mb-3 block">{cat.icon}</span>
-                      <h4 className="text-xs sm:text-sm font-bold uppercase text-[#0f172a] mb-1">
+                      <h3 className="text-xs sm:text-sm font-bold uppercase text-[#0f172a] mb-1">
                         {cat.name}
-                      </h4>
+                      </h3>
                       <p className="text-[11px] text-neutral-600 leading-relaxed">
                         {cat.desc}
                       </p>
@@ -606,9 +606,9 @@ export default function MultiStepInquiryClient({
               <div className="w-14 h-14 rounded-full bg-neutral-100 border border-neutral-300 text-neutral-900 mx-auto flex items-center justify-center mb-4 group-hover:scale-110 group-hover:border-[#FFB900] group-hover:text-[#FFB900] transition-all">
                 <Upload className="w-6 h-6" />
               </div>
-              <h4 className="text-base font-bold uppercase text-[#0f172a] mb-1">
+              <div className="text-base font-bold uppercase text-[#0f172a] mb-1">
                 Drop your files here, or <span className="text-black underline group-hover:text-[#FFB900]">Browse Files</span>
-              </h4>
+              </div>
               <p className="text-xs text-neutral-500">
                 Supports PDF, AI, PSD, SVG, PNG, JPG, or ZIP archives (Up to 50MB per file)
               </p>

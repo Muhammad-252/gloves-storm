@@ -116,7 +116,7 @@ export default async function ProductsPage() {
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 mb-4">
-            CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURING CATALOG
+            Custom clothing &amp; sportswear manufacturing catalog
           </h1>
 
           <p className="text-sm sm:text-base text-slate-700 max-w-4xl leading-relaxed">

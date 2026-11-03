@@ -163,7 +163,7 @@ export default function AboutPage() {
             <span>ESTABLISHED 2019 • INTERNATIONAL OEM/ODM APPAREL &amp; SPORTSWEAR EXPORTER</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1] uppercase">
-            ABOUT GLOVES STORM
+            About Gloves Storm
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
             Gloves Storm is an international OEM and private label apparel manufacturer and exporter established in 2019. We specialize in custom sportswear, athletic kits, compression activewear, heavyweight streetwear hoodies, and turnkey private label apparel for sports brands, athletic clubs, fashion labels, and distributors across the USA, UK, Europe, and worldwide. Operating direct factory facilities with in-house design, laser cutting, digital sublimation, and Tajima embroidery, we eliminate middlemen to give you direct mill pricing, guaranteed lead times, and uncompromised quality.
@@ -177,7 +177,7 @@ export default function AboutPage() {
               Verified Entity Facts
             </span>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight uppercase">
-              KEY MANUFACTURING FACTS
+              Key manufacturing facts
             </h2>
           </div>
 
@@ -235,7 +235,7 @@ export default function AboutPage() {
               The Evolution of OEM
             </span>
             <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight uppercase">
-              WHY WE FOUNDED GLOVES STORM
+              Why we founded Gloves Storm
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               For decades, international brands working with traditional offshore factories dealt with communication barriers, opaque pricing structures, inconsistent fabric quality, and missed deadlines.
@@ -274,7 +274,7 @@ export default function AboutPage() {
               Social Responsibility
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-3 sm:mb-4 uppercase">
-              ETHICAL MANUFACTURING MANDATE
+              Ethical manufacturing mandate
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               True luxury and performance cannot exist at the expense of human dignity. We maintain strict labor and environmental standards across our entire Sialkot manufacturing floor.

@@ -51,8 +51,8 @@ export default function Footer() {
               <span>International OEM &amp; Private Label Exporter</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold uppercase tracking-tight leading-tight text-neutral-950">
-              BUILT FOR BRANDS. <br />
-              <span className="text-neutral-500">ENGINEERED TO SCALE.</span>
+              Built for brands. <br />
+              <span className="text-neutral-500">Engineered to scale.</span>
             </h2>
           </div>
           <div>

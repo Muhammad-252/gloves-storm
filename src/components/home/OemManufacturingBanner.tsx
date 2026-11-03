@@ -48,9 +48,9 @@ export default function OemManufacturingBanner() {
             {/* Headline */}
             <div className="max-w-4xl mb-6 sm:mb-8">
               <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827] leading-[1.12] sm:leading-[1.05] mb-3 sm:mb-4">
-                HAVE A TECH PACK OR CUSTOM SKETCH? <br className="hidden sm:inline" />
+                Have a tech pack or custom sketch? <br className="hidden sm:inline" />
                 <span className="text-black">
-                  WE ENGINEER IT TO PHYSICAL PRODUCTION.
+                  We engineer it to physical production.
                 </span>
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl font-normal">

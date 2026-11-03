@@ -94,7 +94,7 @@ export default async function JournalPage() {
             <span>SIALKOT TECHNICAL JOURNAL &amp; OEM GUIDES</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-3 sm:mb-4">
-            THE GLOVES STORM MANUFACTURING JOURNAL
+            The Gloves Storm manufacturing journal
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-3xl leading-relaxed">
             Guides, insights and technical production knowledge from our Sialkot factory — written for sports apparel brands, athletic teams, gym wear founders, streetwear labels and international distributors building their businesses with Gloves Storm as their direct OEM manufacturing partner.

@@ -92,7 +92,7 @@ export default function TestimonialsSection() {
             <span>GLOBAL B2B EXPORT NETWORK</span>
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.12] sm:leading-[1.1]">
-            TRUSTED BY BRANDS WORLDWIDE
+            Trusted by brands worldwide
           </h2>
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
             Gloves Storm manufactures custom sportswear, athletic team uniforms, gym fitness wear, and private label streetwear collections for independent labels, professional academies, and wholesale distributors across 6 primary international territories.

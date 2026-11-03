@@ -59,7 +59,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
-              PREVIOUS WORK & REELS
+              Previous work &amp; reels
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-xl mt-2 leading-relaxed">
               Every production run manufactured at our Sialkot factory is documented live on our official Instagram feed. Inspect real client unboxings, embroidery close-ups, and teamwear deliveries.

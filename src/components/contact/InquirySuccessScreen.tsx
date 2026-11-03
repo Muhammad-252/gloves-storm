@@ -31,7 +31,7 @@ export default function InquirySuccessScreen({
       </span>
 
       <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-2.5 sm:mb-3 leading-tight">
-        PROJECT RECEIVED
+        Project received
       </h2>
 
       <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed max-w-xl mx-auto mb-6 sm:mb-8">

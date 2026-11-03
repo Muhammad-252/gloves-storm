@@ -116,8 +116,8 @@ export default function QuoteModal({
               Inquiry Confirmed
             </span>
             <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
-              THANK YOU. <br />
-              YOUR PROJECT IS NOW IN REVIEW.
+              Thank you. <br />
+              Your project is now in review.
             </h3>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-md mb-6 sm:mb-8 leading-relaxed">
               Our engineering and production team in Sialkot will review your specifications, volume requirements, and timeline. An official quotation will be dispatched to your email and logged to our factory floor.

@@ -36,8 +36,8 @@ export default function GlobalReachSection() {
                 Worldwide Supply Chain &amp; Direct Export
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.0] mb-3 sm:mb-5">
-                GLOBAL EXPORT NETWORK <br />
-                <span className="text-[#6B7280]">WORLDWIDE LOGISTICS.</span>
+                Global export network <br />
+                <span className="text-[#6B7280]">worldwide logistics.</span>
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-[#6B7280] leading-relaxed max-w-xl">
                 GLOVES STORM operates dedicated international export corridors supplying custom apparel, performance sportswear, activewear, and private label collections to brands across North America, the UK, Europe, Australia, and the Middle East. With direct mill production and insured DDP air and ocean freight, we guarantee seamless delivery directly to your facility or fulfillment warehouse.

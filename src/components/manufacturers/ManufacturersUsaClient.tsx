@@ -113,7 +113,7 @@ export default function ManufacturersUsaClient() {
           </div>
 
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1] uppercase">
-            CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER FOR USA BRANDS
+            Custom clothing &amp; sportswear manufacturer for USA brands
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
@@ -164,7 +164,7 @@ export default function ManufacturersUsaClient() {
               The Manufacturing Advantage
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              WHY USA APPAREL &amp; SPORTS BRANDS SOURCE FROM GLOVES STORM
+              Why USA apparel &amp; sports brands source from Gloves Storm
             </h2>
           </div>
 
@@ -230,7 +230,7 @@ export default function ManufacturersUsaClient() {
               Product Catalog for American Brands
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              WHAT WE MANUFACTURE FOR USA CLIENTS
+              What we manufacture for USA clients
             </h2>
           </div>
 
@@ -278,7 +278,7 @@ export default function ManufacturersUsaClient() {
               Door-to-Door Logistics
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-tight">
-              SHIPPING &amp; LOGISTICS TO THE USA
+              Shipping &amp; logistics to the USA
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-300">
               We eliminate international freight anxiety. From customs clearance to final delivery at your loading dock, your shipment is fully tracked and insured.
@@ -355,7 +355,7 @@ export default function ManufacturersUsaClient() {
               Simple 6-Stage Process
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
-              HOW TO START YOUR USA ORDER
+              How to start your USA order
             </h2>
           </div>
 
@@ -389,7 +389,7 @@ export default function ManufacturersUsaClient() {
               <span>USA EXPORT FAQS</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase leading-tight">
-              FREQUENTLY ASKED QUESTIONS — USA CLIENTS
+              Frequently asked questions — USA clients
             </h2>
           </div>
 
@@ -434,7 +434,7 @@ export default function ManufacturersUsaClient() {
               Fast 24-Hour Quotation
             </span>
             <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white mb-2.5 sm:mb-3 leading-tight">
-              GET A FREE QUOTE FOR YOUR USA ORDER
+              Get a free quote for your USA order
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
               Share your tech packs, target quantities, and design specifications. Our direct Sialkot engineering team will review requirements and respond with tiered pricing within 24 hours.

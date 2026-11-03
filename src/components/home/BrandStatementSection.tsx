@@ -106,8 +106,8 @@ export default function BrandStatementSection() {
             </div>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05] sm:leading-[1.0] mb-4 sm:mb-6">
-              FROM YOUR IDEA <br />
-              <span className="text-[#6B7280]">TO THE FINAL PRODUCT.</span>
+              From your idea <br />
+              <span className="text-[#6B7280]">to the final product.</span>
             </h2>
 
             <p className="text-xs sm:text-base lg:text-lg text-[#6B7280] leading-relaxed max-w-2xl">

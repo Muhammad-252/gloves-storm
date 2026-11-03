@@ -79,7 +79,7 @@ export default function FactoryCapabilitiesSection() {
               In-House Industrial Infrastructure
             </span>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.05]">
-              APPAREL MANUFACTURING &amp; TECHNICAL CAPABILITIES
+              Apparel manufacturing &amp; technical capabilities
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
               Engineered specifications across custom teamwear, gym activewear, hoodies, and streetwear. Every garment manufactured at our direct production facilities with in-house sublimation, embroidery, laser cutting, and multi-stage QC.

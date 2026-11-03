@@ -76,8 +76,8 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
           Direct Factory Submission Received
         </span>
         <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-4">
-          THANK YOU. <br />
-          YOUR PROJECT IS NOW IN REVIEW.
+          Thank you. <br />
+          Your project is now in review.
         </h2>
         <p className="text-sm text-[#8e8e93] max-w-lg mb-8 leading-relaxed">
           Your inquiry has been assigned to our Sialkot production directors and transmitted for formal quotation. You will receive an official response and quotation within 12 business hours.

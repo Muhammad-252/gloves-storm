@@ -68,9 +68,9 @@ export default function FactoryPhotoPlaceholder({
           {processName}
         </span>
 
-        <h4 className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug max-w-[260px]">
+        <div className="text-base sm:text-lg font-bold text-white tracking-tight leading-snug max-w-[260px]">
           {machineName}
-        </h4>
+        </div>
 
         <span className="text-[11px] font-mono text-slate-400 mt-1">
           {specification}

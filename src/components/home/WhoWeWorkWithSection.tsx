@@ -2,32 +2,32 @@ import { Trophy, Dumbbell, Rocket, Store, Users, ShoppingBag } from "lucide-reac
 
 const segments = [
   {
-    title: "CLOTHING & STREETWEAR LABELS",
+    title: "Clothing & streetwear labels",
     desc: "Established fashion labels and independent streetwear brands looking to elevate fabric weights (450 GSM French Terry), eliminate defect rates, and scale recurring collections.",
     icon: ShoppingBag,
   },
   {
-    title: "SPORTS TEAMS & ACADEMIES",
+    title: "Sports teams & academies",
     desc: "Collegiate programs, professional clubs, and athletic academies requiring high-durability match kits, tracksuits, and training uniforms.",
     icon: Trophy,
   },
   {
-    title: "COMMERCIAL GYMS",
+    title: "Commercial gyms",
     desc: "Fitness studios, CrossFit boxes, and athletic facilities needing custom branded activewear, compression wear, and retail apparel.",
     icon: Dumbbell,
   },
   {
-    title: "EMERGING STARTUPS",
+    title: "Emerging startups",
     desc: "Founder-led brands looking for low MOQ sampling, tech pack advisory, and reliable guidance from an experienced factory partner.",
     icon: Rocket,
   },
   {
-    title: "DISTRIBUTORS & AGENTS",
+    title: "Distributors & agents",
     desc: "Regional equipment distributors seeking reliable volume supply, guaranteed delivery schedules, and competitive factory-direct pricing.",
     icon: Users,
   },
   {
-    title: "WHOLESALE SUPPLIERS",
+    title: "Wholesale suppliers",
     desc: "Wholesalers requiring bulk container-load production of certified sportswear, team uniforms, and activewear with consistent QC.",
     icon: Store,
   },
@@ -43,8 +43,8 @@ export default function WhoWeWorkWithSection() {
             Target Partners
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.0] mb-3 sm:mb-5">
-            BUILT FOR BUSINESSES <br />
-            <span className="text-[#6B7280]">THAT BUILD BRANDS.</span>
+            Built for businesses <br />
+            <span className="text-[#6B7280]">that build brands.</span>
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-[#6B7280] leading-relaxed">
             Whether you are launching your initial 30-piece capsule drop or distributing 10,000 custom uniforms across nationwide athletic programs, we tailor our production lines to your operational stage.

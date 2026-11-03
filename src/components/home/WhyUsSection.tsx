@@ -57,7 +57,7 @@ export default function WhyUsSection() {
             The Partnership Advantage
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.05] mb-3 sm:mb-5">
-            WHY INTERNATIONAL BRANDS CHOOSE GLOVES STORM
+            Why international brands choose Gloves Storm
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
             With world-class textile engineering and automated industrial manufacturing lines, Gloves Storm delivers consistent, retail-grade custom apparel and sportswear for international brands across the USA, UK, Europe, and worldwide.

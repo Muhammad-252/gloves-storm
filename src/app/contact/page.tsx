@@ -100,7 +100,7 @@ export default async function ContactPage() {
             <span>DIRECT FACTORY COMMUNICATION &amp; RFQ STUDIO</span>
           </div>
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-3 sm:mb-4 leading-[1.1]">
-            REQUEST A CUSTOM MANUFACTURING QUOTE
+            Request a custom manufacturing quote
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-3xl leading-relaxed">
             Tell us what you&apos;re building — product type, quantity, design details and target market. Our production team will review your requirements and respond with a detailed quote within 24 hours. No commitment required at the quote stage.
@@ -122,10 +122,14 @@ export default async function ContactPage() {
         </div>
 
         {/* Direct Factory Credentials & Trust Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 pt-8 sm:pt-12 border-t border-slate-200/80">
-          {/* Direct Factory Contacts */}
-          <div className="p-4 sm:p-6 bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900 mb-3 sm:mb-4 flex items-center gap-2">
+        <div className="pt-8 sm:pt-12 border-t border-slate-200/80">
+          <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-slate-900 mb-6">
+            Direct factory credentials &amp; contact
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            {/* Direct Factory Contacts */}
+            <div className="p-4 sm:p-6 bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900 mb-3 sm:mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
               Factory Headquarters
             </h3>
@@ -223,9 +227,9 @@ export default async function ContactPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
                 <span>Instant Chat Available</span>
               </div>
-              <h4 className="text-base font-bold tracking-tight text-slate-900 mb-2">
+              <h3 className="text-base font-bold tracking-tight text-slate-900 mb-2">
                 Need urgent technical assistance?
-              </h4>
+              </h3>
               <p className="text-xs text-slate-600 leading-relaxed mb-5">
                 Chat directly with our export director on WhatsApp for instant sample confirmation or tech pack review.
               </p>
@@ -254,6 +258,7 @@ export default async function ContactPage() {
               Guaranteed IP Protection • Zero Design Leaks • Custom Molds Reserved Exclusively for You
             </div>
           </div>
+        </div>
         </div>
       </div>
     </div>

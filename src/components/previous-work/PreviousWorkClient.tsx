@@ -132,7 +132,7 @@ export default function PreviousWorkClient({
             </div>
 
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 leading-[1.1] mb-3 sm:mb-5">
-              PREVIOUS WORK &amp; COMPLETED ORDERS
+              Previous work &amp; completed orders
             </h1>
 
             <p className="text-xs sm:text-sm md:text-base text-slate-700 leading-relaxed max-w-4xl font-normal">
@@ -163,6 +163,7 @@ export default function PreviousWorkClient({
 
         {/* Main Gallery Section */}
         <section className="space-y-6 sm:space-y-8">
+          <h2 className="sr-only">Production Portfolio Grid</h2>
           {/* Category Filter Pills (Floating Frosted Dock) */}
           <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-white/80 backdrop-blur-md border border-white/90 shadow-sm flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar">
             <button

@@ -100,7 +100,7 @@ export default function HeroSection() {
 
         {/* Target H1 */}
         <h1 className="tracking-tight text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.1] sm:leading-[1.08] max-w-5xl mb-2.5 sm:mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
-          CUSTOM CLOTHING &amp; SPORTSWEAR MANUFACTURER
+          Custom clothing &amp; sportswear manufacturer
         </h1>
 
         {/* Subheadline (Clean High-Contrast White) */}
