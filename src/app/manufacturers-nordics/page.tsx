@@ -3,6 +3,7 @@ import EuropeCorridorClient, {
   EuropeCorridorConfig,
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { nordicsFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For Nordic Brands",
@@ -47,7 +48,8 @@ const config: EuropeCorridorConfig = {
   currency: "EUR (€) / USD",
   airHub: "Stockholm Arlanda (ARN), Copenhagen (CPH), Oslo (OSL), Helsinki (HEL)",
   vatNotice:
-    "Turnkey DDP shipping covering EU Nordic members (Sweden, Denmark, Finland) and customs documentation for Norway. [TODO-CONFIRM: Norwegian VOEC / MVA registration and import VAT clearance procedure to be verified by owner]. Final-mile delivery with PostNord, Bring, or DHL.",
+    // TODO-CONFIRM: Norwegian VOEC / MVA registration and import VAT clearance procedure to be verified by owner
+    "Turnkey DDP shipping covering EU Nordic members (Sweden, Denmark, Finland) and customs documentation for Norway. Final-mile delivery with PostNord, Bring, or DHL.",
   sizingNotice:
     "Tailored Scandinavian sizing curves with longer sleeves and torso lengths popular in Nordic markets. Complete metric grading from XS to 3XL.",
   popularCategories: [
@@ -84,7 +86,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing and sportswear for Nordic brands with DDP Nordic shipping.",
   url: "https://www.glovesstorm.com/manufacturers-nordics",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: [
     { "@type": "Country", name: "SE" },
     { "@type": "Country", name: "NO" },

@@ -3,6 +3,7 @@ import EuropeCorridorClient, {
   EuropeCorridorConfig,
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { europeFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For European Brands",
@@ -47,7 +48,8 @@ const config: EuropeCorridorConfig = {
   currency: "EUR (€)",
   airHub: "Frankfurt (FRA) & Amsterdam Schiphol (AMS)",
   vatNotice:
-    "We provide turnkey DDP shipping across the European Union. [TODO-CONFIRM: Owner to confirm whether EU import VAT is collected upfront on invoice or cleared under recipient EORI registration]. All export declarations, EUR-1 certificates of origin, and European customs clearance are managed seamlessly.",
+    // TODO-CONFIRM: Owner to confirm whether EU import VAT is collected upfront on invoice or cleared under recipient EORI registration
+    "We provide turnkey DDP shipping across the European Union. All export declarations, EUR-1 certificates of origin, and European customs clearance are managed seamlessly.",
   sizingNotice:
     "All patterns and grading are produced in standard European metric measurements (centimeters), covering EU size curves from XS to 3XL for athletic and streetwear collections.",
   popularCategories: [
@@ -84,7 +86,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing, team sportswear, gym activewear, and streetwear for European brands with DDP EU shipping.",
   url: "https://www.glovesstorm.com/manufacturers-europe",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: {
     "@type": "AdministrativeArea",
     name: "European Union",

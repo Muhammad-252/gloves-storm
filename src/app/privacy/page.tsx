@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ShieldCheck, Lock, FileText, CheckCircle, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import type { Metadata } from "next";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Privacy & Intellectual Property Policy",
@@ -189,8 +190,8 @@ export default function PrivacyPolicyPage() {
             </ul>
             <p className="text-slate-600">
               To exercise any of these rights, contact our legal and compliance desk at{" "}
-              <a href="mailto:glovesstorm@gmail.com" className="text-slate-900 font-bold underline hover:text-slate-700">
-                glovesstorm@gmail.com
+              <a href={`mailto:${BUSINESS_CONFIG.email}`} className="text-slate-900 font-bold underline hover:text-slate-700">
+                {BUSINESS_CONFIG.email}
               </a>
               .
             </p>

@@ -7,9 +7,7 @@ import GooeyButton from "../ui/GooeyButton";
 const PREVIEW_DROPS = [
   {
     id: "ig-01",
-    client: "[TODO: Client Name — London Club]",
     tag: "@glovesstorm",
-    country: "London, UK",
     type: "Reel",
     badge: "Verified Production",
     title: "Pro Performance Sublimated Football Match Kits",
@@ -19,9 +17,7 @@ const PREVIEW_DROPS = [
   },
   {
     id: "ig-02",
-    client: "[TODO: Client Name — LA Label]",
     tag: "@glovesstorm",
-    country: "Los Angeles, USA",
     type: "Drop",
     badge: "Heavyweight Fleece",
     title: "460 GSM Heavyweight French Terry Tracksuits",
@@ -31,9 +27,7 @@ const PREVIEW_DROPS = [
   },
   {
     id: "ig-03",
-    client: "[TODO: Client Name — Melbourne Label]",
     tag: "@glovesstorm",
-    country: "Melbourne, Australia",
     type: "Reel",
     badge: "Custom Outerwear",
     title: "Custom Wool & Leather Varsity Jackets",
@@ -119,10 +113,9 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
                     </div>
                   )}
 
-                  {/* Bottom Image Overlay: Client Tag */}
+                  {/* Bottom Image Overlay: Category Tag */}
                   <div className="absolute bottom-2.5 sm:bottom-3 left-3 sm:left-4 right-3 sm:right-4 flex items-center justify-between text-white text-xs font-mono">
-                    <span className="font-bold truncate">{drop.client}</span>
-                    <span className="text-[10px] sm:text-[11px] text-neutral-300">{drop.country}</span>
+                    <span className="font-bold truncate">{drop.category}</span>
                   </div>
                 </div>
 

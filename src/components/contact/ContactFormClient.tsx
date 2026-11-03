@@ -5,6 +5,7 @@ import { Category } from "@/types/database";
 import { createInquiry } from "@/lib/data/clientStore";
 import { CheckCircle, ArrowRight, Loader2, UploadCloud, Shield } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 interface ContactFormClientProps {
   categories: Category[];
@@ -276,7 +277,7 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
           className="w-full bg-[#181818] border border-white/[0.1] rounded-xl focus:border-[#d4af37] text-white px-4 py-3 text-xs outline-none transition-colors"
         />
         <span className="text-[10px] text-[#71717a] mt-1 block">
-          You can paste file sharing links or email them directly to glovesstorm@gmail.com after submission.
+          You can paste file sharing links or email them directly to {BUSINESS_CONFIG.email} after submission.
         </span>
       </div>
 

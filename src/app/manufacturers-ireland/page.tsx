@@ -3,6 +3,7 @@ import EuropeCorridorClient, {
   EuropeCorridorConfig,
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { irelandFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For Irish Brands",
@@ -47,7 +48,8 @@ const config: EuropeCorridorConfig = {
   currency: "EUR (€)",
   airHub: "Dublin Airport (DUB)",
   vatNotice:
-    "Turnkey DDP shipping straight to Irish warehouse addresses. [TODO-CONFIRM: Owner to confirm Irish Revenue import VAT declaration and EORI accounting protocol]. Express clearance and doorstep delivery with DPD Ireland or DHL Express.",
+    // TODO-CONFIRM: Owner to confirm Irish Revenue import VAT declaration and EORI accounting protocol
+    "Turnkey DDP shipping straight to Irish warehouse addresses. Express clearance and doorstep delivery with DPD Ireland or DHL Express.",
   sizingNotice:
     "UK and Irish sizing curves with metric chest and waist specifications. Accurate grading across men's, women's, and juvenile club athletic cuts from XS to 3XL.",
   popularCategories: [
@@ -84,7 +86,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing and sportswear for Irish brands with DDP Ireland shipping.",
   url: "https://www.glovesstorm.com/manufacturers-ireland",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: {
     "@type": "Country",
     name: "IE",

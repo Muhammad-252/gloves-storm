@@ -3,6 +3,7 @@ import EuropeCorridorClient, {
   EuropeCorridorConfig,
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { germanyFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Sportswear Manufacturer For German Brands",
@@ -47,7 +48,8 @@ const config: EuropeCorridorConfig = {
   currency: "EUR (€)",
   airHub: "Frankfurt Airport (FRA)",
   vatNotice:
-    "We provide turnkey DDP delivery straight to German commercial warehouses. [TODO-CONFIRM: Owner to confirm German Einfuhrumsatzsteuer (import VAT) invoice declaration and EORI customs protocol]. Shipments clear customs and deliver via DHL Express or UPS.",
+    // TODO-CONFIRM: Owner to confirm German Einfuhrumsatzsteuer (import VAT) invoice declaration and EORI customs protocol
+    "We provide turnkey DDP delivery straight to German commercial warehouses. Shipments clear customs and deliver via DHL Express or UPS.",
   sizingNotice:
     "German Konfektionsgrößen standards (46–58 / XS–3XL) with precise metric grading in centimeters. Custom technical cut-and-sew blocks provided on request.",
   popularCategories: [
@@ -84,7 +86,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing and sportswear for German brands with DDP Germany shipping.",
   url: "https://www.glovesstorm.com/manufacturers-germany",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: {
     "@type": "Country",
     name: "DE",

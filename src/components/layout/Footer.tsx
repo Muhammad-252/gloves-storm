@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Globe, Mail, Phone, MapPin, ShieldCheck, MessageSquare } from "lucide-react";
 import { InstagramIcon, LinkedInIcon } from "../ui/SocialIcons";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const categories = [
   { name: "Sportswear & Teamwear", href: "/products/sportswear-teamwear" },
@@ -106,8 +107,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-slate-900 shrink-0" />
-                <a href="mailto:glovesstorm@gmail.com" className="hover:text-slate-900 font-medium transition-colors">
-                  glovesstorm@gmail.com
+                <a href={`mailto:${BUSINESS_CONFIG.email}`} className="hover:text-slate-900 font-medium transition-colors">
+                  {BUSINESS_CONFIG.email}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
@@ -152,7 +153,7 @@ export default function Footer() {
                 <MessageSquare className="w-4 h-4" />
               </a>
               <a
-                href="mailto:glovesstorm@gmail.com"
+                href={`mailto:${BUSINESS_CONFIG.email}`}
                 className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 shadow-2xs transition-all"
                 aria-label="Email GLOVES STORM"
               >

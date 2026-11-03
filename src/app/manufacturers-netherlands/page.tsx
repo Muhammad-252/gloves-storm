@@ -3,6 +3,7 @@ import EuropeCorridorClient, {
   EuropeCorridorConfig,
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { netherlandsFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For Dutch Brands",
@@ -47,7 +48,8 @@ const config: EuropeCorridorConfig = {
   currency: "EUR (€)",
   airHub: "Amsterdam Airport Schiphol (AMS) & Port of Rotterdam",
   vatNotice:
-    "We provide DDP shipping across the Netherlands. [TODO-CONFIRM: Owner to confirm Dutch Article 23 import VAT reverse-charge integration for registered Dutch B.V. importers]. Shipments clear customs and deliver via PostNL, DHL, or DPD.",
+    // TODO-CONFIRM: Owner to confirm Dutch Article 23 import VAT reverse-charge integration for registered Dutch B.V. importers
+    "We provide DDP shipping across the Netherlands. Shipments clear customs and deliver via PostNL, DHL, or DPD.",
   sizingNotice:
     "Tailored European metric sizing with tall & athletic cut options popular with Dutch apparel demographics. Complete CAD grading from XS to 3XL.",
   popularCategories: [
@@ -84,7 +86,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing and sportswear for Dutch brands with DDP Netherlands shipping.",
   url: "https://www.glovesstorm.com/manufacturers-netherlands",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: {
     "@type": "Country",
     name: "NL",

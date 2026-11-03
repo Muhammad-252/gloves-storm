@@ -21,6 +21,8 @@ import QuoteModal from "@/components/ui/QuoteModal";
 import CaseStudyCard from "./CaseStudyCard";
 import { CASE_STUDIES } from "@/lib/data/caseStudies";
 
+const PUBLISHED_CASE_STUDIES = CASE_STUDIES.filter((caseStudy) => !caseStudy.isPlaceholder);
+
 interface PreviousWorkClientProps {
   initialProjects: Project[];
   categories: Category[];
@@ -307,7 +309,8 @@ export default function PreviousWorkClient({
           )}
         </section>
 
-        {/* Detailed Case Studies Section */}
+        {/* Detailed Case Studies Section (hidden until a real, non-placeholder case study exists) */}
+        {PUBLISHED_CASE_STUDIES.length > 0 && (
         <section className="space-y-6 pt-10 border-t border-slate-200/80">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono font-bold mb-2">
@@ -323,11 +326,12 @@ export default function PreviousWorkClient({
           </div>
 
           <div className="space-y-6">
-            {CASE_STUDIES.map((caseStudy) => (
+            {PUBLISHED_CASE_STUDIES.map((caseStudy) => (
               <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} />
             ))}
           </div>
         </section>
+        )}
       </div>
 
       {/* COMPACT PRODUCT WORK POPUP WITH IMAGE SLIDER */}

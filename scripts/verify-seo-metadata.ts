@@ -31,7 +31,7 @@ interface PageMetaResult {
 
 async function runAudit() {
   const { getDbCategories, getDbProducts, getDbBlogPosts } = await import("../src/lib/data/fileDb");
-  const { CATEGORY_INTEL } = await import("../src/components/products/CategoryLandingClient");
+  const { CATEGORY_INTEL } = await import("../src/lib/data/categoryIntel");
   const { buildProductTitlePhrase, buildProductDescription, BLOG_META_OVERRIDES } = await import("../src/lib/seo");
 
   console.log("==================================================");

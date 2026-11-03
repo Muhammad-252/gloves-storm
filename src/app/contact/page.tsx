@@ -4,6 +4,7 @@ import { getCategories } from "@/lib/data/store";
 import { Mail, Phone, MapPin, Globe, ShieldCheck, Clock, MessageSquare, Loader2 } from "lucide-react";
 import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import type { Metadata } from "next";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Get Custom Apparel Manufacturing Quote",
@@ -69,7 +70,7 @@ export default async function ContactPage() {
           "@type": "Organization",
           name: "GLOVES STORM",
           telephone: "+923417146935",
-          email: "glovesstorm@gmail.com",
+          email: BUSINESS_CONFIG.email,
           address: {
             "@type": "PostalAddress",
             streetAddress: "Industrial Estate",
@@ -153,10 +154,10 @@ export default async function ContactPage() {
                 <div>
                   <span className="block text-slate-900 font-semibold">Direct Inquiries</span>
                   <a
-                    href="mailto:glovesstorm@gmail.com"
+                    href={`mailto:${BUSINESS_CONFIG.email}`}
                     className="text-slate-900 hover:underline font-medium"
                   >
-                    glovesstorm@gmail.com
+                    {BUSINESS_CONFIG.email}
                   </a>
                 </div>
               </div>

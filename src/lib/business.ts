@@ -20,6 +20,8 @@ export const BUSINESS_CONFIG = {
   bulkDaysShort: "12–18 days",
 
   // Contact Information
+  // TODO-CONFIRM: Switch to a domain address (e.g. sales@glovesstorm.com) once that mailbox exists.
+  // Inquiry notifications are delivered separately (see lib/email/sendInquiryEmail.ts).
   email: "glovesstorm@gmail.com",
   phone: "+92-341-7146935",
   phoneDisplay: "+92 341 7146935",

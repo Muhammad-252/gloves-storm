@@ -5,9 +5,8 @@ import {
   getProducts,
   getProjects,
 } from "@/lib/data/store";
-import CategoryLandingClient, {
-  CATEGORY_INTEL,
-} from "@/components/products/CategoryLandingClient";
+import CategoryLandingClient from "@/components/products/CategoryLandingClient";
+import { CATEGORY_INTEL } from "@/lib/data/categoryIntel";
 
 import { toTitleCase } from "@/lib/utils";
 

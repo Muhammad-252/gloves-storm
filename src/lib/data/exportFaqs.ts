@@ -66,12 +66,14 @@ export const europeFaqs: ExportFaqItem[] = [
   {
     question: "Do you offer DDP (Delivered Duty Paid) shipping to the European Union?",
     answer:
-      "Yes. Under our DDP shipping agreement, Gloves Storm manages export customs in Pakistan, European air freight, and import clearance. [TODO-CONFIRM: Owner to confirm whether EU import VAT is collected upfront on invoice or cleared under the recipient's EU EORI number]. Goods arrive at your warehouse with zero unexpected port fees.",
+      // TODO-CONFIRM: Owner to confirm whether EU import VAT is collected upfront on invoice or cleared under the recipient's EU EORI number
+      "Yes. Under our DDP shipping agreement, Gloves Storm manages export customs in Pakistan, European air freight, and import clearance. Goods arrive at your warehouse with zero unexpected port fees.",
   },
   {
     question: "How long does shipping take to European countries?",
     answer:
-      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 3 to 5 business days for express air courier delivery. Once the pre-production sample is approved, bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}. [TODO-CONFIRM: European express air transit takes 3 to 5 business days; sea freight to Hamburg or Rotterdam takes 22 to 26 days].`,
+      // TODO-CONFIRM: European express air transit takes 3 to 5 business days; sea freight to Hamburg or Rotterdam takes 22 to 26 days
+      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 3 to 5 business days for express air courier delivery. Once the pre-production sample is approved, bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}. European express air transit takes 3 to 5 business days; sea freight to Hamburg or Rotterdam takes 22 to 26 days.`,
   },
   {
     question: "Do you manufacture using European metric sizing standards?",
@@ -94,12 +96,14 @@ export const germanyFaqs: ExportFaqItem[] = [
   {
     question: "Do you ship custom apparel to Germany under DDP terms?",
     answer:
-      "Yes. We ship directly to brands in Berlin, Munich, Hamburg, Frankfurt, and Cologne via DDP air freight. [TODO-CONFIRM: Customs duties and German import VAT (Einfuhrumsatzsteuer) handling procedure to be verified by owner]. Final delivery is handled by DHL Express or UPS.",
+      // TODO-CONFIRM: Customs duties and German import VAT (Einfuhrumsatzsteuer) handling procedure to be verified by owner
+      "Yes. We ship directly to brands in Berlin, Munich, Hamburg, Frankfurt, and Cologne via DDP air freight. Final delivery is handled by DHL Express or UPS.",
   },
   {
     question: "How long does sample and bulk delivery take to Germany?",
     answer:
-      `Physical master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} and air-couriered to Germany in 3 to 5 business days. Bulk orders are produced in ${BUSINESS_CONFIG.bulkLeadTime} with [TODO-CONFIRM: 3 to 5 business days for express air cargo into Frankfurt Airport (FRA)].`,
+      // TODO-CONFIRM: 3 to 5 business days for express air cargo into Frankfurt Airport (FRA)
+      `Physical master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} and air-couriered to Germany in 3 to 5 business days. Bulk orders are produced in ${BUSINESS_CONFIG.bulkLeadTime} with 3 to 5 business days for express air cargo into Frankfurt Airport (FRA).`,
   },
   {
     question: "Do you produce technical sportswear and compression wear for German clubs?",
@@ -117,12 +121,14 @@ export const netherlandsFaqs: ExportFaqItem[] = [
   {
     question: "How are shipments routed to Dutch brands and 3PL warehouses?",
     answer:
-      "Shipments are flown into Amsterdam Schiphol Airport (AMS) or shipped via ocean container into the Port of Rotterdam. [TODO-CONFIRM: Dutch Article 23 VAT reverse-charge mechanism availability to be confirmed by owner].",
+      // TODO-CONFIRM: Dutch Article 23 VAT reverse-charge mechanism availability to be confirmed by owner
+      "Shipments are flown into Amsterdam Schiphol Airport (AMS) or shipped via ocean container into the Port of Rotterdam.",
   },
   {
     question: "What is the lead time for orders delivered to the Netherlands?",
     answer:
-      `Master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} plus 3 to 5 days air express. Bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}, followed by [TODO-CONFIRM: 3 to 5 business days for air express delivery across Amsterdam, Rotterdam, and Eindhoven].`,
+      // TODO-CONFIRM: 3 to 5 business days for air express delivery across Amsterdam, Rotterdam, and Eindhoven
+      `Master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} plus 3 to 5 days air express. Bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}, followed by 3 to 5 business days for air express delivery across Amsterdam, Rotterdam, and Eindhoven.`,
   },
   {
     question: "Do you produce sustainable or recycled fabrics for Dutch labels?",
@@ -145,12 +151,14 @@ export const franceFaqs: ExportFaqItem[] = [
   {
     question: "How are customs and VAT handled for French deliveries?",
     answer:
-      "We provide turnkey DDP shipping with air freight via Paris Charles de Gaulle (CDG). [TODO-CONFIRM: Owner to confirm French TVA clearance method and EORI declaration process]. Final delivery is completed by Colissimo, DPD France, or DHL.",
+      // TODO-CONFIRM: Owner to confirm French TVA clearance method and EORI declaration process
+      "We provide turnkey DDP shipping with air freight via Paris Charles de Gaulle (CDG). Final delivery is completed by Colissimo, DPD France, or DHL.",
   },
   {
     question: "What are the sample and bulk production timelines for France?",
     answer:
-      `Sample development takes ${BUSINESS_CONFIG.sampleLeadTime}. Bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime}, with [TODO-CONFIRM: 3 to 5 business days for express air courier delivery to French addresses].`,
+      // TODO-CONFIRM: 3 to 5 business days for express air courier delivery to French addresses
+      `Sample development takes ${BUSINESS_CONFIG.sampleLeadTime}. Bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime}, with 3 to 5 business days for express air courier delivery to French addresses.`,
   },
   {
     question: "Can we supply our own bespoke patterns and tech packs?",
@@ -168,12 +176,14 @@ export const nordicsFaqs: ExportFaqItem[] = [
   {
     question: "How does DDP shipping work for Nordic countries (including non-EU Norway)?",
     answer:
-      "We ship DDP to Sweden, Denmark, and Finland under EU trade rules. For Norway, we prepare complete Norwegian customs clearance documentation and export declarations. [TODO-CONFIRM: Norwegian VOEC/MVA handling procedure to be verified by owner].",
+      // TODO-CONFIRM: Norwegian VOEC/MVA handling procedure to be verified by owner
+      "We ship DDP to Sweden, Denmark, and Finland under EU trade rules. For Norway, we prepare complete Norwegian customs clearance documentation and export declarations.",
   },
   {
     question: "What are the shipping times to Stockholm, Copenhagen, Oslo, and Helsinki?",
     answer:
-      `Samples take ${BUSINESS_CONFIG.sampleLeadTime} plus 4 to 6 business days for air courier. Bulk orders take ${BUSINESS_CONFIG.bulkLeadTime} plus [TODO-CONFIRM: 4 to 6 business days for express air freight].`,
+      // TODO-CONFIRM: 4 to 6 business days for express air freight
+      `Samples take ${BUSINESS_CONFIG.sampleLeadTime} plus 4 to 6 business days for air courier. Bulk orders take ${BUSINESS_CONFIG.bulkLeadTime} plus 4 to 6 business days for express air freight.`,
   },
   {
     question: "What currencies are accepted for Nordic orders?",
@@ -191,7 +201,8 @@ export const irelandFaqs: ExportFaqItem[] = [
   {
     question: "How is DDP shipping handled to the Republic of Ireland?",
     answer:
-      "Shipments fly directly into Dublin Airport (DUB) with full DDP customs clearance and Irish VAT compliance. [TODO-CONFIRM: Owner to confirm Irish Revenue VAT accounting details]. Delivered via DPD Ireland or DHL Express.",
+      // TODO-CONFIRM: Owner to confirm Irish Revenue VAT accounting details
+      "Shipments fly directly into Dublin Airport (DUB) with full DDP customs clearance and Irish VAT compliance. Delivered via DPD Ireland or DHL Express.",
   },
   {
     question: "Can Irish companies pay in Euros (EUR)?",
@@ -201,6 +212,7 @@ export const irelandFaqs: ExportFaqItem[] = [
   {
     question: "What is the lead time to Dublin, Cork, or Galway?",
     answer:
-      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to craft, followed by 3 to 5 business days air delivery. Bulk production takes ${BUSINESS_CONFIG.bulkLeadTime} followed by [TODO-CONFIRM: 3 to 5 business days air express freight].`,
+      // TODO-CONFIRM: 3 to 5 business days air express freight
+      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to craft, followed by 3 to 5 business days air delivery. Bulk production takes ${BUSINESS_CONFIG.bulkLeadTime} followed by 3 to 5 business days air express freight.`,
   },
 ];

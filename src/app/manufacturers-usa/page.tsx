@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import ManufacturersUsaClient from "@/components/manufacturers/ManufacturersUsaClient";
 import { usaFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For USA Brands",
@@ -42,7 +43,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing, team sportswear, gym activewear, and streetwear for American brands with DDP USA shipping.",
   url: "https://www.glovesstorm.com/manufacturers-usa",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: {
     "@type": "Country",
     name: "US",

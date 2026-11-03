@@ -3,6 +3,7 @@ import EuropeCorridorClient, {
   EuropeCorridorConfig,
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { franceFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For French Brands",
@@ -47,7 +48,8 @@ const config: EuropeCorridorConfig = {
   currency: "EUR (€)",
   airHub: "Paris Charles de Gaulle (CDG)",
   vatNotice:
-    "We provide turnkey DDP delivery straight to French brand facilities. [TODO-CONFIRM: Owner to confirm French TVA clearance declaration and EORI customs protocol]. Shipments arrive via Colissimo, DPD, or DHL.",
+    // TODO-CONFIRM: Owner to confirm French TVA clearance declaration and EORI customs protocol
+    "We provide turnkey DDP delivery straight to French brand facilities. Shipments arrive via Colissimo, DPD, or DHL.",
   sizingNotice:
     "European metric grading (centimeters) matching standard French size scales (34–46 / XS–3XL) with slim and oversized fits developed to your tech packs.",
   popularCategories: [
@@ -84,7 +86,7 @@ const localBusinessSchema = {
     "Direct OEM factory manufacturing custom clothing and sportswear for French brands with DDP France shipping.",
   url: "https://www.glovesstorm.com/manufacturers-france",
   telephone: "+92-341-7146935",
-  email: "glovesstorm@gmail.com",
+  email: BUSINESS_CONFIG.email,
   areaServed: {
     "@type": "Country",
     name: "FR",
