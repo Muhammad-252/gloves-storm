@@ -46,7 +46,7 @@ const CATEGORY_CARDS = [
 ];
 
 const QUANTITY_OPTIONS = [
-  { label: "Sample Prototype", sub: "Pre-production sample run (35–50 pcs)", val: 35 },
+  { label: "Sample Prototype", sub: "Pre-production sample run (30 pcs MOQ)", val: 30 },
   { label: "50 – 100 Units", sub: "Brand collection launch", val: 100 },
   { label: "100 – 300 Units", sub: "Core retail inventory run", val: 300 },
   { label: "300 – 500 Units", sub: "Commercial wholesale batch", val: 500 },

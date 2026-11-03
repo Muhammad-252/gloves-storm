@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, Play, Pause, Film, Box, Clock, ShieldCheck, Globe2 } from "lucide-react";
 import MagneticElement from "../ui/MagneticElement";
 import InteractiveRfqModal from "../ui/InteractiveRfqModal";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export default function HeroSection() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -109,7 +110,7 @@ export default function HeroSection() {
 
         {/* Body Copy */}
         <p className="text-[11px] sm:text-sm md:text-base text-white/90 max-w-2xl font-normal leading-relaxed mb-5 sm:mb-8 px-1 sm:px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from 35 pieces, 5–7 day prototyping, and insured DDP global shipping.
+          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from {BUSINESS_CONFIG.moq} pieces, {BUSINESS_CONFIG.samplingDaysShort} prototyping, and insured DDP global shipping.
         </p>
 
         {/* Action CTAs */}
@@ -145,7 +146,7 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              35–50 Pcs / Style
+              {BUSINESS_CONFIG.moq} Pcs / Style
             </span>
             <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
               Flexible sizing &amp; colors
@@ -160,7 +161,7 @@ export default function HeroSection() {
               </span>
             </div>
             <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              5–7 Days
+              {BUSINESS_CONFIG.samplingDaysShort}
             </span>
             <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
               Rapid master prototype

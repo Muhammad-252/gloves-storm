@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Sparkles, CheckCircle2, MessageCircle, Package, Clock, ShieldCheck, Plane } from "lucide-react";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export default function JournalStickyCta() {
   return (
@@ -28,11 +29,11 @@ export default function JournalStickyCta() {
           <div className="space-y-2 mb-6 pt-3 border-t border-neutral-100">
             <div className="flex items-center gap-2 text-xs text-neutral-700 font-medium">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#FFB900] shrink-0" />
-              <span><strong>30–50 pcs</strong> low starter MOQ</span>
+              <span><strong>{BUSINESS_CONFIG.moqShort}</strong> low starter MOQ</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 font-medium">
               <Clock className="w-3.5 h-3.5 text-[#FFB900] shrink-0" />
-              <span><strong>5–7 days</strong> prototype turnaround</span>
+              <span><strong>{BUSINESS_CONFIG.samplingDaysShort}</strong> prototype turnaround</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 font-medium">
               <ShieldCheck className="w-3.5 h-3.5 text-[#FFB900] shrink-0" />

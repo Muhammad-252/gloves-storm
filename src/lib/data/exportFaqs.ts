@@ -1,3 +1,5 @@
+import { BUSINESS_CONFIG } from "@/lib/business";
+
 export interface ExportFaqItem {
   question: string;
   answer: string;
@@ -17,7 +19,7 @@ export const usaFaqs: ExportFaqItem[] = [
   {
     question: "What is the minimum order for a USA client?",
     answer:
-      "Our minimum order quantity for American clients starts from just 35 to 50 pieces per style/colorway. This low threshold enables startup brands, fitness studios, and athletic programs to produce fully custom apparel collections with custom grading without excessive upfront inventory capital.",
+      `Our minimum order quantity for American clients starts from just ${BUSINESS_CONFIG.moq} pieces per style/colorway. This low threshold enables startup brands, fitness studios, and athletic programs to produce fully custom apparel collections with custom grading without excessive upfront inventory capital.`,
   },
   {
     question: "Can you ship to Amazon FBA warehouses in the USA?",
@@ -55,6 +57,6 @@ export const ukFaqs: ExportFaqItem[] = [
   {
     question: "What is the delivery time to the UK from order confirmation?",
     answer:
-      "Master prototype samples take 5 to 7 working days to produce, followed by 3 to 5 business days for express air courier delivery to your UK address. Once you approve the sample, bulk manufacturing takes 2 to 3 weeks depending on order size. Shipping to the UK takes 3 to 5 days via air freight, or 20 to 24 days via ocean freight for large container volumes.",
+      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 3 to 5 business days for express air courier delivery to your UK address. Once you approve the sample, bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime} depending on order size. Shipping to the UK takes 3 to 5 days via air freight, or 20 to 24 days via ocean freight for large container volumes.`,
   },
 ];

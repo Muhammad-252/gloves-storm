@@ -17,6 +17,7 @@ import {
   Building2,
   Star,
 } from "lucide-react";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 interface TieredPricingTableProps {
   productName: string;
@@ -30,7 +31,7 @@ interface TieredPricingTableProps {
 
 export default function TieredPricingTable({
   productName,
-  moq = 50,
+  moq = BUSINESS_CONFIG.moq,
   pricingTiers,
   samplePrice,
   showPricing = true,

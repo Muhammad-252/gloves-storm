@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowUpRight, MessageSquare, Layers, Cpu, ShieldCheck, Tag, Sparkles, CheckCircle2 } from "lucide-react";
 import GooeyButton from "../ui/GooeyButton";
 import QuoteModal from "../ui/QuoteModal";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const customizationPillars = [
   {
@@ -53,7 +54,7 @@ export default function OemManufacturingBanner() {
                 </span>
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-neutral-600 leading-relaxed max-w-2xl font-normal">
-                From single pre-production master prototypes delivered in 7–10 days to 50,000-unit recurring bulk drops. Gloves Storm is your direct Sialkot industrial partner with millimeter tolerances and zero middlemen.
+                From single pre-production master prototypes delivered in {BUSINESS_CONFIG.samplingDaysShort} to 50,000-unit recurring bulk drops. Gloves Storm is your direct Sialkot industrial partner with millimeter tolerances and zero middlemen.
               </p>
             </div>
 
@@ -112,7 +113,7 @@ export default function OemManufacturingBanner() {
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-neutral-900 shrink-0" />
-                  <span>Low MOQ: 25–50 Pcs</span>
+                  <span>Low MOQ: {BUSINESS_CONFIG.moqShort}</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-neutral-900 shrink-0" />

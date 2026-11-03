@@ -7,6 +7,7 @@ import {
   SearchCheck,
   Truck,
 } from "lucide-react";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const pillars = [
   {
@@ -26,7 +27,7 @@ const pillars = [
   },
   {
     title: "Flexible Production",
-    desc: "Accessible minimums starting from 35–50 units for emerging brands, with capacity scaling to 50,000+ units for established international distributors.",
+    desc: `Accessible minimums starting from ${BUSINESS_CONFIG.moq} pieces for emerging brands, with capacity scaling to 50,000+ units for established international distributors.`,
     icon: Repeat,
   },
   {

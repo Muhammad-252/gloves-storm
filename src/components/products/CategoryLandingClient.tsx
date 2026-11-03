@@ -23,6 +23,7 @@ import {
   Truck,
 } from "lucide-react";
 import QuoteModal from "@/components/ui/QuoteModal";
+import { BUSINESS_CONFIG } from "@/lib/business";
 import JacketMakerProductCard from "./JacketMakerProductCard";
 import CustomBespokeGridTile from "./CustomBespokeGridTile";
 import CollectionBuyingGuide from "./CollectionBuyingGuide";
@@ -222,7 +223,7 @@ export const CATEGORY_INTEL: Record<
       },
       {
         q: "What is the minimum order quantity (MOQ) for custom streetwear and hoodies?",
-        a: "Our starting MOQ is 30 to 50 pieces per style/colorway across standard size ranges (XS to 3XL). This allows streetwear startups to drop limited capsules and test colorways without holding thousands of units.",
+        a: `Our starting MOQ is ${BUSINESS_CONFIG.moq} pieces per style/colorway across standard size ranges (XS to 3XL). This allows streetwear startups to drop limited capsules and test colorways without holding thousands of units.`,
       },
       {
         q: "Can you manufacture custom varsity jackets with real leather sleeves?",
@@ -280,7 +281,7 @@ export const CATEGORY_INTEL: Record<
       },
       {
         q: "What is your minimum order quantity (MOQ) for custom private label apparel?",
-        a: "Our starting MOQ is 30 to 50 pieces per style/colorway across standard size ranges. This allows startup brands and athletic programs to test new collections with low upfront capital.",
+        a: `Our starting MOQ is ${BUSINESS_CONFIG.moq} pieces per style/colorway across standard size ranges. This allows startup brands and athletic programs to test new collections with low upfront capital.`,
       },
       {
         q: "Do you sign Non-Disclosure Agreements (NDAs) before reviewing tech packs?",
@@ -288,7 +289,7 @@ export const CATEGORY_INTEL: Record<
       },
       {
         q: "How does the sampling and order process work?",
-        a: "Step 1: Submit your tech pack or design sketch for an instant manufacturing quotation. Step 2: We craft a physical pre-production sample in 5 to 7 business days. Step 3: Upon sample approval, bulk production begins (2–3 weeks). Step 4: Final QC audit and DDP doorstep delivery.",
+        a: `Step 1: Submit your tech pack or design sketch for an instant manufacturing quotation. Step 2: We craft a physical pre-production sample in ${BUSINESS_CONFIG.sampleLeadTime}. Step 3: Upon sample approval, bulk production begins (${BUSINESS_CONFIG.bulkLeadTime}). Step 4: Final QC audit and DDP doorstep delivery.`,
       },
       {
         q: "Do you handle international customs clearance and shipping to the USA and UK?",
@@ -617,7 +618,7 @@ export default function CategoryLandingClient({
             {
               step: "03",
               title: "Rapid Prototype",
-              desc: "Physical pre-production sample stitched and couriered via DHL Express in 5-7 days.",
+              desc: `Physical pre-production sample stitched and couriered via DHL Express in ${BUSINESS_CONFIG.samplingDaysShort}.`,
             },
             {
               step: "04",

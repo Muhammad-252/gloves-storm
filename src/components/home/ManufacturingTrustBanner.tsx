@@ -1,6 +1,7 @@
 "use client";
 
 import { ShieldCheck, Cpu, Box, Clock, Truck, Award } from "lucide-react";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const credentials = [
   {
@@ -10,12 +11,12 @@ const credentials = [
   },
   {
     icon: Box,
-    title: "Low MOQ: 35–50 Pcs",
+    title: `Low MOQ: ${BUSINESS_CONFIG.moqShort}`,
     detail: "Scales from startups to 50k+ units",
   },
   {
     icon: Clock,
-    title: "5–7 Days Prototyping",
+    title: `${BUSINESS_CONFIG.samplingDaysShort} Prototyping`,
     detail: "Door-to-door physical sample testing",
   },
   {

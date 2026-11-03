@@ -19,6 +19,7 @@ import {
   Box,
 } from "lucide-react";
 import { usaFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const usaCategories = [
   {
@@ -79,7 +80,7 @@ const usaSteps = [
   {
     step: "03",
     title: "Prototype Sampling",
-    desc: "A physical master prototype is handcrafted in 5 to 7 days, complete with your custom branding and embroidery.",
+    desc: `A physical master prototype is handcrafted in ${BUSINESS_CONFIG.samplingDaysShort}, complete with your custom branding and embroidery.`,
   },
   {
     step: "04",
@@ -197,10 +198,10 @@ export default function ManufacturersUsaClient() {
             <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
               <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
                 <Box className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
-                <span>Startup-Accessible Low MOQs (From 25 Pieces)</span>
+                <span>Startup-Accessible Low MOQs (From {BUSINESS_CONFIG.moq} Pieces)</span>
               </h3>
               <p>
-                Most large overseas and domestic factories demand rigid minimum order quantities of 300 to 500 units per colorway, locking emerging brands out of custom manufacturing. Gloves Storm offers flexible startup tiers starting at just 25 to 50 pieces per style.
+                Most large overseas and domestic factories demand rigid minimum order quantities of 300 to 500 units per colorway, locking emerging brands out of custom manufacturing. Gloves Storm offers flexible startup tiers starting at just {BUSINESS_CONFIG.moq} pieces per style.
               </p>
               <p>
                 This allows American gym owners, collegiate clubs, and direct-to-consumer founders to validate new product silhouettes, test limited-edition drops, and manage cash flow responsibly without dead stock.

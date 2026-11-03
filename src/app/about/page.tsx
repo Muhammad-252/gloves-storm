@@ -78,7 +78,7 @@ const keyFacts = [
   {
     icon: Layers,
     label: "Minimum Order Quantity",
-    value: "35–50 pieces per style",
+    value: "30 pieces per style",
     detail: "Accessible startup tiers to large volume container programs",
   },
   {

@@ -120,7 +120,7 @@ export default async function ProductsPage() {
           </h1>
 
           <p className="text-sm sm:text-base text-slate-700 max-w-4xl leading-relaxed">
-            Gloves Storm manufactures and exports premium custom clothing, athletic sportswear, gym activewear, and luxury heavyweight streetwear for international brands. Every garment is produced as OEM (custom cut-and-sew from your tech packs) or ODM (developed to your aesthetic brief), with complete private label branding, low MOQs starting from 35 pieces per style, and insured door-to-door DDP global shipping.
+            Gloves Storm manufactures and exports premium custom clothing, athletic sportswear, gym activewear, and luxury heavyweight streetwear for international brands. Every garment is produced as OEM (custom cut-and-sew from your tech packs) or ODM (developed to your aesthetic brief), with complete private label branding, low MOQs starting from 30 pieces per style, and insured door-to-door DDP global shipping.
           </p>
         </div>
 

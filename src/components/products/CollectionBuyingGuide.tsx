@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, Layers, Ruler, Sparkles, Truck, CheckCircle2 } from "lucide-react";
 import { Category } from "@/types/database";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 interface CollectionBuyingGuideProps {
   category?: Category;
@@ -23,11 +24,11 @@ export default function CollectionBuyingGuide({
   const defaultFaqs = faqs.length > 0 ? faqs : [
     {
       q: `What is the minimum order quantity (MOQ) for ${categoryName}?`,
-      a: "Our standard starting MOQ is 30 to 50 pieces per style/colorway across standard size ranges. For comprehensive multi-category drops or trial programs, we offer flexible low-MOQ programs.",
+      a: `Our standard starting MOQ is ${BUSINESS_CONFIG.moq} pieces per style/colorway across standard size ranges. For comprehensive multi-category drops or trial programs, we offer flexible low-MOQ programs.`,
     },
     {
       q: "How fast can I receive a physical pre-production prototype sample?",
-      a: "Master physical samples are handcrafted and dispatched via express air courier (DHL Express / FedEx) within 5 to 7 business days following tech pack sign-off.",
+      a: `Master physical samples are handcrafted and dispatched via express air courier (DHL Express / FedEx) within ${BUSINESS_CONFIG.samplingDaysShort} following tech pack sign-off.`,
     },
     {
       q: "Can you produce custom woven labels, neck tags, and branded packaging?",

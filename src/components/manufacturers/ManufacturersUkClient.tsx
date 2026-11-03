@@ -21,6 +21,7 @@ import {
   ShoppingBag,
 } from "lucide-react";
 import { ukFaqs } from "@/lib/data/exportFaqs";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const ukCategories = [
   {
@@ -145,7 +146,7 @@ export default function ManufacturersUkClient() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
-            Gloves Storm is a direct Sialkot OEM clothing and sportswear manufacturing partner for British apparel brands, gym chains, football and rugby clubs, streetwear labels, and fitness startups across the United Kingdom. Operating directly out of Sialkot, Pakistan — the global powerhouse of precision textile and athletic apparel manufacturing — we engineer custom sportswear, athletic team kits, seamless activewear, heavyweight hoodies, and varsity jackets. We deliver directly to London, Manchester, Birmingham, Glasgow, Leeds, and throughout Great Britain with door-to-door DDP air freight via Heathrow and Manchester airports, full UK customs and VAT clearance, GBP (£) invoicing, and low MOQs starting from 35–50 pieces per design.
+            Gloves Storm is a direct Sialkot OEM clothing and sportswear manufacturing partner for British apparel brands, gym chains, football and rugby clubs, streetwear labels, and fitness startups across the United Kingdom. Operating directly out of Sialkot, Pakistan — the global powerhouse of precision textile and athletic apparel manufacturing — we engineer custom sportswear, athletic team kits, seamless activewear, heavyweight hoodies, and varsity jackets. We deliver directly to London, Manchester, Birmingham, Glasgow, Leeds, and throughout Great Britain with door-to-door DDP air freight via Heathrow and Manchester airports, full UK customs and VAT clearance, GBP (£) invoicing, and low MOQs starting from {BUSINESS_CONFIG.moq} pieces per design.
           </p>
         </div>
 
@@ -417,7 +418,7 @@ export default function ManufacturersUkClient() {
 
                 <div className="pt-3.5 sm:pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
                   <span className="text-slate-500 font-normal">Standard MOQ</span>
-                  <span>From 35–50 Pcs</span>
+                  <span>From {BUSINESS_CONFIG.moqShort}</span>
                 </div>
               </div>
             ))}

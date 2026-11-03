@@ -20,6 +20,7 @@ import {
   CheckCircle2,
   PhoneCall,
 } from "lucide-react";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 interface MegaMenuProductItem {
   id: string;
@@ -502,11 +503,11 @@ export default function MegaMenu({
                     <div className="flex flex-wrap items-center gap-6 text-xs text-neutral-700">
                       <div className="flex items-center gap-2 font-mono">
                         <Box className="w-4 h-4 text-black" />
-                        <span>MOQ: <strong>50 Units/Style</strong></span>
+                        <span>MOQ: <strong>{BUSINESS_CONFIG.moq} Units/Style</strong></span>
                       </div>
                       <div className="flex items-center gap-2 font-mono">
                         <Clock className="w-4 h-4 text-black" />
-                        <span>Sampling: <strong>5-7 Days</strong></span>
+                        <span>Sampling: <strong>{BUSINESS_CONFIG.samplingDaysShort}</strong></span>
                       </div>
                       <div className="flex items-center gap-2 font-mono">
                         <CheckCircle2 className="w-4 h-4 text-black" />

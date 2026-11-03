@@ -26,6 +26,7 @@ import {
 import QuoteModal from "../ui/QuoteModal";
 import GooeyButton from "../ui/GooeyButton";
 import JacketMakerProductCard from "./JacketMakerProductCard";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 interface ProductDetailClientProps {
   product: Product;
@@ -119,7 +120,7 @@ export default function ProductDetailClient({
   }, [product.pricing_tiers, defaultTiers]);
 
   // Order quantity state
-  const [quantity, setQuantity] = useState<number>(product.moq || 50);
+  const [quantity, setQuantity] = useState<number>(product.moq || BUSINESS_CONFIG.moq);
   const [selectedTierIndex, setSelectedTierIndex] = useState<number | null>(null);
 
   // Selected variation state
@@ -570,7 +571,7 @@ export default function ProductDetailClient({
                   Custom OEM Wholesale Quotation
                 </span>
                 <span className="text-[10px] font-mono font-bold text-neutral-800 bg-neutral-100 px-2.5 py-0.5 rounded border border-neutral-200">
-                  MOQ: {product.moq || 50} PCS
+                  MOQ: {product.moq || BUSINESS_CONFIG.moq} PCS
                 </span>
               </div>
               <p className="text-xs text-neutral-600 leading-relaxed">

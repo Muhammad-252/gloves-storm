@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { ChevronDown, HelpCircle, MessageSquare } from "lucide-react";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const faqs = [
   {
@@ -12,7 +13,7 @@ const faqs = [
   {
     question: "What is the minimum order quantity (MOQ) for custom clothing and sportswear?",
     answer:
-      "Our minimum order quantity starts from 35–50 pieces per style/colorway. This allows growing apparel brands, sports clubs, and established fashion labels to produce custom designs with low risk and flexible sizing breakdowns.",
+      `Our minimum order quantity starts from ${BUSINESS_CONFIG.moq} pieces per style/colorway. This allows growing apparel brands, sports clubs, and established fashion labels to produce custom designs with low risk and flexible sizing breakdowns.`,
   },
   {
     question: "Do you manufacture and export custom apparel to the USA and UK?",

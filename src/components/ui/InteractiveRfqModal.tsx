@@ -385,7 +385,7 @@ export default function InteractiveRfqModal({
                 <span>NDA Protected</span>
               </span>
               <span>•</span>
-              <span>7-Day Sample Guarantee</span>
+              <span>5–7 Day Sample Guarantee</span>
               <span>•</span>
               <span>Direct Mill Pricing</span>
             </div>

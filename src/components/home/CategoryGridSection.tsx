@@ -15,17 +15,17 @@ const categorySeoMeta: Record<string, { title: string; description: string }> = 
   "sportswear-teamwear": {
     title: "Custom Sportswear & Team Kits",
     description:
-      "Sublimation team jerseys, football uniforms, basketball kits, tracksuits and match-day apparel. Full custom branding, player numbering, and sponsor logos. MOQ 35 pcs.",
+      "Sublimation team jerseys, football uniforms, basketball kits, tracksuits and match-day apparel. Full custom branding, player numbering, and sponsor logos. MOQ 30 pcs.",
   },
   "gym-fitness-wear": {
     title: "Custom Gym & Activewear",
     description:
-      "Private label gym wear, seamless & compression leggings, sports bras, training shorts and athletic sets. 4-way stretch performance moisture-wicking fabrics. MOQ 35 pcs per style.",
+      "Private label gym wear, seamless & compression leggings, sports bras, training shorts and athletic sets. 4-way stretch performance moisture-wicking fabrics. MOQ 30 pcs per style.",
   },
   "clothing-streetwear": {
     title: "Custom Streetwear & Heavyweight Apparel",
     description:
-      "Heavyweight French Terry hoodies (450–500 GSM), varsity jackets, oversized tees, and tailored joggers with 3D embroidery, chenille patches, or puff print. MOQ 35 pcs.",
+      "Heavyweight French Terry hoodies (450–500 GSM), varsity jackets, oversized tees, and tailored joggers with 3D embroidery, chenille patches, or puff print. MOQ 30 pcs.",
   },
   "custom-manufacturing-private-label": {
     title: "OEM & Private Label Manufacturing",

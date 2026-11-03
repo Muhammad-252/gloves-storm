@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ArrowUpRight, MessageSquare, Sparkles, CheckCircle2 } from "lucide-react";
 import QuoteModal from "../ui/QuoteModal";
 import GooeyButton from "../ui/GooeyButton";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 export default function FinalCtaSection() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
@@ -70,7 +71,7 @@ export default function FinalCtaSection() {
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-neutral-900" />
-              <span>Low MOQ: 25–50 Pcs</span>
+              <span>Low MOQ: {BUSINESS_CONFIG.moqShort}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-neutral-900" />

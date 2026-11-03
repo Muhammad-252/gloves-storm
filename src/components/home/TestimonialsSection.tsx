@@ -64,7 +64,7 @@ export default function TestimonialsSection() {
     },
     {
       icon: Clock,
-      value: "7-Day Prototyping",
+      value: "5–7 Day Prototyping",
       label: "Fast Pre-Production Samples",
       sub: "Signed off before bulk cut",
     },

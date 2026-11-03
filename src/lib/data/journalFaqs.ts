@@ -9,7 +9,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the best low MOQ clothing manufacturer for a startup?",
       answer:
-        "It depends on your product. Gloves Storm suits sportswear, gym wear and streetwear from 30 to 50 pieces. Hawthorn and Affix suit casual wear and private label basics from about 50 pieces. Always confirm the MOQ in writing.",
+        "It depends on your product. Gloves Storm suits sportswear, gym wear, and streetwear from 30 pieces per style. Hawthorn and Affix suit casual wear and private label basics from about 50 pieces. Always confirm the MOQ in writing.",
     },
     {
       question: "What is a good MOQ for a new clothing brand?",
@@ -122,7 +122,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the lead time from order confirmation to delivery in the USA?",
       answer:
-        "For first orders including sampling, plan for approximately 6–8 weeks from order confirmation to delivery at your US address. This breaks down as follows: pre-production sample (7–10 days), sample review and approval (your timeline), bulk production (25–30 days), and DDP air freight to USA (5–7 days). Repeat orders where samples are already approved typically move in 4–5 weeks.",
+        "For first orders including sampling, plan for approximately 4–6 weeks from order confirmation to delivery at your US address. This breaks down as follows: pre-production sample (5–7 working days), sample review and approval (your timeline), bulk production (12–18 working days), and DDP air freight to USA (3–5 days). Repeat orders where samples are already approved typically move in 3–4 weeks.",
     },
   ],
 
@@ -151,7 +151,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the lead time for a full team uniform order?",
       answer:
-        "For a first order including pre-production sampling: 6–8 weeks from confirmed order to delivery at your address. This covers: sample production and approval (approximately 10–14 days total), bulk production (25–30 days) and DDP air freight to the USA or UK (5–7 days). Repeat orders for the same team with existing samples approved typically move in 4–5 weeks.",
+        "For a first order including pre-production sampling: 4–6 weeks from confirmed order to delivery at your address. This covers: sample production and approval (approximately 5–7 working days sampling plus your review), bulk production (12–18 working days), and DDP air freight to the USA or UK (3–5 days). Repeat orders for the same team with existing samples approved typically move in 3–4 weeks.",
     },
     {
       question: "Can you ship directly to multiple team locations or club addresses?",
@@ -224,7 +224,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the MOQ for custom-milled 450 GSM French Terry at Gloves Storm?",
       answer:
-        "We offer stock-colorway 400–450 GSM French Terry starting from just 30–50 pieces per style. Custom Pantone-dyed fabric runs typically start from 100 pieces per colorway.",
+        "We offer stock-colorway 400–450 GSM French Terry starting from just 30 pieces per style. Custom Pantone-dyed fabric runs typically start from 100 pieces per colorway.",
     },
   ],
 
@@ -267,7 +267,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the MOQ for private label activewear at Gloves Storm?",
       answer:
-        "30 to 50 pieces per style and colour. Confirm the exact number for your product in writing.",
+        "30 pieces per style and color. Confirm the exact number for your product in writing.",
     },
     {
       question: "How do you make sure leggings are squat-proof?",
