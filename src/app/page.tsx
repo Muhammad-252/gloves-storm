@@ -132,7 +132,7 @@ export default async function HomePage() {
 
       {/* 04 — DIFFERENT CATEGORIES PRODUCTS SHOWCASE */}
       <CategoryShowcaseSection
-        products={products.slice(0, 6).map(projectProductCard)}
+        products={products.slice(0, 18).map(projectProductCard)}
         categories={categories}
       />
 

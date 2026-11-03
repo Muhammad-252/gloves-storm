@@ -23,6 +23,7 @@ import QuoteModal from "@/components/ui/QuoteModal";
 import JacketMakerProductCard from "./JacketMakerProductCard";
 import CustomBespokeGridTile from "./CustomBespokeGridTile";
 import CollectionBuyingGuide from "./CollectionBuyingGuide";
+import { getProductPriorityRank } from "@/lib/catalogConfig";
 
 interface ProductCatalogClientProps {
   initialProducts: Product[];
@@ -230,6 +231,8 @@ export default function ProductCatalogClient({
     return [...filtered].sort((a, b) => {
       if (sortBy === "moq-asc") return a.moq - b.moq;
       if (sortBy === "newest") return b.created_at.localeCompare(a.created_at);
+      const priorityDiff = getProductPriorityRank(a) - getProductPriorityRank(b);
+      if (priorityDiff !== 0) return priorityDiff;
       if (a.featured && !b.featured) return -1;
       if (!a.featured && b.featured) return 1;
       return 0;

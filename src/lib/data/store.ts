@@ -30,6 +30,7 @@ import {
   saveDbInquiry,
   updateDbInquiryStatus,
 } from "./fileDb";
+import { sortProductsByConfiguredPriority } from "@/lib/catalogConfig";
 
 // Compatibility stubs
 export function setMemoryCategories(_cats: Category[]) {}
@@ -143,7 +144,7 @@ export async function getProducts(options?: {
     );
   }
 
-  return products.filter((p) => p.is_active);
+  return sortProductsByConfiguredPriority(products.filter((p) => p.is_active));
 }
 
 export async function getAllProductsAdmin(): Promise<Product[]> {
