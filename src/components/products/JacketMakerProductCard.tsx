@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product, Category } from "@/types/database";
 import { Star, ArrowUpRight } from "lucide-react";
+import { getProductFabricTag } from "@/lib/products";
 
 interface JacketMakerProductCardProps {
   product: Product;
@@ -20,6 +21,7 @@ export default function JacketMakerProductCard({
   priority = false,
 }: JacketMakerProductCardProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const fabricTag = getProductFabricTag(product);
 
   const categorySlug = category?.slug || product.category?.slug || "general";
   const categoryName = category?.name || product.category?.name || "Apparel";
@@ -87,6 +89,13 @@ export default function JacketMakerProductCard({
                 isHovered ? "opacity-100 scale-105" : "opacity-0 scale-100"
               }`}
             />
+          )}
+
+          {/* Top-Left Fabric / GSM Spec Tag */}
+          {fabricTag && (
+            <div className="absolute top-2.5 left-2.5 z-10 flex items-center bg-white/90 backdrop-blur-md text-neutral-900 border border-neutral-200/80 px-2.5 py-1 rounded-full text-[10px] font-mono tracking-tight font-semibold shadow-xs">
+              <span>{fabricTag}</span>
+            </div>
           )}
 
           {/* Top MOQ Pill Badge */}

@@ -681,38 +681,42 @@ export default function ProductDetailClient({
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
               <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
                 <span className="block text-[10px] text-neutral-500">Material</span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  {materialsList[0] || "100% Top-Grain Cowhide"}
+                <span className="block font-bold text-neutral-900 mt-0.5 truncate" title={materialsList[0] || "Technical Performance Fabric"}>
+                  {materialsList[0] || "Technical Performance Fabric"}
                 </span>
               </div>
               <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Closure / Wrist</span>
+                <span className="block text-[10px] text-neutral-500">
+                  {category?.slug?.includes("box") ? "Closure / Wrist" : "Seam Construction"}
+                </span>
                 <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  Hook &amp; Loop / Lace-Up
+                  {category?.slug?.includes("box") ? "Hook & Loop / Lace-Up" : (featuresList[0] || "Reinforced Flatlock Seams")}
                 </span>
               </div>
               <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Padding Foam</span>
+                <span className="block text-[10px] text-neutral-500">
+                  {category?.slug?.includes("box") ? "Padding Foam" : "Fabric Technology"}
+                </span>
                 <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  Multi-Layer Gel Foam
+                  {category?.slug?.includes("box") ? "Multi-Layer Gel Foam" : (materialsList[1] || "4-Way Stretch / Moisture-Wicking")}
                 </span>
               </div>
               <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Fit / Ergonomics</span>
+                <span className="block text-[10px] text-neutral-500">Fit / Grading</span>
                 <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  Anatomical Pre-Curved
+                  {category?.slug?.includes("box") ? "Anatomical Pre-Curved" : "Custom CAD Sizing (XS–3XL)"}
                 </span>
               </div>
               <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
                 <span className="block text-[10px] text-neutral-500">Branding Options</span>
                 <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  Emboss / Foil / Silicone
+                  3D Silicone / Embroidery / Print
                 </span>
               </div>
               <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
                 <span className="block text-[10px] text-neutral-500">Lead Time</span>
                 <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  {product.lead_time || "2-4 Weeks"}
+                  {product.lead_time || "2–3 Weeks"}
                 </span>
               </div>
             </div>

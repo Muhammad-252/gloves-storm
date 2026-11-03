@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Product, Category } from "@/types/database";
 import { ArrowUpRight, Search, Box, X, Filter, ChevronDown, CheckCircle2 } from "lucide-react";
 import InteractiveRfqModal from "../ui/InteractiveRfqModal";
+import { getProductFabricTag } from "@/lib/products";
 
 interface CategoryShowcaseProps {
   products: Product[];
@@ -127,27 +128,6 @@ function getTechnicalBullets(product: Product, categorySlug?: string): string[] 
     "Reinforced High-Tensile Stitching",
     "Pre-Shrunk & Silicon Washed",
   ];
-}
-
-// Derive GSM tag for badge
-function getGsmBadge(product: Product): string {
-  const nameLower = product.name.toLowerCase();
-  if (nameLower.includes("hoodie") || nameLower.includes("fleece") || nameLower.includes("tracksuit")) {
-    return "Heavyweight 450 GSM";
-  }
-  if (nameLower.includes("jersey") || nameLower.includes("uniform")) {
-    return "180 GSM Micro-Mesh";
-  }
-  if (nameLower.includes("varsity") || nameLower.includes("jacket")) {
-    return "650 GSM Melton Wool";
-  }
-  if (nameLower.includes("legging") || nameLower.includes("bra")) {
-    return "260 GSM Poly-Spandex";
-  }
-  if (nameLower.includes("tee") || nameLower.includes("t-shirt")) {
-    return "280 GSM Combed";
-  }
-  return "Heavyweight 400 GSM";
 }
 
 const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
@@ -273,16 +253,12 @@ export default function CategoryShowcaseSection({
 
       // GSM Filter
       if (gsmFilter !== "all") {
-        if (gsmFilter === "280" && !name.includes("tee") && !desc.includes("280")) return false;
-        if (gsmFilter === "350" && !name.includes("jogger") && !desc.includes("350")) return false;
-        if (
-          gsmFilter === "400" &&
-          !name.includes("hoodie") &&
-          !name.includes("jacket") &&
-          !desc.includes("400") &&
-          !desc.includes("450")
-        )
-          return false;
+        const matText = `${product.name} ${product.description || ""} ${JSON.stringify(product.materials || "")}`.toLowerCase();
+        const gsmMatch = matText.match(/(\d+)\s*gsm/i);
+        const gsm = gsmMatch ? parseInt(gsmMatch[1], 10) : 0;
+        if (gsmFilter === "280" && (gsm === 0 || gsm > 300)) return false;
+        if (gsmFilter === "350" && (gsm < 300 || gsm > 390)) return false;
+        if (gsmFilter === "400" && gsm < 400) return false;
       }
 
       // Technique Filter
@@ -469,7 +445,7 @@ export default function CategoryShowcaseSection({
               const categorySlug = categoryObj?.slug || "general";
               const productHref = `/products/${categorySlug}/${product.slug}`;
               const bullets = getTechnicalBullets(product, categorySlug);
-              const gsmBadge = getGsmBadge(product);
+              const fabricTag = getProductFabricTag(product);
 
               return (
                 <div
@@ -506,9 +482,11 @@ export default function CategoryShowcaseSection({
                       </div>
 
                       {/* Floating Frosted Glass Tag: Fabric Weight / GSM */}
-                      <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs">
-                        <span>{gsmBadge}</span>
-                      </div>
+                      {fabricTag && (
+                        <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[10px] font-mono font-semibold text-slate-800 shadow-xs">
+                          <span>{fabricTag}</span>
+                        </div>
+                      )}
                     </div>
 
                     {/* Card Body: Title in bold slate-900 */}
