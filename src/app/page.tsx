@@ -21,11 +21,35 @@ import {
 } from "@/lib/data/store";
 
 export const metadata: Metadata = {
-  title: "Custom Sportswear & Private Label Clothing Manufacturer — Sialkot Pakistan | Gloves Storm",
+  title: {
+    absolute: "Custom Sportswear Manufacturer, Low MOQ | Gloves Storm",
+  },
   description:
-    "Custom clothing manufacturer & direct Sialkot OEM factory. Custom sportswear, team uniforms, gym wear, hoodies & streetwear for USA and UK brands. Low MOQ 30 pcs, 7-day samples, DDP shipping. Free quote.",
+    "Direct OEM apparel factory in Sialkot, Pakistan. Custom sportswear, team uniforms, gym wear, and hoodies. Low MOQ 30 pcs, 5–7 day samples, DDP shipping.",
   alternates: {
     canonical: "https://www.glovesstorm.com",
+  },
+  openGraph: {
+    title: "Custom Sportswear Manufacturer, Low MOQ | Gloves Storm",
+    description:
+      "Direct OEM apparel factory in Sialkot, Pakistan. Custom sportswear, team uniforms, gym wear, and hoodies. Low MOQ 30 pcs, 5–7 day samples, DDP shipping.",
+    url: "https://www.glovesstorm.com",
+    siteName: "Gloves Storm",
+    images: [
+      {
+        url: "https://www.glovesstorm.com/images/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Gloves Storm — Custom Sportswear Manufacturer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Sportswear Manufacturer, Low MOQ | Gloves Storm",
+    description:
+      "Direct OEM apparel factory in Sialkot, Pakistan. Custom sportswear, team uniforms, gym wear, and hoodies. Low MOQ 30 pcs, 5–7 day samples, DDP shipping.",
+    images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
 

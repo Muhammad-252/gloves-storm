@@ -6,16 +6,16 @@ import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Manufacturing Journal — Custom Clothing, Sportswear & OEM Guides | Gloves Storm",
+  title: "Custom Apparel OEM Manufacturing Blog",
   description:
-    "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct custom apparel and sportswear factory.",
+    "Read custom apparel manufacturing guides, fabric sourcing tips, private label advice, and export insights from our Sialkot factory team. Updated regularly.",
   alternates: {
     canonical: "https://www.glovesstorm.com/journal",
   },
   openGraph: {
-    title: "Manufacturing Journal — Custom Clothing, Sportswear & OEM Guides | Gloves Storm",
+    title: "Custom Apparel OEM Manufacturing Blog | Gloves Storm",
     description:
-      "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm — Sialkot's direct custom apparel and sportswear factory.",
+      "Read custom apparel manufacturing guides, fabric sourcing tips, private label advice, and export insights from our Sialkot factory team. Updated regularly.",
     url: "https://www.glovesstorm.com/journal",
     siteName: "Gloves Storm",
     type: "website",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manufacturing Journal — Custom Clothing, Sportswear & OEM Guides | Gloves Storm",
+    title: "Custom Apparel OEM Manufacturing Blog | Gloves Storm",
     description:
-      "Manufacturing insights, OEM guides, private label tips and sportswear industry knowledge from Gloves Storm.",
+      "Read custom apparel manufacturing guides, fabric sourcing tips, private label advice, and export insights from our Sialkot factory team. Updated regularly.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };

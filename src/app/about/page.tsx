@@ -19,16 +19,16 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Gloves Storm — Direct Factory Since 2019 | OEM Manufacturer Sialkot Pakistan",
+  title: "Custom Apparel Factory & OEM Sialkot",
   description:
-    "Gloves Storm is an international OEM/ODM apparel manufacturer in Sialkot, Pakistan. Custom sportswear, activewear, streetwear, and private label manufacturing for USA & UK brands since 2019.",
+    "Direct OEM apparel factory in Sialkot, Pakistan since 2019. Custom sportswear, gym wear, and private label garments. Low MOQ 30 pcs, global DDP delivery.",
   alternates: {
     canonical: "https://www.glovesstorm.com/about",
   },
   openGraph: {
-    title: "About Gloves Storm — Custom Clothing & Sportswear Manufacturer & Exporter Since 2019",
+    title: "Custom Apparel Factory & OEM Sialkot | Gloves Storm",
     description:
-      "International OEM/ODM manufacturer and exporter of custom clothing, sportswear, activewear, and private label apparel serving USA, UK, and worldwide brands since 2019.",
+      "Direct OEM apparel factory in Sialkot, Pakistan since 2019. Custom sportswear, gym wear, and private label garments. Low MOQ 30 pcs, global DDP delivery.",
     url: "https://www.glovesstorm.com/about",
     siteName: "Gloves Storm",
     type: "website",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "About Gloves Storm — Custom Clothing & Sportswear Manufacturer & Exporter",
+    title: "Custom Apparel Factory & OEM Sialkot | Gloves Storm",
     description:
-      "International OEM manufacturer and exporter of custom clothing, team sportswear, and activewear for USA, UK, and global brands.",
+      "Direct OEM apparel factory in Sialkot, Pakistan since 2019. Custom sportswear, gym wear, and private label garments. Low MOQ 30 pcs, global DDP delivery.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };

@@ -7,6 +7,7 @@ import {
 } from "@/lib/data/store";
 import ProductDetailClient from "@/components/products/ProductDetailClient";
 import { toTitleCase } from "@/lib/utils";
+import { buildProductTitlePhrase, buildProductDescription } from "@/lib/seo";
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string }>;
@@ -41,39 +42,31 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: ProductPageProps) {
   const { category: categorySlug, product: slug } = await params;
   if (HIDDEN_CATEGORY_SLUGS.includes(categorySlug)) {
-    return { title: "Product Not Found | Gloves Storm", robots: { index: false, follow: false } };
+    return { title: "Product Not Found", robots: { index: false, follow: false } };
   }
 
   const [prod, cat] = await Promise.all([
     getProductBySlug(slug),
     getCategoryBySlug(categorySlug),
   ]);
-  if (!prod) return { title: "Product Not Found | Gloves Storm", robots: { index: false, follow: false } };
+  if (!prod) return { title: "Product Not Found", robots: { index: false, follow: false } };
   if (cat && HIDDEN_CATEGORY_SLUGS.includes(cat.slug)) {
-    return { title: "Product Not Found | Gloves Storm", robots: { index: false, follow: false } };
+    return { title: "Product Not Found", robots: { index: false, follow: false } };
   }
 
-  const categoryName = cat?.name || "Custom Apparel";
-  const primaryMaterial = Array.isArray(prod.materials) && prod.materials[0]
-    ? prod.materials[0]
-    : typeof prod.materials === "string"
-    ? prod.materials
-    : "premium technical fabric";
-  const title = prod.seo_title || toTitleCase(`Custom ${prod.name} Manufacturer — OEM ${categoryName} | Gloves Storm`);
-  const description =
-    prod.seo_description ||
-    `Custom OEM ${prod.name} from Sialkot, Pakistan. ${primaryMaterial}, private label branding. MOQ ${prod.moq || 35}–50 pcs. 7-day samples. Ships worldwide. Get a free quote.`;
+  const titlePhrase = buildProductTitlePhrase(prod.name);
+  const description = buildProductDescription(prod.name, prod.materials);
   const canonicalUrl = `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
   const ogImage = prod.images?.[0]?.image_url || "https://www.glovesstorm.com/images/og-default.jpg";
 
   return {
-    title,
+    title: titlePhrase,
     description,
     alternates: {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title,
+      title: `${titlePhrase} | Gloves Storm`,
       description,
       url: canonicalUrl,
       siteName: "Gloves Storm",
@@ -89,7 +82,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: `${titlePhrase} | Gloves Storm`,
       description,
       images: [ogImage],
     },

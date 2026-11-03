@@ -53,8 +53,8 @@ export const CATEGORY_INTEL: Record<
 > = {
   "sportswear-teamwear": {
     h1: "Custom Sportswear & Team Uniforms Manufacturer",
-    metaTitle: "Custom Sportswear & Team Uniforms Manufacturer — Low MOQ, Full Sublimation | Gloves Storm",
-    metaDescription: "Custom sportswear, team jerseys, football uniforms and sports kits manufacturer. Full sublimation print, custom branding, MOQ from 30 pcs. Ships to USA and UK. 7-day samples. Free quote.",
+    metaTitle: "Custom Sportswear & Team Uniforms OEM",
+    metaDescription: "Custom sportswear, team jerseys, and uniforms factory. Full dye sublimation printing, private labeling, low MOQ 30 pcs, and rapid 5–7 day sample delivery.",
     heroSubtitle: "Direct Sialkot Factory • Custom Team Uniforms & Sublimation Sportswear",
     intro: "Gloves Storm is a leading custom sportswear manufacturer and OEM supplier based in Sialkot, Pakistan. We engineer custom team uniforms, sublimation jerseys, football uniforms, basketball kits, soccer jerseys, and athletic training wear for sports brands, collegiate athletic departments, clubs, and distributors across the USA, UK, and worldwide. Enjoy low MOQ from 30 pieces, precision CAD grading, Italian dye sublimation, and rapid 5–7 day physical sampling.",
     capabilities: [
@@ -115,8 +115,8 @@ export const CATEGORY_INTEL: Record<
   },
   "gym-fitness-wear": {
     h1: "Custom Gym Wear & Private Label Activewear Manufacturer",
-    metaTitle: "Custom Gym Wear & Private Label Activewear Manufacturer — MOQ 30 Pcs | Gloves Storm",
-    metaDescription: "Private label gym wear, custom leggings, sports bras and activewear manufacturer. 4-way stretch nylon-spandex fabrics. MOQ 30 pcs. Your branding on every piece. Ships to USA and UK. Free quote.",
+    metaTitle: "Custom Gym Wear & Activewear Factory",
+    metaDescription: "Private label gym wear, custom leggings, sports bras, and activewear factory. 4-way stretch fabrics, low MOQ 30 pcs, custom branding, and DDP shipping.",
     heroSubtitle: "Sialkot OEM Factory • 4-Way Stretch Activewear & Seamless Fitness Apparel",
     intro: "Gloves Storm is a specialized private label activewear manufacturer and custom gym wear supplier located in Sialkot, Pakistan. We manufacture custom leggings, sports bras, compression wear, workout shorts, gym hoodies, and yoga wear for high-growth fitness brands across the USA, UK, and Europe. Milled with premium 4-way stretch nylon-spandex and squat-proof moisture-wicking knits. Starting MOQ from 30 pieces with full turnkey private labeling.",
     capabilities: [
@@ -177,8 +177,8 @@ export const CATEGORY_INTEL: Record<
   },
   "clothing-streetwear": {
     h1: "Custom Streetwear & Private Label Clothing Manufacturer",
-    metaTitle: "Custom Streetwear & Private Label Clothing Manufacturer — Hoodies, Tees & Joggers | Gloves Storm",
-    metaDescription: "Custom streetwear, private label hoodies, tees, joggers and jackets manufacturer. Heavyweight 380–420 GSM fabrics. Embroidery, puff print, sublimation. MOQ 30 pcs. Ships to USA and UK. Free quote.",
+    metaTitle: "Custom Streetwear & Clothing Factory",
+    metaDescription: "Custom streetwear factory: heavyweight hoodies, blank tees, joggers, and jackets. Heavyweight French Terry, embroidery, puff print, and low MOQ 30 pieces.",
     heroSubtitle: "Heavyweight 400+ GSM French Terry • Cut-and-Sew Streetwear Manufacturing",
     intro: "Gloves Storm is a dedicated custom streetwear manufacturer and private label clothing factory in Sialkot, Pakistan. We craft heavyweight hoodies (380–500 GSM), luxury blank t-shirts (240–280 GSM), custom fleece joggers, cargo pants, varsity jackets, and bomber jackets for independent streetwear labels across the USA, UK, and worldwide. Master decoration techniques including 3D puff print, Tajima direct embroidery, vintage acid washes, and bespoke cut-and-sew silhouettes.",
     capabilities: [
@@ -239,8 +239,8 @@ export const CATEGORY_INTEL: Record<
   },
   "custom-manufacturing-private-label": {
     h1: "OEM & Private Label Clothing Manufacturer",
-    metaTitle: "Custom OEM & Private Label Clothing Manufacturer — Low MOQ, Full Branding | Gloves Storm",
-    metaDescription: "Full-service OEM and private label clothing manufacturer based in Sialkot, Pakistan. Custom sportswear, activewear, streetwear. MOQ from 30 pcs, 7-day sampling, DDP shipping to USA and UK. Free tech pack review.",
+    metaTitle: "Private Label Clothing Manufacturer",
+    metaDescription: "Full-package private label & OEM clothing manufacturer in Sialkot, Pakistan. Tech pack development, custom trims, low MOQ 30 pcs, and insured DDP shipping.",
     heroSubtitle: "Full-Package Apparel OEM/ODM • Sialkot Pakistan Direct Factory Facility",
     intro: "Gloves Storm is a full-service OEM and private label clothing manufacturer operating direct production facilities in Sialkot, Pakistan. We serve as the trusted backend manufacturing partner for independent apparel brands, athletic clubs, corporate clients, and fashion labels across the USA, UK, Canada, and Europe. From digital tech pack CAD drafting and low MOQ sampling to mass cut-and-sew production, custom private label trims, and insured DDP doorstep delivery.",
     capabilities: [

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getBlogPostBySlug, getBlogPosts } from "@/lib/data/store";
 import { ArrowUpRight, Calendar, User, ChevronRight, Sparkles, Box, Scissors } from "lucide-react";
 import { formatDate, toTitleCase, slugify } from "@/lib/utils";
+import { BLOG_META_OVERRIDES } from "@/lib/seo";
 import { journalFaqs } from "@/lib/data/journalFaqs";
 import JournalTableOfContents, { TocHeading } from "@/components/journal/JournalTableOfContents";
 import JournalStickyCta from "@/components/journal/JournalStickyCta";
@@ -26,16 +27,42 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
-  if (!post) return { title: "Article Not Found | Gloves Storm" };
+  if (!post) return { title: "Article Not Found", robots: { index: false, follow: false } };
 
-  const title = post.seo_title || toTitleCase(`${post.title} | Gloves Storm Journal`);
-  const description = post.seo_description || post.excerpt || post.title;
+  const override = BLOG_META_OVERRIDES[slug];
+  let titlePhrase = override?.titlePhrase;
+  if (!titlePhrase) {
+    let clean = (post.seo_title || post.title)
+      .replace(/\s*\|\s*gloves\s*storm.*$/i, "")
+      .replace(/\s*—\s*gloves\s*storm.*$/i, "")
+      .trim();
+    if (clean.length > 45) {
+      const slice = clean.slice(0, 45);
+      const lastSpace = slice.lastIndexOf(" ");
+      clean = lastSpace > 25 ? slice.slice(0, lastSpace) : slice;
+    }
+    titlePhrase = clean;
+  }
+
+  let description = override?.description || post.seo_description || post.excerpt || post.title;
+  if (description.length > 155) {
+    const slice = description.slice(0, 154);
+    const lastSpace = slice.lastIndexOf(" ");
+    description = slice.slice(0, lastSpace).replace(/[,;]?$/, ".");
+  }
+  if (description.length < 140) {
+    const pad = " Read the complete factory guide.";
+    if (description.length + pad.length <= 155) {
+      description = description.replace(/\.$/, "") + pad;
+    }
+  }
+
   const canonicalUrl = `https://www.glovesstorm.com/journal/${slug}`;
   const rawOg = post.featured_image || "https://www.glovesstorm.com/images/og-default.jpg";
   const ogImage = rawOg.startsWith("http") ? rawOg : `https://www.glovesstorm.com${rawOg}`;
 
   return {
-    title,
+    title: titlePhrase,
     description,
     authors: [{ name: post.author || "Muhammad Arslan" }],
     creator: "Muhammad Arslan",
@@ -44,7 +71,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
       canonical: canonicalUrl,
     },
     openGraph: {
-      title,
+      title: `${titlePhrase} | Gloves Storm`,
       description,
       url: canonicalUrl,
       siteName: "Gloves Storm Manufacturing Journal",
@@ -64,7 +91,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: `${titlePhrase} | Gloves Storm`,
       description,
       images: [ogImage],
     },

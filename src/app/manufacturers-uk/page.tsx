@@ -3,16 +3,16 @@ import ManufacturersUkClient from "@/components/manufacturers/ManufacturersUkCli
 import { ukFaqs } from "@/lib/data/exportFaqs";
 
 export const metadata: Metadata = {
-  title: "Custom Clothing & Sportswear Manufacturer For UK Brands | Gloves Storm",
+  title: "Custom Apparel Manufacturer For UK Brands",
   description:
-    "OEM custom clothing and sportswear manufacturer supplying UK brands, athletic teams and streetwear labels. Custom private label, low MOQ from 35 pcs. DDP shipping to UK. 5-7 day samples. Free quote.",
+    "Direct OEM apparel factory supplying UK clothing brands, sports clubs, and labels. Low MOQ 30 pcs, 5–7 day sample dispatch, and door-to-door DDP delivery.",
   alternates: {
     canonical: "https://www.glovesstorm.com/manufacturers-uk",
   },
   openGraph: {
-    title: "Custom Clothing & Sportswear Manufacturer For UK Brands | Gloves Storm",
+    title: "Custom Apparel Manufacturer For UK Brands | Gloves Storm",
     description:
-      "OEM custom clothing and sportswear manufacturer supplying UK brands, athletic teams and streetwear labels. Custom private label, low MOQ from 35 pcs. DDP shipping to UK.",
+      "Direct OEM apparel factory supplying UK clothing brands, sports clubs, and labels. Low MOQ 30 pcs, 5–7 day sample dispatch, and door-to-door DDP delivery.",
     url: "https://www.glovesstorm.com/manufacturers-uk",
     siteName: "Gloves Storm",
     type: "website",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Clothing & Sportswear Manufacturer For UK Brands | Gloves Storm",
+    title: "Custom Apparel Manufacturer For UK Brands | Gloves Storm",
     description:
-      "OEM clothing and sportswear manufacturer supplying UK brands, athletic clubs and labels. DDP shipping, low MOQ, GBP billing.",
+      "Direct OEM apparel factory supplying UK clothing brands, sports clubs, and labels. Low MOQ 30 pcs, 5–7 day sample dispatch, and door-to-door DDP delivery.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };

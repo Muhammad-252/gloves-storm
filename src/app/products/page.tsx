@@ -5,16 +5,16 @@ export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export const metadata: Metadata = {
-  title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
+  title: "Custom Sportswear & Apparel Catalog",
   description:
-    "Explore custom apparel specifications: team sportswear, athletic uniforms, gym activewear, hoodies, and streetwear. Direct factory private label apparel manufacturing & global export.",
+    "Explore custom apparel specs: team sportswear, uniforms, gym activewear, hoodies, and streetwear. Direct factory private label manufacturing with low MOQ.",
   alternates: {
     canonical: "https://www.glovesstorm.com/products",
   },
   openGraph: {
-    title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
+    title: "Custom Sportswear & Apparel Catalog | Gloves Storm",
     description:
-      "Explore custom apparel specifications: team sportswear, athletic uniforms, gym activewear, hoodies, and streetwear. Direct factory private label apparel manufacturing & global export.",
+      "Explore custom apparel specs: team sportswear, uniforms, gym activewear, hoodies, and streetwear. Direct factory private label manufacturing with low MOQ.",
     url: "https://www.glovesstorm.com/products",
     siteName: "Gloves Storm",
     images: [
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Clothing & Sportswear Catalog — OEM Manufacturer & Exporter | Gloves Storm",
+    title: "Custom Sportswear & Apparel Catalog | Gloves Storm",
     description:
-      "Explore custom OEM and private label apparel, team sportswear, gym activewear, and streetwear manufactured and exported worldwide.",
+      "Explore custom apparel specs: team sportswear, uniforms, gym activewear, hoodies, and streetwear. Direct factory private label manufacturing with low MOQ.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };

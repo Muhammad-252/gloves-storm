@@ -3,16 +3,16 @@ import { ShieldCheck, Lock, FileText, CheckCircle, Mail, MapPin, ArrowUpRight } 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy & Data Protection Policy | Gloves Storm",
+  title: "Privacy & Intellectual Property Policy",
   description:
-    "Gloves Storm privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+    "Read our privacy and IP confidentiality policy for manufacturing partners, proprietary tech pack submissions, and custom B2B apparel production clients.",
   alternates: {
     canonical: "https://www.glovesstorm.com/privacy",
   },
   openGraph: {
-    title: "Privacy & Data Protection Policy | Gloves Storm",
+    title: "Privacy & Intellectual Property Policy | Gloves Storm",
     description:
-      "Gloves Storm privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+      "Read our privacy and IP confidentiality policy for manufacturing partners, proprietary tech pack submissions, and custom B2B apparel production clients.",
     url: "https://www.glovesstorm.com/privacy",
     siteName: "Gloves Storm",
     type: "website",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Privacy & Data Protection Policy | Gloves Storm",
+    title: "Privacy & Intellectual Property Policy | Gloves Storm",
     description:
-      "Gloves Storm privacy, data protection, and IP confidentiality policy for international manufacturing partners, tech pack submissions, and custom B2B production.",
+      "Read our privacy and IP confidentiality policy for manufacturing partners, proprietary tech pack submissions, and custom B2B apparel production clients.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };

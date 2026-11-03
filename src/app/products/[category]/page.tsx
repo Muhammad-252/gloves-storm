@@ -48,11 +48,10 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   }
 
   const intel = CATEGORY_INTEL[slug];
-  const title = toTitleCase(intel?.metaTitle || `Custom ${cat.name} Manufacturer & OEM Factory | Gloves Storm`);
+  const title = intel?.metaTitle || `Custom ${cat.name} OEM Factory`;
   const description =
     intel?.metaDescription ||
-    cat.description ||
-    `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan. Custom sublimation teamwear, activewear, and private label apparel.`;
+    `Direct factory OEM manufacturing for custom ${cat.name} in Sialkot, Pakistan. Sublimation teamwear, activewear, low MOQ 30 pcs, and door-to-door DDP freight.`;
 
   return {
     title,
@@ -61,7 +60,7 @@ export async function generateMetadata({ params }: CategoryPageProps) {
       canonical: `https://www.glovesstorm.com/products/${slug}`,
     },
     openGraph: {
-      title,
+      title: `${title} | Gloves Storm`,
       description,
       url: `https://www.glovesstorm.com/products/${slug}`,
       siteName: "Gloves Storm",
@@ -76,8 +75,8 @@ export async function generateMetadata({ params }: CategoryPageProps) {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description: cat.description || `Custom ${cat.name} OEM manufacturing in Sialkot, Pakistan.`,
+      title: `${title} | Gloves Storm`,
+      description,
       images: [cat.image_url || "/images/products/varsity-jacket.jpg"],
     },
   };

@@ -6,16 +6,16 @@ import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Get A Free Manufacturing Quote | Gloves Storm",
+  title: "Get Custom Apparel Manufacturing Quote",
   description:
-    "Request a free custom manufacturing quote from Gloves Storm. Custom sportswear, team uniforms, gym wear, streetwear, and private label clothing. Low MOQ from 30 pcs, 7-day samples, DDP shipping to USA & UK.",
+    "Request a free custom clothing & sportswear manufacturing quote. Low MOQ 30 pieces per style, 5–7 day sample delivery, and fast DDP shipping to USA and UK.",
   alternates: {
     canonical: "https://www.glovesstorm.com/contact",
   },
   openGraph: {
-    title: "Get A Custom Clothing & Sportswear Manufacturing Quote | Gloves Storm",
+    title: "Get Custom Apparel Manufacturing Quote | Gloves Storm",
     description:
-      "Request a free OEM apparel manufacturing quote from Gloves Storm. Custom clothing, sportswear, activewear, streetwear, and private label garments. MOQ 35–50 pcs. Reply within 24 hours. USA, UK, and worldwide export.",
+      "Request a free custom clothing & sportswear manufacturing quote. Low MOQ 30 pieces per style, 5–7 day sample delivery, and fast DDP shipping to USA and UK.",
     url: "https://www.glovesstorm.com/contact",
     siteName: "Gloves Storm",
     type: "website",
@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Get A Custom Clothing & Sportswear Manufacturing Quote | Gloves Storm",
+    title: "Get Custom Apparel Manufacturing Quote | Gloves Storm",
     description:
-      "Request a free OEM apparel manufacturing quote from Gloves Storm. Custom clothing, sportswear, activewear, streetwear, and private label garments. MOQ 35–50 pcs. Reply within 24 hours.",
+      "Request a free custom clothing & sportswear manufacturing quote. Low MOQ 30 pieces per style, 5–7 day sample delivery, and fast DDP shipping to USA and UK.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };

@@ -28,11 +28,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.glovesstorm.com"),
   title: {
-    default: "Gloves Storm | Custom Clothing & Sportswear Manufacturer — International Exporter",
-    template: "%s | Gloves Storm — Custom Apparel Manufacturer & Exporter",
+    default: "Custom Sportswear Manufacturer, Low MOQ | Gloves Storm",
+    template: "%s | Gloves Storm",
   },
   description:
-    "International OEM/ODM manufacturer and exporter of custom clothing, sportswear, activewear, and private label apparel. Serving brands across the USA, UK, Europe, and worldwide. Low MOQ, 7-day sampling, door-to-door DDP export delivery.",
+    "Direct OEM apparel factory in Sialkot, Pakistan. Custom sportswear, team uniforms, gym wear, and hoodies. Low MOQ 30 pcs, 5–7 day samples, DDP shipping.",
   keywords: [
     "custom clothing manufacturer",
     "custom sportswear manufacturer",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.glovesstorm.com",
     siteName: "Gloves Storm",
-    title: "Gloves Storm | Custom Clothing & Sportswear Manufacturer & Exporter",
+    title: "Custom Sportswear Manufacturer, Low MOQ | Gloves Storm",
     description:
-      "Professional international OEM/ODM manufacturer and exporter of custom clothing, sportswear, fitness apparel, and private label collections. Low MOQ, rapid prototyping, global DDP delivery.",
+      "Direct OEM apparel factory in Sialkot, Pakistan. Custom sportswear, team uniforms, gym wear, and hoodies. Low MOQ 30 pcs, 5–7 day samples, DDP shipping.",
     images: [
       {
         url: "https://www.glovesstorm.com/images/og-default.jpg",
@@ -83,9 +83,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gloves Storm | Custom Clothing & Sportswear Manufacturer & Exporter",
+    title: "Custom Sportswear Manufacturer, Low MOQ | Gloves Storm",
     description:
-      "International OEM manufacturer & exporter of custom clothing, team sportswear, activewear, and private label apparel. Serving USA, UK, and global brands.",
+      "Direct OEM apparel factory in Sialkot, Pakistan. Custom sportswear, team uniforms, gym wear, and hoodies. Low MOQ 30 pcs, 5–7 day samples, DDP shipping.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
   alternates: {

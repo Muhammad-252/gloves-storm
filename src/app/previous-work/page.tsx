@@ -3,16 +3,16 @@ import { getProjects, getCategories } from "@/lib/data/store";
 import PreviousWorkClient from "@/components/previous-work/PreviousWorkClient";
 
 export const metadata: Metadata = {
-  title: "Previous Work & Portfolio — Custom Clothing & Sportswear | Gloves Storm",
+  title: "Custom Apparel Production Portfolio",
   description:
-    "Browse completed production orders from Gloves Storm — custom sportswear, teamwear uniforms, activewear, heavyweight hoodies, and private label apparel manufactured for USA, UK, and international brands.",
+    "Browse real production runs from Gloves Storm: custom sportswear, gym wear, hoodies, and private label apparel made for international clothing brands.",
   alternates: {
     canonical: "https://www.glovesstorm.com/previous-work",
   },
   openGraph: {
-    title: "Previous Work & Portfolio — Custom Clothing & Sportswear | Gloves Storm",
+    title: "Custom Apparel Production Portfolio | Gloves Storm",
     description:
-      "Browse completed production orders from Gloves Storm — custom sportswear, teamwear uniforms, activewear, heavyweight hoodies, and private label apparel manufactured for USA, UK, and international brands.",
+      "Browse real production runs from Gloves Storm: custom sportswear, gym wear, hoodies, and private label apparel made for international clothing brands.",
     url: "https://www.glovesstorm.com/previous-work",
     siteName: "Gloves Storm",
     type: "website",
@@ -27,9 +27,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Previous Work & Portfolio — Custom Clothing & Sportswear | Gloves Storm",
+    title: "Custom Apparel Production Portfolio | Gloves Storm",
     description:
-      "Inspect real factory production runs, precision stitching close-ups, and export dispatches direct from our Sialkot manufacturing plant.",
+      "Browse real production runs from Gloves Storm: custom sportswear, gym wear, hoodies, and private label apparel made for international clothing brands.",
     images: ["https://www.glovesstorm.com/images/og-default.jpg"],
   },
 };
