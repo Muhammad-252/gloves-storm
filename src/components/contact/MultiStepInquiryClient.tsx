@@ -31,8 +31,43 @@ import InquirySuccessScreen from "./InquirySuccessScreen";
 
 interface MultiStepInquiryClientProps {
   categories: Category[];
-  products: Product[];
+  products?: Product[];
 }
+
+const DEFAULT_MODELS_BY_CATEGORY: Record<string, Array<{ id: string; name: string; moq: number; lead_time: string }>> = {
+  "sportswear-teamwear": [
+    { id: "st-1", name: "Pro Sublimated Team Kit", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "st-2", name: "Custom Soccer Jersey & Shorts", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "st-3", name: "Athletic Warmup Tracksuit", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "st-4", name: "Basketball Uniform Kit", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "st-5", name: "American Football Jersey", moq: 25, lead_time: "3-4 Weeks" },
+    { id: "st-6", name: "Custom Sportswear Prototype (Tech Pack)", moq: 30, lead_time: "5-7 Days Sample" },
+  ],
+  "gym-fitness-wear": [
+    { id: "gf-1", name: "Seamless High-Waisted Leggings", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "gf-2", name: "Seamless Compression Sports Bra", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "gf-3", name: "Men's Performance Stringer Tank", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "gf-4", name: "4-Way Stretch Training Shorts", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "gf-5", name: "Compression Rash Guard & Spats", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "gf-6", name: "Custom Gym Activewear (Tech Pack)", moq: 30, lead_time: "5-7 Days Sample" },
+  ],
+  "clothing-streetwear": [
+    { id: "cs-1", name: "Heavyweight 450 GSM French Terry Hoodie", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "cs-2", name: "Heavyweight 500 GSM Boxy Zip Hoodie", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "cs-3", name: "Oversized Drop-Shoulder Graphic Tee", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "cs-4", name: "Heavyweight 400 GSM Loopback Joggers", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "cs-5", name: "24oz Melton Wool & Leather Varsity Jacket", moq: 30, lead_time: "3-4 Weeks" },
+    { id: "cs-6", name: "Custom Streetwear Silhouette (Tech Pack)", moq: 30, lead_time: "5-7 Days Sample" },
+  ],
+  "custom-manufacturing-private-label": [
+    { id: "pl-1", name: "Full Turnkey Private Label Capsule", moq: 30, lead_time: "3-4 Weeks" },
+    { id: "pl-2", name: "Custom Cut & Sew Pre-Production Sample", moq: 30, lead_time: "5-7 Days Sample" },
+    { id: "pl-3", name: "Bespoke CAD Pattern Grading & Tech Pack", moq: 30, lead_time: "2-3 Days" },
+    { id: "pl-4", name: "Custom Milled Fabric & Pantone Dye Run", moq: 100, lead_time: "3-4 Weeks" },
+    { id: "pl-5", name: "Retail-Ready Packaging & Trims Production", moq: 30, lead_time: "2-3 Weeks" },
+    { id: "pl-6", name: "Custom Private Label Line (Tech Pack)", moq: 30, lead_time: "5-7 Days Sample" },
+  ],
+};
 
 const CATEGORY_CARDS = [
   { id: "sportswear", name: "Sportswear & Teamwear", desc: "Sublimated match kits, training shirts, rugby jerseys, shorts, tracksuits", icon: "⚽" },
@@ -76,7 +111,7 @@ const BUSINESS_TYPES = [
 
 export default function MultiStepInquiryClient({
   categories,
-  products,
+  products = [],
 }: MultiStepInquiryClientProps) {
   const searchParams = useSearchParams();
 
@@ -202,11 +237,15 @@ export default function MultiStepInquiryClient({
       } else {
         const prodParam = searchParams.get("product");
         if (prodParam) {
-          const found = products.find((p) => p.slug === prodParam || p.id === prodParam);
+          const found = products?.find((p) => p.slug === prodParam || p.id === prodParam);
           if (found) {
             setSelectedProduct(found.name);
             const cat = categories.find((c) => c.id === found.category_id);
             if (cat) setSelectedCategory(cat.name);
+            setCurrentStep(3);
+          } else {
+            const humanized = prodParam.replace(/-/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
+            setSelectedProduct(humanized);
             setCurrentStep(3);
           }
         }
@@ -427,43 +466,54 @@ export default function MultiStepInquiryClient({
             />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-h-[380px] overflow-y-auto pr-1">
-              {products
-                .filter((p) =>
-                  searchFilter
-                    ? p.name.toLowerCase().includes(searchFilter.toLowerCase())
-                    : true
-                )
-                .map((prod) => {
-                  const isSelected = selectedProduct === prod.name;
-                  return (
-                    <button
-                      key={prod.id}
-                      type="button"
-                      onClick={() => setSelectedProduct(prod.name)}
-                      className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${isSelected
-                          ? "border-black bg-white ring-2 ring-[#FFB900]"
-                          : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
-                        }`}
-                    >
-                      <div>
-                        <span className="text-xs font-bold text-[#0f172a] block mb-0.5">
-                          {prod.name}
-                        </span>
-                        <span className="text-[10px] font-mono text-neutral-500">
-                          MOQ: {prod.moq} Units • {prod.lead_time || "2-4 Weeks"}
-                        </span>
-                      </div>
-                      <span
-                        className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${isSelected
-                            ? "border-[#FFB900] bg-[#FFB900] text-black"
-                            : "border-neutral-300"
+              {(() => {
+                const matchedCategory = categories.find(
+                  (c) => c.name.toLowerCase() === selectedCategory.toLowerCase()
+                );
+                const categoryKey = matchedCategory?.slug || "sportswear-teamwear";
+                const fallbackModels = DEFAULT_MODELS_BY_CATEGORY[categoryKey] || Object.values(DEFAULT_MODELS_BY_CATEGORY).flat();
+                const availableModels = (products && products.length > 0)
+                  ? products.map((p) => ({ id: p.id, name: p.name, moq: p.moq, lead_time: p.lead_time || "2-4 Weeks" }))
+                  : fallbackModels;
+
+                return availableModels
+                  .filter((p) =>
+                    searchFilter
+                      ? p.name.toLowerCase().includes(searchFilter.toLowerCase())
+                      : true
+                  )
+                  .map((prod) => {
+                    const isSelected = selectedProduct === prod.name;
+                    return (
+                      <button
+                        key={prod.id}
+                        type="button"
+                        onClick={() => setSelectedProduct(prod.name)}
+                        className={`p-4 rounded-2xl border text-left transition-all flex items-center justify-between gap-3 ${isSelected
+                            ? "border-black bg-white ring-2 ring-[#FFB900]"
+                            : "border-neutral-200 bg-neutral-50/60 hover:border-neutral-300"
                           }`}
                       >
-                        {isSelected && <Check className="w-3 h-3" />}
-                      </span>
-                    </button>
-                  );
-                })}
+                        <div>
+                          <span className="text-xs font-bold text-[#0f172a] block mb-0.5">
+                            {prod.name}
+                          </span>
+                          <span className="text-[10px] font-mono text-neutral-500">
+                            MOQ: {prod.moq} Units • {prod.lead_time || "2-4 Weeks"}
+                          </span>
+                        </div>
+                        <span
+                          className={`w-5 h-5 rounded-full border shrink-0 flex items-center justify-center transition-all ${isSelected
+                              ? "border-[#FFB900] bg-[#FFB900] text-black"
+                              : "border-neutral-300"
+                            }`}
+                        >
+                          {isSelected && <Check className="w-3 h-3" />}
+                        </span>
+                      </button>
+                    );
+                  });
+              })()}
 
               {/* Custom Model Option */}
               <button

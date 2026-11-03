@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import MultiStepInquiryClient from "@/components/contact/MultiStepInquiryClient";
-import { getCategories, getProducts } from "@/lib/data/store";
+import { getCategories } from "@/lib/data/store";
 import { Mail, Phone, MapPin, Globe, ShieldCheck, Clock, MessageSquare, Loader2 } from "lucide-react";
 import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
 import type { Metadata } from "next";
@@ -38,10 +38,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const [categories, products] = await Promise.all([
-    getCategories(),
-    getProducts(),
-  ]);
+  const categories = await getCategories();
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -117,7 +114,7 @@ export default async function ContactPage() {
               </div>
             }
           >
-            <MultiStepInquiryClient categories={categories} products={products} />
+            <MultiStepInquiryClient categories={categories} />
           </Suspense>
         </div>
 

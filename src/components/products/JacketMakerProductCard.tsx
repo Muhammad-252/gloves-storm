@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product, Category } from "@/types/database";
-import { Star, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { getProductFabricTag } from "@/lib/products";
 
 interface JacketMakerProductCardProps {
@@ -44,9 +44,7 @@ export default function JacketMakerProductCard({
     (typeof secondImgObj === "object" && secondImgObj?.alt_text) ||
     `${product.name} - Detailed Craftsmanship Angle (GLOVES STORM)`;
 
-  // Deterministic mock reviews based on product ID to mirror The Jacket Maker's social proof
-  const reviewCount = Math.floor(((product.name.length * 17) % 80) + 42);
-  const rating = 4.9;
+
 
   // Approximate starting sample or wholesale reference
   const basePrice = Math.max(22, 20 + ((product.name.length * 3) % 25));
@@ -116,23 +114,7 @@ export default function JacketMakerProductCard({
           </div>
         </Link>
 
-        {/* 2. Star Ratings & Review Count */}
-        <div className="flex items-center gap-1.5 mb-1 px-1">
-          <div className="flex items-center text-[#FFB900]">
-            {[...Array(5)].map((_, i) => (
-              <Star
-                key={i}
-                className="w-3 h-3 fill-[#FFB900] text-[#FFB900]"
-              />
-            ))}
-          </div>
-          <span className="text-[11px] font-medium text-neutral-900">
-            {rating}
-          </span>
-          <span className="text-[11px] text-neutral-400">
-            ({reviewCount})
-          </span>
-        </div>
+
 
         {/* 3. Product Title & Category */}
         <div className="px-1 mb-2">

@@ -1,4 +1,3 @@
-"use client";
 
 import React from "react";
 import { ShieldCheck, CheckCircle2, Factory, Clock, Award, Globe, Truck } from "lucide-react";

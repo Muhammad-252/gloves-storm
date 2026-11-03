@@ -29,6 +29,9 @@ interface ProductCatalogClientProps {
   categories: Category[];
   currentCategorySlug?: string;
   selectedCategorySlug?: string;
+  currentPage?: number;
+  totalPages?: number;
+  totalProductsCount?: number;
 }
 
 const COLOR_FILTERS = [
@@ -47,6 +50,9 @@ export default function ProductCatalogClient({
   categories,
   currentCategorySlug,
   selectedCategorySlug,
+  currentPage = 1,
+  totalPages = 1,
+  totalProductsCount,
 }: ProductCatalogClientProps) {
   const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
   const [liveProducts, setLiveProducts] = useState<Product[]>(initialProducts);
@@ -281,7 +287,7 @@ export default function ProductCatalogClient({
                 : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900"
             }`}
           >
-            All Products ({initialProducts.length})
+            All Products ({totalProductsCount || initialProducts.length})
           </button>
           {liveCategories.map((cat) => {
             const count = initialProducts.filter((p) => p.category_id === cat.id).length;
@@ -750,6 +756,44 @@ export default function ProductCatalogClient({
                 </table>
               </div>
             </div>
+          )}
+
+          {/* Crawlable Pagination Controls */}
+          {totalPages > 1 && (
+            <nav
+              aria-label="Product Catalog Pagination"
+              className="flex items-center justify-center gap-2 pt-10 pb-4"
+            >
+              {currentPage > 1 && (
+                <Link
+                  href={`/products?page=${currentPage - 1}`}
+                  className="px-4 py-2 rounded-xl border border-neutral-200 bg-white text-xs font-bold text-neutral-800 hover:border-neutral-900 transition-colors shadow-2xs"
+                >
+                  Previous
+                </Link>
+              )}
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                <Link
+                  key={pageNum}
+                  href={`/products?page=${pageNum}`}
+                  className={`w-9 h-9 rounded-xl flex items-center justify-center text-xs font-bold transition-all ${
+                    pageNum === currentPage
+                      ? "bg-[#FFB900] text-black font-extrabold shadow-xs"
+                      : "border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-900"
+                  }`}
+                >
+                  {pageNum}
+                </Link>
+              ))}
+              {currentPage < totalPages && (
+                <Link
+                  href={`/products?page=${currentPage + 1}`}
+                  className="px-4 py-2 rounded-xl border border-neutral-200 bg-white text-xs font-bold text-neutral-800 hover:border-neutral-900 transition-colors shadow-2xs"
+                >
+                  Next
+                </Link>
+              )}
+            </nav>
           )}
         </div>
       </div>

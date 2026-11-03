@@ -1,4 +1,5 @@
 import { getCategories, getProducts } from "@/lib/data/store";
+import { projectProductCard } from "@/lib/products";
 import ProductCatalogClient from "@/components/products/ProductCatalogClient";
 import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
@@ -69,11 +70,25 @@ const itemListSchema = {
   ],
 };
 
-export default async function ProductsPage() {
-  const [categories, products] = await Promise.all([
+interface ProductsPageProps {
+  searchParams?: Promise<{ page?: string }>;
+}
+
+export default async function ProductsPage({ searchParams }: ProductsPageProps) {
+  const resolvedParams = searchParams ? await searchParams : {};
+  const currentPage = Math.max(1, parseInt(resolvedParams.page || "1", 10) || 1);
+  const pageSize = 20;
+
+  const [categories, allProducts] = await Promise.all([
     getCategories(),
     getProducts(),
   ]);
+
+  const totalProducts = allProducts.length;
+  const totalPages = Math.ceil(totalProducts / pageSize);
+  const startIndex = (currentPage - 1) * pageSize;
+  const paginatedSlice = allProducts.slice(startIndex, startIndex + pageSize);
+  const projectedProducts = paginatedSlice.map(projectProductCard);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -125,7 +140,13 @@ export default async function ProductsPage() {
         </div>
 
         {/* Client Product Explorer with Deep Filtering */}
-        <ProductCatalogClient initialProducts={products} categories={categories} />
+        <ProductCatalogClient
+          initialProducts={projectedProducts}
+          categories={categories}
+          currentPage={currentPage}
+          totalPages={totalPages}
+          totalProductsCount={totalProducts}
+        />
       </div>
     </div>
   );

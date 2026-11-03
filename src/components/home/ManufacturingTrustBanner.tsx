@@ -1,4 +1,3 @@
-"use client";
 
 import { ShieldCheck, Cpu, Box, Clock, Truck, Award } from "lucide-react";
 import { BUSINESS_CONFIG } from "@/lib/business";

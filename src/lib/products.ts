@@ -141,3 +141,60 @@ export function getProductFabricTag(product: {
 
   return null;
 }
+
+/**
+ * Strips heavy unneeded properties (full long markdown descriptions, SEO metadata,
+ * internal specs, and extra gallery images) to produce a lightweight card projection.
+ * This drastically reduces RSC payload size when passing products to client components.
+ */
+export function projectProductCard(p: Product): Product {
+  return {
+    id: p.id,
+    name: p.name,
+    slug: p.slug,
+    category_id: p.category_id,
+    short_description:
+      p.short_description ||
+      (typeof p.description === "string" ? p.description.slice(0, 160) : null),
+    description:
+      typeof p.description === "string" ? p.description.slice(0, 160) : null,
+    materials: p.materials,
+    features: Array.isArray(p.features)
+      ? p.features.slice(0, 3)
+      : typeof p.features === "string"
+      ? p.features.slice(0, 120)
+      : null,
+    customization_options: null,
+    moq: p.moq,
+    lead_time: p.lead_time,
+    featured: Boolean(p.featured),
+    is_active: p.is_active,
+    seo_title: null,
+    seo_description: null,
+    created_at: p.created_at || "",
+    updated_at: "",
+    images: (p.images || []).slice(0, 2).map((img, i) => ({
+      id: img.id || `${p.id}-${i}`,
+      product_id: p.id,
+      image_url: img.image_url,
+      alt_text: img.alt_text,
+      sort_order: img.sort_order || i,
+      is_primary: Boolean(img.is_primary),
+      created_at: "",
+    })),
+    category: p.category
+      ? {
+          id: p.category.id,
+          name: p.category.name,
+          slug: p.category.slug,
+          description: null,
+          image_url: null,
+          parent_id: null,
+          sort_order: 0,
+          is_active: true,
+          created_at: "",
+          updated_at: "",
+        }
+      : undefined,
+  };
+}

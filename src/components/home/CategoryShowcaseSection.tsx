@@ -429,7 +429,7 @@ export default function CategoryShowcaseSection({
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProducts.slice(0, 12).map((product) => {
+            {filteredProducts.slice(0, 6).map((product) => {
               const primaryImg =
                 product.images?.find((img) => img.is_primary)?.image_url ||
                 product.images?.[0]?.image_url ||

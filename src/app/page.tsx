@@ -14,6 +14,7 @@ import GlobalReachSection from "@/components/home/GlobalReachSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
 import type { Metadata } from "next";
+import { projectProductCard } from "@/lib/products";
 import {
   getCategories,
   getProducts,
@@ -127,7 +128,10 @@ export default async function HomePage() {
       <CategoryGridSection categories={categories} />
 
       {/* 04 — DIFFERENT CATEGORIES PRODUCTS SHOWCASE */}
-      <CategoryShowcaseSection products={products} categories={categories} />
+      <CategoryShowcaseSection
+        products={products.slice(0, 6).map(projectProductCard)}
+        categories={categories}
+      />
 
       {/* 05 — PREMIUM OEM & PRIVATE LABEL BRANDING BANNER */}
       <OemManufacturingBanner />
