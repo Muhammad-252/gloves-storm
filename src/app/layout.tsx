@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import Script from "next/script";
+import { BUSINESS_CONFIG } from "@/lib/business";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -116,7 +117,8 @@ const organizationSchema = {
     {
       "@type": ["Organization", "LocalBusiness"],
       "@id": "https://www.glovesstorm.com/#organization",
-      name: "Gloves Storm",
+      name: BUSINESS_CONFIG.name,
+      legalName: BUSINESS_CONFIG.legalName,
       url: "https://www.glovesstorm.com",
       logo: {
         "@type": "ImageObject",
@@ -125,13 +127,13 @@ const organizationSchema = {
         contentUrl: "https://www.glovesstorm.com/images/logo.png",
         width: 1024,
         height: 1024,
-        caption: "Gloves Storm",
+        caption: BUSINESS_CONFIG.name,
       },
       image: "https://www.glovesstorm.com/images/logo.png",
       description:
         "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, streetwear, and team uniforms. Direct factory manufacturing facility with global export corridors to the USA, UK, EU, and worldwide.",
-      telephone: "+92-341-7146935",
-      email: "glovesstorm@gmail.com",
+      telephone: BUSINESS_CONFIG.phone,
+      email: BUSINESS_CONFIG.email,
       priceRange: "$$",
       currenciesAccepted: "USD, EUR, GBP, AUD, CAD",
       paymentAccepted: "Wire Transfer, Bank Transfer, L/C, Western Union",
@@ -147,18 +149,18 @@ const organizationSchema = {
       ],
       address: {
         "@type": "PostalAddress",
-        streetAddress: "Industrial Estate",
-        addressLocality: "Sialkot",
-        addressRegion: "Punjab",
-        postalCode: "51310",
-        addressCountry: "PK",
+        streetAddress: BUSINESS_CONFIG.address.street,
+        addressLocality: BUSINESS_CONFIG.address.city,
+        addressRegion: BUSINESS_CONFIG.address.region,
+        postalCode: BUSINESS_CONFIG.address.postalCode,
+        addressCountry: BUSINESS_CONFIG.address.country,
       },
       geo: {
         "@type": "GeoCoordinates",
         latitude: "32.4945",
         longitude: "74.5229",
       },
-      hasMap: "https://maps.google.com/?q=Sialkot+Industrial+Estate",
+      hasMap: BUSINESS_CONFIG.address.mapUrl,
       openingHoursSpecification: [
         {
           "@type": "OpeningHoursSpecification",
@@ -170,14 +172,14 @@ const organizationSchema = {
             "Friday",
             "Saturday",
           ],
-          opens: "08:00",
-          closes: "18:00",
+          opens: BUSINESS_CONFIG.operatingHours.opens,
+          closes: BUSINESS_CONFIG.operatingHours.closes,
         },
       ],
       sameAs: [
-        "https://www.instagram.com/glovesstorm/",
-        "https://www.linkedin.com/company/gloves-storm/",
-        "https://facebook.com/glovesstorm",
+        BUSINESS_CONFIG.social.instagram,
+        BUSINESS_CONFIG.social.linkedin,
+        BUSINESS_CONFIG.social.facebook,
       ],
       hasOfferCatalog: {
         "@type": "OfferCatalog",

@@ -55,50 +55,6 @@ export const metadata: Metadata = {
 
 export const revalidate = 300; // ISR cache revalidation (5 mins) for sub-50ms TTFB
 
-const homeOrgSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Gloves Storm",
-  url: "https://www.glovesstorm.com",
-  logo: "https://www.glovesstorm.com/images/logo.png",
-  description:
-    "International OEM and private label manufacturer and exporter of custom clothing, sportswear, activewear, streetwear, and team uniforms. Direct factory export to USA, UK, and worldwide.",
-  foundingDate: "2019",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Industrial Estate",
-    addressLocality: "Sialkot",
-    addressRegion: "Punjab",
-    postalCode: "51310",
-    addressCountry: "PK",
-  },
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: "+92-341-7146935",
-      contactType: "sales",
-      availableLanguage: "English",
-      areaServed: ["US", "GB", "EU", "CA", "AU", "Worldwide"],
-    },
-  ],
-  email: "glovesstorm@gmail.com",
-  sameAs: [
-    "https://www.instagram.com/glovesstorm/",
-    "https://www.linkedin.com/company/gloves-storm/",
-  ],
-  knowsAbout: [
-    "Custom Clothing Manufacturing",
-    "Custom Sportswear Manufacturing",
-    "Clothing Manufacturing",
-    "Sportswear Manufacturing",
-    "Private Label Clothing",
-    "Apparel Exports",
-    "Cut and Sew Apparel",
-    "Sublimation Teamwear",
-    "Activewear Manufacturing",
-  ],
-};
-
 const homeFaqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -156,10 +112,6 @@ export default async function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-transparent">
       {/* Homepage JSON-LD Schema markup for Google & AI Platforms */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(homeOrgSchema) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }}
