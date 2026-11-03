@@ -188,17 +188,16 @@ const nextConfig: NextConfig = {
         destination: "/products",
         permanent: true,
       },
-    ];
-  },
-  async rewrites() {
-    return [
+      // Blog permanent redirects to journal
       {
         source: "/blog",
         destination: "/journal",
+        permanent: true,
       },
       {
         source: "/blog/:slug*",
         destination: "/journal/:slug*",
+        permanent: true,
       },
     ];
   },
