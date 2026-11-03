@@ -81,7 +81,7 @@ export default function GlobalReachSection() {
             </div>
 
             {/* Direct Factory Link */}
-            <div className="pt-2">
+            <div className="pt-2 space-y-3">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-[#1A1A1A] hover:bg-[#FFB900] text-white hover:text-black px-5 sm:px-6 py-3 rounded-full font-extrabold text-[11px] sm:text-xs uppercase tracking-wider shadow-sm transition-all w-full sm:w-auto text-center"
@@ -89,6 +89,30 @@ export default function GlobalReachSection() {
                 <span>Calculate Freight For Your Country</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
               </Link>
+
+              {/* Direct Export Corridors */}
+              <div className="pt-2">
+                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-1.5 font-bold">
+                  Dedicated Export Corridors:
+                </span>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-medium text-neutral-600">
+                  <Link href="/manufacturers-usa" className="hover:text-black underline underline-offset-2">USA</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-uk" className="hover:text-black underline underline-offset-2">UK</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-europe" className="hover:text-black underline underline-offset-2">Europe</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-germany" className="hover:text-black underline underline-offset-2">Germany</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-netherlands" className="hover:text-black underline underline-offset-2">Netherlands</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-france" className="hover:text-black underline underline-offset-2">France</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-nordics" className="hover:text-black underline underline-offset-2">Nordics</Link>
+                  <span>•</span>
+                  <Link href="/manufacturers-ireland" className="hover:text-black underline underline-offset-2">Ireland</Link>
+                </div>
+              </div>
             </div>
           </div>
 

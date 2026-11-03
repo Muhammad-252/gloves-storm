@@ -1,5 +1,6 @@
 
 import React from "react";
+import Link from "next/link";
 import { ShieldCheck, CheckCircle2, Factory, Clock, Award, Globe, Truck } from "lucide-react";
 
 export default function TestimonialsSection() {
@@ -10,6 +11,7 @@ export default function TestimonialsSection() {
       role: "Primary Export Market",
       desc: "Sports apparel brands, collegiate teams, Amazon FBA sellers & streetwear labels across California, Texas, Florida & New York.",
       speed: "3–5 Days Air DDP",
+      href: "/manufacturers-usa",
     },
     {
       flag: "🇬🇧",
@@ -17,6 +19,7 @@ export default function TestimonialsSection() {
       role: "Athletic Clubs & Teamwear",
       desc: "Premier sports academies, athletic clubs & sportswear brands in London, Manchester, Birmingham & Leeds.",
       speed: "3–5 Days Air Express",
+      href: "/manufacturers-uk",
     },
     {
       flag: "🇦🇺",
@@ -24,6 +27,7 @@ export default function TestimonialsSection() {
       role: "Fitness & Athleisure",
       desc: "Fitness studios, training gyms & outdoor activewear brands in Sydney, Melbourne, Brisbane & Perth.",
       speed: "5–7 Days Insured Air",
+      href: "/contact",
     },
     {
       flag: "🇩🇪",
@@ -31,6 +35,7 @@ export default function TestimonialsSection() {
       role: "Technical Sportswear",
       desc: "Performance fitness labels, athletic distributors & club sportswear across Berlin, Munich & Hamburg.",
       speed: "4–5 Days Air Cargo",
+      href: "/manufacturers-germany",
     },
     {
       flag: "🇫🇷",
@@ -38,6 +43,7 @@ export default function TestimonialsSection() {
       role: "Activewear & Streetwear",
       desc: "Sports clubs, training studios & bespoke luxury streetwear labels in Paris & Lyon.",
       speed: "4–5 Days Air Freight",
+      href: "/manufacturers-france",
     },
     {
       flag: "🇨🇦",
@@ -45,6 +51,7 @@ export default function TestimonialsSection() {
       role: "Gym & Outerwear",
       desc: "Athletic clubs, collegiate athletics & heavyweight fleece streetwear across Toronto, Vancouver & Montreal.",
       speed: "4–6 Days Door-to-Door",
+      href: "/contact",
     },
   ];
 
@@ -101,9 +108,10 @@ export default function TestimonialsSection() {
         {/* Flag Ticker / Regional Hub Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 mb-8 sm:mb-14">
           {regions.map((reg) => (
-            <div
+            <Link
               key={reg.country}
-              className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-black/30 hover:shadow-md transition-all group"
+              href={reg.href || "/contact"}
+              className="p-4 sm:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:border-black/30 hover:shadow-md transition-all group block"
             >
               <div className="flex items-center justify-between mb-2.5 sm:mb-3">
                 <div className="flex items-center gap-2 sm:gap-2.5">
@@ -126,7 +134,7 @@ export default function TestimonialsSection() {
               <p className="text-xs text-slate-600 leading-relaxed">
                 {reg.desc}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
 

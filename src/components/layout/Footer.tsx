@@ -17,8 +17,12 @@ const categories = [
 const exportMarkets = [
   { name: "USA Brand Manufacturing", href: "/manufacturers-usa" },
   { name: "UK Brand Manufacturing", href: "/manufacturers-uk" },
-  { name: "Worldwide DDP Air & Sea", href: "/about#export" },
-  { name: "Custom Tech Pack Prototyping", href: "/products/custom-manufacturing-private-label" },
+  { name: "Europe & EU Brands", href: "/manufacturers-europe" },
+  { name: "Germany (DE)", href: "/manufacturers-germany" },
+  { name: "Netherlands (NL)", href: "/manufacturers-netherlands" },
+  { name: "France (FR)", href: "/manufacturers-france" },
+  { name: "Nordic Region (SE/NO/DK)", href: "/manufacturers-nordics" },
+  { name: "Ireland (IE)", href: "/manufacturers-ireland" },
 ];
 
 const navigation = [

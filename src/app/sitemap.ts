@@ -39,6 +39,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Location-targeted landing pages (high commercial value)
     { url: `${baseUrl}/manufacturers-usa`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
     { url: `${baseUrl}/manufacturers-uk`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
+    { url: `${baseUrl}/manufacturers-europe`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
+    { url: `${baseUrl}/manufacturers-germany`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
+    { url: `${baseUrl}/manufacturers-netherlands`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
+    { url: `${baseUrl}/manufacturers-france`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
+    { url: `${baseUrl}/manufacturers-nordics`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
+    { url: `${baseUrl}/manufacturers-ireland`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
     // Legal / trust pages
     { url: `${baseUrl}/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
