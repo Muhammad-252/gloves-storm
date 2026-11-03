@@ -18,6 +18,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import QuoteModal from "@/components/ui/QuoteModal";
+import CaseStudyCard from "./CaseStudyCard";
+import { CASE_STUDIES } from "@/lib/data/caseStudies";
 
 interface PreviousWorkClientProps {
   initialProjects: Project[];
@@ -177,9 +179,13 @@ export default function PreviousWorkClient({
               All Work ({initialProjects.length})
             </button>
 
-            {categories.map((cat) => {
-              const count = initialProjects.filter((p) => p.category_id === cat.id).length;
-              return (
+            {categories
+              .map((cat) => {
+                const count = initialProjects.filter((p) => p.category_id === cat.id).length;
+                return { cat, count };
+              })
+              .filter(({ count }) => count > 0)
+              .map(({ cat, count }) => (
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategoryId(cat.id)}
@@ -191,8 +197,7 @@ export default function PreviousWorkClient({
                 >
                   {cat.name} ({count})
                 </button>
-              );
-            })}
+              ))}
           </div>
 
           {/* Work Cards Grid */}
@@ -300,6 +305,28 @@ export default function PreviousWorkClient({
               })}
             </div>
           )}
+        </section>
+
+        {/* Detailed Case Studies Section */}
+        <section className="space-y-6 pt-10 border-t border-slate-200/80">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono font-bold mb-2">
+              <Sparkles className="w-3.5 h-3.5 text-[#FFB900]" />
+              <span>DETAILED ORDER CASE STUDIES</span>
+            </div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900">
+              Manufacturing Case Studies &amp; Tech Pack Delivery
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-600 mt-1">
+              End-to-end breakdowns of custom apparel orders: from CAD pattern grading and pre-production sampling to final bulk delivery and QC inspection.
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            {CASE_STUDIES.map((caseStudy) => (
+              <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} />
+            ))}
+          </div>
         </section>
       </div>
 

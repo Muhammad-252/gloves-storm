@@ -1,18 +1,17 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Play, CheckCircle2, Heart } from "lucide-react";
+import { ArrowUpRight, Play, CheckCircle2 } from "lucide-react";
 import { InstagramIcon } from "../ui/SocialIcons";
 import GooeyButton from "../ui/GooeyButton";
 
 const PREVIEW_DROPS = [
   {
     id: "ig-01",
-    client: "Apex Athletics UK",
-    tag: "@apexathletics.uk",
+    client: "[TODO: Client Name — London Club]",
+    tag: "@glovesstorm",
     country: "London, UK",
     type: "Reel",
-    views: "54.8K",
-    likes: "3.1K",
+    badge: "Verified Production",
     title: "Pro Performance Sublimated Football Match Kits",
     desc: "Italian digital dye sublimation on moisture-wicking micro-mesh with reinforced flatlock stitching and 3D silicone club badges.",
     image: "/images/products/football-jersey-black.jpg",
@@ -20,11 +19,11 @@ const PREVIEW_DROPS = [
   },
   {
     id: "ig-02",
-    client: "Aura Apparel LA",
-    tag: "@aura.athletics",
+    client: "[TODO: Client Name — LA Label]",
+    tag: "@glovesstorm",
     country: "Los Angeles, USA",
     type: "Drop",
-    likes: "4.2K",
+    badge: "Heavyweight Fleece",
     title: "460 GSM Heavyweight French Terry Tracksuits",
     desc: "Bespoke acid mineral enzyme wash with 3D high-density silicone typography and double-stitched kangaroo pocket.",
     image: "/images/products/hoodie-black.png",
@@ -32,12 +31,11 @@ const PREVIEW_DROPS = [
   },
   {
     id: "ig-03",
-    client: "Vanquish Athletics",
-    tag: "@vanquishathletics",
+    client: "[TODO: Client Name — Melbourne Label]",
+    tag: "@glovesstorm",
     country: "Melbourne, Australia",
     type: "Reel",
-    views: "92.4K",
-    likes: "5.8K",
+    badge: "Custom Outerwear",
     title: "Custom Wool & Leather Varsity Jackets",
     desc: "24oz Melton wool body with genuine top-grain cowhide leather sleeves, chenille chain-stitch chest crests, and quilted satin lining.",
     image: "/images/products/varsity-jacket.jpg",
@@ -59,10 +57,10 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
               </span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
-              Previous work &amp; reels
+              Previous work &amp; production reels
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-xl mt-2 leading-relaxed">
-              Every production run manufactured at our Sialkot factory is documented live on our official Instagram feed. Inspect real client unboxings, embroidery close-ups, and teamwear deliveries.
+              Every production run manufactured at our Sialkot factory is documented live on our official Instagram feed. Inspect real unboxings, embroidery close-ups, and teamwear deliveries.
             </p>
           </div>
           <GooeyButton
@@ -71,7 +69,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
             size="sm"
             className="shrink-0 w-full sm:w-auto"
           >
-            <span>View Full Instagram Archive</span>
+            <span>View Full Production Archive</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </GooeyButton>
         </div>
@@ -104,12 +102,9 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
 
                   {/* Top Right: Instagram Badge / Reel Indicator */}
                   <div className="absolute top-3 right-3 sm:top-4 sm:right-4 flex items-center gap-1.5">
-                    {isReel && (
-                      <span className="bg-black/60 backdrop-blur-md text-white px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] font-mono flex items-center gap-1 border border-white/20">
-                        <Play className="w-2.5 h-2.5 fill-current text-white" />
-                        <span>{drop.views}</span>
-                      </span>
-                    )}
+                    <span className="bg-black/60 backdrop-blur-md text-white px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full text-[10px] font-mono flex items-center gap-1 border border-white/20">
+                      <span>{drop.badge}</span>
+                    </span>
                     <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-black shadow-sm border border-white/40">
                       <InstagramIcon className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
                     </span>
@@ -144,12 +139,12 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
 
                   <div className="border-t border-black/[0.06] pt-3 sm:pt-4 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-mono">
-                      <Heart className="w-3.5 h-3.5 text-neutral-400" />
-                      <span>{drop.likes} likes</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+                      <span>Direct Sialkot Run</span>
                     </div>
 
                     <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-black group-hover:text-[#FFB900] transition-colors inline-flex items-center gap-1">
-                      <span>Inspect On Reel</span>
+                      <span>View Archive</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>
                   </div>
