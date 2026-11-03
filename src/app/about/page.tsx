@@ -17,6 +17,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import type { Metadata } from "next";
+import CertificationsStrip from "@/components/trust/CertificationsStrip";
+import MeetTheTeamSection from "@/components/about/MeetTheTeamSection";
 
 export const metadata: Metadata = {
   title: "Custom Apparel Factory & OEM Sialkot",
@@ -311,6 +313,9 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        {/* Meet The Team (conditional placeholder) */}
+        <MeetTheTeamSection />
 
         {/* Bottom CTA */}
         <div className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-6">

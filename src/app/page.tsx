@@ -13,6 +13,8 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import GlobalReachSection from "@/components/home/GlobalReachSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
+import CertificationsStrip from "@/components/trust/CertificationsStrip";
+import VerifiedTestimonialsSection from "@/components/trust/VerifiedTestimonialsSection";
 import type { Metadata } from "next";
 import { projectProductCard } from "@/lib/products";
 import {
@@ -123,6 +125,7 @@ export default async function HomePage() {
 
       {/* 02 — B2B MANUFACTURING CREDENTIALS & TRUST TICKER */}
       <ManufacturingTrustBanner />
+      <CertificationsStrip />
 
       {/* 03 — BESPOKE MANUFACTURING DIVISIONS (CATEGORIES) */}
       <CategoryGridSection categories={categories} />
@@ -169,6 +172,7 @@ export default async function HomePage() {
       {/* 12 — TRUSTED BY BRANDS IN (OPTION B TRUST SIGNALS) */}
       <div className="content-auto">
         <TestimonialsSection />
+        <VerifiedTestimonialsSection />
       </div>
 
       {/* 13 — GLOBAL EXPORT REACH & 3D INTERACTIVE GLOBE / MAP */}
