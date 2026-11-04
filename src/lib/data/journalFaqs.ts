@@ -329,4 +329,52 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
         "Yes. We specialize in hybrid performance construction: full dye-sublimated jersey bodies paired with multi-layer zigzag tackle twill numbers, metallic embroidery, and custom embroidered varsity patches.",
     },
   ],
+
+  // Pakistan vs China Clothing Manufacturers
+  "pakistan-vs-china-clothing-manufacturer": [
+    {
+      question: "Is Pakistan cheaper than China for clothing manufacturing?",
+      answer:
+        "It depends on the product and where you sell. Compare landed cost: unit price plus freight and import duty. Cotton garments sold into the EU or UK often come out well from Pakistan because of trade preferences, while Section 301 tariffs raise the cost of many Chinese garments sold into the USA.",
+    },
+    {
+      question: "Do Pakistani clothing manufacturers accept small orders?",
+      answer:
+        "Many do. Sialkot factories are used to small teamwear runs. Gloves Storm starts at 30 pieces per style, split across sizes and colors.",
+    },
+    {
+      question: "What does Pakistan manufacture best?",
+      answer:
+        "Cotton fleece and jersey garments such as heavyweight hoodies and tees, sublimated team uniforms, and gym wear. China is usually stronger for complex technical outerwear and very large volumes.",
+    },
+    {
+      question: "How long does production take in Pakistan?",
+      answer:
+        "At Gloves Storm, samples take 5 to 7 working days and bulk production takes 12 to 18 working days after sample approval, followed by air freight to the USA, UK or EU.",
+    },
+  ],
+
+  // BJJ Rash Guard Manufacturer Guide
+  "bjj-rash-guard-manufacturer-guide": [
+    {
+      question: "What fabric is best for a BJJ rash guard?",
+      answer:
+        "Nylon-spandex, around 80/20 and about 200 GSM. Nylon resists abrasion better than polyester, and the spandex gives 4-way stretch with good recovery.",
+    },
+    {
+      question: "What is the minimum order for custom rash guards?",
+      answer:
+        "Gloves Storm makes custom rash guards from 30 pieces per design, with short and long sleeve available on the same MOQ.",
+    },
+    {
+      question: "Will the print crack or peel?",
+      answer:
+        "Not with dye-sublimation. The ink dyes the fibers instead of sitting on top, so designs stay sharp under repeated stretching and washing.",
+    },
+    {
+      question: "Can you make ranked rash guards for IBJJF competition?",
+      answer:
+        "Yes. We build the belt rank color into the sublimated design. Share the current federation rule for rank color coverage, and approve the layout on your sample before bulk production.",
+    },
+  ],
 };

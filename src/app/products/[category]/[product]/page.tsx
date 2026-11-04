@@ -7,7 +7,7 @@ import {
 } from "@/lib/data/store";
 import ProductDetailClient from "@/components/products/ProductDetailClient";
 import { toTitleCase } from "@/lib/utils";
-import { buildProductTitlePhrase, buildProductDescription } from "@/lib/seo";
+import { buildProductTitlePhrase, buildProductDescription, PRODUCT_TITLE_OVERRIDES } from "@/lib/seo";
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string }>;
@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
     return { title: "Product Not Found", robots: { index: false, follow: false } };
   }
 
-  const titlePhrase = buildProductTitlePhrase(prod.name);
+  const titlePhrase = PRODUCT_TITLE_OVERRIDES[slug] || buildProductTitlePhrase(prod.name);
   const description = buildProductDescription(prod.name, prod.materials);
   const canonicalUrl = `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
   const ogImage = prod.images?.[0]?.image_url || "https://www.glovesstorm.com/images/og-default.jpg";

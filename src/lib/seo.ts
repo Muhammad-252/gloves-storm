@@ -147,4 +147,26 @@ export const BLOG_META_OVERRIDES: Record<
     description:
       "Complete ordering guide for custom team sportswear: dye sublimation jerseys, custom player roster names, low MOQ 30 pcs, and turnkey DDP export delivery.",
   },
+  "pakistan-vs-china-clothing-manufacturer": {
+    titlePhrase: "Pakistan vs China Clothing Manufacturers",
+    description:
+      "Pakistan vs China for clothing manufacturing: compare MOQs, fabrics, landed cost, EU and US duties, lead times and quality control before your first order.",
+  },
+  "bjj-rash-guard-manufacturer-guide": {
+    titlePhrase: "BJJ Rash Guard Manufacturer Guide",
+    description:
+      "How custom BJJ rash guards are made: 200 GSM nylon-spandex, flatlock seams, sublimation that won't crack, ranked designs, and low MOQ from 30 pieces.",
+  },
+};
+
+/**
+ * Keyword-targeted title phrases for specific product pages, used instead of
+ * the generated phrase from buildProductTitlePhrase (max 45 characters).
+ */
+export const PRODUCT_TITLE_OVERRIDES: Record<string, string> = {
+  "custom-hoodies": "450 GSM Heavyweight Hoodie Manufacturer",
+  "custom-rash-guard-manufacturer": "Custom BJJ & Surf Rash Guard Manufacturer",
+  "custom-compression-wear": "Custom Compression Wear Manufacturer",
+  "custom-varsity-jackets": "Custom Varsity Jacket Manufacturer",
+  "custom-boxy-t-shirts": "Custom Boxy T-Shirt Manufacturer",
 };
