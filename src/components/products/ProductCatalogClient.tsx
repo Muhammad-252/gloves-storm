@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Product, Category } from "@/types/database";
@@ -31,20 +31,10 @@ interface ProductCatalogClientProps {
   currentCategorySlug?: string;
   selectedCategorySlug?: string;
   currentPage?: number;
-  totalPages?: number;
-  totalProductsCount?: number;
 }
 
-const COLOR_FILTERS = [
-  { name: "Black", hex: "#171717" },
-  { name: "Brown", hex: "#5c3a21" },
-  { name: "Grey", hex: "#64748b" },
-  { name: "Navy", hex: "#1e293b" },
-  { name: "Green", hex: "#14532d" },
-  { name: "Red", hex: "#b91c1c" },
-  { name: "Tan", hex: "#d97706" },
-  { name: "White", hex: "#f3f4f6" },
-];
+const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
+const PAGE_SIZE = 20;
 
 export default function ProductCatalogClient({
   initialProducts,
@@ -52,44 +42,27 @@ export default function ProductCatalogClient({
   currentCategorySlug,
   selectedCategorySlug,
   currentPage = 1,
-  totalPages = 1,
-  totalProductsCount,
 }: ProductCatalogClientProps) {
   const [liveCategories, setLiveCategories] = useState<Category[]>(categories);
-  const [liveProducts, setLiveProducts] = useState<Product[]>(initialProducts);
+  // The server passes every active product, so counts and filters always cover the full catalog
+  const liveProducts = initialProducts;
   const [selectedCat, setSelectedCat] = useState<string>(
     selectedCategorySlug || currentCategorySlug || "all"
   );
   const [search, setSearch] = useState("");
-  const [capabilityFilter, setCapabilityFilter] = useState<string>("all");
-  const [selectedColor, setSelectedColor] = useState<string>("all");
   const [moqFilter, setMoqFilter] = useState<"all" | "low" | "medium" | "high">("all");
   const [sortBy, setSortBy] = useState<"featured" | "moq-asc" | "newest">("featured");
   const [viewMode, setViewMode] = useState<"grid" | "table">("grid");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [page, setPage] = useState<number>(currentPage);
 
-  // Sync products when initialProducts change or fetch live
+  // Read ?search= and ?category= so filtered views can be shared as links
   useEffect(() => {
-    setLiveProducts(initialProducts);
-  }, [initialProducts]);
-
-  useEffect(() => {
-    fetch("/api/products")
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.products && Array.isArray(data.products) && data.products.length > 0) {
-          setLiveProducts(data.products);
-        }
-      })
-      .catch(() => {});
-
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      const q = params.get("search");
-      if (q) {
-        setSearch(q);
-      }
-    }
+    const params = new URLSearchParams(window.location.search);
+    const q = params.get("search");
+    const cat = params.get("category");
+    if (q) setSearch(q);
+    if (cat) setSelectedCat(cat);
   }, []);
 
   // Sync with live categories from storage and broadcast events
@@ -130,6 +103,15 @@ export default function ProductCatalogClient({
     }
   }, []);
 
+  // Only visible, active top-level collections appear as filters
+  const visibleCategories = useMemo(
+    () =>
+      liveCategories.filter(
+        (c) => c.is_active !== false && !c.parent_id && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
+      ),
+    [liveCategories]
+  );
+
   const [quoteModalData, setQuoteModalData] = useState<{
     isOpen: boolean;
     productName: string;
@@ -147,84 +129,52 @@ export default function ProductCatalogClient({
   const hasActiveFilters =
     selectedCat !== "all" ||
     search.trim() !== "" ||
-    capabilityFilter !== "all" ||
-    selectedColor !== "all" ||
     moqFilter !== "all";
 
   const handleResetFilters = () => {
     setSelectedCat("all");
     setSearch("");
-    setCapabilityFilter("all");
-    setSelectedColor("all");
     setMoqFilter("all");
   };
 
-  // Filter products
-  const filtered = useMemo(() => {
-    return liveProducts.filter((p) => {
-      // Category filter
-      if (selectedCat !== "all") {
-        const cat = liveCategories.find((c) => c.slug === selectedCat);
-        if (cat && p.category_id !== cat.id) return false;
-      }
-
-      // Capability / feature filter
-      if (capabilityFilter !== "all") {
-        const cap = capabilityFilter.toLowerCase();
-        const stringifiedMaterials = Array.isArray(p.materials)
-          ? p.materials.join(" ")
-          : typeof p.materials === "object" && p.materials !== null
-          ? JSON.stringify(p.materials)
-          : String(p.materials || "");
-        const stringifiedFeatures = Array.isArray(p.features)
-          ? p.features.join(" ")
-          : typeof p.features === "object" && p.features !== null
-          ? JSON.stringify(p.features)
-          : String(p.features || "");
-        const stringifiedCustom = Array.isArray(p.customization_options)
-          ? p.customization_options.join(" ")
-          : typeof p.customization_options === "object" && p.customization_options !== null
-          ? (Array.isArray((p.customization_options as any).list)
-              ? (p.customization_options as any).list.join(" ")
-              : JSON.stringify(p.customization_options))
-          : String(p.customization_options || "");
-
-        const fullText = `${stringifiedMaterials} ${stringifiedFeatures} ${stringifiedCustom} ${p.name}`.toLowerCase();
-        if (!fullText.includes(cap)) return false;
-      }
-
-      // Color filter simulation
-      if (selectedColor !== "all") {
-        const cLower = selectedColor.toLowerCase();
-        const descMatch = (p.description || "").toLowerCase().includes(cLower);
-        const nameMatch = (p.name || "").toLowerCase().includes(cLower);
-        const keywordMatch = (p.primary_keyword || "").toLowerCase().includes(cLower);
-        if (!descMatch && !nameMatch && !keywordMatch && p.id.charCodeAt(0) % 2 === 0) {
-          // allow partial matches for sample distribution
-          return false;
-        }
-      }
-
-      // MOQ filter
+  // Every filter except the collection, so collection counts reflect the other active filters
+  const matchesNonCategoryFilters = useCallback(
+    (p: Product) => {
       if (moqFilter === "low" && p.moq >= 50) return false;
       if (moqFilter === "medium" && (p.moq < 50 || p.moq > 100)) return false;
       if (moqFilter === "high" && p.moq <= 100) return false;
 
-      // Search filter
       const q = search.toLowerCase().trim();
       if (q !== "") {
-        const matchesName = p.name.toLowerCase().includes(q);
-        const matchesDesc = p.short_description?.toLowerCase().includes(q);
-        const matchesCat = liveCategories
-          .find((c) => c.id === p.category_id)
-          ?.name.toLowerCase()
-          .includes(q);
-        return matchesName || matchesDesc || matchesCat;
+        const categoryName = liveCategories.find((c) => c.id === p.category_id)?.name || "";
+        const haystack = `${p.name} ${p.short_description || ""} ${categoryName}`.toLowerCase();
+        if (!haystack.includes(q)) return false;
       }
-
       return true;
-    });
-  }, [liveProducts, liveCategories, selectedCat, capabilityFilter, selectedColor, moqFilter, search]);
+    },
+    [moqFilter, search, liveCategories]
+  );
+
+  const baseMatches = useMemo(
+    () => liveProducts.filter(matchesNonCategoryFilters),
+    [liveProducts, matchesNonCategoryFilters]
+  );
+
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const p of baseMatches) counts[p.category_id] = (counts[p.category_id] || 0) + 1;
+    return counts;
+  }, [baseMatches]);
+
+  const visibleCategoryIds = useMemo(() => new Set(visibleCategories.map((c) => c.id)), [visibleCategories]);
+  const allCount = baseMatches.filter((p) => visibleCategoryIds.has(p.category_id)).length;
+
+  const filtered = useMemo(() => {
+    const cat = selectedCat !== "all" ? liveCategories.find((c) => c.slug === selectedCat) : null;
+    return baseMatches.filter((p) =>
+      cat ? p.category_id === cat.id : visibleCategoryIds.has(p.category_id)
+    );
+  }, [baseMatches, selectedCat, liveCategories, visibleCategoryIds]);
 
   // Sort products
   const sorted = useMemo(() => {
@@ -238,6 +188,34 @@ export default function ProductCatalogClient({
       return 0;
     });
   }, [filtered, sortBy]);
+
+  // Back to page 1 whenever the filters change (the first render keeps ?page= from the URL)
+  const filterKey = `${selectedCat}|${search}|${moqFilter}|${sortBy}`;
+  const [lastFilterKey, setLastFilterKey] = useState(filterKey);
+  if (filterKey !== lastFilterKey) {
+    setLastFilterKey(filterKey);
+    setPage(1);
+  }
+
+  const totalPageCount = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE));
+  const safePage = Math.min(page, totalPageCount);
+  const pageStart = (safePage - 1) * PAGE_SIZE;
+  const pageItems = sorted.slice(pageStart, pageStart + PAGE_SIZE);
+
+  // Keep the URL in step with the view so it can be shared or bookmarked
+  useEffect(() => {
+    const params = new URLSearchParams();
+    if (selectedCat !== "all") params.set("category", selectedCat);
+    if (search.trim()) params.set("search", search.trim());
+    if (safePage > 1) params.set("page", String(safePage));
+    const qs = params.toString();
+    window.history.replaceState(null, "", qs ? `/products?${qs}` : "/products");
+  }, [selectedCat, search, safePage]);
+
+  const goToPage = (n: number) => {
+    setPage(n);
+    document.getElementById("catalog-results")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const activeCategoryObj = liveCategories.find((c) => c.slug === selectedCat);
 
@@ -290,10 +268,10 @@ export default function ProductCatalogClient({
                 : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200 hover:text-neutral-900"
             }`}
           >
-            All Products ({totalProductsCount || initialProducts.length})
+            All products ({allCount})
           </button>
-          {liveCategories.map((cat) => {
-            const count = initialProducts.filter((p) => p.category_id === cat.id).length;
+          {visibleCategories.map((cat) => {
+            const count = categoryCounts[cat.id] || 0;
             const isSelected = selectedCat === cat.slug;
             return (
               <button
@@ -366,47 +344,6 @@ export default function ProductCatalogClient({
               </div>
             </div>
 
-            {/* Color Swatch Filters */}
-            <div>
-              <div className="flex items-center justify-between mb-2.5">
-                <span className="text-[10px] text-neutral-400 font-medium">
-                  Colorway
-                </span>
-                {selectedColor !== "all" && (
-                  <button
-                    type="button"
-                    onClick={() => setSelectedColor("all")}
-                    className="text-[10px] text-neutral-500 hover:text-neutral-900 underline"
-                  >
-                    Clear
-                  </button>
-                )}
-              </div>
-              <div className="grid grid-cols-4 gap-2">
-                {COLOR_FILTERS.map((col) => {
-                  const isSelected = selectedColor === col.name;
-                  return (
-                    <button
-                      key={col.name}
-                      type="button"
-                      onClick={() => setSelectedColor(isSelected ? "all" : col.name)}
-                      className={`flex flex-col items-center gap-1 p-2 rounded-xl border text-[10px] transition-all cursor-pointer ${
-                        isSelected
-                          ? "border-neutral-950 bg-neutral-50 font-bold text-neutral-950"
-                          : "border-neutral-200 hover:border-neutral-400 text-neutral-600"
-                      }`}
-                    >
-                      <span
-                        className="w-4 h-4 rounded-full border border-black/10 shrink-0"
-                        style={{ backgroundColor: col.hex }}
-                      />
-                      <span className="truncate max-w-[48px]">{col.name}</span>
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-
             {/* Categories List */}
             <div>
               <span className="text-[10px] text-neutral-400 font-medium block mb-2.5">
@@ -423,11 +360,11 @@ export default function ProductCatalogClient({
                   }`}
                 >
                   <span>All Collections</span>
-                  <span className="font-mono text-[10px] opacity-75">{initialProducts.length}</span>
+                  <span className="text-[11px] opacity-75 tabular-nums">{allCount}</span>
                 </button>
-                {liveCategories.map((c) => {
+                {visibleCategories.map((c) => {
                   const isSelected = selectedCat === c.slug;
-                  const count = initialProducts.filter((p) => p.category_id === c.id).length;
+                  const count = categoryCounts[c.id] || 0;
                   return (
                     <button
                       key={c.id}
@@ -440,7 +377,7 @@ export default function ProductCatalogClient({
                       }`}
                     >
                       <span className="truncate pr-2">{c.name}</span>
-                      <span className="font-mono text-[10px] opacity-75">{count}</span>
+                      <span className="text-[11px] opacity-75 tabular-nums">{count}</span>
                     </button>
                   );
                 })}
@@ -454,10 +391,10 @@ export default function ProductCatalogClient({
               </span>
               <div className="space-y-1.5">
                 {[
-                  { label: "All MOQs", val: "all" },
-                  { label: "Low MOQ (< 50 Units)", val: "low" },
-                  { label: "Standard MOQ (50 - 100)", val: "medium" },
-                  { label: "Bulk Tier (100+ Units)", val: "high" },
+                  { label: "Any minimum order", val: "all" },
+                  { label: "Under 50 pieces", val: "low" },
+                  { label: "50–100 pieces", val: "medium" },
+                  { label: "Over 100 pieces", val: "high" },
                 ].map((tier) => (
                   <label
                     key={tier.val}
@@ -527,7 +464,14 @@ export default function ProductCatalogClient({
               </button>
 
               <span className="text-xs text-neutral-600 font-medium">
-                Showing <strong className="text-neutral-950">{sorted.length}</strong> styles
+                {sorted.length === 0 ? (
+                  "No styles match"
+                ) : (
+                  <>
+                    Showing <strong className="text-neutral-950">{pageStart + 1}–{pageStart + pageItems.length}</strong> of{" "}
+                    <strong className="text-neutral-950">{sorted.length}</strong> {sorted.length === 1 ? "style" : "styles"}
+                  </>
+                )}
               </span>
             </div>
 
@@ -587,14 +531,6 @@ export default function ProductCatalogClient({
                   </button>
                 </span>
               )}
-              {selectedColor !== "all" && (
-                <span className="inline-flex items-center gap-1.5 bg-neutral-100 border border-neutral-200 text-neutral-900 px-3 py-1 rounded-full font-medium">
-                  <span>Color: {selectedColor}</span>
-                  <button onClick={() => setSelectedColor("all")} className="cursor-pointer hover:text-neutral-600">
-                    <X className="w-3 h-3" />
-                  </button>
-                </span>
-              )}
               {search && (
                 <span className="inline-flex items-center gap-1.5 bg-neutral-100 border border-neutral-200 text-neutral-900 px-3 py-1 rounded-full font-medium">
                   <span>&quot;{search}&quot;</span>
@@ -614,6 +550,7 @@ export default function ProductCatalogClient({
           )}
 
           {/* Product Cards Grid with Interstitial Bespoke Tile */}
+          <div id="catalog-results" className="scroll-mt-28" />
           {sorted.length === 0 ? (
             <div className="bg-white rounded-3xl border border-neutral-200 p-12 text-center space-y-4">
               <div className="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto text-neutral-400">
@@ -635,10 +572,10 @@ export default function ProductCatalogClient({
             </div>
           ) : viewMode === "grid" ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-              {sorted.map((product, idx) => {
+              {pageItems.map((product, idx) => {
                 const categoryObj = liveCategories.find((c) => c.id === product.category_id);
-                // Insert Custom Bespoke Tile at index 3 or 4
-                const isPromoIndex = idx === 3;
+                // Bespoke tile sits after the fourth card on the first page only
+                const isPromoIndex = safePage === 1 && idx === 3;
 
                 return (
                   <div key={product.id} className="contents">
@@ -690,7 +627,7 @@ export default function ProductCatalogClient({
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-neutral-100">
-                    {sorted.map((product) => {
+                    {pageItems.map((product) => {
                       const categoryObj = liveCategories.find((c) => c.id === product.category_id);
                       const firstImgObj = product.images?.[0];
                       const primaryImgUrl =
@@ -761,40 +698,50 @@ export default function ProductCatalogClient({
             </div>
           )}
 
-          {/* Crawlable Pagination Controls */}
-          {totalPages > 1 && (
-            <nav
-              aria-label="Product Catalog Pagination"
-              className="flex items-center justify-center gap-2 pt-10 pb-4"
-            >
-              {currentPage > 1 && (
-                <Link
-                  href={`/products?page=${currentPage - 1}`}
-                  className="px-4 py-2 rounded-xl border border-neutral-200 bg-white text-xs font-bold text-neutral-800 hover:border-neutral-900 transition-colors shadow-2xs"
+          {/* Pagination: real links for crawlers, handled in place for visitors */}
+          {totalPageCount > 1 && (
+            <nav aria-label="Product catalog pagination" className="flex items-center justify-center gap-2 pt-10 pb-4">
+              {safePage > 1 && (
+                <a
+                  href={`/products?page=${safePage - 1}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goToPage(safePage - 1);
+                  }}
+                  className="px-4 py-2 rounded-full border border-line bg-white text-[13px] font-medium text-ink hover:border-ink transition-colors"
                 >
                   Previous
-                </Link>
+                </a>
               )}
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
-                <Link
+              {Array.from({ length: totalPageCount }, (_, i) => i + 1).map((pageNum) => (
+                <a
                   key={pageNum}
                   href={`/products?page=${pageNum}`}
-                  className={`w-9 h-9 rounded-xl flex items-center justify-center text-xs font-bold transition-all ${
-                    pageNum === currentPage
-                      ? "bg-[#FFB900] text-black font-extrabold shadow-xs"
-                      : "border border-neutral-200 bg-white text-neutral-700 hover:border-neutral-900"
+                  aria-current={pageNum === safePage ? "page" : undefined}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goToPage(pageNum);
+                  }}
+                  className={`w-10 h-10 rounded-full flex items-center justify-center text-[13px] font-medium transition-colors ${
+                    pageNum === safePage
+                      ? "bg-ink text-bone"
+                      : "border border-line bg-white text-ink/70 hover:border-ink hover:text-ink"
                   }`}
                 >
                   {pageNum}
-                </Link>
+                </a>
               ))}
-              {currentPage < totalPages && (
-                <Link
-                  href={`/products?page=${currentPage + 1}`}
-                  className="px-4 py-2 rounded-xl border border-neutral-200 bg-white text-xs font-bold text-neutral-800 hover:border-neutral-900 transition-colors shadow-2xs"
+              {safePage < totalPageCount && (
+                <a
+                  href={`/products?page=${safePage + 1}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goToPage(safePage + 1);
+                  }}
+                  className="px-4 py-2 rounded-full border border-line bg-white text-[13px] font-medium text-ink hover:border-ink transition-colors"
                 >
                   Next
-                </Link>
+                </a>
               )}
             </nav>
           )}
@@ -874,11 +821,11 @@ export default function ProductCatalogClient({
                     }`}
                   >
                     <span>All Collections</span>
-                    <span className="font-mono text-[10px] opacity-75">{initialProducts.length}</span>
+                    <span className="text-[11px] opacity-75 tabular-nums">{allCount}</span>
                   </button>
-                  {liveCategories.map((c) => {
+                  {visibleCategories.map((c) => {
                     const isSelected = selectedCat === c.slug;
-                    const count = initialProducts.filter((p) => p.category_id === c.id).length;
+                    const count = categoryCounts[c.id] || 0;
                     return (
                       <button
                         key={c.id}
@@ -891,37 +838,7 @@ export default function ProductCatalogClient({
                         }`}
                       >
                         <span className="truncate pr-2">{c.name}</span>
-                        <span className="font-mono text-[10px] opacity-75">{count}</span>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-
-              {/* Colors */}
-              <div>
-                <span className="text-[10px] text-neutral-400 font-medium block mb-2">
-                  Colorway
-                </span>
-                <div className="grid grid-cols-4 gap-2">
-                  {COLOR_FILTERS.map((col) => {
-                    const isSelected = selectedColor === col.name;
-                    return (
-                      <button
-                        key={col.name}
-                        type="button"
-                        onClick={() => setSelectedColor(isSelected ? "all" : col.name)}
-                        className={`flex flex-col items-center gap-1 p-1.5 rounded-xl border text-[10px] transition-all cursor-pointer ${
-                          isSelected
-                            ? "border-neutral-950 bg-neutral-50 font-bold text-neutral-950"
-                            : "border-neutral-200 text-neutral-600"
-                        }`}
-                      >
-                        <span
-                          className="w-3.5 h-3.5 rounded-full border border-black/10 shrink-0"
-                          style={{ backgroundColor: col.hex }}
-                        />
-                        <span className="truncate max-w-[40px] text-[9px]">{col.name}</span>
+                        <span className="text-[11px] opacity-75 tabular-nums">{count}</span>
                       </button>
                     );
                   })}
@@ -935,10 +852,10 @@ export default function ProductCatalogClient({
                 </span>
                 <div className="space-y-1.5">
                   {[
-                    { label: "All MOQs", val: "all" },
-                    { label: "Low MOQ (< 50 Units)", val: "low" },
-                    { label: "Standard MOQ (50 - 100)", val: "medium" },
-                    { label: "Bulk Tier (100+ Units)", val: "high" },
+                    { label: "Any minimum order", val: "all" },
+                    { label: "Under 50 pieces", val: "low" },
+                    { label: "50–100 pieces", val: "medium" },
+                    { label: "Over 100 pieces", val: "high" },
                   ].map((tier) => (
                     <label
                       key={tier.val}
@@ -973,7 +890,7 @@ export default function ProductCatalogClient({
                 onClick={() => setMobileFiltersOpen(false)}
                 className="flex-1 py-2.5 px-4 rounded-xl bg-neutral-950 text-white text-xs font-bold uppercase tracking-wider text-center"
               >
-                Apply Filters ({sorted.length})
+                Show {sorted.length} {sorted.length === 1 ? "style" : "styles"}
               </button>
             </div>
           </div>

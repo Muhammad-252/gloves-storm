@@ -5,24 +5,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product, Category, PriceTier } from "@/types/database";
 import {
-  Clock,
-  Box,
-  ShieldCheck,
-  Check,
   ArrowUpRight,
-  ArrowRight,
-  Layers,
+  Check,
   ChevronRight,
   ChevronLeft,
-  Heart,
-  Share2,
-  FileText,
-  PhoneCall,
-  CheckCircle2,
-  Maximize2,
+  MessageSquare,
+  Minus,
+  Plus,
 } from "lucide-react";
 import QuoteModal from "../ui/QuoteModal";
-import GooeyButton from "../ui/GooeyButton";
 import JacketMakerProductCard from "./JacketMakerProductCard";
 import { BUSINESS_CONFIG } from "@/lib/business";
 
@@ -32,45 +23,56 @@ interface ProductDetailClientProps {
   relatedProducts: Product[];
 }
 
+// Normalizes the many shapes list fields come in (arrays, {list: []}, JSON strings, CSV)
+function parseList(item: unknown): string[] {
+  if (!item) return [];
+  const clean = (arr: unknown[]) =>
+    arr
+      .map((x) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
+      .filter(Boolean);
+  if (Array.isArray(item)) return clean(item);
+  if (typeof item === "object") {
+    const obj = item as Record<string, unknown>;
+    for (const key of ["list", "options", "items", "features", "materials"]) {
+      if (Array.isArray(obj[key])) return clean(obj[key] as unknown[]);
+    }
+    return [];
+  }
+  if (typeof item === "string") {
+    const trimmed = item.trim();
+    if (!trimmed) return [];
+    if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
+      try {
+        const result = parseList(JSON.parse(trimmed));
+        if (result.length > 0) return result;
+      } catch {
+        // Fall back to comma split
+      }
+    }
+    return trimmed.split(",").map((s) => s.trim()).filter(Boolean);
+  }
+  return [];
+}
+
+function formatPrice(value: number) {
+  return value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
 export default function ProductDetailClient({
   product,
   category,
   relatedProducts,
 }: ProductDetailClientProps) {
-  // Normalize images
   const images = useMemo(() => {
-    if (product.images && product.images.length > 0) {
-      return product.images;
-    }
+    if (product.images && product.images.length > 0) return product.images;
     return [
       {
         id: "default-img-1",
         product_id: product.id,
-        image_url:
-          "https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=1200&auto=format&fit=crop",
+        image_url: "/images/products/hoodie-black.png",
         alt_text: product.name,
         sort_order: 1,
         is_primary: true,
-        created_at: "",
-      },
-      {
-        id: "default-img-2",
-        product_id: product.id,
-        image_url:
-          "https://images.unsplash.com/photo-1517438322307-e67111335449?q=80&w=1200&auto=format&fit=crop",
-        alt_text: `${product.name} back view`,
-        sort_order: 2,
-        is_primary: false,
-        created_at: "",
-      },
-      {
-        id: "default-img-3",
-        product_id: product.id,
-        image_url:
-          "https://images.unsplash.com/photo-1583473848882-f9a5bc7fd2ee?q=80&w=1200&auto=format&fit=crop",
-        alt_text: `${product.name} detail view`,
-        sort_order: 3,
-        is_primary: false,
         created_at: "",
       },
     ];
@@ -78,822 +80,389 @@ export default function ProductDetailClient({
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const activeImage = images[activeImageIndex] || images[0];
-  const activeImageUrl = activeImage?.image_url;
 
-  // Wholesale Tiers setup (Alibaba format)
-  const defaultTiers: PriceTier[] = useMemo(() => {
-    const baseSample = product.sample_price || 35.0;
-    return [
-      {
-        min_quantity: 10,
-        max_quantity: 49,
-        unit_price: Math.round(baseSample * 0.52 * 100) / 100,
-        currency: "$",
-        label: "10-49 pieces",
-      },
-      {
-        min_quantity: 50,
-        max_quantity: 99,
-        unit_price: Math.round(baseSample * 0.4 * 100) / 100,
-        currency: "$",
-        label: "50-99 pieces",
-      },
-      {
-        min_quantity: 100,
-        max_quantity: null,
-        unit_price: Math.round(baseSample * 0.32 * 100) / 100,
-        currency: "$",
-        label: "≥100 pieces",
-      },
-    ];
-  }, [product]);
-
+  // Price tiers are shown only when real prices were entered in the admin panel
   const tiers: PriceTier[] = useMemo(() => {
-    if (product.pricing_tiers && product.pricing_tiers.length > 0) {
-      // Filter out single sample unit if present to keep the clean bulk row
-      const bulkOnly = product.pricing_tiers.filter((t) => t.min_quantity > 1);
-      return bulkOnly.length > 0 ? bulkOnly : product.pricing_tiers;
-    }
-    return defaultTiers;
-  }, [product.pricing_tiers, defaultTiers]);
+    const entered = product.pricing_tiers || [];
+    const bulkOnly = entered.filter((t) => t.min_quantity > 1);
+    return bulkOnly.length > 0 ? bulkOnly : entered;
+  }, [product.pricing_tiers]);
+  const showPricing = product.show_pricing !== false && tiers.length > 0;
 
-  // Order quantity state
-  const [quantity, setQuantity] = useState<number>(product.moq || BUSINESS_CONFIG.moq);
-  const [selectedTierIndex, setSelectedTierIndex] = useState<number | null>(null);
+  const moq = product.moq || BUSINESS_CONFIG.moq;
+  const [quantity, setQuantity] = useState<number>(moq);
 
-  // Selected variation state
-  const [selectedColor, setSelectedColor] = useState<number>(0);
-  // Dynamic Sizes / Specs options from admin panel
+  const activeTier = useMemo(
+    () =>
+      tiers.find(
+        (tier) =>
+          quantity >= tier.min_quantity &&
+          (tier.max_quantity === null || tier.max_quantity === undefined || quantity <= tier.max_quantity)
+      ) || tiers[0],
+    [quantity, tiers]
+  );
+
   const sizeOptions: string[] = useMemo(() => {
     if (Array.isArray(product.available_sizes) && product.available_sizes.length > 0) {
       return product.available_sizes;
     }
-    const customSizes = (product.customization_options as any)?.available_sizes;
-    if (Array.isArray(customSizes) && customSizes.length > 0) {
-      return customSizes;
-    }
-    return ["XS", "S", "M", "L", "XL", "2XL"];
+    const customSizes = (product.customization_options as { available_sizes?: unknown } | null)?.available_sizes;
+    if (Array.isArray(customSizes) && customSizes.length > 0) return customSizes as string[];
+    return [];
   }, [product.available_sizes, product.customization_options]);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
-  const [selectedSize, setSelectedSize] = useState<string>(() => sizeOptions[0] || "M");
-  const [mediaMode, setMediaMode] = useState<"photos" | "video">("photos");
-
-  // RFQ Modal State
   const [modalOpen, setModalOpen] = useState(false);
   const [inquiryType, setInquiryType] = useState<"Quote" | "Sample">("Quote");
-
-  // Determine active tier for current quantity or explicit tier click
-  const activeTier = useMemo(() => {
-    if (selectedTierIndex !== null && tiers[selectedTierIndex]) {
-      const manualTier = tiers[selectedTierIndex];
-      const meetsMin = quantity >= manualTier.min_quantity;
-      const meetsMax =
-        manualTier.max_quantity === null ||
-        manualTier.max_quantity === undefined ||
-        quantity <= manualTier.max_quantity;
-      if (meetsMin && meetsMax) {
-        return manualTier;
-      }
-    }
-
-    return (
-      tiers.find((tier) => {
-        const meetsMin = quantity >= tier.min_quantity;
-        const meetsMax =
-          tier.max_quantity === null ||
-          tier.max_quantity === undefined ||
-          quantity <= tier.max_quantity;
-        return meetsMin && meetsMax;
-      }) || tiers[0]
-    );
-  }, [quantity, tiers, selectedTierIndex]);
-
-  const unitPrice = activeTier?.unit_price || tiers[0]?.unit_price || 15;
-  const estimatedTotal = (quantity * unitPrice).toLocaleString("en-US", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  });
-
-  // Parse lists
-  const parseList = (item: unknown): string[] => {
-    if (!item) return [];
-    if (Array.isArray(item)) {
-      return item
-        .map((x) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
-        .filter(Boolean);
-    }
-    if (typeof item === "object") {
-      const obj = item as Record<string, any>;
-      if (Array.isArray(obj.list)) {
-        return obj.list
-          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
-          .filter(Boolean);
-      }
-      if (Array.isArray(obj.options)) {
-        return obj.options
-          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
-          .filter(Boolean);
-      }
-      if (Array.isArray(obj.items)) {
-        return obj.items
-          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
-          .filter(Boolean);
-      }
-      if (Array.isArray(obj.features)) {
-        return obj.features
-          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
-          .filter(Boolean);
-      }
-      if (Array.isArray(obj.materials)) {
-        return obj.materials
-          .map((x: any) => (typeof x === "string" ? x.trim() : typeof x === "number" ? String(x) : ""))
-          .filter(Boolean);
-      }
-      return Object.values(obj)
-        .filter((v): v is string => typeof v === "string" && Boolean(v.trim()))
-        .map((s) => s.trim());
-    }
-    if (typeof item === "string") {
-      const trimmed = item.trim();
-      if (!trimmed) return [];
-      if (trimmed.startsWith("[") || trimmed.startsWith("{")) {
-        try {
-          const parsed = JSON.parse(trimmed);
-          const result = parseList(parsed);
-          if (result.length > 0) return result;
-        } catch {
-          // Fallback to comma split
-        }
-      }
-      return trimmed
-        .split(",")
-        .map((s) => s.trim())
-        .filter(Boolean);
-    }
-    return [String(item).trim()].filter(Boolean);
-  };
 
   const materialsList = parseList(product.materials);
   const featuresList = parseList(product.features);
   const customList = parseList(product.customization_options);
 
-  // Colorways swatches
-  const colorOptions = [
-    { name: "Matte Stealth Black", color: "#171717", badge: "Most Popular" },
-    { name: "Olympic White / Gold", color: "#f8fafc", border: "#e2e8f0" },
-    { name: "Oxblood Pro Leather", color: "#7f1d1d" },
-    { name: "Combat Charcoal Grey", color: "#334155" },
-    { name: "Custom Pantone Match", color: "#b45309", isCustom: true },
+  const specColumns = [
+    { title: "Fabric & materials", items: materialsList },
+    { title: "Construction", items: featuresList },
+    { title: "Customization", items: customList },
+  ].filter((col) => col.items.length > 0);
+
+  const facts = [
+    { label: "Minimum order", value: `${moq} pcs` },
+    { label: "Sample", value: BUSINESS_CONFIG.samplingDaysShort },
+    { label: "Production", value: product.lead_time || BUSINESS_CONFIG.bulkDaysShort },
+    { label: "Delivery", value: "DDP · USA, UK, EU" },
   ];
 
-
-
+  const openInquiry = (type: "Quote" | "Sample") => {
+    setInquiryType(type);
+    setModalOpen(true);
+  };
 
   return (
     <div className="w-full pb-20">
       {/* Breadcrumbs */}
-      <nav className="flex flex-wrap items-center gap-2 text-xs font-mono uppercase tracking-wider text-neutral-500 mb-6 font-medium">
-        <Link href="/" className="hover:text-neutral-950 transition-colors">
-          Home
-        </Link>
-        <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-        <Link href="/products" className="hover:text-neutral-950 transition-colors">
-          Products
-        </Link>
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5 text-[13px] text-ink/55 mb-6 sm:mb-8">
+        <Link href="/" className="hover:text-ink transition-colors">Home</Link>
+        <ChevronRight className="w-3.5 h-3.5" />
+        <Link href="/products" className="hover:text-ink transition-colors">Products</Link>
         {category && (
           <>
-            <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-            <Link
-              href={`/products/${category.slug}`}
-              className="hover:text-neutral-950 transition-colors"
-            >
+            <ChevronRight className="w-3.5 h-3.5" />
+            <Link href={`/products/${category.slug}`} className="hover:text-ink transition-colors">
               {category.name}
             </Link>
           </>
         )}
-        <ChevronRight className="w-3.5 h-3.5 text-neutral-400" />
-        <span className="text-neutral-900 font-bold truncate max-w-xs">{product.name}</span>
+        <ChevronRight className="w-3.5 h-3.5" />
+        <span className="text-ink truncate max-w-[16rem]">{product.name}</span>
       </nav>
 
-      {/* =========================================================================
-          MAIN ALIBABA-STYLE PRODUCT SECTION (2 COLUMNS)
-      ========================================================================= */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16">
-        {/* =======================================================================
-            LEFT COLUMN: GALLERY + VERIFIED FACTORY PROFILE CARD
-        ======================================================================= */}
-        <div className="lg:col-span-6 space-y-6">
-          {/* Gallery Row: Left Vertical Thumbnails + Main Stage */}
-          <div className="flex gap-2 sm:gap-4 items-start">
-            {/* Vertical Thumbnail Strip */}
-            <div className="flex flex-col gap-2 w-14 sm:w-20 shrink-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-20 sm:mb-28">
+        {/* ─── Gallery ─── */}
+        <div className="lg:col-span-7 space-y-3">
+          <div className="relative aspect-[4/5] sm:aspect-square rounded-[24px] sm:rounded-[28px] bg-stone overflow-hidden group">
+            <Image
+              src={activeImage.image_url}
+              alt={activeImage.alt_text || `Custom ${product.name} made by Gloves Storm in Sialkot, Pakistan`}
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 58vw"
+              className="object-cover"
+            />
+
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={() => setActiveImageIndex((i) => (i > 0 ? i - 1 : images.length - 1))}
+                  className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bone/90 hover:bg-bone text-ink flex items-center justify-center shadow-sm transition-colors cursor-pointer"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setActiveImageIndex((i) => (i < images.length - 1 ? i + 1 : 0))}
+                  className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bone/90 hover:bg-bone text-ink flex items-center justify-center shadow-sm transition-colors cursor-pointer"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+                <span className="absolute bottom-4 right-4 text-[12px] font-medium text-ink bg-bone/90 px-3 py-1 rounded-full tabular-nums">
+                  {activeImageIndex + 1} / {images.length}
+                </span>
+              </>
+            )}
+          </div>
+
+          {images.length > 1 && (
+            <div className="grid grid-cols-5 sm:grid-cols-6 gap-2 sm:gap-3">
               {images.map((img, idx) => (
                 <button
-                  key={idx}
+                  key={img.id || idx}
+                  type="button"
                   onClick={() => setActiveImageIndex(idx)}
-                  className={`relative aspect-square w-full rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all cursor-pointer ${
-                    activeImageIndex === idx
-                      ? "border-neutral-950 ring-2 ring-neutral-950/20 shadow-xs"
-                      : "border-neutral-200 hover:border-neutral-400 opacity-70 hover:opacity-100"
+                  aria-label={`Show image ${idx + 1}`}
+                  className={`relative aspect-square rounded-xl sm:rounded-2xl overflow-hidden bg-stone transition-all cursor-pointer ${
+                    activeImageIndex === idx ? "ring-2 ring-ink ring-offset-2 ring-offset-bone" : "opacity-70 hover:opacity-100"
                   }`}
                 >
                   <Image
                     src={img.image_url}
-                    alt={img.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — detail view ${idx + 1}`}
+                    alt={img.alt_text || `${product.name} view ${idx + 1}`}
                     fill
-                    sizes="80px"
+                    sizes="120px"
                     className="object-cover"
                   />
                 </button>
               ))}
             </div>
-
-            {/* Main Stage Image with Navigation Arrows & Floating Actions */}
-            <div className="relative flex-1 aspect-square sm:aspect-4/3 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200/90 overflow-hidden shadow-xs group">
-              <Image
-                src={activeImageUrl}
-                alt={activeImage?.alt_text || `Custom ${product.name} OEM manufacturer Sialkot Pakistan — ${materialsList[0] || "1.2mm cowhide leather private label"}`}
-                fill
-                priority
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-
-              {/* Prev / Next Arrows */}
-              {images.length > 1 && (
-                <>
-                  <button
-                    onClick={() =>
-                      setActiveImageIndex((prev) => (prev > 0 ? prev - 1 : images.length - 1))
-                    }
-                    className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md transition-all cursor-pointer"
-                    aria-label="Previous image"
-                  >
-                    <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </button>
-                  <button
-                    onClick={() =>
-                      setActiveImageIndex((prev) => (prev < images.length - 1 ? prev + 1 : 0))
-                    }
-                    className="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-800 flex items-center justify-center shadow-md transition-all cursor-pointer"
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                  </button>
-                </>
-              )}
-
-              {/* Top Right Action Icons */}
-              <div className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 flex flex-col gap-1.5 sm:gap-2">
-                <button
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-700 flex items-center justify-center shadow-xs transition-colors cursor-pointer"
-                  title="Save to Favorites"
-                >
-                  <Heart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                </button>
-                <button
-                  className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 hover:bg-white text-neutral-700 flex items-center justify-center shadow-xs transition-colors cursor-pointer"
-                  title="Expand Fullscreen"
-                >
-                  <Maximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                </button>
-              </div>
-
-              {/* Angle Index Indicator */}
-              <div className="absolute bottom-2.5 right-2.5 sm:bottom-3 sm:right-3 bg-black/60 backdrop-blur-xs text-white text-[10px] font-mono px-2 py-0.5 rounded-full">
-                {activeImageIndex + 1} / {images.length}
-              </div>
-            </div>
-          </div>
-
-          {/* Photos / Video Toggle Pills */}
-          <div className="flex items-center justify-center gap-2">
-            <button
-              onClick={() => setMediaMode("photos")}
-              className={`px-3.5 sm:px-4 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                mediaMode === "photos"
-                  ? "bg-neutral-900 text-white shadow-xs"
-                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
-              }`}
-            >
-              Photos
-            </button>
-            <button
-              onClick={() => setMediaMode("video")}
-              className={`px-3.5 sm:px-4 py-1 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                mediaMode === "video"
-                  ? "bg-neutral-900 text-white shadow-xs"
-                  : "bg-neutral-100 text-neutral-600 hover:bg-neutral-200"
-              }`}
-            >
-              Video (Factory QC)
-            </button>
-          </div>
-
-          {/* ===================================================================
-              VERIFIED FACTORY SUPPLIER CARD
-          =================================================================== */}
-          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3.5 sm:space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-ink text-bone font-semibold flex items-center justify-center text-xs sm:text-sm shrink-0">
-                GS
-              </div>
-              <div>
-                <div className="text-sm sm:text-base font-semibold tracking-[-0.01em] text-ink">
-                  Made by Gloves Storm
-                </div>
-                <p className="text-[12px] sm:text-[13px] text-neutral-500 mt-0.5">
-                  {BUSINESS_CONFIG.address.city}, {BUSINESS_CONFIG.address.countryName} · Exporting since 2019 · Direct factory
-                </p>
-              </div>
-            </div>
-
-            {/* Production facts (from lib/business.ts) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-3 border-t border-line text-center">
-              {[
-                { value: `${product.moq || BUSINESS_CONFIG.moq} pcs`, label: "Minimum order" },
-                { value: BUSINESS_CONFIG.samplingDaysShort, label: "Sample time" },
-                { value: BUSINESS_CONFIG.bulkDaysShort, label: "Bulk production" },
-                { value: "DDP", label: "USA, UK & EU" },
-              ].map((fact) => (
-                <div key={fact.label} className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-white border border-line">
-                  <div className="text-xs sm:text-sm font-semibold text-ink">{fact.value}</div>
-                  <span className="text-[10px] sm:text-[11px] text-neutral-500">{fact.label}</span>
-                </div>
-              ))}
-            </div>
-
-            {/* Verified Services */}
-            <div className="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs text-neutral-600 pt-1 flex-wrap font-medium">
-              <span className="inline-flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-neutral-900" /> Minor customization
-              </span>
-              <span className="inline-flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-neutral-900" /> Drawing-based customization
-              </span>
-              <span className="inline-flex items-center gap-1">
-                <Check className="w-3.5 h-3.5 text-neutral-900" /> 100% Quality Inspection
-              </span>
-            </div>
-          </div>
+          )}
         </div>
 
-        {/* =======================================================================
-            RIGHT COLUMN: PRODUCT DETAILS, ALIBABA TIERS, SPEC SHEET & ORDER BAR
-        ======================================================================= */}
-        <div className="lg:col-span-6 space-y-5 sm:space-y-6">
-          {/* Product Header */}
+        {/* ─── Details ─── */}
+        <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-7">
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] text-neutral-800 font-medium bg-neutral-100 px-2.5 py-0.5 rounded-full border border-neutral-200">
-                {category?.name || "Manufacturing Division"}
-              </span>
-              <span className="text-xs text-neutral-500 font-mono">
-                MOQ: {product.moq} Units
-              </span>
-            </div>
-
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-ink leading-snug">
+            {category && <span className="eyebrow mb-4">{category.name}</span>}
+            <h1 className="text-[2rem] sm:text-[2.6rem] font-semibold tracking-[-0.04em] leading-[1.05] text-ink">
               {product.name}
             </h1>
-
-            {/* Rating & Social Proof Row */}
-            <div className="mt-2 flex items-center gap-2.5 sm:gap-3 text-xs text-neutral-600 flex-wrap">
-              <span>OEM &amp; private label</span>
-              <span className="text-neutral-300">•</span>
-              <span>Samples in {BUSINESS_CONFIG.samplingDaysShort}</span>
-              <span className="text-neutral-300">•</span>
-              <span>DDP to USA, UK &amp; EU</span>
-            </div>
             {product.short_description && (
-              <p className="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
-                {product.short_description}
-              </p>
+              <p className="mt-4 text-[15px] text-ink/65 leading-relaxed">{product.short_description}</p>
             )}
           </div>
 
-          {/* ===================================================================
-              ALIBABA PRICE TIERS SECTION
-          =================================================================== */}
-          {product.show_pricing !== false ? (
-            <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3">
-              <div className="grid grid-cols-3 gap-1.5 sm:gap-3 items-stretch">
+          {/* Pricing (real admin prices only) or quote prompt */}
+          {showPricing ? (
+            <div className="rounded-[22px] bg-white border border-line p-5 sm:p-6 space-y-5">
+              <div className="grid grid-cols-3 gap-2">
                 {tiers.map((tier, idx) => {
-                  const isSelected = activeTier === tier;
-                  const rangeLabel =
+                  const isActive = activeTier === tier;
+                  const range =
                     tier.max_quantity === null || tier.max_quantity === undefined
-                      ? `≥${tier.min_quantity} pcs`
-                      : `${tier.min_quantity}-${tier.max_quantity} pcs`;
-
+                      ? `${tier.min_quantity}+ pcs`
+                      : `${tier.min_quantity}–${tier.max_quantity} pcs`;
                   return (
-                    <div
+                    <button
                       key={idx}
-                      onClick={() => {
-                        setSelectedTierIndex(idx);
-                        setQuantity(tier.min_quantity);
-                      }}
-                      className={`cursor-pointer transition-all rounded-lg sm:rounded-xl p-2 sm:p-3 text-left flex flex-col justify-between ${
-                        isSelected
-                          ? "bg-white border-2 border-neutral-900 shadow-xs ring-1 sm:ring-2 ring-[#FFB900]"
-                          : "hover:bg-white/60 border border-neutral-100 sm:border-transparent"
+                      type="button"
+                      onClick={() => setQuantity(Math.max(tier.min_quantity, moq))}
+                      className={`text-left rounded-2xl px-3 py-3 transition-colors cursor-pointer ${
+                        isActive ? "bg-ink text-bone" : "bg-bone hover:bg-stone text-ink"
                       }`}
                     >
-                      <div className="text-sm sm:text-xl lg:text-2xl font-black text-neutral-950 font-sans tracking-tight leading-tight">
-                        US${tier.unit_price.toFixed(0)}
-                        {tier.unit_price % 1 !== 0 && (
-                          <span className="text-[10px] sm:text-xs font-bold text-neutral-600">
-                            .{(tier.unit_price % 1).toFixed(2).substring(2)}
-                          </span>
-                        )}
-                      </div>
-                      <div className="mt-1 text-[10px] sm:text-xs text-neutral-500 font-medium leading-tight">
-                        {tier.label && !tier.label.includes("Tier") ? tier.label : rangeLabel}
-                      </div>
-                    </div>
+                      <span className="block text-lg sm:text-xl font-semibold tracking-[-0.03em] tabular-nums">
+                        ${formatPrice(tier.unit_price)}
+                      </span>
+                      <span className={`block mt-0.5 text-[12px] ${isActive ? "text-bone/65" : "text-ink/55"}`}>
+                        {range}
+                      </span>
+                    </button>
                   );
                 })}
               </div>
 
-              {/* Sample Price Notice */}
-              <div className="pt-2 border-t border-neutral-200 flex items-center justify-between text-xs">
-                <span className="text-neutral-500 font-mono text-[10px] sm:text-[11px]">
-                  Single Evaluation Sample:
-                </span>
-                <span className="font-bold text-neutral-900 font-mono text-[11px] sm:text-xs">
-                  US${(product.sample_price || 35.0).toFixed(2)} / prototype
-                </span>
+              <div className="flex items-center justify-between gap-4 pt-4 border-t border-line">
+                <div className="flex items-center rounded-full border border-line bg-bone">
+                  <button
+                    type="button"
+                    onClick={() => setQuantity((q) => Math.max(moq, q - 10))}
+                    className="w-10 h-10 flex items-center justify-center text-ink/70 hover:text-ink cursor-pointer"
+                    aria-label="Decrease quantity"
+                  >
+                    <Minus className="w-4 h-4" />
+                  </button>
+                  <input
+                    type="number"
+                    min={moq}
+                    value={quantity}
+                    onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value, 10) || moq))}
+                    onBlur={() => setQuantity((q) => Math.max(moq, q))}
+                    aria-label="Quantity in pieces"
+                    className="w-16 bg-transparent text-center text-[15px] font-medium tabular-nums outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setQuantity((q) => q + 10)}
+                    className="w-10 h-10 flex items-center justify-center text-ink/70 hover:text-ink cursor-pointer"
+                    aria-label="Increase quantity"
+                  >
+                    <Plus className="w-4 h-4" />
+                  </button>
+                </div>
+                <div className="text-right">
+                  <span className="block text-[12px] text-ink/55">Estimated total</span>
+                  <span className="text-xl font-semibold tracking-[-0.03em] tabular-nums">
+                    ${formatPrice(quantity * (activeTier?.unit_price || 0))}
+                  </span>
+                </div>
               </div>
+
+              <p className="text-[12px] text-ink/55 leading-relaxed">
+                Guide prices per piece, before custom branding and shipping.
+                {product.sample_price ? ` Sample: $${formatPrice(product.sample_price)}.` : ""} Your quote is confirmed after we review your design.
+              </p>
             </div>
           ) : (
-            <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-xs font-medium text-neutral-900">
-                  Custom OEM Wholesale Quotation
-                </span>
-                <span className="text-[10px] font-mono font-bold text-neutral-800 bg-neutral-100 px-2.5 py-0.5 rounded border border-neutral-200">
-                  MOQ: {product.moq || BUSINESS_CONFIG.moq} PCS
-                </span>
-              </div>
-              <p className="text-xs text-neutral-600 leading-relaxed">
-                Direct factory manufacturing with custom GSM, sizing, custom trims and private label packaging. Volume wholesale tiers and rapid sample dispatch available upon request.
+            <div className="rounded-[22px] bg-white border border-line p-5 sm:p-6">
+              <span className="block text-[15px] font-medium text-ink">Priced to your spec</span>
+              <p className="mt-1.5 text-[14px] text-ink/60 leading-relaxed">
+                Pricing depends on fabric, branding and quantity. Send your design and we&apos;ll quote within 24 hours.
               </p>
             </div>
           )}
 
-          {/* ===================================================================
-              COLOR / MATERIAL VARIATION SWATCHES (Matches reference image)
-          =================================================================== */}
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-medium text-neutral-900">
-                Colorway / Finish:
-              </span>
-              <button
-                onClick={() => setSelectedColor((prev) => (prev + 1) % colorOptions.length)}
-                className="text-[11px] font-bold text-neutral-900 hover:text-[#FFB900] underline cursor-pointer font-mono transition-colors"
-              >
-                Select now
-              </button>
-            </div>
-            <div className="flex items-center gap-2 flex-wrap">
-              {colorOptions.map((opt, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setSelectedColor(idx)}
-                  className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-medium transition-all cursor-pointer ${
-                    selectedColor === idx
-                      ? "border-neutral-950 bg-neutral-950 text-white font-bold shadow-xs"
-                      : "border-neutral-200 hover:border-neutral-300 bg-white text-neutral-800"
-                  }`}
-                >
-                  <span
-                    className="w-3.5 h-3.5 rounded-full border border-black/10 shrink-0"
-                    style={{ backgroundColor: opt.color }}
-                  />
-                  <span>{opt.name}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* ===================================================================
-              SIZE / OUNCE WEIGHT SELECTION (Matches reference image)
-          =================================================================== */}
-          <div className="space-y-2">
-            <span className="text-xs font-medium text-neutral-900 block">
-              Size / Weight Specification:
-            </span>
-            <div className="flex items-center gap-2 flex-wrap">
-              {sizeOptions.map((sz) => (
-                <button
-                  key={sz}
-                  onClick={() => setSelectedSize(sz)}
-                  className={`min-w-12 text-center px-3.5 py-1.5 rounded-xl border text-xs font-mono font-bold transition-all cursor-pointer ${
-                    selectedSize === sz
-                      ? "border-neutral-950 bg-neutral-950 text-white shadow-xs"
-                      : "border-neutral-200 hover:border-neutral-300 bg-white text-neutral-700"
-                  }`}
-                >
-                  {sz}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* ===================================================================
-              SUPPLIER'S CUSTOMIZATION ABILITY (Matches reference image)
-          =================================================================== */}
-          <div className="p-4 rounded-xl bg-white border border-neutral-200/90 shadow-2xs space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-neutral-900">
-                Supplier&apos;s customization ability
-              </span>
-              <span className="text-[10px] font-bold text-neutral-800 bg-neutral-100 px-1.5 py-0.5 rounded inline-flex items-center gap-1 border border-neutral-200">
-                <Check className="w-3 h-3 text-neutral-900" /> Verified
-              </span>
-            </div>
-            <ul className="space-y-1 text-xs text-neutral-600">
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
-                <span>Minor customization (Logo embossing, custom woven tags, retail barcodes)</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
-                <span>Drawing-based customization (Vector artwork, 2D/3D CAD vector grading)</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
-                <span>Sample-based customization (Physical counter-sample replication in 3-5 days)</span>
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-neutral-400" />
-                <span>Full customization (Custom hand-molds, bespoke foam densities &amp; tanning)</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* ===================================================================
-              KEY ATTRIBUTES SPECIFICATION GRID (Matches reference image)
-          =================================================================== */}
-          <div className="space-y-2">
-            <h4 className="text-xs font-medium text-ink">
-              Key Attributes
-            </h4>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
-              <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Material</span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate" title={materialsList[0] || "Technical Performance Fabric"}>
-                  {materialsList[0] || "Technical Performance Fabric"}
-                </span>
-              </div>
-              <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">
-                  {category?.slug?.includes("box") ? "Closure / Wrist" : "Seam Construction"}
-                </span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  {category?.slug?.includes("box") ? "Hook & Loop / Lace-Up" : (featuresList[0] || "Reinforced Flatlock Seams")}
-                </span>
-              </div>
-              <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">
-                  {category?.slug?.includes("box") ? "Padding Foam" : "Fabric Technology"}
-                </span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  {category?.slug?.includes("box") ? "Multi-Layer Gel Foam" : (materialsList[1] || "4-Way Stretch / Moisture-Wicking")}
-                </span>
-              </div>
-              <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Fit / Grading</span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  {category?.slug?.includes("box") ? "Anatomical Pre-Curved" : "Custom CAD Sizing (XS–3XL)"}
-                </span>
-              </div>
-              <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Branding Options</span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  3D Silicone / Embroidery / Print
-                </span>
-              </div>
-              <div className="bg-neutral-50 p-2.5 rounded-xl border border-neutral-100">
-                <span className="block text-[10px] text-neutral-500">Lead Time</span>
-                <span className="block font-bold text-neutral-900 mt-0.5 truncate">
-                  {product.lead_time || "2–3 Weeks"}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* ===================================================================
-          {/* ===================================================================
-              QUANTITY COUNTER & ORDER ACTION BAR
-          =================================================================== */}
-          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3.5 sm:space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 sm:gap-3">
-                <span className="text-xs font-medium text-slate-700">
-                  Quantity:
-                </span>
-                <div className="flex items-center border border-slate-200 rounded-xl bg-white overflow-hidden shadow-2xs">
+          {/* Sizes */}
+          {sizeOptions.length > 0 && (
+            <div>
+              <span className="block text-[13px] font-medium text-ink mb-2.5">Available sizes</span>
+              <div className="flex flex-wrap gap-2">
+                {sizeOptions.map((sz) => (
                   <button
+                    key={sz}
                     type="button"
-                    onClick={() => {
-                      setSelectedTierIndex(null);
-                      setQuantity((prev) => Math.max(1, prev - 1));
-                    }}
-                    className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
+                    onClick={() => setSelectedSize((cur) => (cur === sz ? null : sz))}
+                    className={`min-w-12 px-4 py-2 rounded-full text-[13px] font-medium border transition-colors cursor-pointer ${
+                      selectedSize === sz ? "bg-ink text-bone border-ink" : "bg-white border-line text-ink hover:border-ink"
+                    }`}
                   >
-                    -
+                    {sz}
                   </button>
-                  <input
-                    type="number"
-                    min={1}
-                    step={1}
-                    value={quantity}
-                    onChange={(e) => {
-                      setSelectedTierIndex(null);
-                      setQuantity(Math.max(1, parseInt(e.target.value) || 1));
-                    }}
-                    className="w-16 sm:w-20 text-center font-mono font-bold text-xs py-1.5 outline-none border-x border-slate-200"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setSelectedTierIndex(null);
-                      setQuantity((prev) => prev + 1);
-                    }}
-                    className="px-2.5 sm:px-3 py-1.5 text-xs font-bold text-slate-700 hover:bg-slate-100 transition-colors"
-                  >
-                    +
-                  </button>
-                </div>
-                <span className="text-xs text-slate-500 font-mono">pairs</span>
-              </div>
-
-              <div className="text-left sm:text-right">
-                <span className="block text-[10px] text-slate-500">
-                  Est. Total (FOB)
-                </span>
-                <span className="text-base sm:text-lg font-black font-mono text-slate-900">
-                  US${estimatedTotal}
-                </span>
+                ))}
               </div>
             </div>
+          )}
 
-            {/* Primary Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 pt-1 sm:pt-2">
+          {/* Actions */}
+          <div className="space-y-3">
+            <button
+              type="button"
+              onClick={() => openInquiry("Quote")}
+              className="group w-full inline-flex items-center justify-between gap-3 pl-6 pr-2 py-2 rounded-full bg-[#FFB900] hover:bg-[#FFC633] text-ink font-semibold text-[15px] transition-colors cursor-pointer"
+            >
+              <span>Request a quote</span>
+              <span className="w-11 h-11 rounded-full bg-ink flex items-center justify-center transition-transform group-hover:rotate-45">
+                <ArrowUpRight className="w-4 h-4 text-[#FFB900]" />
+              </span>
+            </button>
+            <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
-                onClick={() => {
-                  setInquiryType("Quote");
-                  setModalOpen(true);
-                }}
-                className="w-full sm:flex-1 py-3 sm:py-3.5 px-4 sm:px-6 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_4px_20px_rgba(255,185,0,0.35)] hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 cursor-pointer font-sans"
+                onClick={() => openInquiry("Sample")}
+                className="py-3.5 rounded-full border border-ink/20 hover:border-ink text-ink font-medium text-[14px] transition-colors cursor-pointer"
               >
-                <span>Start Order / Request Quote</span>
-                <ArrowRight className="w-4 h-4 text-black shrink-0" />
+                Order a sample
               </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setInquiryType("Sample");
-                  setQuantity(1);
-                  setModalOpen(true);
-                }}
-                className="w-full sm:w-auto py-3 sm:py-3.5 px-4 sm:px-5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-950 border border-neutral-300 hover:border-[#FFB900] font-bold text-xs uppercase tracking-wider transition-all shadow-xs cursor-pointer font-mono text-center"
+              <a
+                href={BUSINESS_CONFIG.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 py-3.5 rounded-full border border-ink/20 hover:border-ink text-ink font-medium text-[14px] transition-colors"
               >
-                Order Sample
-              </button>
+                <MessageSquare className="w-4 h-4" />
+                WhatsApp
+              </a>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* =========================================================================
-          TECHNICAL SPECIFICATIONS TABS / DEEP DIVE SECTION
-      ========================================================================= */}
-      <div className="border-t border-neutral-200 pt-8 sm:pt-12 mb-10 sm:mb-16">
-        <h2 className="text-lg sm:text-xl font-bold tracking-[-0.04em] text-ink mb-4 sm:mb-6">
-          Factory Technical Blueprint &amp; Quality Specifications
-        </h2>
+          {/* Production facts */}
+          <dl className="grid grid-cols-2 border-t border-line">
+            {facts.map((fact, i) => (
+              <div key={fact.label} className={`py-4 ${i % 2 === 1 ? "pl-5 border-l border-line" : "pr-5"} ${i >= 2 ? "border-t border-line" : ""}`}>
+                <dt className="text-[12px] text-ink/55">{fact.label}</dt>
+                <dd className="mt-0.5 text-[15px] font-medium text-ink">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {/* Column 1: Materials */}
-          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-medium text-ink mb-2.5 sm:mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-slate-900" />
-              Raw Materials &amp; Tanning
-            </h3>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-600">
-              {materialsList.length > 0 ? (
-                materialsList.map((mat, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
-                    <span>{mat}</span>
-                  </li>
-                ))
-              ) : (
-                <li className="text-slate-500">Premium top-grain cowhide, engineered synthetics, and multi-layer shock foam.</li>
-              )}
-            </ul>
-          </div>
-
-          {/* Column 2: Construction Features */}
-          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-medium text-ink mb-2.5 sm:mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-slate-900" />
-              Ergonomics &amp; Safety
-            </h3>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-600">
-              {featuresList.length > 0 ? (
-                featuresList.map((feat, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
-                    <span>{feat}</span>
-                  </li>
-                ))
-              ) : (
-                <li className="text-slate-500">CE Certified ergonomic grip bar, locked-thumb safety, and reinforced dual stitching.</li>
-              )}
-            </ul>
-          </div>
-
-          {/* Column 3: Customization */}
-          <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-medium text-ink mb-2.5 sm:mb-3 flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-slate-900" />
-              Bespoke Branding
-            </h3>
-            <ul className="space-y-1.5 sm:space-y-2 text-xs text-slate-600">
-              {customList.length > 0 ? (
-                customList.map((opt, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <Check className="w-3.5 h-3.5 text-slate-900 shrink-0 mt-0.5" />
-                    <span>{opt}</span>
-                  </li>
-                ))
-              ) : (
-                <li className="text-slate-500">Custom 3D embroidery, heat-transfer silicone badges, woven wrist labels, and branded boxes.</li>
-              )}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Product Detailed Description */}
-      {product.description && (
-        <div className="mb-10 sm:mb-16 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-          <span className="text-[10px] text-slate-500 font-medium block mb-1.5 sm:mb-2">
-            Sialkot Factory Overview
-          </span>
-          <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-2 sm:mb-3">
-            Manufacturing &amp; Engineering Brief
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">
-            {product.description}
+          <p className="text-[13px] text-ink/55">
+            Made in {BUSINESS_CONFIG.address.city}, {BUSINESS_CONFIG.address.countryName} · Exporting since 2019 · NDA on every project
           </p>
         </div>
+      </div>
+
+      {/* ─── Specifications ─── */}
+      {specColumns.length > 0 && (
+        <section className="border-t border-line pt-12 sm:pt-16 mb-16 sm:mb-24">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
+            <div className="lg:col-span-4">
+              <span className="eyebrow mb-4">Specifications</span>
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
+                Built to <em className="accent-serif text-ink/70">your standard.</em>
+              </h2>
+            </div>
+            <div className={`lg:col-span-8 grid gap-8 ${specColumns.length > 1 ? "sm:grid-cols-2" : ""} ${specColumns.length > 2 ? "xl:grid-cols-3" : ""}`}>
+              {specColumns.map((col) => (
+                <div key={col.title}>
+                  <h3 className="text-[15px] font-medium text-ink pb-3 mb-3 border-b border-line">{col.title}</h3>
+                  <ul className="space-y-2.5">
+                    {col.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-[14px] text-ink/70 leading-relaxed">
+                        <Check className="w-4 h-4 text-[#C99200] shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       )}
 
-      {/* Related Products */}
+      {/* ─── Description ─── */}
+      {product.description && (
+        <section className="border-t border-line pt-12 sm:pt-16 mb-16 sm:mb-24">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
+            <div className="lg:col-span-4">
+              <span className="eyebrow mb-4">About this product</span>
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
+                Made in <em className="accent-serif text-ink/70">Sialkot.</em>
+              </h2>
+            </div>
+            <div className="lg:col-span-8">
+              <p className="text-[16px] sm:text-[17px] text-ink/70 leading-[1.75] whitespace-pre-line max-w-3xl">
+                {product.description}
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Related products ─── */}
       {relatedProducts.length > 0 && (
-        <div className="border-t border-slate-200/80 pt-12">
-          <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-bold tracking-[-0.02em] text-ink">
-              More Models in {category?.name || "This Category"}
-            </h3>
+        <section className="border-t border-line pt-12 sm:pt-16">
+          <div className="flex items-end justify-between gap-4 mb-8">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.04em] text-ink">
+              More in {category?.name || "this collection"}
+            </h2>
             <Link
-              href={`/products/${category?.slug || "general"}`}
-              className="text-xs text-slate-900 hover:text-slate-700 font-medium transition-colors"
+              href={`/products/${category?.slug || ""}`}
+              className="group inline-flex items-center gap-1.5 text-[14px] font-medium text-ink shrink-0"
             >
-              View Division Catalog →
+              <span className="border-b border-ink/30 group-hover:border-ink transition-colors">View all</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
             </Link>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {relatedProducts.slice(0, 4).map((rel) => (
               <JacketMakerProductCard
                 key={rel.id}
                 product={rel}
                 category={category || undefined}
-                onInquire={(p) => {
-                  setInquiryType("Quote");
-                  setModalOpen(true);
-                }}
+                onInquire={() => openInquiry("Quote")}
               />
             ))}
           </div>
-        </div>
+        </section>
       )}
 
-      {/* Quote / RFQ Modal */}
       <QuoteModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}
         inquiryType={inquiryType}
         defaultProductName={`${inquiryType === "Sample" ? "[Sample] " : ""}${product.name}${selectedSize ? ` (Size: ${selectedSize})` : ""}`}
         defaultCategory={category?.name || "General"}
-        defaultQuantity={quantity}
+        defaultQuantity={inquiryType === "Sample" ? 1 : quantity}
       />
     </div>
   );

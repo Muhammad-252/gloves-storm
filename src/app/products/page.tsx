@@ -77,18 +77,15 @@ interface ProductsPageProps {
 export default async function ProductsPage({ searchParams }: ProductsPageProps) {
   const resolvedParams = searchParams ? await searchParams : {};
   const currentPage = Math.max(1, parseInt(resolvedParams.page || "1", 10) || 1);
-  const pageSize = 20;
 
   const [categories, allProducts] = await Promise.all([
     getCategories(),
     getProducts(),
   ]);
 
-  const totalProducts = allProducts.length;
-  const totalPages = Math.ceil(totalProducts / pageSize);
-  const startIndex = (currentPage - 1) * pageSize;
-  const paginatedSlice = allProducts.slice(startIndex, startIndex + pageSize);
-  const projectedProducts = paginatedSlice.map(projectProductCard);
+  // Every product goes to the client (as lightweight cards) so filter counts cover the
+  // whole catalog; the client shows 20 per page and keeps ?page= links crawlable.
+  const projectedProducts = allProducts.map(projectProductCard);
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -144,8 +141,6 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           initialProducts={projectedProducts}
           categories={categories}
           currentPage={currentPage}
-          totalPages={totalPages}
-          totalProductsCount={totalProducts}
         />
       </div>
     </div>
