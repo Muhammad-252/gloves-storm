@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-import { ArrowUpRight, Play, Pause, Film, Box, Clock, ShieldCheck, Globe2 } from "lucide-react";
+import { ArrowUpRight, Play, Pause } from "lucide-react";
 import MagneticElement from "../ui/MagneticElement";
 import InteractiveRfqModal from "../ui/InteractiveRfqModal";
 import { BUSINESS_CONFIG } from "@/lib/business";
@@ -48,172 +48,122 @@ export default function HeroSection() {
     }
   };
 
+  const facts = [
+    { value: `${BUSINESS_CONFIG.moq} pcs`, label: "Minimum per style" },
+    { value: BUSINESS_CONFIG.samplingDaysShort, label: "Physical samples" },
+    { value: "AQL 2.5", label: "Pre-shipment inspection" },
+    { value: "DDP", label: "Delivered to USA, UK & EU" },
+  ];
+
   return (
-    <section className="relative overflow-hidden min-h-[100dvh] w-full flex items-center justify-center pt-20 pb-10 sm:pt-32 sm:pb-16 md:pt-40 md:pb-20">
-      {/* ─── 100% Full-Bleed Background Video / Poster ─── */}
-      <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
-        <video
-          ref={videoRef}
-          autoPlay={isPlaying}
-          loop
-          muted
-          playsInline
-          preload="none"
-          poster="/images/hero-poster.webp"
-          className="hero-bg-media"
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            minWidth: "100%",
-            minHeight: "100%",
-            objectFit: "cover",
-            objectPosition: "center center",
-          }}
-        >
-          {videoSrc && <source src={videoSrc} type="video/mp4" />}
-          <track
-            kind="captions"
-            src="data:text/vtt,WEBVTT%0A%0A00:00:00.000%20--%3E%2000:00:10.000%0AAmbient%20background%20video"
-            srcLang="en"
-            label="Ambient video"
-            default
-          />
-        </video>
+    <section className="relative w-full px-2 sm:px-3 pt-2 sm:pt-3 pb-10 sm:pb-16">
+      {/* ─── Inset media frame ─── */}
+      <div className="relative overflow-hidden rounded-[22px] sm:rounded-[32px] min-h-[88svh] sm:min-h-[92svh] flex flex-col justify-end bg-ink">
+        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0" aria-hidden="true">
+          <video
+            ref={videoRef}
+            autoPlay={isPlaying}
+            loop
+            muted
+            playsInline
+            preload="none"
+            poster="/images/hero-poster.webp"
+            className="hero-bg-media"
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              minWidth: "100%",
+              minHeight: "100%",
+              objectFit: "cover",
+              objectPosition: "center center",
+            }}
+          >
+            {videoSrc && <source src={videoSrc} type="video/mp4" />}
+            <track
+              kind="captions"
+              src="data:text/vtt,WEBVTT%0A%0A00:00:00.000%20--%3E%2000:00:10.000%0AAmbient%20background%20video"
+              srcLang="en"
+              label="Ambient video"
+              default
+            />
+          </video>
 
-        {/* Clean, High-Contrast Dark Overlay for Maximum Legibility */}
-        <div className="absolute inset-0 bg-black/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/60" />
-      </div>
-
-      {/* ─── Hero Content (Perfect Center Balance on Mobile & Desktop) ─── */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center text-center my-auto">
-        {/* Eyebrow Status Badge with #FFB900 Interactive Pulse Dot */}
-        <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 shadow-xs mb-3 sm:mb-5">
-          <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse shrink-0 shadow-[0_0_8px_rgba(255,185,0,0.8)]" />
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] sm:tracking-[0.2em] text-white/90 font-bold">
-            INTERNATIONAL APPAREL OEM &amp; EXPORTER · EST. 2019
-          </span>
+          {/* Soft cinematic grade: dark at the bottom where the copy sits */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0b0a09] via-[#0b0a09]/55 to-[#0b0a09]/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b0a09]/70 via-transparent to-transparent" />
         </div>
 
-        {/* Target H1 */}
-        <h1 className="tracking-tight text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-white leading-[1.1] sm:leading-[1.08] max-w-5xl mb-2.5 sm:mb-4 uppercase drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
-          Custom clothing &amp; sportswear manufacturer
-        </h1>
+        {/* ─── Hero content ─── */}
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 pt-28 pb-8 sm:pb-10 lg:pb-12">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
+            <div className="max-w-4xl">
+              <span className="inline-flex items-center gap-2 text-[12px] sm:text-[13px] font-medium text-white/75 mb-5 sm:mb-7">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900]" />
+                Sialkot, Pakistan · Exporting since 2019
+              </span>
 
-        {/* Subheadline (Clean High-Contrast White) */}
-        <p className="text-xs sm:text-base md:text-lg lg:text-xl font-bold text-neutral-100 tracking-tight max-w-3xl mb-2.5 sm:mb-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
-          Direct OEM Factory &amp; Private Label Apparel Exporter for International Brands
-        </p>
+              <h1 className="display-xl text-white">
+                Custom clothing &amp; sportswear manufacturer,{" "}
+                <em className="accent-serif text-[#FFD466]">made to your spec.</em>
+              </h1>
 
-        {/* Body Copy */}
-        <p className="text-[11px] sm:text-sm md:text-base text-white/90 max-w-2xl font-normal leading-relaxed mb-5 sm:mb-8 px-1 sm:px-2 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-          Gloves Storm is an international OEM/ODM apparel manufacturer and exporter specializing in custom sportswear, athletic uniforms, gym activewear, heavyweight streetwear, and private label collections. Direct Sialkot factory production, low MOQ from {BUSINESS_CONFIG.moq} pieces, {BUSINESS_CONFIG.samplingDaysShort} prototyping, and insured DDP global shipping.
-        </p>
+              <p className="mt-5 sm:mt-7 text-[15px] sm:text-lg text-white/75 leading-relaxed max-w-xl">
+                Private label teamwear, gym wear and heavyweight streetwear for brands in the USA, UK and Europe.
+                From {BUSINESS_CONFIG.moq} pieces per style, samples in {BUSINESS_CONFIG.samplingDaysShort}, delivered duty paid.
+              </p>
 
-        {/* Action CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3 w-full sm:w-auto max-w-xs sm:max-w-none">
-          <MagneticElement strength={0.3} className="w-full sm:w-auto">
+              <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3">
+                <MagneticElement strength={0.25} className="w-full sm:w-auto">
+                  <button
+                    onClick={() => setQuoteModalOpen(true)}
+                    className="group w-full sm:w-auto inline-flex items-center justify-between sm:justify-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#FFB900] hover:bg-[#FFC633] text-ink font-semibold text-[15px] tracking-[-0.01em] transition-colors cursor-pointer"
+                  >
+                    <span>Request a quote</span>
+                    <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center transition-transform group-hover:rotate-45">
+                      <ArrowUpRight className="w-4 h-4 text-[#FFB900]" />
+                    </span>
+                  </button>
+                </MagneticElement>
+
+                <Link
+                  href="/products"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white font-medium text-[15px] tracking-[-0.01em] transition-colors"
+                >
+                  Browse the catalog
+                </Link>
+              </div>
+            </div>
+
+            {/* Video control */}
             <button
-              onClick={() => setQuoteModalOpen(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-9 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-[0_4px_24px_rgba(255,185,0,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+              onClick={toggleVideo}
+              className="self-start lg:self-end inline-flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-[13px] text-white/85 transition-colors cursor-pointer"
+              title={isPlaying ? "Pause background video" : "Play background video"}
+              aria-label={isPlaying ? "Pause background video" : "Play background video"}
             >
-              <span>REQUEST OEM QUOTE</span>
-              <ArrowUpRight className="w-4 h-4 text-black transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <span className="w-8 h-8 rounded-full bg-white text-ink flex items-center justify-center">
+                {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 fill-current ml-0.5" />}
+              </span>
+              <span>{isPlaying ? "Pause film" : "Watch the factory"}</span>
             </button>
-          </MagneticElement>
+          </div>
 
-          <MagneticElement strength={0.2} className="w-full sm:w-auto">
-            <Link
-              href="/products"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-black/40 hover:bg-black/60 border border-white/25 hover:border-[#FFB900] text-white hover:text-white backdrop-blur-md font-bold text-xs uppercase tracking-wider transition-all cursor-pointer"
-            >
-              <span>BROWSE CATALOG</span>
-              <ArrowUpRight className="w-4 h-4 text-white/80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </Link>
-          </MagneticElement>
+          {/* Fact strip */}
+          <dl className="mt-10 sm:mt-14 grid grid-cols-2 lg:grid-cols-4 border-t border-white/15">
+            {facts.map((fact, i) => (
+              <div
+                key={fact.label}
+                className={`pt-5 sm:pt-6 pr-4 ${i % 2 === 1 ? "pl-4 lg:pl-6 border-l border-white/15" : ""} ${i === 2 ? "lg:pl-6 lg:border-l lg:border-white/15" : ""} ${i >= 2 ? "mt-5 lg:mt-0" : ""}`}
+              >
+                <dt className="text-[12px] sm:text-[13px] text-white/55 order-2">{fact.label}</dt>
+                <dd className="text-2xl sm:text-3xl font-semibold tracking-[-0.03em] text-white mt-1">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
-
-        {/* 4-Column Trust Bar (Balanced & Compact on Mobile) */}
-        <div className="mt-6 sm:mt-12 w-full max-w-4xl grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3.5 text-left">
-          <div className="p-2.5 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
-            <div className="flex items-center gap-1.5 mb-1">
-              <Box className="w-3.5 h-3.5 text-[#FFB900]" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
-                Low MOQ
-              </span>
-            </div>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              {BUSINESS_CONFIG.moq} Pcs / Style
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
-              Flexible sizing &amp; colors
-            </span>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
-            <div className="flex items-center gap-1.5 mb-1">
-              <Clock className="w-3.5 h-3.5 text-[#FFB900]" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
-                Sampling
-              </span>
-            </div>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              {BUSINESS_CONFIG.samplingDaysShort}
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
-              Rapid master prototype
-            </span>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
-            <div className="flex items-center gap-1.5 mb-1">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#FFB900]" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
-                QC Standard
-              </span>
-            </div>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              AQL 2.5 Strict QC
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
-              100% pre-shipment audit
-            </span>
-          </div>
-
-          <div className="p-3 sm:p-4 rounded-xl bg-black/55 backdrop-blur-md border border-white/15 hover:border-[#FFB900]/40 transition-colors">
-            <div className="flex items-center gap-1.5 mb-1">
-              <Globe2 className="w-3.5 h-3.5 text-[#FFB900]" />
-              <span className="text-[10px] font-mono uppercase tracking-[0.16em] text-neutral-300 font-semibold">
-                Global Export
-              </span>
-            </div>
-            <span className="text-xs sm:text-sm font-bold text-white uppercase tracking-tight block">
-              USA, UK &amp; Worldwide
-            </span>
-            <span className="text-[10px] sm:text-[11px] text-neutral-300/80 block mt-0.5">
-              DDP Air 3–5 Days &amp; Ocean
-            </span>
-          </div>
-        </div>
-
-        {/* Video Play/Pause Control Button */}
-        <button
-          onClick={toggleVideo}
-          className="mt-4 sm:mt-6 inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/50 hover:bg-black/70 border border-white/20 hover:border-[#FFB900]/60 shadow-sm backdrop-blur-md text-[10px] font-mono uppercase text-white/80 transition-all cursor-pointer"
-          title={isPlaying ? "Pause background video" : "Play background video"}
-          aria-label={isPlaying ? "Pause background video" : "Play background video"}
-        >
-          <Film className="w-3 h-3 text-[#FFB900]" />
-          <span>{isPlaying ? "Pause Video" : "Play Video"}</span>
-          {isPlaying ? (
-            <Pause className="w-2.5 h-2.5 text-white/80" />
-          ) : (
-            <Play className="w-2.5 h-2.5 text-[#FFB900] fill-current" />
-          )}
-        </button>
       </div>
 
       {/* Quote / RFQ Modal */}

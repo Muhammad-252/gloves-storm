@@ -130,12 +130,12 @@ export default function PreviousWorkClient({
           <div className="max-w-3xl relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-white/90 mb-3 sm:mb-4 shadow-2xs">
               <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
-              <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-slate-800 font-bold">
-                FACTORY PRODUCTION ARCHIVE
+              <span className="text-[10px] sm:text-[11px] text-slate-800 font-medium">
+                Factory production archive
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 leading-[1.1] mb-3 sm:mb-5">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink leading-[1.1] mb-3 sm:mb-5">
               Previous work &amp; completed orders
             </h1>
 
@@ -208,7 +208,7 @@ export default function PreviousWorkClient({
               <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-900 flex items-center justify-center mx-auto mb-3">
                 <Layers className="w-6 h-6" />
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1">
+              <h3 className="text-sm sm:text-base font-bold text-ink mb-1">
                 No work items in this category yet
               </h3>
               <p className="text-xs text-slate-500 max-w-md mx-auto mb-4">
@@ -254,7 +254,7 @@ export default function PreviousWorkClient({
                         />
 
                         {/* Category Badge (Top-Left) */}
-                        <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-slate-800 font-bold shadow-2xs">
+                        <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[9px] sm:text-[10px] text-slate-800 font-medium shadow-2xs">
                           {category ? category.name : project.industry || "Custom OEM"}
                         </span>
 
@@ -275,7 +275,7 @@ export default function PreviousWorkClient({
                       </div>
 
                       {/* Card Content */}
-                      <h3 className="font-bold text-sm sm:text-base text-slate-900 group-hover:text-slate-700 transition-colors line-clamp-1 mb-1">
+                      <h3 className="font-bold text-sm sm:text-base text-ink group-hover:text-slate-700 transition-colors line-clamp-1 mb-1">
                         {project.title}
                       </h3>
                       {project.description && (
@@ -294,7 +294,7 @@ export default function PreviousWorkClient({
                     </div>
 
                     <div className="pt-2.5 sm:pt-3 border-t border-slate-100 flex items-center justify-between">
-                      <span className="text-[10px] sm:text-[11px] font-mono text-slate-500 uppercase tracking-wider">
+                      <span className="text-[10px] sm:text-[11px] text-slate-500">
                         Sialkot Factory Run
                       </span>
                       <span className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-bold text-slate-900 group-hover:text-slate-700 transition-colors">
@@ -315,9 +315,9 @@ export default function PreviousWorkClient({
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono font-bold mb-2">
               <Sparkles className="w-3.5 h-3.5 text-[#FFB900]" />
-              <span>DETAILED ORDER CASE STUDIES</span>
+              <span>Detailed order case studies</span>
             </div>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-slate-900">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.04em] text-ink">
               Manufacturing Case Studies &amp; Tech Pack Delivery
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
@@ -350,14 +350,14 @@ export default function PreviousWorkClient({
             {/* Compact Top Header */}
             <div className="flex items-center justify-between px-3.5 sm:px-4 py-2.5 sm:py-3 border-b border-slate-100 bg-white z-20">
               <div className="flex items-center gap-2 min-w-0 pr-2">
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono uppercase font-bold bg-slate-100 text-slate-800 border border-slate-200/70 shrink-0">
+                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-medium bg-slate-100 text-slate-800 border border-slate-200/70 shrink-0">
                   {categories.find((c) => c.id === activeProject.category_id)?.name ||
                     activeProject.industry ||
                     "OEM Work"}
                 </span>
                 <h2
                   id="modal-project-title"
-                  className="text-xs sm:text-sm font-bold text-slate-900 truncate"
+                  className="text-xs sm:text-sm font-bold text-ink truncate"
                 >
                   {activeProject.title}
                 </h2>

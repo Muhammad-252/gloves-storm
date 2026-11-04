@@ -26,11 +26,11 @@ export default function InquirySuccessScreen({
         <CheckCircle2 className="w-6 h-6 sm:w-8 sm:h-8" />
       </div>
 
-      <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-900 font-bold block mb-1.5 sm:mb-2">
+      <span className="text-[10px] sm:text-xs text-neutral-900 font-medium block mb-1.5 sm:mb-2">
         Project Dossier Transmitted
       </span>
 
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-[#0f172a] mb-2.5 sm:mb-3 leading-tight">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-[#0f172a] mb-2.5 sm:mb-3 leading-tight">
         Project received
       </h2>
 
@@ -40,7 +40,7 @@ export default function InquirySuccessScreen({
 
       {/* Project ID Box */}
       <div className="inline-flex flex-col sm:flex-row items-center gap-1.5 sm:gap-4 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl bg-neutral-50 border border-neutral-200 mb-8 sm:mb-10">
-        <span className="text-[10px] sm:text-xs font-mono uppercase text-neutral-500">PROJECT REFERENCE ID</span>
+        <span className="text-[10px] sm:text-xs text-neutral-500">Project reference id</span>
         <span className="text-base sm:text-xl font-mono font-bold tracking-widest text-[#0f172a]">
           {projectId}
         </span>
@@ -48,7 +48,7 @@ export default function InquirySuccessScreen({
 
       {/* What Happens Next 3-Stage Timeline */}
       <div className="mb-12 text-left">
-        <span className="text-xs font-mono uppercase tracking-wider text-neutral-500 block mb-4 text-center">
+        <span className="text-xs text-neutral-500 block mb-4 text-center">
           What Happens Next in Production
         </span>
 
@@ -97,7 +97,7 @@ export default function InquirySuccessScreen({
           <button
             type="button"
             onClick={onReset}
-            className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-sm cursor-pointer"
+            className="w-full sm:w-auto px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium text-xs transition-all shadow-sm cursor-pointer"
           >
             Submit Another Project
           </button>
@@ -110,7 +110,7 @@ export default function InquirySuccessScreen({
             size="lg"
             className="w-full sm:w-auto"
           >
-            <span>EXPLORE OTHER PRODUCTS</span>
+            <span>Explore other products</span>
             <ArrowRight className="w-4 h-4" />
           </GooeyButton>
         </MagneticElement>
@@ -121,7 +121,7 @@ export default function InquirySuccessScreen({
           size="lg"
           className="w-full sm:w-auto"
         >
-          <span>BACK TO HOMEPAGE</span>
+          <span>Back to homepage</span>
         </GooeyButton>
       </div>
 

@@ -84,7 +84,7 @@ export default function CategoryLandingClient({
       </nav>
 
       {/* 2. Collection Hero Banner (The Jacket Maker Style) */}
-      <section className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/90 bg-white p-4 sm:p-8 md:p-12 lg:p-16 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
+      <section className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-neutral-200/90 p-4 sm:p-8 md:p-12 lg:p-16 shadow-[0_4px_24px_rgba(0,0,0,0.02)]">
         <div className="absolute right-0 top-0 w-full sm:w-1/2 h-full opacity-10 sm:opacity-20 pointer-events-none overflow-hidden">
           <Image
             src={category.image_url || "/images/products/varsity-jacket.jpg"}
@@ -97,12 +97,12 @@ export default function CategoryLandingClient({
         </div>
 
         <div className="relative z-10 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[9px] sm:text-[10px] font-mono uppercase tracking-wider sm:tracking-widest font-bold mb-3 sm:mb-4">
+          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[9px] sm:text-[10px] font-medium mb-3 sm:mb-4">
             <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-neutral-900 animate-pulse" />
             <span>{intel.heroSubtitle}</span>
           </div>
 
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-[1.12] sm:leading-[1.08]">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.02em] text-ink mb-3 sm:mb-4 leading-[1.12] sm:leading-[1.08]">
             {intel.h1 || `Custom ${category.name}`}
           </h1>
 
@@ -115,7 +115,7 @@ export default function CategoryLandingClient({
           {/* Key Manufacturing Metrics */}
           <div className="grid grid-cols-3 gap-1.5 sm:gap-3 mb-6 sm:mb-8 p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-neutral-50 border border-neutral-200/80 max-w-md">
             <div>
-              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">
+              <span className="text-[9px] sm:text-[10px] text-neutral-500 block">
                 Standard MOQ
               </span>
               <span className="text-xs sm:text-sm font-bold text-neutral-950 font-mono">
@@ -123,7 +123,7 @@ export default function CategoryLandingClient({
               </span>
             </div>
             <div>
-              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">
+              <span className="text-[9px] sm:text-[10px] text-neutral-500 block">
                 Prototype Sample
               </span>
               <span className="text-xs sm:text-sm font-bold text-neutral-950 font-mono">
@@ -131,7 +131,7 @@ export default function CategoryLandingClient({
               </span>
             </div>
             <div>
-              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-wider text-neutral-500 block">
+              <span className="text-[9px] sm:text-[10px] text-neutral-500 block">
                 Bulk Production
               </span>
               <span className="text-xs sm:text-sm font-bold text-neutral-950 font-mono">
@@ -159,7 +159,7 @@ export default function CategoryLandingClient({
 
             <a
               href="#products-grid"
-              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200 hover:border-[#FFB900] font-bold text-xs uppercase tracking-wider transition-all w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 text-neutral-900 border border-neutral-200 hover:border-[#FFB900] font-medium text-xs transition-all w-full sm:w-auto text-center"
             >
               <span>Explore {products.length} Models</span>
               <ArrowRight className="w-4 h-4 text-neutral-500 shrink-0" />
@@ -200,10 +200,10 @@ export default function CategoryLandingClient({
       <section id="products-grid" className="space-y-6 pt-2">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-4 border-b border-neutral-200">
           <div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 font-bold block mb-1">
+            <span className="text-[11px] text-neutral-500 font-medium block mb-1">
               Production Catalog
             </span>
-            <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-neutral-950">
+            <h2 className="text-xl sm:text-2xl font-semibold tracking-[-0.04em] text-ink">
               {category.name} ({filteredProducts.length} Models Available)
             </h2>
           </div>
@@ -272,12 +272,12 @@ export default function CategoryLandingClient({
       </section>
 
       {/* 5. Manufacturing Capabilities & Engineering */}
-      <section className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 border border-neutral-200/90 shadow-2xs space-y-6 sm:space-y-8">
+      <section className="rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 border border-neutral-200/90 shadow-2xs space-y-6 sm:space-y-8">
         <div className="max-w-2xl">
-          <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-bold block mb-1">
+          <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium block mb-1">
             Engineering &amp; Standards
           </span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.04em] text-ink mb-1.5 sm:mb-2">
             Factory Capabilities &amp; Quality Checkpoints
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
@@ -294,7 +294,7 @@ export default function CategoryLandingClient({
               <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-950 mb-2.5 sm:mb-3.5 font-mono font-bold text-xs shadow-2xs">
                 0{idx + 1}
               </div>
-              <h3 className="text-xs font-bold uppercase tracking-tight text-neutral-950 mb-1">
+              <h3 className="text-xs font-bold tracking-[-0.02em] text-ink mb-1">
                 {cap.title}
               </h3>
               <p className="text-[11px] text-neutral-600 leading-relaxed">
@@ -306,7 +306,7 @@ export default function CategoryLandingClient({
 
         {/* Customization Options Strip */}
         <div className="pt-4 sm:pt-6 border-t border-neutral-200">
-          <h3 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-900 font-bold mb-3 sm:mb-4">
+          <h3 className="text-[10px] sm:text-[11px] text-ink font-medium mb-3 sm:mb-4">
             Available Customization &amp; Private Label Branding:
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-2.5">
@@ -326,10 +326,10 @@ export default function CategoryLandingClient({
       {/* 6. Product Development / OEM Process */}
       <section className="bg-neutral-50 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 border border-neutral-200/90 space-y-6 sm:space-y-8">
         <div className="max-w-2xl">
-          <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-bold block mb-1">
+          <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium block mb-1">
             Turnkey OEM Workflow
           </span>
-          <h2 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-neutral-950">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.04em] text-ink">
             From Design Concept to Production Floor
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 mt-1">
@@ -373,7 +373,7 @@ export default function CategoryLandingClient({
                 <span className="text-lg sm:text-xl font-mono font-black text-neutral-950 block mb-1.5 sm:mb-2">
                   {s.step}
                 </span>
-                <h3 className="text-xs font-bold uppercase tracking-tight text-neutral-950 mb-1 sm:mb-1.5">
+                <h3 className="text-xs font-bold tracking-[-0.02em] text-ink mb-1 sm:mb-1.5">
                   {s.title}
                 </h3>
                 <p className="text-[11px] text-neutral-600 leading-relaxed font-normal">

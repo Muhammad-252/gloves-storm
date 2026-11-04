@@ -40,14 +40,14 @@ export default function HomeFaqSection() {
   };
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-white border-b border-black/[0.07] relative">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-[10px] sm:text-[11px] mb-3">
             <HelpCircle className="w-3.5 h-3.5 text-neutral-800" />
-            <span>OEM FREQUENTLY ASKED QUESTIONS</span>
+            <span>OEM frequently asked questions</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight uppercase leading-[1.1]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-ink tracking-[-0.04em] leading-[1.1]">
             Common questions about working with us
           </h2>
           <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600 font-normal">
@@ -101,7 +101,7 @@ export default function HomeFaqSection() {
             href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I%20have%20a%20question%20about%20custom%20manufacturing."
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 sm:px-5 py-2.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold uppercase tracking-wider whitespace-nowrap shrink-0 transition-all shadow-xs w-full sm:w-auto text-center"
+            className="px-4 sm:px-5 py-2.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-medium whitespace-nowrap shrink-0 transition-all shadow-xs w-full sm:w-auto text-center"
           >
             Chat With Factory Team
           </a>

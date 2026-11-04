@@ -66,7 +66,7 @@ export default function JournalTableOfContents({ headings }: JournalTableOfConte
             <AlignLeft className="w-3.5 h-3.5" />
           </div>
           <div>
-            <div className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-900">
+            <div className="text-xs font-medium text-neutral-900">
               Table of Contents
             </div>
             <span className="text-[10px] text-neutral-500 font-medium">H2 Section Guide</span>

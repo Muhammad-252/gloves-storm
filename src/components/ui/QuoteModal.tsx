@@ -112,10 +112,10 @@ export default function QuoteModal({
             <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/40 flex items-center justify-center text-black mb-4 sm:mb-6">
               <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8" />
             </div>
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono mb-2 font-semibold">
+            <span className="text-[10px] sm:text-xs text-neutral-500 mb-2 font-medium">
               Inquiry Confirmed
             </span>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-ink mb-3 sm:mb-4 leading-tight">
               Thank you. <br />
               Your project is now in review.
             </h3>
@@ -133,10 +133,10 @@ export default function QuoteModal({
         ) : (
           <div>
             <div className="mb-4 sm:mb-6 pr-8">
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-1 font-semibold">
+              <span className="text-[9px] sm:text-[10px] text-neutral-500 block mb-1 font-medium">
                 {inquiryType === "Sample" ? "Physical Sample Development" : "Direct Factory Production Inquiries"}
               </span>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-neutral-950 leading-tight">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.04em] text-ink leading-tight">
                 {inquiryType === "Sample" ? "Request a Sample" : "Request a Quote"}
               </h2>
               {defaultProductName && (

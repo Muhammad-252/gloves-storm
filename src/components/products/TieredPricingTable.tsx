@@ -112,10 +112,10 @@ export default function TieredPricingTable({
       <div className="p-6 rounded-2xl bg-neutral-900 text-white border border-neutral-800 shadow-sm mb-6">
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
-            <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
+            <span className="text-[10px] text-neutral-400 block mb-1">
               Confidential OEM Specification
             </span>
-            <h3 className="text-base font-bold uppercase text-white">
+            <h3 className="text-base font-bold text-white">
               Bespoke Factory Quotation Available
             </h3>
             <p className="text-xs text-neutral-400 mt-1">
@@ -138,7 +138,7 @@ export default function TieredPricingTable({
       {/* 1. Alibaba-Style Clean Pricing Tier Row (Exact design from user reference image) */}
       <div className="p-5 sm:p-6 rounded-2xl bg-neutral-50/80 border border-neutral-200/90 shadow-2xs">
         {/* Tier Columns */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 items-end pb-5 border-b border-neutral-200/80">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 items-end pb-5 border-b border-line">
           {wholesaleTiers.map((tier, idx) => {
             const isSelected = activeTier === tier;
             const rangeLabel =
@@ -183,7 +183,7 @@ export default function TieredPricingTable({
         {/* Interactive Volume & Instant Order Calculation Bar */}
         <div className="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-bold uppercase tracking-wider text-neutral-700">
+            <span className="text-xs font-medium text-neutral-700">
               Quantity:
             </span>
             <div className="flex items-center border border-neutral-300 rounded-lg bg-white overflow-hidden shadow-2xs">
@@ -215,7 +215,7 @@ export default function TieredPricingTable({
 
           <div className="flex items-center gap-3">
             <div className="text-right">
-              <span className="block text-[10px] font-mono uppercase tracking-wider text-neutral-500">
+              <span className="block text-[10px] text-neutral-500">
                 Est. Total (FOB)
               </span>
               <span className="text-base sm:text-lg font-black font-mono text-neutral-950">
@@ -237,7 +237,7 @@ export default function TieredPricingTable({
       {/* 2. Supplier's Customization Ability (Matches reference image) */}
       <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-2xs">
         <div className="flex items-center gap-2 mb-3">
-          <h4 className="text-sm font-bold text-neutral-900">
+          <h4 className="text-sm font-bold text-ink">
             Supplier&apos;s customization ability
           </h4>
           <span className="inline-flex items-center gap-1 text-[11px] font-bold text-neutral-800 bg-neutral-100 border border-neutral-200 px-2 py-0.5 rounded">
@@ -267,7 +267,7 @@ export default function TieredPricingTable({
 
       {/* 3. Key Attributes Table (Matches reference image) */}
       <div className="p-5 rounded-2xl bg-white border border-neutral-200 shadow-2xs">
-        <h4 className="text-sm font-bold text-neutral-900 mb-3">Key attributes</h4>
+        <h4 className="text-sm font-bold text-ink mb-3">Key attributes</h4>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
           <div className="bg-neutral-50 p-3 rounded-xl border border-neutral-100">
             <span className="block text-[11px] text-neutral-500">Material</span>

@@ -92,7 +92,7 @@ export default function CustomCursor() {
         transition={{ type: "spring", stiffness: 450, damping: 30 }}
       >
         {cursorText && (
-          <span className="absolute inset-0 flex items-center justify-center text-[9px] font-mono font-bold uppercase tracking-widest text-[#b45309]">
+          <span className="absolute inset-0 flex items-center justify-center text-[9px] font-medium text-[#b45309]">
             {cursorText}
           </span>
         )}

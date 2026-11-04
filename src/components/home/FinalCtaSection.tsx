@@ -1,87 +1,69 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, MessageSquare, Sparkles, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, MessageSquare, CheckCircle2 } from "lucide-react";
 import QuoteModal from "../ui/QuoteModal";
-import GooeyButton from "../ui/GooeyButton";
 import { BUSINESS_CONFIG } from "@/lib/business";
 
 export default function FinalCtaSection() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   return (
-    <section className="py-12 sm:py-18 lg:py-24 bg-white relative overflow-hidden text-center border-t border-black/[0.06]">
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl sm:rounded-3xl bg-white border border-neutral-200/90 p-4 sm:p-8 lg:p-12 shadow-sm">
-          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-neutral-100 border border-neutral-200 mb-4 sm:mb-5 shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-black shrink-0" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-900 font-mono font-bold">
-              Direct Sialkot Factory Partnership
+    <section className="relative px-2 sm:px-3 py-10 sm:py-16">
+      <div className="relative overflow-hidden rounded-[22px] sm:rounded-[32px] bg-ink text-bone">
+        {/* Warm glow */}
+        <div className="absolute -top-40 -right-32 w-[520px] h-[520px] rounded-full bg-[#FFB900]/20 blur-[120px] pointer-events-none" aria-hidden="true" />
+
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-24 lg:py-28 grid lg:grid-cols-12 gap-10 lg:gap-14 items-end">
+          <div className="lg:col-span-8">
+            <span className="inline-flex items-center gap-2 text-[13px] font-medium text-bone/60 mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900]" />
+              Direct factory partnership
             </span>
+            <h2 className="display-lg">
+              Ready to build your <em className="accent-serif text-[#FFD466]">next collection?</em>
+            </h2>
+            <p className="mt-6 text-[15px] sm:text-lg text-bone/65 leading-relaxed max-w-xl">
+              Send a sketch or a full tech pack. You&apos;ll get a quote, a sample in {BUSINESS_CONFIG.samplingDaysShort}, and a clear production timeline.
+            </p>
           </div>
 
-          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827] leading-[1.12] sm:leading-[1.05] mb-3 sm:mb-4">
-            Ready to build <br />
-            <span className="text-black">
-              your next collection?
-            </span>
-          </h2>
-
-          <p className="text-xs sm:text-sm md:text-base text-neutral-600 max-w-xl mx-auto font-normal leading-relaxed mb-6 sm:mb-8">
-            Tell us what you&apos;re building. We&apos;ll turn your concept or tech pack into physical production with guaranteed lead times, direct factory pricing, and transparent Sialkot communication.
-          </p>
-
-          {/* 3 Action Buttons in Light Mode */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 max-w-xs sm:max-w-none mx-auto mb-6 sm:mb-8">
-            <GooeyButton
-              href="/contact"
-              variant="gold-solid"
-              size="md"
-              className="w-full sm:w-auto shadow-sm"
-            >
-              <span>START A PROJECT</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </GooeyButton>
-
-            <GooeyButton
-              onClick={() => setQuoteModalOpen(true)}
-              variant="outline"
-              size="md"
-              className="w-full sm:w-auto bg-white"
-            >
-              <span>REQUEST A QUOTE</span>
-            </GooeyButton>
-
+          <div className="lg:col-span-4 flex flex-col gap-3">
             <a
-              href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
+              href="/contact"
+              className="group inline-flex items-center justify-between gap-3 pl-6 pr-2 py-2 rounded-full bg-[#FFB900] hover:bg-[#FFC633] text-ink font-semibold text-[15px] transition-colors"
+            >
+              <span>Start a project</span>
+              <span className="w-10 h-10 rounded-full bg-ink flex items-center justify-center transition-transform group-hover:rotate-45">
+                <ArrowUpRight className="w-4 h-4 text-[#FFB900]" />
+              </span>
+            </a>
+            <button
+              type="button"
+              onClick={() => setQuoteModalOpen(true)}
+              className="inline-flex items-center justify-center px-6 py-4 rounded-full border border-bone/20 hover:border-bone/50 text-bone font-medium text-[15px] transition-colors cursor-pointer"
+            >
+              Request a quote
+            </button>
+            <a
+              href={BUSINESS_CONFIG.whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full border border-black bg-black hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xs"
+              className="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full text-bone/80 hover:text-bone font-medium text-[15px] transition-colors"
             >
-              <MessageSquare className="w-4 h-4 text-white" />
-              <span>WHATSAPP US</span>
+              <MessageSquare className="w-4 h-4" />
+              <span>Chat on WhatsApp</span>
             </a>
           </div>
 
-          {/* Trust Badges in Frosted Pill Cards */}
-          <div className="pt-5 sm:pt-6 border-t border-black/[0.06] flex flex-wrap items-center justify-center gap-3 sm:gap-6 lg:gap-8 text-[11px] sm:text-xs text-neutral-600 font-medium">
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-neutral-900" />
-              <span>Strict NDAs Respected</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-neutral-900" />
-              <span>Low MOQ: {BUSINESS_CONFIG.moqShort}</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-neutral-900" />
-              <span>Direct Mill Pricing</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <CheckCircle2 className="w-3.5 h-3.5 text-neutral-900" />
-              <span>DDP Air & Ocean Freight</span>
-            </div>
-          </div>
+          <ul className="lg:col-span-12 pt-8 border-t border-bone/10 grid grid-cols-2 lg:grid-cols-4 gap-4 text-[13px] sm:text-sm text-bone/70">
+            {["NDA on every project", `From ${BUSINESS_CONFIG.moqShort} per style`, "Direct factory pricing", "DDP air & ocean freight"].map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#FFB900] shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 

@@ -124,40 +124,36 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
     (c) => !c.parent_id && c.is_active !== false && !HIDDEN_CATEGORY_SLUGS.includes(c.slug)
   );
 
+  // Bento spans for the four main divisions on large screens
+  const spans = ["lg:col-span-7 lg:row-span-2", "lg:col-span-5", "lg:col-span-5", "lg:col-span-12"];
+
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-[#FFFFFF] border-b border-black/[0.06] relative overflow-hidden">
-      {/* Subtle ambient light */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[300px] bg-black/[0.02] rounded-full blur-[120px] pointer-events-none -z-10" />
-
+    <section className="py-16 sm:py-24 lg:py-32 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-5 sm:pb-6 border-b border-black/[0.06] gap-4">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 shadow-xs mb-2.5 sm:mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.22em] text-neutral-800 font-mono font-bold">
-                INTERNATIONAL APPAREL DIVISIONS
-              </span>
-            </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827]">
-              What we manufacture &amp; export
+        {/* Section header */}
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-end mb-10 sm:mb-14">
+          <div className="lg:col-span-7">
+            <span className="eyebrow mb-4 sm:mb-5">What we manufacture</span>
+            <h2 className="display-lg text-ink">
+              Four divisions. <em className="accent-serif text-ink/70">One factory floor.</em>
             </h2>
-            <p className="mt-2 text-xs sm:text-sm md:text-base text-neutral-600 font-normal leading-relaxed">
-              Specialized apparel divisions direct from our Sialkot factory. From technical teamwear and gym activewear to heavyweight streetwear and turnkey private label manufacturing.
-            </p>
           </div>
-
-          <Link
-            href="/products"
-            className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-neutral-800 hover:text-[#FFB900] transition-colors"
-          >
-            <span>Explore Full Catalog</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+          <div className="lg:col-span-5 lg:pb-2">
+            <p className="text-[15px] sm:text-base text-ink/65 leading-relaxed">
+              Teamwear, gym wear, heavyweight streetwear and full private label production, cut and sewn under one roof in Sialkot.
+            </p>
+            <Link
+              href="/products"
+              className="group mt-5 inline-flex items-center gap-2 text-[15px] font-medium text-ink"
+            >
+              <span className="border-b border-ink/30 group-hover:border-ink transition-colors">Explore the full catalog</span>
+              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:rotate-45" />
+            </Link>
+          </div>
         </div>
 
-        {/* Dynamic Category Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 lg:auto-rows-[300px] gap-3 sm:gap-4">
           {parentCategories.map((category, idx) => {
             const fallbackSet = categoryHoverImages[category.slug];
 
@@ -187,66 +183,49 @@ export default function CategoryGridSection({ categories }: CategoryGridProps) {
             return (
               <Link
                 key={category.id}
-                href={`/products/${category.slug}`} aria-label={`Explore ${displayName} manufacturing catalog`} className="group relative rounded-3xl overflow-hidden bg-white border border-neutral-200/90 shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09)] hover:border-[#FFB900] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+                href={`/products/${category.slug}`}
+                aria-label={`Explore ${displayName} manufacturing catalog`}
+                className={`group relative rounded-[24px] sm:rounded-[28px] overflow-hidden bg-ink min-h-[340px] sm:min-h-[380px] lg:min-h-0 flex flex-col justify-end ${spans[idx % spans.length]}`}
               >
-                {/* Image Canvas Container */}
-                <div className="relative h-52 sm:h-64 lg:h-72 w-full overflow-hidden bg-slate-900">
-                  {/* Primary Image */}
-                  <Image
-                    src={primaryImage}
-                    alt={`${displayName} OEM manufacturer Sialkot Pakistan`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:opacity-0"
-                  />
+                <Image
+                  src={primaryImage}
+                  alt={`${displayName} OEM manufacturer Sialkot Pakistan`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 58vw"
+                  className="object-cover transition-all duration-[900ms] ease-out group-hover:scale-[1.04] group-hover:opacity-0"
+                />
+                <Image
+                  src={secondaryImage}
+                  alt={`${displayName} production detail view`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 58vw"
+                  className="object-cover transition-all duration-[900ms] ease-out opacity-0 scale-[1.04] group-hover:opacity-100 group-hover:scale-100"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent pointer-events-none" />
 
-                  {/* Secondary Image: Cross-fades on Hover (uses custom image if set) */}
-                  <Image
-                    src={secondaryImage}
-                    alt={`${displayName} production detail view`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-all duration-700 ease-out opacity-0 group-hover:opacity-100 group-hover:scale-105"
-                  />
-
-                  {/* Vignette Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20 pointer-events-none" />
-
-                  {/* Top Division Badge */}
-                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-10 flex items-center gap-2">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-900 bg-white/90 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-white shadow-xs font-bold">
-                      0{idx + 1}
+                <div className="absolute top-4 left-4 sm:top-5 sm:left-5 z-10 flex items-center gap-2">
+                  <span className="text-[12px] font-medium text-white/90 bg-white/15 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                    0{idx + 1}
+                  </span>
+                  {category.menu_badge && (
+                    <span className="text-[12px] font-medium text-ink bg-[#FFB900] px-3 py-1 rounded-full">
+                      {category.menu_badge}
                     </span>
-                    {category.menu_badge && (
-                      <span className="text-[9px] font-mono uppercase tracking-wider text-black bg-[#FFB900] backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full border border-[#FFB900] shadow-xs font-bold">
-                        {category.menu_badge}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Bottom Title on Image */}
-                  <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 z-10 flex items-center justify-between gap-2">
-                    <h3 className="text-base sm:text-lg font-black uppercase tracking-tight text-white drop-shadow-md">
-                      {displayName}
-                    </h3>
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-slate-950 transition-all duration-300 group-hover:bg-[#FFB900] group-hover:text-black shrink-0 shadow-sm">
-                      <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                    </div>
-                  </div>
+                  )}
                 </div>
 
-                {/* Card Body: Factual Description */}
-                <div className="p-4 sm:p-5 lg:p-6 bg-white flex flex-col justify-between flex-1">
-                  <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
-                    {displayDescription}
-                  </p>
-
-                  <div className="mt-4 pt-3 border-t border-neutral-100 flex items-center justify-between text-[11px] font-mono text-neutral-400">
-                    <span className="text-neutral-900 font-semibold uppercase tracking-wider group-hover:text-[#FFB900] transition-colors">
-                      OEM &amp; Private Label
-                    </span>
-                    <span className="text-neutral-500">
-                      Global Export Ready
+                <div className="relative z-10 p-5 sm:p-7">
+                  <div className="flex items-end justify-between gap-4">
+                    <div className="max-w-md">
+                      <h3 className="text-2xl sm:text-[28px] font-semibold tracking-[-0.02em] text-white leading-tight">
+                        {displayName}
+                      </h3>
+                      <p className="mt-2 text-[13.5px] sm:text-sm text-white/70 leading-relaxed line-clamp-2">
+                        {displayDescription}
+                      </p>
+                    </div>
+                    <span className="w-11 h-11 rounded-full bg-white text-ink flex items-center justify-center shrink-0 transition-all duration-300 group-hover:bg-[#FFB900] group-hover:rotate-45">
+                      <ArrowUpRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>

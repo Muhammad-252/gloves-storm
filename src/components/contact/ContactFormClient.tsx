@@ -73,10 +73,10 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
         <div className="w-20 h-20 rounded-full bg-[#d4af37]/10 border border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] mb-8">
           <CheckCircle className="w-10 h-10" />
         </div>
-        <span className="text-xs uppercase tracking-[0.3em] text-[#d4af37] font-mono mb-3">
+        <span className="text-xs text-[#d4af37] mb-3">
           Direct Factory Submission Received
         </span>
-        <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-white mb-4">
+        <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-white mb-4">
           Thank you. <br />
           Your project is now in review.
         </h2>
@@ -100,7 +100,7 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="mb-4">
-        <h2 className="text-xl font-bold uppercase tracking-tight text-white mb-1">
+        <h2 className="text-xl font-bold tracking-[-0.04em] text-white mb-1">
           Manufacturing Inquiry Form
         </h2>
         <p className="text-xs text-[#8e8e93]">
@@ -302,7 +302,7 @@ export default function ContactFormClient({ categories }: ContactFormClientProps
             </>
           ) : (
             <>
-              <span>SUBMIT INQUIRY</span>
+              <span>Submit inquiry</span>
               <ArrowRight className="w-4 h-4" />
             </>
           )}

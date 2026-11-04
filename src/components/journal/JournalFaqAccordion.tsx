@@ -26,11 +26,11 @@ export default function JournalFaqAccordion({
   return (
     <section className="my-14 pt-10 border-t border-neutral-200" id="faqs">
       <div className="mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-mono font-bold uppercase tracking-wider mb-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[11px] font-medium mb-2">
           <HelpCircle className="w-3.5 h-3.5 text-neutral-900" />
           <span>Manufacturer Q&amp;A</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-neutral-900">
+        <h2 className="text-2xl sm:text-3xl font-semibold tracking-[-0.04em] text-ink">
           {title}
         </h2>
         <p className="text-xs sm:text-sm text-neutral-600 mt-1 max-w-2xl leading-relaxed">
@@ -85,7 +85,7 @@ export default function JournalFaqAccordion({
           href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I%20have%20a%20question%20about%20my%20apparel%20production."
           target="_blank"
           rel="nofollow noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold rounded-xl px-5 py-2.5 text-xs uppercase tracking-wider shrink-0 transition-all shadow-xs"
+          className="inline-flex items-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium rounded-xl px-5 py-2.5 text-xs shrink-0 transition-all shadow-xs"
         >
           <span>Ask Factory on WhatsApp</span>
         </a>

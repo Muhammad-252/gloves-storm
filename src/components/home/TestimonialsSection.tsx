@@ -89,15 +89,15 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-slate-50/80 border-b border-slate-200/80 relative overflow-hidden">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900 text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] mb-3 sm:mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900 text-white text-[10px] sm:text-[11px] mb-3 sm:mb-4 shadow-xs">
             <Globe className="w-3.5 h-3.5 text-white" />
-            <span>GLOBAL B2B EXPORT NETWORK</span>
+            <span>Global B2B export network</span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight uppercase leading-[1.12] sm:leading-[1.1]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-ink tracking-[-0.04em] leading-[1.12] sm:leading-[1.1]">
             Trusted by brands worldwide
           </h2>
           <p className="mt-3 sm:mt-4 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
@@ -119,10 +119,10 @@ export default function TestimonialsSection() {
                     {reg.flag}
                   </span>
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-slate-900 tracking-tight">
+                    <h3 className="text-sm sm:text-base font-bold text-ink tracking-[-0.02em]">
                       {reg.country}
                     </h3>
-                    <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider block">
+                    <span className="text-[10px] text-slate-500 block">
                       {reg.role}
                     </span>
                   </div>
@@ -150,8 +150,8 @@ export default function TestimonialsSection() {
                 >
                   <div className="flex items-center gap-2 mb-1.5 sm:mb-2 text-white">
                     <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0 text-[#FFB900]" />
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
-                      VERIFIED FACT
+                    <span className="text-[10px] text-slate-400">
+                      Verified fact
                     </span>
                   </div>
                   <div className="text-sm sm:text-base font-bold text-white tracking-tight leading-snug">
@@ -175,7 +175,7 @@ export default function TestimonialsSection() {
                 Confidential OEM manufacturing contracts with NDAs standard on all private label orders.
               </span>
             </div>
-            <span className="font-mono text-[10px] sm:text-[11px] text-slate-300 font-semibold uppercase tracking-wider shrink-0">
+            <span className="text-[10px] sm:text-[11px] text-slate-300 font-medium shrink-0">
               Sialkot Industrial Zone · Direct Factory Access
             </span>
           </div>

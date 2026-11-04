@@ -44,10 +44,10 @@ export default function CollectionBuyingGuide({
     <section className="mt-12 sm:mt-20 pt-10 sm:pt-16 border-t border-neutral-200/90 text-neutral-900">
       {/* 1. Guide Header */}
       <div className="max-w-3xl mb-8 sm:mb-12">
-        <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-bold block mb-2">
+        <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium block mb-2">
           Technical Buyer&apos;s Guide &amp; Factory Specifications
         </span>
-        <h2 className="text-xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
+        <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink mb-3 sm:mb-4 leading-tight">
           {categoryName} Procurement &amp; Manufacturing Guide
         </h2>
         <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">
@@ -61,7 +61,7 @@ export default function CollectionBuyingGuide({
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
             <Layers className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
+          <h3 className="text-xs sm:text-sm font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
             1. Premium Raw Materials
           </h3>
           <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
@@ -73,7 +73,7 @@ export default function CollectionBuyingGuide({
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
             <Ruler className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
+          <h3 className="text-xs sm:text-sm font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
             2. Precision Pattern CAD
           </h3>
           <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
@@ -85,7 +85,7 @@ export default function CollectionBuyingGuide({
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
             <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
+          <h3 className="text-xs sm:text-sm font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
             3. Turnkey Private Label
           </h3>
           <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
@@ -97,7 +97,7 @@ export default function CollectionBuyingGuide({
           <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-neutral-200 flex items-center justify-center text-neutral-900 mb-3 sm:mb-4 shadow-2xs">
             <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
           </div>
-          <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-neutral-950 mb-1.5 sm:mb-2">
+          <h3 className="text-xs sm:text-sm font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
             4. Global Express Logistics
           </h3>
           <p className="text-[11px] sm:text-xs text-neutral-600 leading-relaxed">
@@ -109,10 +109,10 @@ export default function CollectionBuyingGuide({
       {/* 3. High-Converting FAQ Accordion with Schema Support */}
       <div className="bg-neutral-50 rounded-2xl sm:rounded-3xl border border-neutral-200/80 p-4 sm:p-8 md:p-10 mb-10 sm:mb-16">
         <div className="max-w-2xl mb-6 sm:mb-8">
-          <span className="text-[10px] sm:text-[11px] font-mono uppercase tracking-widest text-neutral-500 font-bold block mb-1">
+          <span className="text-[10px] sm:text-[11px] text-neutral-500 font-medium block mb-1">
             Frequently Asked Questions
           </span>
-          <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-neutral-950">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-[-0.02em] text-ink">
             Common Questions About Manufacturing &amp; Ordering
           </h3>
         </div>
@@ -156,7 +156,7 @@ export default function CollectionBuyingGuide({
       {/* 4. Related Collections Internal Linking Strip (SEO Power) */}
       {categories && categories.length > 0 && (
         <div className="pt-8 border-t border-neutral-200">
-          <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-500 font-bold block mb-4">
+          <span className="text-[11px] text-neutral-500 font-medium block mb-4">
             Explore Sister Production Categories:
           </span>
           <div className="flex flex-wrap gap-2.5">

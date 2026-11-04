@@ -42,16 +42,16 @@ export default function ProductExplorerSection({
   });
 
   return (
-    <section className="py-28 sm:py-36 bg-white border-b border-black/[0.07] relative">
+    <section className="py-28 sm:py-36 border-b border-line relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-black/[0.07]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 pb-6 border-b border-line">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+            <span className="text-xs text-neutral-500 block mb-2 font-medium">
               Featured Lineup
             </span>
-            <h2 className="text-3xl sm:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
-              PRODUCT EXPLORER
+            <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.04em] text-ink">
+              Product explorer
             </h2>
           </div>
           <p className="text-sm text-[#6B7280] max-w-md">
@@ -165,7 +165,7 @@ export default function ProductExplorerSection({
                       </div>
 
                       {product.featured && (
-                        <div className="absolute top-2.5 right-2.5 z-10 bg-black text-white px-2 py-0.5 rounded-full text-[9px] font-extrabold uppercase tracking-wider shadow-xs">
+                        <div className="absolute top-2.5 right-2.5 z-10 bg-black text-white px-2 py-0.5 rounded-full text-[9px] font-medium shadow-xs">
                           Featured
                         </div>
                       )}
@@ -186,7 +186,7 @@ export default function ProductExplorerSection({
                     <div className="grid grid-cols-2 gap-2 pt-1 border-t border-black/[0.05]">
                       <Link
                         href={`/products/${categoryObj?.slug || "general"}/${product.slug}`}
-                        className="py-2 px-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-wider text-[#111827] flex items-center justify-center gap-1 transition-all"
+                        className="py-2 px-2.5 rounded-xl bg-neutral-100 hover:bg-neutral-200 border border-neutral-200 text-[10px] sm:text-[11px] font-medium text-[#111827] flex items-center justify-center gap-1 transition-all"
                       >
                         <span>Specs</span>
                         <ArrowUpRight className="w-3 h-3 text-neutral-600" />
@@ -214,9 +214,9 @@ export default function ProductExplorerSection({
             <div className="text-center pt-6 px-4">
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-[10px] sm:text-xs uppercase tracking-[0.18em] sm:tracking-[0.25em] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 max-w-full text-center"
+                className="inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-medium text-[12px] sm:text-[13px] transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 max-w-full text-center"
               >
-                <span>EXPLORE ALL 90 PRODUCTS IN CATALOG</span>
+                <span>Explore all 90 products in catalog</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
               </Link>
             </div>

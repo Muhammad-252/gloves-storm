@@ -94,12 +94,12 @@ export default async function JournalPage() {
         </nav>
 
         {/* Header with Rewritten SEO H1 and Intro */}
-        <div className="max-w-4xl mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-slate-200/80">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono font-medium shadow-xs mb-3">
+        <div className="max-w-4xl mb-10 sm:mb-16 pb-6 sm:pb-8 border-b border-line">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[12px] sm:text-[13px] font-medium shadow-xs mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
-            <span>SIALKOT TECHNICAL JOURNAL &amp; OEM GUIDES</span>
+            <span>Sialkot technical journal &amp; OEM guides</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-3 sm:mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink mb-3 sm:mb-4">
             The Gloves Storm manufacturing journal
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-3xl leading-relaxed">
@@ -128,7 +128,7 @@ export default async function JournalPage() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
                   />
-                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-0.5 text-[10px] font-mono uppercase tracking-wider text-slate-800 font-bold rounded-full border border-neutral-200 shadow-2xs">
+                  <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-0.5 text-[10px] text-slate-800 font-medium rounded-full border border-neutral-200 shadow-2xs">
                     {post.category}
                   </span>
                 </div>
@@ -144,7 +144,7 @@ export default async function JournalPage() {
                   </span>
                 </div>
 
-                <h2 className="text-base sm:text-lg font-bold tracking-tight text-slate-900 mb-2 group-hover:text-black transition-colors line-clamp-2">
+                <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-2 group-hover:text-black transition-colors line-clamp-2">
                   {post.title}
                 </h2>
 
@@ -153,7 +153,7 @@ export default async function JournalPage() {
                 </p>
               </div>
 
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-slate-900 group-hover:text-[#FFB900] transition-colors">
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-medium text-slate-900 group-hover:text-[#FFB900] transition-colors">
                 <span>Read Technical Guide</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>

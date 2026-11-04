@@ -473,7 +473,7 @@ export default function ProductDetailClient({
           {/* Product Header */}
           <div>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-800 font-bold bg-neutral-100 px-2.5 py-0.5 rounded-full border border-neutral-200">
+              <span className="text-[10px] text-neutral-800 font-medium bg-neutral-100 px-2.5 py-0.5 rounded-full border border-neutral-200">
                 {category?.name || "Manufacturing Division"}
               </span>
               <span className="text-xs text-neutral-500 font-mono">
@@ -481,7 +481,7 @@ export default function ProductDetailClient({
               </span>
             </div>
 
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-neutral-950 uppercase leading-snug">
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-ink leading-snug">
               {product.name}
             </h1>
 
@@ -567,7 +567,7 @@ export default function ProductDetailClient({
           ) : (
             <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wider text-neutral-900">
+                <span className="text-xs font-medium text-neutral-900">
                   Custom OEM Wholesale Quotation
                 </span>
                 <span className="text-[10px] font-mono font-bold text-neutral-800 bg-neutral-100 px-2.5 py-0.5 rounded border border-neutral-200">
@@ -585,7 +585,7 @@ export default function ProductDetailClient({
           =================================================================== */}
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold text-neutral-900 uppercase tracking-wider">
+              <span className="text-xs font-medium text-neutral-900">
                 Colorway / Finish:
               </span>
               <button
@@ -620,7 +620,7 @@ export default function ProductDetailClient({
               SIZE / OUNCE WEIGHT SELECTION (Matches reference image)
           =================================================================== */}
           <div className="space-y-2">
-            <span className="text-xs font-bold text-neutral-900 uppercase tracking-wider block">
+            <span className="text-xs font-medium text-neutral-900 block">
               Size / Weight Specification:
             </span>
             <div className="flex items-center gap-2 flex-wrap">
@@ -676,7 +676,7 @@ export default function ProductDetailClient({
               KEY ATTRIBUTES SPECIFICATION GRID (Matches reference image)
           =================================================================== */}
           <div className="space-y-2">
-            <h4 className="text-xs font-bold text-neutral-900 uppercase tracking-wider">
+            <h4 className="text-xs font-medium text-ink">
               Key Attributes
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
@@ -730,7 +730,7 @@ export default function ProductDetailClient({
           <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3.5 sm:space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <div className="flex items-center gap-2.5 sm:gap-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-slate-700">
+                <span className="text-xs font-medium text-slate-700">
                   Quantity:
                 </span>
                 <div className="flex items-center border border-slate-200 rounded-xl bg-white overflow-hidden shadow-2xs">
@@ -770,7 +770,7 @@ export default function ProductDetailClient({
               </div>
 
               <div className="text-left sm:text-right">
-                <span className="block text-[10px] font-mono uppercase tracking-wider text-slate-500">
+                <span className="block text-[10px] text-slate-500">
                   Est. Total (FOB)
                 </span>
                 <span className="text-base sm:text-lg font-black font-mono text-slate-900">
@@ -813,14 +813,14 @@ export default function ProductDetailClient({
           TECHNICAL SPECIFICATIONS TABS / DEEP DIVE SECTION
       ========================================================================= */}
       <div className="border-t border-neutral-200 pt-8 sm:pt-12 mb-10 sm:mb-16">
-        <h2 className="text-lg sm:text-xl font-bold uppercase tracking-tight text-neutral-950 mb-4 sm:mb-6">
+        <h2 className="text-lg sm:text-xl font-bold tracking-[-0.04em] text-ink mb-4 sm:mb-6">
           Factory Technical Blueprint &amp; Quality Specifications
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {/* Column 1: Materials */}
           <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 sm:mb-3 flex items-center gap-2">
+            <h3 className="text-xs font-medium text-ink mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               Raw Materials &amp; Tanning
             </h3>
@@ -840,7 +840,7 @@ export default function ProductDetailClient({
 
           {/* Column 2: Construction Features */}
           <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 sm:mb-3 flex items-center gap-2">
+            <h3 className="text-xs font-medium text-ink mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               Ergonomics &amp; Safety
             </h3>
@@ -860,7 +860,7 @@ export default function ProductDetailClient({
 
           {/* Column 3: Customization */}
           <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h3 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-2.5 sm:mb-3 flex items-center gap-2">
+            <h3 className="text-xs font-medium text-ink mb-2.5 sm:mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               Bespoke Branding
             </h3>
@@ -883,10 +883,10 @@ export default function ProductDetailClient({
       {/* Product Detailed Description */}
       {product.description && (
         <div className="mb-10 sm:mb-16 p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-slate-500 font-bold block mb-1.5 sm:mb-2">
+          <span className="text-[10px] text-slate-500 font-medium block mb-1.5 sm:mb-2">
             Sialkot Factory Overview
           </span>
-          <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-2 sm:mb-3">
+          <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-2 sm:mb-3">
             Manufacturing &amp; Engineering Brief
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed max-w-4xl">
@@ -899,12 +899,12 @@ export default function ProductDetailClient({
       {relatedProducts.length > 0 && (
         <div className="border-t border-slate-200/80 pt-12">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-bold uppercase tracking-tight text-slate-900">
+            <h3 className="text-lg font-bold tracking-[-0.02em] text-ink">
               More Models in {category?.name || "This Category"}
             </h3>
             <Link
               href={`/products/${category?.slug || "general"}`}
-              className="text-xs uppercase tracking-wider text-slate-900 hover:text-slate-700 font-bold transition-colors font-mono"
+              className="text-xs text-slate-900 hover:text-slate-700 font-medium transition-colors"
             >
               View Division Catalog →
             </Link>

@@ -64,7 +64,7 @@ export default function FactoryPhotoPlaceholder({
           {getIcon()}
         </div>
 
-        <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-300 font-bold mb-1">
+        <span className="text-[10px] text-neutral-300 font-medium mb-1">
           {processName}
         </span>
 

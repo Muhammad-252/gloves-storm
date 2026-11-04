@@ -75,11 +75,11 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-wider mb-3 sm:mb-4 shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] mb-3 sm:mb-4 shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5 text-neutral-900" />
             <span>Industrial Confidentiality &amp; Security Standard</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight text-slate-900 mb-3 sm:mb-4">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-semibold tracking-[-0.02em] text-ink mb-3 sm:mb-4">
             PRIVACY &amp; DATA PROTECTION POLICY
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
@@ -97,7 +97,7 @@ export default function PrivacyPolicyPage() {
               <Lock className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <h2 className="text-sm sm:text-base md:text-lg font-bold uppercase tracking-tight text-slate-900 mb-1">
+              <h2 className="text-sm sm:text-base md:text-lg font-bold tracking-[-0.04em] text-ink mb-1">
                 Strict IP &amp; Design Confidentiality (NDA Guarantee)
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
         <div className="space-y-6 sm:space-y-8 text-xs sm:text-sm text-slate-700 leading-relaxed">
           {/* Section 1 */}
           <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
+            <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               1. Information We Collect
             </h2>
@@ -140,7 +140,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 2 */}
           <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
+            <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               2. Data Protection &amp; Cryptographic Security
             </h2>
@@ -165,7 +165,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 3 */}
           <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
+            <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               3. Non-Sale &amp; Non-Sharing Policy
             </h2>
@@ -176,7 +176,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Section 4 */}
           <section className="bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <h2 className="text-base sm:text-lg font-bold uppercase tracking-tight text-slate-900 mb-3 flex items-center gap-2">
+            <h2 className="text-base sm:text-lg font-bold tracking-[-0.04em] text-ink mb-3 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-slate-900" />
               4. Your Rights (Access, Correction &amp; Deletion)
             </h2>
@@ -206,7 +206,7 @@ export default function PrivacyPolicyPage() {
             <div className="shrink-0">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full sm:rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-sm text-center"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full sm:rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs transition-all shadow-sm text-center"
               >
                 <span>Contact Legal / Production</span>
                 <ArrowUpRight className="w-4 h-4" />

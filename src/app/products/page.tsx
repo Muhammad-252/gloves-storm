@@ -122,15 +122,15 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Catalog Banner with Luxury Frosted Header */}
-        <div className="mb-10 pb-6 border-b border-black/[0.06]">
+        <div className="mb-10 pb-6 border-b border-line">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 backdrop-blur-md border border-white/90 shadow-xs mb-3">
             <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-800 font-mono font-bold">
+            <span className="text-[10px] sm:text-xs text-slate-800 font-medium">
               Factory Production Library • International OEM &amp; Exporter
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 mb-4">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink mb-4">
             Custom clothing &amp; sportswear manufacturing catalog
           </h1>
 

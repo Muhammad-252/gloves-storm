@@ -306,7 +306,7 @@ export default function MegaMenu({
                 {/* Section 1: Categories for you */}
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-sm sm:text-base font-extrabold text-neutral-950 tracking-tight flex items-center gap-2">
+                    <h3 className="text-sm sm:text-base font-semibold text-ink tracking-[-0.02em] flex items-center gap-2">
                       <span>Categories for you</span>
                       <span className="text-[10px] font-mono font-normal text-neutral-400">
                         Top OEM Requests
@@ -365,7 +365,7 @@ export default function MegaMenu({
                 {/* Section 2: Streetwear & Lifestyle Apparel */}
                 <div className="pt-2 border-t border-neutral-100">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-sm sm:text-base font-extrabold text-neutral-950 tracking-tight">
+                    <h3 className="text-sm sm:text-base font-semibold text-ink tracking-[-0.02em]">
                       Streetwear &amp; Custom Apparel
                     </h3>
 
@@ -423,7 +423,7 @@ export default function MegaMenu({
                   <div className="flex items-center justify-between pb-3 border-b border-neutral-100">
                     <div>
                       <div className="flex items-center gap-2">
-                        <h3 className="text-base sm:text-lg font-extrabold text-neutral-950 uppercase tracking-tight">
+                        <h3 className="text-base sm:text-lg font-semibold text-ink tracking-[-0.02em]">
                           {activeCategory.name}
                         </h3>
                         {activeCategory.menu_badge && (

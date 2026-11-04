@@ -18,12 +18,12 @@ export default function CustomBespokeGridTile({
 
       {/* Header Tag */}
       <div className="relative z-10">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-white text-[10px] font-mono uppercase tracking-widest font-bold mb-4 backdrop-blur-md">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-white text-[10px] font-medium mb-4 backdrop-blur-md">
           <Sparkles className="w-3 h-3 text-[#FFB900]" />
           <span>Bespoke &amp; OEM Studio</span>
         </div>
 
-        <h3 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white mb-2 leading-tight">
+        <h3 className="text-xl sm:text-2xl font-semibold tracking-[-0.02em] text-white mb-2 leading-tight">
           Design Your Own {categoryName}
         </h3>
 
@@ -49,7 +49,7 @@ export default function CustomBespokeGridTile({
         <button
           type="button"
           onClick={onOpenModal}
-          className="w-full py-3.5 px-4 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(255,185,0,0.3)] hover:scale-[1.01] active:scale-[0.99] cursor-pointer group"
+          className="w-full py-3.5 px-4 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium text-xs transition-all flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(255,185,0,0.3)] hover:scale-[1.01] active:scale-[0.99] cursor-pointer group"
         >
           <span>Start Custom Design</span>
           <ArrowRight className="w-4 h-4 text-black group-hover:translate-x-1 transition-transform" />

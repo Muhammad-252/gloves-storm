@@ -83,17 +83,17 @@ export default function CustomizationSection() {
   const [activeItem, setActiveItem] = useState(customizationItems[0]);
 
   return (
-    <section className="py-24 sm:py-32 bg-white border-b border-neutral-200/80 relative overflow-hidden">
+    <section className="py-24 sm:py-32 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs font-mono uppercase tracking-[0.25em] text-neutral-900 font-bold mb-4 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200 text-xs text-neutral-900 font-medium mb-4 shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-neutral-900" />
             <span>Artisan Engineering</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-neutral-950 leading-[1.0] mb-6">
+          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-[-0.04em] text-ink leading-[1.0] mb-6">
             EVERY DETAIL <br />
-            <span className="text-neutral-500">IS YOURS.</span>
+            <span className="text-neutral-500">Is yours.</span>
           </h2>
           <p className="text-base sm:text-lg text-neutral-600 leading-relaxed">
             Your brand identity should never be constrained by factory limitations. We engineer every seam, print, label, and raw fabric component around your exact creative vision.
@@ -117,7 +117,7 @@ export default function CustomizationSection() {
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-500 font-bold">
+                    <span className="text-[10px] text-neutral-500 font-medium">
                       {item.category}
                     </span>
                     {isSelected && (
@@ -152,10 +152,10 @@ export default function CustomizationSection() {
 
             {/* Description & Technical Specs */}
             <div className="p-8">
-              <span className="text-[11px] font-mono uppercase tracking-[0.25em] text-neutral-500 font-bold block mb-2">
+              <span className="text-[11px] text-neutral-500 font-medium block mb-2">
                 {activeItem.category} Standard
               </span>
-              <h3 className="text-2xl font-black uppercase tracking-tight text-neutral-950 mb-4">
+              <h3 className="text-2xl font-semibold tracking-[-0.02em] text-ink mb-4">
                 {activeItem.title}
               </h3>
               <p className="text-sm text-neutral-600 leading-relaxed mb-6">

@@ -33,21 +33,21 @@ export default function OemManufacturingBanner() {
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
 
   return (
-    <section className="py-12 sm:py-18 lg:py-24 bg-white border-b border-black/[0.06] relative overflow-hidden">
+    <section className="py-12 sm:py-18 lg:py-24 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="rounded-2xl sm:rounded-3xl bg-white border border-neutral-200/90 p-4 sm:p-8 md:p-12 lg:p-14 shadow-sm relative overflow-hidden">
           <div className="relative z-10">
             {/* Top Frosted Brand Pill */}
             <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-neutral-100 border border-neutral-200 shadow-xs mb-4 sm:mb-6">
               <Sparkles className="w-3.5 h-3.5 text-black shrink-0" />
-              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.22em] text-neutral-900 font-bold">
+              <span className="text-[12px] sm:text-[13px] text-neutral-900 font-medium">
                 Turnkey Private Label & OEM Engineering
               </span>
             </div>
 
             {/* Headline */}
             <div className="max-w-4xl mb-6 sm:mb-8">
-              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.03em] text-[#111827] leading-[1.12] sm:leading-[1.05] mb-3 sm:mb-4">
+              <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-[1.12] sm:leading-[1.05] mb-3 sm:mb-4">
                 Have a tech pack or custom sketch? <br className="hidden sm:inline" />
                 <span className="text-black">
                   We engineer it to physical production.
@@ -70,7 +70,7 @@ export default function OemManufacturingBanner() {
                     <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-black mb-2.5 sm:mb-3.5 group-hover:bg-black group-hover:text-white transition-all">
                       <Icon className="w-4 h-4" />
                     </div>
-                    <h3 className="text-xs sm:text-sm font-bold uppercase tracking-tight text-[#111827] mb-1">
+                    <h3 className="text-xs sm:text-sm font-bold tracking-[-0.02em] text-ink mb-1">
                       {pillar.title}
                     </h3>
                     <p className="text-[11px] text-neutral-500 leading-relaxed">
@@ -90,7 +90,7 @@ export default function OemManufacturingBanner() {
                   size="md"
                   className="w-full sm:w-auto shadow-sm"
                 >
-                  <span>SUBMIT TECH PACK FOR QUOTE</span>
+                  <span>Submit tech pack for quote</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                 </GooeyButton>
 
@@ -98,7 +98,7 @@ export default function OemManufacturingBanner() {
                   href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I%20have%20a%20tech%20pack%20and%20would%20like%20to%20get%20a%20manufacturing%20quote."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-black bg-black text-white hover:bg-neutral-800 font-bold text-xs uppercase tracking-wider transition-all shadow-xs text-center"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 rounded-full border border-black bg-black text-white hover:bg-neutral-800 font-medium text-xs transition-all shadow-xs text-center"
                 >
                   <MessageSquare className="w-4 h-4 text-white shrink-0" />
                   <span>WhatsApp Lead Engineer</span>

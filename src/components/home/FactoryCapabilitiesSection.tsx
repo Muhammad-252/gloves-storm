@@ -69,15 +69,15 @@ const capabilities = [
 
 export default function FactoryCapabilitiesSection() {
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-white border-b border-black/[0.07] relative">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Rewritten SEO Title & Subtitle */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-5 sm:pb-6 border-b border-black/[0.07] gap-5 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-5 sm:pb-6 border-b border-line gap-5 sm:gap-6">
           <div className="max-w-3xl">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+            <span className="text-[12px] sm:text-[13px] text-neutral-500 block mb-2 font-medium">
               In-House Industrial Infrastructure
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.05]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-[1.08] sm:leading-[1.05]">
               Apparel manufacturing &amp; technical capabilities
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
@@ -114,7 +114,7 @@ export default function FactoryCapabilitiesSection() {
 
               <div className="p-4 sm:p-6 lg:p-7 flex flex-col justify-between flex-1">
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#1A1A1A] mb-1.5 sm:mb-2 tracking-tight group-hover:text-black transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold text-ink mb-1.5 sm:mb-2 tracking-[-0.02em] group-hover:text-black transition-colors">
                     {cap.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -122,8 +122,8 @@ export default function FactoryCapabilitiesSection() {
                   </p>
                 </div>
 
-                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-black/[0.06] flex items-center justify-between">
-                  <span className="text-[10px] sm:text-[11px] font-mono text-slate-500 font-semibold uppercase tracking-wider">
+                <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-line flex items-center justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-500 font-medium">
                     Export Certified Unit
                   </span>
                   <Link

@@ -10,13 +10,13 @@ export default function VerifiedTestimonialsSection() {
   }
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-[#F9FAFB] border-b border-black/[0.07] relative overflow-hidden">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-neutral-500 font-bold block mb-2">
-            VERIFIED CLIENT REVIEWS
+          <span className="text-[10px] sm:text-xs text-neutral-500 font-medium block mb-2">
+            Verified client reviews
           </span>
-          <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-neutral-900">
+          <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.04em] text-ink">
             What our brand partners say
           </h2>
         </div>

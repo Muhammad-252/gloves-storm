@@ -289,18 +289,18 @@ export default function CategoryShowcaseSection({
   }, [products, categories, selectedChip, gsmFilter, techniqueFilter, searchQuery]);
 
   return (
-    <section className="py-12 sm:py-18 lg:py-24 bg-transparent border-b border-black/[0.06] relative overflow-hidden">
+    <section className="py-12 sm:py-18 lg:py-24 bg-transparent border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-4 sm:pb-5 border-b border-black/[0.06] gap-3 sm:gap-4">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-6 sm:mb-8 pb-4 sm:pb-5 border-b border-line gap-3 sm:gap-4">
           <div>
             <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 shadow-xs mb-2">
               <span className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-800 font-mono font-bold">
+              <span className="text-[12px] sm:text-[13px] text-neutral-800 font-medium">
                 Direct Mill Catalog
               </span>
             </div>
-            <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-neutral-950">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink">
               Custom apparel &amp; sportswear specifications
             </h2>
           </div>
@@ -543,7 +543,7 @@ export default function CategoryShowcaseSection({
         <div className="text-center pt-8 sm:pt-12">
           <Link
             href="/products"
-            className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-extrabold text-[11px] sm:text-xs uppercase tracking-wider sm:tracking-widest transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
+            className="inline-flex items-center justify-center gap-2 px-5 sm:px-8 py-3.5 sm:py-4 rounded-full bg-neutral-950 hover:bg-[#FFB900] text-white hover:text-black font-medium text-[11px] sm:text-xs transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 w-full sm:w-auto"
           >
             <span>EXPLORE FULL {products.length}+ SPECIFICATION CATALOG</span>
             <ArrowUpRight className="w-4 h-4 shrink-0" />

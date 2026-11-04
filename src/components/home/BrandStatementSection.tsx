@@ -92,7 +92,7 @@ const productionStages = [
 
 export default function BrandStatementSection() {
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-white border-b border-black/[0.07] relative overflow-hidden">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-10 sm:mb-16 gap-6 sm:gap-8">
@@ -100,12 +100,12 @@ export default function BrandStatementSection() {
             {/* Eyebrow badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-neutral-100 border border-neutral-200 mb-3.5 sm:mb-5 shadow-xs">
               <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse" />
-              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-900 font-bold">
+              <span className="text-[12px] sm:text-[13px] text-neutral-900 font-medium">
                 End-To-End Apparel Manufacturing Partner
               </span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.05] sm:leading-[1.0] mb-4 sm:mb-6">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-[1.05] sm:leading-[1.0] mb-4 sm:mb-6">
               From your idea <br />
               <span className="text-[#6B7280]">to the final product.</span>
             </h2>
@@ -131,12 +131,12 @@ export default function BrandStatementSection() {
         <div className="space-y-12">
           {/* Phase 01: Pre-Production & Engineering */}
           <div>
-            <div className="flex items-center justify-between mb-6 pb-3 border-b border-black/[0.07]">
+            <div className="flex items-center justify-between mb-6 pb-3 border-b border-line">
               <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap sm:flex-nowrap">
-                <span className="text-xs font-mono font-bold tracking-widest text-neutral-900 bg-neutral-100 border border-neutral-200 px-2.5 py-1 rounded-md uppercase">
+                <span className="text-xs font-medium text-neutral-900 bg-neutral-100 border border-neutral-200 px-2.5 py-1 rounded-md">
                   Phase 01
                 </span>
-                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-800">
+                <h3 className="text-xs sm:text-sm font-bold tracking-wider text-neutral-800">
                   Concept, Sampling & Industrial Engineering
                 </h3>
               </div>
@@ -164,10 +164,10 @@ export default function BrandStatementSection() {
                         </div>
                       </div>
 
-                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
+                      <span className="text-[10px] text-neutral-400 block mb-1">
                         {stage.phase}
                       </span>
-                      <h4 className="text-sm sm:text-base font-bold uppercase tracking-tight text-neutral-900 mb-2 sm:mb-3 group-hover:text-black transition-colors">
+                      <h4 className="text-sm sm:text-base font-bold tracking-[-0.02em] text-ink mb-2 sm:mb-3 group-hover:text-black transition-colors">
                         {stage.name}
                       </h4>
                       <p className="text-xs text-neutral-600 leading-relaxed mb-4 sm:mb-5">
@@ -175,7 +175,7 @@ export default function BrandStatementSection() {
                       </p>
 
                       {/* Deliverables tags */}
-                      <div className="space-y-1.5 mb-5 sm:mb-6 pt-3 border-t border-black/[0.06]">
+                      <div className="space-y-1.5 mb-5 sm:mb-6 pt-3 border-t border-line">
                         {stage.deliverables.map((item) => (
                           <div
                             key={item}
@@ -189,12 +189,12 @@ export default function BrandStatementSection() {
                     </div>
 
                     {/* Timeline pill footer */}
-                    <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-black/[0.06] text-[11px] text-[#6B7280]">
+                    <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-line text-[11px] text-[#6B7280]">
                       <div className="flex items-center gap-1.5 text-neutral-700 font-medium">
                         <Clock className="w-3.5 h-3.5 text-neutral-500" />
                         <span>{stage.timeline}</span>
                       </div>
-                      <span className="text-[10px] font-mono uppercase text-neutral-400 group-hover:text-black group-hover:translate-x-0.5 transition-all">
+                      <span className="text-[10px] text-neutral-400 group-hover:text-black group-hover:translate-x-0.5 transition-all">
                         Milestone →
                       </span>
                     </div>
@@ -209,12 +209,12 @@ export default function BrandStatementSection() {
 
           {/* Phase 02: Mass Production, Quality Assurance & Delivery */}
           <div>
-            <div className="flex items-center justify-between mb-5 sm:mb-6 pb-3 border-b border-black/[0.07]">
+            <div className="flex items-center justify-between mb-5 sm:mb-6 pb-3 border-b border-line">
               <div className="flex items-center gap-2 sm:gap-3 flex-wrap sm:flex-nowrap">
-                <span className="text-[10px] sm:text-xs font-mono font-bold tracking-widest text-neutral-900 bg-neutral-100 border border-neutral-200 px-2 sm:px-2.5 py-1 rounded-md uppercase">
+                <span className="text-[12px] sm:text-[13px] font-medium text-neutral-900 bg-neutral-100 border border-neutral-200 px-2 sm:px-2.5 py-1 rounded-md">
                   Phase 02
                 </span>
-                <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-neutral-800">
+                <h3 className="text-xs sm:text-sm font-bold tracking-wider text-neutral-800">
                   Bulk Manufacturing, Triple-Point QC & Global Shipping
                 </h3>
               </div>
@@ -241,10 +241,10 @@ export default function BrandStatementSection() {
                         </div>
                       </div>
 
-                      <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-1">
+                      <span className="text-[10px] text-neutral-400 block mb-1">
                         {stage.phase}
                       </span>
-                      <h4 className="text-base sm:text-lg font-bold uppercase tracking-tight text-neutral-900 mb-2 sm:mb-3 group-hover:text-black transition-colors">
+                      <h4 className="text-base sm:text-lg font-bold tracking-[-0.02em] text-ink mb-2 sm:mb-3 group-hover:text-black transition-colors">
                         {stage.name}
                       </h4>
                       <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-4 sm:mb-6">
@@ -252,7 +252,7 @@ export default function BrandStatementSection() {
                       </p>
 
                       {/* Deliverables tags */}
-                      <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6 pt-3 border-t border-black/[0.06]">
+                      <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6 pt-3 border-t border-line">
                         {stage.deliverables.map((item) => (
                           <div
                             key={item}
@@ -266,12 +266,12 @@ export default function BrandStatementSection() {
                     </div>
 
                     {/* Timeline pill footer */}
-                    <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-black/[0.06] text-xs text-[#6B7280]">
+                    <div className="flex items-center justify-between pt-3.5 sm:pt-4 border-t border-line text-xs text-[#6B7280]">
                       <div className="flex items-center gap-1.5 text-neutral-700 font-semibold">
                         <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-neutral-500" />
                         <span>{stage.timeline}</span>
                       </div>
-                      <span className="text-xs font-mono uppercase text-neutral-400 group-hover:text-black group-hover:translate-x-1 transition-all">
+                      <span className="text-xs text-neutral-400 group-hover:text-black group-hover:translate-x-1 transition-all">
                         Guaranteed →
                       </span>
                     </div>
@@ -292,7 +292,7 @@ export default function BrandStatementSection() {
               <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-wide text-neutral-900">
+              <p className="text-xs sm:text-sm font-medium text-neutral-900">
                 Guaranteed Lead Times & Milestone Tracking
               </p>
               <p className="text-[11px] sm:text-xs text-neutral-500">
@@ -303,7 +303,7 @@ export default function BrandStatementSection() {
           <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
             <Link
               href="/contact"
-              className="text-xs font-bold uppercase tracking-wider text-black hover:text-[#FFB900] flex items-center gap-1 group transition-colors"
+              className="text-xs font-medium text-black hover:text-[#FFB900] flex items-center gap-1 group transition-colors"
             >
               <span>Consult an OEM Engineer</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

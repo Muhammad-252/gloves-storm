@@ -107,12 +107,12 @@ export default function ManufacturersUsaClient() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <div className="max-w-4xl mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900 text-white text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-4 sm:mb-5 shadow-xs">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-slate-900 text-white text-[10px] sm:text-[11px] mb-4 sm:mb-5 shadow-xs">
             <span className="w-2 h-2 rounded-full bg-[#FFB900] animate-pulse" />
-            <span>🇺🇸 EXPORT MARKET CORRIDOR · DIRECT USA APPAREL PARTNERSHIP</span>
+            <span>🇺🇸 export market corridor · direct USA apparel partnership</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1] uppercase">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink mb-4 sm:mb-6 leading-[1.1]">
             Custom clothing &amp; sportswear manufacturer for USA brands
           </h1>
 
@@ -127,7 +127,7 @@ export default function ManufacturersUsaClient() {
             <div className="flex items-center gap-3">
               <span className="text-3xl sm:text-4xl">🇺🇸</span>
               <div>
-                <span className="text-[10px] sm:text-xs font-mono uppercase tracking-wider text-neutral-400 block font-bold">
+                <span className="text-[10px] sm:text-xs text-neutral-400 block font-medium">
                   United States Corridor
                 </span>
                 <span className="text-sm sm:text-base md:text-lg font-bold text-white tracking-tight">
@@ -160,17 +160,17 @@ export default function ManufacturersUsaClient() {
         {/* Section: Why USA Brands Source From Sialkot */}
         <div className="mb-12 sm:mb-20 lg:mb-24">
           <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
               The Manufacturing Advantage
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               Why USA apparel &amp; sports brands source from Gloves Storm
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
             <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
                 <span>Global Hub of Textile &amp; Sports Apparel Craftsmanship</span>
               </h3>
@@ -183,7 +183,7 @@ export default function ManufacturersUsaClient() {
             </div>
 
             <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
                 <span>60%–80% Cost Advantage vs Domestic US Manufacturing</span>
               </h3>
@@ -196,7 +196,7 @@ export default function ManufacturersUsaClient() {
             </div>
 
             <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <Box className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
                 <span>Startup-Accessible Low MOQs (From {BUSINESS_CONFIG.moq} Pieces)</span>
               </h3>
@@ -209,7 +209,7 @@ export default function ManufacturersUsaClient() {
             </div>
 
             <div className="p-4 sm:p-6 lg:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-sm space-y-3 sm:space-y-4">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-slate-900 shrink-0" />
                 <span>Direct Factory Partnership with Zero Middlemen</span>
               </h3>
@@ -226,10 +226,10 @@ export default function ManufacturersUsaClient() {
         {/* Section: What We Manufacture for USA Clients */}
         <div className="mb-12 sm:mb-20 lg:mb-24">
           <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
               Product Catalog for American Brands
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               What we manufacture for USA clients
             </h2>
           </div>
@@ -254,7 +254,7 @@ export default function ManufacturersUsaClient() {
                       {item.tag}
                     </span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#FFB900] transition-colors mb-1.5 sm:mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-[#FFB900] transition-colors mb-1.5 sm:mb-2">
                     {item.title}
                   </h3>
                   <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
@@ -274,10 +274,10 @@ export default function ManufacturersUsaClient() {
         {/* Section: Shipping & Logistics to the USA */}
         <div className="mb-12 sm:mb-20 lg:mb-24 p-5 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">
           <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-400 font-mono block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs text-neutral-400 block mb-2 font-medium">
               Door-to-Door Logistics
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-white leading-tight">
               Shipping &amp; logistics to the USA
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-300">
@@ -351,10 +351,10 @@ export default function ManufacturersUsaClient() {
         {/* Section: How to Start Your USA Order */}
         <div className="mb-12 sm:mb-20 lg:mb-24">
           <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
               Simple 6-Stage Process
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               How to start your USA order
             </h2>
           </div>
@@ -369,7 +369,7 @@ export default function ManufacturersUsaClient() {
                   <span className="text-xl sm:text-2xl font-black font-mono text-slate-900 block mb-1.5 sm:mb-2">
                     {step.step}
                   </span>
-                  <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1.5 sm:mb-2">
+                  <h3 className="text-sm sm:text-base font-bold text-ink mb-1.5 sm:mb-2">
                     {step.title}
                   </h3>
                   <p className="text-[11px] sm:text-xs md:text-sm text-slate-600 leading-relaxed">
@@ -384,11 +384,11 @@ export default function ManufacturersUsaClient() {
         {/* FAQ Section */}
         <div className="mb-12 sm:mb-20 lg:mb-24 max-w-4xl mx-auto">
           <div className="text-center mb-8 sm:mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] mb-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[10px] sm:text-[11px] mb-3">
               <HelpCircle className="w-3.5 h-3.5 text-neutral-900" />
-              <span>USA EXPORT FAQS</span>
+              <span>USA export FAQS</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight uppercase leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-ink tracking-[-0.04em] leading-tight">
               Frequently asked questions — USA clients
             </h2>
           </div>
@@ -430,10 +430,10 @@ export default function ManufacturersUsaClient() {
         {/* CTA Banner */}
         <div className="p-6 sm:p-10 lg:p-14 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8 text-center lg:text-left">
           <div className="max-w-2xl">
-            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs text-neutral-400 block mb-2 font-medium">
               Fast 24-Hour Quotation
             </span>
-            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-white mb-2.5 sm:mb-3 leading-tight">
+            <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-white mb-2.5 sm:mb-3 leading-tight">
               Get a free quote for your USA order
             </h2>
             <p className="text-xs sm:text-sm md:text-base text-slate-300 leading-relaxed">
@@ -444,7 +444,7 @@ export default function ManufacturersUsaClient() {
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-3.5 shrink-0 w-full sm:w-auto">
             <Link
               href="/contact"
-              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,185,0,0.4)]"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium text-xs transition-all flex items-center justify-center gap-2 shadow-[0_4px_24px_rgba(255,185,0,0.4)]"
             >
               <span>Request USA Quote</span>
               <ArrowUpRight className="w-4 h-4 text-black" />
@@ -453,7 +453,7 @@ export default function ManufacturersUsaClient() {
               href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20a%20USA%20brand%20interested%20in%20custom%20manufacturing."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-full bg-white/10 border border-white/20 text-white font-bold text-xs uppercase tracking-wider hover:bg-white/20 transition-all text-center"
+              className="w-full sm:w-auto px-6 py-3.5 sm:py-4 rounded-full bg-white/10 border border-white/20 text-white font-medium text-xs hover:bg-white/20 transition-all text-center"
             >
               WhatsApp Direct
             </a>

@@ -12,10 +12,10 @@ export default function MeetTheTeamSection() {
   return (
     <section className="mb-16 sm:mb-24">
       <div className="max-w-2xl mb-8 sm:mb-12">
-        <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-slate-500 font-mono block mb-2 font-bold">
+        <span className="text-[11px] sm:text-xs text-slate-500 block mb-2 font-medium">
           Factory Leadership
         </span>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-3 sm:mb-4 uppercase">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink mb-3 sm:mb-4">
           Meet the production &amp; export team
         </h2>
         <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -42,7 +42,7 @@ export default function MeetTheTeamSection() {
                 <User className="w-12 h-12 text-slate-400" />
               )}
             </div>
-            <h3 className="text-base font-bold text-slate-900 tracking-tight">
+            <h3 className="text-base font-bold text-ink tracking-[-0.02em]">
               {member.name}
             </h3>
             <span className="text-xs font-mono text-[#FFB900] font-bold block mb-2">

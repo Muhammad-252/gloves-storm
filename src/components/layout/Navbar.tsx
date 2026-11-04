@@ -161,8 +161,8 @@ export default function Navbar() {
       <header className="fixed top-2 sm:top-4 left-1/2 -translate-x-1/2 z-50 max-w-7xl px-3 sm:px-6 lg:px-8 w-full transition-all duration-300">
         <div
           className={cn(
-            "w-full rounded-2xl sm:rounded-full bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-3.5 sm:px-6 py-2 sm:py-2.5 flex items-center justify-between gap-2 transition-all duration-300",
-            scrolled && "bg-white/95 shadow-md border-slate-300/80"
+            "w-full rounded-2xl sm:rounded-full bg-bone/75 backdrop-blur-xl border border-line/80 px-3.5 sm:px-5 py-2 sm:py-2 flex items-center justify-between gap-2 transition-all duration-300",
+            scrolled && "bg-bone/90 shadow-[0_10px_40px_-12px_rgba(18,17,15,0.18)]"
           )}
         >
           {/* Brand Logo with Company Mark */}
@@ -186,11 +186,11 @@ export default function Navbar() {
               />
             </div>
             <div className="flex flex-col min-w-0">
-              <span className="font-black tracking-[-0.03em] text-sm min-[380px]:text-base sm:text-lg uppercase text-slate-900 leading-none truncate">
-                GLOVES STORM
+              <span className="font-semibold tracking-[-0.03em] text-[15px] min-[380px]:text-base sm:text-[17px] text-ink leading-none truncate">
+                Gloves Storm
               </span>
-              <span className="text-[8px] min-[380px]:text-[9px] uppercase tracking-[0.1em] sm:tracking-[0.2em] font-mono text-slate-500 font-semibold mt-1 leading-none truncate">
-                International OEM & Exporter
+              <span className="text-[10px] sm:text-[11px] text-ink/55 mt-1 leading-none truncate">
+                Apparel manufacturer · Sialkot
               </span>
             </div>
           </Link>
@@ -214,10 +214,10 @@ export default function Navbar() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-xs xl:text-[13px] uppercase tracking-[0.1em] font-bold transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
+                        "text-[13.5px] font-medium tracking-[-0.01em] transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
                         isActive || megaMenuOpen
-                          ? "text-slate-950 bg-slate-100"
-                          : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
+                          ? "text-ink bg-stone/70"
+                          : "text-ink/65 hover:text-ink hover:bg-stone/50"
                       )}
                     >
                       <span>{link.name}</span>
@@ -248,10 +248,10 @@ export default function Navbar() {
                       type="button"
                       onClick={() => setMarketsDropdownOpen(!marketsDropdownOpen)}
                       className={cn(
-                        "text-xs xl:text-[13px] uppercase tracking-[0.1em] font-bold transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
+                        "text-[13.5px] font-medium tracking-[-0.01em] transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 cursor-pointer",
                         isMarketActive || marketsDropdownOpen
-                          ? "text-slate-950 bg-slate-100"
-                          : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
+                          ? "text-ink bg-stone/70"
+                          : "text-ink/65 hover:text-ink hover:bg-stone/50"
                       )}
                     >
                       <span>{link.name}</span>
@@ -315,10 +315,10 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   className={cn(
-                    "text-xs xl:text-[13px] uppercase tracking-[0.1em] font-bold transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap shrink-0",
+                    "text-[13.5px] font-medium tracking-[-0.01em] transition-all px-3 xl:px-3.5 py-2 rounded-full whitespace-nowrap shrink-0",
                     isActive
-                      ? "text-slate-950 bg-slate-100"
-                      : "text-slate-600 hover:text-slate-950 hover:bg-slate-50"
+                      ? "text-ink bg-stone/70"
+                      : "text-ink/65 hover:text-ink hover:bg-stone/50"
                   )}
                 >
                   {link.name}
@@ -332,10 +332,12 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setRfqModalOpen(true)}
-              className="inline-flex items-center gap-1.5 px-4 xl:px-5 py-2.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider shadow-sm transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer whitespace-nowrap"
+              className="group inline-flex items-center gap-1.5 pl-4 xl:pl-5 pr-1.5 py-1.5 rounded-full bg-ink hover:bg-black text-bone font-medium text-[13.5px] tracking-[-0.01em] transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Request OEM Quote</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-black" />
+              <span>Get a quote</span>
+              <span className="ml-1 w-7 h-7 rounded-full bg-[#FFB900] flex items-center justify-center transition-transform group-hover:rotate-45">
+                <ArrowUpRight className="w-3.5 h-3.5 text-ink" />
+              </span>
             </button>
           </div>
 
@@ -388,9 +390,9 @@ export default function Navbar() {
                 </div>
                 <div className="flex flex-col min-w-0">
                   <span className="font-extrabold text-sm uppercase text-slate-900 leading-tight truncate">
-                    GLOVES STORM
+                    Gloves Storm
                   </span>
-                  <span className="text-[9px] uppercase tracking-wider font-mono text-slate-500 truncate">
+                  <span className="text-[9px] text-slate-500 truncate">
                     International OEM & Exporter
                   </span>
                 </div>
@@ -456,7 +458,7 @@ export default function Navbar() {
 
             {/* Export Markets Section for Mobile */}
             <div className="border-b border-neutral-100 py-3">
-              <div className="text-[10px] tracking-[0.25em] text-neutral-400 uppercase font-mono mb-2 font-semibold">
+              <div className="text-[10px] text-neutral-400 mb-2 font-medium">
                 Export Markets
               </div>
               <div className="grid grid-cols-2 gap-2">
@@ -486,7 +488,7 @@ export default function Navbar() {
                     <span>🇬🇧</span>
                     <span>UK Brands</span>
                   </div>
-                  <span className="text-[10px] text-neutral-500 font-mono">CE/UKCA · GBP (£)</span>
+                  <span className="text-[10px] text-neutral-500 font-mono">Ce/ukca · GBP (£)</span>
                 </Link>
               </div>
             </div>

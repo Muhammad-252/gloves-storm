@@ -35,14 +35,14 @@ const segments = [
 
 export default function WhoWeWorkWithSection() {
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-white border-b border-black/[0.07] relative">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-2xl mb-8 sm:mb-14">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+          <span className="text-[12px] sm:text-[13px] text-neutral-500 block mb-2 font-medium">
             Target Partners
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.0] mb-3 sm:mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-[1.08] sm:leading-[1.0] mb-3 sm:mb-5">
             Built for businesses <br />
             <span className="text-[#6B7280]">that build brands.</span>
           </h2>
@@ -64,7 +64,7 @@ export default function WhoWeWorkWithSection() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 mb-4 sm:mb-6 group-hover:bg-[#1A1A1A] group-hover:text-white group-hover:border-[#1A1A1A] transition-all shadow-xs">
                     <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-[#1A1A1A] mb-2 sm:mb-3 group-hover:text-black transition-colors">
+                  <h3 className="text-base sm:text-lg font-bold tracking-[-0.02em] text-ink mb-2 sm:mb-3 group-hover:text-black transition-colors">
                     {seg.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed">
@@ -72,7 +72,7 @@ export default function WhoWeWorkWithSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 sm:mt-8 pt-3.5 sm:pt-4 border-t border-black/[0.06] flex items-center justify-between text-[11px] font-mono text-[#9CA3AF]">
+                <div className="mt-6 sm:mt-8 pt-3.5 sm:pt-4 border-t border-line flex items-center justify-between text-[11px] font-mono text-[#9CA3AF]">
                   <span>Custom OEM Terms</span>
                   <span className="text-neutral-900 font-bold group-hover:text-[#FFB900] transition-colors">Active Support</span>
                 </div>

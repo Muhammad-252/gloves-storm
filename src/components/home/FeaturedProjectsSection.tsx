@@ -39,18 +39,18 @@ const PREVIEW_DROPS = [
 
 export default function FeaturedProjectsSection({ projects = [] }: { projects?: any[] }) {
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-[#F9FAFB] border-b border-black/[0.07] relative overflow-hidden">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-5 sm:pb-6 border-b border-black/[0.07] gap-5 sm:gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14 pb-5 sm:pb-6 border-b border-line gap-5 sm:gap-6">
           <div>
             <div className="flex items-center gap-2 mb-2">
               <span className="w-2 h-2 rounded-full bg-black animate-pulse" />
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-800 font-mono font-bold">
+              <span className="text-[12px] sm:text-[13px] text-neutral-800 font-medium">
                 Follow @glovesstorm on Instagram
               </span>
             </div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A]">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink">
               Previous work &amp; production reels
             </h2>
             <p className="text-xs sm:text-sm text-neutral-600 max-w-xl mt-2 leading-relaxed">
@@ -90,7 +90,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
                   {/* Top Left: Category Badge */}
-                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] font-mono uppercase tracking-wider text-[#1A1A1A] font-bold rounded-full border border-black/[0.08] shadow-xs">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-md px-2.5 sm:px-3 py-0.5 sm:py-1 text-[10px] text-[#1A1A1A] font-medium rounded-full border border-black/[0.08] shadow-xs">
                     {drop.category}
                   </span>
 
@@ -122,7 +122,7 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
                 {/* Body Content */}
                 <div className="p-4 sm:p-6 flex flex-col flex-1 justify-between">
                   <div>
-                    <h3 className="text-base sm:text-lg font-bold uppercase tracking-tight text-[#1A1A1A] mb-1.5 sm:mb-2 group-hover:text-black transition-colors line-clamp-2">
+                    <h3 className="text-base sm:text-lg font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2 group-hover:text-black transition-colors line-clamp-2">
                       {drop.title}
                     </h3>
                     <p className="text-xs text-[#6B7280] leading-relaxed line-clamp-2 mb-3 sm:mb-4">
@@ -130,13 +130,13 @@ export default function FeaturedProjectsSection({ projects = [] }: { projects?: 
                     </p>
                   </div>
 
-                  <div className="border-t border-black/[0.06] pt-3 sm:pt-4 flex items-center justify-between">
+                  <div className="border-t border-line pt-3 sm:pt-4 flex items-center justify-between">
                     <div className="flex items-center gap-1.5 text-xs text-neutral-500 font-mono">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
                       <span>Direct Sialkot Run</span>
                     </div>
 
-                    <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-black group-hover:text-[#FFB900] transition-colors inline-flex items-center gap-1">
+                    <span className="text-[11px] sm:text-xs font-medium text-black group-hover:text-[#FFB900] transition-colors inline-flex items-center gap-1">
                       <span>View Archive</span>
                       <ArrowUpRight className="w-3.5 h-3.5" />
                     </span>

@@ -39,7 +39,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             className="object-cover"
           />
           {caseStudy.isPlaceholder && (
-            <div className="absolute top-3 left-3 bg-[#FFB900] text-black font-mono font-bold text-[10px] uppercase tracking-wider px-2.5 py-1 rounded-full shadow-xs">
+            <div className="absolute top-3 left-3 bg-[#FFB900] text-black font-medium text-[10px] px-2.5 py-1 rounded-full shadow-xs">
               Template Placeholder
             </div>
           )}
@@ -88,18 +88,18 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             </span>
           </div>
 
-          <h3 className="text-lg sm:text-xl md:text-2xl font-black uppercase tracking-tight text-neutral-900 mb-2">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-semibold tracking-[-0.02em] text-ink mb-2">
             {caseStudy.title}
           </h3>
 
-          <p className="text-xs font-mono text-neutral-500 uppercase tracking-wider mb-6">
+          <p className="text-xs text-neutral-500 mb-6">
             Division: {caseStudy.productCategory}
           </p>
 
           {/* Key Manufacturing Specifications Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6 text-xs">
             <div className="p-3 rounded-xl bg-neutral-50 border border-neutral-200/70">
-              <span className="text-[10px] uppercase font-mono text-neutral-500 flex items-center gap-1 mb-1">
+              <span className="text-[10px] text-neutral-500 flex items-center gap-1 mb-1">
                 <Layers className="w-3 h-3" />
                 <span>Fabric &amp; GSM</span>
               </span>
@@ -109,7 +109,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             </div>
 
             <div className="p-3 rounded-xl bg-neutral-50 border border-neutral-200/70">
-              <span className="text-[10px] uppercase font-mono text-neutral-500 flex items-center gap-1 mb-1">
+              <span className="text-[10px] text-neutral-500 flex items-center gap-1 mb-1">
                 <Scissors className="w-3 h-3" />
                 <span>Decoration</span>
               </span>
@@ -119,7 +119,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             </div>
 
             <div className="p-3 rounded-xl bg-neutral-50 border border-neutral-200/70">
-              <span className="text-[10px] uppercase font-mono text-neutral-500 flex items-center gap-1 mb-1">
+              <span className="text-[10px] text-neutral-500 flex items-center gap-1 mb-1">
                 <Package className="w-3 h-3" />
                 <span>Production Run</span>
               </span>
@@ -129,7 +129,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
             </div>
 
             <div className="p-3 rounded-xl bg-neutral-50 border border-neutral-200/70">
-              <span className="text-[10px] uppercase font-mono text-neutral-500 flex items-center gap-1 mb-1">
+              <span className="text-[10px] text-neutral-500 flex items-center gap-1 mb-1">
                 <Calendar className="w-3 h-3" />
                 <span>Timeline</span>
               </span>
@@ -141,7 +141,7 @@ export default function CaseStudyCard({ caseStudy }: CaseStudyCardProps) {
 
           {/* Result Summary */}
           <div className="p-4 rounded-xl bg-[#FFFDF5] border border-[#FFE8A3] text-xs">
-            <span className="text-[10px] font-mono font-bold text-neutral-900 uppercase tracking-wider flex items-center gap-1.5 mb-1.5">
+            <span className="text-[10px] font-medium text-neutral-900 flex items-center gap-1.5 mb-1.5">
               <CheckCircle2 className="w-3.5 h-3.5 text-[#D97706]" />
               <span>Production Result &amp; QC Outcome</span>
             </span>

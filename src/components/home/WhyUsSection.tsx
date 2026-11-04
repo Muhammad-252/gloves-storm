@@ -49,14 +49,14 @@ const pillars = [
 
 export default function WhyUsSection() {
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-[#F9FAFB] border-b border-black/[0.07] relative">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Rewritten SEO Title & Subtitle */}
         <div className="max-w-4xl mb-8 sm:mb-14">
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+          <span className="text-[12px] sm:text-[13px] text-neutral-500 block mb-2 font-medium">
             The Partnership Advantage
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.05] mb-3 sm:mb-5">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-[1.08] sm:leading-[1.05] mb-3 sm:mb-5">
             Why international brands choose Gloves Storm
           </h2>
           <p className="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal">
@@ -81,7 +81,7 @@ export default function WhyUsSection() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-neutral-100 border border-neutral-200 flex items-center justify-center text-neutral-900 mb-4 sm:mb-6 group-hover:bg-[#1A1A1A] group-hover:text-white group-hover:border-[#1A1A1A] transition-all shadow-xs">
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <h3 className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-tight text-[#1A1A1A] mb-2 sm:mb-3 group-hover:text-black transition-colors">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold tracking-[-0.02em] text-ink mb-2 sm:mb-3 group-hover:text-black transition-colors">
                     {pillar.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#6B7280] leading-relaxed">
@@ -89,7 +89,7 @@ export default function WhyUsSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 sm:mt-8 pt-3.5 sm:pt-4 border-t border-black/[0.06] text-[10px] font-mono uppercase tracking-widest text-[#9CA3AF] flex items-center justify-between">
+                <div className="mt-6 sm:mt-8 pt-3.5 sm:pt-4 border-t border-line text-[10px] text-[#9CA3AF] flex items-center justify-between">
                   <span>Pillar 0{idx + 1}</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] opacity-0 group-hover:opacity-100 transition-opacity shadow-[0_0_6px_rgba(255,185,0,0.6)]" />
                 </div>

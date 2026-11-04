@@ -60,12 +60,12 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
           <div className="max-w-3xl relative z-10">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200 mb-4 sm:mb-5 shadow-2xs">
               <span className="text-sm">{config.flag}</span>
-              <span className="text-[10px] sm:text-xs font-mono uppercase tracking-[0.2em] text-neutral-800 font-bold">
+              <span className="text-[10px] sm:text-xs text-neutral-800 font-medium">
                 {config.heroTag}
               </span>
             </div>
 
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 leading-[1.1] mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink leading-[1.1] mb-4 sm:mb-6">
               {config.heroTitle}
             </h1>
 
@@ -76,16 +76,16 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-md"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium text-xs transition-all shadow-md"
               >
-                <span>REQUEST SAMPLING &amp; RFQ</span>
+                <span>Request sampling &amp; RFQ</span>
                 <ArrowUpRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/products"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-neutral-50 text-slate-900 font-bold text-xs uppercase tracking-wider border border-slate-200 transition-all shadow-2xs"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-neutral-50 text-slate-900 font-medium text-xs border border-slate-200 transition-all shadow-2xs"
               >
-                <span>EXPLORE CATALOG SPECIFICATIONS</span>
+                <span>Explore catalog specifications</span>
               </Link>
             </div>
           </div>
@@ -118,17 +118,17 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
         {/* 2. DDP Shipping, VAT & Quality Standards Pillars */}
         <div className="mb-12 sm:mb-20">
           <div className="max-w-3xl mb-8">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">
-              EUROPEAN TRADE ADVANTAGE
+            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
+              European trade advantage
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               Direct Sialkot manufacturing with European logistics
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xs space-y-3">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <Truck className="w-5 h-5 text-slate-900 shrink-0" />
                 <span>Turnkey DDP Delivery &amp; Air Express</span>
               </h3>
@@ -138,7 +138,7 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
             </div>
 
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xs space-y-3">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <Euro className="w-5 h-5 text-slate-900 shrink-0" />
                 <span>EU VAT &amp; Customs Compliance</span>
               </h3>
@@ -148,7 +148,7 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
             </div>
 
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xs space-y-3">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <Ruler className="w-5 h-5 text-slate-900 shrink-0" />
                 <span>Metric EU Sizing &amp; Grading</span>
               </h3>
@@ -158,7 +158,7 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
             </div>
 
             <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-slate-200 shadow-xs space-y-3">
-              <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight flex items-center gap-2">
+              <h3 className="text-base sm:text-lg font-bold text-ink tracking-[-0.02em] flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-slate-900 shrink-0" />
                 <span>EU REACH &amp; OEKO-TEX Standard 100</span>
               </h3>
@@ -172,10 +172,10 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
         {/* 3. Popular Product Categories for Region */}
         <div className="mb-12 sm:mb-20">
           <div className="max-w-3xl mb-8">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">
-              VERIFIED PRODUCT DIVISIONS
+            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
+              Verified product divisions
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               Popular manufacturing divisions for {config.countryName}
             </h2>
           </div>
@@ -200,7 +200,7 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
                       {item.tag}
                     </span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#FFB900] transition-colors mb-1.5">
+                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-[#FFB900] transition-colors mb-1.5">
                     {item.title}
                   </h3>
                   <p className="text-xs text-slate-600 leading-relaxed">
@@ -220,10 +220,10 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
         {/* 4. FAQs Section */}
         <div className="mb-12 sm:mb-20">
           <div className="max-w-3xl mb-8">
-            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-500 font-mono block mb-2 font-bold">
+            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
               TRADE &amp; LOGISTICS QUESTIONS
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-slate-900 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               Frequently asked questions ({config.countryName})
             </h2>
           </div>
@@ -265,9 +265,9 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
           <div className="max-w-2xl mx-auto space-y-4 relative z-10">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#FFB900] text-[10px] font-mono font-bold">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>DIRECT FACTORY PARTNERSHIP</span>
+              <span>Direct factory partnership</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl font-black uppercase tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.04em]">
               Start manufacturing for {config.countryName}
             </h2>
             <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
@@ -276,7 +276,7 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Link
                 href="/contact"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-md"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium text-xs transition-all shadow-md"
               >
                 REQUEST FACTORY QUOTE &amp; SAMPLE
               </Link>
@@ -284,9 +284,9 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
                 href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20for%20European%20export."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 transition-all"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs border border-white/20 transition-all"
               >
-                WHATSAPP FACTORY DIRECTOR
+                Whatsapp factory director
               </a>
             </div>
           </div>

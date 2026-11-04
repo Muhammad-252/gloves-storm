@@ -92,12 +92,12 @@ export default async function ContactPage() {
       />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Page Banner */}
-        <div className="max-w-3xl mb-8 sm:mb-12 pb-4 sm:pb-6 border-b border-slate-200/80">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono font-medium shadow-xs mb-3">
+        <div className="max-w-3xl mb-8 sm:mb-12 pb-4 sm:pb-6 border-b border-line">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[12px] sm:text-[13px] font-medium shadow-xs mb-3">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
-            <span>DIRECT FACTORY COMMUNICATION &amp; RFQ STUDIO</span>
+            <span>Direct factory communication &amp; RFQ studio</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-slate-900 mb-3 sm:mb-4 leading-[1.1]">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink mb-3 sm:mb-4 leading-[1.1]">
             Request a custom manufacturing quote
           </h1>
           <p className="text-xs sm:text-sm md:text-base text-slate-700 max-w-3xl leading-relaxed">
@@ -111,7 +111,7 @@ export default async function ContactPage() {
             fallback={
               <div className="p-8 sm:p-12 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-md border border-white/90 shadow-sm flex flex-col items-center justify-center text-center">
                 <Loader2 className="w-8 h-8 text-slate-900 animate-spin mb-4" />
-                <p className="text-xs sm:text-sm font-mono text-slate-600">LOADING INQUIRY STUDIO...</p>
+                <p className="text-xs sm:text-sm font-mono text-slate-600">Loading inquiry studio...</p>
               </div>
             }
           >
@@ -121,13 +121,13 @@ export default async function ContactPage() {
 
         {/* Direct Factory Credentials & Trust Grid */}
         <div className="pt-8 sm:pt-12 border-t border-slate-200/80">
-          <h2 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-slate-900 mb-6">
+          <h2 className="text-xl sm:text-2xl font-bold tracking-[-0.04em] text-ink mb-6">
             Direct factory credentials &amp; contact
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             {/* Direct Factory Contacts */}
             <div className="p-4 sm:p-6 bg-white/75 backdrop-blur-md border border-white/90 rounded-2xl sm:rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-              <h3 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900 mb-3 sm:mb-4 flex items-center gap-2">
+              <h3 className="text-xs sm:text-sm font-medium text-ink mb-3 sm:mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
               Factory Headquarters
             </h3>
@@ -183,7 +183,7 @@ export default async function ContactPage() {
 
             {/* Social Channels */}
             <div className="mt-6 pt-5 border-t border-slate-100">
-              <span className="text-[10px] uppercase font-mono tracking-wider text-slate-500 block mb-3">
+              <span className="text-[10px] text-slate-500 block mb-3">
                 Official Channels
               </span>
               <div className="flex items-center gap-3">
@@ -225,7 +225,7 @@ export default async function ContactPage() {
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
                 <span>Instant Chat Available</span>
               </div>
-              <h3 className="text-base font-bold tracking-tight text-slate-900 mb-2">
+              <h3 className="text-base font-bold tracking-[-0.02em] text-ink mb-2">
                 Need urgent technical assistance?
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed mb-5">
@@ -236,16 +236,16 @@ export default async function ContactPage() {
               href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-3 px-4 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all"
+              className="w-full py-3 px-4 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-medium flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all"
             >
               <MessageSquare className="w-4 h-4 text-black" />
-              <span>OPEN WHATSAPP CHAT</span>
+              <span>Open whatsapp chat</span>
             </a>
           </div>
 
           {/* NDA & Guarantee */}
           <div className="p-6 bg-white/75 backdrop-blur-md border border-neutral-200 rounded-3xl shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-            <div className="flex items-center gap-2 text-slate-900 font-bold text-xs uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 text-slate-900 font-medium text-xs mb-2">
               <ShieldCheck className="w-4 h-4 text-neutral-900" />
               <span>NDA Protected Production</span>
             </div>

@@ -264,12 +264,12 @@ export default function ProductCatalogClient({
       {/* 2. Collection Header Banner (The Jacket Maker Style) */}
       <div className="border-b border-neutral-200/90 pb-8 text-neutral-950">
         <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-mono uppercase tracking-widest font-bold mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 text-neutral-800 text-[10px] font-medium mb-3">
             <span className="w-2 h-2 rounded-full bg-neutral-900 animate-pulse" />
             <span>Sialkot OEM Factory Collection</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-tight text-neutral-950 mb-3 sm:mb-4 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink mb-3 sm:mb-4 leading-tight">
             {activeCategoryObj ? `Custom ${activeCategoryObj.name}` : "All apparel & teamwear collections"}
           </h2>
 
@@ -324,7 +324,7 @@ export default function ProductCatalogClient({
             <div className="flex items-center justify-between pb-3.5 border-b border-neutral-100">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-neutral-900" />
-                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-900">
+                <h3 className="text-xs font-medium text-ink">
                   Filter Catalog
                 </h3>
               </div>
@@ -342,7 +342,7 @@ export default function ProductCatalogClient({
 
             {/* Keyword Search */}
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+              <span className="text-[10px] text-neutral-400 font-medium block mb-2">
                 Search Style
               </span>
               <div className="relative">
@@ -369,7 +369,7 @@ export default function ProductCatalogClient({
             {/* Color Swatch Filters */}
             <div>
               <div className="flex items-center justify-between mb-2.5">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold">
+                <span className="text-[10px] text-neutral-400 font-medium">
                   Colorway
                 </span>
                 {selectedColor !== "all" && (
@@ -409,7 +409,7 @@ export default function ProductCatalogClient({
 
             {/* Categories List */}
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2.5">
+              <span className="text-[10px] text-neutral-400 font-medium block mb-2.5">
                 Collection
               </span>
               <div className="space-y-1">
@@ -449,7 +449,7 @@ export default function ProductCatalogClient({
 
             {/* Minimum Order Quantity (MOQ) */}
             <div>
-              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2.5">
+              <span className="text-[10px] text-neutral-400 font-medium block mb-2.5">
                 Starting Order Quantity (MOQ)
               </span>
               <div className="space-y-1.5">
@@ -480,7 +480,7 @@ export default function ProductCatalogClient({
             <div className="p-4 rounded-xl bg-neutral-50 border border-neutral-200">
               <div className="flex items-center gap-2 mb-1.5">
                 <Scissors className="w-4 h-4 text-neutral-950" />
-                <h4 className="text-xs font-bold text-neutral-950 uppercase tracking-tight">
+                <h4 className="text-xs font-bold text-ink tracking-[-0.02em]">
                   Custom Tech Pack?
                 </h4>
               </div>
@@ -619,7 +619,7 @@ export default function ProductCatalogClient({
               <div className="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto text-neutral-400">
                 <Box className="w-6 h-6" />
               </div>
-              <h3 className="text-base font-bold uppercase tracking-tight text-neutral-900">
+              <h3 className="text-base font-bold tracking-[-0.02em] text-ink">
                 No matching manufacturing models found
               </h3>
               <p className="text-xs text-neutral-500 max-w-md mx-auto leading-relaxed">
@@ -628,7 +628,7 @@ export default function ProductCatalogClient({
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="px-5 py-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                className="px-5 py-2.5 rounded-full bg-neutral-900 hover:bg-neutral-800 text-white font-medium text-xs transition-colors cursor-pointer"
               >
                 Reset All Filters
               </button>
@@ -818,7 +818,7 @@ export default function ProductCatalogClient({
             <div className="flex items-center justify-between pb-4 border-b border-neutral-100">
               <div className="flex items-center gap-2">
                 <SlidersHorizontal className="w-4 h-4 text-neutral-900" />
-                <h3 className="text-xs font-black uppercase tracking-wider text-neutral-900">
+                <h3 className="text-xs font-medium text-ink">
                   Filter Catalog
                 </h3>
               </div>
@@ -834,7 +834,7 @@ export default function ProductCatalogClient({
             <div className="space-y-5 py-4 flex-1">
               {/* Search */}
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                <span className="text-[10px] text-neutral-400 font-medium block mb-2">
                   Search Style
                 </span>
                 <div className="relative">
@@ -860,7 +860,7 @@ export default function ProductCatalogClient({
 
               {/* Collections */}
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                <span className="text-[10px] text-neutral-400 font-medium block mb-2">
                   Collection
                 </span>
                 <div className="space-y-1 max-h-48 overflow-y-auto pr-1">
@@ -900,7 +900,7 @@ export default function ProductCatalogClient({
 
               {/* Colors */}
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                <span className="text-[10px] text-neutral-400 font-medium block mb-2">
                   Colorway
                 </span>
                 <div className="grid grid-cols-4 gap-2">
@@ -930,7 +930,7 @@ export default function ProductCatalogClient({
 
               {/* MOQ */}
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-bold block mb-2">
+                <span className="text-[10px] text-neutral-400 font-medium block mb-2">
                   MOQ Tier
                 </span>
                 <div className="space-y-1.5">

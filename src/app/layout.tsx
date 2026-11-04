@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -19,11 +19,19 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#FFFFFF",
+  themeColor: "#F6F4EF",
 };
 
 export const metadata: Metadata = {
@@ -235,7 +243,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
@@ -260,7 +268,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className="min-h-full flex flex-col bg-[#F8FAFC] text-slate-900 relative"
+        className="min-h-full flex flex-col bg-bone text-ink relative"
         suppressHydrationWarning
       >
         {/* Google Tag Manager (noscript) */}
@@ -272,13 +280,6 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* Fixed Ambient Radial Gradient Orbs for Frosted Glass Refraction */}
-        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden hidden sm:block" aria-hidden="true">
-          <div className="absolute -top-40 -left-40 w-[650px] h-[650px] rounded-full bg-slate-200/60 blur-3xl opacity-75" />
-          <div className="absolute top-1/4 -right-40 w-[700px] h-[700px] rounded-full bg-slate-300/40 blur-3xl opacity-65" />
-          <div className="absolute top-2/3 left-1/3 w-[600px] h-[600px] rounded-full bg-slate-200/50 blur-3xl opacity-50" />
-        </div>
-
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
         <Footer />

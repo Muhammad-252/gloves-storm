@@ -10,12 +10,12 @@ export default function CertificationsStrip() {
   }
 
   return (
-    <section className="py-8 bg-white border-y border-neutral-200/80">
+    <section className="py-8 border-y border-neutral-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-2 shrink-0">
             <Award className="w-5 h-5 text-[#FFB900]" />
-            <span className="text-xs font-mono font-bold uppercase tracking-wider text-neutral-900">
+            <span className="text-xs font-medium text-neutral-900">
               Verified Factory Certifications
             </span>
           </div>

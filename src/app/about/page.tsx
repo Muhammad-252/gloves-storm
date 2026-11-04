@@ -160,11 +160,11 @@ export default function AboutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero */}
         <div className="max-w-4xl mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[10px] sm:text-[11px] font-mono font-medium shadow-xs mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/80 backdrop-blur-md border border-neutral-200 text-slate-800 text-[12px] sm:text-[13px] font-medium shadow-xs mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#FFB900] animate-pulse" />
-            <span>ESTABLISHED 2019 • INTERNATIONAL OEM/ODM APPAREL &amp; SPORTSWEAR EXPORTER</span>
+            <span>Established 2019 • International OEM/ODM apparel &amp; sportswear exporter</span>
           </div>
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 mb-4 sm:mb-6 leading-[1.1] uppercase">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold tracking-[-0.02em] text-ink mb-4 sm:mb-6 leading-[1.1]">
             About Gloves Storm
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
@@ -175,10 +175,10 @@ export default function AboutPage() {
         {/* Crawlable Key Facts Section */}
         <div className="mb-14 sm:mb-20">
           <div className="mb-6 sm:mb-8 pb-3 sm:pb-4 border-b border-slate-200">
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-neutral-900 font-mono block mb-1 font-bold">
+            <span className="text-[11px] sm:text-xs text-neutral-900 block mb-1 font-medium">
               Verified Entity Facts
             </span>
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight uppercase">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-ink tracking-[-0.04em]">
               Key manufacturing facts
             </h2>
           </div>
@@ -194,7 +194,7 @@ export default function AboutPage() {
                   <div>
                     <div className="flex items-center gap-2 text-neutral-900 mb-2">
                       <Icon className="w-4 h-4 shrink-0" />
-                      <span className="text-[10px] font-mono uppercase tracking-wider font-semibold text-slate-500">
+                      <span className="text-[10px] font-medium text-slate-500">
                         {fact.label}
                       </span>
                     </div>
@@ -212,7 +212,7 @@ export default function AboutPage() {
         </div>
 
         {/* Story Section with Heritage Split */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 sm:mb-24 pb-12 sm:pb-16 border-b border-slate-200/80">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-16 sm:mb-24 pb-12 sm:pb-16 border-b border-line">
           <div className="lg:col-span-6 relative aspect-square sm:aspect-[4/3] bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-800 overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
             <Image
               src="/images/hero-poster.jpg"
@@ -223,7 +223,7 @@ export default function AboutPage() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
             <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-slate-900/90 backdrop-blur-md border border-slate-700 shadow-md text-white">
-              <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.2em] text-white font-bold block mb-1">
+              <span className="text-[9px] sm:text-[10px] text-white font-medium block mb-1">
                 Industrial Textile Heritage
               </span>
               <p className="text-[11px] sm:text-xs text-slate-200 leading-relaxed font-normal">
@@ -233,10 +233,10 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-6 space-y-4 sm:space-y-6">
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.2em] text-neutral-900 font-mono block font-bold">
+            <span className="text-[11px] sm:text-xs text-neutral-900 block font-medium">
               The Evolution of OEM
             </span>
-            <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 leading-tight uppercase">
+            <h2 className="text-xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
               Why we founded Gloves Storm
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -272,10 +272,10 @@ export default function AboutPage() {
         {/* Ethical Standards & Compliance */}
         <div className="mb-16 sm:mb-24">
           <div className="max-w-2xl mb-8 sm:mb-12">
-            <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-slate-500 font-mono block mb-2 font-bold">
+            <span className="text-[11px] sm:text-xs text-slate-500 block mb-2 font-medium">
               Social Responsibility
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-slate-900 mb-3 sm:mb-4 uppercase">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink mb-3 sm:mb-4">
               Ethical manufacturing mandate
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -286,7 +286,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             <div className="p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300">
               <HeartHandshake className="w-6 h-6 text-slate-900 mb-3 sm:mb-4" />
-              <h3 className="text-sm sm:text-base font-bold tracking-tight text-slate-900 mb-1.5 sm:mb-2">
+              <h3 className="text-sm sm:text-base font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
                 Fair Living Wages &amp; Healthcare
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -295,7 +295,7 @@ export default function AboutPage() {
             </div>
             <div className="p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300">
               <ShieldCheck className="w-6 h-6 text-slate-900 mb-3 sm:mb-4" />
-              <h3 className="text-sm sm:text-base font-bold tracking-tight text-slate-900 mb-1.5 sm:mb-2">
+              <h3 className="text-sm sm:text-base font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
                 Zero Child Labor Guarantee
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -304,7 +304,7 @@ export default function AboutPage() {
             </div>
             <div className="p-5 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(15,23,42,0.08)] hover:-translate-y-1 transition-all duration-300 sm:col-span-2 lg:col-span-1">
               <Eye className="w-6 h-6 text-slate-900 mb-3 sm:mb-4" />
-              <h3 className="text-sm sm:text-base font-bold tracking-tight text-slate-900 mb-1.5 sm:mb-2">
+              <h3 className="text-sm sm:text-base font-bold tracking-[-0.02em] text-ink mb-1.5 sm:mb-2">
                 Open-Door Transparency
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
@@ -320,7 +320,7 @@ export default function AboutPage() {
         {/* Bottom CTA */}
         <div className="p-5 sm:p-8 md:p-12 rounded-2xl sm:rounded-3xl bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_8px_30px_rgb(0,0,0,0.04)] flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-5 sm:gap-6">
           <div>
-            <h3 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 mb-2">
+            <h3 className="text-xl sm:text-2xl md:text-3xl font-semibold tracking-[-0.02em] text-ink mb-2">
               Ready to partner with a direct Sialkot manufacturer?
             </h3>
             <p className="text-xs sm:text-sm text-slate-600">
@@ -329,7 +329,7 @@ export default function AboutPage() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold text-xs uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)] shrink-0 text-center"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium text-xs transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)] shrink-0 text-center"
           >
             <span>Request Factory Quote</span>
             <ArrowUpRight className="w-4 h-4" />

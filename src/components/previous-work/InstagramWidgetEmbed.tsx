@@ -58,7 +58,7 @@ export default function InstagramWidgetEmbed({ code }: InstagramWidgetEmbedProps
             <InstagramIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-current" />
           </span>
           <div>
-            <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-[#1A1A1A] flex items-center gap-1.5 flex-wrap">
+            <h2 className="text-xs sm:text-sm font-medium text-ink flex items-center gap-1.5 flex-wrap">
               <span>Live Instagram Feed</span>
               <span className="inline-flex items-center gap-1 px-1.5 sm:px-2 py-0.5 rounded-full bg-neutral-100 border border-neutral-200 text-neutral-800 text-[9px] sm:text-[10px] font-mono">
                 <span className="w-1.5 h-1.5 rounded-full bg-neutral-900 animate-pulse" />

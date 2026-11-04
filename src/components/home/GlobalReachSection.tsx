@@ -25,17 +25,17 @@ export default function GlobalReachSection() {
   }, []);
 
   return (
-    <section className="py-12 sm:py-20 lg:py-28 bg-[#F9FAFB] border-b border-black/[0.07] relative overflow-hidden">
+    <section className="py-12 sm:py-20 lg:py-28 border-b border-line relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Showcase: Editorial Header & Interactive Logistics Display */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           {/* Left Column: Story & Metrics */}
           <div className="lg:col-span-6 space-y-5 sm:space-y-6">
             <div>
-              <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-neutral-500 font-mono block mb-2 font-bold">
+              <span className="text-[12px] sm:text-[13px] text-neutral-500 block mb-2 font-medium">
                 Worldwide Supply Chain &amp; Direct Export
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-[-0.035em] text-[#1A1A1A] leading-[1.08] sm:leading-[1.0] mb-3 sm:mb-5">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-[1.08] sm:leading-[1.0] mb-3 sm:mb-5">
                 Global export network <br />
                 <span className="text-[#6B7280]">worldwide logistics.</span>
               </h2>
@@ -84,7 +84,7 @@ export default function GlobalReachSection() {
             <div className="pt-2 space-y-3">
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-[#1A1A1A] hover:bg-[#FFB900] text-white hover:text-black px-5 sm:px-6 py-3 rounded-full font-extrabold text-[11px] sm:text-xs uppercase tracking-wider shadow-sm transition-all w-full sm:w-auto text-center"
+                className="inline-flex items-center justify-center gap-2 bg-[#1A1A1A] hover:bg-[#FFB900] text-white hover:text-black px-5 sm:px-6 py-3 rounded-full font-medium text-[11px] sm:text-xs shadow-sm transition-all w-full sm:w-auto text-center"
               >
                 <span>Calculate Freight For Your Country</span>
                 <ArrowUpRight className="w-4 h-4 shrink-0" />
@@ -92,7 +92,7 @@ export default function GlobalReachSection() {
 
               {/* Direct Export Corridors */}
               <div className="pt-2">
-                <span className="text-[10px] font-mono text-neutral-500 uppercase tracking-wider block mb-1.5 font-bold">
+                <span className="text-[10px] text-neutral-500 block mb-1.5 font-medium">
                   Dedicated Export Corridors:
                 </span>
                 <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-medium text-neutral-600">

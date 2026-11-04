@@ -12,12 +12,12 @@ export default function JournalStickyCta() {
         
         {/* Top Header Badge */}
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/40 text-black text-[10px] font-mono font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB900]/15 border border-[#FFB900]/40 text-black text-[10px] font-medium mb-3">
             <Sparkles className="w-3 h-3 text-neutral-900" />
             <span>Direct Sialkot Factory</span>
           </div>
 
-          <h3 className="text-base sm:text-lg font-black text-neutral-900 tracking-tight leading-snug mb-2">
+          <h3 className="text-base sm:text-lg font-semibold text-ink tracking-[-0.02em] leading-snug mb-2">
             Build Your Brand With Factory-Direct Low MOQ
           </h3>
 
@@ -50,7 +50,7 @@ export default function JournalStickyCta() {
         <div className="space-y-2.5 pt-2 border-t border-neutral-100">
           <Link
             href="/contact"
-            className="w-full inline-flex items-center justify-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black font-extrabold rounded-2xl py-3 px-4 text-xs uppercase tracking-wider transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)] hover:-translate-y-0.5"
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#FFB900] hover:bg-[#E5A700] text-black font-medium rounded-2xl py-3 px-4 text-xs transition-all shadow-[0_4px_16px_rgba(255,185,0,0.3)] hover:-translate-y-0.5"
           >
             <span>Request Factory Quote</span>
             <ArrowUpRight className="w-4 h-4" />
@@ -60,7 +60,7 @@ export default function JournalStickyCta() {
             href="https://wa.me/923417146935?text=Hello%20Gloves%20Storm%2C%20I%20am%20interested%20in%20a%20custom%20manufacturing%20quote."
             target="_blank"
             rel="nofollow noopener noreferrer"
-            className="w-full inline-flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white font-bold rounded-2xl py-3 px-4 text-xs uppercase tracking-wider transition-all hover:-translate-y-0.5"
+            className="w-full inline-flex items-center justify-center gap-2 bg-neutral-900 hover:bg-neutral-800 text-white font-medium rounded-2xl py-3 px-4 text-xs transition-all hover:-translate-y-0.5"
           >
             <MessageCircle className="w-3.5 h-3.5 text-[#FFB900]" />
             <span>Chat on WhatsApp</span>
@@ -68,7 +68,7 @@ export default function JournalStickyCta() {
 
           <Link
             href="/products"
-            className="w-full inline-flex items-center justify-center gap-1.5 text-[11px] text-neutral-500 hover:text-neutral-900 font-mono uppercase tracking-wider py-1.5 transition-colors"
+            className="w-full inline-flex items-center justify-center gap-1.5 text-[11px] text-neutral-500 hover:text-neutral-900 py-1.5 transition-colors"
           >
             <Package className="w-3 h-3" />
             <span>View Catalog &amp; Fabrics &rarr;</span>

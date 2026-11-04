@@ -136,7 +136,7 @@ function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void
       <div className="mt-0.5">{styles.icon}</div>
 
       <div className="flex-1 min-w-0 pr-2">
-        <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 leading-snug">
+        <h4 className="text-xs font-medium text-ink leading-snug">
           {item.title}
         </h4>
         {item.message && (
