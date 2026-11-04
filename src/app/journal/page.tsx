@@ -5,6 +5,8 @@ import { ArrowUpRight, Calendar, ChevronRight } from "lucide-react";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
 
+export const revalidate = 3600; // Pick up newly published posts within an hour
+
 export const metadata: Metadata = {
   title: "Custom Apparel OEM Manufacturing Blog",
   description:
@@ -39,6 +41,10 @@ export const metadata: Metadata = {
 
 export default async function JournalPage() {
   const posts = await getBlogPosts();
+  // getBlogPosts returns [] when Supabase is unreachable; throwing keeps the last good page cached.
+  if (posts.length === 0) {
+    throw new Error("Journal posts unavailable (Supabase returned no posts)");
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",

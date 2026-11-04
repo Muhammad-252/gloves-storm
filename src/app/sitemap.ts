@@ -5,6 +5,8 @@ import { getDbCategories } from "@/lib/data/fileDb";
 // Keep in sync with the same constant in /api/categories and /api/products
 const HIDDEN_CATEGORY_SLUGS = ["boxing-equipment", "swimwear-beachwear"];
 
+export const revalidate = 3600; // Pick up new products and journal posts within an hour
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.glovesstorm.com";
 
@@ -13,6 +15,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     getProducts().catch(() => []),
     getBlogPosts().catch(() => []),
   ]);
+
+  // The data layer returns [] when Supabase is unreachable. Throwing keeps the
+  // last good sitemap cached instead of publishing one with no products or posts.
+  if (allProducts.length === 0 || blogPosts.length === 0) {
+    throw new Error("Sitemap data unavailable (Supabase returned no products or posts)");
+  }
 
   // Only index visible, active categories
   const categories = allCategories.filter(
