@@ -108,6 +108,9 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   verification: {
     google: "googlec66e29b6126c6554",
+    other: {
+      "msvalidate.01": "37E07F31CF84CCD99CCE11959F1D8B3D",
+    },
   },
 };
 
