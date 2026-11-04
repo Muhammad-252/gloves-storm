@@ -14,14 +14,12 @@ import {
   Layers,
   ChevronRight,
   ChevronLeft,
-  Star,
   Heart,
   Share2,
   FileText,
   PhoneCall,
   CheckCircle2,
   Maximize2,
-  BadgeCheck,
 } from "lucide-react";
 import QuoteModal from "../ui/QuoteModal";
 import GooeyButton from "../ui/GooeyButton";
@@ -396,59 +394,33 @@ export default function ProductDetailClient({
               VERIFIED FACTORY SUPPLIER CARD
           =================================================================== */}
           <div className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/75 backdrop-blur-md border border-white/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] space-y-3.5 sm:space-y-4">
-            <div className="flex items-start justify-between gap-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-slate-900 text-white font-black flex items-center justify-center text-xs sm:text-sm shadow-xs shrink-0">
-                  GS
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-ink text-bone font-semibold flex items-center justify-center text-xs sm:text-sm shrink-0">
+                GS
+              </div>
+              <div>
+                <div className="text-sm sm:text-base font-semibold tracking-[-0.01em] text-ink">
+                  Made by Gloves Storm
                 </div>
-                <div>
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <div className="text-xs sm:text-sm font-bold text-neutral-950 hover:text-[#FFB900] transition-colors">
-                      Gloves Storm Industrial Co., Ltd.
-                    </div>
-                    <span className="text-[9px] sm:text-[10px] font-bold text-neutral-800 bg-neutral-100 px-1.5 py-0.5 rounded inline-flex items-center gap-1 border border-neutral-200">
-                      <BadgeCheck className="w-3 h-3 text-neutral-900" />
-                      Verified
-                    </span>
-                  </div>
-                  <p className="text-[11px] sm:text-xs text-neutral-500 mt-0.5">
-                    🇵🇰 Sialkot, Pakistan • 15+ yrs OEM/ODM • Custom Manufacturer
-                  </p>
-                </div>
+                <p className="text-[12px] sm:text-[13px] text-neutral-500 mt-0.5">
+                  {BUSINESS_CONFIG.address.city}, {BUSINESS_CONFIG.address.countryName} · Exporting since 2019 · Direct factory
+                </p>
               </div>
             </div>
 
-            <div className="text-xs text-neutral-600 space-y-1">
-              <div className="text-neutral-900 font-semibold text-[11px] flex items-center gap-1">
-                <Star className="w-3 h-3 fill-[#FFB900] text-[#FFB900]" />
-                <span>#1 Best Seller in OEM Sportswear &amp; Private Label Apparel</span>
-              </div>
-              <p className="text-[11px] text-neutral-500">
-                Verified Global OEM Supplier for International Brands, Clubs &amp; Retailers
-              </p>
-            </div>
-
-            {/* 4-Stat Metric Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-2.5 sm:pt-3 border-t border-neutral-200/80 text-center">
-              <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-xs sm:text-sm font-black text-neutral-950 flex items-center justify-center gap-1">
-                  <span>4.9/5</span>
-                  <span className="text-[10px] text-neutral-400 font-normal">(1,840)</span>
+            {/* Production facts (from lib/business.ts) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-2 pt-3 border-t border-line text-center">
+              {[
+                { value: `${product.moq || BUSINESS_CONFIG.moq} pcs`, label: "Minimum order" },
+                { value: BUSINESS_CONFIG.samplingDaysShort, label: "Sample time" },
+                { value: BUSINESS_CONFIG.bulkDaysShort, label: "Bulk production" },
+                { value: "DDP", label: "USA, UK & EU" },
+              ].map((fact) => (
+                <div key={fact.label} className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-white border border-line">
+                  <div className="text-xs sm:text-sm font-semibold text-ink">{fact.value}</div>
+                  <span className="text-[10px] sm:text-[11px] text-neutral-500">{fact.label}</span>
                 </div>
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">Store rating</span>
-              </div>
-              <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-xs sm:text-sm font-black text-neutral-950">≤3h</div>
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">Response Time</span>
-              </div>
-              <div className="p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-xs sm:text-sm font-black text-neutral-950">≥98%</div>
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">On-time dispatch</span>
-              </div>
-              <div className="p-2.5 rounded-lg sm:rounded-xl bg-white border border-neutral-200/60 shadow-2xs">
-                <div className="text-xs sm:text-sm font-black text-neutral-950">88%</div>
-                <span className="text-[9px] sm:text-[10px] text-neutral-500 font-medium">Reorder rate</span>
-              </div>
+              ))}
             </div>
 
             {/* Verified Services */}
@@ -487,23 +459,11 @@ export default function ProductDetailClient({
 
             {/* Rating & Social Proof Row */}
             <div className="mt-2 flex items-center gap-2.5 sm:gap-3 text-xs text-neutral-600 flex-wrap">
-              <div className="flex items-center gap-1 text-[#FFB900]">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-                <span className="font-bold text-neutral-900 ml-1">5.0</span>
-                <span className="text-neutral-500 underline cursor-pointer hover:text-neutral-900">(28 reviews)</span>
-              </div>
-
-
-
+              <span>OEM &amp; private label</span>
               <span className="text-neutral-300">•</span>
-              <span className="text-neutral-800 font-medium">#1 most popular in {category?.name || "Apparel"}</span>
+              <span>Samples in {BUSINESS_CONFIG.samplingDaysShort}</span>
               <span className="text-neutral-300">•</span>
-
-              <span className="text-neutral-800 bg-neutral-100 px-2 py-0.5 rounded font-bold text-[10px] border border-neutral-200">
-                Safe &amp; Sustainable
-              </span>
+              <span>DDP to USA, UK &amp; EU</span>
             </div>
             {product.short_description && (
               <p className="mt-3 text-xs sm:text-sm text-neutral-600 leading-relaxed font-normal">

@@ -15,7 +15,6 @@ import {
   ChevronRight,
   FileText,
   Building2,
-  Star,
 } from "lucide-react";
 import { BUSINESS_CONFIG } from "@/lib/business";
 
@@ -308,53 +307,17 @@ export default function TieredPricingTable({
         </div>
       </div>
 
-      {/* 4. Verified Supplier Profile Box (Matches bottom card in reference image) */}
+      {/* 4. Supplier profile (facts only, from lib/business.ts) */}
       <div className="p-5 rounded-2xl bg-neutral-50 border border-neutral-200/80 shadow-2xs">
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-neutral-950 text-white font-extrabold flex items-center justify-center text-sm shadow-xs">
-              GS
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-bold text-sm text-neutral-950">
-                  Gloves Storm Industrial Co., Ltd.
-                </span>
-                <span className="text-[10px] font-bold text-neutral-800 bg-neutral-200 px-1.5 py-0.5 rounded border border-neutral-300">
-                  Verified
-                </span>
-              </div>
-              <p className="text-xs text-neutral-500 flex items-center gap-1.5 mt-0.5">
-                <span>🇵🇰 Sialkot, PK</span>
-                <span>•</span>
-                <span>15+ yrs OEM/ODM Factory</span>
-                <span>•</span>
-                <span className="font-medium text-neutral-700">Custom Manufacturer</span>
-              </p>
-            </div>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-neutral-950 text-white font-extrabold flex items-center justify-center text-sm shadow-xs">
+            GS
           </div>
-        </div>
-
-        {/* Performance Metric Row */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-3 border-t border-neutral-200/70 text-center">
-          <div className="p-2 rounded-lg bg-white border border-neutral-100">
-            <div className="text-sm font-black text-neutral-900 flex items-center justify-center gap-1">
-              <span>4.9/5</span>
-              <span className="text-[10px] text-neutral-500 font-normal">(1,840)</span>
-            </div>
-            <span className="text-[10px] text-neutral-500 font-medium">Store rating</span>
-          </div>
-          <div className="p-2 rounded-lg bg-white border border-neutral-100">
-            <div className="text-sm font-black text-neutral-900">≤3h</div>
-            <span className="text-[10px] text-neutral-500 font-medium">Response Time</span>
-          </div>
-          <div className="p-2 rounded-lg bg-white border border-neutral-100">
-            <div className="text-sm font-black text-neutral-900">≥98%</div>
-            <span className="text-[10px] text-neutral-500 font-medium">On-time dispatch</span>
-          </div>
-          <div className="p-2 rounded-lg bg-white border border-neutral-100">
-            <div className="text-sm font-black text-neutral-900">88%</div>
-            <span className="text-[10px] text-neutral-500 font-medium">Reorder rate</span>
+          <div>
+            <span className="font-bold text-sm text-neutral-950">Gloves Storm</span>
+            <p className="text-xs text-neutral-500 mt-0.5">
+              {BUSINESS_CONFIG.address.city}, {BUSINESS_CONFIG.address.countryName} · Exporting since 2019 · Direct factory
+            </p>
           </div>
         </div>
       </div>

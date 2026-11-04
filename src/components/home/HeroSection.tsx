@@ -140,7 +140,7 @@ export default function HeroSection() {
             {/* Video control */}
             <button
               onClick={toggleVideo}
-              className="self-start lg:self-end inline-flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-[13px] text-white/85 transition-colors cursor-pointer"
+              className="self-start lg:self-end shrink-0 whitespace-nowrap inline-flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-[13px] text-white/85 transition-colors cursor-pointer"
               title={isPlaying ? "Pause background video" : "Play background video"}
               aria-label={isPlaying ? "Pause background video" : "Play background video"}
             >
