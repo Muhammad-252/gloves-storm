@@ -55,14 +55,26 @@ export async function generateMetadata({ params }: ProductPageProps) {
     return { title: "Product Not Found", robots: { index: false, follow: false } };
   }
 
-  const titlePhrase = PRODUCT_TITLE_OVERRIDES[slug] || buildProductTitlePhrase(prod.name);
-  const description = buildProductDescription(prod.name, prod.materials);
+  // Admin SEO fields win when they fit Google's limits; the layout template adds " | Gloves Storm"
+  const adminTitle = (prod.seo_title || "").replace(/\s*[|—–-]\s*gloves\s*storm.*$/i, "").trim();
+  const adminDescription = (prod.seo_description || "").trim();
+  const titlePhrase =
+    PRODUCT_TITLE_OVERRIDES[slug] ||
+    (adminTitle && adminTitle.length <= 45 ? adminTitle : buildProductTitlePhrase(prod.name));
+  const description =
+    adminDescription.length >= 100 && adminDescription.length <= 160
+      ? adminDescription
+      : buildProductDescription(prod.name, prod.materials);
+  const keywords = [prod.primary_keyword, ...(prod.secondary_keywords || "").split(",")]
+    .map((k) => (k || "").trim())
+    .filter(Boolean);
   const canonicalUrl = `https://www.glovesstorm.com/products/${categorySlug}/${slug}`;
   const ogImage = prod.images?.[0]?.image_url || "https://www.glovesstorm.com/images/og-default.jpg";
 
   return {
     title: titlePhrase,
     description,
+    ...(keywords.length > 0 ? { keywords } : {}),
     alternates: {
       canonical: canonicalUrl,
     },
