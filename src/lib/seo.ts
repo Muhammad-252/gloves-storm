@@ -152,6 +152,11 @@ export const BLOG_META_OVERRIDES: Record<
     description:
       "Pakistan vs China for clothing manufacturing: compare MOQs, fabrics, landed cost, EU and US duties, lead times and quality control before your first order.",
   },
+  "how-much-does-it-cost-to-make-a-hoodie": {
+    titlePhrase: "How Much Does It Cost to Make a Hoodie?",
+    description:
+      "Real 2026 factory prices for custom hoodies: $28–$35 per piece from 30 pcs, add-on costs, sample prices and a full budget example for your first drop.",
+  },
   "bjj-rash-guard-manufacturer-guide": {
     titlePhrase: "BJJ Rash Guard Manufacturer Guide",
     description:

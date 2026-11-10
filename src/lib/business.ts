@@ -11,13 +11,13 @@ export const BUSINESS_CONFIG = {
   moqText: "30 pieces per style",
   moqShort: "30 pcs",
 
-  // TODO-CONFIRM: Confirm sample turnaround time with owner (currently set to 5–7 working days)
+  // From the 2026–27 price list: sample made in 5–7 days, then 4–7 working days by courier
   sampleLeadTime: "5–7 working days",
   samplingDaysShort: "5–7 days",
 
-  // TODO-CONFIRM: Confirm bulk production timeline with owner (currently set to 12–18 working days)
-  bulkLeadTime: "12–18 working days",
-  bulkDaysShort: "12–18 days",
+  // From the 2026–27 price list: 2–4 weeks sportswear, 3–6 weeks streetwear, after sample approval
+  bulkLeadTime: "2–6 weeks",
+  bulkDaysShort: "2–6 weeks",
 
   // Contact Information
   // TODO-CONFIRM: Switch to a domain address (e.g. sales@glovesstorm.com) once that mailbox exists.

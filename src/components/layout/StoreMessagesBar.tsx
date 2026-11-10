@@ -12,7 +12,7 @@ export default function StoreMessagesBar() {
     {
       icon: Plane,
       title: "Worldwide Express Air Shipping",
-      subtitle: "Door-to-door DDP to USA, UK & EU",
+      subtitle: "DDP door-to-door delivery on request",
     },
     {
       icon: ShieldCheck,

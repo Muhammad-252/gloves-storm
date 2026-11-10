@@ -133,7 +133,7 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
                 <span>Turnkey DDP Delivery &amp; Air Express</span>
               </h3>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                Operating under DDP (Delivered Duty Paid) terms, Gloves Storm manages the entire logistics chain from our Sialkot factory to your doorstep. Express air cargo departs directly into major European transit gateways ({config.airHub}) with final delivery via DHL, UPS, or DPD in 3 to 5 business days.
+                On DDP (Delivered Duty Paid) orders, Gloves Storm manages the entire logistics chain from our Sialkot factory to your doorstep. Express air cargo departs directly into major European transit gateways ({config.airHub}) with final delivery via DHL, UPS, or DPD in 4 to 7 working days.
               </p>
             </div>
 

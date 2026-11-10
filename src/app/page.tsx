@@ -13,6 +13,7 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import GlobalReachSection from "@/components/home/GlobalReachSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
+import CatalogDownloadSection from "@/components/trust/CatalogDownloadSection";
 import CertificationsStrip from "@/components/trust/CertificationsStrip";
 import VerifiedTestimonialsSection from "@/components/trust/VerifiedTestimonialsSection";
 import type { Metadata } from "next";
@@ -83,7 +84,7 @@ const homeFaqSchema = {
       name: "Do you manufacture and export custom apparel to the USA and UK?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. The USA and UK are our primary export corridors, alongside the EU, Canada, and Australia. We manage end-to-end export logistics with door-to-door DDP (Delivered Duty Paid) air freight (3–5 days) and ocean shipping, handling all customs clearance and documentation.",
+        text: "Yes. The USA and UK are our primary export corridors, alongside the EU, Canada, and Australia. Prices are ex-factory Sialkot. Orders ship by DHL or FedEx in 4–7 working days, and we can quote door-to-door DDP (Delivered Duty Paid) delivery with customs clearance and duties handled.",
       },
     },
     {
@@ -183,6 +184,11 @@ export default async function HomePage() {
       {/* 14 — FAQS (FOR HUMAN BUYERS & AI SEARCH OVERVIEWS) */}
       <div className="content-auto">
         <HomeFaqSection />
+      </div>
+
+      {/* 14b — DOWNLOADABLE 2026–27 CATALOGS */}
+      <div className="content-auto">
+        <CatalogDownloadSection />
       </div>
 
       {/* 15 — FINAL HIGH-CONVERSION CTA BANNER */}

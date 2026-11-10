@@ -40,7 +40,7 @@ export default function GlobalReachSection() {
                 <span className="text-[#6B7280]">worldwide logistics.</span>
               </h2>
               <p className="text-xs sm:text-sm md:text-base text-[#6B7280] leading-relaxed max-w-xl">
-                GLOVES STORM operates dedicated international export corridors supplying custom apparel, performance sportswear, activewear, and private label collections to brands across North America, the UK, Europe, Australia, and the Middle East. With direct mill production and insured DDP air and ocean freight, we guarantee seamless delivery directly to your facility or fulfillment warehouse.
+                GLOVES STORM operates dedicated international export corridors supplying custom apparel, performance sportswear, activewear, and private label collections to brands across North America, the UK, Europe, Australia, and the Middle East. With direct mill production and DDP air and ocean freight, we guarantee seamless delivery directly to your facility or fulfillment warehouse.
               </p>
             </div>
 
@@ -56,7 +56,7 @@ export default function GlobalReachSection() {
               </div>
               <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
                 <span className="text-xl sm:text-2xl md:text-3xl font-black text-[#1A1A1A] font-mono block mb-0.5 sm:mb-1">
-                  3–5 Days
+                  4–7 Days
                 </span>
                 <span className="text-[11px] sm:text-xs text-[#6B7280] font-medium leading-tight block">
                   Air Express DDP to USA &amp; UK
@@ -75,7 +75,7 @@ export default function GlobalReachSection() {
                   100%
                 </span>
                 <span className="text-[11px] sm:text-xs text-[#6B7280] font-medium leading-tight block">
-                  Insured Door-to-Door DDP Delivery
+                  Door-to-Door DDP Delivery
                 </span>
               </div>
             </div>

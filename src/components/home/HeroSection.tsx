@@ -52,7 +52,7 @@ export default function HeroSection() {
     { value: `${BUSINESS_CONFIG.moq} pcs`, label: "Minimum per style" },
     { value: BUSINESS_CONFIG.samplingDaysShort, label: "Physical samples" },
     { value: "AQL 2.5", label: "Pre-shipment inspection" },
-    { value: "DDP", label: "Delivered to USA, UK & EU" },
+    { value: "4–7 days", label: "Courier to USA, UK & EU" },
   ];
 
   return (
@@ -112,7 +112,7 @@ export default function HeroSection() {
 
               <p className="mt-5 sm:mt-7 text-[15px] sm:text-lg text-white/75 leading-relaxed max-w-xl">
                 Private label teamwear, gym wear and heavyweight streetwear for brands in the USA, UK and Europe.
-                From {BUSINESS_CONFIG.moq} pieces per style, samples in {BUSINESS_CONFIG.samplingDaysShort}, delivered duty paid.
+                From {BUSINESS_CONFIG.moq} pieces per style, samples in {BUSINESS_CONFIG.samplingDaysShort}, DDP delivery on request.
               </p>
 
               <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3">

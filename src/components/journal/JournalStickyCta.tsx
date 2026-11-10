@@ -41,7 +41,7 @@ export default function JournalStickyCta() {
             </div>
             <div className="flex items-center gap-2 text-xs text-neutral-700 font-medium">
               <Plane className="w-3.5 h-3.5 text-[#FFB900] shrink-0" />
-              <span><strong>DDP delivery</strong> to USA, UK &amp; EU</span>
+              <span><strong>DDP delivery</strong> on request</span>
             </div>
           </div>
         </div>

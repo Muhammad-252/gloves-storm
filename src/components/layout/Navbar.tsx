@@ -19,6 +19,7 @@ const navLinks = [
     hasDropdown: true,
   },
   { name: "Previous Work", href: "/previous-work" },
+  { name: "Pricing", href: "/pricing" },
   { name: "About", href: "/about" },
   { name: "Journal", href: "/journal" },
 ];

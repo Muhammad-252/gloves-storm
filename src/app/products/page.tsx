@@ -1,6 +1,7 @@
 import { getCategories, getProducts } from "@/lib/data/store";
 import { projectProductCard } from "@/lib/products";
 import ProductCatalogClient from "@/components/products/ProductCatalogClient";
+import CatalogDownloadSection from "@/components/trust/CatalogDownloadSection";
 import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -132,7 +133,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           </h1>
 
           <p className="text-sm sm:text-base text-slate-700 max-w-4xl leading-relaxed">
-            Gloves Storm manufactures and exports premium custom clothing, athletic sportswear, gym activewear, and luxury heavyweight streetwear for international brands. Every garment is produced as OEM (custom cut-and-sew from your tech packs) or ODM (developed to your aesthetic brief), with complete private label branding, low MOQs starting from 30 pieces per style, and insured door-to-door DDP global shipping.
+            Gloves Storm manufactures and exports premium custom clothing, athletic sportswear, gym activewear, and luxury heavyweight streetwear for international brands. Every garment is produced as OEM (custom cut-and-sew from your tech packs) or ODM (developed to your aesthetic brief), with complete private label branding, low MOQs starting from 30 pieces per style, and door-to-door DDP global shipping.
           </p>
         </div>
 
@@ -143,6 +144,7 @@ export default async function ProductsPage({ searchParams }: ProductsPageProps) 
           currentPage={currentPage}
         />
       </div>
+      <CatalogDownloadSection />
     </div>
   );
 }

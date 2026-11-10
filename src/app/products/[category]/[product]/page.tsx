@@ -49,7 +49,8 @@ export async function generateMetadata({ params }: ProductPageProps) {
     getProductBySlug(slug),
     getCategoryBySlug(categorySlug),
   ]);
-  if (!prod) return { title: "Product Not Found", robots: { index: false, follow: false } };
+  // Hidden (draft) products are not public
+  if (!prod || prod.is_active === false) return { title: "Product Not Found", robots: { index: false, follow: false } };
   if (cat && HIDDEN_CATEGORY_SLUGS.includes(cat.slug)) {
     return { title: "Product Not Found", robots: { index: false, follow: false } };
   }
@@ -101,7 +102,7 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     getProducts({ categorySlug }),
   ]);
 
-  if (!product || (category && HIDDEN_CATEGORY_SLUGS.includes(category.slug))) {
+  if (!product || product.is_active === false || (category && HIDDEN_CATEGORY_SLUGS.includes(category.slug))) {
     notFound();
   }
 

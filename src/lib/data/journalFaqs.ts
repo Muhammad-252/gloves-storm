@@ -122,7 +122,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the lead time from order confirmation to delivery in the USA?",
       answer:
-        "For first orders including sampling, plan for approximately 4–6 weeks from order confirmation to delivery at your US address. This breaks down as follows: pre-production sample (5–7 working days), sample review and approval (your timeline), bulk production (12–18 working days), and DDP air freight to USA (3–5 days). Repeat orders where samples are already approved typically move in 3–4 weeks.",
+        "For first orders including sampling, plan for approximately 4–6 weeks from order confirmation to delivery at your US address. This breaks down as follows: pre-production sample (5–7 working days), sample review and approval (your timeline), bulk production (2–6 weeks, depending on the product), and DDP air freight to USA (4–7 working days). Repeat orders where samples are already approved typically move in 3–4 weeks.",
     },
   ],
 
@@ -151,7 +151,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "What is the lead time for a full team uniform order?",
       answer:
-        "For a first order including pre-production sampling: 4–6 weeks from confirmed order to delivery at your address. This covers: sample production and approval (approximately 5–7 working days sampling plus your review), bulk production (12–18 working days), and DDP air freight to the USA or UK (3–5 days). Repeat orders for the same team with existing samples approved typically move in 3–4 weeks.",
+        "For a first order including pre-production sampling: 4–6 weeks from confirmed order to delivery at your address. This covers: sample production and approval (approximately 5–7 working days sampling plus your review), bulk production (2–6 weeks, depending on the product), and DDP air freight to the USA or UK (4–7 working days). Repeat orders for the same team with existing samples approved typically move in 3–4 weeks.",
     },
     {
       question: "Can you ship directly to multiple team locations or club addresses?",
@@ -297,7 +297,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "Do you ship private label activewear to the UK?",
       answer:
-        "Yes, DDP to the UK, with air freight taking about 3 to 5 days. Confirm current UK import VAT and duty for your product.",
+        "Yes, DDP to the UK, with air freight taking about 4 to 7 working days. Confirm current UK import VAT and duty for your product.",
     },
   ],
 
@@ -350,7 +350,7 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
     {
       question: "How long does production take in Pakistan?",
       answer:
-        "At Gloves Storm, samples take 5 to 7 working days and bulk production takes 12 to 18 working days after sample approval, followed by air freight to the USA, UK or EU.",
+        "At Gloves Storm, samples take 5 to 7 working days and bulk production takes 2 to 6 weeks after sample approval, depending on the product. Courier delivery to the USA, UK or EU takes 4 to 7 working days.",
     },
   ],
 
@@ -375,6 +375,29 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
       question: "Can you make ranked rash guards for IBJJF competition?",
       answer:
         "Yes. We build the belt rank color into the sublimated design. Share the current federation rule for rank color coverage, and approve the layout on your sample before bulk production.",
+    },
+  ],
+
+  // How Much Does It Cost to Make a Hoodie?
+  "how-much-does-it-cost-to-make-a-hoodie": [
+    {
+      question: "How much does it cost to make a custom hoodie?",
+      answer:
+        "At Gloves Storm a 450–500 gsm heavyweight hoodie costs $35 per piece at 30–99 pieces, $29.75 at 100–299 and $28 at 300+, including one print or embroidery. A 350–400 gsm pullover hoodie starts at $32.",
+    },
+    {
+      question: "What is the minimum order for custom hoodies?",
+      answer: "30 pieces per style, and sizes can be mixed within the 30.",
+    },
+    {
+      question: "How much does a hoodie sample cost?",
+      answer:
+        "$70 to $80 all-in, covering pattern, fabric, making, your branding and express courier. Samples are made in 5–7 days and arrive in 4–7 working days.",
+    },
+    {
+      question: "Does the price include shipping?",
+      answer:
+        "No. Prices are ex-factory Sialkot. Bulk shipping is quoted for each order, and door-to-door DDP delivery with duties handled is available on request.",
     },
   ],
 };

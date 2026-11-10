@@ -36,7 +36,7 @@ const steps = [
   {
     num: "06",
     title: "Global delivery",
-    subtitle: "Insured Worldwide Dispatch",
+    subtitle: "Worldwide Dispatch",
     desc: "Finished products are custom-packed, barcoded, and shipped directly to your warehouse or 3PL facility via air or sea freight.",
   },
 ];

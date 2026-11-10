@@ -69,7 +69,7 @@ function inferCategoryAndSpecs(caption: string = "", isReel: boolean): {
     materials: lower.includes("fleece") ? "460 GSM Heavyweight Terry" : lower.includes("spandex") ? "280 GSM 4-Way Stretch Spandex" : "Pro-Spec OEM Performance Material",
     technique: lower.includes("embroidery") ? "Tajima Computerized Bullion Stitch" : lower.includes("print") ? "3D High-Density Silicone Print" : lower.includes("sublimation") ? "Italian Dye Sublimation" : "Calibrated Precision Manufacturing",
     batchSize: "OEM Custom Client Run",
-    leadTime: "12-18 Business Days",
+    leadTime: "2-4 Weeks",
     destination: "Worldwide Export (Air / Ocean)",
   };
 

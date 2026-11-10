@@ -10,7 +10,7 @@ export default function TestimonialsSection() {
       country: "United States",
       role: "Primary Export Market",
       desc: "Sports apparel brands, collegiate teams, Amazon FBA sellers & streetwear labels across California, Texas, Florida & New York.",
-      speed: "3–5 Days Air DDP",
+      speed: "4–7 Days Air",
       href: "/manufacturers-usa",
     },
     {
@@ -18,7 +18,7 @@ export default function TestimonialsSection() {
       country: "United Kingdom",
       role: "Athletic Clubs & Teamwear",
       desc: "Premier sports academies, athletic clubs & sportswear brands in London, Manchester, Birmingham & Leeds.",
-      speed: "3–5 Days Air Express",
+      speed: "4–7 Days Air Express",
       href: "/manufacturers-uk",
     },
     {
@@ -26,7 +26,7 @@ export default function TestimonialsSection() {
       country: "Australia",
       role: "Fitness & Athleisure",
       desc: "Fitness studios, training gyms & outdoor activewear brands in Sydney, Melbourne, Brisbane & Perth.",
-      speed: "5–7 Days Insured Air",
+      speed: "5–7 Days Air",
       href: "/contact",
     },
     {

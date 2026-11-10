@@ -14,7 +14,7 @@ export const usaFaqs: ExportFaqItem[] = [
   {
     question: "How long does shipping take from Pakistan to the USA?",
     answer:
-      "Express air freight typically delivers to any US address within 3 to 5 business days after dispatch via DHL Express or FedEx. For large commercial container orders, ocean freight to East or West Coast ports takes approximately 24 to 30 days. Pre-production master samples are couriered in 5 to 7 working days.",
+      "Express air freight typically delivers to any US address within 4 to 7 working days after dispatch via DHL Express or FedEx. For large commercial container orders, ocean freight to East or West Coast ports takes approximately 24 to 30 days. Pre-production master samples are couriered in 5 to 7 working days.",
   },
   {
     question: "What is the minimum order for a USA client?",
@@ -57,7 +57,7 @@ export const ukFaqs: ExportFaqItem[] = [
   {
     question: "What is the delivery time to the UK from order confirmation?",
     answer:
-      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 3 to 5 business days for express air courier delivery to your UK address. Once you approve the sample, bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime} depending on order size. Shipping to the UK takes 3 to 5 days via air freight, or 20 to 24 days via ocean freight for large container volumes.`,
+      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 4 to 7 working days for express air courier delivery to your UK address. Once you approve the sample, bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime} depending on order size. Shipping to the UK takes 4 to 7 working days via air freight, or 20 to 24 days via ocean freight for large container volumes.`,
   },
 ];
 
@@ -72,8 +72,7 @@ export const europeFaqs: ExportFaqItem[] = [
   {
     question: "How long does shipping take to European countries?",
     answer:
-      // TODO-CONFIRM: European express air transit takes 3 to 5 business days; sea freight to Hamburg or Rotterdam takes 22 to 26 days
-      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 3 to 5 business days for express air courier delivery. Once the pre-production sample is approved, bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}. European express air transit takes 3 to 5 business days; sea freight to Hamburg or Rotterdam takes 22 to 26 days.`,
+      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to produce, followed by 4 to 7 working days for express air courier delivery. Once the pre-production sample is approved, bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}. European express air transit takes 4 to 7 working days; sea freight to Hamburg or Rotterdam takes 22 to 26 days.`,
   },
   {
     question: "Do you manufacture using European metric sizing standards?",
@@ -102,8 +101,7 @@ export const germanyFaqs: ExportFaqItem[] = [
   {
     question: "How long does sample and bulk delivery take to Germany?",
     answer:
-      // TODO-CONFIRM: 3 to 5 business days for express air cargo into Frankfurt Airport (FRA)
-      `Physical master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} and air-couriered to Germany in 3 to 5 business days. Bulk orders are produced in ${BUSINESS_CONFIG.bulkLeadTime} with 3 to 5 business days for express air cargo into Frankfurt Airport (FRA).`,
+      `Physical master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} and air-couriered to Germany in 4 to 7 working days. Bulk orders are produced in ${BUSINESS_CONFIG.bulkLeadTime} with 4 to 7 working days for express air cargo into Frankfurt Airport (FRA).`,
   },
   {
     question: "Do you produce technical sportswear and compression wear for German clubs?",
@@ -127,8 +125,7 @@ export const netherlandsFaqs: ExportFaqItem[] = [
   {
     question: "What is the lead time for orders delivered to the Netherlands?",
     answer:
-      // TODO-CONFIRM: 3 to 5 business days for air express delivery across Amsterdam, Rotterdam, and Eindhoven
-      `Master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} plus 3 to 5 days air express. Bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}, followed by 3 to 5 business days for air express delivery across Amsterdam, Rotterdam, and Eindhoven.`,
+      `Master samples are completed in ${BUSINESS_CONFIG.sampleLeadTime} plus 4 to 7 working days air express. Bulk manufacturing requires ${BUSINESS_CONFIG.bulkLeadTime}, followed by 4 to 7 working days for air express delivery across Amsterdam, Rotterdam, and Eindhoven.`,
   },
   {
     question: "Do you produce sustainable or recycled fabrics for Dutch labels?",
@@ -157,8 +154,7 @@ export const franceFaqs: ExportFaqItem[] = [
   {
     question: "What are the sample and bulk production timelines for France?",
     answer:
-      // TODO-CONFIRM: 3 to 5 business days for express air courier delivery to French addresses
-      `Sample development takes ${BUSINESS_CONFIG.sampleLeadTime}. Bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime}, with 3 to 5 business days for express air courier delivery to French addresses.`,
+      `Sample development takes ${BUSINESS_CONFIG.sampleLeadTime}. Bulk manufacturing takes ${BUSINESS_CONFIG.bulkLeadTime}, with 4 to 7 working days for express air courier delivery to French addresses.`,
   },
   {
     question: "Can we supply our own bespoke patterns and tech packs?",
@@ -212,7 +208,6 @@ export const irelandFaqs: ExportFaqItem[] = [
   {
     question: "What is the lead time to Dublin, Cork, or Galway?",
     answer:
-      // TODO-CONFIRM: 3 to 5 business days air express freight
-      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to craft, followed by 3 to 5 business days air delivery. Bulk production takes ${BUSINESS_CONFIG.bulkLeadTime} followed by 3 to 5 business days air express freight.`,
+      `Master prototype samples take ${BUSINESS_CONFIG.sampleLeadTime} to craft, followed by 4 to 7 working days air delivery. Bulk production takes ${BUSINESS_CONFIG.bulkLeadTime} followed by 4 to 7 working days air express freight.`,
   },
 ];

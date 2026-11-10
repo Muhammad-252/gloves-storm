@@ -7,7 +7,7 @@ const credentials = [
   "Tajima embroidery",
   "Italian Kiian sublimation",
   "AQL 2.5 inspection",
-  "DDP to USA, UK & EU",
+  "DDP delivery on request",
 ];
 
 export default function ManufacturingTrustBanner() {

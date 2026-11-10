@@ -123,7 +123,7 @@ const ukSteps = [
   },
   {
     step: "06",
-    title: "Insured DDP UK Delivery",
+    title: "DDP UK Delivery",
     desc: "Finished cartons clear HMRC customs and are delivered directly to your gym, warehouse, or 3PL facility with zero import hassle.",
   },
 ];
@@ -168,7 +168,7 @@ export default function ManufacturersUkClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 text-xs">
               <div className="flex items-center gap-2 text-slate-300">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
-                <span>DDP UK shipping — all duty &amp; VAT handled</span>
+                <span>DDP UK shipping on request: duty &amp; VAT handled</span>
               </div>
               <div className="flex items-center gap-2 text-slate-300">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
@@ -217,7 +217,7 @@ export default function ManufacturersUkClient() {
                 <span>The DDP UK Advantage (Post-Brexit Simplicity)</span>
               </h3>
               <p>
-                Navigating international import paperwork post-Brexit can be daunting for UK business owners. Gloves Storm eliminates all freight friction by operating under full DDP (Delivered Duty Paid) shipping terms.
+                Navigating international import paperwork post-Brexit can be daunting for UK business owners. Gloves Storm eliminates all freight friction by offering full DDP (Delivered Duty Paid) shipping on request.
               </p>
               <p>
                 We handle export clearances from Pakistan, international air carriage into London Heathrow (LHR) or Manchester (MAN), HMRC UK customs declaration, import VAT, and final-mile courier delivery via DPD or Parcelforce directly to your door. You receive your finished products without surprise fees, customs delays, or clearance headaches.
@@ -310,7 +310,7 @@ export default function ManufacturersUkClient() {
               Shipping &amp; logistics to the United Kingdom
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-300">
-              We eliminate post-Brexit customs friction. From Pakistan export clearance to HMRC declarations and final delivery via DPD or Parcelforce, your shipment is fully tracked and insured.
+              We eliminate post-Brexit customs friction. From Pakistan export clearance to HMRC declarations and final delivery via DPD or Parcelforce, your shipment is fully tracked from our door to yours.
             </p>
           </div>
 

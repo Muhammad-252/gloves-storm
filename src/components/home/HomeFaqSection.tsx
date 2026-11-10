@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Do you manufacture and export custom apparel to the USA and UK?",
     answer:
-      "Yes. The USA and UK are our primary export corridors, alongside the EU, Canada, and Australia. We manage end-to-end export logistics with door-to-door DDP (Delivered Duty Paid) air freight (3–5 days) and ocean shipping, handling all customs clearance and documentation.",
+      "Yes. The USA and UK are our primary export corridors, alongside the EU, Canada, and Australia. Prices are ex-factory Sialkot. Orders ship by DHL or FedEx in 4–7 working days, and we can quote door-to-door DDP (Delivered Duty Paid) delivery with customs clearance and duties handled.",
   },
   {
     question: "How long does custom clothing sampling take?",

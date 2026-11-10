@@ -16,6 +16,7 @@ import {
 import QuoteModal from "../ui/QuoteModal";
 import JacketMakerProductCard from "./JacketMakerProductCard";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import { unitLabel, PriceUnit } from "@/lib/data/priceList";
 
 interface ProductDetailClientProps {
   product: Product;
@@ -88,6 +89,7 @@ export default function ProductDetailClient({
     return bulkOnly.length > 0 ? bulkOnly : entered;
   }, [product.pricing_tiers]);
   const showPricing = product.show_pricing !== false && tiers.length > 0;
+  const priceUnit = ((product.customization_options as { price_unit?: PriceUnit } | null)?.price_unit || "pc") as PriceUnit;
 
   const moq = product.moq || BUSINESS_CONFIG.moq;
   const [quantity, setQuantity] = useState<number>(moq);
@@ -127,9 +129,9 @@ export default function ProductDetailClient({
 
   const facts = [
     { label: "Minimum order", value: `${moq} pcs` },
-    { label: "Sample", value: BUSINESS_CONFIG.samplingDaysShort },
+    { label: "Sample", value: `Made in ${BUSINESS_CONFIG.samplingDaysShort}` },
     { label: "Production", value: product.lead_time || BUSINESS_CONFIG.bulkDaysShort },
-    { label: "Delivery", value: "DDP · USA, UK, EU" },
+    { label: "Shipping", value: "DHL / FedEx · DDP on request" },
   ];
 
   const openInquiry = (type: "Quote" | "Sample") => {
@@ -234,6 +236,10 @@ export default function ProductDetailClient({
           {/* Pricing (real admin prices only) or quote prompt */}
           {showPricing ? (
             <div className="rounded-[22px] bg-white border border-line p-5 sm:p-6 space-y-5">
+              <div className="flex items-baseline justify-between gap-3">
+                <span className="text-[15px] font-medium text-ink">Price {unitLabel(priceUnit)}</span>
+                <span className="text-[12px] text-ink/55">USD · ex-factory Sialkot</span>
+              </div>
               <div className="grid grid-cols-3 gap-2">
                 {tiers.map((tier, idx) => {
                   const isActive = activeTier === tier;
@@ -297,9 +303,16 @@ export default function ProductDetailClient({
                 </div>
               </div>
 
+              {product.sample_price ? (
+                <div className="flex items-center justify-between text-[13px]">
+                  <span className="text-ink/60">Sample, all-in with express courier</span>
+                  <span className="font-medium text-ink tabular-nums">${formatPrice(product.sample_price)}</span>
+                </div>
+              ) : null}
+
               <p className="text-[12px] text-ink/55 leading-relaxed">
-                Guide prices per piece, before custom branding and shipping.
-                {product.sample_price ? ` Sample: $${formatPrice(product.sample_price)}.` : ""} Your quote is confirmed after we review your design.
+                Includes fabric, making and one logo position. Extra branding is priced per piece. Bulk shipping is quoted
+                with your order, and DDP door-to-door delivery is available on request.
               </p>
             </div>
           ) : (

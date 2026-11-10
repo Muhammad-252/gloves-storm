@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import MultiStepInquiryClient from "@/components/contact/MultiStepInquiryClient";
+import CatalogDownloadSection from "@/components/trust/CatalogDownloadSection";
 import { getCategories } from "@/lib/data/store";
 import { Mail, Phone, MapPin, Globe, ShieldCheck, Clock, MessageSquare, Loader2 } from "lucide-react";
 import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
@@ -117,6 +118,23 @@ export default async function ContactPage() {
           >
             <MultiStepInquiryClient categories={categories} />
           </Suspense>
+        </div>
+
+        {/* Prices before you write: catalogs and price list */}
+        <div className="mb-12 sm:mb-16 grid md:grid-cols-2 gap-4 sm:gap-6 items-stretch">
+          <CatalogDownloadSection variant="compact" />
+          <a
+            href="/pricing"
+            className="group rounded-[22px] bg-ink text-bone p-5 sm:p-6 flex flex-col justify-between gap-6"
+          >
+            <span>
+              <span className="block text-[15px] font-medium">See the full price list</span>
+              <span className="mt-1 block text-[13px] text-bone/60">
+                Prices for 30–99, 100–299 and 300+ pieces, sample prices, add-ons and order terms.
+              </span>
+            </span>
+            <span className="text-[14px] font-medium text-[#FFD466]">View pricing →</span>
+          </a>
         </div>
 
         {/* Direct Factory Credentials & Trust Grid */}

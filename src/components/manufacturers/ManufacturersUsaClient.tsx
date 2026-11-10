@@ -94,7 +94,7 @@ const usaSteps = [
   },
   {
     step: "06",
-    title: "Insured DDP Delivery",
+    title: "DDP Delivery",
     desc: "Finished export cartons ship DDP directly to your US warehouse, 3PL, or Amazon FBA center.",
   },
 ];
@@ -117,7 +117,7 @@ export default function ManufacturersUsaClient() {
           </h1>
 
           <p className="text-sm sm:text-base md:text-lg text-slate-700 leading-relaxed font-normal">
-            Gloves Storm is a direct OEM apparel manufacturing partner for sportswear brands, athletic organizations, collegiate teams, and clothing labels across the United States. We manufacture custom athletic uniforms, technical activewear, heavyweight streetwear, and turnkey private label apparel direct to USA clients with door-to-door DDP air freight, full US customs documentation, and insured delivery to any US warehouse, 3PL, or Amazon FBA center.
+            Gloves Storm is a direct OEM apparel manufacturing partner for sportswear brands, athletic organizations, collegiate teams, and clothing labels across the United States. We manufacture custom athletic uniforms, technical activewear, heavyweight streetwear, and turnkey private label apparel direct to USA clients with door-to-door DDP air freight, full US customs documentation, and delivery to any US warehouse, 3PL, or Amazon FBA center.
           </p>
         </div>
 
@@ -139,7 +139,7 @@ export default function ManufacturersUsaClient() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 text-xs">
               <div className="flex items-center gap-2 text-slate-300">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
-                <span>DDP Air in 3–5 days after dispatch</span>
+                <span>DHL / FedEx in 4–7 working days</span>
               </div>
               <div className="flex items-center gap-2 text-slate-300">
                 <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#FFB900] shrink-0" />
@@ -281,7 +281,7 @@ export default function ManufacturersUsaClient() {
               Shipping &amp; logistics to the USA
             </h2>
             <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-300">
-              We eliminate international freight anxiety. From customs clearance to final delivery at your loading dock, your shipment is fully tracked and insured.
+              We eliminate international freight anxiety. From customs clearance to final delivery at your loading dock, your shipment is fully tracked from our door to yours.
             </p>
           </div>
 

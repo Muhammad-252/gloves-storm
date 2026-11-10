@@ -29,6 +29,7 @@ const exportMarkets = [
 const navigation = [
   { name: "About GLOVES STORM", href: "/about" },
   { name: "Previous OEM Work", href: "/previous-work" },
+  { name: "Prices & Order Terms", href: "/pricing" },
   { name: "Apparel Journal", href: "/journal" },
   { name: "Request a Quote", href: "/contact" },
   { name: "Privacy & IP Policy", href: "/privacy" },
@@ -237,7 +238,7 @@ export default function Footer() {
             <Link href="/privacy" className="hover:text-slate-900 transition-colors underline-offset-4 hover:underline">
               Privacy &amp; IP Protection
             </Link>
-            <span>Worldwide DDP Shipping</span>
+            <span>Worldwide shipping · DDP on request</span>
           </div>
         </div>
       </div>

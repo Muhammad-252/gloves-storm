@@ -33,7 +33,7 @@ const preProductionStages = [
     description:
       "Direct mill fabric procurement, Pantone lab dip color matching, and specialty hardware & leather sourcing.",
     deliverables: ["Pantone Verification", "Fabric Lab Dips", "GSM Certification"],
-    timeline: "3–5 Days",
+    timeline: "4–7 Days",
   },
   {
     step: "03",
@@ -84,8 +84,8 @@ const productionStages = [
     phase: "Worldwide Logistics",
     icon: PlaneTakeoff,
     description:
-      "Custom woven damask neck labels, soft-touch matte hang tags, barcoded frosted zip bags, and insured door-to-door air or ocean dispatch.",
-    deliverables: ["Custom Hang Tags", "Frosted Zip Bags", "Door-to-Door Insured Air/Sea"],
+      "Custom woven damask neck labels, soft-touch matte hang tags, barcoded frosted zip bags, and door-to-door air or ocean dispatch.",
+    deliverables: ["Custom Hang Tags", "Frosted Zip Bags", "Door-to-Door Air/Sea"],
     timeline: "Air: 3–6d • Sea: 24–32d",
   },
 ];

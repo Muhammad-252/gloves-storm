@@ -46,9 +46,27 @@ const posts = [
     category: "Product Guides",
     seo_title: "BJJ Rash Guard Manufacturer Guide",
   },
+  {
+    id: "b0000001-0000-0000-0000-000000000013",
+    title: "How Much Does It Cost to Make a Hoodie? Real 2026 Factory Prices",
+    slug: "how-much-does-it-cost-to-make-a-hoodie",
+    excerpt:
+      "Real 2026 factory prices for custom hoodies: $28–$35 per piece from 30 pcs, add-on costs, sample prices and a full budget example for your first drop.",
+    file: "scripts/blog-drafts/blog-7-hoodie-cost.html",
+    featured_image: "/images/products/hoodie-black.png",
+    category: "Pricing Guides",
+    seo_title: "How Much Does It Cost to Make a Hoodie?",
+  },
 ];
 
 async function run() {
+  // Republishing keeps each post's original publish date
+  const { data: existing } = await supabase
+    .from("blog_posts")
+    .select("id, published_at")
+    .in("id", posts.map((p) => p.id));
+  const originalDates = new Map((existing || []).map((p) => [p.id, p.published_at]));
+
   for (const post of posts) {
     const { file, ...fields } = post;
     const record = {
@@ -58,7 +76,7 @@ async function run() {
       seo_description: fields.excerpt,
       social_image: fields.featured_image,
       is_published: publish,
-      published_at: publish ? now : null,
+      published_at: publish ? originalDates.get(post.id) || now : null,
       updated_at: now,
     };
     const { data, error } = await supabase.from("blog_posts").upsert(record).select().single();

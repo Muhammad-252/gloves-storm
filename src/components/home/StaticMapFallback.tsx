@@ -21,7 +21,7 @@ const DESTINATIONS: RouteInfo[] = [
     name: "New York / East Coast",
     country: "United States",
     flag: "🇺🇸",
-    air: "3–5 Days (DHL / FedEx Express)",
+    air: "4–7 Days (DHL / FedEx Express)",
     sea: "22–26 Days",
     terms: "DDP Air & Sea / Amazon FBA Ready",
     x: 24,
@@ -43,7 +43,7 @@ const DESTINATIONS: RouteInfo[] = [
     name: "London / Heathrow Hub",
     country: "United Kingdom",
     flag: "🇬🇧",
-    air: "3–5 Days (DHL Express)",
+    air: "4–7 Days (DHL Express)",
     sea: "20–25 Days (Felixstowe / Southampton)",
     terms: "DDP Duty-Paid / EORI Compliant",
     x: 48,
@@ -54,7 +54,7 @@ const DESTINATIONS: RouteInfo[] = [
     name: "Frankfurt / Rotterdam Hub",
     country: "European Union",
     flag: "🇪🇺",
-    air: "3–5 Days (Air Cargo)",
+    air: "4–7 Days (Air Cargo)",
     sea: "22–28 Days (Rotterdam)",
     terms: "CE Certified / Duty Paid Delivery",
     x: 52,
@@ -78,7 +78,7 @@ const DESTINATIONS: RouteInfo[] = [
     flag: "🇦🇺",
     air: "5–7 Days (Air Freight)",
     sea: "28–34 Days",
-    terms: "Door-to-Door Insured Delivery",
+    terms: "Door-to-Door Delivery",
     x: 88,
     y: 78,
   },
@@ -217,7 +217,7 @@ export default function StaticMapFallback() {
           </div>
           <span className="inline-flex items-center gap-1 text-[11px] font-bold text-neutral-900 bg-neutral-100 px-2.5 py-1 rounded-full border border-neutral-200">
             <CheckCircle2 className="w-3.5 h-3.5" />
-            100% Insured DDP
+            DDP on request
           </span>
         </div>
 

@@ -42,7 +42,7 @@ const pillars = [
   },
   {
     title: "Worldwide DDP Freight",
-    desc: "Reliable door-to-door DDP air express (3–5 days) and consolidated ocean freight directly to your warehouse with all customs clearance handled.",
+    desc: "Reliable door-to-door DDP air express (4–7 working days) and consolidated ocean freight directly to your warehouse with all customs clearance handled.",
     icon: Truck,
   },
 ];

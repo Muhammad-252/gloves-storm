@@ -72,7 +72,7 @@ export const CATEGORY_INTEL: Record<
       },
       {
         q: "How does shipping and customs clearance work for USA and UK sports brands?",
-        a: "We provide turnkey DDP (Delivered Duty Paid) shipping to the USA and UK. We handle all export paperwork in Pakistan, air freight (3–5 days), customs clearance, and import duties directly to your doorstep with no surprise fees.",
+        a: "We provide turnkey DDP (Delivered Duty Paid) shipping to the USA and UK. We handle all export paperwork in Pakistan, air freight (4–7 working days), customs clearance, and import duties directly to your doorstep with no surprise fees.",
       },
     ],
     sampleLeadTime: "5–7 Days",
@@ -134,7 +134,7 @@ export const CATEGORY_INTEL: Record<
       },
       {
         q: "What is the timeline for gym wear sampling and bulk production?",
-        a: "Physical master samples are completed and couriered within 5 to 7 business days. Bulk production takes approximately 3 to 4 weeks, with fast 3 to 5 day DDP air courier delivery to USA and UK addresses.",
+        a: "Physical master samples are completed and couriered within 5 to 7 business days. Bulk production takes approximately 3 to 4 weeks, with 4 to 7 working day DHL / FedEx courier delivery to USA and UK addresses.",
       },
     ],
     sampleLeadTime: "5–7 Days",
@@ -206,9 +206,9 @@ export const CATEGORY_INTEL: Record<
   "custom-manufacturing-private-label": {
     h1: "OEM & Private Label Clothing Manufacturer",
     metaTitle: "Private Label Clothing Manufacturer",
-    metaDescription: "Full-package private label & OEM clothing manufacturer in Sialkot, Pakistan. Tech pack development, custom trims, low MOQ 30 pcs, and insured DDP shipping.",
+    metaDescription: "Full-package private label & OEM clothing manufacturer in Sialkot, Pakistan. Tech pack development, custom trims, low MOQ 30 pcs, and DDP shipping.",
     heroSubtitle: "Full-Package Apparel OEM/ODM • Sialkot Pakistan Direct Factory Facility",
-    intro: "Gloves Storm is a full-service OEM and private label clothing manufacturer operating direct production facilities in Sialkot, Pakistan. We serve as the trusted backend manufacturing partner for independent apparel brands, athletic clubs, corporate clients, and fashion labels across the USA, UK, Canada, and Europe. From digital tech pack CAD drafting and low MOQ sampling to mass cut-and-sew production, custom private label trims, and insured DDP doorstep delivery.",
+    intro: "Gloves Storm is a full-service OEM and private label clothing manufacturer operating direct production facilities in Sialkot, Pakistan. We serve as the trusted backend manufacturing partner for independent apparel brands, athletic clubs, corporate clients, and fashion labels across the USA, UK, Canada, and Europe. From digital tech pack CAD drafting and low MOQ sampling to mass cut-and-sew production, custom private label trims, and DDP doorstep delivery.",
     capabilities: [
       {
         title: "Complete Tech Pack Prototyping & CAD Grading",
@@ -227,7 +227,7 @@ export const CATEGORY_INTEL: Record<
       },
       {
         title: "Turnkey DDP Global Freight Logistics",
-        desc: "Door-to-door insured air courier (3–5 days) and ocean container shipping to USA, UK, and European ports with all customs clearance handled.",
+        desc: "Door-to-door air courier (4–7 working days) and ocean container shipping to USA, UK, and European ports with all customs clearance handled.",
         icon: "check",
       },
     ],

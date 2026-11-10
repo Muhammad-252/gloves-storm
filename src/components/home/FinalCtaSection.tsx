@@ -57,7 +57,7 @@ export default function FinalCtaSection() {
           </div>
 
           <ul className="lg:col-span-12 pt-8 border-t border-bone/10 grid grid-cols-2 lg:grid-cols-4 gap-4 text-[13px] sm:text-sm text-bone/70">
-            {["NDA on every project", `From ${BUSINESS_CONFIG.moqShort} per style`, "Direct factory pricing", "DDP air & ocean freight"].map((item) => (
+            {["NDA on every project", `From ${BUSINESS_CONFIG.moqShort} per style`, "Direct factory pricing", "DDP delivery on request"].map((item) => (
               <li key={item} className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-[#FFB900] shrink-0" />
                 <span>{item}</span>

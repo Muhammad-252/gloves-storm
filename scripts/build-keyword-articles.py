@@ -14,13 +14,13 @@ def a(href, text):
     return f'<a href="{href}" {LINK}>{text}</a>'
 
 
-def quick_answer(text):
+def quick_answer(text, updated=UPDATED):
     return f"""  <div class="p-6 sm:p-8 rounded-3xl bg-neutral-50 border border-neutral-200/90 shadow-xs relative overflow-hidden">
     <div class="flex flex-wrap items-center gap-2 mb-3">
       <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFB900] text-black text-xs font-mono font-bold uppercase tracking-wider">
         Quick Answer
       </span>
-      <span class="text-xs font-mono text-neutral-500 font-medium">Last updated: {UPDATED}</span>
+      <span class="text-xs font-mono text-neutral-500 font-medium">Last updated: {updated}</span>
     </div>
     <p class="text-base sm:text-lg text-neutral-900 font-medium leading-relaxed mb-4">
       {text}
@@ -136,7 +136,7 @@ pk_cn = page([
         "Choose a <strong>Pakistani clothing manufacturer</strong> for cotton-based streetwear, sublimated teamwear and "
         "gym wear in small runs, especially if you sell in the EU or UK. Choose <strong>China</strong> for complex "
         "synthetic garments, technical trims and very large volumes. At Gloves Storm in Sialkot, orders start at "
-        "<strong>30 pieces per style</strong>, samples take 5 to 7 working days, and goods ship DDP to the USA, UK and EU."
+        "<strong>30 pieces per style</strong>, samples take 5 to 7 working days, and orders reach the USA, UK and EU by courier in 4 to 7 working days."
     ),
     p(
         "Most brands sourcing apparel overseas end up comparing the same two countries. China has the largest garment "
@@ -188,8 +188,8 @@ pk_cn = page([
         "<strong>Selling in the UK:</strong> Pakistan is covered by the UK Developing Countries Trading Scheme. Check the current tariff for your commodity code.",
     ]),
     p(
-        "Trade rules change, so confirm current duty rates with your customs broker or freight forwarder. With DDP "
-        "shipping the factory quotes a delivered price that already includes duty, so there are no surprises at the port."
+        "Trade rules change, so confirm current duty rates with your customs broker or freight forwarder. If you ask "
+        "for DDP delivery, the factory quotes a delivered price that already includes duty, so there are no surprises at the port."
     ),
     h2("lead-times-and-shipping", "Lead times and shipping"),
     p(
@@ -200,8 +200,8 @@ pk_cn = page([
         ["Stage", "Gloves Storm (Sialkot)"],
         [
             ["Sample", "5–7 working days"],
-            ["Bulk production", "12–18 working days after sample approval"],
-            ["Air freight", "DDP to the USA, UK and EU"],
+            ["Bulk production", "2–4 weeks after sample approval"],
+            ["Courier delivery", "4–7 working days to the USA, UK and EU (DDP on request)"],
         ],
     ),
     h2("communication-and-quality-control", "Communication and quality control"),
@@ -233,7 +233,7 @@ bjj = page([
         "A <strong>BJJ rash guard manufacturer</strong> makes compression tops in nylon-spandex with flatlock seams and "
         "full dye-sublimation, so your design never cracks or peels on the mat. Gloves Storm makes short and long sleeve "
         "rash guards in <strong>200 GSM nylon-spandex with UPF 50+</strong>, including ranked rash guards in belt colors, "
-        "from <strong>30 pieces per design</strong>, with 5 to 7 day samples and DDP shipping to the USA, UK and EU."
+        "from <strong>30 pieces per design</strong>, with 5 to 7 day samples and courier delivery to the USA, UK and EU in 4 to 7 working days."
     ),
     p(
         "Rash guards are one of the easiest products for a BJJ academy, MMA gym or combat sports brand to sell: every "
@@ -295,8 +295,8 @@ bjj = page([
     steps([
         ("Send your design", "Share artwork, sizes and sleeve options, or ask us to help turn a sketch into a print-ready design."),
         ("Approve a sample", "We make a physical sample in 5–7 working days and courier it to you to test on the mat."),
-        ("Bulk production", "After approval, bulk takes 12–18 working days, with checks during sewing and a final inspection."),
-        ("DDP delivery", "We ship to your academy or warehouse in the USA, UK or EU with duties handled."),
+        ("Bulk production", "After approval, bulk takes about 3 weeks, with checks during sewing and a final inspection."),
+        ("Delivery", "DHL or FedEx to your academy or warehouse in the USA, UK or EU in 4–7 working days. DDP with duties handled is available on request."),
     ]),
     p(
         f"See the full specification on our {a('/products/gym-fitness-wear/custom-rash-guard-manufacturer', 'custom rash guard page')}, "
@@ -308,7 +308,111 @@ bjj = page([
     ),
 ])
 
+# ---------------------------------------------------------------------------
+# Article 3: How much does it cost to make a hoodie (prices from the 2026-27 price list)
+# ---------------------------------------------------------------------------
+hoodie_cost = page([
+    quick_answer(
+        "Making a <strong>custom hoodie</strong> at a direct factory costs about <strong>$28 to $35 per piece</strong> "
+        "at Gloves Storm, depending on fabric weight and quantity. A 450–500 gsm heavyweight hoodie is $35 at 30–99 pieces, "
+        "$29.75 at 100–299 and $28 at 300+. That includes fabric, making and one print or embroidery. "
+        "Extra branding adds $0.50 to $3 per piece, and an all-in sample costs $70 to $80 including courier.",
+        updated="November 10, 2026",
+    ),
+    p(
+        "If you are planning a hoodie drop, the unit price is only part of the story. This guide breaks down what a custom "
+        "hoodie really costs to make, using our published 2026–27 factory prices: the garment itself, decoration, labels, "
+        "packaging, samples and shipping. Every number below comes from our "
+        f"{a('/pricing', 'price list')}, so you can build a realistic budget before you ask for a quote."
+    ),
+    image("/images/products/hoodie-black.png", "Heavyweight custom hoodie made by Gloves Storm in Sialkot"),
+    h2("hoodie-prices-by-type", "Hoodie prices by type and quantity"),
+    p("Prices are in USD per piece, ex-factory Sialkot, and include fabric, pattern, making and one print or embroidery position."),
+    table(
+        ["Hoodie", "Fabric", "30–99 pcs", "100–299 pcs", "300+ pcs", "Sample, all-in"],
+        [
+            ["Pullover hoodie", "350–400 gsm cotton fleece", "$32.00", "$28.00", "$28.00", "$70"],
+            [a("/products/clothing-streetwear/custom-hoodies", "Heavyweight hoodie"), "450–500 gsm French terry, boxy fit", "$35.00", "$29.75", "$28.00", "$80"],
+            [a("/products/clothing-streetwear/custom-zip-up-hoodies", "Zip-up hoodie"), "400 gsm fleece, metal zip", "$34.00", "$28.90", "$28.00", "$75"],
+            [a("/products/clothing-streetwear/custom-sweatshirts", "Crewneck sweatshirt"), "350–400 gsm fleece", "$26.50", "$22.53", "$18.55", "$70"],
+        ],
+        highlight=1,
+    ),
+    p("Hoodies are made in 3–4 weeks after you approve the sample. You can mix sizes within the 30-piece minimum, so 30 pieces can be split across S to XXL."),
+    h2("what-drives-the-price", "What drives the price of a hoodie"),
+    ul([
+        "<strong>Fabric weight:</strong> a 450–500 gsm French terry uses more cotton than a 350–400 gsm fleece, which is why heavyweight hoodies cost more.",
+        "<strong>Construction:</strong> a zip, a boxy drop-shoulder fit or a double-layer hood adds material and sewing time.",
+        "<strong>Quantity:</strong> pattern and cutting costs are shared across more pieces, so the price drops at 100 and 300 pieces.",
+        "<strong>Decoration:</strong> one print or embroidery is included; each extra position or technique is added per piece.",
+        "<strong>Finishing:</strong> washes, custom labels and branded packaging each add a small amount per piece.",
+        "<strong>Plus sizes:</strong> sizes 4XL and above carry a 10% surcharge because they use more fabric.",
+    ]),
+    h2("decoration-and-branding-costs", "Decoration and branding costs"),
+    p("These add-ons are charged per piece on top of the garment price."),
+    table(
+        ["Add-on", "Price per piece"],
+        [
+            ["Extra embroidery, per location", "$1.50"],
+            ["3D puff embroidery or puff print", "$2.00"],
+            ["Screen print, per location", "$1.00"],
+            ["DTF print, per location", "$1.50"],
+            ["Chenille patch", "$3.00"],
+            ["Rubber / PVC patch", "$1.50"],
+            ["Custom woven label + hang tag", "$0.50"],
+            ["Custom printed poly bag", "$0.30"],
+            ["Acid, vintage or garment-dye wash", "$2.50"],
+        ],
+    ),
+    h2("example-budget", "Example: budget for a first hoodie drop"),
+    p(
+        "Here is a typical first order: 50 heavyweight hoodies with the logo embroidered on the chest (included), "
+        "a 3D puff print on the back, a custom woven neck label and hang tag, and printed poly bags."
+    ),
+    table(
+        ["Item", "Per piece", "50 pieces"],
+        [
+            ["Heavyweight hoodie, 450–500 gsm (chest embroidery included)", "$35.00", "$1,750.00"],
+            ["3D puff print on the back", "$2.00", "$100.00"],
+            ["Custom woven label + hang tag", "$0.50", "$25.00"],
+            ["Custom printed poly bag", "$0.30", "$15.00"],
+            ["<strong>Production total</strong>", "<strong>$37.80</strong>", "<strong>$1,890.00</strong>"],
+            ["Sample, all-in with express courier (one-off)", "", "$80.00"],
+        ],
+        highlight=4,
+    ),
+    p(
+        "At 150 pieces the same hoodie drops to $29.75, bringing the per-piece total to $32.55. Bulk shipping is quoted "
+        "separately for each order, based on weight and destination; door-to-door DDP delivery, with customs and duties "
+        "handled, is available on request."
+    ),
+    h2("sample-cost", "How much does a hoodie sample cost?"),
+    p(
+        "Our hoodie samples cost $70 to $80 all-in. That covers pattern making, fabric, sewing, your branding and express "
+        "courier (DHL or FedEx) to your door. The sample is made in 5–7 days and arrives in 4–7 working days, so you can "
+        "check the fit, fabric weight and print quality before you approve bulk production."
+    ),
+    h2("how-to-lower-the-cost", "How to lower your cost per hoodie"),
+    steps([
+        ("Order 100 pieces, not 90", "Crossing into the 100–299 tier saves $5.25 per heavyweight hoodie, which can make a bigger order cheaper overall."),
+        ("Keep the first drop simple", "Use the included print or embroidery and add one statement detail, rather than four decoration techniques."),
+        ("Choose the right fabric weight", "A 350–400 gsm fleece pullover at $32 suits everyday hoodies; save 450–500 gsm French terry for premium pieces."),
+        ("Combine styles in one order", f"Order hoodies with matching {a('/products/clothing-streetwear/custom-sweatpants', 'sweatpants')} in the same fabric and colors to keep the look consistent."),
+    ]),
+    p(
+        f"Ready to price your own hoodie? {a('/contact', 'Send us your design')} and we will reply with a free mockup and an "
+        f"exact quote within 48 hours, or download our {a('/catalogs/gloves-storm-streetwear-catalog-2026-27.pdf', 'streetwear catalog')} "
+        "with every price."
+    ),
+    author(
+        "Muhammad Arslan is the founder of Gloves Storm in Sialkot, Pakistan, producing heavyweight hoodies, sweatsuits "
+        "and streetwear for new and growing clothing brands in the USA, UK and Europe."
+    ),
+])
+
 OUT.mkdir(exist_ok=True)
+(OUT / "blog-7-hoodie-cost.html").write_text(hoodie_cost, encoding="utf-8")
+print("wrote", OUT / "blog-7-hoodie-cost.html")
 (OUT / "blog-5-pakistan-vs-china.html").write_text(pk_cn, encoding="utf-8")
 (OUT / "blog-6-bjj-rash-guard.html").write_text(bjj, encoding="utf-8")
 print("wrote", OUT / "blog-5-pakistan-vs-china.html")
