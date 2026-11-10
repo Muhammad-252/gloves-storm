@@ -171,6 +171,13 @@ export default function ProductDetailClient({
               className="object-cover"
             />
 
+            {/* Generated mockups live in /images/products/mockups/ and are labelled until real photos replace them */}
+            {activeImage.image_url.includes("/mockups/") && (
+              <span className="absolute top-4 left-4 text-[12px] font-medium text-ink bg-bone/90 px-3 py-1 rounded-full">
+                Design mockup
+              </span>
+            )}
+
             {images.length > 1 && (
               <>
                 <button
