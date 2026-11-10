@@ -188,6 +188,52 @@ const nextConfig: NextConfig = {
         destination: "/products",
         permanent: true,
       },
+      // Old URLs still listed in Google Search Console (Nov 2026) -> closest live page
+      {
+        source: "/journal/boxing-glove-weight-calibration-8oz-to-16oz-specifications",
+        destination: "/journal",
+        permanent: true,
+      },
+      {
+        source: "/journal/anatomy-of-championship-boxing-glove-foam-density-leather",
+        destination: "/journal",
+        permanent: true,
+      },
+      {
+        source: "/journal/engineering-mma-fight-shorts-rash-guards-bjj-oem",
+        destination: "/journal/bjj-rash-guard-manufacturer-guide",
+        permanent: true,
+      },
+      {
+        source: "/journal/sublimation-vs-screen-printing-custom-teamwear-guide",
+        destination: "/journal/custom-team-uniforms-manufacturer-guide",
+        permanent: true,
+      },
+      {
+        source: "/journal/sialkot-oem-manufacturing-guide-moq-customs-quality-audits",
+        destination: "/journal/pakistan-vs-china-clothing-manufacturer",
+        permanent: true,
+      },
+      {
+        source: "/products/gym-fitness-wear/seamless-gym-leggings",
+        destination: "/products/gym-fitness-wear/custom-high-waist-seamless-gym-leggings",
+        permanent: true,
+      },
+      {
+        source: "/products/gym-fitness-wear/custom-performance-tees",
+        destination: "/products/gym-fitness-wear",
+        permanent: true,
+      },
+      {
+        source: "/products/gym-fitness-wear/custom-gym-t-shirts",
+        destination: "/products/gym-fitness-wear",
+        permanent: true,
+      },
+      {
+        source: "/products/gym-fitness-wear/custom-fitness-sets",
+        destination: "/products/gym-fitness-wear/custom-mens-gym-set-manufacturer",
+        permanent: true,
+      },
       // Blog permanent redirects to journal
       {
         source: "/blog",
