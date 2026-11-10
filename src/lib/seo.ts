@@ -138,14 +138,14 @@ export const BLOG_META_OVERRIDES: Record<
       "Compare OEM, ODM, and private label clothing manufacturing models. Understand tooling costs, MOQ thresholds, sample lead times, and brand customization.",
   },
   "low-moq-clothing-manufacturers-for-startups": {
-    titlePhrase: "Low MOQ Clothing Manufacturers 2026",
+    titlePhrase: "Low MOQ Clothing Manufacturers (2026 Guide)",
     description:
-      "Guide to low MOQ clothing manufacturers for apparel startups in 2026: compare minimum order quantities, sample speed, pricing tiers, and direct factories.",
+      "Compare low MOQ clothing manufacturers for startups: minimums from 30 pieces, real 2026 prices, sample costs and a vetting checklist before you order.",
   },
   "custom-team-uniforms-manufacturer-guide": {
-    titlePhrase: "Custom Team Uniforms Ordering Guide",
+    titlePhrase: "Branded Team Uniforms: Custom Ordering Guide",
     description:
-      "Complete ordering guide for custom team sportswear: dye sublimation jerseys, custom player roster names, low MOQ 30 pcs, and turnkey DDP export delivery.",
+      "How to order branded team uniforms: sublimated jerseys with names and numbers from 30 pieces, real prices per set, sample costs and delivery times.",
   },
   "pakistan-vs-china-clothing-manufacturer": {
     titlePhrase: "Pakistan vs China Clothing Manufacturers",

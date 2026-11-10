@@ -19,8 +19,8 @@ export const CATEGORY_INTEL: Record<
 > = {
   "sportswear-teamwear": {
     h1: "Custom Sportswear & Team Uniforms Manufacturer",
-    metaTitle: "Custom Sportswear & Team Uniforms OEM",
-    metaDescription: "Custom sportswear, team jerseys, and uniforms factory. Full dye sublimation printing, private labeling, low MOQ 30 pcs, and rapid 5–7 day sample delivery.",
+    metaTitle: "Custom Sportswear & Branded Team Uniforms",
+    metaDescription: "Custom sportswear and branded team uniforms from our Sialkot factory: sublimated kits from $21 per set, MOQ 30 pieces and samples made in 5–7 days.",
     heroSubtitle: "Direct Sialkot Factory • Custom Team Uniforms & Sublimation Sportswear",
     intro: "Gloves Storm is a leading custom sportswear manufacturer and OEM supplier based in Sialkot, Pakistan. We engineer custom team uniforms, sublimation jerseys, football uniforms, basketball kits, soccer jerseys, and athletic training wear for sports brands, collegiate athletic departments, clubs, and distributors across the USA, UK, and worldwide. Enjoy low MOQ from 30 pieces, precision CAD grading, Italian dye sublimation, and rapid 5–7 day physical sampling.",
     capabilities: [
