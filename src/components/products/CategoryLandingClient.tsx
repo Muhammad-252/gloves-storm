@@ -333,7 +333,7 @@ export default function CategoryLandingClient({
             From Design Concept to Production Floor
           </h2>
           <p className="text-xs sm:text-sm text-neutral-600 mt-1">
-            A transparent 5-stage manufacturing pipeline designed to eliminate supplier friction and deliver consistent, export-certified goods.
+            A transparent 5-stage manufacturing pipeline designed to eliminate supplier friction and deliver consistent, export-ready goods.
           </p>
         </div>
 

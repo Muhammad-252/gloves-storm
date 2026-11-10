@@ -141,6 +141,7 @@ team_prices = f"""
 team_pairs = [
     ("Last updated: October 2026", "Last updated: November 2026"),
     ("Sourcing custom team uniforms requires", "Sourcing custom, branded team uniforms requires"),
+    ("export-certified", "export-focused"),
     ("and DDP air delivery straight to your clubhouse", "and courier delivery to your clubhouse in 4–7 working days"),
     ("Player-Sorted Packing &amp; DDP Express Delivery", "Player-Sorted Packing &amp; Express Delivery"),
     ("We ship via DDP (Delivered Duty Paid) air freight through FedEx and DHL Express.",

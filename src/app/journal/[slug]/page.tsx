@@ -366,7 +366,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </div>
                   <p className="text-xs sm:text-sm text-neutral-600 leading-relaxed mb-3">
                     {isArslan
-                      ? "Muhammad Arslan is the founder of Gloves Storm, an export-certified OEM sportswear, gym activewear, and custom apparel factory based in Sialkot, Pakistan. With hands-on expertise across fabric knit development, precision dye sublimation, pattern engineering, and international DDP logistics, Muhammad partners directly with emerging streetwear founders, athletic brands, and sports teams across the USA, UK, Europe, and Australia to launch high-margin apparel lines with low MOQs and zero middleman markups."
+                      ? "Muhammad Arslan is the founder of Gloves Storm, an export-focused OEM sportswear, gym activewear, and custom apparel factory based in Sialkot, Pakistan. With hands-on expertise across fabric knit development, precision dye sublimation, pattern engineering, and international export logistics, Muhammad partners directly with emerging streetwear founders, athletic brands, and sports teams across the USA, UK, Europe, and Australia to launch high-margin apparel lines with low MOQs and zero middleman markups."
                       : "The technical textile engineering and production team at Gloves Storm, specializing in custom sportswear, performance knit development, pattern grading, and international private label apparel manufacturing based in Sialkot, Pakistan."}
                   </p>
                   <div className="flex items-center justify-center sm:justify-start gap-4 text-xs font-bold text-neutral-900">
