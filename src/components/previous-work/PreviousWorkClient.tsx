@@ -33,6 +33,7 @@ export default function PreviousWorkClient({
   categories,
 }: PreviousWorkClientProps) {
   const [selectedCategoryId, setSelectedCategoryId] = useState<string>("all");
+  const [selectedIndustry, setSelectedIndustry] = useState<string>("all");
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [activeImageIndex, setActiveImageIndex] = useState<number>(0);
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
@@ -59,11 +60,39 @@ export default function PreviousWorkClient({
       : [proj.featured_image || "/images/products/basketball-uniform.jpg"];
   }, []);
 
-  // Filter projects based on selected category
-  const filteredProjects = useMemo(() => {
+  // Filter projects by category, then by product type (stored in `industry`)
+  const categoryProjects = useMemo(() => {
     if (selectedCategoryId === "all") return initialProjects;
     return initialProjects.filter((p) => p.category_id === selectedCategoryId);
   }, [initialProjects, selectedCategoryId]);
+
+  // Product types inside the selected category, e.g. Basketball Uniforms, Baseball Uniforms
+  const industries = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const p of categoryProjects) {
+      const key = p.industry?.trim();
+      if (!key || categories.some((c) => c.name === key)) continue;
+      counts.set(key, (counts.get(key) ?? 0) + 1);
+    }
+    return [...counts.entries()].map(([name, count]) => ({ name, count }));
+  }, [categoryProjects, categories]);
+
+  const filteredProjects = useMemo(() => {
+    if (selectedIndustry === "all") return categoryProjects;
+    return categoryProjects.filter((p) => p.industry?.trim() === selectedIndustry);
+  }, [categoryProjects, selectedIndustry]);
+
+  const selectCategory = (id: string) => {
+    setSelectedCategoryId(id);
+    setSelectedIndustry("all");
+  };
+
+  // Badge text: the product type when it is more specific than the category
+  const badgeFor = (proj: Project) => {
+    const catName = categories.find((c) => c.id === proj.category_id)?.name;
+    const type = proj.industry?.trim();
+    return (type && type !== catName ? type : catName) || type || "Custom OEM";
+  };
 
   // Open modal for a specific project
   const handleOpenModal = (project: Project, imageIndex = 0) => {
@@ -171,7 +200,7 @@ export default function PreviousWorkClient({
           {/* Category Filter Pills (Floating Frosted Dock) */}
           <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-2xl bg-white/80 backdrop-blur-md border border-white/90 shadow-sm flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar">
             <button
-              onClick={() => setSelectedCategoryId("all")}
+              onClick={() => selectCategory("all")}
               className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                 selectedCategoryId === "all"
                   ? "bg-[#FFB900] text-black font-extrabold shadow-sm"
@@ -190,7 +219,7 @@ export default function PreviousWorkClient({
               .map(({ cat, count }) => (
                 <button
                   key={cat.id}
-                  onClick={() => setSelectedCategoryId(cat.id)}
+                  onClick={() => selectCategory(cat.id)}
                   className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
                     selectedCategoryId === cat.id
                       ? "bg-[#FFB900] text-black font-extrabold shadow-sm"
@@ -201,6 +230,25 @@ export default function PreviousWorkClient({
                 </button>
               ))}
           </div>
+
+          {/* Product-type pills, shown when a category has more than one type */}
+          {industries.length > 1 && (
+            <div className="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar -mt-2 sm:-mt-4">
+              {[{ name: "all", count: categoryProjects.length }, ...industries].map(({ name, count }) => (
+                <button
+                  key={name}
+                  onClick={() => setSelectedIndustry(name)}
+                  className={`px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium whitespace-nowrap border transition-all cursor-pointer ${
+                    selectedIndustry === name
+                      ? "bg-slate-900 text-white border-slate-900"
+                      : "bg-white/80 text-slate-700 border-slate-200 hover:border-slate-900"
+                  }`}
+                >
+                  {name === "all" ? "All types" : name} ({count})
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Work Cards Grid */}
           {filteredProjects.length === 0 ? (
@@ -215,7 +263,7 @@ export default function PreviousWorkClient({
                 We are actively uploading recent client production runs. Select another category or contact our team to view private portfolio samples.
               </p>
               <button
-                onClick={() => setSelectedCategoryId("all")}
+                onClick={() => selectCategory("all")}
                 className="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold uppercase tracking-wider hover:bg-slate-800 transition-colors"
               >
                 View All Work
@@ -225,7 +273,6 @@ export default function PreviousWorkClient({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
               {filteredProjects.map((project) => {
                 const images = getProjectImages(project);
-                const category = categories.find((c) => c.id === project.category_id);
 
                 return (
                   <div
@@ -255,7 +302,7 @@ export default function PreviousWorkClient({
 
                         {/* Category Badge (Top-Left) */}
                         <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 z-10 bg-white/85 backdrop-blur-md px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full border border-white/90 text-[9px] sm:text-[10px] text-slate-800 font-medium shadow-2xs">
-                          {category ? category.name : project.industry || "Custom OEM"}
+                          {badgeFor(project)}
                         </span>
 
                         {/* Multiple Images Indicator (Top-Right) */}
@@ -288,7 +335,7 @@ export default function PreviousWorkClient({
                       <div className="mb-2.5 sm:mb-3 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200/80 text-[10px] sm:text-[11px] font-mono text-slate-700 leading-snug flex items-center gap-1.5">
                         <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-900 shrink-0" />
                         <span className="truncate">
-                          {project.solution ? project.solution.replace(/\.$/, "") : "250+ Custom Uniforms"} — Delivered to USA / UK Client
+                          {project.solution ? project.solution.replace(/\.$/, "") : "Custom production run"}
                         </span>
                       </div>
                     </div>
@@ -351,9 +398,7 @@ export default function PreviousWorkClient({
             <div className="flex items-center justify-between px-3.5 sm:px-4 py-2.5 sm:py-3 border-b border-slate-100 bg-white z-20">
               <div className="flex items-center gap-2 min-w-0 pr-2">
                 <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[9px] sm:text-[10px] font-medium bg-slate-100 text-slate-800 border border-slate-200/70 shrink-0">
-                  {categories.find((c) => c.id === activeProject.category_id)?.name ||
-                    activeProject.industry ||
-                    "OEM Work"}
+                  {badgeFor(activeProject)}
                 </span>
                 <h2
                   id="modal-project-title"
