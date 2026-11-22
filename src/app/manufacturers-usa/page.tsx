@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import ManufacturersUsaClient from "@/components/manufacturers/ManufacturersUsaClient";
 import { usaFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For USA Brands",
@@ -84,7 +87,17 @@ export default function ManufacturersUsaPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <ManufacturersUsaClient />
+      <ManufacturersUsaClient
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading="What we manufacture for USA clients"
+            categorySlugs={["sportswear-teamwear","clothing-streetwear","gym-fitness-wear","custom-manufacturing-private-label"]}
+            audience="USA brands"
+            className="mb-12 sm:mb-20 lg:mb-24"
+          />
+        }
+      />
     </>
   );
 }

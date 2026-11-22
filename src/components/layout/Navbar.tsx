@@ -24,6 +24,18 @@ const navLinks = [
   { name: "Journal", href: "/journal" },
 ];
 
+// Country codes instead of flag emoji: Windows browsers show flag emoji as plain letters
+const EXPORT_MARKETS = [
+  { code: "US", name: "USA", note: "DDP air freight, low MOQ", href: "/manufacturers-usa" },
+  { code: "UK", name: "United Kingdom", note: "DDP delivery, GBP quotes", href: "/manufacturers-uk" },
+  { code: "EU", name: "Europe & EU", note: "DDP to all EU countries", href: "/manufacturers-europe" },
+  { code: "DE", name: "Germany", note: "EU sizing, DDP Frankfurt", href: "/manufacturers-germany" },
+  { code: "NL", name: "Netherlands", note: "DDP Amsterdam & Rotterdam", href: "/manufacturers-netherlands" },
+  { code: "FR", name: "France", note: "DDP Paris, EU sizing", href: "/manufacturers-france" },
+  { code: "SE", name: "Nordics", note: "Sweden, Norway, Denmark", href: "/manufacturers-nordics" },
+  { code: "IE", name: "Ireland", note: "DDP Dublin, EUR quotes", href: "/manufacturers-ireland" },
+];
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -234,9 +246,7 @@ export default function Navbar() {
               }
 
               if (link.hasDropdown) {
-                const isMarketActive =
-                  pathname.startsWith("/manufacturers-usa") ||
-                  pathname.startsWith("/manufacturers-uk");
+                const isMarketActive = pathname.startsWith("/manufacturers-");
 
                 return (
                   <div
@@ -265,45 +275,34 @@ export default function Navbar() {
                     </button>
 
                     {marketsDropdownOpen && (
-                      <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-72 animate-in fade-in slide-in-from-top-1 duration-150">
-                        <div className="rounded-2xl bg-white/95 backdrop-blur-xl border border-slate-200/90 shadow-2xl p-2.5 space-y-1">
-                          <Link
-                            href="/manufacturers-usa"
-                            onClick={() => setMarketsDropdownOpen(false)}
-                            className={cn(
-                              "p-3 rounded-xl flex items-start gap-3 hover:bg-slate-50 transition-colors group/item",
-                              pathname.startsWith("/manufacturers-usa") && "bg-slate-50"
-                            )}
-                          >
-                            <span className="text-2xl shrink-0 mt-0.5">🇺🇸</span>
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-[#FFB900] transition-colors uppercase tracking-tight">
-                                USA Manufacturing
-                              </span>
-                              <span className="text-[10px] text-slate-500 font-mono mt-0.5">
-                                DDP air freight · Low MOQ · US Customs
-                              </span>
-                            </div>
-                          </Link>
-
-                          <Link
-                            href="/manufacturers-uk"
-                            onClick={() => setMarketsDropdownOpen(false)}
-                            className={cn(
-                              "p-3 rounded-xl flex items-start gap-3 hover:bg-slate-50 transition-colors group/item",
-                              pathname.startsWith("/manufacturers-uk") && "bg-slate-50"
-                            )}
-                          >
-                            <span className="text-2xl shrink-0 mt-0.5">🇬🇧</span>
-                            <div className="flex flex-col">
-                              <span className="text-xs font-bold text-slate-900 group-hover/item:text-[#FFB900] transition-colors uppercase tracking-tight">
-                                UK Manufacturing
-                              </span>
-                              <span className="text-[10px] text-slate-500 font-mono mt-0.5">
-                                CE/UKCA · DDP delivery · GBP (£) billing
-                              </span>
-                            </div>
-                          </Link>
+                      <div className="absolute top-full left-0 pt-2 z-50 w-72 xl:w-[34rem] animate-in fade-in slide-in-from-top-1 duration-150">
+                        <div className="rounded-2xl bg-white border border-slate-200/90 shadow-2xl p-2 grid grid-cols-1 xl:grid-cols-2 gap-0.5 xl:gap-1">
+                          {EXPORT_MARKETS.map((m) => {
+                            const active = pathname === m.href;
+                            return (
+                              <Link
+                                key={m.href}
+                                href={m.href}
+                                onClick={() => setMarketsDropdownOpen(false)}
+                                className={cn(
+                                  "p-2.5 rounded-xl flex items-start gap-2.5 hover:bg-slate-50 transition-colors group/item min-w-0",
+                                  active && "bg-slate-50"
+                                )}
+                              >
+                                <span className="shrink-0 w-8 h-8 rounded-lg bg-slate-900 text-white text-[10px] font-bold flex items-center justify-center tracking-wide">
+                                  {m.code}
+                                </span>
+                                <span className="flex flex-col min-w-0">
+                                  <span className="text-[13px] font-semibold text-slate-900 group-hover/item:text-[#B07F00] transition-colors leading-tight">
+                                    {m.name}
+                                  </span>
+                                  <span className="text-[11px] text-slate-500 leading-snug mt-0.5">
+                                    {m.note}
+                                  </span>
+                                </span>
+                              </Link>
+                            );
+                          })}
                         </div>
                       </div>
                     )}
@@ -463,34 +462,23 @@ export default function Navbar() {
                 Export Markets
               </div>
               <div className="grid grid-cols-2 gap-2">
-                <Link
-                  href="/manufacturers-usa"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={cn(
-                    "p-3 rounded-xl bg-neutral-50 border border-neutral-200 flex flex-col gap-1 hover:border-black transition-colors",
-                    pathname.startsWith("/manufacturers-usa") && "border-black bg-neutral-100"
-                  )}
-                >
-                  <div className="flex items-center gap-1.5 font-bold text-xs text-neutral-900 uppercase">
-                    <span>🇺🇸</span>
-                    <span>USA Brands</span>
-                  </div>
-                  <span className="text-[10px] text-neutral-500 font-mono">DDP Air · Low MOQ</span>
-                </Link>
-                <Link
-                  href="/manufacturers-uk"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={cn(
-                    "p-3 rounded-xl bg-neutral-50 border border-neutral-200 flex flex-col gap-1 hover:border-black transition-colors",
-                    pathname.startsWith("/manufacturers-uk") && "border-black bg-neutral-100"
-                  )}
-                >
-                  <div className="flex items-center gap-1.5 font-bold text-xs text-neutral-900 uppercase">
-                    <span>🇬🇧</span>
-                    <span>UK Brands</span>
-                  </div>
-                  <span className="text-[10px] text-neutral-500 font-mono">Ce/ukca · GBP (£)</span>
-                </Link>
+                {EXPORT_MARKETS.map((m) => (
+                  <Link
+                    key={m.href}
+                    href={m.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={cn(
+                      "p-3 rounded-xl bg-neutral-50 border border-neutral-200 flex flex-col gap-1 hover:border-black transition-colors min-w-0",
+                      pathname === m.href && "border-black bg-neutral-100"
+                    )}
+                  >
+                    <div className="flex items-center gap-1.5 font-bold text-xs text-neutral-900 min-w-0">
+                      <span className="shrink-0 px-1.5 py-0.5 rounded bg-neutral-900 text-white text-[9px]">{m.code}</span>
+                      <span className="truncate">{m.name}</span>
+                    </div>
+                    <span className="text-[10px] text-neutral-500 leading-snug">{m.note}</span>
+                  </Link>
+                ))}
               </div>
             </div>
 

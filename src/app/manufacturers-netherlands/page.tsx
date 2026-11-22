@@ -4,6 +4,9 @@ import EuropeCorridorClient, {
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { netherlandsFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For Dutch Brands",
@@ -52,29 +55,7 @@ const config: EuropeCorridorConfig = {
     "We provide DDP shipping across the Netherlands. Shipments clear customs and deliver via PostNL, DHL, or DPD.",
   sizingNotice:
     "Tailored European metric sizing with tall & athletic cut options popular with Dutch apparel demographics. Complete CAD grading from XS to 3XL.",
-  popularCategories: [
-    {
-      title: "Cycling & Technical Sportswear",
-      link: "/products/sportswear-teamwear",
-      image: "/images/products/basketball-uniform.jpg",
-      desc: "Aerodynamic dry-fit fabrics, reflective safety details, and Italian sublimated technical sports kits.",
-      tag: "Dutch Cycling & Teams",
-    },
-    {
-      title: "Gym & Athleisure Sets",
-      link: "/products/gym-fitness-wear",
-      image: "/images/products/gym-leggings.jpg",
-      desc: "Squat-proof seamless activewear, performance compression tights, and sports bras for Dutch boutique fitness studios.",
-      tag: "Dutch Athleisure",
-    },
-    {
-      title: "Sustainable Streetwear Hoodies",
-      link: "/products/clothing-streetwear",
-      image: "/images/products/hoodie-black.png",
-      desc: "Combed organic cotton and heavyweight French Terry hoodies (450+ GSM) with custom trims and branding.",
-      tag: "Dutch Streetwear",
-    },
-  ],
+  productCategories: ["sportswear-teamwear","gym-fitness-wear","clothing-streetwear"],
   faqs: netherlandsFaqs,
 };
 
@@ -127,7 +108,18 @@ export default function ManufacturersNetherlandsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <EuropeCorridorClient config={config} />
+      <EuropeCorridorClient
+        config={config}
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading={`What we manufacture for ${config.countryName} brands`}
+            categorySlugs={config.productCategories}
+            audience={`${config.countryName} brands`}
+            className="mb-12 sm:mb-20"
+          />
+        }
+      />
     </>
   );
 }

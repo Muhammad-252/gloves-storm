@@ -4,6 +4,9 @@ import EuropeCorridorClient, {
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { nordicsFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For Nordic Brands",
@@ -52,29 +55,7 @@ const config: EuropeCorridorConfig = {
     "Turnkey DDP shipping covering EU Nordic members (Sweden, Denmark, Finland) and customs documentation for Norway. Final-mile delivery with PostNord, Bring, or DHL.",
   sizingNotice:
     "Tailored Scandinavian sizing curves with longer sleeves and torso lengths popular in Nordic markets. Complete metric grading from XS to 3XL.",
-  popularCategories: [
-    {
-      title: "Thermal & Base Layer Activewear",
-      link: "/products/gym-fitness-wear",
-      image: "/images/products/rash-guard.jpg",
-      desc: "Brushed thermal compression tops, insulated leggings, and wind-resistant athletic layers engineered for cold-weather Nordic climates.",
-      tag: "Nordic Thermal Gear",
-    },
-    {
-      title: "Technical Tracksuits & Shells",
-      link: "/products/sportswear-teamwear",
-      image: "/images/products/basketball-uniform.jpg",
-      desc: "Bonded softshell jackets, water-resistant athletic tracksuits, and technical training gear for Scandinavian sports clubs.",
-      tag: "Scandinavian Sports",
-    },
-    {
-      title: "Minimalist Heavyweight Streetwear",
-      link: "/products/clothing-streetwear",
-      image: "/images/products/hoodie-black.png",
-      desc: "Clean-line 450–500 GSM French Terry hoodies and heavyweight boxy tees with discreet tone-on-tone embroidery and custom hardware.",
-      tag: "Nordic Streetwear",
-    },
-  ],
+  productCategories: ["gym-fitness-wear","sportswear-teamwear","clothing-streetwear"],
   faqs: nordicsFaqs,
 };
 
@@ -129,7 +110,18 @@ export default function ManufacturersNordicsPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <EuropeCorridorClient config={config} />
+      <EuropeCorridorClient
+        config={config}
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading={`What we manufacture for ${config.countryName} brands`}
+            categorySlugs={config.productCategories}
+            audience={`${config.countryName} brands`}
+            className="mb-12 sm:mb-20"
+          />
+        }
+      />
     </>
   );
 }

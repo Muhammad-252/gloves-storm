@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -20,51 +19,6 @@ import {
 } from "lucide-react";
 import { usaFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
-
-const usaCategories = [
-  {
-    title: "Custom Team Sports Uniforms",
-    link: "/products/sportswear-teamwear",
-    image: "/images/products/basketball-uniform.jpg",
-    desc: "Full dye-sublimated football uniforms, basketball jerseys, baseball kits, and tracksuits printed with authentic Italian Kiian non-fading inks.",
-    tag: "USA Sports Leagues",
-  },
-  {
-    title: "Private Label Activewear",
-    link: "/products/gym-fitness-wear",
-    image: "/images/products/gym-leggings.jpg",
-    desc: "Squat-proof 280–320 GSM recycled nylon-spandex leggings, high-support sports bras, and seamless athletic sets for American fitness brands.",
-    tag: "USA Fitness Labels",
-  },
-  {
-    title: "Heavyweight Streetwear Hoodies",
-    link: "/products/clothing-streetwear",
-    image: "/images/products/hoodie-black.png",
-    desc: "450–500 GSM combed cotton French Terry hoodies, oversized boxy tees, and sweatpants with 3D puff embroidery and high-density screen prints.",
-    tag: "US Streetwear Labels",
-  },
-  {
-    title: "Custom Varsity & Outerwear Jackets",
-    link: "/products/clothing-streetwear",
-    image: "/images/products/varsity-jacket.jpg",
-    desc: "Premium wool body varsity jackets with genuine leather sleeves, custom chenille patches, metal snap buttons, and quilted diamond lining.",
-    tag: "American Apparel Brands",
-  },
-  {
-    title: "Performance Gym & Training Wear",
-    link: "/products/gym-fitness-wear",
-    image: "/images/products/rash-guard.jpg",
-    desc: "Moisture-wicking athletic tees, dry-fit training tanks, 2-in-1 compression shorts, and fleece joggers tailored for American fitness culture.",
-    tag: "USA Gym Brands",
-  },
-  {
-    title: "Custom Private Label Packaging",
-    link: "/products/custom-manufacturing-private-label",
-    image: "/images/products/luxury-packaging.jpg",
-    desc: "Custom woven damask neck labels, soft-touch matte hang tags, barcoded polybags, and retail-ready packaging optimized for USA warehousing.",
-    tag: "Turnkey OEM/ODM",
-  },
-];
 
 const usaSteps = [
   {
@@ -99,7 +53,12 @@ const usaSteps = [
   },
 ];
 
-export default function ManufacturersUsaClient() {
+export default function ManufacturersUsaClient({
+  productSection,
+}: {
+  /** Live product grid rendered on the server (DynamicProductGrid) */
+  productSection?: React.ReactNode;
+}) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
@@ -223,53 +182,8 @@ export default function ManufacturersUsaClient() {
           </div>
         </div>
 
-        {/* Section: What We Manufacture for USA Clients */}
-        <div className="mb-12 sm:mb-20 lg:mb-24">
-          <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
-              Product Catalog for American Brands
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-tight">
-              What we manufacture for USA clients
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {usaCategories.map((item) => (
-              <Link
-                key={item.title}
-                href={item.link}
-                className="group p-4 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] hover:-translate-y-1.5 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="relative h-44 sm:h-52 w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 mb-3.5 sm:mb-4">
-                    <Image
-                      src={item.image}
-                      alt={`${item.title} manufacturer for USA brands`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/90 backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono text-slate-900 font-bold">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-[#FFB900] transition-colors mb-1.5 sm:mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
-                  <span>View Specifications</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-900 group-hover:text-[#FFB900] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Live products from the admin catalog */}
+        {productSection}
 
         {/* Section: Shipping & Logistics to the USA */}
         <div className="mb-12 sm:mb-20 lg:mb-24 p-5 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">

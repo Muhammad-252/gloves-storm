@@ -4,6 +4,9 @@ import EuropeCorridorClient, {
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { irelandFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For Irish Brands",
@@ -52,29 +55,7 @@ const config: EuropeCorridorConfig = {
     "Turnkey DDP shipping straight to Irish warehouse addresses. Express clearance and doorstep delivery with DPD Ireland or DHL Express.",
   sizingNotice:
     "UK and Irish sizing curves with metric chest and waist specifications. Accurate grading across men's, women's, and juvenile club athletic cuts from XS to 3XL.",
-  popularCategories: [
-    {
-      title: "GAA & Rugby Match Kits",
-      link: "/products/sportswear-teamwear",
-      image: "/images/products/basketball-uniform.jpg",
-      desc: "Tear-resistant, high-tensile sublimated jerseys, shorts, and thermal tracksuits engineered for heavy contact sports.",
-      tag: "Irish Athletic Clubs",
-    },
-    {
-      title: "Gym & Performance Wear",
-      link: "/products/gym-fitness-wear",
-      image: "/images/products/gym-leggings.jpg",
-      desc: "Squat-proof activewear, seamless leggings, and performance stringers for Irish fitness studios and gym brands.",
-      tag: "Irish Fitness",
-    },
-    {
-      title: "Heavyweight Streetwear Hoodies",
-      link: "/products/clothing-streetwear",
-      image: "/images/products/hoodie-black.png",
-      desc: "450–500 GSM loopback French Terry hoodies and oversized tees with 3D embroidery and custom trims for Irish urban brands.",
-      tag: "Irish Streetwear",
-    },
-  ],
+  productCategories: ["sportswear-teamwear","gym-fitness-wear","clothing-streetwear"],
   faqs: irelandFaqs,
 };
 
@@ -127,7 +108,18 @@ export default function ManufacturersIrelandPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <EuropeCorridorClient config={config} />
+      <EuropeCorridorClient
+        config={config}
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading={`What we manufacture for ${config.countryName} brands`}
+            categorySlugs={config.productCategories}
+            audience={`${config.countryName} brands`}
+            className="mb-12 sm:mb-20"
+          />
+        }
+      />
     </>
   );
 }

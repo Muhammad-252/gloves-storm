@@ -4,6 +4,9 @@ import EuropeCorridorClient, {
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { germanyFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Sportswear Manufacturer For German Brands",
@@ -52,29 +55,7 @@ const config: EuropeCorridorConfig = {
     "We provide turnkey DDP delivery straight to German commercial warehouses. Shipments clear customs and deliver via DHL Express or UPS.",
   sizingNotice:
     "German Konfektionsgrößen standards (46–58 / XS–3XL) with precise metric grading in centimeters. Custom technical cut-and-sew blocks provided on request.",
-  popularCategories: [
-    {
-      title: "Football & Handball Teamwear",
-      link: "/products/sportswear-teamwear",
-      image: "/images/products/basketball-uniform.jpg",
-      desc: "Sublimated technical kits, moisture-wicking match jerseys, and training tracksuits tailored for German sports clubs and leagues.",
-      tag: "German Sportvereine",
-    },
-    {
-      title: "Gym Performance Activewear",
-      link: "/products/gym-fitness-wear",
-      image: "/images/products/gym-leggings.jpg",
-      desc: "Squat-proof compression tights, athletic sports bras, and stringers for German fitness chains and activewear startups.",
-      tag: "German Fitness",
-    },
-    {
-      title: "Heavyweight Streetwear Hoodies",
-      link: "/products/clothing-streetwear",
-      image: "/images/products/hoodie-black.png",
-      desc: "450–500 GSM French Terry hoodies and heavyweight boxy tees with 3D embroidery and screen printing for urban German fashion labels.",
-      tag: "German Streetwear",
-    },
-  ],
+  productCategories: ["sportswear-teamwear","gym-fitness-wear","clothing-streetwear"],
   faqs: germanyFaqs,
 };
 
@@ -127,7 +108,18 @@ export default function ManufacturersGermanyPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <EuropeCorridorClient config={config} />
+      <EuropeCorridorClient
+        config={config}
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading={`What we manufacture for ${config.countryName} brands`}
+            categorySlugs={config.productCategories}
+            audience={`${config.countryName} brands`}
+            className="mb-12 sm:mb-20"
+          />
+        }
+      />
     </>
   );
 }

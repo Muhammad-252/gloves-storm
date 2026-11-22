@@ -4,6 +4,9 @@ import EuropeCorridorClient, {
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { franceFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For French Brands",
@@ -52,29 +55,7 @@ const config: EuropeCorridorConfig = {
     "We provide turnkey DDP delivery straight to French brand facilities. Shipments arrive via Colissimo, DPD, or DHL.",
   sizingNotice:
     "European metric grading (centimeters) matching standard French size scales (34–46 / XS–3XL) with slim and oversized fits developed to your tech packs.",
-  popularCategories: [
-    {
-      title: "Luxury Heavyweight Streetwear",
-      link: "/products/clothing-streetwear",
-      image: "/images/products/hoodie-black.png",
-      desc: "450–500 GSM loopback French Terry hoodies, acid enzyme washed sets, and custom hardware for Parisian streetwear lines.",
-      tag: "French Streetwear",
-    },
-    {
-      title: "Fitness & Training Activewear",
-      link: "/products/gym-fitness-wear",
-      image: "/images/products/gym-leggings.jpg",
-      desc: "4-way compression leggings, sports bras, and training shorts for French boutique gym studios and athleisure labels.",
-      tag: "French Fitness",
-    },
-    {
-      title: "Football & Sports Club Kits",
-      link: "/products/sportswear-teamwear",
-      image: "/images/products/basketball-uniform.jpg",
-      desc: "Italian dye-sublimated football uniforms, tracksuits, and technical training shirts for French amateur clubs and sports leagues.",
-      tag: "Clubs de Sport",
-    },
-  ],
+  productCategories: ["clothing-streetwear","gym-fitness-wear","sportswear-teamwear"],
   faqs: franceFaqs,
 };
 
@@ -127,7 +108,18 @@ export default function ManufacturersFrancePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <EuropeCorridorClient config={config} />
+      <EuropeCorridorClient
+        config={config}
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading={`What we manufacture for ${config.countryName} brands`}
+            categorySlugs={config.productCategories}
+            audience={`${config.countryName} brands`}
+            className="mb-12 sm:mb-20"
+          />
+        }
+      />
     </>
   );
 }

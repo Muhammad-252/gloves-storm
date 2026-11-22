@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -22,51 +21,6 @@ import {
 } from "lucide-react";
 import { ukFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
-
-const ukCategories = [
-  {
-    title: "Football & Rugby Teamwear",
-    link: "/products/sportswear-teamwear",
-    image: "/images/products/basketball-uniform.jpg",
-    desc: "Full dye-sublimated match kits, training shirts, rugby jerseys, shorts, and thermal tracksuits engineered with breathable, moisture-wicking technical fabrics built for British sports seasons.",
-    tag: "UK Clubs & Academies",
-  },
-  {
-    title: "Private Label Activewear",
-    link: "/products/gym-fitness-wear",
-    image: "/images/products/gym-leggings.jpg",
-    desc: "Squat-proof 280–320 GSM recycled nylon-spandex leggings, high-support sports bras, compression base layers, and seamless matching sets for UK fitness and athleisure brands.",
-    tag: "UK Fitness Labels",
-  },
-  {
-    title: "Heavyweight Streetwear Hoodies",
-    link: "/products/clothing-streetwear",
-    image: "/images/products/hoodie-black.png",
-    desc: "400–500 GSM combed cotton French Terry hoodies, oversized boxy tees, heavyweight joggers, and track pants tailored for UK streetwear and urban fashion labels.",
-    tag: "UK Streetwear Brands",
-  },
-  {
-    title: "Custom Varsity & Club Jackets",
-    link: "/products/clothing-streetwear",
-    image: "/images/products/varsity-jacket.jpg",
-    desc: "Bespoke Melton wool varsity jackets with genuine leather or vegan sleeves, 3D chenille embroidery patches, metal snap buttons, and quilted diamond lining for British apparel brands.",
-    tag: "UK Outerwear & Varsity",
-  },
-  {
-    title: "Performance Gym & Training Wear",
-    link: "/products/gym-fitness-wear",
-    image: "/images/products/rash-guard.jpg",
-    desc: "Technical dry-fit tees, gym stringers, 2-in-1 compression shorts, and fleece hoodies tailored for British commercial gym chains, CrossFit boxes, and athletic clubs.",
-    tag: "UK Athletic & Gyms",
-  },
-  {
-    title: "Club Merch & Private Label Packaging",
-    link: "/products/custom-manufacturing-private-label",
-    image: "/images/products/luxury-packaging.jpg",
-    desc: "Custom woven damask neck labels, soft-touch hang tags, barcoded zip polybags, and complete retail packaging ready for UK warehousing and 3PL fulfillment.",
-    tag: "UK Private Label & Merch",
-  },
-];
 
 const ukOrders = [
   {
@@ -128,7 +82,12 @@ const ukSteps = [
   },
 ];
 
-export default function ManufacturersUkClient() {
+export default function ManufacturersUkClient({
+  productSection,
+}: {
+  /** Live product grid rendered on the server (DynamicProductGrid) */
+  productSection?: React.ReactNode;
+}) {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
@@ -252,53 +211,8 @@ export default function ManufacturersUkClient() {
           </div>
         </div>
 
-        {/* Section: What We Manufacture for UK Clients */}
-        <div className="mb-12 sm:mb-20 lg:mb-24">
-          <div className="max-w-3xl mb-8 sm:mb-12">
-            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
-              Product Catalog for British Brands
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold tracking-[-0.04em] text-ink leading-tight">
-              What we manufacture for UK clients
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-            {ukCategories.map((item) => (
-              <Link
-                key={item.title}
-                href={item.link}
-                className="group p-4 sm:p-5 lg:p-6 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_16px_40px_rgba(15,23,42,0.08)] hover:-translate-y-1.5 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="relative h-44 sm:h-52 w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 mb-3.5 sm:mb-4">
-                    <Image
-                      src={item.image}
-                      alt={`${item.title} manufacturer for UK brands`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/90 backdrop-blur-md px-2 sm:px-2.5 py-0.5 rounded-full text-[9px] sm:text-[10px] font-mono text-slate-900 font-bold">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-[#FFB900] transition-colors mb-1.5 sm:mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-[11px] sm:text-xs text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
-                  <span>View Specifications</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-900 group-hover:text-[#FFB900] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* Live products from the admin catalog */}
+        {productSection}
 
         {/* Section: Shipping & Logistics to the United Kingdom */}
         <div className="mb-12 sm:mb-20 lg:mb-24 p-5 sm:p-8 md:p-10 lg:p-12 rounded-2xl sm:rounded-3xl bg-slate-900 text-white shadow-xl border border-slate-800">

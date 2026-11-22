@@ -2,6 +2,9 @@ import { Metadata } from "next";
 import ManufacturersUkClient from "@/components/manufacturers/ManufacturersUkClient";
 import { ukFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Custom Apparel Manufacturer For UK Brands",
@@ -84,7 +87,17 @@ export default function ManufacturersUkPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <ManufacturersUkClient />
+      <ManufacturersUkClient
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading="What we manufacture for UK clients"
+            categorySlugs={["clothing-streetwear","sportswear-teamwear","gym-fitness-wear","custom-manufacturing-private-label"]}
+            audience="UK brands"
+            className="mb-12 sm:mb-20 lg:mb-24"
+          />
+        }
+      />
     </>
   );
 }

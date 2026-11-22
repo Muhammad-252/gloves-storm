@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -35,17 +34,19 @@ export interface EuropeCorridorConfig {
   airHub: string;
   vatNotice: string;
   sizingNotice: string;
-  popularCategories: Array<{
-    title: string;
-    link: string;
-    image: string;
-    desc: string;
-    tag: string;
-  }>;
+  /** Category slugs, in order of preference, for the live product grid */
+  productCategories: string[];
   faqs: ExportFaqItem[];
 }
 
-export default function EuropeCorridorClient({ config }: { config: EuropeCorridorConfig }) {
+export default function EuropeCorridorClient({
+  config,
+  productSection,
+}: {
+  config: EuropeCorridorConfig;
+  /** Live product grid rendered on the server (DynamicProductGrid) */
+  productSection?: React.ReactNode;
+}) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const toggleFaq = (index: number) => {
@@ -169,53 +170,8 @@ export default function EuropeCorridorClient({ config }: { config: EuropeCorrido
           </div>
         </div>
 
-        {/* 3. Popular Product Categories for Region */}
-        <div className="mb-12 sm:mb-20">
-          <div className="max-w-3xl mb-8">
-            <span className="text-[10px] sm:text-xs text-neutral-500 block mb-2 font-medium">
-              Verified product divisions
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
-              Popular manufacturing divisions for {config.countryName}
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {config.popularCategories.map((item) => (
-              <Link
-                key={item.title}
-                href={item.link}
-                className="group p-4 sm:p-5 rounded-2xl sm:rounded-3xl bg-white border border-slate-200/90 shadow-xs hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="relative h-44 sm:h-52 w-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-900 mb-3.5">
-                    <Image
-                      src={item.image}
-                      alt={`${item.title} manufacturing for ${config.countryName} brands`}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-md px-2.5 py-0.5 rounded-full text-[10px] font-mono text-slate-900 font-bold">
-                      {item.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-ink group-hover:text-[#FFB900] transition-colors mb-1.5">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900">
-                  <span>View Specifications</span>
-                  <ArrowUpRight className="w-4 h-4 text-slate-900 group-hover:text-[#FFB900] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
+        {/* 3. Live products from the admin catalog */}
+        {productSection}
 
         {/* 4. FAQs Section */}
         <div className="mb-12 sm:mb-20">

@@ -4,6 +4,9 @@ import EuropeCorridorClient, {
 } from "@/components/manufacturers/EuropeCorridorClient";
 import { europeFaqs } from "@/lib/data/exportFaqs";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import DynamicProductGrid from "@/components/products/DynamicProductGrid";
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Apparel Manufacturer For European Brands",
@@ -52,29 +55,7 @@ const config: EuropeCorridorConfig = {
     "We provide turnkey DDP shipping across the European Union. All export declarations, EUR-1 certificates of origin, and European customs clearance are managed seamlessly.",
   sizingNotice:
     "All patterns and grading are produced in standard European metric measurements (centimeters), covering EU size curves from XS to 3XL for athletic and streetwear collections.",
-  popularCategories: [
-    {
-      title: "Sublimated Sports & Match Kits",
-      link: "/products/sportswear-teamwear",
-      image: "/images/products/basketball-uniform.jpg",
-      desc: "Vibrant Italian Kiian ink sublimation football, rugby, and basketball team kits engineered for European sports leagues.",
-      tag: "EU Sports Clubs",
-    },
-    {
-      title: "Seamless & Compression Activewear",
-      link: "/products/gym-fitness-wear",
-      image: "/images/products/gym-leggings.jpg",
-      desc: "Squat-proof 4-way stretch leggings, compression bras, and athletic activewear sets for European fitness labels.",
-      tag: "EU Gym Labels",
-    },
-    {
-      title: "Heavyweight French Terry Hoodies",
-      link: "/products/clothing-streetwear",
-      image: "/images/products/hoodie-black.png",
-      desc: "450–500 GSM luxury French Terry hoodies, oversized tees, and tailored loopback joggers for European streetwear brands.",
-      tag: "EU Streetwear",
-    },
-  ],
+  productCategories: ["sportswear-teamwear","gym-fitness-wear","clothing-streetwear"],
   faqs: europeFaqs,
 };
 
@@ -127,7 +108,18 @@ export default function ManufacturersEuropePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
-      <EuropeCorridorClient config={config} />
+      <EuropeCorridorClient
+        config={config}
+        productSection={
+          <DynamicProductGrid
+            eyebrow="From our product catalog"
+            heading={`What we manufacture for ${config.countryName} brands`}
+            categorySlugs={config.productCategories}
+            audience={`${config.countryName} brands`}
+            className="mb-12 sm:mb-20"
+          />
+        }
+      />
     </>
   );
 }

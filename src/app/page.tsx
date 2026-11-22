@@ -111,7 +111,7 @@ export default async function HomePage() {
   const [categories, products, projects] = await Promise.all([
     getCategories(),
     getProducts(),
-    getProjects(true),
+    getProjects(),
   ]);
 
   return (
