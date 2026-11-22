@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getDbInquiries, saveDbInquiry, updateDbInquiryStatus } from "@/lib/data/fileDb";
+import { deleteDbInquiry, getDbInquiries, saveDbInquiry, updateDbInquiryStatus } from "@/lib/data/fileDb";
 import { sendInquiryNotificationEmail } from "@/lib/email/sendInquiryEmail";
 import { revalidatePath } from "next/cache";
 
@@ -63,6 +63,22 @@ export async function POST(req: NextRequest) {
       inquiry: saved,
       emailSent: emailResult.success,
     });
+  } catch (error: any) {
+    return NextResponse.json({ success: false, error: error?.message }, { status: 500 });
+  }
+}
+
+export async function DELETE(req: NextRequest) {
+  try {
+    const id = req.nextUrl.searchParams.get("id");
+    if (!id) {
+      return NextResponse.json({ success: false, error: "Inquiry id is required" }, { status: 400 });
+    }
+    await deleteDbInquiry(id);
+    try {
+      revalidatePath("/admin/inquiries");
+    } catch {}
+    return NextResponse.json({ success: true });
   } catch (error: any) {
     return NextResponse.json({ success: false, error: error?.message }, { status: 500 });
   }

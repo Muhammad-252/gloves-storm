@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Inquiry, InquiryStatus } from "@/types/database";
-import { updateInquiryStatus } from "@/lib/data/clientStore";
+import { deleteInquiry, updateInquiryStatus } from "@/lib/data/clientStore";
 import { formatDate } from "@/lib/utils";
 import {
   Inbox,
@@ -24,6 +24,8 @@ import {
   Building2,
   Calendar,
   CheckCircle2,
+  Trash2,
+  Loader2,
 } from "lucide-react";
 
 const statuses: InquiryStatus[] = [
@@ -53,6 +55,30 @@ export default function AdminInquiriesClient({
   const [internalNotes, setInternalNotes] = useState<string>("");
   const [savingNote, setSavingNote] = useState(false);
   const [notice, setNotice] = useState<string | null>(null);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+
+  const handleDelete = async (inq: Inquiry) => {
+    const label = inq.company || inq.name || inq.email;
+    if (
+      !window.confirm(
+        `Delete the inquiry from "${label}" (${inq.email})?\n\nThis permanently removes it and cannot be undone.`
+      )
+    ) {
+      return;
+    }
+    setDeletingId(inq.id);
+    try {
+      await deleteInquiry(inq.id);
+      setInquiries((prev) => prev.filter((i) => i.id !== inq.id));
+      if (activeInquiry?.id === inq.id) setActiveInquiry(null);
+      setNotice(`Inquiry from ${label} deleted.`);
+    } catch (err: any) {
+      setNotice(`Delete failed: ${err?.message || "unknown error"}`);
+    } finally {
+      setDeletingId(null);
+      setTimeout(() => setNotice(null), 4000);
+    }
+  };
 
   // Filter inquiries
   const filtered = inquiries.filter((inq) => {
@@ -350,6 +376,22 @@ export default function AdminInquiriesClient({
                         <Eye className="w-3.5 h-3.5" />
                         <span>Brief</span>
                       </button>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDelete(inq);
+                        }}
+                        disabled={deletingId === inq.id}
+                        aria-label={`Delete inquiry from ${inq.company || inq.name}`}
+                        title="Delete inquiry"
+                        className="ml-1.5 p-1.5 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 inline-flex items-center text-[11px] cursor-pointer disabled:opacity-50"
+                      >
+                        {deletingId === inq.id ? (
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        ) : (
+                          <Trash2 className="w-3.5 h-3.5" />
+                        )}
+                      </button>
                     </td>
                   </tr>
                 ))}
@@ -373,12 +415,27 @@ export default function AdminInquiriesClient({
                   {activeInquiry.company || activeInquiry.name}
                 </h3>
               </div>
-              <button
-                onClick={() => setActiveInquiry(null)}
-                className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-500 hover:text-[#0f172a] cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={() => handleDelete(activeInquiry)}
+                  disabled={deletingId === activeInquiry.id}
+                  className="h-8 px-3 rounded-full bg-red-50 hover:bg-red-100 text-red-600 hover:text-red-700 inline-flex items-center gap-1.5 text-[11px] font-semibold cursor-pointer disabled:opacity-50"
+                >
+                  {deletingId === activeInquiry.id ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Trash2 className="w-3.5 h-3.5" />
+                  )}
+                  <span>Delete</span>
+                </button>
+                <button
+                  onClick={() => setActiveInquiry(null)}
+                  aria-label="Close"
+                  className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-neutral-200 flex items-center justify-center text-neutral-500 hover:text-[#0f172a] cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
             </div>
 
             {/* Dossier Body */}

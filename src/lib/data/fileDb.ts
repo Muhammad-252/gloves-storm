@@ -824,3 +824,20 @@ export async function updateDbInquiryStatus(
   }
   return true;
 }
+
+export async function deleteDbInquiry(id: string): Promise<boolean> {
+  const client = getDbClient();
+  if (!client) {
+    throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
+  }
+
+  const { data, error } = await client.from("inquiries").delete().eq("id", id).select("id");
+  if (error) {
+    console.error("Supabase deleteDbInquiry error:", error);
+    throw new Error(error.message || "Failed to delete inquiry from Supabase");
+  }
+  if (!data?.length) {
+    throw new Error("Inquiry not found or the database refused the delete.");
+  }
+  return true;
+}

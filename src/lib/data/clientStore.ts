@@ -195,6 +195,15 @@ export async function createInquiry(
   return data.inquiry;
 }
 
+export async function deleteInquiry(id: string): Promise<boolean> {
+  const res = await fetch(`/api/inquiries?id=${encodeURIComponent(id)}`, { method: "DELETE" });
+  const data = await res.json();
+  if (!res.ok || !data.success) {
+    throw new Error(data.error || "Failed to delete inquiry");
+  }
+  return true;
+}
+
 export async function updateInquiryStatus(
   id: string,
   status: InquiryStatus,
