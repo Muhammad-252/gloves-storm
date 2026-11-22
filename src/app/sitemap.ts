@@ -45,6 +45,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/previous-work`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/journal`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
+    // Niche landing pages
+    { url: `${baseUrl}/fightwear-manufacturer`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/clothing-manufacturer-for-startups`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     // Location-targeted landing pages (high commercial value)
     { url: `${baseUrl}/manufacturers-usa`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },
     { url: `${baseUrl}/manufacturers-uk`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.95 },

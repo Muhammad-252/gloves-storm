@@ -13,6 +13,7 @@ import TestimonialsSection from "@/components/home/TestimonialsSection";
 import GlobalReachSection from "@/components/home/GlobalReachSection";
 import HomeFaqSection from "@/components/home/HomeFaqSection";
 import FinalCtaSection from "@/components/home/FinalCtaSection";
+import SampleOfferSection from "@/components/home/SampleOfferSection";
 import CatalogDownloadSection from "@/components/trust/CatalogDownloadSection";
 import CertificationsStrip from "@/components/trust/CertificationsStrip";
 import VerifiedTestimonialsSection from "@/components/trust/VerifiedTestimonialsSection";
@@ -127,6 +128,9 @@ export default async function HomePage() {
       {/* 02 — B2B MANUFACTURING CREDENTIALS & TRUST TICKER */}
       <ManufacturingTrustBanner />
       <CertificationsStrip />
+
+      {/* 02b — SAMPLE OFFER */}
+      <SampleOfferSection />
 
       {/* 03 — BESPOKE MANUFACTURING DIVISIONS (CATEGORIES) */}
       <CategoryGridSection categories={categories} />

@@ -12,6 +12,8 @@ const categories = [
   { name: "Gym & Fitness Activewear", href: "/products/gym-fitness-wear" },
   { name: "Clothing & Streetwear", href: "/products/clothing-streetwear" },
   { name: "Custom Manufacturing & Private Label", href: "/products/custom-manufacturing-private-label" },
+  { name: "Fightwear (MMA, BJJ, Boxing)", href: "/fightwear-manufacturer" },
+  { name: "Low MOQ for Startup Brands", href: "/clothing-manufacturer-for-startups" },
   { name: "All Apparel Catalog", href: "/products" },
 ];
 
