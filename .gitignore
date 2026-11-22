@@ -47,3 +47,6 @@ next-env.d.ts
 
 # Local database backups
 scripts/backups/
+
+# Raw product material for import (not committed)
+content-inbox/
