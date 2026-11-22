@@ -611,43 +611,94 @@ export async function deleteDbBlogPost(id: string): Promise<boolean> {
 // =========================================================================
 // SITE SETTINGS (Direct Supabase)
 // =========================================================================
-export async function getDbSiteSettings(): Promise<SiteSettings> {
-  const defaultSettings: SiteSettings = {
-    id: "default",
-    company_name: "GLOVES STORM",
-    email: "glovesstorm@gmail.com",
-    phone: "+923417146935",
-    whatsapp: "+923417146935",
-    address: "Industrial Estate, Sialkot 51310, Punjab, Pakistan",
-    instagram: "https://www.instagram.com/glovesstorm/",
-    facebook: "https://facebook.com/glovesstorm",
-    linkedin: "https://www.linkedin.com/company/gloves-storm/",
-    youtube: "https://youtube.com/@glovesstorm",
-    logo_url: null,
-    favicon_url: null,
-    hero_title: "BUILT FOR BRANDS. MADE TO PERFORM.",
-    hero_description: "Custom boxing gear, sportswear and apparel manufactured for brands worldwide.",
-    instagram_access_token: null,
-    instagram_feed_mode: "api",
-    instagram_widget_code: null,
-    updated_at: new Date().toISOString(),
-  };
+export const DEFAULT_SITE_SETTINGS: SiteSettings = {
+  id: "default",
+  company_name: "GLOVES STORM",
+  email: "glovesstorm@gmail.com",
+  phone: "+923417146935",
+  whatsapp: "+923417146935",
+  address: "Industrial Estate, Sialkot 51310, Punjab, Pakistan",
+  instagram: "https://www.instagram.com/glovesstorm/",
+  facebook: "https://facebook.com/glovesstorm",
+  linkedin: "https://www.linkedin.com/company/gloves-storm/",
+  youtube: "https://youtube.com/@glovesstorm",
+  logo_url: null,
+  favicon_url: null,
+  hero_title: "BUILT FOR BRANDS. MADE TO PERFORM.",
+  hero_description: "Custom boxing gear, sportswear and apparel manufactured for brands worldwide.",
+  instagram_access_token: null,
+  instagram_feed_mode: "api",
+  instagram_widget_code: null,
+  updated_at: new Date(0).toISOString(),
+};
 
-  const client = getDbClient();
-  if (!client) {
-    return defaultSettings;
+// Columns the admin form may write. Anything else in the request body is ignored.
+const SETTINGS_COLUMNS = [
+  "company_name",
+  "email",
+  "phone",
+  "whatsapp",
+  "address",
+  "instagram",
+  "facebook",
+  "linkedin",
+  "youtube",
+  "logo_url",
+  "favicon_url",
+  "hero_title",
+  "hero_description",
+  "instagram_access_token",
+  "instagram_feed_mode",
+  "instagram_widget_code",
+] as const;
+
+const URL_COLUMNS = new Set(["instagram", "facebook", "linkedin", "youtube", "logo_url", "favicon_url"]);
+const REQUIRED_TEXT_COLUMNS = new Set(["company_name", "email", "phone", "whatsapp", "address"]);
+
+function normalizeSettingValue(key: string, value: unknown): unknown {
+  if (typeof value !== "string") return value ?? null;
+  const trimmed = value.trim();
+  // Blank required field: keep what's stored. Blank optional field: clear it.
+  if (!trimmed) return REQUIRED_TEXT_COLUMNS.has(key) ? undefined : null;
+  if (URL_COLUMNS.has(key) && !/^https?:\/\//i.test(trimmed) && !trimmed.startsWith("/")) {
+    return `https://${trimmed}`;
   }
+  return trimmed;
+}
 
+// PostgREST reports a column the table doesn't have as:
+//   Could not find the 'instagram_feed_mode' column of 'site_settings' in the schema cache
+function missingColumnFrom(message?: string): string | null {
+  const match = message?.match(/Could not find the '([^']+)' column/);
+  return match ? match[1] : null;
+}
+
+async function getRawSiteSettingsRow(): Promise<Record<string, any> | null> {
+  const client = getDbClient();
+  if (!client) return null;
   const { data, error } = await client
     .from("site_settings")
     .select("*")
-    .single();
-
-  if (error || !data) {
-    return defaultSettings;
+    .order("updated_at", { ascending: false })
+    .limit(1);
+  if (error) {
+    console.error("[fileDb] Supabase getDbSiteSettings error:", error);
+    return null;
   }
+  return data?.[0] ?? null;
+}
 
-  return data as SiteSettings;
+export async function getDbSiteSettings(): Promise<SiteSettings> {
+  const row = await getRawSiteSettingsRow();
+  if (!row) return DEFAULT_SITE_SETTINGS;
+
+  // Fill gaps (columns the table lacks, or NULL required fields) from the defaults.
+  const merged: Record<string, any> = { ...DEFAULT_SITE_SETTINGS };
+  for (const [key, value] of Object.entries(row)) {
+    if (value !== null && value !== undefined) merged[key] = value;
+    else if (!REQUIRED_TEXT_COLUMNS.has(key)) merged[key] = value;
+  }
+  return merged as SiteSettings;
 }
 
 export async function saveDbSiteSettings(settings: Partial<SiteSettings>): Promise<SiteSettings> {
@@ -656,25 +707,51 @@ export async function saveDbSiteSettings(settings: Partial<SiteSettings>): Promi
     throw new Error("Supabase is not configured. Please set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY.");
   }
 
-  const current = await getDbSiteSettings();
-  const updated: SiteSettings = {
-    ...current,
-    ...settings,
-    updated_at: new Date().toISOString(),
-  };
+  const payload: Record<string, any> = {};
+  for (const key of SETTINGS_COLUMNS) {
+    if (!(key in settings)) continue;
+    const value = normalizeSettingValue(key, (settings as any)[key]);
+    if (value !== undefined) payload[key] = value;
+  }
+  payload.updated_at = new Date().toISOString();
 
-  const { data, error } = await client
-    .from("site_settings")
-    .upsert(updated)
-    .select()
-    .single();
+  const existing = await getRawSiteSettingsRow();
+  const skipped: string[] = [];
 
-  if (error || !data) {
+  // Retry without any column the live table doesn't have yet, so one missing
+  // column (e.g. the Instagram feed fields) doesn't block the whole save.
+  for (let attempt = 0; attempt <= SETTINGS_COLUMNS.length; attempt++) {
+    const query = existing?.id
+      ? client.from("site_settings").update(payload).eq("id", existing.id)
+      : client.from("site_settings").insert(payload);
+    const { data, error } = await query.select().limit(1);
+
+    if (!error) {
+      if (!data?.[0]) {
+        throw new Error(
+          "Settings were not saved: the database refused the write. Check that SUPABASE_SERVICE_ROLE_KEY is set on the server."
+        );
+      }
+      if (skipped.length) {
+        console.warn(
+          `[fileDb] site_settings is missing columns ${skipped.join(", ")}; saved everything else. Run supabase/migrations/add-site-settings-instagram-columns.sql to add them.`
+        );
+      }
+      return getDbSiteSettings();
+    }
+
+    const missing = missingColumnFrom(error.message);
+    if (missing && missing in payload) {
+      skipped.push(missing);
+      delete payload[missing];
+      continue;
+    }
+
     console.error("Supabase saveDbSiteSettings error:", error);
-    throw new Error(error?.message || "Failed to save site settings in Supabase");
+    throw new Error(error.message || "Failed to save site settings in Supabase");
   }
 
-  return data as SiteSettings;
+  throw new Error("Failed to save site settings in Supabase");
 }
 
 // =========================================================================

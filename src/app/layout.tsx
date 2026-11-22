@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
 import Script from "next/script";
 import { BUSINESS_CONFIG } from "@/lib/business";
+import { getPublicSiteSettings } from "@/lib/siteSettings";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -235,11 +236,28 @@ const organizationSchema = {
   ],
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const settings = await getPublicSiteSettings();
+
+  // Keep the Organization schema's contact details and profiles in step with admin Settings.
+  const [orgNode, ...otherNodes] = organizationSchema["@graph"];
+  const schema = {
+    ...organizationSchema,
+    "@graph": [
+      {
+        ...orgNode,
+        email: settings.email,
+        telephone: settings.phone,
+        sameAs: [settings.instagram, settings.linkedin, settings.facebook, settings.youtube].filter(Boolean),
+      },
+      ...otherNodes,
+    ],
+  };
+
   return (
     <html
       lang="en"
@@ -252,7 +270,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-icon.png" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
         {/* Google Tag Manager */}
         <Script
@@ -282,8 +300,8 @@ export default function RootLayout({
         </noscript>
         <Navbar />
         <main className="flex-1 w-full">{children}</main>
-        <Footer />
-        <WhatsAppButton />
+        <Footer settings={settings} />
+        <WhatsAppButton phoneNumber={settings.whatsapp} />
 
         {/* Global SVG Gooey Filter for Liquid Pill Buttons */}
         <svg

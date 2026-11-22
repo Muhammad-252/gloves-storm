@@ -3,9 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Globe, Mail, Phone, MapPin, ShieldCheck, MessageSquare } from "lucide-react";
-import { InstagramIcon, LinkedInIcon } from "../ui/SocialIcons";
-import { BUSINESS_CONFIG } from "@/lib/business";
+import { ArrowUpRight, Globe, Mail, Phone, MapPin, ShieldCheck } from "lucide-react";
+import SocialLinks from "../ui/SocialLinks";
+import { telHref, type PublicSiteSettings } from "@/lib/siteSettings";
 
 const categories = [
   { name: "Sportswear & Teamwear", href: "/products/sportswear-teamwear" },
@@ -35,7 +35,7 @@ const navigation = [
   { name: "Privacy & IP Policy", href: "/privacy" },
 ];
 
-export default function Footer() {
+export default function Footer({ settings }: { settings: PublicSiteSettings }) {
   const pathname = usePathname();
 
   // Hide footer on admin routes
@@ -104,18 +104,18 @@ export default function Footer() {
             <div className="flex flex-col gap-3 text-xs text-slate-600 mb-6">
               <div className="flex items-center gap-2.5">
                 <MapPin className="w-4 h-4 text-slate-900 shrink-0" />
-                <span>Industrial Estate, Sialkot 51310, Punjab, Pakistan</span>
+                <span>{settings.address}</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-slate-900 shrink-0" />
-                <a href={`mailto:${BUSINESS_CONFIG.email}`} className="hover:text-slate-900 font-medium transition-colors">
-                  {BUSINESS_CONFIG.email}
+                <a href={`mailto:${settings.email}`} className="hover:text-slate-900 font-medium transition-colors">
+                  {settings.email}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-slate-900 shrink-0" />
-                <a href="tel:+923417146935" className="hover:text-slate-900 font-medium transition-colors">
-                  +923417146935
+                <a href={telHref(settings.phone)} className="hover:text-slate-900 font-medium transition-colors">
+                  {settings.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
@@ -125,41 +125,12 @@ export default function Footer() {
             </div>
 
             {/* Social Links */}
-            <div className="flex items-center gap-3 pt-4 border-t border-slate-200/80">
-              <a
-                href="https://www.instagram.com/glovesstorm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 shadow-2xs transition-all"
-                aria-label="Follow GLOVES STORM on Instagram"
-              >
-                <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.linkedin.com/company/gloves-storm/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 shadow-2xs transition-all"
-                aria-label="Connect with GLOVES STORM on LinkedIn"
-              >
-                <LinkedInIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://wa.me/923417146935"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-[#FFB900] hover:text-[#FFB900] flex items-center justify-center text-slate-600 shadow-2xs transition-all"
-                aria-label="Chat with GLOVES STORM on WhatsApp"
-              >
-                <MessageSquare className="w-4 h-4" />
-              </a>
-              <a
-                href={`mailto:${BUSINESS_CONFIG.email}`}
-                className="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 shadow-2xs transition-all"
-                aria-label="Email GLOVES STORM"
-              >
-                <Mail className="w-4 h-4" />
-              </a>
+            <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-slate-200/80">
+              <SocialLinks
+                settings={settings}
+                showEmail
+                buttonClassName="w-9 h-9 rounded-full bg-white border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 shadow-2xs transition-all"
+              />
             </div>
           </div>
 

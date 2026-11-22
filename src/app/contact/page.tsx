@@ -3,9 +3,9 @@ import MultiStepInquiryClient from "@/components/contact/MultiStepInquiryClient"
 import CatalogDownloadSection from "@/components/trust/CatalogDownloadSection";
 import { getCategories } from "@/lib/data/store";
 import { Mail, Phone, MapPin, Globe, ShieldCheck, Clock, MessageSquare, Loader2 } from "lucide-react";
-import { InstagramIcon, LinkedInIcon } from "@/components/ui/SocialIcons";
+import SocialLinks from "@/components/ui/SocialLinks";
+import { getPublicSiteSettings, mapsHref, telHref, whatsappHref } from "@/lib/siteSettings";
 import type { Metadata } from "next";
-import { BUSINESS_CONFIG } from "@/lib/business";
 
 export const metadata: Metadata = {
   title: "Get Custom Apparel Manufacturing Quote",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ContactPage() {
-  const categories = await getCategories();
+  const [categories, settings] = await Promise.all([getCategories(), getPublicSiteSettings()]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -70,8 +70,8 @@ export default async function ContactPage() {
         mainEntity: {
           "@type": "Organization",
           name: "GLOVES STORM",
-          telephone: "+923417146935",
-          email: BUSINESS_CONFIG.email,
+          telephone: settings.phone,
+          email: settings.email,
           address: {
             "@type": "PostalAddress",
             streetAddress: "Industrial Estate",
@@ -155,9 +155,9 @@ export default async function ContactPage() {
                 <MapPin className="w-4 h-4 text-slate-900 shrink-0 mt-0.5" />
                 <div>
                   <span className="block text-slate-900 font-semibold">Physical Address</span>
-                  <span>Industrial Estate, Sialkot 51310, Punjab, Pakistan</span>
+                  <span>{settings.address}</span>
                   <a
-                    href="https://maps.google.com/?q=Sialkot+Industrial+Estate"
+                    href={mapsHref(settings.address)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block text-[11px] font-mono text-slate-900 hover:underline font-semibold mt-1"
@@ -172,10 +172,10 @@ export default async function ContactPage() {
                 <div>
                   <span className="block text-slate-900 font-semibold">Direct Inquiries</span>
                   <a
-                    href={`mailto:${BUSINESS_CONFIG.email}`}
+                    href={`mailto:${settings.email}`}
                     className="text-slate-900 hover:underline font-medium"
                   >
-                    {BUSINESS_CONFIG.email}
+                    {settings.email}
                   </a>
                 </div>
               </div>
@@ -184,8 +184,8 @@ export default async function ContactPage() {
                 <Phone className="w-4 h-4 text-slate-900 shrink-0 mt-0.5" />
                 <div>
                   <span className="block text-slate-900 font-semibold">Phone / WhatsApp</span>
-                  <a href="tel:+923417146935" className="hover:text-slate-900 transition-colors font-medium">
-                    +923417146935
+                  <a href={telHref(settings.phone)} className="hover:text-slate-900 transition-colors font-medium">
+                    {settings.phone}
                   </a>
                 </div>
               </div>
@@ -204,34 +204,11 @@ export default async function ContactPage() {
               <span className="text-[10px] text-slate-500 block mb-3">
                 Official Channels
               </span>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.instagram.com/glovesstorm/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/90 border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 transition-all shadow-2xs"
-                  aria-label="Instagram"
-                >
-                  <InstagramIcon className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/company/gloves-storm/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/90 border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 transition-all shadow-2xs"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedInIcon className="w-4 h-4" />
-                </a>
-                <a
-                  href="https://wa.me/923417146935"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full bg-white/90 border border-slate-200/80 hover:border-black hover:text-black flex items-center justify-center text-slate-600 transition-all shadow-2xs"
-                  aria-label="WhatsApp"
-                >
-                  <MessageSquare className="w-4 h-4" />
-                </a>
+              <div className="flex flex-wrap items-center gap-3">
+                <SocialLinks
+                  settings={settings}
+                  buttonClassName="w-8 h-8 rounded-full bg-white/90 border border-slate-200/80 hover:border-slate-900 hover:text-slate-900 flex items-center justify-center text-slate-600 transition-all shadow-2xs"
+                />
               </div>
             </div>
           </div>
@@ -251,7 +228,10 @@ export default async function ContactPage() {
               </p>
             </div>
             <a
-              href="https://wa.me/923417146935?text=Hi%20Gloves%20Storm%2C%20I'm%20interested%20in%20custom%20manufacturing%20and%20would%20like%20to%20discuss%20a%20project."
+              href={whatsappHref(
+                settings.whatsapp,
+                "Hi Gloves Storm, I'm interested in custom manufacturing and would like to discuss a project."
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3 px-4 rounded-xl bg-[#FFB900] hover:bg-[#E5A700] text-black text-xs font-medium flex items-center justify-center gap-2 shadow-[0_4px_16px_rgba(255,185,0,0.3)] transition-all"

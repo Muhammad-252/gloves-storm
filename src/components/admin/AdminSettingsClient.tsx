@@ -170,6 +170,9 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
         <h2 className="text-sm font-bold uppercase tracking-wider text-[#0f172a] border-b border-neutral-100 pb-3">
           Social Channels
         </h2>
+        <p className="text-[11px] text-neutral-500 -mt-2">
+          These links show in the site footer and on the Contact page. Leave a field empty to hide that icon.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
@@ -177,7 +180,9 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
               Instagram URL
             </label>
             <input
-              type="url"
+              type="text"
+              inputMode="url"
+              placeholder="instagram.com/yourpage (empty = hidden)"
               value={settings.instagram || ""}
               onChange={(e) => setSettings({ ...settings, instagram: e.target.value })}
               className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
@@ -188,7 +193,9 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
               LinkedIn URL
             </label>
             <input
-              type="url"
+              type="text"
+              inputMode="url"
+              placeholder="linkedin.com/company/yourpage (empty = hidden)"
               value={settings.linkedin || ""}
               onChange={(e) => setSettings({ ...settings, linkedin: e.target.value })}
               className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
@@ -202,7 +209,9 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
               Facebook URL
             </label>
             <input
-              type="url"
+              type="text"
+              inputMode="url"
+              placeholder="facebook.com/yourpage (empty = hidden)"
               value={settings.facebook || ""}
               onChange={(e) => setSettings({ ...settings, facebook: e.target.value })}
               className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
@@ -213,7 +222,9 @@ export default function AdminSettingsClient({ initialSettings }: AdminSettingsCl
               YouTube URL
             </label>
             <input
-              type="url"
+              type="text"
+              inputMode="url"
+              placeholder="youtube.com/@yourchannel (empty = hidden)"
               value={settings.youtube || ""}
               onChange={(e) => setSettings({ ...settings, youtube: e.target.value })}
               className="w-full bg-neutral-50 border border-neutral-200 focus:bg-white focus:border-amber-600 text-[#0f172a] rounded-xl px-3.5 py-2 text-xs outline-none transition-colors"
