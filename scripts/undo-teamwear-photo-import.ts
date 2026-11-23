@@ -33,10 +33,10 @@ const TOUCHED = [
   "custom-basketball-uniforms",
 ];
 
-async function must<T>(p: PromiseLike<{ data: T; error: { message: string } | null }>, what: string): Promise<T> {
+async function must<T>(p: PromiseLike<{ data: T; error: { message: string } | null }>, what: string): Promise<NonNullable<T>> {
   const { data, error } = await p;
   if (error) throw new Error(`${what}: ${error.message}`);
-  return data;
+  return (data ?? ([] as unknown)) as NonNullable<T>;
 }
 
 async function run() {
