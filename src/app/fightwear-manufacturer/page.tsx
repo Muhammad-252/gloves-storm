@@ -42,7 +42,6 @@ const config: NicheLandingConfig = {
     "custom-muay-thai-shorts",
     "custom-boxing-trunks",
     "custom-grappling-shorts",
-    "custom-compression-wear",
     "custom-compression-base-layer-top-manufacturer",
   ],
   priceSlugs: [
@@ -50,7 +49,7 @@ const config: NicheLandingConfig = {
     "custom-muay-thai-shorts",
     "custom-boxing-trunks",
     "custom-grappling-shorts",
-    "custom-compression-wear",
+    "custom-compression-base-layer-top-manufacturer",
   ],
   sections: [
     {

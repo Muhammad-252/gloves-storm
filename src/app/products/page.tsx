@@ -6,18 +6,30 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export const metadata: Metadata = {
+const CATALOG_URL = "https://www.glovesstorm.com/products";
+
+// Pages 2+ of the catalog list different products, so each one is its own canonical
+// page with its own title. Pointing them all at page 1 told Google to ignore them.
+export async function generateMetadata({ searchParams }: ProductsPageProps): Promise<Metadata> {
+  const resolved = searchParams ? await searchParams : {};
+  const page = Math.max(1, parseInt(resolved.page || "1", 10) || 1);
+  const url = page > 1 ? `${CATALOG_URL}?page=${page}` : CATALOG_URL;
+  const title = page > 1 ? `Custom Sportswear & Apparel Catalog, Page ${page}` : "Custom Sportswear & Apparel Catalog";
+  return { ...baseMetadata, title, alternates: { canonical: url }, openGraph: { ...baseMetadata.openGraph, url } };
+}
+
+const baseMetadata: Metadata = {
   title: "Custom Sportswear & Apparel Catalog",
   description:
     "Explore custom apparel specs: team sportswear, uniforms, gym activewear, hoodies, and streetwear. Direct factory private label manufacturing with low MOQ.",
   alternates: {
-    canonical: "https://www.glovesstorm.com/products",
+    canonical: CATALOG_URL,
   },
   openGraph: {
     title: "Custom Sportswear & Apparel Catalog | Gloves Storm",
     description:
       "Explore custom apparel specs: team sportswear, uniforms, gym activewear, hoodies, and streetwear. Direct factory private label manufacturing with low MOQ.",
-    url: "https://www.glovesstorm.com/products",
+    url: CATALOG_URL,
     siteName: "Gloves Storm",
     images: [
       {

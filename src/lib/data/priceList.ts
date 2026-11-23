@@ -85,10 +85,10 @@ export const SPORTSWEAR_PRICES: PriceListGroup[] = [
   {
     group: "Gym & fitness",
     items: [
-      { product: "Compression shirt / base layer", spec: "Poly/spandex, sublimated", unit: "pc", prices: [13, 11.7, 10.66], sample: 60, production: "2–3 weeks", slugs: ["custom-compression-wear", "custom-compression-base-layer-top-manufacturer"] },
+      { product: "Compression shirt / base layer", spec: "Poly/spandex, sublimated", unit: "pc", prices: [13, 11.7, 10.66], sample: 60, production: "2–3 weeks", slugs: ["custom-compression-base-layer-top-manufacturer"] },
       { product: "Leggings", spec: "Nylon/spandex, high waist, squat-proof", unit: "pc", prices: [17, 15.3, 13.94], sample: 65, production: "3 weeks", slugs: ["custom-high-waist-seamless-gym-leggings"] },
       { product: "Sports bra", spec: "Nylon/spandex, removable pads", unit: "pc", prices: [13, 11.7, 10.66], sample: 60, production: "3 weeks", slugs: ["custom-sports-bras"] },
-      { product: "2-in-1 gym shorts", spec: "Liner and phone pocket", unit: "pc", prices: [15, 13.5, 12.3], sample: 60, production: "3 weeks", slugs: ["custom-2-in-1-gym-shorts"] },
+      { product: "2-in-1 gym shorts", spec: "Liner and phone pocket", unit: "pc", prices: [15, 13.5, 12.3], sample: 60, production: "3 weeks", slugs: ["custom-mens-training-shorts-manufacturer"] },
       { product: "Gym stringer / tank top", spec: "Cotton or poly blend, printed", unit: "pc", prices: [9.5, 8.55, 7.79], sample: 60, production: "2 weeks", slugs: ["custom-mens-stringer-tank-top-manufacturer"] },
     ],
   },
@@ -110,7 +110,7 @@ export const STREETWEAR_PRICES: PriceListGroup[] = [
     note: "One print or embroidery included",
     items: [
       { product: "Heavyweight T-shirt", spec: "220–260 gsm combed cotton", unit: "pc", prices: [15.5, 13.18, 10.85], sample: 60, production: "2–3 weeks", slugs: ["custom-heavyweight-t-shirts"] },
-      { product: "Oversized boxy T-shirt", spec: "280–300 gsm cotton, drop shoulder", unit: "pc", prices: [17, 14.45, 11.9], sample: 60, production: "3 weeks", slugs: ["custom-boxy-t-shirts", "custom-oversized-t-shirts"] },
+      { product: "Oversized boxy T-shirt", spec: "280–300 gsm cotton, drop shoulder", unit: "pc", prices: [17, 14.45, 11.9], sample: 60, production: "3 weeks", slugs: ["custom-oversized-t-shirts"] },
       { product: "Polo shirt", spec: "Cotton piqué, embroidered logo", unit: "pc", prices: [16.5, 14.03, 11.55], sample: 60, production: "3 weeks", slugs: ["custom-polo-shirts"] },
     ],
   },
@@ -141,7 +141,7 @@ export const STREETWEAR_PRICES: PriceListGroup[] = [
     items: [
       { product: "Windbreaker / nylon track jacket", spec: "Taslan or ripstop nylon, lined", unit: "pc", prices: [48, 40.8, 33.6], sample: 90, production: "4 weeks", slugs: ["custom-windbreaker-jackets"] },
       { product: "Puffer jacket", spec: "Nylon shell, poly fill, custom quilting", unit: "pc", prices: [64, 54.4, 44.8], sample: 120, production: "4–6 weeks", slugs: ["custom-puffer-jackets"] },
-      { product: "Varsity jacket", spec: "Wool body, leather or PU sleeves, chenille patches", unit: "pc", prices: [60, 51, 42], sample: 130, production: "4–6 weeks", slugs: ["custom-varsity-jackets"] },
+      { product: "Varsity jacket", spec: "Wool body, leather or PU sleeves, chenille patches", unit: "pc", prices: [60, 51, 42], sample: 130, production: "4–6 weeks", slugs: ["custom-team-jackets"] },
       { product: "Denim jacket", spec: "12–14 oz denim, washes available", unit: "pc", prices: [48, 40.8, 33.6], sample: 100, production: "4–5 weeks", slugs: ["custom-denim-jackets"] },
       { product: "Genuine leather jacket", spec: "Sheep or cow nappa, lined", unit: "pc", prices: [100, 85, 80], sample: 160, production: "4–6 weeks", slugs: ["custom-leather-jackets"] },
     ],

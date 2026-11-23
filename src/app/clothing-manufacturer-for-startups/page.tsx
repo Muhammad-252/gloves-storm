@@ -39,7 +39,7 @@ const config: NicheLandingConfig = {
   productSlugs: [
     "custom-hoodies",
     "custom-heavyweight-t-shirts",
-    "custom-boxy-t-shirts",
+    "custom-oversized-t-shirts",
     "custom-zip-up-hoodies",
     "custom-sweatpants",
     "custom-sweatsuit-sets",
@@ -50,7 +50,7 @@ const config: NicheLandingConfig = {
     "custom-hoodies",
     "custom-zip-up-hoodies",
     "custom-heavyweight-t-shirts",
-    "custom-boxy-t-shirts",
+    "custom-oversized-t-shirts",
     "custom-sweatpants",
     "custom-sweatsuit-sets",
   ],

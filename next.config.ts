@@ -234,6 +234,33 @@ const nextConfig: NextConfig = {
         destination: "/products/gym-fitness-wear/custom-mens-gym-set-manufacturer",
         permanent: true,
       },
+      // Duplicate products merged into the page with real photos (Nov 2026,
+      // scripts/merge-duplicate-products.ts)
+      {
+        source: "/products/clothing-streetwear/custom-varsity-jackets",
+        destination: "/products/sportswear-teamwear/custom-team-jackets",
+        permanent: true,
+      },
+      {
+        source: "/products/sportswear-teamwear/custom-compression-wear",
+        destination: "/products/gym-fitness-wear/custom-compression-base-layer-top-manufacturer",
+        permanent: true,
+      },
+      {
+        source: "/products/custom-compression-wear",
+        destination: "/products/gym-fitness-wear/custom-compression-base-layer-top-manufacturer",
+        permanent: true,
+      },
+      {
+        source: "/products/gym-fitness-wear/custom-2-in-1-gym-shorts",
+        destination: "/products/gym-fitness-wear/custom-mens-training-shorts-manufacturer",
+        permanent: true,
+      },
+      {
+        source: "/products/clothing-streetwear/custom-boxy-t-shirts",
+        destination: "/products/clothing-streetwear/custom-oversized-t-shirts",
+        permanent: true,
+      },
       // Blog permanent redirects to journal
       {
         source: "/blog",
