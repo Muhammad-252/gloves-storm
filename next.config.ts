@@ -261,6 +261,17 @@ const nextConfig: NextConfig = {
         destination: "/products/clothing-streetwear/custom-oversized-t-shirts",
         permanent: true,
       },
+      // Overlapping service pages with no search impressions (Nov 2026)
+      {
+        source: "/products/custom-manufacturing-private-label/custom-apparel-manufacturing",
+        destination: "/products/custom-manufacturing-private-label/private-label-clothing-manufacturing",
+        permanent: true,
+      },
+      {
+        source: "/products/custom-manufacturing-private-label/low-moq-custom-manufacturing",
+        destination: "/clothing-manufacturer-for-startups",
+        permanent: true,
+      },
       // Blog permanent redirects to journal
       {
         source: "/blog",
