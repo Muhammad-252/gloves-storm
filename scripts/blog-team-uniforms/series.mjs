@@ -5,6 +5,7 @@
  */
 import fs from "fs";
 
+// seoTitle: max 45 characters. The journal page cuts longer titles before adding " | Gloves Storm".
 export const SERIES = [
   {
     slug: "how-much-do-custom-team-uniforms-cost",
@@ -12,7 +13,7 @@ export const SERIES = [
     id: "b0000001-0000-0000-0000-000000000014",
     short: "Team uniform cost guide (all sports)",
     title: "How Much Do Custom Team Uniforms Cost? Real 2026 Factory Prices",
-    seoTitle: "How Much Do Custom Team Uniforms Cost? (2026 Prices)",
+    seoTitle: "How Much Do Custom Team Uniforms Cost?",
     description:
       "Real 2026 factory prices for custom team uniforms: soccer kits from $21, basketball from $23, baseball and football sets, samples and two full budgets.",
     image: "/images/journal/team-uniforms/team-uniform-cost-per-player.webp",
@@ -23,7 +24,7 @@ export const SERIES = [
     id: "b0000001-0000-0000-0000-000000000015",
     short: "Soccer uniforms",
     title: "Custom Soccer Uniforms: Prices, Fabrics and How to Order (2026)",
-    seoTitle: "Custom Soccer Uniforms: Prices & Ordering Guide (2026)",
+    seoTitle: "Custom Soccer Uniforms: 2026 Price Guide",
     description:
       "Custom soccer uniform prices for 2026: sublimated kits from $21 a set with names and numbers, fabrics, goalkeeper kits, sizing and how to order from 30 sets.",
     image: "/images/journal/team-uniforms/soccer-kit-anatomy.webp",
@@ -34,7 +35,7 @@ export const SERIES = [
     id: "b0000001-0000-0000-0000-000000000016",
     short: "Basketball uniforms",
     title: "Custom Basketball Uniforms: Prices, Reversibles and How to Order (2026)",
-    seoTitle: "Custom Basketball Uniforms: Prices & Guide (2026)",
+    seoTitle: "Custom Basketball Uniforms: 2026 Prices",
     description:
       "Custom basketball uniform prices for 2026: sublimated sets from $23, reversible uniforms from $33, fabrics, numbers, sizing and how to order from 30 sets.",
     image: "/images/journal/team-uniforms/basketball-standard-vs-reversible.webp",
@@ -45,7 +46,7 @@ export const SERIES = [
     id: "b0000001-0000-0000-0000-000000000017",
     short: "Baseball uniforms",
     title: "Custom Baseball Uniforms: Jerseys, Pants, Prices and Ordering (2026)",
-    seoTitle: "Custom Baseball Uniforms: Prices & Ordering Guide (2026)",
+    seoTitle: "Custom Baseball Uniforms: 2026 Price Guide",
     description:
       "Custom baseball uniform prices for 2026: button-front jerseys from $22, pants from $19, a full uniform from $41 per player, styles, piping and how to order.",
     image: "/images/journal/team-uniforms/baseball-uniform-anatomy.webp",
@@ -56,7 +57,7 @@ export const SERIES = [
     id: "b0000001-0000-0000-0000-000000000018",
     short: "American football uniforms",
     title: "Custom American Football Uniforms: Jerseys, Pants and Prices (2026)",
-    seoTitle: "Custom American Football Uniforms: Prices Guide (2026)",
+    seoTitle: "Custom Football Uniforms: 2026 Price Guide",
     description:
       "Custom American football uniform prices for 2026: game jerseys from $25, pants with pad pockets from $29, sublimation vs tackle twill and how to order.",
     image: "/images/journal/team-uniforms/football-uniform-anatomy.webp",
