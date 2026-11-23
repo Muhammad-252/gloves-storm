@@ -400,4 +400,121 @@ export const journalFaqs: Record<string, JournalFaqItem[]> = {
         "No. Prices are ex-factory Sialkot. Bulk shipping is quoted for each order, and door-to-door DDP delivery with duties handled is available on request.",
     },
   ],
+  "how-much-do-custom-team-uniforms-cost": [
+    {
+      question: "How much does a custom soccer uniform cost?",
+      answer:
+        "At Gloves Storm a sublimated soccer kit (jersey + shorts) costs $21 per set at 30–99 sets, $18.90 at 100–299 and $17.22 at 300+, with names, numbers, crest and sponsors included. Matching socks add $4.50 a pair.",
+    },
+    {
+      question: "How much does a custom basketball uniform cost?",
+      answer:
+        "A sublimated basketball jersey and shorts cost $23 per set at 30–99 sets, $20.70 at 100–299 and $18.86 at 300+. A reversible basketball uniform starts at $33 per set.",
+    },
+    {
+      question: "What is the minimum order for custom team uniforms?",
+      answer:
+        "30 pieces per design. Sizes, names and numbers can all be different within those 30, and two small teams can share one design to reach the minimum together.",
+    },
+    {
+      question: "How much does a team uniform sample cost?",
+      answer:
+        "$60 to $100 all-in depending on the uniform, covering pattern, fabric, printing, making and express courier. Samples are made in 5–7 days and arrive in 4–7 working days.",
+    },
+    {
+      question: "How long does it take to make team uniforms?",
+      answer:
+        "Sublimated uniforms take 2–3 weeks after sample approval, and American football and ice hockey jerseys about 3 weeks. Plan for 6–8 weeks in total from sample to delivery.",
+    },
+    {
+      question: "Do the prices include shipping and import duties?",
+      answer:
+        "No. Prices are ex-factory Sialkot. Bulk shipping is quoted for each order, and door-to-door DDP delivery with customs and duties handled is available on request.",
+    },
+  ],
+  "custom-soccer-uniforms-guide": [
+    {
+      question: "How much does a custom soccer kit cost?",
+      answer:
+        "A sublimated soccer kit (jersey + shorts) costs $21 per set at 30–99 sets, $18.90 at 100–299 and $17.22 at 300+, with names, numbers, crest and sponsors included. A jersey alone starts at $13.",
+    },
+    {
+      question: "Are names and numbers included on custom soccer jerseys?",
+      answer:
+        "Yes. Every soccer kit is fully sublimated, so each player's name and number, your crest and sponsor logos are included at no extra cost.",
+    },
+    {
+      question: "Do goalkeepers need a different kit?",
+      answer:
+        "Yes. Law 4 of the Laws of the Game requires goalkeepers to wear colors that stand out from the other players and the referee. Our padded goalkeeper kits cost $27 a set at 30–99 sets.",
+    },
+    {
+      question: "What is the minimum order for custom soccer uniforms?",
+      answer: "30 sets per design. Sizes, names and numbers can all be different within those 30.",
+    },
+  ],
+  "custom-basketball-uniforms-guide": [
+    {
+      question: "How much does a custom basketball uniform cost?",
+      answer:
+        "A sublimated basketball jersey and shorts cost $23 per set at 30–99 sets, $20.70 at 100–299 and $18.86 at 300+, with names and numbers included.",
+    },
+    {
+      question: "What is a reversible basketball uniform?",
+      answer:
+        "A uniform made from two layers of mesh, each with its own design, names and numbers, so one set gives you two looks. Reversibles cost $33 per set at 30–99 sets.",
+    },
+    {
+      question: "What sizes are available for basketball uniforms?",
+      answer:
+        "From youth extra small to adult 5XL, mixed freely within each order. Sizes 4XL and above carry a 10% surcharge.",
+    },
+    {
+      question: "How long do custom basketball uniforms take?",
+      answer:
+        "Samples take 5–7 days to make plus 4–7 working days by courier. Bulk production takes 2–3 weeks after approval, or about 3 weeks for reversibles.",
+    },
+  ],
+  "custom-baseball-uniforms-guide": [
+    {
+      question: "How much does a custom baseball uniform cost?",
+      answer:
+        "A button-front jersey costs $22 and pants $19 at 30–99 pieces, so a full uniform is $41 per player. It drops to $36.90 at 100–299 and $33.62 at 300+.",
+    },
+    {
+      question: "What baseball jersey styles can I order?",
+      answer:
+        "Full-button, two-button (Henley) and pullover V-neck jerseys, all with optional contrast piping on the placket, collar and sleeves.",
+    },
+    {
+      question: "Is the team script sublimated or stitched?",
+      answer:
+        "Sublimated script and numbers are included in the price. Stitched tackle twill is also available and is quoted per design.",
+    },
+    {
+      question: "Can you make softball uniforms too?",
+      answer: "Yes. The same jerseys and pants are used for softball teams, with the same prices and 30-piece minimum.",
+    },
+  ],
+  "custom-american-football-uniforms-guide": [
+    {
+      question: "How much does a custom American football uniform cost?",
+      answer:
+        "A game jersey costs $25 and game pants $29 at 30–99 pieces, so a full uniform is $54 per player. It drops to $48.60 at 100–299 and $44.28 at 300+.",
+    },
+    {
+      question: "Is sublimation or tackle twill better for football jerseys?",
+      answer:
+        "Sublimation is lighter, allows any design and is included in the price. Tackle twill gives the classic stitched look and is quoted per design. Many teams combine a sublimated jersey with tackle twill numbers.",
+    },
+    {
+      question: "Do the football pants have pad pockets?",
+      answer: "Yes. Our game pants are made from four-way stretch fabric with internal pockets for thigh and knee pads.",
+    },
+    {
+      question: "How early should we order football uniforms?",
+      answer:
+        "About 8–10 weeks before your first game. That leaves time for the sample, any changes, about 3 weeks of production and 4–7 working days of shipping.",
+    },
+  ],
 };
