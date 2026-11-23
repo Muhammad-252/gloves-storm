@@ -8,6 +8,7 @@ import {
 import ProductDetailClient from "@/components/products/ProductDetailClient";
 import { toTitleCase } from "@/lib/utils";
 import { buildProductTitlePhrase, buildProductDescription, PRODUCT_TITLE_OVERRIDES } from "@/lib/seo";
+import { PRODUCT_GUIDES, stripLinks } from "@/lib/data/productGuides";
 
 interface ProductPageProps {
   params: Promise<{ category: string; product: string }>;
@@ -207,6 +208,8 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
     ],
   };
 
+  const guide = PRODUCT_GUIDES[productSlug];
+
   return (
     <div className="pt-28 pb-24 bg-transparent min-h-screen">
       <script
@@ -217,6 +220,22 @@ export default async function ProductDetailPage({ params }: ProductPageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsJsonLd) }}
       />
+      {guide && guide.faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: guide.faqs.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: { "@type": "Answer", text: stripLinks(f.answer) },
+              })),
+            }),
+          }}
+        />
+      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ProductDetailClient
           product={product}

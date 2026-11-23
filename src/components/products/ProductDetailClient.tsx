@@ -17,6 +17,28 @@ import QuoteModal from "../ui/QuoteModal";
 import JacketMakerProductCard from "./JacketMakerProductCard";
 import { BUSINESS_CONFIG } from "@/lib/business";
 import { unitLabel, PriceUnit } from "@/lib/data/priceList";
+import { PRODUCT_GUIDES, parseLinks } from "@/lib/data/productGuides";
+
+/** Renders guide text with [label](/href) links; outside links are nofollow. */
+function GuideText({ text }: { text: string }) {
+  return (
+    <>
+      {parseLinks(text).map((part, i) =>
+        "text" in part ? (
+          <span key={i}>{part.text}</span>
+        ) : part.href.startsWith("http") ? (
+          <a key={i} href={part.href} target="_blank" rel="nofollow noopener noreferrer" className="text-ink font-medium underline decoration-[#FFB900] decoration-2 underline-offset-4 hover:text-[#B07F00]">
+            {part.label}
+          </a>
+        ) : (
+          <Link key={i} href={part.href} className="text-ink font-medium underline decoration-[#FFB900] decoration-2 underline-offset-4 hover:text-[#B07F00]">
+            {part.label}
+          </Link>
+        )
+      )}
+    </>
+  );
+}
 
 interface ProductDetailClientProps {
   product: Product;
@@ -64,6 +86,7 @@ export default function ProductDetailClient({
   category,
   relatedProducts,
 }: ProductDetailClientProps) {
+  const guide = PRODUCT_GUIDES[product.slug];
   const images = useMemo(() => {
     if (product.images && product.images.length > 0) return product.images;
     return [
@@ -443,6 +466,61 @@ export default function ProductDetailClient({
               <p className="text-[16px] sm:text-[17px] text-ink/70 leading-[1.75] whitespace-pre-line max-w-3xl">
                 {product.description}
               </p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Buying guide (only for products listed in productGuides.ts) ─── */}
+      {guide && (
+        <section className="border-t border-line pt-12 sm:pt-16 mb-16 sm:mb-24">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-14">
+            <div className="lg:col-span-4">
+              <span className="eyebrow mb-4">Buying guide</span>
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-[-0.04em] text-ink leading-tight">
+                {guide.heading}
+              </h2>
+            </div>
+            <div className="lg:col-span-8 max-w-3xl space-y-10">
+              {guide.sections.map((s) => (
+                <div key={s.heading}>
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-[-0.03em] text-ink mb-3">{s.heading}</h3>
+                  <p className="text-[16px] text-ink/70 leading-[1.75]">
+                    <GuideText text={s.body} />
+                  </p>
+                  {s.bullets && (
+                    <ul className="mt-4 space-y-2.5">
+                      {s.bullets.map((b) => (
+                        <li key={b} className="flex items-start gap-2.5 text-[15px] text-ink/80 leading-relaxed">
+                          <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#FFB900] shrink-0" />
+                          <span>
+                            <GuideText text={b} />
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+
+              {guide.faqs.length > 0 && (
+                <div>
+                  <h3 className="text-xl sm:text-2xl font-semibold tracking-[-0.03em] text-ink mb-3">Frequently asked questions</h3>
+                  <div className="divide-y divide-line border-y border-line">
+                    {guide.faqs.map((f) => (
+                      <details key={f.question} className="group py-4">
+                        <summary className="cursor-pointer list-none flex items-center justify-between gap-4 text-[15px] sm:text-base font-medium text-ink">
+                          {f.question}
+                          <span className="text-ink/40 group-open:rotate-45 transition-transform text-xl leading-none">+</span>
+                        </summary>
+                        <p className="mt-3 text-[15px] text-ink/70 leading-relaxed">
+                          <GuideText text={f.answer} />
+                        </p>
+                      </details>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </section>
